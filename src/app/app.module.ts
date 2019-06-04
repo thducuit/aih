@@ -20,6 +20,16 @@ import { SearchComponent } from './shared/search/search.component';
 import { LanguageComponent } from './shared/language/language.component';
 import { NewsletterComponent } from './shared/newsletter/newsletter.component';
 import { NavComponent } from './nav/nav.component';
+import { QaComponent } from './abouts/qa/qa.component';
+import { TestimonialComponent } from './abouts/testimonial/testimonial.component';
+import { SpecialistComponent } from './services/specialist/specialist.component';
+import { ServiceComponent } from './services/service/service.component';
+import { InsuranceComponent } from './services/insurance/insurance.component';
+import { InformationComponent } from './services/information/information.component';
+import { EventComponent } from './news/event/event.component';
+import { VideoComponent } from './news/video/video.component';
+import { JobComponent } from './job/job.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +50,17 @@ import { NavComponent } from './nav/nav.component';
     SearchComponent,
     LanguageComponent,
     NewsletterComponent,
-    NavComponent
+    NavComponent,
+    QaComponent,
+    TestimonialComponent,
+    SpecialistComponent,
+    ServiceComponent,
+    InsuranceComponent,
+    InformationComponent,
+    EventComponent,
+    VideoComponent,
+    JobComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
