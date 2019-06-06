@@ -22,6 +22,7 @@ import { NewsletterComponent } from './shared/newsletter/newsletter.component';
 import { NavComponent } from './nav/nav.component';
 import { QaComponent } from './abouts/qa/qa.component';
 import { TestimonialComponent } from './abouts/testimonial/testimonial.component';
+import { AboutComponent } from './abouts/about/about.component';
 import { SpecialistComponent } from './services/specialist/specialist.component';
 import { ServiceComponent } from './services/service/service.component';
 import { InsuranceComponent } from './services/insurance/insurance.component';
@@ -52,6 +53,7 @@ import { ContactComponent } from './contact/contact.component';
     NewsletterComponent,
     NavComponent,
     QaComponent,
+    AboutComponent,
     TestimonialComponent,
     SpecialistComponent,
     ServiceComponent,

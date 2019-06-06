@@ -1,0 +1,4272 @@
+@font-face {
+    font-family: utm_avobold_italic;
+    src: url(./fonts/utm_avobold_italic-webfont.eot);
+    src: url(./fonts/utm_avobold_italic-webfontd41d.eot?#iefix) format("embedded-opentype"), url(./fonts/utm_avobold_italic-webfont.html) format("woff2"), url(./fonts/utm_avobold_italic-webfont.woff) format("woff"), url(./fonts/utm_avobold_italic-webfont.svg#utm_avobold_italic) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: utm_avoitalic;
+    src: url(./fonts/utm_avoitalic-webfont.eot);
+    src: url(./fonts/utm_avoitalic-webfontd41d.eot?#iefix) format("embedded-opentype"), url(./fonts/utm_avoitalic-webfont.html) format("woff2"), url(./fonts/utm_avoitalic-webfont.woff) format("woff"), url(./fonts/utm_avoitalic-webfont.svg#utm_avoitalic) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: utm_avobold;
+    src: url(./fonts/UTMAvoBold.eot);
+    src: url(./fonts/UTMAvoBold.eot) format("embedded-opentype"), url(./fonts/UTMAvoBold.html) format("woff2"), url(./fonts/UTMAvoBold.woff) format("woff"), url(./fonts/UTMAvoBold.ttf) format("truetype"), url(./fonts/UTMAvoBold.svg#UTMAvoBold) format("svg")
+}
+
+@font-face {
+    font-family: utm_avoregular;
+    src: url(./fonts/UTMAvo.eot);
+    src: url(./fonts/UTMAvo.eot) format("embedded-opentype"), url(./fonts/UTMAvo.html) format("woff2"), url(./fonts/UTMAvo.woff) format("woff"), url(./fonts/UTMAvo.ttf) format("truetype"), url(./fonts/UTMAvo.svg#UTMAvo) format("svg")
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: utm_avobold;
+    margin: 0;
+    padding: 0;
+    font-weight: 400
+}
+
+body {
+    margin: 0;
+    max-width: 100%;
+    min-height: 100%;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    color: #545454;
+    line-height: 1.3;
+    position: relative;
+    letter-spacing: normal;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-backface-visibility: hidden;
+    font-family: utm_avoregular;
+    overflow-x: hidden
+}
+
+.loading-page {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999
+}
+
+.loading-page img {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+    -webkit-animation-name: spin;
+    animation-name: spin;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.tt-doc-crs {
+    padding: 20px;
+    border: 1px solid #d8d7d7;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.tt-doc-crs h2 {
+    font-size: 17px;
+    color: #11789b
+}
+
+.tt-doc-crs p {
+    font-size: 14px;
+    color: #9b9a9a
+}
+
+.tt-doc-crs h3 {
+    font-size: 14px;
+    color: #000
+}
+
+.item-doc {
+    position: relative;
+    width: 100%;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    padding: 10px
+}
+
+.item-doc .link {
+    border: 10px solid #fff;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease
+}
+
+.item-doc:hover {
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .4)
+}
+
+.item-doc:hover .link {
+    opacity: 1
+}
+
+.item-doc:hover .img div {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1)
+}
+
+.item-doc:hover .tt-doc-crs {
+    background: #006a90;
+    color: #fff
+}
+
+.item-doc:hover .tt-doc-crs h2 {
+    color: #fff
+}
+
+.item-doc:hover .tt-doc-crs p {
+    color: #a3becc
+}
+
+.item-doc:hover .tt-doc-crs h3 {
+    color: #fff
+}
+
+.item-doc:hover .copy {
+    background: #e1115b;
+    color: #fff;
+    position: relative
+}
+
+.item-doc:hover .copy a,
+.item-doc:hover .copy p {
+    color: #fff
+}
+
+.item-doc:hover .copy a span:after {
+    background: url(../images/ar-link-w.png) no-repeat;
+    background-size: 100%;
+    right: -10px
+}
+
+.item-doc .img {
+    position: relative;
+    overflow: hidden
+}
+
+.item-doc .img div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover!important;
+    background-position: center!important;
+    -webkit-transition: all .6s ease;
+    -o-transition: all .6s ease;
+    transition: all .6s ease
+}
+
+.item-doc .img img {
+    width: 100%
+}
+
+.item-doc .copy {
+    padding: 20px;
+    border: 1px solid #d8d7d7;
+    border-top: none;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.item-doc .copy p {
+    font-size: 14px;
+    color: #545454;
+    padding-bottom: 20px;
+    line-height: 20px
+}
+
+.item-doc .copy a {
+    font-size: 12px;
+    color: #e1115b;
+    text-transform: uppercase;
+    font-family: utm_avobold;
+    position: relative;
+    z-index: 2
+}
+
+.item-doc .copy a span {
+    display: inline-block;
+    position: relative;
+    padding-right: 42px
+}
+
+.item-doc .copy a span:after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 8px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    background: url(../images/ar-link.png) no-repeat;
+    background-size: 100%;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.item-doc .copy a:hover {
+    color: #11789b
+}
+
+.item-doc .copy a:hover span:after {
+    background: url(../images/ar-link-hv.png) no-repeat;
+    background-size: 100%;
+    right: -10px
+}
+
+@media screen and (max-width:1800px) {
+    .nav-wrap nav li a {
+        font-size: 12px
+    }
+}
+
+@media screen and (max-width:1536px) {
+    .booking-wrap .item>h3 {
+        font-size: 20px;
+        padding-bottom: 10px
+    }
+    .booking-wrap .item {
+        padding: 20px 20px 10px
+    }
+    .booking-wrap .item>p {
+        font-size: 12px
+    }
+    .booking-wrap .item>h3:after {
+        left: -20px;
+        border-top: 7px solid transparent;
+        border-left: 12px solid #fff;
+        border-bottom: 7px solid transparent;
+        top: 5px
+    }
+    .booking-home .ip input {
+        height: 45px;
+        font-size: 12px
+    }
+    .booking-home .ip:after {
+        width: 28px;
+        height: 28px
+    }
+    .booking-home .re-btn-booking {
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px
+    }
+}
+
+@media screen and (min-width:1281px) and (max-width:1659px) {
+    .copyscroll,
+    .dropdown-list .copyscroll {
+        height: 138px
+    }
+    .main-hd .logo {
+        margin-top: 12px
+    }
+    .main-hd .logo img {
+        width: 154px
+    }
+    .btn-login,
+    .btn-search {
+        width: 36px;
+        height: 36px;
+        margin-left: 8px
+    }
+    .lang {
+        margin-top: 5px
+    }
+    .lang .item img {
+        width: 25px
+    }
+    .lang a {
+        width: 110px
+    }
+    .lang a img {
+        width: 25px
+    }
+    .btn-login {
+        width: 55px;
+        height: 36px
+    }
+    .nav-wrap nav {
+        margin-top: 4px
+    }
+    .nav-wrap nav li {
+        margin: 0 9px
+    }
+    .nav-wrap nav li a {
+        padding: 5px 0;
+        font-size: 11px
+    }
+    .vn .nav-wrap nav li {
+        margin: 0 7px
+    }
+    .vn .nav-wrap nav li a {
+        font-size: 11px
+    }
+    .vn .nav-wrap nav li:nth-child(3) .megadrop {
+        left: -106px
+    }
+    .megadrop a:after {
+        top: 8px
+    }
+    .top-hd {
+        height: 31px
+    }
+    .top-hd .left-hd li a {
+        font-size: 10px
+    }
+    .item-doc {
+        padding: 6px
+    }
+    .item-doc .link {
+        border-width: 6px
+    }
+    .booking-wrap .item {
+        padding: 40px 20px 10px
+    }
+    .booking-wrap .item>h3:after {
+        left: -20px;
+        border-top: 7px solid transparent;
+        border-left: 12px solid #fff;
+        border-bottom: 7px solid transparent;
+        top: 5px
+    }
+    .booking-wrap .item>h3 {
+        font-size: 18px;
+        padding-bottom: 10px
+    }
+    .booking-wrap .item>p {
+        font-size: 11px
+    }
+    .booking-home .ip input {
+        height: 40px;
+        font-size: 10px
+    }
+    .booking-home .ip:after {
+        width: 28px;
+        height: 28px
+    }
+    .booking-home .re-btn-booking {
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px
+    }
+    .banner-home .item .container .copy h3 {
+        font-size: 40px;
+        line-height: 50px
+    }
+    .banner-home .item .container .copy p {
+        font-size: 20px;
+        padding-bottom: 20px
+    }
+    .banner-home .item .container .copy a {
+        height: 36px;
+        line-height: 33px;
+        font-size: 15px;
+        padding: 0 35px
+    }
+    .window .banner-home .item .container .copy a {
+        line-height: 29px
+    }
+    .window .select-styled {
+        padding: 4px 35px 4px 15px
+    }
+    .doctor-home .container {
+        padding: 0 270px
+    }
+    .item-doc .copy,
+    .tt-doc-crs {
+        padding: 10px
+    }
+    .tt-doc-crs h2 {
+        font-size: 15px
+    }
+    .tt-doc-crs p {
+        font-size: 13px
+    }
+    .tt-doc-crs h3 {
+        font-size: 12px
+    }
+    .item-doc .copy p,
+    .item-news .copy p {
+        font-size: 12px;
+        line-height: 16px;
+        padding-bottom: 5px
+    }
+    .item-news .copy h2 {
+        font-size: 13px
+    }
+    .choosen-wrap h2 {
+        font-size: 13px;
+        line-height: 20px
+    }
+    .choosen-wrap li {
+        padding: 12px 0
+    }
+    #pHome .news-home {
+        padding-bottom: 40px
+    }
+    .drop-pk {
+        height: 44px;
+        line-height: 44px;
+        padding: 0 10px
+    }
+    .drop-pk p {
+        font-size: 11px
+    }
+    .drop-pk:after {
+        width: 18px;
+        height: 13px;
+        right: 10px;
+        margin-top: -6px
+    }
+    .item-pk {
+        height: 44px;
+        line-height: 44px
+    }
+    .item-pk p {
+        padding: 0 10px;
+        font-size: 11px
+    }
+    .choosen-wrap li a {
+        height: 44px;
+        line-height: 44px;
+        font-size: 13px
+    }
+    .testimo-home .play-video {
+        background-size: 120px
+    }
+    .testimo-home .play-video:hover {
+        background-size: 140px
+    }
+    .testimo-home .copy-quote {
+        width: 447px
+    }
+    .testimo-home .copy-quote p {
+        font-size: 15px;
+        line-height: 20px
+    }
+    .copy-quote p:after,
+    .copy-quote p:before {
+        width: 35px
+    }
+    .partner-home ul {
+        margin: 0 -10px
+    }
+    .partner-home ul li {
+        padding: 0 10px
+    }
+    .ft-wrap .item {
+        padding-right: 19px
+    }
+    .booking-hd .booking-wrap .ip input {
+        font-size: 9px;
+        height: 33px
+    }
+    .ip:after {
+        width: 21px;
+        height: 21px
+    }
+    .booking-hd .btn-booking {
+        width: 33px;
+        height: 33px
+    }
+    .booking-hd .booking-wrap {
+        padding-right: 40px
+    }
+    .booking-hd .booking-wrap .ip .drop {
+        width: 120%
+    }
+    .booking-hd .booking-wrap .ip .drop.drop-doctor {
+        width: 140%
+    }
+    .tt-doc {
+        font-size: 9px;
+        padding: 5px 20px 5px 9px
+    }
+    .tt-doc .toggle_plus {
+        width: 20px
+    }
+    .bookingwrap-hd .drop-doctor ul li .copy h4,
+    .bookingwrap-hd .drop-doctor ul li .copy h4 span,
+    .bookingwrap-hd .tt-doc {
+        font-size: 9px
+    }
+    .drop-doctor ul li .copy h4 {
+        font-size: 10px
+    }
+    .drop-doctor ul li .copy {
+        padding: 9px
+    }
+    .drop-doctor ul li .copy .bm {
+        margin-top: 10px;
+        padding: 3px 0;
+        font-size: 11px
+    }
+    .hd-home .main-hd {
+        padding-bottom: 12px
+    }
+    .nav-wrap {
+        margin-top: 18px
+    }
+    .banner-home {
+        height: 600px
+    }
+    .drop-doctor ul li .copy img {
+        width: 29%
+    }
+    .drop-doctor ul li .copy .bm:after {
+        width: 8px;
+        height: 13px;
+        right: 7px
+    }
+    .drop-spec ul li {
+        padding: 5px 0 5px 7px
+    }
+    .drop-spec ul li span {
+        font-size: 9px;
+        display: block
+    }
+    .banner-page .copy h2 {
+        font-size: 40px;
+        line-height: 45px
+    }
+    .banner-page .copy h4 {
+        font-size: 20px
+    }
+    #pServiceInsurance .banner-page,
+    .banner-page {
+        height: 400px
+    }
+    main {
+        padding-top: 136px
+    }
+    .item-top-faq ul li img {
+        max-width: 66px
+    }
+    .item-top-faq ul li {
+        padding: 0 12px
+    }
+    .item-top-faq ul li .item {
+        padding-left: 77px;
+        min-height: 70px
+    }
+    .item-top-faq ul li .copy h3 {
+        font-size: 15px
+    }
+    .item-top-faq ul li .copy p {
+        font-size: 12px
+    }
+    .tt-page h3 {
+        font-size: 30px
+    }
+    .tt-page h4 {
+        font-size: 20px
+    }
+    .faq-item h3 {
+        font-size: 13px;
+        padding: 13px 22px 13px 13px
+    }
+    .faq-item h3 .toggle_plus {
+        right: 5px
+    }
+    .item-top-faq {
+        padding: 35px 0
+    }
+    .faq-item .copy p {
+        font-size: 11px;
+        color: #000
+    }
+    .copy-content {
+        padding: 40px;
+        min-height: 290px
+    }
+    .item-sv h3 {
+        font-size: 20px;
+        margin-bottom: 10px
+    }
+    .item-sv h4 {
+        font-size: 13px;
+        line-height: 20px;
+        padding-bottom: 10px
+    }
+    .item-sv p {
+        font-size: 12px;
+        padding-bottom: 10px
+    }
+    .banner-quote {
+        height: 400px
+    }
+    .copy-quote p {
+        font-size: 20px;
+        line-height: 25px
+    }
+    .list-quote ul li .item {
+        padding: 12px
+    }
+    .list-quote ul li .item .copy p {
+        font-size: 13px;
+        padding-bottom: 15px
+    }
+    .banner-careers {
+        height: 400px
+    }
+    .banner-careers .item .container .copy h3 {
+        font-size: 20px
+    }
+    .banner-careers .item .container .copy h2 {
+        font-size: 40px
+    }
+    .btn-page {
+        height: 36px;
+        line-height: 36px;
+        font-size: 15px;
+        padding: 0 35px
+    }
+    .list-cr ul li .copy h4,
+    .list-cr ul li .copy p {
+        font-size: 12px
+    }
+    .list-cr ul li img {
+        width: 55px;
+        left: 21px
+    }
+    .form-cr ul li .ip-w input {
+        height: 31px;
+        line-height: 31px;
+        font-size: 13px
+    }
+    .form-cr {
+        padding-top: 60px;
+        padding-right: 18px;
+        position: relative
+    }
+    .form-cr ul {
+        width: 50%
+    }
+    .banner-contact,
+    .banner-ser {
+        height: 400px
+    }
+    .banner-contact .container .copy h3 {
+        font-size: 40px;
+        line-height: 45px
+    }
+    .banner-contact .container .copy p {
+        font-size: 20px
+    }
+    .banner-doctor {
+        height: 400px
+    }
+    .banner-doctor .container .copy h3 {
+        font-size: 40px;
+        line-height: 45px
+    }
+    .banner-doctor .container .copy p,
+    .contact-wrap .copy p {
+        font-size: 20px
+    }
+    input[type=password],
+    input[type=text] {
+        height: 37px;
+        font-size: 13px
+    }
+    .intro-dt h2 {
+        font-size: 37px
+    }
+    .list-news .item.style-1 .copy,
+    .list-news .item.style-2 .copy,
+    .list-news .item.style-5 .copy {
+        padding: 35px
+    }
+    .list-news .item.style-1 .copy h3,
+    .list-news .item.style-2 .copy h3,
+    .list-news .item.style-5 .copy h3 {
+        font-size: 21px;
+        line-height: 27px
+    }
+    .list-news .item .copy h3 span {
+        font-size: 15px
+    }
+    .list-news .item .copy h3 {
+        font-size: 23px;
+        line-height: 30px
+    }
+    .list-news .item.style-3 .copy,
+    .list-news .item.style-4 .copy {
+        padding: 20px
+    }
+    .list-news .item.style-3 .copy h3,
+    .list-news .item.style-4 .copy h3 {
+        font-size: 14px;
+        line-height: 20px
+    }
+    .list-news .item.style-3 .copy h3 span,
+    .list-news .item.style-4 .copy h3 span {
+        font-size: 13px
+    }
+    .list-news .item.style-3 .copy hr,
+    .list-news .item.style-4 .copy hr {
+        width: 100%;
+        margin: 10px 0
+    }
+    .list-news .item.style-3 .copy p,
+    .list-news .item.style-4 .copy p {
+        font-size: 12px
+    }
+    .top-video h3 {
+        font-size: 30px
+    }
+    .side-news {
+        width: 280px;
+        padding-left: 30px
+    }
+    .news-detail-wrap {
+        padding-right: 280px
+    }
+    .ct-dt h3 {
+        font-size: 25px;
+        padding-bottom: 20px
+    }
+    .side-news .item .ct-search input[type=text] {
+        height: 35px;
+        line-height: 35px
+    }
+    .side-news .item .ct-search input[type=submit] {
+        height: 27px;
+        width: 27px;
+        top: 4px;
+        right: 4px
+    }
+    .side-news .item .ct-tab span {
+        font-size: 12px
+    }
+    .side-news .item .tab-content li .img {
+        width: 55px;
+        height: 55px
+    }
+    .side-news .item .tab-content li {
+        padding-left: 65px;
+        margin-top: 20px
+    }
+    .side-news .item .tab-content li .copy {
+        min-height: 65px
+    }
+    .btn-dt a {
+        font-size: 13px;
+        min-height: 35px;
+        padding-left: 45px
+    }
+    .btn-dt a span {
+        font-size: 13px
+    }
+    .btn-dt .next-doctor,
+    .btn-dt .next-doctor:hover,
+    .btn-dt .prev-doctor,
+    .btn-dt .prev-doctor:hover {
+        background-size: 35px
+    }
+    .btn-dt a:last-child {
+        padding-right: 45px
+    }
+    .big-ip textarea {
+        height: 52px
+    }
+    #pServiceCate .crs-style1 ul {
+        margin: 0 -5px
+    }
+    #pServiceCate .doctor-home .tt-item {
+        padding: 0 10px
+    }
+    .pakacge-wrap .copy {
+        padding-left: 50px
+    }
+    .pakacge-wrap .copy h2 {
+        font-size: 21px;
+        padding-bottom: 15px
+    }
+    .pakacge-table table td>p,
+    .tt-tb h3 {
+        font-size: 13px
+    }
+    .insurance-item h2 {
+        font-size: 34px
+    }
+    .breadcrumb {
+        top: 147px
+    }
+    .top-factsheet h3 {
+        font-size: 30px
+    }
+    .top-factsheet p {
+        font-size: 13px
+    }
+    .factsheet-wrap .copy-content {
+        height: 250px
+    }
+    .out-content .has-video:after {
+        background-size: 100px
+    }
+    .rating>ul>li p {
+        font-size: 20px
+    }
+    .contact-wrap .copy h3 {
+        font-size: 27px
+    }
+    .contact-wrap .copy h4 {
+        font-size: 22px
+    }
+    .rating h3 {
+        font-size: 27px
+    }
+    .newsletter .copy {
+        padding-right: 20px
+    }
+    .newsletter .copy p {
+        font-size: 12px
+    }
+    .newsletter .copy h2 {
+        font-size: 20px
+    }
+    .newsletter .ip-news input[type=email] {
+        height: 38px;
+        line-height: 38px
+    }
+    .newsletter .ip-news input[type=submit] {
+        height: 38px;
+        line-height: 38px;
+        font-size: 13px;
+        width: 130px
+    }
+    .newsletter .ip-news {
+        padding-right: 130px;
+        padding-left: 50px
+    }
+    .ft-wrap .item>ul li .item-post .copy {
+        padding-left: 0;
+        width: 100%;
+        min-height: 56px
+    }
+    .ft-wrap .item>ul li .item-post {
+        padding-left: 66px;
+        position: relative
+    }
+    .ft-wrap .item>ul li .item-post .img {
+        width: 56px;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+    .ft-wrap .item>ul li .item-post .copy p {
+        padding-bottom: 5px
+    }
+    .ft-wrap .item>ul li .item-post .copy p span {
+        font-size: 12px
+    }
+    .pakacge-wrap .copy p {
+        font-size: 11px;
+        padding-bottom: 6px
+    }
+    .botfooter ul li {
+        margin-left: 10px
+    }
+    .botfooter ul li a {
+        font-size: 11px
+    }
+    .botfooter p {
+        font-size: 11px;
+        padding-top: 2px
+    }
+    .news-home {
+        padding: 14px 0
+    }
+    .crs-style1 .slick-list {
+        padding: 10px 5px
+    }
+    .ft-wrap .item h2 {
+        font-size: 16px
+    }
+    .form-cr ul li .text-a a {
+        font-size: 9px;
+        padding: 0 15px 0 38px;
+        background-size: 20px;
+        line-height: 28px;
+        width: 114px
+    }
+    .form-cr ul li .text-a a:hover {
+        background-size: 20px
+    }
+    .form-cr ul li .text-a p {
+        font-size: 9px;
+        line-height: 28px;
+        padding: 0 10px
+    }
+    .tt-form {
+        position: absolute;
+        top: 20px;
+        left: 43px;
+        padding-left: 0;
+        display: inline-block
+    }
+    .form-cr ul li h3 {
+        font-size: 20px
+    }
+    .tt-form h4 {
+        font-size: 15px
+    }
+    .tt-form h3 {
+        font-size: 20px
+    }
+    .form-cr ul li .btn-page {
+        margin-top: 20px
+    }
+    .btn-showmore {
+        height: 37px;
+        line-height: 37px;
+        font-size: 15px
+    }
+    #pServiceCate .btn-crs {
+        top: -13px;
+        right: 8px
+    }
+    .list-cr ul li .copy {
+        padding-left: 90px
+    }
+    .detail-cr .ct-copy {
+        padding-bottom: 0
+    }
+    .item-cr {
+        padding-top: 20px
+    }
+    .detail-cr .ct-copy .item {
+        padding-bottom: 20px
+    }
+    .list-cr {
+        padding-top: 10px
+    }
+    .list-result {
+        margin: 0 -50px
+    }
+    .list-result li {
+        width: 50%;
+        padding: 0 50px
+    }
+    .tt-item a {
+        font-size: 15px
+    }
+    .tt-item h4 {
+        font-size: 20px
+    }
+    .doctor-home .tt-item {
+        padding: 0 9px
+    }
+    .btn-crs {
+        right: 7px
+    }
+    .news-list-wrap {
+        padding-top: 15px
+    }
+    .choosen-wrap {
+        top: 15px
+    }
+    #pHome .paging {
+        top: -49px
+    }
+    .paging .next-page,
+    .paging .prev-page {
+        height: 23px;
+        width: 23px
+    }
+    .paging a,
+    .paging span {
+        height: 23px;
+        width: 23px;
+        line-height: 21px;
+        font-size: 10px;
+        font-family: utm_avobold
+    }
+    .paging .prev-page {
+        margin-right: 10px
+    }
+    .paging .next-page {
+        margin-left: 10px
+    }
+    .testimo-home {
+        height: 426px;
+        padding-top: 30px
+    }
+    .testimo-home .tt p {
+        font-size: 15px
+    }
+    .testimo-home .tt h2 {
+        font-size: 25px
+    }
+    .info-quote h4 {
+        font-size: 20px
+    }
+    .info-quote span {
+        font-size: 15px
+    }
+    .partner-home {
+        padding: 11px 0 20px
+    }
+    .partner-home h2 {
+        font-size: 20px
+    }
+    #mapCanvas {
+        height: 400px
+    }
+    .ft-wrap .item:first-child p {
+        font-size: 11px
+    }
+    .ft-wrap .item>ul {
+        padding-top: 14px
+    }
+    .ft-wrap .item>ul li {
+        padding-bottom: 18px
+    }
+    .mainfooter {
+        padding: 30px 0
+    }
+    .ft-wrap .item.page-fb .fb {
+        padding-top: 14px
+    }
+    .intro-wrap .copy p,
+    .intro-wrap .copy p span {
+        font-size: 12px
+    }
+    .banner-page .copy {
+        width: 60%
+    }
+    .faq-wrap {
+        padding: 20px 24px 0
+    }
+    .copy-quote {
+        padding-left: 62px
+    }
+    .list-quote ul li .item .copy .info-quote h4 {
+        font-size: 16px;
+        line-height: 14px
+    }
+    .list-quote ul li .item .copy .info-quote span {
+        font-size: 12px
+    }
+    .list-quote ul li {
+        padding: 9px
+    }
+    .content-sv .copy p,
+    .service-cate a {
+        font-size: 12px
+    }
+    #pServiceCate .doctor-home {
+        padding-top: 20px
+    }
+    .breadcrumb {
+        font-size: 12px
+    }
+    .service-cate-wrap h2 {
+        font-size: 20px
+    }
+    .service-cate h3 {
+        font-size: 13px;
+        padding: 0 35px
+    }
+    .factsheet-wrap .copy-content h3 {
+        font-size: 13px
+    }
+    .factsheet-wrap .copy-content p {
+        font-size: 12px
+    }
+    .persond-ins {
+        padding-top: 0
+    }
+    .btn-b,
+    .btn-bd {
+        height: 37px;
+        line-height: 37px
+    }
+    .cr-info-dt .copy h3 {
+        font-size: 20px
+    }
+    .cr-info-dt .copy p {
+        font-size: 12px
+    }
+    .cr-info-dt {
+        min-height: 142px;
+        padding: 20px 220px 20px 40px
+    }
+    body {
+        font-size: 12px
+    }
+    .detail-cr h2 {
+        font-size: 15px
+    }
+    .detail-cr .main-if {
+        padding: 15px 20px 0;
+        right: 0
+    }
+    .detail-cr .main-if p {
+        margin-bottom: 20px
+    }
+    .detail-cr .ct-copy {
+        padding-right: 200px
+    }
+    .op-news>a,
+    .op-news>span {
+        font-size: 13px;
+        background-size: 15px
+    }
+    .comment-wrap h3 {
+        font-size: 16px
+    }
+    .comment-wrap {
+        padding-top: 20px
+    }
+    .ava-cm {
+        width: 52px;
+        height: 52px
+    }
+    .big-ip,
+    .lv-1>li>.item {
+        min-height: 52px;
+        padding-left: 65px
+    }
+    .op-cm {
+        padding-top: 10px
+    }
+    .lv-2>li {
+        margin-bottom: 20px
+    }
+    .lv-2>li>.item .ava-cm {
+        width: 40px;
+        height: 40px
+    }
+    .lv-2>li>.item {
+        padding-left: 52px;
+        min-height: 40px
+    }
+    .list-cm ul li h4 {
+        font-size: 11px
+    }
+    .list-cm ul li .link-repky,
+    .list-cm ul li p {
+        font-size: 12px
+    }
+    .small-ip .btn-wrap .btn-page {
+        height: 28px;
+        line-height: 28px
+    }
+    .intro-dt p.cap {
+        font-size: 12px
+    }
+    .intro-dt p {
+        font-size: 12px;
+        padding-bottom: 15px
+    }
+    .select {
+        height: 29px;
+        font-size: 12px
+    }
+    .select-styled {
+        padding-top: 4px
+    }
+    .select-styled:after {
+        margin-top: -11px;
+        width: 14px;
+        height: 10px
+    }
+    .list-dt li,
+    .op-dt {
+        padding: 10px
+    }
+    .main-info {
+        border-width: 1px;
+        padding-bottom: 15px
+    }
+    .main-info h2 {
+        font-size: 25px
+    }
+    .main-info p {
+        font-size: 15px
+    }
+    .content-dt {
+        margin-top: 20px;
+        padding-right: 275px
+    }
+    .content-dt .sub-info {
+        width: 255px
+    }
+    .content-dt .copy p {
+        font-size: 12px
+    }
+    .content-dt .sub-info h3 {
+        font-size: 15px;
+        font-family: utm_avobold;
+        padding-bottom: 24px
+    }
+    .contact-wrap .form-ct label {
+        font-size: 13px;
+        padding-bottom: 5px
+    }
+    .contact-wrap .form-ct li textarea {
+        height: 90px
+    }
+    .rating>ul>li>label {
+        font-size: 13px
+    }
+    .rating>ul>li input[type=submit] {
+        height: 39px;
+        line-height: 39px;
+        font-size: 15px
+    }
+    .dropdown-list span,
+    .top-hd .right-hd .phone {
+        font-size: 11px
+    }
+    #pHome .dropdown-list span,
+    .dropdown-list span {
+        padding: 3px 10px;
+        line-height: 15px
+    }
+    .banner-home .item .container .copy {
+        top: 50%
+    }
+    .top-hd .left-hd,
+    .top-hd .right-hd {
+        margin-top: 7px
+    }
+    .copyscroll {
+        height: 253px
+    }
+    .list-news .item.style-1,
+    .list-news .item.style-2,
+    .list-news .item.style-5 {
+        min-height: 310px
+    }
+    .list-news .item.style-3,
+    .list-news .item.style-4 {
+        min-height: 250px
+    }
+    .content-sv .copy .btn-page {
+        font-size: 12px;
+        max-width: 300px
+    }
+    .att-file {
+        padding-left: 114px
+    }
+}
+
+@media screen and (min-width:1281px) and (max-width:1439px) {
+    .nav-wrap nav li {
+        margin: 0 6px
+    }
+    .nav-wrap nav li a {
+        padding: 5px 0;
+        font-size: 10px
+    }
+    .vn .nav-wrap nav li {
+        margin: 0 5px
+    }
+    .vn .nav-wrap nav li a {
+        font-size: 10px
+    }
+    .vn .nav-wrap nav li:nth-child(3) .megadrop {
+        left: -106px
+    }
+    .banner-contact .container .copy {
+        width: 60%
+    }
+    .pakacge-wrap .copy p {
+        font-size: 11px;
+        padding-bottom: 6px
+    }
+    .select-styled {
+        padding: 6px 35px 6px 15px
+    }
+    .window .select-styled {
+        padding: 3px 35px 3px 15px
+    }
+    .banner-home {
+        height: 505px
+    }
+    .banner-home .item .container .copy h3 {
+        padding-bottom: 3px
+    }
+    .booking-home {
+        margin-top: -76px
+    }
+    .booking-wrap .item>h3 {
+        font-size: 17px
+    }
+    .booking-wrap .item>p {
+        width: 108%
+    }
+    .booking-wrap .item {
+        padding: 40px 16px 10px
+    }
+    .booking-wrap .item>h3:after {
+        left: -16px
+    }
+    .doctor-home {
+        padding-top: 26px
+    }
+    .btn-crs span {
+        width: 26px;
+        height: 26px
+    }
+    .item-news .copy h2,
+    .tt-doc-crs h2 {
+        font-size: 13px
+    }
+    .tt-doc-crs p {
+        font-size: 12px
+    }
+    .item-doc .copy p,
+    .item-news .copy p {
+        line-height: 15px
+    }
+    .choosen-wrap {
+        width: 25%;
+        padding: 15px 10px
+    }
+    #pHome .news-list-wrap {
+        padding-right: 27%
+    }
+    .choosen-wrap li a {
+        height: 36px;
+        line-height: 36px;
+        font-size: 12px
+    }
+    .item-news .tt-news .date {
+        font-size: 9px;
+        min-height: 30px
+    }
+    .item-news .tt-news .cm {
+        padding-top: 8px;
+        font-size: 10px;
+        min-height: 30px
+    }
+    .item-news .copy {
+        padding: 8px 0 20px
+    }
+    .item-news .copy p {
+        line-height: 15px;
+        font-size: 11px
+    }
+    .item-news {
+        padding: 8px
+    }
+    .item-news .link {
+        border-width: 8px
+    }
+    .choosen-wrap li {
+        padding: 10px 0
+    }
+    .content-map h3 {
+        font-size: 13px
+    }
+    .newsletter .ip-news {
+        padding-left: 67px
+    }
+    .newsletter .ip-news input[type=email] {
+        font-size: 11px
+    }
+    .ft-wrap .item h2 {
+        font-size: 12px
+    }
+    .ft-wrap .item>ul li .item-post .copy p span {
+        font-size: 11px
+    }
+    .booking-hd .booking-wrap .drop-spec ul li {
+        padding: 3px 5px
+    }
+    .drop-doctor ul li .copy h4 span {
+        font-size: 8px
+    }
+    .ui-button,
+    .ui-button.ui-state-disabled:active,
+    .ui-button.ui-state-disabled:hover,
+    .ui-state-default,
+    .ui-widget-content .ui-state-default,
+    .ui-widget-header .ui-state-default {
+        border-width: 1px
+    }
+    .drop-time ul li span,
+    .drop-time ul li.disable-time span,
+    .ui-datepicker-unselectable.ui-state-disabled span {
+        border-width: 1px
+    }
+    .drop-time h5 {
+        font-size: 9px
+    }
+    #pServiceInsurance .banner-page,
+    .banner-careers,
+    .banner-doctor,
+    .banner-page,
+    .banner-ser {
+        height: 383px
+    }
+    .faq-item .copy {
+        padding: 10px 13px 0
+    }
+    .copy-quote {
+        width: 53%
+    }
+    .list-quote ul li .item .copy p {
+        font-size: 12px
+    }
+    .list-quote ul li .item .copy p img {
+        width: 20px;
+        margin-right: 5px
+    }
+    .copy-fs h2 {
+        font-size: 40px;
+        line-height: 50px
+    }
+    .copy-content {
+        padding: 40px
+    }
+    .top-factsheet p {
+        font-size: 12px;
+        padding-bottom: 15px
+    }
+    .top-factsheet h3 {
+        padding-bottom: 15px
+    }
+    .insurance-item h2 span {
+        border-width: 1px
+    }
+    .insurance-item {
+        padding: 22px 0
+    }
+    .insurance-item .copy {
+        padding: 26px 0
+    }
+    .service-cate {
+        width: 190px
+    }
+    .content-sv {
+        padding-left: 220px
+    }
+    .service-cate a {
+        padding: 0 25px
+    }
+    .service-cate a span {
+        padding: 4px 0
+    }
+    .pakacge-choosen .choosen-wrap {
+        padding: 10px 5px
+    }
+    .pakacge-choosen .choosen-wrap li {
+        padding: 0 5px
+    }
+    .pakacge-choosen .choosen-wrap li .drop-pk {
+        height: 27px;
+        line-height: 27px;
+        background: #bc0144
+    }
+    .pakacge-choosen .choosen-wrap li .item-pk {
+        height: 27px;
+        line-height: 27px
+    }
+    .pakacge-choosen .choosen-wrap li .item-pk p {
+        padding: 0 10px;
+        line-height: 25px
+    }
+    .item-pk p span {
+        right: 10px
+    }
+    .pakacge-choosen .choosen-wrap li .drop-pk:after {
+        width: 16px
+    }
+    .list-cr h3 {
+        font-size: 12px
+    }
+    .banner-cr-detail {
+        height: 385px
+    }
+    .cr-info-dt {
+        padding-left: 73px;
+        padding-right: 230px
+    }
+    .cr-info-dt .btn-wrap {
+        right: 73px
+    }
+    .detail-cr {
+        padding-top: 30px
+    }
+    .detail-cr h2 {
+        padding: 0 13px 5px
+    }
+    .detail-cr .ct-copy {
+        padding: 10px 200px 10px 10px
+    }
+    .detail-cr .ct-copy .item h3 {
+        font-size: 15px;
+        padding-bottom: 8px
+    }
+    .detail-cr .ct-copy .item:last-child {
+        padding-bottom: 0
+    }
+    #pCareers .tt-page {
+        padding-bottom: 0
+    }
+    .detail-cr .main-if p img {
+        width: 18px
+    }
+    .detail-cr .main-if p {
+        padding-left: 28px
+    }
+    .list-news .item.style-2>div,
+    .list-news .item.style-5>div {
+        min-height: 300px
+    }
+    .list-news .item.style-2 .copy,
+    .list-news .item.style-5 .copy {
+        padding: 35px
+    }
+    .video-banner .copy {
+        border-width: 14px;
+        padding: 20px;
+        width: 240px
+    }
+    .youtube-player .play-video {
+        background-size: 95px
+    }
+    .youtube-player .play-video:hover {
+        background-size: 110px
+    }
+    .top-video {
+        padding-top: 15px
+    }
+    .top-video h3 {
+        padding-bottom: 15px
+    }
+    .list-video-wrap .has-video:after {
+        background-size: 100px
+    }
+    .list-video-wrap .item-news .copy h2 {
+        font-size: 18px
+    }
+    .btn-loadmore {
+        height: 37px;
+        line-height: 37px;
+        font-size: 15px
+    }
+    .banner-doctor .container .copy {
+        width: 55%
+    }
+    .service-cate h3 {
+        padding: 0 25px
+    }
+    .copyscroll {
+        height: 253px
+    }
+    .list-news .item.style-1 .copy h3,
+    .list-news .item.style-2 .copy h3,
+    .list-news .item.style-5 .copy h3 {
+        font-size: 19px;
+        line-height: 24px
+    }
+    .list-news .item.style-3 .copy h3,
+    .list-news .item.style-4 .copy h3 {
+        font-size: 13px;
+        line-height: 18px
+    }
+}
+
+@media screen and (min-width:1025px) and (max-width:1365px) {
+    .container {
+        padding: 0 100px
+    }
+    .doctor-home .container {
+        padding: 0 90px
+    }
+    .nav-wrap nav li a {
+        padding: 5px 10px
+    }
+    .booking-home .container {
+        padding: 0 10px
+    }
+    .pakacge-wrap .copy p {
+        font-size: 14px;
+        padding-bottom: 6px
+    }
+    .service-cate h3 {
+        padding: 0 35px
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .vn .nav-wrap nav li {
+        margin: 0 7px
+    }
+    .vn .nav-wrap nav li a {
+        font-size: 10px
+    }
+    .vn .nav-wrap nav li:nth-child(3) .megadrop {
+        left: -106px
+    }
+    .main-hd {
+        height: 90px
+    }
+    .main-hd .logo {
+        margin-top: 15px
+    }
+    .main-hd .logo img {
+        width: 180px
+    }
+    .booking-wrap .item {
+        padding: 40px 15px 10px
+    }
+    .booking-wrap .item>h3:after {
+        left: -15px;
+        border-top: 5px solid transparent;
+        border-left: 10px solid #fff;
+        border-bottom: 5px solid transparent;
+        top: 8px
+    }
+    .booking-wrap .item>h3 {
+        font-size: 16px
+    }
+    .testimo-home .copy-quote {
+        width: 410px;
+        left: 0;
+        padding-left: 73px
+    }
+    .testimo-home .copy-quote p {
+        font-size: 17px;
+        line-height: 24px
+    }
+    .testimo-home .play-video {
+        background-size: 130px
+    }
+    .testimo-home .play-video:hover {
+        background-size: 145px
+    }
+    .testimo-home {
+        height: 500px
+    }
+    .mainfooter {
+        padding: 30px 0
+    }
+}
+
+@media screen and (min-width:1025px) and (max-width:1279px) {
+    .botfooter ul li {
+        margin-left: 10px
+    }
+    .botfooter p,
+    .botfooter ul li a {
+        font-size: 11px
+    }
+    .nav-wrap nav li {
+        margin: 0 9px
+    }
+}
+
+@media screen and (max-width:1279px) {
+    .vn .nav-wrap nav li {
+        margin: 0 6px
+    }
+    .nav-wrap nav li a {
+        padding: 5px 0;
+        font-size: 10px
+    }
+    .main-hd {
+        height: 90px
+    }
+    .main-hd .logo {
+        margin-top: 15px
+    }
+    .nav-wrap {
+        margin-top: 23px
+    }
+    .ip input {
+        font-size: 12px
+    }
+    .doctor-home .tt-item {
+        padding: 0
+    }
+    .item-doc .copy,
+    .tt-doc-crs {
+        padding: 10px
+    }
+    .crs-testi .slick-slide {
+        padding-bottom: 10px
+    }
+    .botfooter ul li {
+        margin-left: 10px
+    }
+    .top-hd .left-hd {
+        margin-top: 9px
+    }
+    .banner-home .item .container .copy h3 {
+        font-size: 40px;
+        line-height: 50px
+    }
+    .search-ct-wrap {
+        padding: 0 20px
+    }
+    .news-home .paging {
+        right: 10px
+    }
+    .btn-crs {
+        right: 10px;
+        top: 0
+    }
+    #pServiceCate .crs-style1 ul {
+        margin: 0 -20px
+    }
+    #pServiceCate .btn-crs {
+        right: 0
+    }
+    .banner-careers .item .container .copy {
+        padding: 0 10px
+    }
+    .banner-careers .item .container .copy h3 {
+        font-size: 25px
+    }
+    .banner-careers .item .container .copy h2 {
+        font-size: 40px
+    }
+    .item-bn-car .item div {
+        padding: 60px 30px 25px
+    }
+    .video-banner .copy {
+        width: 100%;
+        position: relative;
+        top: 0;
+        right: 0;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+    .banner-contact,
+    .banner-doctor {
+        height: 450px
+    }
+    .choosen-wrap h2 {
+        font-size: 15px;
+        line-height: 23px
+    }
+    .drop-pk {
+        padding: 0 10px;
+        height: 50px;
+        line-height: 50px
+    }
+    .drop-pk p {
+        font-size: 14px;
+        padding: 0 10px
+    }
+    .item-pk {
+        height: 50px;
+        line-height: 50px
+    }
+    .item-pk p {
+        font-size: 14px;
+        padding: 0 10px
+    }
+    .booking-home {
+        padding: 0
+    }
+    .booking-wrap .item {
+        padding: 20px 15px 10px
+    }
+    .booking-wrap .item>h3:after {
+        left: -15px
+    }
+    .booking-wrap .item>h3 {
+        font-size: 18px
+    }
+    .booking-wrap .item>p {
+        padding-bottom: 10px
+    }
+    .booking-wrap .drop-time ul li {
+        font-size: 8px
+    }
+    .main-hd .logo img {
+        width: 154px
+    }
+    .btn-login,
+    .btn-search {
+        width: 40px;
+        height: 40px;
+        margin-left: 10px
+    }
+    .btn-login {
+        width: 62px;
+        height: 40px
+    }
+    .nav-wrap nav {
+        margin-top: 4px
+    }
+    .megadrop a:after {
+        top: 6px
+    }
+    .top-hd .left-hd li a {
+        font-size: 12px
+    }
+    .tt-form {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: inline-block
+    }
+}
+
+@media screen and (min-width:1025px) and (max-height:770px) {
+    .banner-home {
+        height: 505px
+    }
+    .banner-home .item .container .copy h3 {
+        font-size: 40px;
+        line-height: 50px
+    }
+    .banner-home .item .container .copy p {
+        font-size: 20px;
+        padding-bottom: 20px
+    }
+    .banner-home .item .container .copy a {
+        height: 36px;
+        line-height: 33px;
+        font-size: 15px;
+        padding: 0 35px
+    }
+    .booking-wrap .item {
+        padding: 20px 16px 10px
+    }
+    .booking-wrap .item>h3:after {
+        left: -16px
+    }
+}
+
+@media screen and (max-width:1024px) {
+    body {
+        cursor: pointer
+    }
+    .booking-home .container,
+    .container {
+        padding: 0 10px
+    }
+    .booking-hd,
+    .hd-home .top-hd,
+    .top-hd {
+        display: none
+    }
+    header {
+        height: 70px;
+        position: fixed;
+        width: 100%
+    }
+    header.active {
+        background: #007297
+    }
+    header.active .bg {
+        display: none
+    }
+    .main-hd {
+        height: 100%!important
+    }
+    .main-hd .logo {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        margin-left: -60px;
+        margin-top: 0
+    }
+    .main-hd .logo img {
+        width: 120px
+    }
+    .nav-wrap {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: #fff;
+        width: 100%;
+        height: calc(100vh - 70px);
+        margin-top: 0;
+        overflow: auto;
+        padding-bottom: 20px
+    }
+    .hamburger-menu {
+        display: block
+    }
+    .lang {
+        display: none
+    }
+    .right-hd-mb {
+        display: inline-block;
+        margin-top: 0;
+        position: absolute;
+        top: 21px;
+        right: 25px
+    }
+    .right-hd-mb .lang {
+        display: block;
+        margin-top: 0;
+        z-index: 2
+    }
+    .right-hd-mb .lang .item {
+        padding-left: 0;
+        border: none
+    }
+    .right-hd-mb .lang a {
+        left: 0;
+        width: 61px;
+        padding: 2px 3px
+    }
+    .right-hd-mb .lang img {
+        width: 30px;
+        border: none
+    }
+    .right-hd-mb ul li img {
+        height: 20px
+    }
+    .nav-wrap nav {
+        width: 100%;
+        margin-top: 0
+    }
+    .nav-wrap nav li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #007297;
+        padding: 9px 20px
+    }
+    .nav-wrap nav li .megadrop {
+        position: relative;
+        top: 0;
+        width: 100%;
+        opacity: 1!important;
+        visibility: visible;
+        padding: 0;
+        display: none;
+        -webkit-transition: all 0s ease-in-out;
+        -o-transition: all 0s ease-in-out;
+        transition: all 0s ease-in-out;
+        margin-bottom: 10px;
+        left: 0!important
+    }
+    .nav-wrap nav li .megadrop a {
+        color: #007297!important;
+        font-size: 20px;
+        font-family: utm_avoregular;
+        padding: 3px 12px 3px 20px!important
+    }
+    .nav-wrap nav li .megadrop a:after {
+        border-top: 6px solid transparent;
+        border-left: 8px solid #007297;
+        border-bottom: 6px solid transparent
+    }
+    .megadrop a:after {
+        top: 11px
+    }
+    .nav-wrap nav li a {
+        color: #007297;
+        width: 100%;
+        padding: 6px 0;
+        position: relative;
+        font-size: 25px!important
+    }
+    .drop-mn a em {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: url(../images/ar-submenu-mb.png) center center no-repeat;
+        background-size: 20px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -20px;
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+        z-index: 3
+    }
+    .drop-mn a em.active {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+    .nav-wrap nav li:hover a {
+        color: #007297
+    }
+    .btn-login,
+    .btn-search {
+        margin-left: 20px;
+        margin-top: 20px
+    }
+    .btn-search {
+        background: url(../images/btn-search-mb.png) no-repeat
+    }
+    .btn-login {
+        background: url(../images/btn-login-mb.png) no-repeat
+    }
+    #pHome .booking-mb {
+        margin-top: 0
+    }
+    .booking-mb {
+        display: block;
+        background: #007297;
+        padding: 40px 0;
+        margin-top: 70px
+    }
+    .booking-mb h2 {
+        color: #fff;
+        font-size: 42px;
+        text-transform: uppercase;
+        text-align: center
+    }
+    .booking-mb .booking-wrap {
+        max-width: 600px;
+        margin: 0 auto;
+        -webkit-box-shadow: none;
+        box-shadow: none
+    }
+    .booking-mb .booking-wrap .item {
+        width: 50%;
+        background: 0 0;
+        border: none;
+        padding: 10px
+    }
+    .booking-mb .booking-wrap .ip input {
+        border-width: 1px
+    }
+    .booking-mb .booking-wrap .ip input::-webkit-input-placeholder {
+        color: #fff
+    }
+    .booking-mb .booking-wrap .ip input::-moz-placeholder {
+        color: #fff
+    }
+    .booking-mb .booking-wrap .ip input:-ms-input-placeholder {
+        color: #fff
+    }
+    .booking-mb .booking-wrap .ip input:-moz-placeholder {
+        color: #fff
+    }
+    .booking-mb .booking-wrap .item:first-child {
+        width: 100%;
+        background: 0 0
+    }
+    .booking-mb .ip.ip-phone {
+        border: none
+    }
+    .booking-mb .btn-wrap {
+        text-align: center;
+        padding-top: 10px
+    }
+    .booking-mb .btn-wrap .btn-booking {
+        width: 100%;
+        max-width: 580px
+    }
+    .booking-home {
+        display: none
+    }
+    .booking-wrap .item .note {
+        color: #fff
+    }
+    .banner-home {
+        height: 540px
+    }
+    .banner-home .item .container .copy h3 {
+        font-size: 45px;
+        line-height: 52px
+    }
+    .banner-home .item .container .copy p {
+        font-size: 25px
+    }
+    #pAbout {
+        padding-top: 0
+    }
+    .breadcrumb {
+        top: 10px
+    }
+    .banner-page .copy h2 {
+        font-size: 35px;
+        line-height: 45px
+    }
+    main {
+        padding-top: 0
+    }
+    .list-spec ul {
+        margin: 0 -10px
+    }
+    .list-spec ul li {
+        padding: 0 10px
+    }
+    #pServiceCate .doctor-home .tt-item,
+    .item-doc {
+        padding: 0
+    }
+    #pServiceCate .news-home .paging {
+        right: 0
+    }
+    .detail-cr .ct-copy {
+        padding-right: 250px
+    }
+    .popup-video {
+        width: 100%;
+        height: 100%
+    }
+    .popup-video .btn-close {
+        top: 10px;
+        right: 10px
+    }
+    .booking-mb .ip.ip-phone:after {
+        background: url(../images/icon-phone.png)
+    }
+    .item.active input,
+    .item:hover input {
+        border: 2px solid #acacac
+    }
+    .item.active input::-webkit-input-placeholder,
+    .item:hover input::-webkit-input-placeholder {
+        color: #007297
+    }
+    .item.active input::-moz-placeholder,
+    .item:hover input::-moz-placeholder {
+        color: #007297
+    }
+    .item.active input:-ms-input-placeholder,
+    .item:hover input:-ms-input-placeholder {
+        color: #007297
+    }
+    .item.active input:-moz-placeholder,
+    .item:hover input:-moz-placeholder {
+        color: #007297
+    }
+    .item.active .ip,
+    .item:hover .ip {
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease
+    }
+    .item.active .ip.ip-phone:after,
+    .item:hover .ip.ip-phone:after {
+        background: url(../images/icon-phone.png)
+    }
+    .item.active .ip.ip-spec:after,
+    .item:hover .ip.ip-spec:after {
+        background: url(../images/icon-spec.png)
+    }
+    .item.active .ip.ip-doctor:after,
+    .item:hover .ip.ip-doctor:after {
+        background: url(../images/icon-doctor.png)
+    }
+    .item.active .ip.ip-day:after,
+    .item:hover .ip.ip-day:after {
+        background: url(../images/icon-day.png)
+    }
+    .item.active .ip.ip-time:after,
+    .item:hover .ip.ip-time:after {
+        background: url(../images/icon-time.png)
+    }
+    .booking-mb .ip.ip-phone input {
+        border: 1px solid #fff;
+        color: #fff
+    }
+    .btn-booking-mb {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        background: #e1115b;
+        color: #fff;
+        font-family: utm_avobold;
+        font-size: 16px;
+        text-transform: uppercase;
+        border: none;
+        text-align: center;
+        margin: 0 auto;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease
+    }
+    .btn-booking-mb img {
+        width: 25px;
+        margin-left: 10px;
+        -webkit-animation: .7s infinite alternate anima-mb;
+        animation: .7s infinite alternate anima-mb
+    }
+    .booking-wrap .item>p {
+        min-height: 1px!important
+    }
+    .service-cate h3 {
+        padding: 0 35px
+    }
+    .booking-wrap .drop-time ul li {
+        font-size: 10px
+    }
+    .list-news .item.style-1 .copy h3,
+    .list-news .item.style-2 .copy h3,
+    .list-news .item.style-5 .copy h3 {
+        font-size: 24px;
+        line-height: 29px
+    }
+    .list-news .item.style-3 .copy h3,
+    .list-news .item.style-4 .copy h3 {
+        font-size: 15px;
+        line-height: 20px
+    }
+    .copyscroll,
+    .dropdown-list .copyscroll {
+        height: 182px
+    }
+}
+
+@-webkit-keyframes anima-mb {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    to {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px)
+    }
+}
+
+@keyframes anima-mb {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    to {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px)
+    }
+}
+
+@-webkit-keyframes bounce {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    to {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px)
+    }
+}
+
+@media screen and (max-width:1023px) {
+    .banner-home {
+        height: 370px
+    }
+    .banner-home .item .container .copy {
+        width: 100%;
+        left: 0;
+        padding: 0 10px
+    }
+    .banner-home .item .container .copy h3 {
+        font-size: 35px;
+        line-height: 34px
+    }
+    .banner-home .item .container .copy p {
+        font-size: 20px;
+        padding-bottom: 20px
+    }
+    .item-news .copy h2 {
+        font-size: 18px
+    }
+    .ct-testti {
+        padding: 20px
+    }
+    .ct-testti p {
+        font-size: 18px
+    }
+    .crs-testi {
+        min-height: 400px
+    }
+    .rating ul li .stars {
+        float: left
+    }
+    .rating ul li p {
+        width: 100%
+    }
+    .ft-wrap {
+        padding-right: 0
+    }
+    .ft-wrap .item {
+        width: 100%
+    }
+    .ft-wrap .item:nth-child(1) {
+        padding-bottom: 20px;
+        text-align: center
+    }
+    .ft-wrap .item:nth-child(1) p {
+        text-align: left
+    }
+    .ft-wrap .item:nth-child(2),
+    .ft-wrap .item:nth-child(3) {
+        width: 50%
+    }
+    .ft-wrap .item.page-fb {
+        display: none
+    }
+    .botfooter {
+        text-align: center
+    }
+    .botfooter p,
+    .botfooter ul {
+        width: 100%
+    }
+    .newsletter .copy {
+        padding-right: 10px
+    }
+    .newsletter .ip-news {
+        padding-left: 10px
+    }
+    .copy-content {
+        padding: 20px 20px 0
+    }
+    .banner-page {
+        height: 360px
+    }
+    .item-top-faq {
+        padding: 30px 0
+    }
+    .item-top-faq ul li {
+        text-align: center
+    }
+    .item-top-faq ul li img {
+        display: inline-block;
+        float: none;
+        margin-bottom: 10px;
+        position: relative;
+        top: auto;
+        left: auto
+    }
+    .item-top-faq ul li .copy {
+        width: 100%;
+        padding-left: 0
+    }
+    .faq-wrap {
+        padding: 40px 10px 0
+    }
+    .list-faq .left {
+        padding-right: 10px
+    }
+    .list-faq .right {
+        padding-left: 10px
+    }
+    .banner-quote {
+        height: 410px
+    }
+    .banner-quote .copy-quote {
+        width: 80%
+    }
+    .pakacge-wrap .container {
+        padding: 20px 10px
+    }
+    .pakacge-choosen .choosen-wrap li:first-child {
+        width: 100%
+    }
+    .pakacge-choosen .choosen-wrap li {
+        width: 50%;
+        padding: 5px 10px
+    }
+    .copy-fs h2 {
+        font-size: 40px;
+        line-height: 50px
+    }
+    .item-bn-car .item {
+        padding: 0 10px
+    }
+    .item-bn-car .item div {
+        padding: 40px 15px 15px
+    }
+    .item-bn-car .item div span {
+        padding: 14px;
+        top: -36px
+    }
+    .list-news .item .copy {
+        padding: 20px!important
+    }
+    .list-news .item .copy h3 {
+        font-size: 25px;
+        line-height: 30px
+    }
+    .list-news .item .copy h3 span {
+        font-size: 20px
+    }
+    .list-news .item.style-4 .copy h3 span {
+        font-size: 16px
+    }
+    .list-news .item .copy hr {
+        width: 50%;
+        margin: 10px 0
+    }
+    .news-detail-wrap {
+        padding-right: 300px
+    }
+    .side-news {
+        width: 300px
+    }
+    .side-news .item .ct-tab span {
+        font-size: 13px
+    }
+    .banner-contact,
+    .banner-doctor {
+        height: 350px
+    }
+    .banner-contact .container .copy,
+    .banner-doctor .container .copy {
+        width: 80%
+    }
+    .banner-contact .container .copy h3,
+    .banner-doctor .container .copy h3 {
+        font-size: 38px;
+        line-height: 40px
+    }
+    .list-dt li {
+        width: 33.333%
+    }
+    .content-dt .sub-info {
+        width: 300px
+    }
+    .content-dt {
+        padding-right: 320px
+    }
+    .contact-wrap .form-ct {
+        float: right;
+        width: 50%
+    }
+    .contact-wrap .copy {
+        width: 50%
+    }
+    .hotline {
+        display: block;
+        position: fixed;
+        bottom: 140px;
+        right: -10px
+    }
+    .hotline li {
+        display: block
+    }
+    .hotline li img {
+        width: 50px
+    }
+    #success {
+        width: 100%
+    }
+    .testimo-home {
+        height: auto;
+        padding-bottom: 50px;
+        background-image: url(../images/demo/bg-testi-ver.jpg);
+        background-position: top
+    }
+    .testimo-home .copy-quote {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 240px auto 0;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+    .testimo-home .play-video {
+        background-position: center 35%
+    }
+    #pHome .news-list-wrap {
+        padding-right: 0
+    }
+    .item-news {
+        min-height: 1px!important
+    }
+    #pHome .news-home {
+        padding-bottom: 30px
+    }
+    .item-top-faq ul li .item {
+        padding-left: 0
+    }
+    .item-top-faq ul li .copy {
+        padding-top: 0
+    }
+    .list-video-wrap .has-video:after {
+        background-size: 100px
+    }
+    #pHome .dropdown-list span {
+        padding: 5px 20px
+    }
+    .list-result {
+        margin: 0 -25px
+    }
+    .list-result li {
+        margin-bottom: 30px
+    }
+    .list-result li .item h4 {
+        font-size: 20px
+    }
+    .choosen-wrap {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 20px
+    }
+    .list-news .item.style-1 .copy h3,
+    .list-news .item.style-2 .copy h3,
+    .list-news .item.style-5 .copy h3 {
+        font-size: 20px;
+        line-height: 27px
+    }
+    .list-news .item.style-1 .copy h3 span,
+    .list-news .item.style-2 .copy h3 span,
+    .list-news .item.style-5 .copy h3 span {
+        font-size: 16px
+    }
+    .list-news .item.style-3 .copy h3,
+    .list-news .item.style-4 .copy h3 {
+        font-size: 12px;
+        line-height: 19px
+    }
+    .list-news .item.style-1,
+    .list-news .item.style-2,
+    .list-news .item.style-5 {
+        min-height: 310px
+    }
+    .list-news .item.style-3,
+    .list-news .item.style-4 {
+        min-height: 250px
+    }
+    .att-file {
+        padding-left: 0
+    }
+    .form-cr ul li .text-a a {
+        position: relative
+    }
+}
+
+@media screen and (max-width:767px) {
+    .loading-page img {
+        width: 60px;
+        margin: -30px 0 0 -30px
+    }
+    .chat-mb,
+    .zopim {
+        display: none!important
+    }
+    header {
+        height: 56px
+    }
+    .hotline {
+        bottom: 10px
+    }
+    .btn-booking-mb {
+        position: relative;
+        left: 0
+    }
+    .nav-wrap {
+        top: 56px;
+        height: calc(100vh - 56px)
+    }
+    .hamburger-menu {
+        top: 20px;
+        left: 10px
+    }
+    .main-hd .logo {
+        top: 11px;
+        margin-left: -55px
+    }
+    .search-ct-wrap .btn-close {
+        top: 10px;
+        right: 10px
+    }
+    .search-ct-wrap .btn-close img {
+        width: 30px
+    }
+    .search-wrap {
+        padding-right: 70px
+    }
+    .search-wrap input[type=text] {
+        height: 60px;
+        font-size: 29px;
+        line-height: 60px
+    }
+    .search-wrap input[type=submit] {
+        width: 60px;
+        height: 60px
+    }
+    .main-hd .logo img {
+        width: 110px
+    }
+    .right-hd-mb {
+        top: 18px;
+        right: 10px
+    }
+    .search-ct-wrap {
+        padding: 0 10px
+    }
+    .banner-home .slick-next,
+    .banner-home .slick-prev {
+        background-size: 16px;
+        width: 22px
+    }
+    .banner-home .slick-next {
+        right: 0
+    }
+    .banner-home .slick-prev {
+        left: 0
+    }
+    #pHome .news-list-wrap>ul li {
+        width: 100%
+    }
+    .news-home {
+        padding: 25px 0
+    }
+    .news-list-wrap ul li .item-news:hover {
+        -webkit-box-shadow: none;
+        box-shadow: none
+    }
+    .news-list-wrap ul li .tt-news .date {
+        min-height: 20px;
+        color: #646667;
+        padding-top: 3px;
+        margin-bottom: 5px
+    }
+    .news-list-wrap ul li .tt-news .cm {
+        padding-top: 0;
+        top: 4px;
+        background-size: 11px;
+        min-height: 1px
+    }
+    .news-list-wrap ul li .img {
+        position: absolute;
+        left: 10px;
+        width: 100px;
+        top: 0
+    }
+    .news-list-wrap ul li:first-child .item-news {
+        padding-left: 10px;
+        min-height: 1px
+    }
+    .news-list-wrap ul li:first-child .img {
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0
+    }
+    .news-list-wrap ul li:first-child .item-news .copy h2 {
+        font-size: 22px
+    }
+    .news-list-wrap ul li {
+        width: 100%
+    }
+    #back-to-top,
+    .item-news .copy p {
+        display: none
+    }
+    .news-home .paging {
+        position: relative;
+        text-align: center!important
+    }
+    .testimo-home {
+        padding: 30px 0;
+        background-attachment: inherit
+    }
+    .testi-wrap {
+        padding-right: 0
+    }
+    .crs-testi {
+        min-height: 1px
+    }
+    .testi-wrap .video-testi {
+        position: relative;
+        width: 100%;
+        height: 300px
+    }
+    .crs-testi:after {
+        display: none
+    }
+    .rating-wrap {
+        padding-right: 0
+    }
+    .rating:after {
+        display: none
+    }
+    .rating ul li p {
+        display: inline-block;
+        width: auto
+    }
+    .rating ul li .stars {
+        float: right
+    }
+    .partner-home ul {
+        display: inline-block;
+        text-align: center;
+        margin: 0
+    }
+    .partner-home ul li {
+        width: calc(33.33% - 6px);
+        display: inline-block;
+        float: none;
+        padding: 5px 10px
+    }
+    #mapCanvas {
+        height: 400px
+    }
+    .newsletter .copy {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 15px
+    }
+    .newsletter .ip-news {
+        width: 100%;
+        padding-left: 0
+    }
+    .rating {
+        padding: 20px 0
+    }
+    .rating-home {
+        padding: 30px 0
+    }
+    .rating ul li input[type=submit] {
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px
+    }
+    .choosen-wrap {
+        width: 100%;
+        position: relative;
+        padding: 15px 20px 10px
+    }
+    .doctor-home,
+    .mainfooter,
+    .newsletter {
+        padding: 20px 0
+    }
+    .nav-wrap nav li {
+        padding: 0 20px
+    }
+    .nav-wrap nav li a {
+        font-size: 18px!important;
+        padding: 6px 0!important
+    }
+    .nav-wrap nav li .megadrop {
+        margin-bottom: 10px
+    }
+    .nav-wrap nav li .megadrop a {
+        font-size: 17px
+    }
+    .banner-home .item .container .copy a {
+        font-size: 16px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px
+    }
+    .ft-wrap .item {
+        padding-right: 10px
+    }
+    .ft-wrap .item:nth-child(1) {
+        padding-right: 0
+    }
+    .banner-home .item .container .copy h3 {
+        padding-bottom: 0
+    }
+    .banner-home .item .container .copy p {
+        padding-bottom: 10px
+    }
+    .banner-page .copy h2 {
+        font-size: 20px;
+        line-height: 25px
+    }
+    .banner-page {
+        height: 260px
+    }
+    .banner-page .copy {
+        top: 50%
+    }
+    .intro-wrap {
+        padding-top: 20px
+    }
+    .service-wrap {
+        padding: 20px 0
+    }
+    #pAbout {
+        padding-bottom: 0
+    }
+    .banner-page .copy h4 {
+        font-size: 15px
+    }
+    .intro-wrap .copy p,
+    .tt-page {
+        padding-bottom: 15px
+    }
+    .tt-page h4 {
+        font-size: 20px
+    }
+    .tt-page h3 {
+        font-size: 29px
+    }
+    .faq-item h3 {
+        font-size: 15px;
+        padding: 10px 37px 10px 10px
+    }
+    .banner-quote .copy-quote p {
+        font-size: 16px;
+        padding-bottom: 10px;
+        line-height: 19px
+    }
+    .banner-quote .copy-quote p:after,
+    .banner-quote .copy-quote p:before {
+        width: 30px
+    }
+    .banner-quote .copy-quote p:before {
+        left: -20px
+    }
+    .banner-quote .copy-quote p:after {
+        right: -20px
+    }
+    .list-quote {
+        padding-top: 25px
+    }
+    .list-quote ul li {
+        padding: 5px
+    }
+    .service-cate-wrap .container {
+        padding: 10px
+    }
+    .content-sv {
+        padding-left: 0
+    }
+    .service-cate {
+        width: 100%;
+        position: relative;
+        top: 0;
+        display: none
+    }
+    .service-drop-mb {
+        display: block;
+        padding-bottom: 10px
+    }
+    .service-drop-mb h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #e1115b;
+        padding-bottom: 10px
+    }
+    .service-drop-mb .select {
+        color: #fff
+    }
+    .service-drop-mb .select-styled {
+        background: #e1115b;
+        font-family: utm_avobold;
+        text-transform: none;
+        padding: 13px 15px
+    }
+    .service-drop-mb .select-options p {
+        color: #e1115b
+    }
+    .service-drop-mb .select-styled:after {
+        background: url(../images/ar-down.png) no-repeat;
+        background-size: 100%
+    }
+    .breadcrumb {
+        font-size: 13px
+    }
+    #pServiceCate .breadcrumb {
+        top: 0
+    }
+    .pakacge-wrap .copy,
+    .pakacge-wrap .img,
+    .pakacge-wrap .img img {
+        width: 100%
+    }
+    .pakacge-wrap .copy {
+        padding-left: 0;
+        margin-top: 0;
+        padding-top: 15px
+    }
+    .pakacge-wrap .copy h2 {
+        font-size: 20px;
+        padding-bottom: 15px
+    }
+    .pakacge-wrap .copy p {
+        padding-bottom: 15px
+    }
+    .pakacge-table .container {
+        padding: 10px
+    }
+    .pakacge-table table th {
+        font-size: 12px;
+        padding: 10px 3px
+    }
+    .pakacge-table table td>p {
+        font-size: 12px;
+        padding: 6px 10px
+    }
+    .tt-tb {
+        padding: 7px 5px
+    }
+    .tt-tb h3 {
+        font-size: 12px;
+        padding-right: 0
+    }
+    .pakacge-table table .copy {
+        padding: 0 10px
+    }
+    .pakacge-table table .copy h4 {
+        font-size: 15px
+    }
+    .pakacge-table table .copy p {
+        font-size: 14px
+    }
+    main {
+        padding-top: 0
+    }
+    #pServiceInsurance .breadcrumb .container {
+        padding-left: 10px
+    }
+    #pServiceInsurance .copy-ins {
+        padding-left: 0;
+        padding-top: 52px
+    }
+    .insurance-item {
+        padding: 25px 0
+    }
+    .insurance-item h2 {
+        font-size: 25px
+    }
+    .insurance-item .copy {
+        padding: 25px 0
+    }
+    .persond-ins .slick-dots {
+        bottom: 0
+    }
+    .persond-ins {
+        padding-top: 0
+    }
+    #pServiceInsurance .copy-ins h2 {
+        font-size: 25px
+    }
+    .banner-ser {
+        height: 280px
+    }
+    .copy-fs h2 {
+        font-size: 29px;
+        line-height: 40px
+    }
+    .factsheet-wrap {
+        padding-top: 0
+    }
+    .top-factsheet {
+        padding: 15px 0
+    }
+    .copy-fs h4 {
+        font-size: 18px
+    }
+    .top-factsheet h3 {
+        font-size: 25px;
+        padding-bottom: 10px
+    }
+    .top-factsheet p {
+        font-size: 15px;
+        padding-bottom: 10px
+    }
+    .pertner-sv {
+        padding: 40px 0
+    }
+    .item-bn-car .item div p {
+        font-size: 14px
+    }
+    .item-bn-car .item div h3 {
+        font-size: 18px;
+        padding-bottom: 15px
+    }
+    .item-cr,
+    .list-cr {
+        padding-top: 25px
+    }
+    .list-cr ul li {
+        width: 100%
+    }
+    .form-cr {
+        padding: 20px
+    }
+    .tt-form {
+        width: 100%;
+        padding-left: 0;
+        float: none
+    }
+    .form-cr ul {
+        width: auto;
+        margin: 0 -15px;
+        float: none;
+        padding-top: 10px
+    }
+    .btn-b,
+    .btn-bd,
+    .btn-page {
+        height: 45px;
+        line-height: 45px;
+        font-size: 15px;
+        padding: 0 30px
+    }
+    .cr-info-dt {
+        padding: 20px 198px 20px 20px
+    }
+    .cr-info-dt>img {
+        top: 33px;
+        left: 38px
+    }
+    .cr-info-dt .copy h3 {
+        font-size: 20px
+    }
+    .cr-info-dt .btn-wrap {
+        right: 20px
+    }
+    .list-news {
+        margin: 0 -5px;
+        padding: 10px 0
+    }
+    .list-news .item {
+        padding: 5px
+    }
+    .news-wrap {
+        padding-top: 40px
+    }
+    .news-wrap h2,
+    .top-video h3 {
+        font-size: 30px
+    }
+    .list-news .item .copy {
+        padding: 10px!important
+    }
+    .list-news .item .copy hr {
+        border-width: 1px;
+        margin: 5px 0
+    }
+    .news-detail-wrap {
+        padding-right: 0
+    }
+    .side-news {
+        width: 100%;
+        position: relative;
+        padding-left: 0
+    }
+    .ct-dt h3 {
+        font-size: 20px;
+        padding-bottom: 15px
+    }
+    .side-news .item .tab-content li {
+        width: 100%;
+        margin-top: 20px
+    }
+    .side-news .item {
+        margin-bottom: 20px
+    }
+    .video-banner {
+        margin-top: 20px
+    }
+    .youtube-player .play-video {
+        background-size: 80px
+    }
+    .youtube-player .play-video:hover {
+        background-size: 100px
+    }
+    .video-banner .copy {
+        display: none
+    }
+    .top-video {
+        padding-top: 20px
+    }
+    #pNewsVideo .news-list-wrap ul li .item-news {
+        padding-left: 10px;
+        min-height: 1px
+    }
+    #pNewsVideo .news-list-wrap ul li .img {
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0
+    }
+    #pNewsVideo .item-news .copy h2 {
+        font-size: 15px
+    }
+    .list-video-wrap .btn-wrap {
+        padding: 20px 0
+    }
+    .main-info {
+        padding: 40px 0
+    }
+    .content-dt {
+        padding-right: 0;
+        margin-top: 30px
+    }
+    .content-dt .sub-info {
+        width: 100%;
+        position: relative;
+        margin-bottom: 20px
+    }
+    .btn-dt {
+        padding: 30px 0
+    }
+    .contact-wrap .copy {
+        width: 100%
+    }
+    .contact-wrap .form-ct {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d8d7d7
+    }
+    .contact-wrap {
+        padding: 30px 0
+    }
+    .contact-wrap .copy h3 {
+        font-size: 30px;
+        line-height: 35px;
+        padding-bottom: 20px
+    }
+    .contact-wrap .copy h4 {
+        font-size: 20px;
+        padding-bottom: 15px
+    }
+    .contact-wrap .copy p {
+        font-size: 15px
+    }
+    .booking-mb {
+        margin-top: 56px
+    }
+    .rating h3 {
+        font-size: 25px
+    }
+    #success {
+        height: 100%;
+        overflow: auto;
+        top: 0;
+        left: 0;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+    #success .content img {
+        width: 150px
+    }
+    #success .content h3 {
+        font-size: 25px
+    }
+    #success .content p {
+        font-size: 20px
+    }
+    .botfooter ul {
+        display: none
+    }
+    .ip:after {
+        top: 6px;
+        -webkit-transform: translate(0, 0) scale(.8);
+        -ms-transform: translate(0, 0) scale(.8);
+        transform: translate(0, 0) scale(.8)
+    }
+    .banner-home .item {
+        background: 0 0!important
+    }
+    .banner-home .item .container {
+        z-index: 2;
+        padding: 0
+    }
+    .banner-home-mb {
+        display: block!important;
+        width: 100%
+    }
+    .banner-home,
+    .banner-quote {
+        height: auto
+    }
+    .banner-quote .item {
+        background: 0 0!important
+    }
+    .btn-booking {
+        height: 40px;
+        line-height: 40px;
+        font-size: 17px
+    }
+    .crs-style1 ul {
+        margin: 0
+    }
+    .crs-style1 ul li {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 10px;
+        display: none
+    }
+    .crs-style1 ul li:nth-child(1),
+    .crs-style1 ul li:nth-child(2),
+    .crs-style1 ul li:nth-child(3),
+    .crs-style1 ul li:nth-child(4) {
+        display: block
+    }
+    .item-doc .link {
+        border: none
+    }
+    .item-doc {
+        padding-left: 100px;
+        border: 1px solid #d8d7d7;
+        min-height: 100px
+    }
+    .item-doc .img {
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+    .btn-crs {
+        display: none
+    }
+    .doctor-home .tt-item {
+        padding-bottom: 20px
+    }
+    .item-doc .copy {
+        border: none;
+        padding: 0 10px
+    }
+    .item-doc .copy p {
+        display: none
+    }
+    .tt-doc-crs {
+        border: none
+    }
+    .tt-doc-crs h2 {
+        font-size: 15px
+    }
+    .tt-doc-crs p {
+        font-size: 12px
+    }
+    .tt-doc-crs h3 {
+        font-size: 15px
+    }
+    .item-doc .copy a span:after {
+        top: 3px
+    }
+    .btn-showmore {
+        font-size: 17px;
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        max-width: 100%
+    }
+    .show-mb {
+        display: block
+    }
+    #pHome .paging,
+    .item-news .img img {
+        display: none
+    }
+    .item-news .img .show-mb {
+        display: block
+    }
+    .news-list-wrap ul li .item-news {
+        min-height: 122px;
+        padding-left: 120px;
+        min-height: 110px!important;
+        padding-top: 0;
+        padding-bottom: 0
+    }
+    .news-list-wrap ul li:first-child .item-news .img img {
+        display: block
+    }
+    .news-list-wrap ul li:first-child .item-news .img .show-mb {
+        display: none
+    }
+    .news-list-wrap ul li:first-child .item-news .tt-news {
+        padding-top: 6px
+    }
+    .news-list-wrap .btn-wrap {
+        margin-bottom: 30px;
+        margin-top: 10px
+    }
+    .banner-page .copy {
+        width: 100%
+    }
+    .list-quote {
+        padding-bottom: 30px
+    }
+    #pServiceCate .news-home .paging {
+        display: none
+    }
+    .content-sv,
+    .content-sv .copy,
+    .service-cate {
+        min-height: 1px!important
+    }
+    .banner-cr-detail {
+        height: 310px
+    }
+    .list-dt li {
+        width: 100%;
+        padding: 5px 15px
+    }
+    .doctor-wrap .btn-wrap {
+        margin-top: 10px
+    }
+    .rating>ul>li:nth-child(1),
+    .rating>ul>li:nth-child(2),
+    .rating>ul>li:nth-child(3),
+    .rating>ul>li:nth-child(4) {
+        width: 100%
+    }
+    .doctor-home .btn-wrap {
+        margin-top: 10px
+    }
+    .ip input {
+        height: 45px;
+        line-height: 45px
+    }
+    .list-video-wrap .news-list-wrap ul li {
+        width: 50%
+    }
+    #pNewsVideo .item-news .img img {
+        display: block
+    }
+    #pNewsVideo .news-list-wrap {
+        padding-top: 20px
+    }
+    #pNewsVideo .item-news .tt-news {
+        padding-top: 10px
+    }
+    #pNewsVideo .news-list-wrap .btn-wrap {
+        margin: 0
+    }
+    #pServiceCate .news-list-wrap .btn-wrap {
+        margin-bottom: 0
+    }
+    .testimo-home .copy-quote {
+        margin-top: 128px
+    }
+    .testimo-home .play-video {
+        background-size: 88px;
+        background-position: center 34%
+    }
+    .testimo-home .play-video:hover {
+        background-size: 100px
+    }
+    .h-pd nav {
+        margin-top: 40px
+    }
+    .banner-home .item .container .copy {
+        left: 0
+    }
+    .stagger {
+        visibility: visible
+    }
+    .list-cm-wrap {
+        padding-bottom: 20px
+    }
+    .comment-wrap {
+        padding-top: 20px
+    }
+    .big-ip textarea {
+        height: 70px
+    }
+    .ava-cm {
+        width: 70px;
+        height: 70px
+    }
+    .big-ip {
+        padding-left: 80px
+    }
+    .comment-wrap h3 {
+        padding-bottom: 10px;
+        font-size: 20px
+    }
+    .big-ip .btn-wrap {
+        padding-top: 10px
+    }
+    .lv-1>li>.item {
+        padding-left: 80px;
+        min-height: 70px
+    }
+    .lv-2,
+    .op-cm {
+        padding-top: 10px
+    }
+    .lv-2>li {
+        margin-bottom: 10px
+    }
+    .lv-1>li {
+        margin-bottom: 15px
+    }
+    .slick-dots li {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px
+    }
+    .slick-dots li button {
+        width: 10px;
+        height: 10px
+    }
+    .factsheet-wrap {
+        padding-bottom: 0
+    }
+    .btn-loadmore {
+        height: 40px;
+        line-height: 40px
+    }
+    .drop-pk p {
+        padding: 0
+    }
+    #pHome .dropdown-list span {
+        padding: 3px 10px;
+        font-size: 12px
+    }
+    .dropdown-list span {
+        font-size: 12px
+    }
+    .banner-careers .item.slick-active .container .copy {
+        display: none
+    }
+    .out-content .has-video:after {
+        background-size: 80px
+    }
+    #pSearch section {
+        padding-top: 30px
+    }
+    #pSearch section h3 {
+        font-size: 20px;
+        margin-top: 30px;
+        padding-bottom: 16px
+    }
+    #pSearch .search-wrap {
+        opacity: 1;
+        margin: 0;
+        padding-right: 70px;
+        max-width: 100%
+    }
+    #pSearch .search-wrap input[type=submit] {
+        width: 50px;
+        height: 50px
+    }
+    #pSearch .search-wrap input[type=text] {
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        border-bottom: 2px solid #a3a3a3
+    }
+    .list-result {
+        margin: 0 -10px
+    }
+    .list-result li {
+        padding: 0 10px;
+        margin-bottom: 20px
+    }
+    .list-result li .item .img {
+        margin-bottom: 10px
+    }
+    .list-result li .item h4 {
+        font-size: 14px;
+        font-family: utm_avoregular
+    }
+    .newsletter .copy h2 {
+        font-size: 18px
+    }
+    .newsletter .copy p {
+        font-size: 10px
+    }
+    .ft-wrap .item:nth-child(1) p {
+        font-size: 10px
+    }
+    .ct-dt .copy {
+        padding-top: 10px
+    }
+    .ct-dt .copy p {
+        padding-bottom: 10px
+    }
+    .list-cm ul li p {
+        font-size: 11px
+    }
+    .lv-2>li .item {
+        padding-left: 69px
+    }
+    .item-news .copy h2 {
+        font-size: 15px
+    }
+    .news-list-wrap {
+        padding-top: 20px
+    }
+    .form-cr ul li h3,
+    .tt-form h3 {
+        font-size: 20px
+    }
+    .form-cr ul li .ip-w input {
+        height: 35px;
+        font-size: 12px;
+        padding: 0 10px
+    }
+    .form-cr ul li .ip-w {
+        padding: 5px 15px
+    }
+    .form-cr ul li .text-a textarea {
+        padding: 10px;
+        font-size: 12px
+    }
+    .form-cr ul li .text-a a {
+        font-size: 12px;
+        background-size: 17px;
+        padding: 0 30px
+    }
+    .form-cr ul li .text-a p {
+        font-size: 12px
+    }
+    .popup-video .btn-close img {
+        width: 30px
+    }
+    .botfooter p {
+        font-size: 12px
+    }
+    #pNews .breadcrumb {
+        position: relative;
+        top: auto;
+        padding-top: 10px
+    }
+    #pNews .news-wrap {
+        padding-top: 10px
+    }
+    .item-doc .copy p,
+    .item-news .copy h2,
+    .item-news .copy p,
+    .tt-doc-crs {
+        height: auto!important
+    }
+    .item-news .copy a {
+        position: relative;
+        bottom: auto;
+        left: auto
+    }
+    .list-news .item.style-1,
+    .list-news .item.style-2,
+    .list-news .item.style-5 {
+        min-height: 340px
+    }
+    .list-news .item.style-3,
+    .list-news .item.style-4 {
+        min-height: 310px
+    }
+    #pHome .news-home {
+        padding-top: 0
+    }
+    .banner-quote .container {
+        padding: 0
+    }
+    #pServiceCate .crs-style1 {
+        margin-top: 20px
+    }
+    #pServiceCate .crs-style1 ul {
+        margin: 0!important
+    }
+    #pServiceCate .tt-item h3 {
+        padding-bottom: 0
+    }
+    .op-news>a,
+    .op-news>span {
+        font-size: 13px
+    }
+    #pDoctorDetail .content-dt,
+    .news-detail-wrap {
+        min-height: 0!important
+    }
+    .copy-content {
+        padding: 10px;
+        min-height: 270px
+    }
+    .item-sv h3 {
+        font-size: 20px;
+        padding-bottom: 5px;
+        margin-bottom: 5px
+    }
+    .item-sv h4 {
+        font-size: 13px;
+        line-height: 20px;
+        padding-bottom: 5px
+    }
+    .item-sv p {
+        font-size: 13px
+    }
+    .list-news .item.style-1,
+    .list-news .item.style-2,
+    .list-news .item.style-5 {
+        min-height: 280px
+    }
+    .list-news .item.style-3,
+    .list-news .item.style-4 {
+        min-height: 220px
+    }
+    .copyscroll,
+    .dropdown-list .copyscroll {
+        height: 160px
+    }
+    .right-hd-mb .lang img {
+        width: 22px
+    }
+    .banner-careers .container {
+        padding: 0
+    }
+    .contact-wrap .form-ct li .btn-page {
+        float: left
+    }
+    .contact-wrap .form-ct li .has-capcha {
+        text-align: left
+    }
+    .form-cr ul li .text-a .att-file p {
+        font-size: 13px;
+        padding: 10px;
+        line-height: 1.3
+    }
+    .select-styled {
+        padding-top: 10px;
+        font-family: utm_avobold
+    }
+}
+
+@media all and (max-width:767px) and (orientation:portrait) {
+    .banner-home .item .container .copy h3 {
+        font-size: 20px;
+        line-height: 25px
+    }
+    .banner-home .item .container .copy p {
+        font-size: 15px
+    }
+    .banner-home .item .container .copy a {
+        font-size: 15px;
+        height: 35px;
+        line-height: 30px
+    }
+    .banner-home .item .container .copy {
+        top: 60%
+    }
+    .megadrop a:after {
+        top: 7px
+    }
+    .booking-mb {
+        padding: 20px 0
+    }
+    .booking-mb h2 {
+        font-size: 23px;
+        padding-bottom: 10px
+    }
+    .booking-mb .booking-wrap .item {
+        width: 100%;
+        padding: 5px 0
+    }
+    .drop {
+        position: relative;
+        top: 0
+    }
+    .ip input {
+        height: 45px
+    }
+    .ip:after {
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%
+    }
+    .item-doc .copy p {
+        display: none
+    }
+    .tt-doc-crs h2 {
+        font-size: 15px
+    }
+    .tt-doc-crs p {
+        font-size: 13px
+    }
+    .tt-item h4 {
+        font-size: 25px
+    }
+    .news-list-wrap ul li {
+        margin-bottom: 10px
+    }
+    .news-list-wrap ul li:first-child .item-news .copy h2 {
+        font-size: 18px
+    }
+    .item-news .copy {
+        padding: 5px 0
+    }
+    .item-news .copy h2 {
+        font-size: 12px
+    }
+    .info-testi {
+        padding-left: 90px
+    }
+    .ct-testti p {
+        font-size: 17px;
+        line-height: 24px
+    }
+    .rating ul li p {
+        font-size: 18px
+    }
+    .rating ul li input[type=submit] {
+        width: 100%
+    }
+    .choosen-wrap h2 {
+        font-size: 24px;
+        line-height: 30px
+    }
+    .drop-pk,
+    .item-pk {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px
+    }
+    .drop-pk p,
+    .item-pk p {
+        font-size: 12px;
+        padding: 0
+    }
+    .drop-pk:after {
+        width: 20px;
+        height: 14px;
+        right: 10px;
+        margin-top: -7px
+    }
+    .choosen-wrap li {
+        padding: 5px 0;
+        margin-bottom: 0
+    }
+    .choosen-wrap li a {
+        width: 100%;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 60px
+    }
+    .partner-home {
+        padding: 25px 0
+    }
+    .ft-wrap .item:nth-child(2),
+    .ft-wrap .item:nth-child(3) {
+        display: none
+    }
+    .banner-home,
+    .banner-quote {
+        height: auto
+    }
+    .item-sv.right-align {
+        padding-left: 0
+    }
+    .item-sv.left-align {
+        padding-right: 0
+    }
+    .out-content {
+        width: 100%;
+        height: 200px;
+        position: relative
+    }
+    .copy-content {
+        padding: 10px;
+        min-height: 1px
+    }
+    .item-sv h3 {
+        font-size: 20px;
+        padding-bottom: 5px;
+        margin-bottom: 5px
+    }
+    .item-sv h4 {
+        font-size: 13px;
+        line-height: 20px;
+        padding-bottom: 5px
+    }
+    .banner-page {
+        height: auto;
+        position: relative
+    }
+    .banner-page .container {
+        position: static;
+        height: auto
+    }
+    .banner-page .container .copy {
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        padding: 0 10px
+    }
+    .banner-mb {
+        display: inline-block;
+        width: 100%
+    }
+    .item-top-faq {
+        margin: 0 -10px;
+        padding: 10px 0
+    }
+    .item-top-faq ul li {
+        width: 33.33%;
+        padding: 10px 5px
+    }
+    .item-top-faq ul li img {
+        width: 60%;
+        margin-bottom: 10px
+    }
+    .item-top-faq ul li h3 {
+        font-size: 14px;
+        display: inline-block;
+        height: 40px
+    }
+    .item-top-faq ul li .copy p,
+    .item-top-faq ul li p {
+        font-size: 12px
+    }
+    .tt-page h4 {
+        font-size: 17px
+    }
+    .tt-page h3 {
+        font-size: 23px
+    }
+    .list-faq .left {
+        width: 100%;
+        padding-right: 0
+    }
+    .list-faq .right {
+        width: 100%;
+        padding-left: 0
+    }
+    .faq-wrap {
+        padding: 25px 0
+    }
+    .newsletter .ip-news {
+        padding-right: 120px
+    }
+    .newsletter .ip-news input[type=submit] {
+        width: 120px;
+        font-size: 13px
+    }
+    .ft-wrap .item:first-child img {
+        width: 200px
+    }
+    .banner-quote,
+    .banner-quote .item,
+    .banner-quote .slick-list {
+        height: auto
+    }
+    .banner-quote .copy-quote {
+        padding: 30px 50px 50px;
+        position: relative;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+        top: 0;
+        left: 0;
+        width: 100%
+    }
+    .banner-quote .copy-quote p:before {
+        left: -40px
+    }
+    .banner-quote .copy-quote p:after {
+        right: -40px
+    }
+    .list-quote ul li {
+        width: 100%
+    }
+    .list-quote ul li .item {
+        padding: 10px
+    }
+    .list-quote ul li .item .copy p {
+        font-size: 15px
+    }
+    .pakacge-choosen .choosen-wrap li {
+        width: 100%
+    }
+    .list-persond>div {
+        width: 33.33%
+    }
+    .copy-fs,
+    .form-cr ul li .ip-w {
+        width: 100%
+    }
+    .banner-careers .item .container .copy h3 {
+        font-size: 20px
+    }
+    .banner-careers .item .container .copy h2 {
+        font-size: 30px
+    }
+    .item-bn-car .item {
+        padding: 0 2px
+    }
+    .item-bn-car .item div h3 {
+        font-size: 13px
+    }
+    .item-bn-car .item div {
+        padding: 40px 5px 15px
+    }
+    .item-bn-car .item div p {
+        font-size: 7px
+    }
+    .item-bn-car .item div span img {
+        width: 29px
+    }
+    .item-bn-car .item div span {
+        top: -30px
+    }
+    .list-cr ul li {
+        padding: 10px
+    }
+    .list-cr ul li .copy {
+        padding-left: 100px
+    }
+    .list-cr ul li img {
+        width: 45px;
+        left: 34px
+    }
+    .list-cr ul li .copy h4 {
+        font-size: 15px
+    }
+    .list-cr ul li .copy p {
+        font-size: 14px
+    }
+    .cr-info-dt {
+        padding: 10px;
+        text-align: center;
+        margin-top: 0
+    }
+    .cr-info-dt>img {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 10px
+    }
+    .cr-info-dt .btn-wrap {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding-top: 10px
+    }
+    .detail-cr .ct-copy {
+        padding: 10px 0
+    }
+    .detail-cr .main-if {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px
+    }
+    .detail-cr .main-if p:last-child {
+        margin-bottom: 0
+    }
+    .detail-cr .ct-copy .item {
+        padding-bottom: 25px
+    }
+    .list-news .item.style-1>div {
+        padding-right: 0
+    }
+    .list-news .item.style-1 .img {
+        width: 100%;
+        position: relative;
+        height: 200px
+    }
+    .list-news .item.style-2>div {
+        padding-right: 0;
+        padding-left: 100px
+    }
+    .list-news .item.style-2 .img {
+        width: 100px;
+        height: 100px;
+        right: auto;
+        left: 0
+    }
+    .list-news .item.style-4>div {
+        padding-right: 0;
+        padding-left: 100px;
+        min-height: 100px
+    }
+    .list-news .item.style-4 .img {
+        width: 100px;
+        height: 100px;
+        right: auto;
+        left: 0
+    }
+    .list-news .item.style-5>div {
+        padding-right: 0;
+        padding-left: 100px;
+        min-height: 100px
+    }
+    .list-news .item.style-5 .img {
+        width: 100px;
+        height: 100px;
+        right: auto;
+        left: 0
+    }
+    .list-news .item .copy h3 span {
+        font-size: 13px!important
+    }
+    .list-news .item .copy h3 {
+        font-size: 14px!important;
+        line-height: 17px!important
+    }
+    .list-news .item.style-2 .copy p,
+    .list-news .item.style-3 .copy p,
+    .list-news .item.style-4 .copy p,
+    .list-news .item.style-5 .copy p {
+        display: none
+    }
+    .list-news .item.style-2 .copy p.date,
+    .list-news .item.style-3 .copy p.date,
+    .list-news .item.style-4 .copy p.date,
+    .list-news .item.style-5 .copy p.date {
+        display: block
+    }
+    .list-news .item.style-2 .copy,
+    .list-news .item.style-4 .copy,
+    .list-news .item.style-5 .copy {
+        padding: 5px 10px!important
+    }
+    .list-news .item .date {
+        padding-bottom: 0
+    }
+    .list-news .item.style-3 {
+        width: 100%;
+        min-height: 130px
+    }
+    .list-news .item .has-video:after {
+        background-size: 60px
+    }
+    .list-news .item.style-4 {
+        width: 100%
+    }
+    .side-news .item .tab-content li {
+        margin-top: 10px
+    }
+    .news-wrap h2,
+    .top-video h3 {
+        font-size: 25px
+    }
+    #pNewsVideo .news-list-wrap ul li {
+        width: 50%
+    }
+    .list-video-wrap .has-video:after {
+        background-size: 60px
+    }
+    .banner-doctor .container .copy p {
+        font-size: 15px
+    }
+    .banner-contact,
+    .banner-doctor {
+        height: 180px;
+        background-position: right!important
+    }
+    .intro-dt {
+        padding: 20px 0
+    }
+    .intro-dt h2 {
+        font-size: 25px;
+        line-height: 30px;
+        padding-bottom: 10px
+    }
+    .op-dt-wrap .cap {
+        padding: 10px 0
+    }
+    .op-dt .sl-wrap {
+        width: 100%;
+        padding: 3px 0
+    }
+    .main-info {
+        padding-bottom: 20px
+    }
+    .main-info h2 {
+        font-size: 30px
+    }
+    .banner-contact .container .copy,
+    .banner-doctor .container .copy {
+        width: 100%
+    }
+    .banner-contact .container .copy h3,
+    .banner-doctor .container .copy h3 {
+        font-size: 20px;
+        line-height: 25px
+    }
+    .banner-contact .container .copy {
+        top: 50%
+    }
+    .banner-contact .container .copy p {
+        font-size: 15px
+    }
+    .contact-wrap .form-ct li .btn-page {
+        width: 100%
+    }
+    #pServiceCate .crs-style1 ul {
+        margin: 0 -5px
+    }
+    .item-sv p {
+        display: none
+    }
+    .testimo-home .copy-quote {
+        width: 100%;
+        padding: 0 40px
+    }
+    .testimo-home .copy-quote p {
+        font-size: 17px;
+        line-height: 20px
+    }
+    .copy-quote p:before {
+        width: 30px;
+        left: -30px
+    }
+    .copy-quote p:after {
+        width: 30px;
+        right: -30px
+    }
+    #pServiceInsurance .banner-page {
+        height: auto;
+        min-height: 194px
+    }
+    .factsheet-wrap .copy-content {
+        height: auto
+    }
+    .factsheet-wrap .copy-content>div {
+        top: auto;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0)
+    }
+    .factsheet-wrap .copy-content>div p {
+        display: block
+    }
+    .gm-style-iw {
+        width: 300px!important;
+        top: 15px!important;
+        left: 26px!important
+    }
+    .slick-slide .banner-careers-mb {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        z-index: 1
+    }
+    .banner-careers .item .container .copy {
+        position: absolute;
+        z-index: 2
+    }
+    .banner-careers {
+        height: auto
+    }
+    .banner-careers .item .container .copy h2,
+    .banner-careers .item .container .copy h3 {
+        padding-bottom: 5px
+    }
+    .btn-b,
+    .btn-bd,
+    .btn-page {
+        height: 40px;
+        line-height: 40px
+    }
+    #success .content h3 {
+        font-size: 20px
+    }
+    #success .content p {
+        font-size: 15px
+    }
+    #success .content p br {
+        display: none
+    }
+    .pakacge-choosen .choosen-wrap li .item-pk p {
+        padding: 0
+    }
+    .list-result {
+        margin: 0 -5px
+    }
+    .list-result li {
+        width: 50%;
+        padding: 0 5px
+    }
+    .list-news .item.style-1,
+    .list-news .item.style-2,
+    .list-news .item.style-5 {
+        min-height: 0
+    }
+    .list-news .item.style-3,
+    .list-news .item.style-4 {
+        min-height: 100px
+    }
+    .btn-dt {
+        padding: 20px 0
+    }
+    .btn-dt a {
+        background-size: 35px!important;
+        font-size: 12px;
+        min-height: 35px
+    }
+    .btn-dt a span {
+        font-size: 14px
+    }
+    .btn-dt .prev-doctor {
+        padding-left: 42px
+    }
+    .btn-dt .next-doctor {
+        padding-right: 42px
+    }
+    .list-news .item.style-3 .copy p {
+        display: none
+    }
+    .item-sv {
+        height: auto!important
+    }
+    .content-map p br {
+        display: none
+    }
+    .content-map h3 {
+        font-size: 14px!important
+    }
+}
