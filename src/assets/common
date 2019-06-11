@@ -1,0 +1,877 @@
+var dropDoctor = !1,
+    dropDay = !1,
+    dropTime = !1,
+    posHd = $(".bookingwrap-hd").offset().top;
+
+function resizeCrs() {
+    767 < $(window).innerWidth() && ($(".crs-style1 ul").hasClass("slick-slider") || crsStyle1())
+}
+
+function scrollDown() {
+    $(".js_go__down").on("click", function(e) {
+        e.preventDefault();
+        var t = $(this).attr("data"),
+            o = parseInt($("." + t).offset().top - 10);
+        return $("html, body").stop().animate({
+            scrollTop: o
+        }, 400), !1
+    })
+}
+
+function rating() {
+    $(".stars li").on("mouseover", function() {
+        var t = parseInt($(this).data("value"), 10);
+        $(this).parent().children("li.star").each(function(e) {
+            e < t ? $(this).addClass("hover") : $(this).removeClass("hover")
+        })
+    }).on("mouseout", function() {
+        $(this).parent().children("li.star").each(function(e) {
+            $(this).removeClass("hover")
+        })
+    }), $(".stars li").on("click", function() {
+        var e = parseInt($(this).data("value"), 10),
+            t = $(this).parent().children("li.star");
+        for (i = 0; i < t.length; i++) $(t[i]).removeClass("selected");
+        for (i = 0; i < e; i++) $(t[i]).addClass("selected");
+        $(this).parent().prev().val(e)
+    })
+}
+
+function cutText() {
+    var o = 400,
+        n = $(".js-text").attr("datamore"),
+        e = $(".js-text").attr("dataless");
+    $(".js-text").each(function() {
+        var e = $(this).html();
+        if (e.length > o) {
+            var t = e.substr(0, o) + '<span class="moreellipses">...&nbsp;</span><span class="morecontent"><span>' + e.substr(399, e.length - o) + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + n + "</a></span>";
+            $(this).html(t)
+        }
+    }), $(".morelink").click(function() {
+        return $(this).hasClass("less") ? ($(this).removeClass("less"), $(this).html(n)) : ($(this).addClass("less"), $(this).html(e)), $(this).parent().prev().toggle(), $(this).prev().toggle(), !1
+    })
+}
+
+function showLang() {
+    $(this).next().hasClass("active") ? $(this).next().removeClass("active").slideUp() : $(this).next().addClass("active").slideDown(), $(document).click(function(e) {
+        0 === $(e.target).parents(".lang").length && $(".lang a").removeClass("active").slideUp()
+    })
+}
+
+function dectectHService() {
+    var t = 0;
+    return $(".item-sv").css({
+        height: "auto"
+    }), $(".item-sv").each(function() {
+        var e = $(this).innerHeight();
+        t < e && (t = e)
+    }), $(".item-sv").css({
+        height: t
+    }), !1
+}
+
+function dectectH() {
+    var t = 0;
+    return $(".booking-wrap .item > p").css({
+        height: "auto"
+    }), $(".booking-wrap .item").each(function() {
+        var e = $(this).find(".dt-h").innerHeight();
+        t < e && (t = e)
+    }), $(".booking-wrap .item > p").css({
+        height: t
+    }), !1
+}
+
+function dectectHDt() {
+    var t = 0;
+    return $(".tt-doc-crs").css({
+        height: "auto"
+    }), $(".crs-style1 ul li,.list-dt li").each(function() {
+        var e = $(this).find(".tt-doc-crs").innerHeight();
+        t < e && (t = e)
+    }), $(".tt-doc-crs").css({
+        height: t
+    }), !1
+}
+
+function dectectHDtCopy() {
+    var t = 0;
+    return $(".item-doc .copy p").css({
+        height: "auto"
+    }), $(".crs-style1 ul li,.list-dt li").each(function() {
+        var e = $(this).find(".copy p").innerHeight();
+        t < e && (t = e)
+    }), $(".item-doc .copy p").css({
+        height: t
+    }), !1
+}
+
+function dectectHNewsCopy() {
+    var o = 0,
+        n = 0;
+    return $(".item-news .copy h2,.item-news .copy p").css({
+        height: "auto"
+    }), $(".news-list-wrap > ul li").each(function() {
+        var e = $(this).find(".copy h2").innerHeight();
+        o < e && (o = e);
+        var t = $(this).find(".copy p").innerHeight();
+        n < t && (n = t)
+    }), $(".item-news .copy h2").css({
+        height: o
+    }), $(".item-news .copy p").css({
+        height: n
+    }), !1
+}
+
+function scrollForm() {
+    return $("html,body").animate({
+        scrollTop: $("#careerForm").offset().top - 100
+    }, 700), !1
+}
+
+function mationCr() {
+    var e = $(".banner-wrap-car .stagger");
+    TweenMax.staggerFrom(e, .5, {
+        y: 100,
+        autoAlpha: 0
+    }, .2)
+}
+
+function eachNews() {
+    return $(".crs-style1 ul li").each(function(e, t) {}), !1
+}
+
+function scrollBookingButton() {
+    $(window).innerWidth() < 1025 && (console.log("123"), $(".booking-mb .btn-wrap .btn-booking").innerHeight() + $(".booking-mb .btn-wrap .btn-booking").offset().top - $("header").innerHeight() < $(window).scrollTop() ? ($(".btn-booking-mb").css({
+        display: "block"
+    }), $(".nav-wrap").addClass("h-pd")) : ($(".btn-booking-mb").css({
+        display: "none"
+    }), $(".nav-wrap").removeClass("h-pd")));
+    return !1
+}
+
+function getDataSubmitPage() {
+    var e = $(this).attr("data-spec"),
+        t = $(this).attr("data-doctor");
+    return $(".ip-spec input").val(e), $(".ip-doctor input").val(t), $(".alert-dt").css({
+        display: "inline-block"
+    }), !1
+}
+
+function minHNewsHome() {
+    var e = $(".choosen-wrap").innerHeight();
+    $("#pHome .news-list-wrap .item-news").css({
+        "min-height": e
+    })
+}
+
+function minHDoc() {
+    var e = $(".content-dt .sub-info").innerHeight();
+    $("#pDoctorDetail .content-dt").css({
+        "min-height": e
+    });
+    var t = $(".side-news").innerHeight();
+    $(".news-detail-wrap").css({
+        "min-height": t
+    })
+}
+
+function minHService() {
+    $(".content-sv .copy").css({
+        "min-height": "auto"
+    });
+    var e = $(".service-cate").innerHeight();
+    $(".content-sv .copy").innerHeight() < e && $(".content-sv .copy").css({
+        "min-height": e
+    })
+}
+
+function scrollBooking() {
+    $("html,body").animate({
+        scrollTop: $(".booking-mb").offset().top - 100
+    }, 700)
+}
+
+function scrollBookingMb() {
+    $(window).innerWidth() < 1025 && $("html,body").animate({
+        scrollTop: $(".booking-mb").offset().top - 100
+    }, 700)
+}
+
+function detectFocus() {
+    $(".ip input").blur(function() {
+        $(".ip").removeClass("active"), $(".item").removeClass("active")
+    }).focus(function() {
+        $(this).parent().addClass("active"), $(this).parents(".item").addClass("active")
+    })
+}
+
+function openPopup(e) {
+    return closePopup(), $(".ovl").fadeIn(function() {
+        $("#" + e).fadeIn()
+    }), $("html,body").css({
+        overflow: "hidden"
+    }), !1
+}
+
+function closePopup() {
+    return $(".ovl,.popup").fadeOut(), $("html,body").css({
+        overflow: "auto"
+    }), !1
+}
+
+function openSubMenuMb() {
+    return console.log("123123"), $(this).hasClass("active") ? ($(this).removeClass("active"), $(this).parent().next().stop(!0, !0).slideUp()) : ($(".drop-mn a em").removeClass("active"), $(".megadrop").stop(!0, !0).slideUp(), $(this).addClass("active"), $(this).parent().next().stop(!0, !0).slideDown()), !1
+}
+
+function menuMobile() {
+    $(".hamburger-menu .bar").toggleClass("animate"), $("header").hasClass("active") ? ($("header").removeClass("active"), $(".nav-wrap").animate({
+        left: "-100%"
+    }, 500, function() {
+        $("html,body").css({
+            overflow: "auto"
+        })
+    })) : ($("header").addClass("active"), $(".nav-wrap").animate({
+        left: "0"
+    }, 500, function() {
+        $("html,body").css({
+            overflow: "hidden"
+        })
+    }))
+}
+
+function customSelect() {
+    $(".custom-sl").each(function() {
+        var t = $(this),
+            e = $(this).children("option").length;
+        t.addClass("select-hidden"), t.wrap('<div class="select"></div>'), t.after('<div class="select-styled"></div>');
+        var o = t.next("div.select-styled");
+        o.text(t.children("option").filter(":selected").text());
+        var n = $("<div />", {
+            class: "select-options"
+        }).insertAfter(o);
+        n.html('<div class="copyscroll"><div class="nano"><div class="nano-content"></div></div></div>');
+        for (var i = t.next().next().find(".nano-content"), s = 1; s < e; s++) $("<p />", {
+            text: t.children("option").eq(s).text(),
+            rel: t.children("option").eq(s).val()
+        }).appendTo(i);
+        o.click(function(e) {
+            e.stopPropagation(), $("div.select-styled.active").not(this).each(function() {
+                $(this).removeClass("active").next("div.select-options").hide()
+            }), $(this).toggleClass("active").next("div.select-options").toggle(), $(".nano").nanoScroller()
+        }), n.find("p").click(function(e) {
+            e.stopPropagation(), o.html("<p><span>" + $(this).text() + "</span></p>").removeClass("active"), o.find("span").innerWidth() > o.innerWidth() ? o.find("span").addClass("animateSpan") : o.find("span").removeClass("animateSpan"), t.val($(this).attr("rel")), n.hide(), $(this).closest("form").submit(), clickCustomSelect(t)
+        }), $(document).click(function() {
+            o.removeClass("active"), n.hide()
+        })
+    })
+}
+
+function scrollTop() {
+    if ($("#back-to-top").length) {
+        var e = function() {
+            100 < $(window).scrollTop() ? $("#back-to-top").addClass("show") : $("#back-to-top").removeClass("show")
+        };
+        e(), $(window).on("scroll", function() {
+            e()
+        }), $("#back-to-top").on("click", function(e) {
+            e.preventDefault(), $("html,body").animate({
+                scrollTop: 0
+            }, 700)
+        })
+    }
+    return !1
+}
+bannerHome(), closeBookingDoc(), closeBookingDay(), closeBookingTime(), crsStyle1(), crsPersond(), testimonials(), bannerQuote(), bannerSer(), bannerCar(), customSelect(), bannerNewsDt(), minHNewsHome(), minHService(), scrollBookingButton(), eachNews(), dectectHService(), dectectH(), dectectHDt(), dectectHDtCopy(), dectectHNewsCopy(), getOS(), minHDoc(), cutText(), scrollDown(), $(".loading-page").fadeOut(300), $(window).scroll(function(e) {
+    scrollBookingButton()
+}), $(window).innerWidth() < 768 ? (detectFocus(), hasTouch()) : mationCr(), $("#mapCanvas").length && initialize(), scrollTop(), scrollHeader(100), $(window).scroll(function(e) {
+    scrollHeader(100)
+}), $(window).resize(function(e) {
+    minHNewsHome(), minHService(), dectectH(), dectectHDt(), dectectHDtCopy(), dectectHNewsCopy(), minHDoc(), dectectHService(), resizeCrs()
+}), $(document).on("click", function(e) {
+    var t = $(".drop-pk");
+    t.is(e.target) || 0 !== t.has(e.target).length || $(".drop-pk").hasClass("active") && ($(".drop-pk").removeClass("active"), $(".dropdown-list").stop(!0, !0).slideUp())
+}), $(".drop-pk p span").innerWidth() > $(".drop-pk p").innerWidth() ? $(".drop-pk p span").addClass("animateSpan") : $(".drop-pk p span").removeClass("animateSpan"), $(".js-dropBooking-spec").on("focusin", dropBookingSpec), $(".js-dropBooking-spec").on("focusout", closeBooking), $(".js-dropBooking-doctor").on("focusin", dropBookingDoc), $(".js-dropBooking-day").on("focusin", dropBookingDay), $(".js-dropBooking-time").on("focusin", dropBookingTime), $(".drop-spec li").on("click", getDataSpec), $("body").on("click", ".js-accor-doc", acorDoctor), $(".item-time li").on("click", getDataTime), $(".js-opensearch").on("click", openSearch), $(".js-close-search").on("click", closeSearch), $(".drop-pk").on("click", dropPk), $(".dropdown-list span").on("click", getDataPk), $(".js-book-dt").on("click", getDataDoctor), $(".js-open-video").on("click", openVideoYoutube), $(".js-closevideo,.ovl").on("click", closeVideo), $(".faq-item h3").on("click", acorFaq), $(".js-open-tb").on("click", acorTb), $(".js-file").on("click", inputFile), $(".js-tab").on("click", tabNews), $(".hamburger-menu").on("click", menuMobile), $(".drop-mn a em").on("click", openSubMenuMb), $(".js-close-popup,.ovl").on("click", closePopup), $(".btn-booking-mb").on("click", scrollBooking), $(".js-scrollForm").on("click", scrollForm), $(".lang .item").on("click", showLang), rating();
+var isChange = !1;
+
+function tabNews() {
+    if (!isChange) {
+        isChange = !0;
+        var e = $(this).attr("tab");
+        $(this).hasClass("active") || ($(".ct-tab span").removeClass("active"), $(this).addClass("active"), $(".tab-content").hide(), $("#" + e).fadeIn(function() {
+            isChange = !1
+        }))
+    }
+    return !1
+}
+
+function videoYt() {
+    return !1
+}
+
+function inputFile() {
+    return $("#ipFile").click(), $("#ipFile").on("change", function(e) {
+        var t = $(this).val().split(/[\\/]/g).pop().split(".")[0];
+        $(".att-file p").html(t)
+    }), !1
+}
+
+function heightSerCate() {
+    $(".content-sv").css({
+        "min-height": $(".service-cate").innerHeight()
+    })
+}
+
+function openVideoYoutube() {
+    var e = $(this).attr("datavideo");
+    $(".ovl").fadeIn(), $(".popup-video").fadeIn(), $("#video").html('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + e + '?rel=0&modestbranding=1&autoplay=1&showinfo=0&controls=1" frameborder="0" allowfullscreen></iframe>'), $("html,body").css({
+        overflow: "hidden"
+    })
+}
+
+function closeVideo() {
+    return $(".ovl").fadeOut(), $(".popup-video").fadeOut(function() {
+        $("#video").html(" ")
+    }), $("html,body").css({
+        overflow: "auto"
+    }), !1
+}
+
+function getDataPk() {
+    var e = $(this).attr("datavnd"),
+        t = $(this).attr("datausd"),
+        o = $(this).html();
+    $(".vl-vnd").html(e + " Đ"), $(".vl-usd").html(t + " $"), $(".drop-pk p").html("<span>" + o + "</span>"), $(".drop-pk p span").innerWidth() > $(".drop-pk p").innerWidth() ? $(".drop-pk p span").addClass("animateSpan") : $(".drop-pk p span").removeClass("animateSpan")
+}
+
+function dropPk() {
+    $(this).hasClass("active") ? ($(this).removeClass("active"), $(".dropdown-list").stop(!0, !0).slideUp()) : ($(this).addClass("active"), $(".dropdown-list").stop(!0, !0).slideDown(function() {
+        $(".nano").nanoScroller()
+    }))
+}
+
+function openSearch() {
+    return $(".search-ct-wrap").fadeIn(function() {
+        $(".search-wrap").addClass("show")
+    }), !1
+}
+
+function closeSearch() {
+    $(".search-wrap").removeClass("show"), $(".search-ct-wrap").fadeOut()
+}
+
+function scrollHeader() {
+    if (1024 < $(window).innerWidth()) {
+        var e = $(window).scrollTop();
+        $("#pHome").length ? e >= $(".doctor-home").offset().top ? $("header").addClass("fixHd") : $("header").removeClass("fixHd") : posHd <= e ? $("header").addClass("fixHd") : $("header").removeClass("fixHd")
+    } else {
+        1 <= (e = $(window).scrollTop()) ? $("header").addClass("fixHd") : $("header").removeClass("fixHd")
+    }
+}
+
+function bannerHome() {
+    $(".banner-home").on("init", function(e, t) {
+        $(".banner-home").animate({
+            opacity: 1
+        })
+    }), $(".banner-home").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: !1,
+        autoplay: !0,
+        autoplaySpeed: 5e3,
+        arrows: !0,
+        speed: 1e3
+    })
+}
+
+function bannerSer() {
+    $(".banner-ser").on("init", function(e, t) {
+        $(".banner-ser").animate({
+            opacity: 1
+        })
+    }), $(".banner-ser").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: !0,
+        autoplay: !0,
+        autoplaySpeed: 5e3,
+        arrows: !1,
+        speed: 1e3
+    })
+}
+
+function bannerCar() {
+    $(".banner-careers").on("init", function(e, t) {
+        $(".banner-careers").animate({
+            opacity: 1
+        })
+    }), $(".banner-careers").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: !0,
+        autoplay: !0,
+        autoplaySpeed: 5e3,
+        arrows: !1,
+        speed: 1e3
+    })
+}
+
+function bannerNewsDt() {
+    $(".slider-news-dt ul").on("init", function(e, t) {
+        $(".slider-news-dt").animate({
+            opacity: 1
+        })
+    }), $(".slider-news-dt ul").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: !0,
+        autoplay: !0,
+        autoplaySpeed: 5e3,
+        arrows: !0,
+        speed: 1e3,
+        adaptiveHeight: !0
+    })
+}
+
+function bannerQuote() {
+    var o;
+    $(".banner-quote").on("init", function(e, t) {
+        $(".banner-quote").animate({
+            opacity: 1
+        }), $(".crs-next").on("click", function() {
+            o.slick("slickNext")
+        }), $(".crs-prev").on("click", function() {
+            o.slick("slickPrev")
+        })
+    }), o = $(".banner-quote").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: !0,
+        autoplay: !0,
+        autoplaySpeed: 5e3,
+        arrows: !1,
+        speed: 1e3,
+        adaptiveHeight: !0
+    })
+}
+
+function getDaysInMonth(e, t) {
+    return new Date(e, t, 0).getDate()
+}
+
+function datepicker(e) {
+    var t = new Date;
+    t.getMonth(), t.getDate(), t.getFullYear();
+    $(".calendar").datepicker({
+        minDate: new Date(minDatepicker),
+        maxDate: new Date(maxDatepicker),
+        dateFormat: "dd-mm-yy",
+        beforeShowDay: function(e) {
+            var t = jQuery.datepicker.formatDate("yy-mm-dd", e);
+            return -1 != $.inArray(t, AIH.Booking._enableDate) ? [!0, "", "Available"] : [!1, "", "unAvailable"]
+        },
+        onSelect: function(e, t) {
+            $(".js-dropBooking-day").val(e), $(".drop-day").slideUp(), $(".drop-day").prev().animate({
+                bottom: "-100%",
+                opacity: 0
+            }), changeDatePicker(e)
+        }
+    })
+}
+
+function dropBookingSpec() {
+    $(this);
+    $(".drop-doctor").slideUp(), 
+	$(this).next().next().slideDown(function() {
+        $(".ip-spec").addClass("has-before")
+    }), 
+	$(this).next().animate({
+        bottom: 0,
+        opacity: 1
+    }, {
+        duration: 500,
+        complete: function() {
+            $(".drop-spec").find(".nano").nanoScroller()
+        }
+    })
+}
+
+function dropBookingDoc() {
+    $(this);
+    dropDoctor = !0, $(this).next().next().slideDown(function() {
+        dropDoctor = !1, $(".ip-doctor").addClass("has-before")
+    }), $(this).next().animate({
+        bottom: 0,
+        opacity: 1
+    }, {
+        duration: 500,
+        complete: function() {
+            $(".drop-doctor").find(".nano").nanoScroller()
+        }
+    })
+}
+
+function dropBookingDay() {
+    datepicker();
+    $(this);
+    dropDay = !0, $(this).next().next().slideDown(function() {
+        dropDay = !1, $(".ip-day").addClass("has-before")
+    }), $(this).next().animate({
+        bottom: 0,
+        opacity: 1
+    })
+}
+
+function dropBookingTime() {
+    $(this);
+    dropTime = !0, $(this).next().next().slideDown(function() {
+        dropTime = !1, $(".ip-time").addClass("has-before")
+    }), $(this).next().animate({
+        bottom: 0,
+        opacity: 1
+    })
+}
+
+function closeBooking() {
+    var e = $(this);
+    setTimeout(function() {
+        e.next().next().slideUp(function() {
+            $(".ip-spec").removeClass("has-before")
+        }), e.next().animate({
+            bottom: "-100%",
+            opacity: 0
+        })
+    }, 200)
+}
+
+function closeBookingDoc() {
+    $(document).click(function(e) {
+        0 === $(e.target).parents(".drop-doctor").length && (dropDoctor || ($(".drop-doctor").slideUp(function() {
+            $(".ip-doctor").removeClass("has-before")
+        }), $(".drop-doctor").prev().animate({
+            bottom: "-100%",
+            opacity: 0
+        })))
+    })
+}
+
+function closeBookingDay() {
+    $(document).mouseup(function(e) {
+        var t = $(".drop-day");
+        t.is(e.target) || 0 !== t.has(e.target).length || dropDay || ($(".drop-day").slideUp(function() {
+            $(".ip-day").removeClass("has-before")
+        }), $(".drop-day").prev().animate({
+            bottom: "-100%",
+            opacity: 0
+        }))
+    })
+}
+
+function closeBookingTime() {
+    $(document).click(function(e) {
+        $(e.target).hasClass("btn") || 0 !== $(e.target).parents(".ip-time").length || ($(".drop-time").slideUp(function() {
+            $(".ip-time").removeClass("has-before")
+        }), $(".drop-time").prev().animate({
+            bottom: "-100%",
+            opacity: 0
+        }))
+    })
+}
+
+function getDataSpec() {
+    var e = $(this).attr("data-spec");
+    console.log(e), $(".ip-spec input[name=deparmentname]").val(e), $(".note-spec").hide()
+}
+
+function getDataTime() {
+    if (!$(this).hasClass("disable-time")) {
+        $(".drop-time ul li").removeClass("active");
+        var e = $(this).find("span").html();
+        $(this).addClass("active"), $(".ip-time input").val(e), $(".drop-time").slideUp(), $(".drop-time").prev().animate({
+            bottom: "-100%",
+            opacity: 0
+        })
+    }
+}
+
+function getDataDoctor() {
+    if (!$(this).parent().hasClass("active")) {
+        var e = $(this).attr("data-doctor"),
+            t = $(this).attr("data-dayoff");
+        $(this).attr("data-selected");
+        $(".ip-doctor input[type=text]").val(e), $(".drop-day").html('<div class="calendar"></div>'), datepicker(t), $(".drop-doctor").slideUp(), $(".drop-doctor").prev().animate({
+            bottom: "-100%",
+            opacity: 0
+        })
+    }
+    return !1
+}
+
+function acorDoctor() {
+    $(this).parent().hasClass("active") ? ($(this).parent().removeClass("active"), $(this).parent().next().slideUp()) : ($(".tt-doc").removeClass("active"), $(".drop-doctor ul li .copy").slideUp(), $(this).parent().addClass("active"), $(this).parent().next().slideDown(function() {
+        $(".drop-doctor").find(".nano").nanoScroller()
+    }))
+}
+
+function acorFaq() {
+    $(this).attr("data-doctor");
+    $(this).hasClass("active") ? ($(this).removeClass("active"), $(this).next().slideUp()) : ($(".faq-item h3").removeClass("active"), $(".faq-item .copy").slideUp(), $(this).addClass("active"), $(this).next().slideDown())
+}
+
+function acorTb() {
+    $(this).hasClass("active") ? ($(this).parents(".drop-td").removeClass("active"), $(this).removeClass("active"), $(this).next().slideUp()) : ($(".js-open-tb").removeClass("active"), $(".drop-td").removeClass("active"), $(".pakacge-table .copy").slideUp(), $(this).addClass("active"), $(this).next().slideDown(), $(this).parents(".drop-td").addClass("active"))
+}
+
+function crsStyle1() {
+    var o;
+    $(".crs-style1").on("init", function(e, t) {
+        $(".crs-next").on("click", function() {
+            o.slick("slickNext")
+        }), $(".crs-prev").on("click", function() {
+            o.slick("slickPrev")
+        }), $(".crs-style1").animate({
+            opacity: 1
+        })
+    }), (o = $(".crs-style1 ul").slick({
+        infinite: !0,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        arrows: !1,
+        autoplay: !1,
+        autoplaySpeed: 5e3,
+        responsive: [{
+            breakpoint: 1023,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }
+        }, {
+            breakpoint: 767,
+            settings: "unslick"
+        }]
+    })).on("beforeChange", function(e, t, o, n) {}), o.on("afterChange", function(e, t, o, n) {})
+}
+
+function crsPersond() {
+    $(".logo-crs ul").on("init", function(e, t) {
+        $(".persond-ins").animate({
+            opacity: 1
+        })
+    }), $(".logo-crs ul").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: !0,
+        autoplay: !0,
+        autoplaySpeed: 5e3,
+        arrows: !1,
+        speed: 1e3
+    })
+}
+
+function testimonials() {
+    var o;
+    $(".crs-testi ul").on("init", function(e, t) {
+        $(".crs-next").on("click", function() {
+            o.slick("slickNext")
+        }), $(".crs-prev").on("click", function() {
+            o.slick("slickPrev")
+        })
+    }), (o = $(".crs-testi ul").slick({
+        infinite: !0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: !1,
+        dots: !0
+    })).on("beforeChange", function(e, t, o, n) {}), o.on("afterChange", function(e, t, o, n) {})
+}
+
+function initialize() {
+    "use strict";
+    var e = new google.maps.LatLng(10.798977, 106.746701),
+        t = new google.maps.LatLng(10.793787, 106.746365),
+        o = {
+            zoom: 15,
+            scrollwheel: !1,
+            center: e,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [{
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#e9e9e9"
+                }, {
+                    lightness: 17
+                }]
+            }, {
+                featureType: "landscape",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#f5f5f5"
+                }, {
+                    lightness: 20
+                }]
+            }, {
+                featureType: "road.highway",
+                elementType: "geometry.fill",
+                stylers: [{
+                    color: "#d5d5d5"
+                }, {
+                    lightness: 17
+                }]
+            }, {
+                featureType: "road.highway",
+                elementType: "geometry.stroke",
+                stylers: [{
+                    color: "#d5d5d5"
+                }, {
+                    lightness: 29
+                }, {
+                    weight: .2
+                }]
+            }, {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#d5d5d5"
+                }, {
+                    lightness: 18
+                }]
+            }, {
+                featureType: "road.local",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#d5d5d5"
+                }, {
+                    lightness: 16
+                }]
+            }, {
+                featureType: "poi",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#f5f5f5"
+                }, {
+                    lightness: 21
+                }]
+            }, {
+                featureType: "poi.park",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#dedede"
+                }, {
+                    lightness: 21
+                }]
+            }, {
+                elementType: "labels.text.stroke",
+                stylers: [{
+                    visibility: "on"
+                }, {
+                    color: "#ffffff"
+                }, {
+                    lightness: 16
+                }]
+            }, {
+                elementType: "labels.text.fill",
+                stylers: [{
+                    saturation: 36
+                }, {
+                    color: "#333333"
+                }, {
+                    lightness: 40
+                }]
+            }, {
+                elementType: "labels.icon",
+                stylers: [{
+                    visibility: "off"
+                }]
+            }, {
+                featureType: "transit",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#f2f2f2"
+                }, {
+                    lightness: 19
+                }]
+            }, {
+                featureType: "administrative",
+                elementType: "geometry.fill",
+                stylers: [{
+                    color: "#fefefe"
+                }, {
+                    lightness: 20
+                }]
+            }, {
+                featureType: "administrative",
+                elementType: "geometry.stroke",
+                stylers: [{
+                    color: "#fefefe"
+                }, {
+                    lightness: 17
+                }, {
+                    weight: 1.2
+                }]
+            }]
+        },
+        n = new google.maps.Map(document.getElementById("mapCanvas"), o),
+        i = new google.maps.Marker({
+            position: t,
+            map: n,
+            title: "Location Name",
+            icon: "assets/images/marker.png",
+            scaledSize: new google.maps.Size(10, 10)
+        }),
+        s = new google.maps.InfoWindow({
+            content: "<div id='gm_content' class='content-map'><h3>AMERICAN INTERNATIONAL HOSPITAL</h3><p><span>Address:</span> No. 199, Nguyen Hoang, An Phu Ward, District 2, Ho Chi Minh City</p><p><span>Hotline:</span> +84-28-3910 9999</p></div>",
+            maxWidth: 350
+        });
+    s.open(n, i), google.maps.event.addListener(s, "domready", function() {
+        var e = $(".gm-style-iw"),
+            t = e.prev();
+        t.children(":nth-child(2)").css({
+            display: "none"
+        }), t.children(":nth-child(4)").css({
+            display: "none"
+        }), t.children(":nth-child(1)").attr("style", function(e, t) {
+            return t + "left: 76px !important;"
+        }), t.children(":nth-child(3)").attr("style", function(e, t) {
+            return t + "left: 76px !important;"
+        }), t.children(":nth-child(3)").find("div").children().css({
+            background: "#666565",
+            "z-index": "1"
+        });
+        var o = e.next();
+        o.css({
+            display: "none"
+        }), $(".iw-content").height() < 140 && $(".iw-bottom-gradient").css({
+            display: "none"
+        }), o.mouseout(function() {
+            $(this).css({
+                opacity: "0"
+            })
+        })
+    })
+}
+
+function hasTouch() {
+    return "ontouchstart" in document.documentElement || 0 < navigator.maxTouchPoints || 0 < navigator.msMaxTouchPoints
+}
+if ($(window).innerWidth() < 1025 && hasTouch()) try {
+    for (var si in document.styleSheets) {
+        var styleSheet = document.styleSheets[si];
+        if (styleSheet.rules)
+            for (var ri = styleSheet.rules.length - 1; 0 <= ri; ri--) styleSheet.rules[ri].selectorText && styleSheet.rules[ri].selectorText.match(":hover") && styleSheet.deleteRule(ri)
+    }
+} catch (e) {}
+
+function getOS() {
+    var e = window.navigator.userAgent,
+        t = window.navigator.platform,
+        o = null;
+    return -1 !== ["Macintosh", "MacIntel", "MacPPC", "Mac68K"].indexOf(t) ? (o = "Mac OS", $("body").addClass("mac")) : -1 !== ["iPhone", "iPad", "iPod"].indexOf(t) ? o = "iOS" : -1 !== ["Win32", "Win64", "Windows", "WinCE"].indexOf(t) ? (o = "Windows", $("body").addClass("window")) : /Android/.test(e) ? o = "Android" : !o && /Linux/.test(t) && (o = "Linux"), o
+}

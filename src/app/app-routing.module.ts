@@ -1,14 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './abouts/about/about.component';
-import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './containers/home/home.component';
+import { AboutComponent } from './containers/abouts/about/about.component';
+
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { PageLayoutComponent } from './layouts/page-layout/page-layout.component';
 
 const routes: Routes = [
-	{ path: '', component: HomeComponent },
-  	{ path: 'about', component: AboutComponent },
-  	{ path: 'contact', component: ContactComponent }
+	{ 
+        path: '', 
+        component: HomeLayoutComponent,
+        children: [
+          { path: '', component: HomeComponent, pathMatch: 'full'}
+        ]
+    },
+
+    { 
+        path: '',
+        component: PageLayoutComponent, 
+        children: [
+          { path: 'about', component: AboutComponent }
+        ]
+    },
 ];
 
 @NgModule({
