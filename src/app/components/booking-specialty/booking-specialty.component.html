@@ -1,21 +1,27 @@
 <div class="item-inner">
-	<div class="ip ip-spec">
-		<input readonly="true" name="deparmentname" class="js-dropBooking-spec" type="text" placeholder="Chuyên khoa">  
-		<em class="ar"></em>
-		<div class="drop drop-spec">
-			<input type="hidden" class="js-input" name="deparmentid" data-message="Vui lòng chọn chuyên khoa">
-			<div class="copyscroll">
-				<div class="nano">
-					<div class="nano-content">
-						<ul>
-							
-							<app-specialty-item></app-specialty-item>
-							
-						</ul>
-					</div>
-				</div>
-			</div>             
-			
-		</div>
-	</div>					
+  <div class="ip ip-spec {{ isActive ? 'has-before' : '' }}" (click)="handleInputClick()">
+    <input readonly="true"
+           name="deparmentname"
+           class="js-dropBooking-spec"
+           type="text"
+           placeholder="Chuyên khoa"
+
+    >
+    <em class="ar"></em>
+    <div class="drop drop-spec {{ isActive ? 'active' : '' }}">
+      <input type="hidden" class="js-input" name="deparmentid" data-message="Vui lòng chọn chuyên khoa">
+      <div class="copyscroll">
+        <div class="nano">
+          <div class="nano-content">
+            <ul>
+
+              <app-specialty-item></app-specialty-item>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
