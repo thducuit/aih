@@ -8,11 +8,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-//CONTAINNERS
+// CONTAINNERS
 import { HomeComponent } from './containers/home/home.component';
 import { DoctorComponent } from './containers/doctor/doctor.component';
 
-//about
+// about
 import { AboutComponent } from './containers/abouts/about/about.component';
 import { QaComponent } from './containers/abouts/qa/qa.component';
 import { TestimonialComponent } from './containers/abouts/testimonial/testimonial.component';
@@ -20,13 +20,13 @@ import { ContactComponent } from './containers/contact/contact.component';
 import { JobComponent } from './containers/job/job.component';
 import { EventComponent } from './containers/news/event/event.component';
 import { VideoComponent } from './containers/news/video/video.component';
-//services
+// services
 import { InformationComponent } from './containers/services/information/information.component';
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
 import { ServiceComponent } from './containers/services/service/service.component';
 import { SpecialistComponent } from './containers/services/specialist/specialist.component';
 
-//COMPONENTS
+// COMPONENTS
 import { BookingDoctorComponent } from './components/booking-doctor/booking-doctor.component';
 import { HotlineComponent } from './components/hotline/hotline.component';
 import { LanguageComponent } from './components/language/language.component';
@@ -38,7 +38,7 @@ import { DoctorItemComponent } from './components/slide/doctor/doctor-item/docto
 import { NewsItemComponent } from './components/slide/news/news-item/news-item.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
 
-//SHARED
+// SHARED
 import { AlertComponent } from './shared/alert/alert.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { LoadingComponent } from './shared/loading/loading.component';
@@ -77,6 +77,7 @@ import { SectionPartnerComponent } from './components/section/section-partner/se
 import { SectionTestimoComponent } from './components/section/section-testimo/section-testimo.component';
 import { ChoosenPackageComponent } from './components/choosen-package/choosen-package.component';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
+import { CareerComponent } from './containers/career/career.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -86,11 +87,11 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
 
-    //Layouts
+    // Layouts
     HomeLayoutComponent,
     PageLayoutComponent,
 
-    //containers
+    // containers
     HomeComponent,
     DoctorComponent,
 
@@ -108,7 +109,7 @@ export function createTranslateLoader(http: HttpClient) {
     InsuranceComponent,
     InformationComponent,
 
-    //shared
+    // shared
     LoadingComponent,
     InputComponent,
     SelectComponent,
@@ -117,7 +118,7 @@ export function createTranslateLoader(http: HttpClient) {
     AlertComponent,
     ButtonComponent,
 
-    //components
+    // components
     HotlineComponent,
     TopHeaderComponent,
     MainHeaderComponent,
@@ -156,6 +157,7 @@ export function createTranslateLoader(http: HttpClient) {
     SectionTestimoComponent,
     ChoosenPackageComponent,
     HeaderPageComponent,
+    CareerComponent,
   ],
   imports: [
     BrowserModule,
