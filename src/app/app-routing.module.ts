@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '',
     component: HomeLayoutComponent,
     children: [
-      {path: '', component: HomeComponent, pathMatch: 'full'}
+      { path: '', component: HomeComponent, pathMatch: 'full' }
     ]
   },
   {
