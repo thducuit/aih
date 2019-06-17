@@ -77,6 +77,7 @@ import { SectionPartnerComponent } from './components/section/section-partner/se
 import { SectionTestimoComponent } from './components/section/section-testimo/section-testimo.component';
 import { ChoosenPackageComponent } from './components/choosen-package/choosen-package.component';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
+import { CareerComponent } from './containers/career/career.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -156,6 +157,7 @@ export function createTranslateLoader(http: HttpClient) {
     SectionTestimoComponent,
     ChoosenPackageComponent,
     HeaderPageComponent,
+    CareerComponent,
   ],
   imports: [
     BrowserModule,

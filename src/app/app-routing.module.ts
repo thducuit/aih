@@ -13,6 +13,8 @@ import { InsuranceComponent } from './containers/services/insurance/insurance.co
 import { DoctorComponent } from './containers/doctor/doctor.component';
 import { VideoComponent } from './containers/news/video/video.component';
 import { EventComponent } from './containers/news/event/event.component';
+import { CareerComponent } from './containers/career/career.component';
+import { ContactComponent } from './containers/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -35,7 +37,9 @@ const routes: Routes = [
       { path: 'patient-services/factsheet', component: ServiceComponent },
       { path: 'doctor', component: DoctorComponent },
       { path: 'news', component: EventComponent },
-      { path: 'videos', component: VideoComponent }
+      { path: 'videos', component: VideoComponent },
+      { path: 'career', component: CareerComponent },
+      { path: 'contact', component: ContactComponent },
     ]
   },
 ];
