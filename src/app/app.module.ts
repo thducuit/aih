@@ -21,10 +21,10 @@ import { JobComponent } from './containers/job/job.component';
 import { EventComponent } from './containers/news/event/event.component';
 import { VideoComponent } from './containers/news/video/video.component';
 // services
-import { InformationComponent } from './containers/services/information/information.component';
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
 import { ServiceComponent } from './containers/services/service/service.component';
-import { SpecialistComponent } from './containers/services/specialist/specialist.component';
+import { FactsheetComponent } from './containers/services/factsheet/factsheet.component';
+import { PackageComponent } from './containers/services/package/package.component';
 
 // COMPONENTS
 import { BookingDoctorComponent } from './components/booking-doctor/booking-doctor.component';
@@ -79,6 +79,7 @@ import { ChoosenPackageComponent } from './components/choosen-package/choosen-pa
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { CareerComponent } from './containers/career/career.component';
 
+
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -103,11 +104,12 @@ export function createTranslateLoader(http: HttpClient) {
     VideoComponent,
     JobComponent,
     ContactComponent,
+    CareerComponent,
 
-    SpecialistComponent,
     ServiceComponent,
     InsuranceComponent,
-    InformationComponent,
+    FactsheetComponent,
+    PackageComponent,
 
     // shared
     LoadingComponent,
@@ -156,8 +158,7 @@ export function createTranslateLoader(http: HttpClient) {
     SectionPartnerComponent,
     SectionTestimoComponent,
     ChoosenPackageComponent,
-    HeaderPageComponent,
-    CareerComponent,
+    HeaderPageComponent
   ],
   imports: [
     BrowserModule,
