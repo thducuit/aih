@@ -10,6 +10,8 @@ import { QaComponent } from './containers/abouts/qa/qa.component';
 import { TestimonialComponent } from './containers/abouts/testimonial/testimonial.component';
 import { ServiceComponent } from './containers/services/service/service.component';
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
+import { FactsheetComponent } from './containers/services/factsheet/factsheet.component';
+import { PackageComponent } from './containers/services/package/package.component';
 import { DoctorComponent } from './containers/doctor/doctor.component';
 import { VideoComponent } from './containers/news/video/video.component';
 import { EventComponent } from './containers/news/event/event.component';
@@ -32,9 +34,9 @@ const routes: Routes = [
       { path: 'about-us/faq', component: QaComponent },
       { path: 'about-us/testimonial', component: TestimonialComponent },
       { path: 'patient-services/medical-services', component: ServiceComponent },
-      { path: 'patient-services/medical-package', component: ServiceComponent },
+      { path: 'patient-services/medical-package', component: PackageComponent },
       { path: 'patient-services/insurance', component: InsuranceComponent },
-      { path: 'patient-services/factsheet', component: ServiceComponent },
+      { path: 'patient-services/factsheet', component: FactsheetComponent },
       { path: 'doctor', component: DoctorComponent },
       { path: 'news', component: EventComponent },
       { path: 'videos', component: VideoComponent },
