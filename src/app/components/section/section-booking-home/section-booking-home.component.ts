@@ -1,4 +1,11 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  HostListener,
+  AfterViewInit,
+} from '@angular/core';
 import jquery from 'jquery';
 
 @Component({
@@ -6,20 +13,18 @@ import jquery from 'jquery';
   templateUrl: './section-booking-home.component.html',
   styleUrls: ['./section-booking-home.component.css'],
 })
-export class SectionBookingHomeComponent implements OnInit {
+export class SectionBookingHomeComponent implements OnInit, AfterViewInit {
   @ViewChild('frmBooking', { static: false }) frmBooking: ElementRef;
 
   constructor() {}
 
-  ngOnInit() {
-    jquery(document).ready(() => {
-      this.dectectH();
-    });
-    jquery(window).resize(() =>{
-      this.dectectH();
-    });
+  ngOnInit() {}
+
+  ngAfterViewInit(): void {
+    this.dectectH();
   }
 
+  @HostListener('window:resize', ['$event'])
   dectectH() {
     let t = 0;
     const containerElement = this.frmBooking

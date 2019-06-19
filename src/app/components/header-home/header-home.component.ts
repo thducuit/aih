@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import jquery from 'jquery';
 
 @Component({
@@ -6,16 +6,16 @@ import jquery from 'jquery';
   templateUrl: './header-home.component.html',
   styleUrls: ['./header-home.component.css'],
 })
-export class HeaderHomeComponent implements OnInit {
+export class HeaderHomeComponent implements OnInit, AfterViewInit {
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngAfterViewInit(): void {
     this.scrollHeader();
-    jquery(window).scroll(e => {
-      this.scrollHeader();
-    });
   }
 
+  @HostListener('window:scroll', ['$event'])
   scrollHeader() {
     let scrollTop: number;
     if (1024 < jquery(window).innerWidth()) {
