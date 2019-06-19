@@ -21,7 +21,7 @@ import { TestimonialComponent } from './containers/abouts/testimonial/testimonia
 import { ContactComponent } from './containers/contact/contact.component';
 import { JobComponent } from './containers/job/job.component';
 import { EventComponent } from './containers/news/event/event.component';
-import { VideoComponent } from './containers/news/video/video.component';
+
 // services
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
 import { ServiceComponent } from './containers/services/service/service.component';
@@ -36,6 +36,8 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { NavComponent } from './components/nav/nav.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { SearchComponent } from './components/search/search.component';
+import { VideoComponent } from './containers/news/video/video.component';
+import { VideoComponent as VideoComponent2 } from './components/popup/video/video.component';
 import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
 import { NewsItemComponent } from './components/slide/news/news-item/news-item.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
@@ -127,6 +129,7 @@ export function createTranslateLoader(http: HttpClient) {
     MainHeaderComponent,
     BookingDoctorComponent,
     SearchComponent,
+    VideoComponent2,
     LanguageComponent,
     NewsletterComponent,
     NavComponent,
@@ -162,7 +165,7 @@ export function createTranslateLoader(http: HttpClient) {
     HeaderPageComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -172,7 +175,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    SlickCarouselModule
+    SlickCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

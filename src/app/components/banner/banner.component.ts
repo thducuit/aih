@@ -79,7 +79,7 @@ export class BannerComponent implements OnInit {
 
   ngOnInit() {}
 
-  slickInit() {
+  slickInit(e) {
     this.bannerHome.nativeElement.style.opacity = 1;
   }
 }
