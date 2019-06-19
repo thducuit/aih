@@ -15,21 +15,22 @@ export class HeaderHomeComponent implements OnInit {
       this.scrollHeader();
     });
   }
+
   scrollHeader() {
-    let e;
+    let scrollTop: number;
     if (1024 < jquery(window).innerWidth()) {
-      e = jquery(window).scrollTop();
+      scrollTop = jquery(window).scrollTop();
       const posHd = $('.bookingwrap-hd').offset().top;
       jquery('#pHome').length
-        ? e >= jquery('.doctor-home').offset().top
+        ? scrollTop >= jquery('.doctor-home').offset().top
           ? jquery('header').addClass('fixHd')
           : jquery('header').removeClass('fixHd')
-        : posHd <= e
+        : posHd <= scrollTop
         ? jquery('header').addClass('fixHd')
         : jquery('header').removeClass('fixHd');
     } else {
-      e = jquery(window).scrollTop();
-      1 <= e
+      scrollTop = jquery(window).scrollTop();
+      1 <= scrollTop
         ? jquery('header').addClass('fixHd')
         : jquery('header').removeClass('fixHd');
     }

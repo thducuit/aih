@@ -3974,19 +3974,19 @@ header.fixHd .bookingwrap-hd {
     background: url(../images/icon-time.png)
 }
 
-.ip::-webkit-input-placeholder {
+.ip ::-webkit-input-placeholder {
     color: #fff
 }
 
-.ip::-moz-placeholder {
+.ip ::-moz-placeholder {
     color: #fff
 }
 
-.ip:-ms-input-placeholder {
+.ip ::-ms-input-placeholder {
     color: #fff
 }
 
-.ip:-moz-placeholder {
+.ip ::-moz-placeholder {
     color: #fff
 }
 
