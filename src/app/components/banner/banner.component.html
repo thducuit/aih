@@ -1,64 +1,21 @@
-<div class="banner-home">
-	<div class="item" style="background: url(storage/2018/11/pc-1921x7311542872322.jpg) no-repeat;">
-		<div class="container">
-			<a href="#"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2018/10/mb-640x434-18-101539854534.png">
-				
-			</div>
-		</div>
-	</div>
-	<div class="item" style="background: url(storage/2019/03/vn1551504719.jpg) no-repeat;">
-		<div class="container">
-			<a href="patient-services/insurance.html"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2019/03/mb-vn1551504730.jpg">
-				
-			</div>
-		</div>
-	</div>
-	<div class="item" style="background: url(storage/2019/03/goi-dich-vu-jpg-vn1553920231.jpg) no-repeat;">
-		<div class="container">
-			<a href="patient-services/medical-package.html"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2019/03/emergency-service-640x434-vn1553920232.jpg">
-			</div>
-		</div>
-	</div>
-	<div class="item" style="background: url(storage/2018/06/banner-home-21530351885.jpg) no-repeat;">
-		<div class="container">
-			<a href="index.html"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2018/06/banner-home-mb-21530351885.jpg">
-				
-			</div>
-		</div>
-	</div>
-	<div class="item" style="background: url(storage/2018/11/dignity-pc-1921x731-vn1542961166.jpg) no-repeat;">
-		<div class="container">
-			<a href="#"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2018/11/mb-640x4341541588971.jpg">
-				
-			</div>
-		</div>
-	</div>
-	<div class="item" style="background: url(storage/2018/11/emergency-service-vn1542961167.png) no-repeat;">
-		<div class="container">
-			<a href="#"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2018/10/emergency-service-640x434-pc1539849579.png">
-				
-			</div>
-		</div>
-	</div>
-	<div class="item" style="background: url(storage/2018/06/banner-home1530351518.jpg) no-repeat;">
-		<div class="container">
-			<a href="index.html"></a>
-			<div class="ct-banner">
-				<img class="banner-home-mb" src="storage/2018/06/banner-home-mb1530351518.jpg">
-				
-			</div>
-		</div>
-	</div>
+<div #bannerHome class="banner-home">
+  <ngx-slick-carousel
+    [config]="slideConfig"
+    #slickModal="slick-carousel"
+    (init)="slickInit($event)"
+  >
+    <div
+      *ngFor="let item of slices"
+      ngxSlickItem
+      class="item"
+      [ngStyle]="{ background: 'url(' + item.large + ') no-repeat' }"
+    >
+      <div class="container">
+        <a [href]="item.url"></a>
+        <div class="ct-banner">
+          <img class="banner-home-mb" [src]="item.small" />
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
 </div>

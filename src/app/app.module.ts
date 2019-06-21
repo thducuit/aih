@@ -5,6 +5,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -19,7 +21,7 @@ import { TestimonialComponent } from './containers/abouts/testimonial/testimonia
 import { ContactComponent } from './containers/contact/contact.component';
 import { JobComponent } from './containers/job/job.component';
 import { EventComponent } from './containers/news/event/event.component';
-import { VideoComponent } from './containers/news/video/video.component';
+
 // services
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
 import { ServiceComponent } from './containers/services/service/service.component';
@@ -34,6 +36,8 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { NavComponent } from './components/nav/nav.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { SearchComponent } from './components/search/search.component';
+import { VideoComponent } from './containers/news/video/video.component';
+import { VideoComponent as VideoComponent2 } from './components/popup/video/video.component';
 import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
 import { NewsItemComponent } from './components/slide/news/news-item/news-item.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
@@ -79,9 +83,8 @@ import { ChoosenPackageComponent } from './components/choosen-package/choosen-pa
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { CareerComponent } from './containers/career/career.component';
 
-
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -126,6 +129,7 @@ export function createTranslateLoader(http: HttpClient) {
     MainHeaderComponent,
     BookingDoctorComponent,
     SearchComponent,
+    VideoComponent2,
     LanguageComponent,
     NewsletterComponent,
     NavComponent,
@@ -158,21 +162,22 @@ export function createTranslateLoader(http: HttpClient) {
     SectionPartnerComponent,
     SectionTestimoComponent,
     ChoosenPackageComponent,
-    HeaderPageComponent
+    HeaderPageComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: (createTranslateLoader),
-            deps: [HttpClient]
-        }
-    })
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+    SlickCarouselModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
