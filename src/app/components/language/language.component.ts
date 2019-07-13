@@ -9,12 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageComponent implements OnInit {
 
   constructor(private translate: TranslateService) {
-        
-    }
+  }
 
-    switchLanguage(language: string) {
-    	this.translate.use(language);
-    }
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
 
   ngOnInit() {
   }
