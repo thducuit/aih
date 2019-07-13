@@ -11,7 +11,7 @@ import jquery from 'jquery';
 @Component({
   selector: 'app-section-booking-home',
   templateUrl: './section-booking-home.component.html',
-  styleUrls: ['./section-booking-home.component.css'],
+  styleUrls: ['./section-booking-home.component.scss'],
 })
 export class SectionBookingHomeComponent implements OnInit, AfterViewInit {
   @ViewChild('frmBooking', { static: false }) frmBooking: ElementRef;

@@ -3,14 +3,12 @@
     <span *ngIf="language === 'vi'"><img src="assets/images/vi.png"></span>
     <span *ngIf="language === 'en'"><img src="assets/images/en.png"></span>
   </p>
-  <a href="index.html" *ngIf="expanded && language === 'vi'" (click)="switchLanguage('vi')>
+  <a [ngClass]="{'show': expanded}" *ngIf="language === 'vi'" (click)="switchLanguage('en')">
     <span><img src="assets/images/en.png"></span>
     <em>English</em>
   </a>
-  <a href="index.html" *ngIf="expanded && language === 'en'" (click)="switchLanguage('en')">
+  <a [ngClass]="{'show': expanded}" *ngIf="language === 'en'" (click)="switchLanguage('vi')">
     <span><img src="assets/images/vi.png"></span>
     <em>Việt Nam</em>
   </a>
 </div>
-<button (click)="switchLanguage('en')">en</button>
-<button (click)="switchLanguage('vi')">vi</button>

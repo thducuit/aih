@@ -5,7 +5,7 @@ import { getLanguage, setLanguage } from 'src/app/utilities';
 @Component({
   selector: 'app-language',
   templateUrl: './language.component.html',
-  styleUrls: ['./language.component.css']
+  styleUrls: ['./language.component.scss']
 })
 export class LanguageComponent {
   public expanded = false;
@@ -18,12 +18,13 @@ export class LanguageComponent {
   }
 
   switchLanguage(language: string) {
+    console.log(language);
     this.translate.use(language);
     setLanguage(language);
+    this.expanded = false;
   }
 
   toggleLanguage() {
     this.expanded = !this.expanded;
   }
-
 }

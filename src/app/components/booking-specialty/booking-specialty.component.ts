@@ -3,7 +3,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 @Component({
   selector: 'app-booking-specialty',
   templateUrl: './booking-specialty.component.html',
-  styleUrls: ['./booking-specialty.component.css']
+  styleUrls: ['./booking-specialty.component.scss']
 })
 export class BookingSpecialtyComponent implements OnInit {
 

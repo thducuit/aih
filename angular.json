@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "src/assets/css/main.css",
               "src/assets/css/style.css"
             ],
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -143,5 +143,10 @@
       }
     }
   },
-  "defaultProject": "aih-app"
+  "defaultProject": "aih-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

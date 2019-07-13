@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-section-partner',
   templateUrl: './section-partner.component.html',
-  styleUrls: ['./section-partner.component.css']
+  styleUrls: ['./section-partner.component.scss']
 })
 export class SectionPartnerComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import jquery from 'jquery';
 @Component({
   selector: 'app-header-home',
   templateUrl: './header-home.component.html',
-  styleUrls: ['./header-home.component.css'],
+  styleUrls: ['./header-home.component.scss'],
 })
 export class HeaderHomeComponent implements OnInit, AfterViewInit {
   constructor() {}

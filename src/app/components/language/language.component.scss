@@ -1,5 +1,9 @@
 .lang {
-  > a.show {
-    display: block;
+  >a {
+    cursor: pointer;
+
+    &.show {
+      display: block;
+    }
   }
 }
