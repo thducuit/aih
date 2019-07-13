@@ -82,6 +82,19 @@ import { SectionTestimoComponent } from './components/section/section-testimo/se
 import { ChoosenPackageComponent } from './components/choosen-package/choosen-package.component';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { CareerComponent } from './containers/career/career.component';
+import { SettingComponent } from './containers/account/setting/setting.component';
+import { RegisterComponent } from './containers/account/register/register.component';
+import { LoginComponent } from './containers/account/login/login.component';
+import { SupportComponent } from './containers/account/support/support.component';
+import { ScheduleComponent } from './containers/account/schedule/schedule.component';
+import { ScheduleRegisterComponent } from './containers/account/schedule-register/schedule-register.component';
+import { ScheduleHistoryComponent } from './containers/account/schedule-history/schedule-history.component';
+import { NotificationComponent } from './containers/account/notification/notification.component';
+import { InformationComponent } from './containers/account/information/information.component';
+import { SupportDetailComponent } from './containers/account/support-detail/support-detail.component';
+import { ScheduleCancelComponent } from './containers/account/schedule-cancel/schedule-cancel.component';
+import { VoteComponent } from './containers/account/vote/vote.component';
+import { MedicalComponent } from './containers/medical/medical.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -113,6 +126,8 @@ export function createTranslateLoader(http: HttpClient) {
     InsuranceComponent,
     FactsheetComponent,
     PackageComponent,
+
+    MedicalComponent,
 
     // shared
     LoadingComponent,
@@ -163,6 +178,19 @@ export function createTranslateLoader(http: HttpClient) {
     SectionTestimoComponent,
     ChoosenPackageComponent,
     HeaderPageComponent,
+    // account
+    SettingComponent,
+    RegisterComponent,
+    LoginComponent,
+    SupportComponent,
+    ScheduleComponent,
+    ScheduleRegisterComponent,
+    ScheduleHistoryComponent,
+    NotificationComponent,
+    InformationComponent,
+    SupportDetailComponent,
+    ScheduleCancelComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
