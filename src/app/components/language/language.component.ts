@@ -18,7 +18,6 @@ export class LanguageComponent {
   }
 
   switchLanguage(language: string) {
-    console.log(language);
     this.translate.use(language);
     setLanguage(language);
     this.expanded = false;
