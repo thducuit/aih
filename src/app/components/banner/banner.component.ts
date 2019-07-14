@@ -13,6 +13,8 @@ export class BannerComponent implements OnInit {
   }[];
   slideConfig = {
     slideToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 5000
   };
 
   @ViewChild('bannerHome', { static: false }) bannerHome: ElementRef;
