@@ -16,8 +16,4 @@ export class AppComponent {
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     translate.use('vi');
   }
-
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
 }
