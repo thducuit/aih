@@ -1,4 +1,10 @@
-import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  AfterViewInit,
+  NgZone,
+} from '@angular/core';
 import jquery from 'jquery';
 
 @Component({
@@ -7,7 +13,7 @@ import jquery from 'jquery';
   styleUrls: ['./header-home.component.scss'],
 })
 export class HeaderHomeComponent implements OnInit, AfterViewInit {
-  constructor() {}
+  constructor(private zone: NgZone) {}
 
   ngOnInit() {}
 
@@ -17,22 +23,24 @@ export class HeaderHomeComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
   scrollHeader() {
-    let scrollTop: number;
-    if (1024 < jquery(window).innerWidth()) {
-      scrollTop = jquery(window).scrollTop();
-      const posHd = $('.bookingwrap-hd').offset().top;
-      jquery('#pHome').length
-        ? scrollTop >= jquery('.doctor-home').offset().top
+    this.zone.runOutsideAngular(() => {
+      let scrollTop: number;
+      if (1024 < jquery(window).innerWidth()) {
+        scrollTop = jquery(window).scrollTop();
+        const posHd = $('.bookingwrap-hd').offset().top;
+        jquery('#pHome').length
+          ? scrollTop >= jquery('.doctor-home').offset().top
+            ? jquery('header').addClass('fixHd')
+            : jquery('header').removeClass('fixHd')
+          : posHd <= scrollTop
           ? jquery('header').addClass('fixHd')
-          : jquery('header').removeClass('fixHd')
-        : posHd <= scrollTop
-        ? jquery('header').addClass('fixHd')
-        : jquery('header').removeClass('fixHd');
-    } else {
-      scrollTop = jquery(window).scrollTop();
-      1 <= scrollTop
-        ? jquery('header').addClass('fixHd')
-        : jquery('header').removeClass('fixHd');
-    }
+          : jquery('header').removeClass('fixHd');
+      } else {
+        scrollTop = jquery(window).scrollTop();
+        1 <= scrollTop
+          ? jquery('header').addClass('fixHd')
+          : jquery('header').removeClass('fixHd');
+      }
+    });
   }
 }

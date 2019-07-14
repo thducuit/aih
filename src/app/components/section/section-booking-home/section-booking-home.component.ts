@@ -5,8 +5,10 @@ import {
   ViewChild,
   HostListener,
   AfterViewInit,
+  NgZone,
 } from '@angular/core';
 import jquery from 'jquery';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-section-booking-home',
@@ -16,34 +18,42 @@ import jquery from 'jquery';
 export class SectionBookingHomeComponent implements OnInit, AfterViewInit {
   @ViewChild('frmBooking', { static: false }) frmBooking: ElementRef;
 
-  constructor() {}
+  constructor(private translate: TranslateService, private zone: NgZone) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.translate.onLangChange.subscribe(() => {
+      this.dectectH();
+    });
+  }
 
   ngAfterViewInit(): void {
-    this.dectectH();
+    setTimeout(() => {
+      this.dectectH();
+    }, 500);
   }
 
   @HostListener('window:resize', ['$event'])
   dectectH() {
-    let t = 0;
-    const containerElement = this.frmBooking
-      ? this.frmBooking.nativeElement
-      : document;
-    return (
-      jquery('.booking-wrap .item > p', containerElement).css({
-        height: 'auto',
-      }),
-      jquery('.booking-wrap .item', containerElement).each(function() {
-        const e = $(this)
-          .find('.dt-h')
-          .innerHeight();
-        t < e && (t = e);
-      }),
-      jquery('.booking-wrap .item > p', containerElement).css({
-        height: t,
-      }),
-      !1
-    );
+    this.zone.runOutsideAngular(() => {
+      let t = 0;
+      const containerElement = this.frmBooking
+        ? this.frmBooking.nativeElement
+        : document;
+      return (
+        jquery('.booking-wrap .item > p', containerElement).css({
+          height: 'auto',
+        }),
+        jquery('.booking-wrap .item', containerElement).each(function() {
+          const e = $(this)
+            .find('.dt-h')
+            .innerHeight();
+          t < e && (t = e);
+        }),
+        jquery('.booking-wrap .item > p', containerElement).css({
+          height: t,
+        }),
+        !1
+      );
+    });
   }
 }
