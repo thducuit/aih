@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../../../../services/blog.service';
+import { Blog } from  '../../../../models/blog';
 
 @Component({
   selector: 'app-news-item',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsItemComponent implements OnInit {
 
-  constructor() { }
-
+  public blogs: Array<Blog> = [];
+  constructor(public blogService: BlogService) { }
   ngOnInit() {
+    this.loadNews();
+  }
+
+  loadNews() {
+    this.blogService.fetch().subscribe((data: {}) => {
+      const posts = data['Posts'] || [];
+      this.blogs = posts.map( post => new Blog(post));
+    });
   }
 
 }

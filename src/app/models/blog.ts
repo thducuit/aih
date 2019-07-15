@@ -1,4 +1,4 @@
-export class News {
+export class Blog {
   public id;
   public name;
   public categoryName;

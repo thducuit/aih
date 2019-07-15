@@ -100,6 +100,8 @@ import { GlobalEventService } from './services/global-event.service';
 // SERVICE
 import { RestApiService } from './services/rest-api.service';
 import { DoctorService } from './services/doctor.service';
+import { ClinicService } from './services/clinic.service';
+import { BlogService } from './services/blog.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -213,7 +215,9 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     GlobalEventService,
     RestApiService,
-    DoctorService
+    DoctorService,
+    ClinicService,
+    BlogService,
   ],
   bootstrap: [AppComponent],
 })
