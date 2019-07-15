@@ -96,6 +96,10 @@ import { ScheduleCancelComponent } from './containers/account/schedule-cancel/sc
 import { VoteComponent } from './containers/account/vote/vote.component';
 import { MedicalComponent } from './containers/medical/medical.component';
 
+// SERVICE
+import { RestApiService } from './services/rest-api.service';
+import { DoctorService } from './services/doctor.service';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -205,7 +209,10 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     SlickCarouselModule,
   ],
-  providers: [],
+  providers: [
+    RestApiService,
+    DoctorService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
