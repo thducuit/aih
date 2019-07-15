@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -102,6 +104,7 @@ import { RestApiService } from './services/rest-api.service';
 import { DoctorService } from './services/doctor.service';
 import { ClinicService } from './services/clinic.service';
 import { BlogService } from './services/blog.service';
+import { FormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -210,6 +213,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    FormsModule,
+    NgbModule,
     SlickCarouselModule,
   ],
   providers: [
