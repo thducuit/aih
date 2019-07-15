@@ -151,5 +151,8 @@
   "reminderbooking": "Cam on quy KH dat hen tai aih.com.vn. Gio kham benh cua quy KH la :time HOM NAY. Xin vui long co mat truoc 15 phut. AIH han hanh phuc vu. LH: 028.3910.9999",
   "success_popup_desc": "BVQT Mỹ sẽ liên hệ Quý khách trong vòng 24 giờ để xác nhận lịch hẹn. Vui lòng đăng ký thông tin cá nhân tại register.aih.com.vn. Xin cảm ơn!",
   "success_popup_title": "Cảm ơn quý khách đã đặt hẹn tại bệnh viện AIH",
-  "©_2018_american_international_hospital._all_rights_reserved.": "© 2018 American International Hospital. All rights reserved."
+  "©_2018_american_international_hospital._all_rights_reserved.": "© 2018 American International Hospital. All rights reserved.",
+  "menu": {
+    "home": "Trang chủ"
+  }
 }

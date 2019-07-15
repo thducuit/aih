@@ -97,6 +97,10 @@ import { VoteComponent } from './containers/account/vote/vote.component';
 import { MedicalComponent } from './containers/medical/medical.component';
 import { GlobalEventService } from './services/global-event.service';
 
+// SERVICE
+import { RestApiService } from './services/rest-api.service';
+import { DoctorService } from './services/doctor.service';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -207,7 +211,9 @@ export function createTranslateLoader(http: HttpClient) {
     SlickCarouselModule,
   ],
   providers: [
-    GlobalEventService
+    GlobalEventService,
+    RestApiService,
+    DoctorService
   ],
   bootstrap: [AppComponent],
 })
