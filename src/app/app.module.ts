@@ -95,6 +95,7 @@ import { SupportDetailComponent } from './containers/account/support-detail/supp
 import { ScheduleCancelComponent } from './containers/account/schedule-cancel/schedule-cancel.component';
 import { VoteComponent } from './containers/account/vote/vote.component';
 import { MedicalComponent } from './containers/medical/medical.component';
+import { GlobalEventService } from './services/global-event.service';
 
 // SERVICE
 import { RestApiService } from './services/rest-api.service';
@@ -210,6 +211,7 @@ export function createTranslateLoader(http: HttpClient) {
     SlickCarouselModule,
   ],
   providers: [
+    GlobalEventService,
     RestApiService,
     DoctorService
   ],

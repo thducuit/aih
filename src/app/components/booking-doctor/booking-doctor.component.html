@@ -1,19 +1,19 @@
 <div class="item-inner">
-	<div class="ip ip-doctor {{ isActive ? 'has-before' : '' }}" (click)="handleInputClick()">
-		<input readonly="true" class="js-dropBooking-doctor" type="text" placeholder="Bác sĩ">
-		<em class="ar"></em>
-		<div class="drop drop-doctor {{ isActive ? 'active' : '' }}">
-			<div class="copyscroll">
-				<div class="nano">
-					<div class="nano-content">
-						<ul>
-							<app-doctor-list-item></app-doctor-list-item>                                          
-						</ul>
-					</div>
-				</div>
-			</div>          
+  <div class="ip ip-doctor {{ isActive ? 'has-before' : '' }}" (click)="handleInputClick()">
+    <input readonly="true" class="js-dropBooking-doctor" type="text" placeholder="{{'select_a_doctor' | translate}}">
+    <em class="ar"></em>
+    <div class="drop drop-doctor {{ isActive ? 'active' : '' }}">
+      <div class="copyscroll">
+        <div class="nano">
+          <div class="nano-content">
+            <ul>
+              <app-doctor-list-item></app-doctor-list-item>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-		</div>
-		<input type="hidden" class="js-input" name="doctorid" data-message="Vui lòng chọn bác sỹ">
-	</div>
+    </div>
+    <input type="hidden" class="js-input" name="doctorid" data-message="Vui lòng chọn bác sỹ">
+  </div>
 </div>

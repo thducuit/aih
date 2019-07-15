@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.css']
+  styleUrls: ['./loading.component.scss']
 })
-export class LoadingComponent implements OnInit {
+export class LoadingComponent {
+  @Input()
+  public visible = false;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

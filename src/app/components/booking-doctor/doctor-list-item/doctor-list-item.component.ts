@@ -5,7 +5,7 @@ import { Doctor } from  '../../../models/doctor';
 @Component({
   selector: 'app-doctor-list-item',
   templateUrl: './doctor-list-item.component.html',
-  styleUrls: ['./doctor-list-item.component.css']
+  styleUrls: ['./doctor-list-item.component.scss']
 })
 export class DoctorListItemComponent implements OnInit {
 

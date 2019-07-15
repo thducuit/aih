@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.css'],
+  styleUrls: ['./banner.component.scss'],
 })
 export class BannerComponent implements OnInit {
   slices: {
@@ -13,6 +13,8 @@ export class BannerComponent implements OnInit {
   }[];
   slideConfig = {
     slideToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 5000
   };
 
   @ViewChild('bannerHome', { static: false }) bannerHome: ElementRef;

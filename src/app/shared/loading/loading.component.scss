@@ -1,0 +1,6 @@
+.loading-page {
+  display: none;
+  &.visible {
+    display: block;
+  }
+}

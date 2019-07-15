@@ -1,30 +1,29 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { getLanguage, setLanguage } from 'src/app/utilities';
 
 @Component({
   selector: 'app-language',
   templateUrl: './language.component.html',
-  styleUrls: ['./language.component.css']
+  styleUrls: ['./language.component.scss']
 })
-export class LanguageComponent implements OnInit {
-  isCollapse: boolean;
-  currentLanguage: string;
+export class LanguageComponent {
+  public expanded = false;
+
   constructor(private translate: TranslateService) {
-    this.isCollapse = false;
-    this.currentLanguage = 'vi';
   }
 
-  ngOnInit() {
+  get language() {
+    return getLanguage();
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
-    this.currentLanguage = language;
-    this.isCollapse = false;
+    setLanguage(language);
+    this.expanded = false;
   }
 
-  collapseLang() {
-    this.isCollapse = !this.isCollapse;
+  toggleLanguage() {
+    this.expanded = !this.expanded;
   }
-
 }
