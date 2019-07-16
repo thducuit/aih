@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DoctorService } from '../../../services/doctor.service';
 import { Doctor } from  '../../../models/doctor';
 
@@ -10,6 +10,7 @@ import { Doctor } from  '../../../models/doctor';
 export class DoctorListItemComponent implements OnInit {
 
   public doctors: Array<Doctor> = [];
+  @Output() choose = new EventEmitter<Doctor>();
   constructor(public doctorService: DoctorService) { }
 
   ngOnInit() {
@@ -21,6 +22,20 @@ export class DoctorListItemComponent implements OnInit {
       const posts = data['Posts'] || [];
       this.doctors = posts.map( post => new Doctor(post));
     });
+  }
+
+  handleExpand($event, doctor) {
+    $event.stopPropagation();
+    this.doctors.map( item => {
+      if (doctor.id !== item.id) {
+        item.isExpanded = false;
+      }
+    });
+    doctor.isExpanded = !doctor.isExpanded;
+  }
+
+  handleChoose(doctor) {
+    this.choose.emit(doctor);
   }
 
 }

@@ -1,4 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {Clinic} from '../../models/clinic';
 
 @Component({
   selector: 'app-booking-specialty',
@@ -8,7 +9,8 @@ import {Component, HostListener, OnInit} from '@angular/core';
 export class BookingSpecialtyComponent implements OnInit {
 
   public isActive: boolean;
-
+  public chosenClinic: Clinic;
+  public placeholder: string;
   private wasInside = false;
 
   @HostListener('click')
@@ -34,6 +36,14 @@ export class BookingSpecialtyComponent implements OnInit {
 
   handleInputClick() {
     this.isActive = true;
+  }
+
+  onChoose(clinic) {
+    this.chosenClinic = clinic;
+    this.placeholder = clinic.name;
+    setTimeout (() => {
+      this.isActive = false;
+    }, 200);
   }
 
 }

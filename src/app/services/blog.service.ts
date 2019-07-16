@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 
 @Injectable()
-export class DoctorService {
+export class BlogService {
 
   constructor(private http: RestApiService) { }
 

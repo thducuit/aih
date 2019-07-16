@@ -1,7 +1,7 @@
-<li>
+<li *ngFor="let blog of blogs">
   <div class="item-news">
     <div class="img">
-      <div class="lazyload" data-src="http://aih.com.vn/storage/2019/05/684x441-en1559009735.png" style="background-image: url(assets/loader.gif);"></div>
+      <div class="lazyload" data-src='' style="background-image: url(assets/loader.gif);"></div>
       <img src="assets/images/news.gif">
       <img class="show-mb" src="assets/images/b.gif">
     </div>
@@ -10,10 +10,10 @@
       <span class="cm">0</span>
     </div>
     <div class="copy">
-      <h2>AIH X Kawaii Spa: Đặc Quyền Ưu Đãi Dành Tặng Mẹ Bầu</h2>
-      <p>9 tháng mười ngày mang thai là một hành trình hạnh phúc nhưng cũng nhiều vất vả của mẹ....</p>
-      <a href="news/detail/409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"><span>Tìm hiểu thêm</span></a>
+      <h2>{{ blog.name }}</h2>
+      <p>{{ blog.shortDesc }}....</p>
+      <a href="#"><span>Tìm hiểu thêm</span></a>
     </div>
-    <a class="link" href="news/detail/409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"></a>
+    <a class="link" href="#"></a>
   </div>
 </li>

@@ -4,7 +4,7 @@
            name="deparmentname"
            class="js-dropBooking-spec"
            type="text"
-           placeholder="{{'select_a_specialty' | translate}}"
+           placeholder="{{ placeholder }}"
     >
     <em class="ar"></em>
     <div class="drop drop-spec {{ isActive ? 'active' : '' }}">
@@ -14,7 +14,7 @@
           <div class="nano-content">
             <ul>
 
-              <app-specialty-item></app-specialty-item>
+              <app-specialty-item (choose)="onChoose($event)"></app-specialty-item>
 
             </ul>
           </div>

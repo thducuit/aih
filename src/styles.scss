@@ -1,4 +1,13 @@
+@import 'variable';
+
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap.scss';
+
 .banner-home .slick-slider {
   height: 100%;
+}
+
+.ngb-dp-today {
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
 }
