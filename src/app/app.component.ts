@@ -1,6 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { getLanguage } from './utilities';
 import { GlobalEventService } from './services/global-event.service';
 import {
   Router,
@@ -30,7 +29,7 @@ export class AppComponent implements AfterViewInit {
     translate.setDefaultLang('en');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    this.translate.use(getLanguage()); // Activappe current language or default language
+    this.translate.use('vi'); // Activappe current language or default language
 
     // Set app title
     this.updateTitle();

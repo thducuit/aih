@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getLanguage } from 'src/app/utilities';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-layout',
@@ -7,12 +7,12 @@ import { getLanguage } from 'src/app/utilities';
   styleUrls: ['./home-layout.component.scss'],
 })
 export class HomeLayoutComponent implements OnInit {
-  constructor() {}
+  constructor(private translate: TranslateService) {}
 
   ngOnInit() {}
 
   get pageClasses() {
-    const language = getLanguage();
+    const language = this.translate.currentLang;
     return [language, 'window'];
   }
 }
