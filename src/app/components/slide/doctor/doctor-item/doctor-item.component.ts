@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DoctorService } from '../../../../services/doctor.service';
 import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
@@ -12,7 +12,7 @@ export class DoctorItemComponent implements OnInit {
   public doctors: Array<Doctor> = [];
   public slideConfig = {
     infinite: true,
-    slideToShow: 4,
+    slidesToShow: 4,
     slidesToScroll: 4,
     arrows: false,
     autoplay: false,
@@ -32,10 +32,18 @@ export class DoctorItemComponent implements OnInit {
     ],
   };
 
+  @ViewChild('sliderContainer', { static: false })
+  sliderContainer: ElementRef;
+
   constructor(public doctorService: DoctorService) {}
 
   ngOnInit() {
     this.loadDoctors();
+  }
+
+  sliderInit() {
+    console.log('Slider init');
+    this.sliderContainer.nativeElement.style.opacity = 1;
   }
 
   loadDoctors() {
