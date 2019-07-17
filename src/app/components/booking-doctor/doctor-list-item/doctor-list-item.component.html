@@ -1,7 +1,8 @@
 <ul>
   <li class="doctor-item-23" *ngFor="let doctor of doctors" >
     <p class="tt-doc {{ doctor.isExpanded ? 'active' : ''  }}">
-      <em data-id="" data-dayoff="" data-selected="" data-doctor="" class="js-book-dt" (click)="handleChoose(doctor)">{{ doctor.name }}</em>
+      <em class="js-book-dt" (click)="handleChoose(doctor)">{{ doctor.name }}
+      </em>
       <span class="toggle_plus js-accor-doc" (click)="handleExpand($event, doctor)"></span>
     </p>
     <div class="copy {{ doctor.isExpanded ? 'open' : ''  }}">
@@ -9,8 +10,8 @@
       <h4>{{ doctor.name }}</h4>
       <h4><span>{{ doctor.categoryName }}</span></h4>
       <p>{{ doctor.shortDesc }}</p>
-      <a class="rm" href="#"><span>More</span></a>
-      <a data-id="" data-dayoff="" data-selected="" data-doctor="" class="bm js-book-dt" (click)="handleChoose(doctor)">Book</a>
+      <a class="rm" href="#"><span>{{ 'show_more' | translate }}</span></a>
+      <a class="bm js-book-dt" (click)="handleChoose(doctor)">{{ 'book' | translate }}</a>
     </div>
   </li>
 </ul>
