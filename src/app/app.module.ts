@@ -8,6 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+// import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,8 +62,6 @@ import { WebTitleComponent } from './components/web-title/web-title.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { BookingMobileComponent } from './components/booking-mobile/booking-mobile.component';
 import { BookingHomeComponent } from './components/booking-home/booking-home.component';
-import { DoctorSlideComponent } from './components/slide/doctor/doctor-slide/doctor-slide.component';
-import { NewsSlideComponent } from './components/slide/news/news-slide/news-slide.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 import { SuccessComponent } from './components/popup/success/success.component';
@@ -104,6 +103,7 @@ import { DoctorService } from './services/doctor.service';
 import { ClinicService } from './services/clinic.service';
 import { BlogService } from './services/blog.service';
 import { FormsModule } from '@angular/forms';
+import { UrlService } from './services/url.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -167,8 +167,6 @@ export function createTranslateLoader(http: HttpClient) {
     BannerComponent,
     BookingMobileComponent,
     BookingHomeComponent,
-    DoctorSlideComponent,
-    NewsSlideComponent,
     FooterComponent,
     BackToTopComponent,
     SuccessComponent,
@@ -221,6 +219,7 @@ export function createTranslateLoader(http: HttpClient) {
     DoctorService,
     ClinicService,
     BlogService,
+    UrlService,
   ],
   bootstrap: [AppComponent],
 })

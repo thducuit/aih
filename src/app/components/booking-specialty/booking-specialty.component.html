@@ -4,23 +4,18 @@
            name="deparmentname"
            class="js-dropBooking-spec"
            type="text"
-           placeholder="{{ placeholder }}"
+           placeholder="{{ placeholder || 'select_a_specialty' | translate }}"
     >
     <em class="ar"></em>
     <div class="drop drop-spec {{ isActive ? 'active' : '' }}">
-      <input type="hidden" class="js-input" name="deparmentid" data-message="Vui lòng chọn chuyên khoa">
+      <input type="hidden" class="js-input" name="deparmentid">
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">
-            <ul>
-
               <app-specialty-item (choose)="onChoose($event)"></app-specialty-item>
-
-            </ul>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

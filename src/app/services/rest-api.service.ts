@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RestApiService {
 
   // Define API
-  private apiURL = 'http://api.aih.tqdesign.vn/';
+  private apiURL = environment.api;
 
   constructor(private http: HttpClient) { }
 

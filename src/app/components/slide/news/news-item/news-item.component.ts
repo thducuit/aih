@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
+import { UrlService } from '../../../../services/url.service';
 import { Blog } from  '../../../../models/blog';
 
 @Component({
@@ -18,7 +19,11 @@ export class NewsItemComponent implements OnInit {
   loadNews() {
     this.blogService.fetch().subscribe((data: {}) => {
       const posts = data['Posts'] || [];
-      this.blogs = posts.map( post => new Blog(post));
+      this.blogs = posts.map( post => {
+        const blog = new Blog(post);
+        blog.picturePath = UrlService.createPictureUrl(blog.picture);
+        return blog;
+      });
     });
   }
 

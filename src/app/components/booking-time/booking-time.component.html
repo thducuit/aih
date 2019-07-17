@@ -1,8 +1,8 @@
 <div class="item-inner">
-	<div class="ip ip-time">
+	<div class="ip ip-time {{ isActive ? 'has-before' : '' }}" (click)="handleInputClick()">
 		<input readonly="true" class="js-dropBooking-time" type="text" placeholder="{{'time' | translate}}">
 		<em class="ar"></em>
-		<div class="drop drop-time">
+		<div class="drop drop-time {{ isActive ? 'active' : '' }}">
 			<!-- <h4>content.TIME</h4> -->
 			
 			<div class="block-time">

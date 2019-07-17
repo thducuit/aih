@@ -16,6 +16,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.0",
+    "@angular/cdk": "^8.1.1",
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
     "@angular/core": "~8.0.0",
@@ -33,6 +34,7 @@
     "express": "^4.15.2",
     "jquery": "^3.4.1",
     "nanoscroller": "^0.8.7",
+    "ngx-scrollbar": "^4.2.0",
     "ngx-slick-carousel": "^0.4.4",
     "rxjs": "~6.4.0",
     "slick-carousel": "^1.8.1",

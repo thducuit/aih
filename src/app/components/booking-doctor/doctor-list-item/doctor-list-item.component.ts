@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DoctorService } from '../../../services/doctor.service';
+import { UrlService } from '../../../services/url.service';
 import { Doctor } from  '../../../models/doctor';
 
 @Component({
@@ -20,7 +21,13 @@ export class DoctorListItemComponent implements OnInit {
   loadDoctors() {
     this.doctorService.fetch().subscribe((data: {}) => {
       const posts = data['Posts'] || [];
-      this.doctors = posts.map( post => new Doctor(post));
+      this.doctors = posts.map( post => {
+        const doctor = new Doctor(post);
+        if (doctor.picture) {
+          doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
+        }
+        return doctor;
+      });
     });
   }
 
