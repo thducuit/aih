@@ -41,7 +41,7 @@ export class DoctorItemComponent implements OnInit {
     this.loadDoctors();
   }
 
-  sliderInit() {
+  sliderInit(e) {
     console.log('Slider init');
     this.sliderContainer.nativeElement.style.opacity = 1;
   }
