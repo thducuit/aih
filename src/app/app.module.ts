@@ -102,6 +102,7 @@ import { RestApiService } from './services/rest-api.service';
 import { DoctorService } from './services/doctor.service';
 import { ClinicService } from './services/clinic.service';
 import { BlogService } from './services/blog.service';
+import { UrlService } from './services/url.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -218,6 +219,7 @@ export function createTranslateLoader(http: HttpClient) {
     DoctorService,
     ClinicService,
     BlogService,
+    UrlService,
   ],
   bootstrap: [AppComponent],
 })

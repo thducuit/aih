@@ -1,7 +1,7 @@
 <li *ngFor="let blog of blogs">
   <div class="item-news">
     <div class="img">
-      <div class="lazyload" data-src='' style="background-image: url(assets/loader.gif);"></div>
+      <div class="lazyload" data-src='' [style.background]="'url(' + blog.picturePath + ')'"></div>
       <img src="assets/images/news.gif">
       <img class="show-mb" src="assets/images/b.gif">
     </div>

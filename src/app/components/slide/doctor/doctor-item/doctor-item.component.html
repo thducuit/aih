@@ -1,7 +1,7 @@
 <li *ngFor="let doctor of doctors">
   <div class="item-doc" >
     <div class="img">
-      <div style="background: url(storage/2018/09/nguyen-ngoc-tien1536984195.png);"></div>
+      <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
       <img class="img-1366" src="assets/images/dt.gif">
       <img src="assets/images/b.gif">
     </div>

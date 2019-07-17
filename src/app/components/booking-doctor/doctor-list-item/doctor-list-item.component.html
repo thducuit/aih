@@ -5,7 +5,7 @@
       <span class="toggle_plus js-accor-doc" (click)="handleExpand($event, doctor)"></span>
     </p>
     <div class="copy {{ doctor.isExpanded ? 'open' : ''  }}">
-      <img src='{{ doctor.picture }}'>
+      <img src='{{ doctor.picturePath }}'>
       <h4>{{ doctor.name }}</h4>
       <h4><span>{{ doctor.categoryName }}</span></h4>
       <p>{{ doctor.shortDesc }}</p>
