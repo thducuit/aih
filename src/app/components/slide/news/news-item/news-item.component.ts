@@ -24,8 +24,8 @@ export class NewsItemComponent implements OnInit {
   loadNews() {
     this.blogService.fetch(this.currentPage).subscribe((data: any) => {
       const posts = data.Posts || [];
+      this.totalRecord = post.TotalRecord;
       this.blogs = posts.map(post => {
-        this.totalRecord = post.TotalRecord;
         const blog = new Blog(post);
         blog.picturePath = UrlService.createPictureUrl(blog.picture);
         return blog;

@@ -105,6 +105,9 @@ import { BlogService } from './services/blog.service';
 import { FormsModule } from '@angular/forms';
 import { UrlService } from './services/url.service';
 import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
+import { TestimonialService } from './services/testimonial.service';
+import { FaqsService } from './services/faqs.service';
+import { FaqItemComponent } from './components/faq-item/faq-item.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -198,7 +201,8 @@ export function createTranslateLoader(http: HttpClient) {
     SupportDetailComponent,
     ScheduleCancelComponent,
     VoteComponent,
-    DoctorItemComponent
+    DoctorItemComponent,
+    FaqItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -222,6 +226,8 @@ export function createTranslateLoader(http: HttpClient) {
     ClinicService,
     BlogService,
     UrlService,
+    TestimonialService,
+    FaqsService
   ],
   bootstrap: [AppComponent],
 })
