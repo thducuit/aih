@@ -11,7 +11,7 @@ import { CalculatePagination } from 'src/app/utilities';
 })
 export class NewsItemComponent implements OnInit {
   public blogs: Array<Blog> = [];
-  private totalRecord = 0;
+  public totalRecord = 0;
   public currentPage = 1;
   public pageNumbers: number[] = [];
 
@@ -24,7 +24,7 @@ export class NewsItemComponent implements OnInit {
   loadNews() {
     this.blogService.fetch(this.currentPage).subscribe((data: any) => {
       const posts = data.Posts || [];
-      this.totalRecord = post.TotalRecord;
+      this.totalRecord = posts.TotalRecord;
       this.blogs = posts.map(post => {
         const blog = new Blog(post);
         blog.picturePath = UrlService.createPictureUrl(blog.picture);
