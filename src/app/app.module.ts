@@ -40,7 +40,6 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { SearchComponent } from './components/search/search.component';
 import { VideoComponent } from './containers/news/video/video.component';
 import { VideoComponent as VideoComponent2 } from './components/popup/video/video.component';
-import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
 import { NewsItemComponent } from './components/slide/news/news-item/news-item.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
 
@@ -158,7 +157,6 @@ export function createTranslateLoader(http: HttpClient) {
     LanguageComponent,
     NewsletterComponent,
     NavComponent,
-    DoctorItemComponent,
     NewsItemComponent,
     BookingPhoneNumberComponent,
     BookingSpecialtyComponent,
