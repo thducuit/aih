@@ -1,19 +1,30 @@
-<li *ngFor="let blog of blogs">
-  <div class="item-news">
-    <div class="img">
-      <div class="lazyload" data-src='' [style.background]="'url(' + blog.picturePath + ')'"></div>
-      <img src="assets/images/news.gif">
-      <img class="show-mb" src="assets/images/b.gif">
+<ul class="clearfix js-list-news js-append-more">
+  <li *ngFor="let blog of blogs">
+    <div class="item-news">
+      <div class="img">
+        <div class="lazyload" data-src='' [style.background]="'url(' + blog.picturePath + ')'"></div>
+        <img src="assets/images/news.gif">
+        <img class="show-mb" src="assets/images/b.gif">
+      </div>
+      <div class="tt-news">
+        <p class="date">28/05/2019</p>
+        <span class="cm">0</span>
+      </div>
+      <div class="copy">
+        <h2>{{ blog.name }}</h2>
+        <p>{{ blog.shortDesc }}....</p>
+        <a href="#"><span>{{ 'learn_more' | translate }}</span></a>
+      </div>
+      <a class="link" href="#"></a>
     </div>
-    <div class="tt-news">
-      <p class="date">28/05/2019</p>
-      <span class="cm">0</span>
-    </div>
-    <div class="copy">
-      <h2>{{ blog.name }}</h2>
-      <p>{{ blog.shortDesc }}....</p>
-      <a href="#"><span>Tìm hiểu thêm</span></a>
-    </div>
-    <a class="link" href="#"></a>
-  </div>
-</li>
+  </li>
+</ul>
+<div class="paging js-paging-ajax">
+  <span>1</span>
+  <a target="_self" href="#">2</a>
+  <a target="_self" href="#">3</a>
+  <a target="_self" href="#">4</a>
+  <a target="_self" href="#">5</a>
+  <a target="_self" href="#" class="next-page"></a>
+</div>
+

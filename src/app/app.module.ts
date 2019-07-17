@@ -61,8 +61,6 @@ import { WebTitleComponent } from './components/web-title/web-title.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { BookingMobileComponent } from './components/booking-mobile/booking-mobile.component';
 import { BookingHomeComponent } from './components/booking-home/booking-home.component';
-import { DoctorSlideComponent } from './components/slide/doctor/doctor-slide/doctor-slide.component';
-import { NewsSlideComponent } from './components/slide/news/news-slide/news-slide.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 import { SuccessComponent } from './components/popup/success/success.component';
@@ -168,8 +166,6 @@ export function createTranslateLoader(http: HttpClient) {
     BannerComponent,
     BookingMobileComponent,
     BookingHomeComponent,
-    DoctorSlideComponent,
-    NewsSlideComponent,
     FooterComponent,
     BackToTopComponent,
     SuccessComponent,
