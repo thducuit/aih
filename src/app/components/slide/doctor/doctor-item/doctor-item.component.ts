@@ -10,6 +10,28 @@ import { UrlService } from '../../../../services/url.service';
 })
 export class DoctorItemComponent implements OnInit {
   public doctors: Array<Doctor> = [];
+  public slideConfig = {
+    infinite: true,
+    slideToShow: 4,
+    slidesToScroll: 4,
+    arrows: false,
+    autoplay: false,
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slideToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: 'unslick'
+      }
+    ],
+  };
+
   constructor(public doctorService: DoctorService) {}
 
   ngOnInit() {

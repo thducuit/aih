@@ -104,6 +104,7 @@ import { ClinicService } from './services/clinic.service';
 import { BlogService } from './services/blog.service';
 import { FormsModule } from '@angular/forms';
 import { UrlService } from './services/url.service';
+import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -196,7 +197,8 @@ export function createTranslateLoader(http: HttpClient) {
     InformationComponent,
     SupportDetailComponent,
     ScheduleCancelComponent,
-    VoteComponent
+    VoteComponent,
+    DoctorItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

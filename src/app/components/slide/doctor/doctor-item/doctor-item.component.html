@@ -1,25 +1,24 @@
 <ul>
-  <li *ngFor="let doctor of doctors">
-    <div class="item-doc">
-      <div class="img">
-        <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
-        <img class="img-1366" src="assets/images/dt.gif">
-        <img src="assets/images/b.gif">
+  <ngx-slick-carousel [config]="slideConfig" #slickModal="slick-carousel">
+    <li *ngFor="let doctor of doctors">
+      <div class="item-doc">
+        <div class="img">
+          <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
+          <img class="img-1366" src="assets/images/dt.gif" />
+          <img src="assets/images/b.gif" />
+        </div>
+        <div class="tt-doc-crs">
+          <h2>{{ doctor.name }}</h2>
+          <p>{{ doctor.categoryName }}</p>
+        </div>
+        <div class="copy">
+          <p>{{ doctor.shortDesc }}...</p>
+          <a href="#">
+            <span>{{'learn_more' | translate}}</span>
+          </a>
+        </div>
+        <a class="link" href="#"></a>
       </div>
-      <div class="tt-doc-crs">
-        <h2>{{ doctor.name }}</h2>
-        <p>{{ doctor.categoryName }}</p>
-
-      </div>
-      <div class="copy">
-        <p>{{ doctor.shortDesc }}...</p>
-        <a href="#">
-          <span>Tìm hiểu thêm</span>
-        </a>
-      </div>
-      <a class="link" href="#"></a>
-    </div>
-
-  </li>
+    </li>
+  </ngx-slick-carousel>
 </ul>
-

@@ -6,7 +6,7 @@ export class UrlService {
 
   constructor() { }
   static createPictureUrl(pictureName, size = null) {
-    if(size) {
+    if (size) {
       return `${environment.backend}/assets/uploads/images/post/thumbs/${size}/${pictureName}`;
     }
     return `${environment.backend}/assets/uploads/images/post/${pictureName}`;
