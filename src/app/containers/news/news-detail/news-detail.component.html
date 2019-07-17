@@ -1,0 +1,187 @@
+<main id="pNews" *ngIf="blog">
+
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#">Trang chủ</a> /
+      <a href="#">Tin tức</a> /
+      <p>{{ blog ? blog.name : '' }}</p>
+    </div>
+  </div>
+
+  <section class="news-wrap">
+    <div class="container clearfix">
+      <div class="news-detail-wrap">
+        <div class="ct-dt">
+          <h3>{{ blog ? blog.name : '' }}</h3>
+          <div class="slider-news-dt">
+            <ul>
+              <li><img src="{{ blog.picturePath }}"></li>
+            </ul>
+          </div>
+          <div class="tt-news">
+            <p class="date">31/05/2018</p>
+            <span class="cm">0</span>
+            <span class="like">0</span>
+          </div>
+          <div class="copy" innerHTML="{{ blog.longDesc | decodeHtmlEntities }}">
+
+          </div>
+          <div class="btn-dt clearfix">
+            <a class="next-doctor" href="#">{{ 'next_link' | translate }} <br/><span>6 dấu hiệu gan bị nhiễm độc</span></a>
+          </div>
+          <div class="op-news">
+            <a class="link-like js-btn-vote" data-type="votenews"
+               href="53-home-remedy-for-knee-paincb05.html?comment_id=0">{{ 'like' | translate }}</a>
+            <a class="link-cm" href="#">{{ 'comment' | translate }}</a>
+            <a target="_blank"
+               href="https://facebook.com/sharer.php?u=http://www.aih.com.vn/news/detail/53-home-remedy-for-knee-pain"
+               id="share" class="link-share">{{ 'share' | translate }}</a>
+          </div>
+        </div>
+        <div class="comment-wrap">
+          <h3>{{ 'comment' | translate }}</h3>
+          <div class="big-ip frmComment"
+               data-facebook="http://www.aih.com.vn/login-facebook.html?ref=http%3A%2F%2Fwww.aih.com.vn%2Fnews%2Fdetail%2F53-home-remedy-for-knee-pain"
+               data-google="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&amp;access_type=offline&amp;include_granted_scopes=true&amp;state=state_parameter_passthrough_value&amp;redirect_uri=http://www.aih.com.vn/login-google.html&amp;response_type=code&amp;client_id=450508891221-at752chceg0hpn6aid4aunn0grg1o0p7.apps.googleusercontent.com">
+            <div class="ava-cm" style="background: url(../../assets/images/avatar.jpg);"></div>
+            <textarea name="comment" class="js-required form-control"></textarea>
+            <div class="btn-wrap">
+              <input class="btn-page" type="submit" value="{{ 'send' | translate }}" />
+            </div>
+          </div>
+          <div class="list-cm-wrap">
+          </div>
+        </div>
+
+        <div class="side-news">
+          <div class="item">
+            <h3>{{ 'search' | translate }}</h3>
+            <div class="ct-search frmSearch">
+              <input type="text" name="keyword" class="js-required form-control" placeholder="{{ 'search' | translate }}...">
+              <input type="submit" name="" value="">
+            </div>
+          </div>
+
+          <div class="item">
+            <h3>Tin mới nhất</h3>
+            <div class="ct-tab">
+              <span class="js-tab active" tab="tab-1"><em>Mới nhất</em></span>
+              <span class="js-tab" tab="tab-2"><em>Phổ biến</em></span>
+              <span class="js-tab" tab="tab-3"><em>Bình luận</em></span>
+            </div>
+            <div id="tab-1" class="tab-content">
+              <ul>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/1000x1000-en1559009747.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>28/05/2019</span></p>
+                    <p>AIH X Kawaii Spa: Đặc Quyền Ưu Đãi Dành Tặng Mẹ Bầu</p>
+                  </div>
+                  <a class="link-all" href="409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"></a>
+                </li>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/684-x-441-eng1557375202.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>09/05/2019</span></p>
+                    <p>[CẢNH BÁO] VIỆT NAM ĐỨNG THỨ 3 THẾ GIỚI VỀ TỶ LỆ MẮC UNG THƯ GAN TRONG NĂM 2018</p>
+                  </div>
+                  <a class="link-all"
+                     href="402-warning-vietnam-had-the-third-highest-rate-of-liver-cancer-in-2018.html"></a>
+                </li>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/684-x-441-eng1557375503.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>09/05/2019</span></p>
+                    <p>TÌM HIỂU CÁC PHƯƠNG PHÁP CHẨN ĐOÁN VÀ ĐIỀU TRỊ UNG THƯ GAN</p>
+                  </div>
+                  <a class="link-all" href="403-liver-cancer-diagnosis-and-treatment-information.html"></a>
+                </li>
+              </ul>
+            </div>
+            <div id="tab-2" class="tab-content">
+              <ul>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/1000x1000-en1559009747.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>28/05/2019</span></p>
+                    <p>AIH X Kawaii Spa: Đặc Quyền Ưu Đãi Dành Tặng Mẹ Bầu</p>
+                  </div>
+                  <a class="link-all" href="409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"></a>
+                </li>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/684-x-441-eng1557375202.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>09/05/2019</span></p>
+                    <p>[CẢNH BÁO] VIỆT NAM ĐỨNG THỨ 3 THẾ GIỚI VỀ TỶ LỆ MẮC UNG THƯ GAN TRONG NĂM 2018</p>
+                  </div>
+                  <a class="link-all"
+                     href="402-warning-vietnam-had-the-third-highest-rate-of-liver-cancer-in-2018.html"></a>
+                </li>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/684-x-441-eng1557375503.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>09/05/2019</span></p>
+                    <p>TÌM HIỂU CÁC PHƯƠNG PHÁP CHẨN ĐOÁN VÀ ĐIỀU TRỊ UNG THƯ GAN</p>
+                  </div>
+                  <a class="link-all" href="403-liver-cancer-diagnosis-and-treatment-information.html"></a>
+                </li>
+              </ul>
+            </div>
+            <div id="tab-3" class="tab-content">
+              <ul>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/1000x1000-en1559009747.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>28/05/2019</span></p>
+                    <p>AIH X Kawaii Spa: Đặc Quyền Ưu Đãi Dành Tặng Mẹ Bầu</p>
+                  </div>
+                  <a class="link-all" href="409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"></a>
+                </li>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/684-x-441-eng1557375202.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>09/05/2019</span></p>
+                    <p>[CẢNH BÁO] VIỆT NAM ĐỨNG THỨ 3 THẾ GIỚI VỀ TỶ LỆ MẮC UNG THƯ GAN TRONG NĂM 2018</p>
+                  </div>
+                  <a class="link-all"
+                     href="402-warning-vietnam-had-the-third-highest-rate-of-liver-cancer-in-2018.html"></a>
+                </li>
+                <li>
+                  <div class="img">
+                    <div style="background: url(../../storage/2019/05/684-x-441-eng1557375503.png);"></div>
+                  </div>
+                  <div class="copy">
+                    <p><span>09/05/2019</span></p>
+                    <p>TÌM HIỂU CÁC PHƯƠNG PHÁP CHẨN ĐOÁN VÀ ĐIỀU TRỊ UNG THƯ GAN</p>
+                  </div>
+                  <a class="link-all" href="403-liver-cancer-diagnosis-and-treatment-information.html"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-wrap">
+            <a data-department="11" class="btn-page js-submit-page" href="#">{{ 'book_now' | translate }}</a>
+            <p class="alert-dt">{{ 'please_continue_your_booking_on_above_booking_funtion' | translate }}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,13 +1,13 @@
 <section class="news-home">
 	<div class="container">
 		<div class="tt-item">
-			<a href="#">{{ 'news' | translate }}</a>
+			<a routerLink="/news">{{ 'news' | translate }}</a>
 			<h4>{{ 'be_the_first_to_read' | translate }}</h4>
 		</div>
 		<div class="news-list-wrap">
 			<app-news-item></app-news-item>
 			<div class="btn-wrap show-mb">
-				<a class="btn-showmore js-btn-loadmore" href="#">{{ 'show_more' | translate }}</a>
+				<a class="btn-showmore js-btn-loadmore" routerLink="/news">{{ 'show_more' | translate }}</a>
 			</div>
 			<app-choosen-package></app-choosen-package>
 		</div>

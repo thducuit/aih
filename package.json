@@ -29,6 +29,7 @@
     "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "decode-html-entities": "^1.1.10",
     "express": "^4.15.2",
     "jquery": "^3.4.1",
     "nanoscroller": "^0.8.7",
