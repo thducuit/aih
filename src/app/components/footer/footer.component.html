@@ -7,8 +7,8 @@
 			</div>
 			<div class="ip-news">
 				<input type="email" name="email" class="js-required js-email form-control" placeholder="{{'your_email_address' | translate}}">
-				<input type="hidden" name="_token" value="VRktS3jTtN9lSqGJgCRwF1g6MI6H04c7KjOAS3Lv">
-				<input type="submit" value="{{'subscribe' | translate}}" data-href="http://www.aih.com.vn/subscribe">
+				<input type="hidden" name="_token" value=""/>
+				<input type="submit" value="{{'subscribe' | translate}}" />
 			</div>
 		</div>
 	</div>
@@ -17,75 +17,52 @@
 			<div class="ft-wrap clearfix">
 				<div class="item">
 					<img src="assets/images/logo-ft.png">
-					<p>Bệnh viện Quốc tế Mỹ (AIH) là bệnh viện quốc tế đầu tiên tại Việt Nam theo tiêu chuẩn Mỹ, với sứ mệnh mang lại dịch vụ chăm sóc sức khỏe và điều trị chuẩn Mỹ cho bệnh nhân và gia đình.</p>
+					<p>{{ 'footer_title' | translate }}</p>
 				</div>
 
 				<div class="item">
-					<h2>Tin tức</h2>
+					<h2>{{ 'news' | translate }}</h2>
 					<ul>
-						<li>
+
+						<li *ngFor="let blog of blogs">
 							<div class="item-post clearfix">
 								<div class="img">
-									<div class="lazyload" data-src="http://aih.com.vn/storage/2019/05/684x441-en1559009735.png" style="background-image: url(assets/loader.gif);"></div>
+									<div class="lazyload"  [style.background]="'url(' + blog.picturePath + ')'"></div>
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
 									<p>May 28, 2019</p>
-									<p><span>AIH X Kawaii Spa: Đặc Quyền...</span></p>
+									<p><span>{{ blog.name }}...</span></p>
 								</div>
-								<a class="link-all" href="news/detail/409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"></a>
+								<a class="link-all" routerLink="{{ blog.url }}"></a>
 							</div>
 						</li>
-						<li>
-							<div class="item-post clearfix">
-								<div class="img">
-									<div class="lazyload" data-src="http://aih.com.vn/storage/2019/05/684-x-441-eng1557375503.png" style="background-image: url(assets/loader.gif);"></div>
-									<img src="assets/images/b.gif">
-								</div>
-								<div class="copy">
-									<p>May 09, 2019</p>
-									<p><span>TÌM HIỂU CÁC PHƯƠNG PHÁP...</span></p>
-								</div>
-								<a class="link-all" href="news/detail/403-liver-cancer-diagnosis-and-treatment-information.html"></a>
-							</div>
-						</li>
+
 						
 					</ul>
 				</div>
 				<div class="item">
-					<h2>Dịch vụ y khoa</h2>
+					<h2>{{ 'patient_services' | translate }}</h2>
 					<ul>
-						<li>
+
+						<li *ngFor="let clinic of clinics">
 							<div class="item-post clearfix">
 								<div class="img">
-									<div class="lazyload" data-src="http://aih.com.vn/storage/2018/11/aih-color-1-52-1-final1543457916.jpg" style="background-image: url(assets/loader.gif);"></div>
+									<div class="lazyload" [style.background]="'url(' + clinic.picturePath + ')'"></div>
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
 									<p>May 25, 2018</p>
-									<p><span>Khoa Phụ Sản</span></p>
+									<p><span>{{ clinic.name }}</span></p>
 								</div>
-								<a class="link-all" href="patient-services/medical-services.html"></a>
-							</div>
-						</li>
-						<li>
-							<div class="item-post clearfix">
-								<div class="img">
-									<div class="lazyload" data-src="http://aih.com.vn/storage/2018/07/medical-package-pediatrics1531464770.jpg" style="background-image: url(assets/loader.gif);"></div>
-									<img src="assets/images/b.gif">
-								</div>
-								<div class="copy">
-									<p>May 25, 2018</p>
-									<p><span>Khoa Nhi</span></p>
-								</div>
-								<a class="link-all" href="patient-services/medical-services.html"></a>
+								<a class="link-all" routerLink="{{ clinic.url }}"></a>
 							</div>
 						</li>
 						
 					</ul>
 				</div>				
 				<div class="item page-fb">
-					<h2>Mạng xã hội</h2>
+					<h2>{{ 'social_channels' | translate }}</h2>
 					<div class="fb">
 						<div class="fb-page" data-href="https://www.facebook.com/aih.com.vn/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
 					</div>
@@ -95,7 +72,7 @@
 	</div>
 	<div class="botfooter">
 		<div class="container clearfix">
-			<p>© 2018 American International Hospital. All rights reserved.</p>
+			<p>{{ '©_2018_american_international_hospital._all_rights_reserved.' | translate }}</p>
 			<ul>
 				<li><a routerLink="/about-us/aih-hospital" routerLinkActive="active">{{'about_us' | translate}}</a></li>
 				<li><a class="js_go__down" data="booking-home.html" href="#">{{'book_an_appointment' | translate}}</a></li>

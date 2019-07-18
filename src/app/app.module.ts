@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
+import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -110,6 +111,12 @@ import { TestimonialService } from './services/testimonial.service';
 import { FaqsService } from './services/faqs.service';
 import { FaqItemComponent } from './components/faq-item/faq-item.component';
 import { environment } from 'src/environments/environment';
+import { PostService } from './services/post.service';
+import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
+import { NewsComponent } from './containers/news/news/news.component';
+import { PartnerService } from './services/partner.service';
+import { FeedbackService } from './services/feedback.service';
+import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -204,12 +211,16 @@ export function createTranslateLoader(http: HttpClient) {
     ScheduleCancelComponent,
     VoteComponent,
     DoctorItemComponent,
-    FaqItemComponent
+    FaqItemComponent,
+    NewsDetailComponent,
+    NewsComponent,
+    DoctorDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
+    DecodeHtmlEntitiesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -230,10 +241,14 @@ export function createTranslateLoader(http: HttpClient) {
     DoctorService,
     ClinicService,
     BlogService,
+    PostService,
     UrlService,
     TestimonialService,
-    FaqsService
+    FaqsService,
+    PartnerService,
+    FeedbackService
   ],
   bootstrap: [AppComponent],
+  exports: [DecodeHtmlEntitiesModule],
 })
 export class AppModule {}

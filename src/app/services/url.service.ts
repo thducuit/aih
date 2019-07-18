@@ -5,11 +5,28 @@ import { environment } from '../../environments/environment';
 export class UrlService {
 
   constructor() { }
-  static createPictureUrl(pictureName, size = null) {
+  static createPictureUrl(pictureName, size = null, type= 'post') {
     if (size) {
-      return `${environment.backend}/assets/uploads/images/post/thumbs/${size}/${pictureName}`;
+      return `${environment.backend}/assets/uploads/images/${type}/thumbs/${size}/${pictureName}`;
     }
-    return `${environment.backend}/assets/uploads/images/post/${pictureName}`;
+    return `${environment.backend}/assets/uploads/images/${type}/${pictureName}`;
   }
-
+  static createNewsDetailUrl(alias = null) {
+     if (alias) {
+       return `/news/details/${alias}`;
+     }
+     return '/news';
+  }
+  static createDoctorDetailUrl(alias = null) {
+    if (alias) {
+      return `/doctor/details/${alias}`;
+    }
+    return '/doctor';
+  }
+  static createMediaUrl(thumb) {
+    return `${environment.backend}/${thumb}`;
+  }
+  static fixPictureUrl(text) {
+    return text;
+  }
 }

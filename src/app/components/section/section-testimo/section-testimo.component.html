@@ -1,16 +1,16 @@
-<section class="testimo-home">
+<section class="testimo-home" *ngIf="feedback">
 	<div class="container">
 		<div class="tt">
-			<p>Ý kiến khách hàng</p>
-			<h2>Trải nghiệm tại AIH</h2>
+			<p>{{ 'testimonials' | translate }}</p>
+			<h2>{{ 'what_our_clients_say' | translate }}</h2>
 		</div>
 		<div class="copy-quote">
 			<p>Cảm ơn Bệnh viện AIH đã cho tôi cơ hội trải nghiệm lần đầu tiên dịch vụ chăm sóc sức khỏe tiêu chuẩn Mỹ ngay tại Việt Nam....</p>
 			<div class="info-quote">
-				<h4>Uyên Lê</h4>
-				<span>Quản lý nhà hàng</span>
+				<h4>{{ feedback.title }}</h4>
+				<span>{{ feedback.desc }}</span>
 			</div>
 		</div>
 	</div>
-	<div class="play-video js-open-video" datavideo="ZZ08HeA31lE"></div>
+	<div class="play-video js-open-video"></div>
 </section>

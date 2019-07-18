@@ -18,10 +18,10 @@
         <div class="copy">
           <h2>{{ blog.name }}</h2>
           <p>{{ blog.shortDesc }}....</p>
-          <a href="#"><span>{{ 'learn_more' | translate }}</span></a
+          <a routerLink="{{ blog.url }}"><span>{{ 'learn_more' | translate }}</span></a
           >
         </div>
-        <a class="link" href="#"></a>
+        <a class="link" routerLink="{{ blog.url }}"></a>
       </div>
     </li>
   </ul>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="btn-wrap show-mb">
-    <a class="btn-showmore js-btn-loadmore" href="#">{{'show_more' | translate}}</a>
+    <a class="btn-showmore js-btn-loadmore" routerLink="/news">{{'show_more' | translate}}</a>
   </div>
   <app-choosen-package></app-choosen-package>
 </div>
