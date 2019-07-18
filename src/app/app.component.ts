@@ -18,6 +18,7 @@ import { forkJoin } from 'rxjs';
 })
 export class AppComponent implements AfterViewInit {
   loading = false;
+  loadingCount = 0;
 
   constructor(
     private translate: TranslateService,
@@ -44,6 +45,18 @@ export class AppComponent implements AfterViewInit {
       })
       .on('hide-loading', () => {
         this.loading = false;
+      })
+      .on('loading-up', () => {
+        this.loadingCount++;
+        if (this.loadingCount > 0) {
+          this.loading = true;
+        }
+      })
+      .on('loading-down', () => {
+        this.loadingCount = Math.max(0, this.loadingCount - 1);
+        if (this.loadingCount <= 0) {
+          this.loading = false;
+        }
       });
   }
 
