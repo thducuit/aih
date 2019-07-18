@@ -1,6 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { getLanguage } from './utilities';
 import { GlobalEventService } from './services/global-event.service';
 import {
   Router,
@@ -19,6 +18,7 @@ import { forkJoin } from 'rxjs';
 })
 export class AppComponent implements AfterViewInit {
   loading = false;
+  loadingCount = 0;
 
   constructor(
     private translate: TranslateService,
@@ -30,7 +30,7 @@ export class AppComponent implements AfterViewInit {
     translate.setDefaultLang('en');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    this.translate.use(getLanguage()); // Activappe current language or default language
+    this.translate.use('vi'); // Activappe current language or default language
 
     // Set app title
     this.updateTitle();
@@ -45,6 +45,19 @@ export class AppComponent implements AfterViewInit {
       })
       .on('hide-loading', () => {
         this.loading = false;
+        this.loadingCount = 0;
+      })
+      .on('loading-up', () => {
+        this.loadingCount++;
+        if (this.loadingCount > 0) {
+          this.loading = true;
+        }
+      })
+      .on('loading-down', () => {
+        this.loadingCount = Math.max(0, this.loadingCount - 1);
+        if (this.loadingCount <= 0) {
+          this.loading = false;
+        }
       });
   }
 

@@ -1,9 +1,15 @@
 <main id="pAbout">
   <div class="breadcrumb">
-    <div class="container"><a href="../index.html">Trang chủ</a> / <p>Hỏi đáp</p></div>
+    <div class="container">
+      <a href="../index.html">{{ 'home' | translate }}</a> /
+      <p>{{ 'faqs' | translate }}</p>
+    </div>
   </div>
-  <div class="banner-page" style="background: url(../storage/2018/07/about-us1531469333.jpg);">
-    <img class="banner-mb" src="../storage/2018/07/about-us-21531469372.jpg">
+  <div
+    class="banner-page"
+    style="background: url(/assets/storage/2018/07/about-us1531469333.jpg);"
+  >
+    <img class="banner-mb" src="/assets/storage/2018/07/about-us-21531469372.jpg" />
     <div class="container">
       <div class="copy">
         <h4>MÔ HÌNH Y TẾ CỦA TƯƠNG LAI</h4>
@@ -18,30 +24,37 @@
         <ul>
           <li>
             <div class="item">
-              <img src="../assets/images/item-faq-1.png">
+              <img src="../assets/images/item-faq-1.png" />
               <div class="copy">
-                <h3>Nhân viên tư vấn</h3>
-                <p>Giải đáp về các dịch vụ tại AIH</p>
+                <h3>{{ 'call_to_telesales' | translate }}</h3>
+                <p>
+                  {{
+                    'for_enquiries_on_our_medical_services_and_packages'
+                      | translate
+                  }}
+                </p>
               </div>
               <a class="link-all" href="tel:028 3910 9999"></a>
             </div>
           </li>
           <li>
             <div class="item">
-              <img src="../assets/images/item-faq-2.png">
+              <img src="../assets/images/item-faq-2.png" />
               <div class="copy">
-                <h3>Tổng đài </h3>
-                <p>Đường dây nóng chăm sóc khách hàng</p>
+                <h3>{{ 'call_center' | translate }}</h3>
+                <p>
+                  {{ 'for_any_enquiries_on_customer_services' | translate }}
+                </p>
               </div>
               <a class="link-all" href="tel:028 3910 9999"></a>
             </div>
           </li>
           <li>
             <div class="item">
-              <img src="../assets/images/item-faq-3.png">
+              <img src="../assets/images/item-faq-3.png" />
               <div class="copy">
-                <h3>Liên hệ khác </h3>
-                <p>Dành cho các thắc mắc khác</p>
+                <h3>{{ 'other_contacts' | translate }}</h3>
+                <p>{{ 'for_other_enquiries' | translate }}</p>
               </div>
               <a class="link-all" href="tel:028 3910 9999"></a>
             </div>
@@ -50,32 +63,23 @@
       </div>
       <div class="faq-wrap">
         <div class="tt-page">
-          <h4>Hỏi đáp</h4>
-          <h3 class="text-nor">Những câu hỏi thường gặp?</h3>
+          <h4>{{'faqs' | translate}}</h4>
+          <h3 class="text-nor">{{ 'have_some_questions?' | translate }}</h3>
         </div>
         <div class="list-faq clearfix">
           <div class="left">
-            <div class="faq-item">
-              <h3>Hồ sơ y tế của tôi có được giữ bí mật không? <span class="toggle_plus"></span></h3>
-              <div class="copy">
-
-                <p style="text-align: justify;">C&oacute;. Tất cả th&ocirc;ng tin c&aacute; nh&acirc;n v&agrave; th&ocirc;ng
-                  tin y tế li&ecirc;n quan của Qu&yacute; kh&aacute;ch đều được giữ b&iacute; mật.</p>
-
-              </div>
-            </div>
+            <app-faq-item
+              *ngFor="let item of getLeftColumnItems()"
+              [faq]="item"
+            >
+            </app-faq-item>
           </div>
           <div class="right">
-            <div class="faq-item">
-              <h3>Tôi có phải thanh toán trước các chi phí không? <span class="toggle_plus"></span></h3>
-              <div class="copy">
-
-                <p style="text-align: justify;">C&oacute;. C&aacute;c bệnh nh&acirc;n đều cần thanh to&aacute;n c&aacute;c
-                  chi ph&iacute; trước khi sử dụng dịch vụ. Đối với bệnh nh&acirc;n sử dụng bảo hiểm, việc thanh to&aacute;n
-                  trước sẽ phụ thuộc v&agrave;o ch&iacute;nh s&aacute;ch bảo hiểm của Qu&yacute; kh&aacute;ch.
-                </p>
-              </div>
-            </div>
+            <app-faq-item
+              *ngFor="let item of getRightColumnItems()"
+              [faq]="item"
+            >
+            </app-faq-item>
           </div>
         </div>
       </div>

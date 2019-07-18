@@ -1,0 +1,13 @@
+.drop-day {
+  &.show {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.ar {
+  &.show {
+    opacity: 1;
+    bottom: 0;
+  }
+}

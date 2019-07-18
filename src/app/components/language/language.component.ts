@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { getLanguage, setLanguage } from 'src/app/utilities';
 
 @Component({
   selector: 'app-language',
@@ -14,12 +13,11 @@ export class LanguageComponent {
   }
 
   get language() {
-    return getLanguage();
+    return this.translate.currentLang;
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
-    setLanguage(language);
     this.expanded = false;
   }
 

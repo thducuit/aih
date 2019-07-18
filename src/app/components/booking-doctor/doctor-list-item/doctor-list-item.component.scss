@@ -1,4 +1,14 @@
 .open {
   overflow: hidden;
-  display: block!important;
+  display: block !important;
+}
+
+ul {
+  li {
+    .copy {
+      img {
+        min-height: 55px;
+      }
+    }
+  }
 }

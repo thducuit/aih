@@ -1,9 +1,11 @@
 <div class="item-inner">
 	<div class="ip ip-day">
-		<input readonly="true" class="js-dropBooking-day" type="text" placeholder="{{'date' | translate}}">  
-		<em class="ar"></em>
-		<div class="drop drop-day">
-			<div class="calendar"></div>
+		<input value="{{getDateString()}}" readonly="true" class="js-dropBooking-day" type="text" placeholder="{{'date' | translate}}" (click)="toggleExpandDate()">
+		<em class="ar" [ngClass]="{'show': expanded}"></em>
+		<div class="drop drop-day" [ngClass]="{'show': expanded}">
+			<div class="calendar">
+        <ngb-datepicker #datePicker [(ngModel)]="selectedDate" (select)="onDateSelect($event)"></ngb-datepicker>
+      </div>
 		</div>  
 		<div class="block"><input type="hidden" class="js-input" name="bookingdate" data-message="Vui lòng chọn ngày thăm khám"></div>
 	</div>

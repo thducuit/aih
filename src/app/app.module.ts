@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -40,7 +42,6 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { SearchComponent } from './components/search/search.component';
 import { VideoComponent } from './containers/news/video/video.component';
 import { VideoComponent as VideoComponent2 } from './components/popup/video/video.component';
-import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
 import { NewsItemComponent } from './components/slide/news/news-item/news-item.component';
 import { TopHeaderComponent } from './components/top-header/top-header.component';
 
@@ -102,8 +103,13 @@ import { RestApiService } from './services/rest-api.service';
 import { DoctorService } from './services/doctor.service';
 import { ClinicService } from './services/clinic.service';
 import { BlogService } from './services/blog.service';
-import { PostService } from './services/post.service';
+import { FormsModule } from '@angular/forms';
 import { UrlService } from './services/url.service';
+import { DoctorItemComponent } from './components/slide/doctor/doctor-item/doctor-item.component';
+import { TestimonialService } from './services/testimonial.service';
+import { FaqsService } from './services/faqs.service';
+import { FaqItemComponent } from './components/faq-item/faq-item.component';
+import { PostService } from './services/post.service';
 import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
 import { NewsComponent } from './containers/news/news/news.component';
 
@@ -159,7 +165,6 @@ export function createTranslateLoader(http: HttpClient) {
     LanguageComponent,
     NewsletterComponent,
     NavComponent,
-    DoctorItemComponent,
     NewsItemComponent,
     BookingPhoneNumberComponent,
     BookingSpecialtyComponent,
@@ -200,8 +205,10 @@ export function createTranslateLoader(http: HttpClient) {
     SupportDetailComponent,
     ScheduleCancelComponent,
     VoteComponent,
+    DoctorItemComponent,
+    FaqItemComponent,
     NewsDetailComponent,
-    NewsComponent
+    NewsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -215,7 +222,9 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    SlickCarouselModule
+    FormsModule,
+    NgbModule,
+    SlickCarouselModule,
   ],
   providers: [
     GlobalEventService,
@@ -225,8 +234,10 @@ export function createTranslateLoader(http: HttpClient) {
     BlogService,
     PostService,
     UrlService,
+    TestimonialService,
+    FaqsService
   ],
   bootstrap: [AppComponent],
-  exports: [DecodeHtmlEntitiesModule]
+  exports: [DecodeHtmlEntitiesModule],
 })
 export class AppModule {}

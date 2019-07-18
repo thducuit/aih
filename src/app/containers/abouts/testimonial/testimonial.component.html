@@ -2,14 +2,12 @@
   <div class="breadcrumb">
     <div class="container"><a href="../index.html">Home</a> / <p>Testimonials</p></div>
   </div>
-
   <div class="banner-quote">
     <div class="item"
-         style="background: url(../storage/2018/07/medical-package-otorhinolaryngology1531465063.jpg) no-repeat;">
+         style="background: url(/assets/storage/2018/07/medical-package-otorhinolaryngology1531465063.jpg) no-repeat;">
       <div class="container">
         <div class="ct-banner">
-          <img class="banner-home-mb" src="../storage/2018/07/medical-package-otorhinolaryngology1531465063.jpg">
-
+          <img class="banner-home-mb" src="/assets/storage/2018/07/medical-package-otorhinolaryngology1531465063.jpg">
         </div>
       </div>
     </div>
@@ -20,85 +18,21 @@
     <div class="container">
       <div class="list-quote">
         <ul>
-          <li>
+          <li *ngFor="let item of testimonials">
             <div class="item">
               <div class="copy">
                 <div class="ava" style="background: url();">
                   <img src="../assets/images/b.gif">
                 </div>
-                <p datamore="Show more" dataless="Show less" class="text js-text">Thank you for giving me the
-                  opportunity to experience the American standard healthcare service for the first time in Vietnam. My
-                  stay at AIH was really a special treat. I was allocated to a spacious room with all possible amenities
-                  for myself and even my family. The doctors have a wealth of knowledge and their sense for patient care
-                  is truly remarkable. Special thanks to the nurses and patient service staff who were always there
-                  helping me out with all my stuffs. I will always remember your kindness and support. AIH is
-                  undoubtedly a worthwhile experience I have earned.</p>
+                <p datamore="Show more" dataless="Show less" class="text js-text">{{item.logdesc}}</p>
                 <div class="info-quote">
-                  <h4>Uyen Le</h4>
-                  <span>Restaurant Manager</span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="copy">
-                <div class="ava" style="background: url();">
-                  <img src="../assets/images/b.gif">
-                </div>
-                <p datamore="Show more" dataless="Show less" class="text js-text">I am deeply indebted to all the
-                  doctors and staff for the care my daughter received at American International Hospital. When my kid
-                  knew she was going to the doctor, she became worried. But then everything has changed. She was so
-                  excited with the jungle concept design when coming to AIH Pediatrics Department. In addition, she was
-                  open-hearted to communicate with doctors and nurses. After visiting the doctor, she told me: “Mommy, I
-                  like this doctor really much, he gave me a lovely present”. I saw her really enjoy the examination.
-                  The pediatric waiting room toys also kept her busy and smiling all the time. The staff were always
-                  available to help and nice to be around.</p>
-                <div class="info-quote">
-                  <h4>Phuong Hoang</h4>
-                  <span>HR officer</span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="copy">
-                <div class="ava" style="background: url();">
-                  <img src="../assets/images/b.gif">
-                </div>
-                <p datamore="Show more" dataless="Show less" class="text js-text">As a business owner, the exceptional
-                  quality of healthcare service at AIH Hospital is of great importance to me. AIH doctors and caregivers
-                  care about us with respect and integrity, helping me save a lot of time in recovering and getting back
-                  to take care of a whole lot of customers and employees waiting for me.</p>
-                <div class="info-quote">
-                  <h4>Minh Pham</h4>
-                  <span>Businessman</span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="copy">
-                <div class="ava" style="background: url();">
-                  <img src="../assets/images/b.gif">
-                </div>
-                <p datamore="Show more" dataless="Show less" class="text js-text">It is the right choice when I chose
-                  AIH for the wonderful moment of welcoming our first little angel. American standard 4-in-1 delivery
-                  room made me feel more secured as we just had to stay in only one room until discharge with not much
-                  movement required, which can help reduce the pain as well as risks during labor and delivery. Our baby
-                  was carefully treated after birth. I will take her to AIH for periodic check-up for the best
-                  caring.</p>
-                <div class="info-quote">
-                  <h4>Ngoc Nguyen</h4>
-                  <span>Office assistant</span>
+                  <h4>{{item.title}}</h4>
+                  <span>{{item.description}}</span>
                 </div>
               </div>
             </div>
           </li>
         </ul>
-
       </div>
     </div>
   </section>
