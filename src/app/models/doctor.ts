@@ -3,6 +3,7 @@ export class Doctor {
   public name;
   public categoryName;
   public shortDesc;
+  public picturePath;
   public picture;
   public isExpanded;
   constructor(data) {
@@ -11,6 +12,7 @@ export class Doctor {
     this.categoryName = data.cate_name;
     this.shortDesc = data.post_shortdesc;
     this.picture = data.post_picture;
+    this.picturePath = null;
     this.isExpanded = false;
   }
 }

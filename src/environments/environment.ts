@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  backend: 'http://backend.aih.tqdesign.vn',
+  api: 'http://api.aih.tqdesign.vn/'
 };
 
 /*

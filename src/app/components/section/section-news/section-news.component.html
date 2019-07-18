@@ -1,18 +1,14 @@
 <section class="news-home">
 	<div class="container">
 		<div class="tt-item">
-			<a href="news.html">Tin tức</a>
-			<h4>Tin mới nhất</h4>
+			<a routerLink="/news">{{ 'news' | translate }}</a>
+			<h4>{{ 'be_the_first_to_read' | translate }}</h4>
 		</div>
 		<div class="news-list-wrap">
-			
-			<app-news-slide></app-news-slide>
-
-
+			<app-news-item></app-news-item>
 			<div class="btn-wrap show-mb">
-				<a class="btn-showmore js-btn-loadmore" data-maxpage="9" data-page="2" href="news.html">Xem thêm</a>
+				<a class="btn-showmore js-btn-loadmore" routerLink="/news">{{ 'show_more' | translate }}</a>
 			</div>
-
 			<app-choosen-package></app-choosen-package>
 		</div>
 	</div>
