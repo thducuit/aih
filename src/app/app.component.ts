@@ -45,6 +45,7 @@ export class AppComponent implements AfterViewInit {
       })
       .on('hide-loading', () => {
         this.loading = false;
+        this.loadingCount = 0;
       })
       .on('loading-up', () => {
         this.loadingCount++;
