@@ -8,6 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -108,6 +109,7 @@ import { DoctorItemComponent } from './components/slide/doctor/doctor-item/docto
 import { TestimonialService } from './services/testimonial.service';
 import { FaqsService } from './services/faqs.service';
 import { FaqItemComponent } from './components/faq-item/faq-item.component';
+import { environment } from 'src/environments/environment';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -214,6 +216,9 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader,
         deps: [HttpClient],
       },
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: environment.mapApiKey
     }),
     FormsModule,
     NgbModule,

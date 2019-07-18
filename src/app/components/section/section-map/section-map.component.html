@@ -1,3 +1,29 @@
 <section class="map-home">
-		<div id="mapCanvas"></div>
-	</section>
+  <div id="mapCanvas">
+    <agm-map
+      [latitude]="mapConfig.latitude"
+      [longitude]="mapConfig.longitude"
+      [zoom]="mapConfig.zoom"
+      [scrollwheel]="mapConfig.scrollwheel"
+      [mapTypeId]="mapConfig.mapTypeId"
+      [styles]="mapConfig.styles"
+    >
+      <agm-marker
+        [latitude]="maker.latitude"
+        [longitude]="maker.longitude"
+        [opacity]="maker.opacity"
+        [title]="maker.title"
+        [iconUrl]="maker.icon"
+        *ngFor="let maker of mapMakers"
+      >
+      <agm-info-window [maxWidth]="350" [isOpen]="true">
+        <div id="gm_content" class="content-map">
+          <h3>AMERICAN INTERNATIONAL HOSPITAL</h3>
+          <p><span>Address:</span> No. 199, Nguyen Hoang, An Phu Ward, District 2, Ho Chi Minh City</p>
+          <p><span>Hotline:</span> +84-28-3910 9999</p>
+        </div>
+      </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+</section>
