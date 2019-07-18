@@ -9,6 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
+import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -108,6 +109,9 @@ import { DoctorItemComponent } from './components/slide/doctor/doctor-item/docto
 import { TestimonialService } from './services/testimonial.service';
 import { FaqsService } from './services/faqs.service';
 import { FaqItemComponent } from './components/faq-item/faq-item.component';
+import { PostService } from './services/post.service';
+import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
+import { NewsComponent } from './containers/news/news/news.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -202,12 +206,15 @@ export function createTranslateLoader(http: HttpClient) {
     ScheduleCancelComponent,
     VoteComponent,
     DoctorItemComponent,
-    FaqItemComponent
+    FaqItemComponent,
+    NewsDetailComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
+    DecodeHtmlEntitiesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -225,10 +232,12 @@ export function createTranslateLoader(http: HttpClient) {
     DoctorService,
     ClinicService,
     BlogService,
+    PostService,
     UrlService,
     TestimonialService,
     FaqsService
   ],
   bootstrap: [AppComponent],
+  exports: [DecodeHtmlEntitiesModule],
 })
 export class AppModule {}

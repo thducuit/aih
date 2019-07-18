@@ -28,6 +28,7 @@ export class NewsItemComponent implements OnInit {
       this.blogs = posts.map(post => {
         const blog = new Blog(post);
         blog.picturePath = UrlService.createPictureUrl(blog.picture);
+        blog.url = UrlService.createNewsDetailUrl(blog.alias);
         return blog;
       });
     });
