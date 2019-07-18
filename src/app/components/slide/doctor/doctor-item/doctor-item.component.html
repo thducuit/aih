@@ -22,16 +22,16 @@
           </div>
           <div class="copy">
             <p>{{ doctor.shortDesc }}...</p>
-            <a href="#">
+            <a routerLink="{{ doctor.url }}">
               <span>{{ 'learn_more' | translate }}</span>
             </a>
           </div>
-          <a class="link" href="#"></a>
+          <a class="link" routerLink="{{ doctor.url }}"></a>
         </div>
       </li>
     </ngx-slick-carousel>
   </ul>
   <div class="btn-wrap show-mb">
-    <a class="btn-showmore" href="#">{{ 'show_more' | translate }}</a>
+    <a class="btn-showmore" routerLink="/doctor">{{ 'show_more' | translate }}</a>
   </div>
 </div>

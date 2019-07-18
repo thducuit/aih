@@ -29,7 +29,8 @@ import {ScheduleCancelComponent} from './containers/account/schedule-cancel/sche
 import {ScheduleRegisterComponent} from './containers/account/schedule-register/schedule-register.component';
 import {LoginComponent} from './containers/account/login/login.component';
 import {RegisterComponent} from './containers/account/register/register.component';
-import {NewsDetailComponent} from "./containers/news/news-detail/news-detail.component";
+import {NewsDetailComponent} from './containers/news/news-detail/news-detail.component';
+import {DoctorDetailComponent} from './containers/doctor/doctor-detail/doctor-detail.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,7 @@ const routes: Routes = [
       { path: 'patient-services/insurance', component: InsuranceComponent },
       { path: 'patient-services/factsheet', component: FactsheetComponent },
       { path: 'doctor', component: DoctorComponent },
+      { path: 'doctor/details/:alias', component: DoctorDetailComponent },
       { path: 'news', component: EventComponent },
       { path: 'news/details/:alias', component: NewsDetailComponent },
       { path: 'videos', component: VideoComponent },

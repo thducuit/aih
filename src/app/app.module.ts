@@ -112,6 +112,9 @@ import { FaqItemComponent } from './components/faq-item/faq-item.component';
 import { PostService } from './services/post.service';
 import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
 import { NewsComponent } from './containers/news/news/news.component';
+import { PartnerService } from './services/partner.service';
+import { FeedbackService } from './services/feedback.service';
+import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -209,6 +212,7 @@ export function createTranslateLoader(http: HttpClient) {
     FaqItemComponent,
     NewsDetailComponent,
     NewsComponent,
+    DoctorDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -235,7 +239,9 @@ export function createTranslateLoader(http: HttpClient) {
     PostService,
     UrlService,
     TestimonialService,
-    FaqsService
+    FaqsService,
+    PartnerService,
+    FeedbackService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

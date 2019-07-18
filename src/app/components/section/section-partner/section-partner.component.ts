@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Partner } from '../../../models/partner';
+import { UrlService } from '../../../services/url.service';
+import { PartnerService } from '../../../services/partner.service';
 
 @Component({
   selector: 'app-section-partner',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionPartnerComponent implements OnInit {
 
-  constructor() { }
+  public partners: Array<Partner> = [];
+  constructor(public partnerService: PartnerService) {}
 
   ngOnInit() {
+    this.loadPartners();
+  }
+
+  loadPartners() {
+    this.partnerService.fetch().subscribe((data: any) => {
+      const posts = data.Media || [];
+      this.partners = posts.map(post => {
+        const partner = new Partner(post);
+        partner.thumb = UrlService.createMediaUrl(partner.thumb);
+        return partner;
+      });
+    });
   }
 
 }

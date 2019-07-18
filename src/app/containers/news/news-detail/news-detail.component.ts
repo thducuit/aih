@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../../services/post.service';
 import { Blog } from '../../../models/blog';
 import { UrlService } from '../../../services/url.service';
+import {BlogService} from "../../../services/blog.service";
 
 @Component({
   selector: 'app-news-detail',
@@ -11,7 +12,10 @@ import { UrlService } from '../../../services/url.service';
 })
 export class NewsDetailComponent implements OnInit {
   public blog: Blog;
-  constructor(private route: ActivatedRoute, public postService: PostService) {}
+  public blogs: Array<Blog> = [];
+  constructor(private route: ActivatedRoute,
+              public postService: PostService,
+              public blogService: BlogService) {}
 
   ngOnInit() {
     // const alias = this.route.snapshot.paramMap.get('alias');
@@ -23,8 +27,21 @@ export class NewsDetailComponent implements OnInit {
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
         }
         blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
-        console.log(blog, data.Post);
         this.blog = blog;
+      });
+    });
+    this.loadFeatureBlogs();
+  }
+
+  loadFeatureBlogs() {
+    this.blogService.fetchFeature(3).subscribe( (data: any) => {
+      const posts = data.Posts || [];
+      this.blogs = posts.map(post => {
+        const blog = new Blog(post);
+        blog.picturePath = UrlService.createPictureUrl(blog.picture);
+        blog.url = UrlService.createNewsDetailUrl(blog.alias);
+        blog.shortDesc = blog.shortDesc.replace(/^(.{2}[^\s]*).*/, '$1');
+        return blog;
       });
     });
   }

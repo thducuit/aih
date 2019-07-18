@@ -53,6 +53,7 @@ export class DoctorItemComponent implements OnInit {
         if (doctor.picture) {
           doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
         }
+        doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
         return doctor;
       });
     });

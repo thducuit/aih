@@ -1,0 +1,61 @@
+<main id="pDoctorDetail" *ngIf="doctor">
+  <div class="breadcrumb">
+    <div class="container"><a href="#">Home</a> /
+      <a href="#">Find a Doctor</a> /
+      <p>{{ doctor ? doctor.name : '' }}</p>
+    </div>
+  </div>
+  <section class="doctor-dt-wrap">
+    <div class="container">
+      <div class="main-info">
+        <h2>{{ doctor ? doctor.name : '' }}</h2>
+        <p>{{ doctor ? doctor.categoryName : '' }}</p>
+      </div>
+      <div class="content-dt">
+        <div class="sub-info">
+          <h3>Profile details</h3>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td>Degree</td>
+              <td>Specialist Level I</td>
+            </tr>
+            <tr>
+              <td width="50%">Title</td>
+              <td width="50%">Deputy Head of Anesthesiologist Department</td>
+            </tr>
+            <tr>
+              <td>Specialty</td>
+              <td>Anesthesiology</td>
+            </tr>
+            <tr>
+              <td>Experience</td>
+              <td>20 Years</td>
+            </tr>
+          </table>
+          <div class="btn-wrap">
+            <a data-doctor="23" class="btn-page js-submit-page" href="#">Book an Appointment</a>
+            <p class="alert-dt">Please continue your booking on above booking funtion</p>
+          </div>
+        </div>
+        <div class="copy">
+          <div class="thumb-dt" *ngIf="doctor && doctor.picturePath">
+            <img src="{{ doctor.picturePath }}">
+          </div>
+          <div innerHTML="{{ doctor.longDesc | decodeHtmlEntities }}"></div>
+        </div>
+      </div>
+
+      <!--<div class="btn-dt clearfix">
+        <a class="next-doctor" href="25-nguyen-tan-cuong-md-msc.html">Next Link
+          <br/><span>Nguyen Tan Cuong, MD., MSc.</span></a>
+      </div>-->
+
+    </div>
+  </section>
+
+  <section class="doctor-home">
+    <div class="container">
+      <app-doctor-item></app-doctor-item>
+    </div>
+  </section>
+</main>
