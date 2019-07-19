@@ -1,7 +1,7 @@
 <main id="pDoctorDetail" *ngIf="doctor">
   <div class="breadcrumb">
-    <div class="container"><a href="#">Home</a> /
-      <a href="#">Find a Doctor</a> /
+    <div class="container"><a href="#">{{'home' | translate}}</a> /
+      <a href="#">{{'find_a_doctor' | translate}}</a> /
       <p>{{ doctor ? doctor.name : '' }}</p>
     </div>
   </div>
@@ -13,28 +13,28 @@
       </div>
       <div class="content-dt">
         <div class="sub-info">
-          <h3>Profile details</h3>
+          <h3>{{'profile_details' | translate}}</h3>
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
-              <td>Degree</td>
+              <td>{{'degree' | translate}}</td>
               <td>Specialist Level I</td>
             </tr>
             <tr>
-              <td width="50%">Title</td>
+              <td width="50%">{{'title' | translate}}</td>
               <td width="50%">Deputy Head of Anesthesiologist Department</td>
             </tr>
             <tr>
-              <td>Specialty</td>
+              <td>{{'specialty' | translate}}</td>
               <td>Anesthesiology</td>
             </tr>
             <tr>
-              <td>Experience</td>
+              <td>{{'experience' | translate}}</td>
               <td>20 Years</td>
             </tr>
           </table>
           <div class="btn-wrap">
-            <a data-doctor="23" class="btn-page js-submit-page" href="#">Book an Appointment</a>
-            <p class="alert-dt">Please continue your booking on above booking funtion</p>
+            <a data-doctor="23" class="btn-page js-submit-page" href="#">{{'book_an_appointment' | translate}}</a>
+            <p class="alert-dt">{{'please_continue_your_booking_on_above_booking_funtion' | translate}}</p>
           </div>
         </div>
         <div class="copy">
@@ -44,18 +44,16 @@
           <div innerHTML="{{ doctor.longDesc | decodeHtmlEntities }}"></div>
         </div>
       </div>
-
-      <!--<div class="btn-dt clearfix">
-        <a class="next-doctor" href="25-nguyen-tan-cuong-md-msc.html">Next Link
-          <br/><span>Nguyen Tan Cuong, MD., MSc.</span></a>
-      </div>-->
-
+      <div class="btn-dt clearfix">
+        <a class="prev-doctor" href="63-to-van-quyen-md">{{'previous_link' | translate}}
+          <br><span>BS. Tô Văn Quyền</span>
+        </a>
+        <a class="next-doctor" href="25-nguyen-tan-cuong-md-msc.html">{{'next_link' | translate}}
+          <br/><span>Nguyen Tan Cuong, MD., MSc.</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="doctor-home">
-    <div class="container">
-      <app-doctor-item></app-doctor-item>
-    </div>
-  </section>
+  <app-section-doctor></app-section-doctor>
 </main>

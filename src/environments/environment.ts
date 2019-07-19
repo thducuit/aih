@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   backend: 'http://backend.aih.tqdesign.vn',
-  api: 'http://api.aih.tqdesign.vn/'
+  api: 'http://api.aih.tqdesign.vn/',
+  mapApiKey: 'AIzaSyD77nJoVaeLUFJAGd_wp0qmTiNUJemumnE'
 };
 
 /*

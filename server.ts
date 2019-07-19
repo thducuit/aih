@@ -1,4 +1,5 @@
 import 'zone.js/dist/zone-node';
+import domino from 'domino';
 import { enableProdMode } from '@angular/core';
 // Express Engine
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -30,6 +31,14 @@ app.engine('html', ngExpressEngine({
 
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
+
+// DOM fix
+const window = domino.createWindow(' ');
+const document: any = window.document;
+document.ownerDocument = document;
+
+(global as any).window = window;
+(global as any).document = document;
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
