@@ -115,6 +115,11 @@ import { NewsComponent } from './containers/news/news/news.component';
 import { PartnerService } from './services/partner.service';
 import { FeedbackService } from './services/feedback.service';
 import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
+import {PageService} from "./services/page.service";
+import {BannerService} from "./services/banner.service";
+import { SidebarComponent } from './containers/services/service/sidebar/sidebar.component';
+import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
+import {CategoryService} from "./services/category.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -213,6 +218,9 @@ export function createTranslateLoader(http: HttpClient) {
     NewsDetailComponent,
     NewsComponent,
     DoctorDetailComponent,
+    SidebarComponent,
+    ServiceDetailComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -241,7 +249,10 @@ export function createTranslateLoader(http: HttpClient) {
     TestimonialService,
     FaqsService,
     PartnerService,
-    FeedbackService
+    FeedbackService,
+    PageService,
+    BannerService,
+    CategoryService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

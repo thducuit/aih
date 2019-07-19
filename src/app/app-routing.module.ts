@@ -31,6 +31,7 @@ import {LoginComponent} from './containers/account/login/login.component';
 import {RegisterComponent} from './containers/account/register/register.component';
 import {NewsDetailComponent} from './containers/news/news-detail/news-detail.component';
 import {DoctorDetailComponent} from './containers/doctor/doctor-detail/doctor-detail.component';
+import {ServiceDetailComponent} from "./containers/services/service/service-detail/service-detail.component";
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
       { path: 'about-us/faq', component: QaComponent },
       { path: 'about-us/testimonial', component: TestimonialComponent },
       { path: 'patient-services/medical-services', component: ServiceComponent },
+      { path: 'patient-services/medical-services/:alias', component: ServiceDetailComponent },
       { path: 'patient-services/medical-package', component: PackageComponent },
       { path: 'patient-services/insurance', component: InsuranceComponent },
       { path: 'patient-services/factsheet', component: FactsheetComponent },

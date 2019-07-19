@@ -2,7 +2,7 @@
   <div class="breadcrumb">
     <div class="container">
       <a href="#">Trang chủ</a> /
-      <p>{{ page ? page.name : '' }}</p></div>
+      <p>{{ clinic ? clinic.name : '' }}</p></div>
   </div>
   <section class="service-cate-wrap">
     <div class="container">
@@ -14,12 +14,12 @@
         </select>
       </div>-->
 
-      <div class="content-sv" *ngIf="page">
+      <div class="content-sv" *ngIf="clinic">
         <div class="service-cate">
           <h3>{{ 'our_departments' | translate }}</h3>
           <app-sidebar></app-sidebar>
         </div>
-        <div class="copy" innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
+        <div class="copy" innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
       </div>
     </div>
   </section>

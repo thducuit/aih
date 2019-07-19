@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../../services/post.service';
 import { Blog } from '../../../models/blog';
 import { UrlService } from '../../../services/url.service';
-import {BlogService} from "../../../services/blog.service";
+import {BlogService} from '../../../services/blog.service';
 
 @Component({
   selector: 'app-news-detail',
