@@ -4,8 +4,11 @@ import {
   HostListener,
   AfterViewInit,
   NgZone,
+  Inject,
+  PLATFORM_ID,
 } from '@angular/core';
 import jquery from 'jquery';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header-home',
@@ -13,7 +16,11 @@ import jquery from 'jquery';
   styleUrls: ['./header-home.component.scss'],
 })
 export class HeaderHomeComponent implements OnInit, AfterViewInit {
-  constructor(private zone: NgZone) {}
+  private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId, private zone: NgZone) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit() {}
 
@@ -23,24 +30,26 @@ export class HeaderHomeComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
   scrollHeader() {
-    this.zone.runOutsideAngular(() => {
-      let scrollTop: number;
-      if (1024 < jquery(window).innerWidth()) {
-        scrollTop = jquery(window).scrollTop();
-        const posHd = $('.bookingwrap-hd').offset().top;
-        jquery('#pHome').length
-          ? scrollTop >= jquery('.doctor-home').offset().top
+    if (this.isBrowser) {
+      this.zone.runOutsideAngular(() => {
+        let scrollTop: number;
+        if (1024 < jquery(window).innerWidth()) {
+          scrollTop = jquery(window).scrollTop();
+          const posHd = $('.bookingwrap-hd').offset().top;
+          jquery('#pHome').length
+            ? scrollTop >= jquery('.doctor-home').offset().top
+              ? jquery('header').addClass('fixHd')
+              : jquery('header').removeClass('fixHd')
+            : posHd <= scrollTop
             ? jquery('header').addClass('fixHd')
-            : jquery('header').removeClass('fixHd')
-          : posHd <= scrollTop
-          ? jquery('header').addClass('fixHd')
-          : jquery('header').removeClass('fixHd');
-      } else {
-        scrollTop = jquery(window).scrollTop();
-        1 <= scrollTop
-          ? jquery('header').addClass('fixHd')
-          : jquery('header').removeClass('fixHd');
-      }
-    });
+            : jquery('header').removeClass('fixHd');
+        } else {
+          scrollTop = jquery(window).scrollTop();
+          1 <= scrollTop
+            ? jquery('header').addClass('fixHd')
+            : jquery('header').removeClass('fixHd');
+        }
+      });
+    }
   }
 }

@@ -8,7 +8,7 @@ export class BannerService {
 
   constructor(private http: RestApiService) { }
 
-  fetch(type, pageId) {
+  fetch(type: string, pageId: any) {
     const postData = {
       position: 'bannertop',
       obj_id: pageId,
