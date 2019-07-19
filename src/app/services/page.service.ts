@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 
-@Injectable()
-export class PostService {
+@Injectable({
+  providedIn: 'root'
+})
+export class PageService {
 
   constructor(private http: RestApiService) { }
 
-  fetch(alias) {
+  fetch(type) {
     const postData = {
-      alias: alias,
+      post_type: type,
+      lang : 'vi-VN'
     };
-    return this.http.post('post/detail', postData);
+    return this.http.post('post/detail-top', postData);
   }
-
 }

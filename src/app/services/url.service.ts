@@ -23,10 +23,16 @@ export class UrlService {
     }
     return '/doctor';
   }
+  static createClinicDetailUrl(alias = null) {
+    if (alias) {
+      return `/patient-services/medical-services/${alias}`;
+    }
+    return '/patient-services/medical-services';
+  }
   static createMediaUrl(thumb) {
     return `${environment.backend}/${thumb}`;
   }
   static fixPictureUrl(text) {
-    return text;
+    return text.replace(/\/assets/g, `${environment.backend}/assets`);
   }
 }

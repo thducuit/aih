@@ -25,3 +25,7 @@
 ::-webkit-scrollbar-thumb:hover {
   /*background: #555;*/
 }
+
+.copy img {
+  max-width: 100%;
+}
