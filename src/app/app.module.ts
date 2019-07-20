@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -250,7 +251,8 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     NgbModule,
     SlickCarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularStickyThingsModule
   ],
   providers: [
     GlobalEventService,
