@@ -1,0 +1,63 @@
+<div class="op-dt-wrap window">
+  <p class="cap"></p>
+  <div class="op-dt clearfix">
+    <div class="sl-wrap js-cselect" data-target="department">
+      <div class="select">
+        <select class="custom-sl js-change-department">
+          <option value="hide">{{ 'select_a_specialty' | translate }}</option>
+          <option value="1">Obstetrics &amp; Gynecology</option>
+        </select>
+        <div class="select-styled">Chuyên khoa</div>
+        <div class="select-options" style="display: none;">
+          <div class="copyscroll">
+            <div class="nano has-scrollbar">
+              <div class="nano-content" tabindex="0" style="right: -17px;"><p rel="1">Khoa Phụ Sản</p>
+                <p rel="2">Khoa Nhi</p>
+                <p rel="3">Khoa Ngoại tổng quát</p>
+                <p rel="4">Khoa Thận Niệu - Nam khoa</p>
+                <p rel="5">Khoa Tiêu hóa - Gan mật</p>
+                <p rel="6">Khoa Ung bướu</p>
+                <p rel="7">Khoa Mắt</p>
+                <p rel="10">Khoa Chấn thương chỉnh hình</p>
+                <p rel="11">Khoa Tim mạch</p>
+                <p rel="12">Khoa Vật lý trị liệu - Phục hồi chức năng</p>
+                <p rel="13">Khoa Nội tổng quát</p>
+                <p rel="14">Khoa Thẩm mỹ nội khoa - Chống lão hóa</p>
+                <p rel="16">Khoa Tai Mũi Họng</p>
+                <p rel="23">Khoa Chẩn đoán hình ảnh</p>
+                <p rel="24">Khoa Xét nghiệm</p>
+                <p rel="25">Khoa Khám bệnh và Kiểm tra sức khỏe tổng quát</p>
+                <p rel="26">Khoa Hồi sức Cấp cứu</p>
+                <p rel="27">Khoa Gây mê hồi sức</p>
+                <p rel="28">Khoa Dinh dưỡng</p></div>
+              <div class="nano-pane" style="display: none;">
+                <div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sl-wrap select-doctor js-cselect" data-target="doctor">
+      <div class="select">
+        <select class="custom-sl js-select-doctor">
+          <option value="">{{ 'select_a_doctor' | translate }}</option>
+          <option *ngFor="let doctor of doctors">{{ doctor.name }}</option>
+        </select>
+        <div class="select-styled">Bác sĩ</div>
+        <div class="select-options">
+          <div class="copyscroll">
+            <div class="nano has-scrollbar">
+              <div class="nano-content" tabindex="0" style="right: -17px;">
+                <p rel="#" *ngFor="let doctor of doctors">{{ doctor.name }}</p>
+              </div>
+              <div class="nano-pane" style="display: none;">
+                <div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

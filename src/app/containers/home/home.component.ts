@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
             banner.url = banner.Link;
             return banner;
           });
-          console.log('home', this.banners);
         });
     });
   }

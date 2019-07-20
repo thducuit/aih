@@ -6,11 +6,11 @@ export class BlogService {
 
   constructor(private http: RestApiService) { }
 
-  fetch(pageNum: number) {
+  fetch(pageNum: number, perPage = 3) {
     const postData = {
       search: '',
       publish: 1,
-      rowperpage: 3,
+      rowperpage: perPage,
       pageselected: pageNum || 1,
       post_type: ['news'],
       lang: 'vi-VN'
@@ -26,7 +26,7 @@ export class BlogService {
       pageselected: 1,
       post_type: ['news'],
       lang: 'vi-VN',
-      sort:['post_datepublish DESC']
+      sort: ['post_datepublish DESC']
     };
     return this.http.post('post/list', postData);
   }

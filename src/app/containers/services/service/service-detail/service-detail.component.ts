@@ -27,7 +27,6 @@ export class ServiceDetailComponent implements OnInit {
         }
         clinic.longDesc = UrlService.fixPictureUrl(clinic.longDesc);
         this.clinic = clinic;
-        console.log(clinic);
       });
     });
   }

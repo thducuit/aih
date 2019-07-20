@@ -25,7 +25,6 @@ export class ServiceComponent implements OnInit {
       const page = new Page(post);
       page.longDesc = UrlService.fixPictureUrl(page.longDesc);
       this.page = page;
-        console.log('this.page', page);
     });
   }
 

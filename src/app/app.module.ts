@@ -122,6 +122,9 @@ import {BannerService} from "./services/banner.service";
 import { SidebarComponent } from './containers/services/service/sidebar/sidebar.component';
 import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
 import {CategoryService} from "./services/category.service";
+import {InsuranceService} from "./services/insurance.service";
+import {HighlightService} from "./services/highlight.service";
+import { DoctorFilterComponent } from './containers/doctor/doctor-filter/doctor-filter.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -223,6 +226,7 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarComponent,
     ServiceDetailComponent,
     SidebarComponent,
+    DoctorFilterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -257,7 +261,9 @@ export function createTranslateLoader(http: HttpClient) {
     FeedbackService,
     PageService,
     BannerService,
-    CategoryService
+    CategoryService,
+    InsuranceService,
+    HighlightService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],
