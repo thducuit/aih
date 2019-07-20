@@ -17,7 +17,11 @@ export class BookingComponent implements AfterViewInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngAfterViewInit() { }
+  ngAfterViewInit() {
+    this.isBrowser && setTimeout(() => {
+      this.scrollHeader();
+    }, 300);
+  }
 
   @HostListener('window:scroll', ['$event'])
   scrollHeader() {
