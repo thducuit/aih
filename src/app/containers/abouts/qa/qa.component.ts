@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaqsService } from 'src/app/services/faqs.service';
 import { Faq } from 'src/app/models/faq';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-qa',
@@ -11,10 +12,18 @@ export class QaComponent implements OnInit {
   public currentPage = 1;
   public faqs: any[];
 
-  constructor(private faqsService: FaqsService) {}
+  constructor(
+    private faqsService: FaqsService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadFaqs();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadFaqs();
+      });
   }
 
   getLeftColumnItems() {

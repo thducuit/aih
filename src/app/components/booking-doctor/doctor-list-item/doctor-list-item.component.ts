@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DoctorService } from '../../../services/doctor.service';
 import { UrlService } from '../../../services/url.service';
 import { Doctor } from '../../../models/doctor';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-doctor-list-item',
@@ -11,10 +12,18 @@ import { Doctor } from '../../../models/doctor';
 export class DoctorListItemComponent implements OnInit {
   public doctors: Array<Doctor> = [];
   @Output() choose = new EventEmitter<Doctor>();
-  constructor(public doctorService: DoctorService) {}
+  constructor(
+    public doctorService: DoctorService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadDoctors();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadDoctors();
+      });
   }
 
   loadDoctors() {

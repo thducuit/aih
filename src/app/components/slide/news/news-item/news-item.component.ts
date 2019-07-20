@@ -3,6 +3,7 @@ import { BlogService } from '../../../../services/blog.service';
 import { UrlService } from '../../../../services/url.service';
 import { Blog } from '../../../../models/blog';
 import { CalculatePagination } from 'src/app/utilities';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news-item',
@@ -15,10 +16,18 @@ export class NewsItemComponent implements OnInit {
   public currentPage = 1;
   public pageNumbers: number[] = [];
 
-  constructor(public blogService: BlogService) {}
+  constructor(
+    public blogService: BlogService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadNews();
+    this.translate
+    .onLangChange
+    .subscribe(() => {
+      this.loadNews();
+    });
   }
 
   loadNews() {

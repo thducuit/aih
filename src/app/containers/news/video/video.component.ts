@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Video} from "../../../models/video";
-import {UrlService} from "../../../services/url.service";
-import {VideoService} from "../../../services/video.service";
+import { Video } from '../../../models/video';
+import { UrlService } from '../../../services/url.service';
+import { VideoService } from '../../../services/video.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-video',
@@ -12,10 +13,18 @@ export class VideoComponent implements OnInit {
 
   public videos: Array<Video> = [];
   public video: Video;
-  constructor(public videoService: VideoService) { }
+  constructor(
+    public videoService: VideoService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadVideos();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadVideos();
+      });
   }
 
   loadVideos() {

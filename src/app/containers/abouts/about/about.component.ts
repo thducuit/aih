@@ -29,20 +29,22 @@ export class AboutComponent implements OnInit {
       });
   }
   loadPage() {
-    this.pageService.fetch('aboutus').subscribe((data: any) => {
-      const page = data.Post || {};
-      this.page = new Page(page);
-      this.bannerService.fetch('aboutus', this.page.id).subscribe((bannerData: any) => {
-        const banners = bannerData.Banner;
-        this.banners = banners.map(banner => {
-          banner.large = UrlService.createMediaUrl(banner.Url);
-          banner.small = banner.large;
-          banner.url = banner.Link;
-          return banner;
+    this.pageService
+      .fetch('aboutus')
+      .subscribe((data: any) => {
+        const page = data.Post || {};
+        this.page = new Page(page);
+        this.bannerService.fetch('aboutus', this.page.id).subscribe((bannerData: any) => {
+          const banners = bannerData.Banner;
+          this.banners = banners.map(banner => {
+            banner.large = UrlService.createMediaUrl(banner.Url);
+            banner.small = banner.large;
+            banner.url = banner.Link;
+            return banner;
+          });
+          console.log('about', this.banners, this.page);
         });
-        console.log('about', this.banners, this.page);
       });
-    });
   }
 
 }

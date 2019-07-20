@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DoctorService } from '../../../../services/doctor.service';
 import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-doctor-item',
@@ -35,10 +36,18 @@ export class DoctorItemComponent implements OnInit {
   @ViewChild('sliderContainer', { static: false })
   sliderContainer: ElementRef;
 
-  constructor(public doctorService: DoctorService) {}
+  constructor(
+    public doctorService: DoctorService,
+    private translate: TranslateService
+    ) {}
 
   ngOnInit() {
     this.loadDoctors();
+    this.translate
+    .onLangChange
+    .subscribe(() => {
+      this.loadDoctors();
+    });
   }
 
   sliderInit(e) {
