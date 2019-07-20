@@ -117,15 +117,17 @@ import { NewsComponent } from './containers/news/news/news.component';
 import { PartnerService } from './services/partner.service';
 import { FeedbackService } from './services/feedback.service';
 import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
-import {PageService} from "./services/page.service";
-import {BannerService} from "./services/banner.service";
+import { PageService } from './services/page.service';
+import { BannerService } from './services/banner.service';
 import { SidebarComponent } from './containers/services/service/sidebar/sidebar.component';
 import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
-import {CategoryService} from "./services/category.service";
-import {InsuranceService} from "./services/insurance.service";
-import {HighlightService} from "./services/highlight.service";
+import { CategoryService } from './services/category.service';
+import { InsuranceService } from './services/insurance.service';
+import { HighlightService } from './services/highlight.service';
 import { DoctorFilterComponent } from './containers/doctor/doctor-filter/doctor-filter.component';
-import {VideoService} from "./services/video.service";
+import { VideoService } from './services/video.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -228,6 +230,7 @@ export function createTranslateLoader(http: HttpClient) {
     ServiceDetailComponent,
     SidebarComponent,
     DoctorFilterComponent,
+    NavItemComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -247,6 +250,7 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     NgbModule,
     SlickCarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [
     GlobalEventService,
@@ -270,4 +274,4 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],
 })
-export class AppModule {}
+export class AppModule { }

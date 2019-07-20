@@ -3,20 +3,20 @@
 		
 		<app-logo></app-logo>	
 
-		<div class="hamburger-menu">
-			<div class="bar"></div>
+		<div class="hamburger-menu" (click)="toggleState()">
+			<div class="bar" [ngClass]="{'animate': isMobileNavOpened}"></div>
 		</div>
 		<div class="right-hd-mb">
 			<app-language></app-language>
 		</div>
-		<div class="nav-wrap">
+    <div class="nav-wrap"
+      [@toggleNav]="currentState"
+      (@toggleNav.start)="onAnimation($event)"
+      (@toggleNav.done)="onAnimation($event)">
 
 			<app-nav></app-nav>
-
 			<app-search></app-search>
-			
 			<app-language></app-language>
-			
 		</div>
 	</div>
 </div>
