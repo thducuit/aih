@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Page} from "../../models/page";
-import {Doctor} from "../../models/doctor";
-import {PageService} from "../../services/page.service";
-import {DoctorService} from "../../services/doctor.service";
-import {BannerService} from "../../services/banner.service";
-import {UrlService} from "../../services/url.service";
+import { Page } from '../../models/page';
+import { Doctor } from '../../models/doctor';
+import { PageService } from '../../services/page.service';
+import { DoctorService } from '../../services/doctor.service';
+import { BannerService } from '../../services/banner.service';
+import { UrlService } from '../../services/url.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-doctor',
@@ -16,16 +17,25 @@ export class DoctorComponent implements OnInit {
   public page: Page;
   public banners: Array<any> = [];
   public doctors: Array<Doctor> = [];
-  constructor(public pageService: PageService,
-              public doctorService: DoctorService,
-              public bannerService: BannerService) { }
+  constructor(
+    public pageService: PageService,
+    public doctorService: DoctorService,
+    public bannerService: BannerService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadPage();
     this.loadDoctors();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadPage();
+        this.loadDoctors();
+      });
   }
   loadPage() {
-    this.pageService.fetch('highlight_page').subscribe( (data: any) => {
+    this.pageService.fetch('highlight_page').subscribe((data: any) => {
       const post = data.Post || {};
       const page = new Page(post);
       page.longDesc = UrlService.fixPictureUrl(page.longDesc);

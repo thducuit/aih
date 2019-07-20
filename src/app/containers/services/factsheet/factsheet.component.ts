@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Page} from "../../../models/page";
-import {PageService} from "../../../services/page.service";
-import {BannerService} from "../../../services/banner.service";
-import {UrlService} from "../../../services/url.service";
-import {Highlight} from "../../../models/highlight";
-import {HighlightService} from "../../../services/highlight.service";
+import { Page } from '../../../models/page';
+import { PageService } from '../../../services/page.service';
+import { BannerService } from '../../../services/banner.service';
+import { UrlService } from '../../../services/url.service';
+import { Highlight } from '../../../models/highlight';
+import { HighlightService } from '../../../services/highlight.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-factsheet',
@@ -16,16 +17,26 @@ export class FactsheetComponent implements OnInit {
   public page: Page;
   public banners: Array<any> = [];
   public highlights: Array<Highlight> = [];
-  constructor(public pageService: PageService,
-              public highlightService: HighlightService,
-              public bannerService: BannerService) { }
+  constructor(
+    public pageService: PageService,
+    public highlightService: HighlightService,
+    public bannerService: BannerService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadPage();
     this.loadFactsheets();
+
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadPage();
+        this.loadFactsheets();
+      });
   }
   loadPage() {
-    this.pageService.fetch('highlight_page').subscribe( (data: any) => {
+    this.pageService.fetch('highlight_page').subscribe((data: any) => {
       const post = data.Post || {};
       const page = new Page(post);
       page.longDesc = UrlService.fixPictureUrl(page.longDesc);

@@ -1,0 +1,8 @@
+.drop-mn {
+  .megadrop {
+    &.show {
+      display: block;
+      overflow: hidden;
+    }
+  }
+}

@@ -33,6 +33,6 @@ export class UrlService {
     return `${environment.backend}/${thumb}`;
   }
   static fixPictureUrl(text) {
-    return text.replace(/\/assets/g, `${environment.backend}/assets`);
+    return `${text}`.replace(/\/assets/g, `${environment.backend}/assets`);
   }
 }

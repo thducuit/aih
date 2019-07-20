@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../../services/post.service';
 import { Blog } from '../../../models/blog';
 import { UrlService } from '../../../services/url.service';
-import {BlogService} from '../../../services/blog.service';
+import { BlogService } from '../../../services/blog.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news-detail',
@@ -13,28 +14,42 @@ import {BlogService} from '../../../services/blog.service';
 export class NewsDetailComponent implements OnInit {
   public blog: Blog;
   public blogs: Array<Blog> = [];
-  constructor(private route: ActivatedRoute,
-              public postService: PostService,
-              public blogService: BlogService) {}
+  constructor(
+    private route: ActivatedRoute,
+    public postService: PostService,
+    public blogService: BlogService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     // const alias = this.route.snapshot.paramMap.get('alias');
     this.route.paramMap.subscribe(params => {
       const alias = params.get('alias');
-      this.postService.fetch(alias).subscribe((data: any) => {
-        const blog = new Blog(data.Post);
-        if (blog.picture) {
-          blog.picturePath = UrlService.createPictureUrl(blog.picture);
-        }
-        blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
-        this.blog = blog;
-      });
+      this.loadPosts(alias);
     });
     this.loadFeatureBlogs();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        const alias = this.route.snapshot.params.alias;
+        this.loadFeatureBlogs();
+        this.loadPosts(alias);
+      });
+  }
+
+  private loadPosts(alias: string) {
+    this.postService.fetch(alias).subscribe((data: any) => {
+      const blog = new Blog(data.Post);
+      if (blog.picture) {
+        blog.picturePath = UrlService.createPictureUrl(blog.picture);
+      }
+      blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
+      this.blog = blog;
+    });
   }
 
   loadFeatureBlogs() {
-    this.blogService.fetchFeature(3).subscribe( (data: any) => {
+    this.blogService.fetchFeature(3).subscribe((data: any) => {
       const posts = data.Posts || [];
       this.blogs = posts.map(post => {
         const blog = new Blog(post);

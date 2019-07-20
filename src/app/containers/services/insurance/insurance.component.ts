@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Insurance} from '../../../models/insurance';
-import {InsuranceService} from '../../../services/insurance.service';
-import {UrlService} from "../../../services/url.service";
+import { Insurance } from '../../../models/insurance';
+import { InsuranceService } from '../../../services/insurance.service';
+import { UrlService } from '../../../services/url.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-insurance',
@@ -11,48 +12,58 @@ import {UrlService} from "../../../services/url.service";
 export class InsuranceComponent implements OnInit {
 
   public insurances: Array<Insurance> = [];
-  constructor(public insuranceService: InsuranceService) { }
+  constructor(
+    public insuranceService: InsuranceService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadInsurances();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadInsurances();
+      });
   }
 
   loadInsurances() {
-    this.insuranceService.fetch().subscribe((data: {}) => {
-      const posts = data['Categories'] || [];
-      const mapping = [];
-      const insurances =  posts.map( post => {
-        const insurance = new Insurance(post);
-        if (insurance.parentId === 0) {
-          mapping[insurance.id] = insurance;
-        }
-        return insurance;
-      });
-      // mapping child with parent
-      insurances.map( insurance => {
-        if (mapping[insurance.parentId]) {
-          if (!mapping[insurance.parentId].child) {
-            mapping[insurance.parentId].child = [];
+    this.insuranceService
+      .fetch()
+      .subscribe((data: {}) => {
+        const posts = data['Categories'] || [];
+        const mapping = [];
+        const insurances = posts.map(post => {
+          const insurance = new Insurance(post);
+          if (insurance.parentId === 0) {
+            mapping[insurance.id] = insurance;
           }
-          const picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
-          mapping[insurance.parentId].child.push(picturePath);
-        }
-        return insurance;
+          return insurance;
+        });
+        // mapping child with parent
+        insurances.map(insurance => {
+          if (mapping[insurance.parentId]) {
+            if (!mapping[insurance.parentId].child) {
+              mapping[insurance.parentId].child = [];
+            }
+            const picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
+            mapping[insurance.parentId].child.push(picturePath);
+          }
+          return insurance;
+        });
+        // chunk
+        const newMapping = [];
+        mapping.map(insurance => {
+          if (insurance.child) {
+            insurance.child = this.chunk(insurance.child, 8);
+          }
+          if (insurance) {
+            newMapping.push(insurance);
+          }
+          return insurance;
+        });
+        this.insurances = newMapping;
+        console.log('this.insurances', this.insurances);
       });
-      // chunk
-      const newMapping = [];
-      mapping.map(insurance => {
-        if (insurance.child) {
-          insurance.child = this.chunk(insurance.child, 8);
-        }
-        if (insurance) {
-          newMapping.push(insurance);
-        }
-        return insurance;
-      });
-      this.insurances = newMapping;
-      console.log('this.insurances', this.insurances);
-    });
   }
 
   private chunk(array, size) {

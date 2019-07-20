@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Blog} from "../../../models/blog";
-import {UrlService} from "../../../services/url.service";
-import {BlogService} from "../../../services/blog.service";
-import {CalculatePagination} from "../../../utilities";
+import { Blog } from '../../../models/blog';
+import { UrlService } from '../../../services/url.service';
+import { BlogService } from '../../../services/blog.service';
+import { CalculatePagination } from '../../../utilities';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-event',
@@ -16,10 +17,18 @@ export class EventComponent implements OnInit {
   public currentPage = 1;
   public pageNumbers: number[] = [];
 
-  constructor(public blogService: BlogService) {}
+  constructor(
+    public blogService: BlogService,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.loadNews();
+    this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadNews();
+      });
   }
 
   loadNews() {
