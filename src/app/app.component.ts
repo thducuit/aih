@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEventService } from './services/global-event.service';
 import {
@@ -10,6 +10,8 @@ import {
 } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { forkJoin } from 'rxjs';
+import { getLanguage, setLanguage } from './utilities';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,18 +21,25 @@ import { forkJoin } from 'rxjs';
 export class AppComponent implements AfterViewInit {
   loading = false;
   loadingCount = 0;
+  private isBrowser = true;
 
   constructor(
     private translate: TranslateService,
     private globalEventService: GlobalEventService,
     private router: Router,
     private title: Title,
+    @Inject(PLATFORM_ID) platformId: string
   ) {
+    this.isBrowser = isPlatformBrowser(platformId);
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    this.translate.use('vi'); // Activappe current language or default language
+    if (this.isBrowser) {
+      this.translate.use(getLanguage());
+    } else {
+      this.translate.use('vi'); // Activappe current language or default language
+    }
 
     // Set app title
     this.updateTitle();
@@ -80,6 +89,9 @@ export class AppComponent implements AfterViewInit {
 
   switchLanguage(language: string) {
     this.translate.use(language);
+    if (this.isBrowser) {
+      setLanguage(language);
+    }
   }
 
   updateTitle() {

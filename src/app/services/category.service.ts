@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
+import { TranslateService } from '@ngx-translate/core';
+import { BaseService } from './base.service';
 
 @Injectable()
-export class CategoryService {
+export class CategoryService extends BaseService {
 
-  constructor(private http: RestApiService) { }
+  constructor(private http: RestApiService, translate: TranslateService) {
+    super(translate);
+  }
 
   fetch(alias, type) {
     const postData = {
-      alias: alias,
+      alias,
       cate_type: type,
-      lang: 'vi-VN'
+      lang: this.getCurrentLocal()
     };
     return this.http.post('category/detail', postData);
   }

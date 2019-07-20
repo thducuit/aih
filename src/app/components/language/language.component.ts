@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { isPlatformBrowser } from '@angular/common';
+import { setLanguage } from 'src/app/utilities';
 
 @Component({
   selector: 'app-language',
@@ -9,7 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageComponent {
   public expanded = false;
 
-  constructor(private translate: TranslateService) {
+  constructor(
+    private translate: TranslateService,
+    @Inject(PLATFORM_ID) private platformId: string
+  ) {
   }
 
   get language() {
@@ -19,6 +24,9 @@ export class LanguageComponent {
   switchLanguage(language: string) {
     this.translate.use(language);
     this.expanded = false;
+    if (isPlatformBrowser(this.platformId)) {
+      setLanguage(language);
+    }
   }
 
   toggleLanguage() {
