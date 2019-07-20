@@ -10139,7 +10139,7 @@ a.morelink:hover {
         display: inline-block;
         width: 40px;
         height: 40px;
-        background: url(../images/ar-submenu-mb.png) center center no-repeat;
+        background: url(/assets/images/ar-submenu-mb.png) center center no-repeat;
         background-size: 20px;
         position: absolute;
         top: 50%;
