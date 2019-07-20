@@ -125,6 +125,7 @@ import {CategoryService} from "./services/category.service";
 import {InsuranceService} from "./services/insurance.service";
 import {HighlightService} from "./services/highlight.service";
 import { DoctorFilterComponent } from './containers/doctor/doctor-filter/doctor-filter.component';
+import {VideoService} from "./services/video.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -263,7 +264,8 @@ export function createTranslateLoader(http: HttpClient) {
     BannerService,
     CategoryService,
     InsuranceService,
-    HighlightService
+    HighlightService,
+    VideoService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

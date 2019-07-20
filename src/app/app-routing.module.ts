@@ -54,7 +54,7 @@ const routes: Routes = [
         path: 'patient-services/medical-services/:alias',
         component: ServiceDetailComponent,
       },
-      { path: 'patient-services/medical-package', component: PackageComponent },
+      { path: 'patient-services/medical-package', component: MedicalComponent },
       { path: 'patient-services/insurance', component: InsuranceComponent },
       { path: 'patient-services/factsheet', component: FactsheetComponent },
       { path: 'doctor', component: DoctorComponent },
