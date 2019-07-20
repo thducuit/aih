@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEventService } from './services/global-event.service';
 import {
@@ -25,9 +25,9 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     private translate: TranslateService,
-    private globalEventService: GlobalEventService,
-    private router: Router,
+    globalEventService: GlobalEventService,
     private title: Title,
+    private zone: NgZone,
     @Inject(PLATFORM_ID) platformId: string
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -45,6 +45,7 @@ export class AppComponent implements AfterViewInit {
     this.updateTitle();
     translate.onLangChange.subscribe(() => {
       this.updateTitle();
+      this.updateBodyClasses();
     });
 
     // Listen for global events
@@ -71,20 +72,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.router
-    //   .events
-    //   .subscribe((event) => {
-    //     console.log('XXX', event);
-    //     if (event instanceof NavigationStart) {
-    //       this.loading = true;
-    //     } else if (
-    //       event instanceof NavigationEnd ||
-    //       event instanceof NavigationCancel ||
-    //       event instanceof NavigationError
-    //     ) {
-    //       this.loading = false;
-    //     }
-    //   });
+    this.updateBodyClasses();
   }
 
   switchLanguage(language: string) {
@@ -100,6 +88,21 @@ export class AppComponent implements AfterViewInit {
       this.translate.get('american_international_hospital'),
     ).subscribe(([home, aihHospital]) => {
       this.title.setTitle(`${home} - ${aihHospital}`);
+    });
+  }
+
+  private updateBodyClasses() {
+    this.zone.runOutsideAngular(() => {
+      const body = document.body;
+      const language = this.translate.currentLang;
+      body.classList.toggle('window', true);
+      if (language === 'vi') {
+        body.classList.toggle('vi', true);
+        body.classList.toggle('en', false);
+      } else {
+        body.classList.toggle('vi', false);
+        body.classList.toggle('en', true);
+      }
     });
   }
 }
