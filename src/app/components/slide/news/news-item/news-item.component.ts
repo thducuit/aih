@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
 import { UrlService } from '../../../../services/url.service';
 import { Blog } from '../../../../models/blog';
@@ -16,6 +16,7 @@ export class NewsItemComponent implements OnInit {
   public currentPage = 1;
   public pageNumbers: number[] = [];
 
+  @Input() showChosenPackage = false;
   constructor(
     public blogService: BlogService,
     private translate: TranslateService

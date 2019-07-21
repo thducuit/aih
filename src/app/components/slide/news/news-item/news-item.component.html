@@ -37,5 +37,5 @@
   <div class="btn-wrap show-mb">
     <a class="btn-showmore js-btn-loadmore" routerLink="/news">{{'show_more' | translate}}</a>
   </div>
-  <app-choosen-package></app-choosen-package>
+  <app-choosen-package *ngIf="showChosenPackage"></app-choosen-package>
 </div>
