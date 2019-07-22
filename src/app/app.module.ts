@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -248,9 +249,10 @@ export function createTranslateLoader(http: HttpClient) {
       apiKey: environment.mapApiKey
     }),
     FormsModule,
-    NgbModule,
+    NgbDatepickerModule,
     SlickCarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularStickyThingsModule
   ],
   providers: [
     GlobalEventService,

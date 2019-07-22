@@ -2576,15 +2576,6 @@ header.fixHd .bg {
     opacity: 1
 }
 
-header.fixHd .bookingwrap-hd {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: url(../images/bg-hd-scroll.jpg) bottom no-repeat rgba(255, 255, 255, .1);
-    background-size: cover
-}
-
 .hd-home .bookingwrap-hd {
     display: none
 }
@@ -4007,7 +3998,7 @@ header.fixHd .bookingwrap-hd {
 }
 
 .drop {
-    width: 100%;
+    min-width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
@@ -6173,8 +6164,11 @@ header.fixHd .bookingwrap-hd {
 }
 
 .content-sv {
-    padding: 20px 0 0 300px;
-    position: relative
+  display: flex;
+}
+
+.content-sv .copy {
+  flex: 1;
 }
 
 .content-sv .copy p {
@@ -6215,11 +6209,9 @@ header.fixHd .bookingwrap-hd {
 
 .service-cate {
     width: 266px;
-    position: absolute;
-    top: 20px;
-    left: 0;
     background: #e1115b;
-    padding: 12px 0
+    padding: 12px 0;
+    margin-right: 20px;
 }
 
 .service-cate h3 {
@@ -10139,7 +10131,7 @@ a.morelink:hover {
         display: inline-block;
         width: 40px;
         height: 40px;
-        background: url(../images/ar-submenu-mb.png) center center no-repeat;
+        background: url(/assets/images/ar-submenu-mb.png) center center no-repeat;
         background-size: 20px;
         position: absolute;
         top: 50%;
