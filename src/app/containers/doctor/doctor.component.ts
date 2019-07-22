@@ -35,13 +35,13 @@ export class DoctorComponent implements OnInit {
       });
   }
   loadPage() {
-    this.pageService.fetch('highlight_page').subscribe((data: any) => {
+    this.pageService.fetch('doctor_page').subscribe((data: any) => {
       const post = data.Post || {};
       const page = new Page(post);
       page.longDesc = UrlService.fixPictureUrl(page.longDesc);
       this.page = page;
       this.bannerService
-        .fetch('highlight_page', this.page.id)
+        .fetch('doctor_page', this.page.id)
         .subscribe((bannersResp: any) => {
           const banners = bannersResp.Banner;
           this.banners = banners.map(banner => {
