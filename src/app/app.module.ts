@@ -129,6 +129,7 @@ import { DoctorFilterComponent } from './containers/doctor/doctor-filter/doctor-
 import { VideoService } from './services/video.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
+import {PackageService} from "./services/package.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -271,7 +272,8 @@ export function createTranslateLoader(http: HttpClient) {
     CategoryService,
     InsuranceService,
     HighlightService,
-    VideoService
+    VideoService,
+    PackageService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],
