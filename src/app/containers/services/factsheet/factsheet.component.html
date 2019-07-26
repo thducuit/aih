@@ -17,6 +17,7 @@
           </div>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -28,7 +29,7 @@
       <div class="service-wrap">
         <div class="list-sv">
 
-          <div class="item-sv right-align" *ngFor="let highlight of highlights">
+          <div class="item-sv {{ i % 2 === 0 ? 'left-align' : 'right-align'}}" *ngFor="let highlight of highlights; let i = index;">
             <div class="out-content">
               <div class="img"
                    [style.background]="'url(' + highlight.thumb + ')'"
@@ -37,7 +38,7 @@
             <div class="copy-content">
               <div>
                 <h3>{{ highlight.title }}</h3>
-                <p>{{ highlight.description }}</p>
+                <p innerHTML="{{ (highlight ? highlight.description : '') | decodeHtmlEntities }}">highlight.description</p>
               </div>
             </div>
           </div>
