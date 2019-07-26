@@ -1,145 +1,86 @@
-<main id="page-medical" class="page-medical-all">
+<main id="page-medical" class="page-medical-all" *ngIf="page">
   <section>
     <div class="container">
       <div class="becrum clearfix">
-        <a href="#"> Trang chủ</a> <span>/</span> <a class="active" href="#">Gói dịch vụ</a>
+        <a href="#"> Trang chủ</a> <span>/</span>
+        <a class="active" href="#">Gói dịch vụ</a>
       </div>
       <div class="medical-content clearfix">
         <div class="box-left">
-          <img src="images/medical.jpg" alt="">
+          <img src="../assets/images/medical.jpg" alt="">
         </div>
         <div class="box-right">
-          <h2>TRẢI NGHIỆM DỊCH VỤ TRỌN GÓI HOÀN HẢO</h2>
-          <p>Bên cạnh dịch vụ khám và chữa bệnh theo yêu cầu, AIH cung cấp dịch vụ chăm sóc sức khỏe toàn diện theo tiêu
-            chuẩn Mỹ với các dịch vụ trọn gói hoàn hảo về chất lượng, tối ưu về chi phí cho cả khách hàng doanh nghiệp
-            và cá nhân. Các gói dịch vụ của chúng tôi có thể được tùy chỉnh để phù hợp với nhu cầu cụ thể của nhiều đối
-            tượng khách hàng khác nhau. AIH cam kết mang đến tiêu chuẩn dịch vụ chất lượng 5 sao ở tất cả các gói dịch
-            vụ mà chúng tôi cung cấp.</p>
-          <ul>
-            <li>- Chương trình khám sức khỏe tổng quát dành cho khách hàng doanh nghiệp</li>
-            <li>- Chương trình khám sức khỏe tổng quát dành cho các khách hàng cá nhân mọi độ tuổi</li>
-            <li>- Chương trình thai sản: Gói khám thai và Gói sinh</li>
-            <li>- Chương trình tiêm chủng trọn gói cho trẻ em</li>
-            <li>- Gói sàng lọc bệnh lý đường tiêu hóa và nội soi tiêu hóa</li>
-            <li>- Chương trình thẻ bảo hiểm sức khỏe / thẻ thành viên AIH</li>
-          </ul>
-          <p>(*) Giá gói thể hiện trên website được sử dụng cho mục đích tham khảo. Vui lòng gọi điện thoại đến tổng đài
-            để có thông tin chính xác.</p>
+          <h2>{{ page ? page.name : '' }}</h2>
+          <p innerHTML="{{ (page ? page.longDesc : '') | decodeHtmlEntities }}"></p>
         </div>
       </div>
-      <div class="medical-bottom clearfix">
+      <a (click)="resetFormat()">Trở lại</a>
+      <div class="medical-bottom clearfix" *ngIf="currentPackages">
         <div class="box-left">
           <p>CHỌN CHƯƠNG TRÌNH KIỂM TRA SỨC KHỎE TOÀN DIỆN</p>
-          <a id="show-hidden-menu"><img src="images/icon-rg.png" alt="">Rút gọn</a>
+          <a id="show-hidden-menu" (click)="onExpand()"><img src="../assets/images/icon-rg.png" alt="">Rút gọn</a>
         </div>
-        <div class="box-right">
-          <div class="box-left">
-            <ul>
-              <li>NAM</li>
-              <li> 12,260,000 VND</li>
-            </ul>
-          </div>
-          <div class="box-right">
-            <ul>
-              <li>NỮ</li>
-              <li>15,530,000 VND</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="medical-bottom medical-all clearfix">
-        <div class="box-left">
 
-        </div>
         <div class="box-right">
           <div class="box-left">
-            <p>Các chương trình khám không áp dụng với Nam < 50 tuổi gồm: PSA Total, Siêu âm tim, Đo Mật Độ Xương Cột
-              Sống Thắt Lưng + Cổ Xương Đùi (DEXA)</p>
+            <ul>
+              <li>{{ currentPackages[0] ? currentPackages[0].name : '' }}</li>
+              <li>
+                <span *ngIf="currentPackages[0] && currentPackages[0].parentId !== 0">{{ currentPackages[0].meta.price }}</span>
+                <span *ngIf="currentPackages[0] && currentPackages[0].parentId === 0"><input (click)="changeFormat(currentPackages[0].id)" type="radio" /></span>
+              </li>
+            </ul>
           </div>
           <div class="box-right">
-            <p>Các chương trình khám không áp dụng với Nữ < 40 tuổi gồm Siêu âm tim, Chụp nhũ ảnh ( 02 bên )</p>
+            <ul>
+              <li>{{ currentPackages[1] ? currentPackages[1].name : '' }}</li>
+              <li>
+                <span *ngIf="currentPackages[1] && currentPackages[1].parentId !== 0">{{ currentPackages[1].meta.price }}</span>
+                <span *ngIf="currentPackages[1] && currentPackages[1].parentId === 0"><input (click)="changeFormat(currentPackages[1].id)" type="radio" /></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="medical-bottom medical-all clearfix">
+        <div class="box-left"></div>
+        <div class="box-right">
+          <div class="box-left">
+            <p innerHTML="{{ (currentPackages[0] ? currentPackages[0].desc : '') | decodeHtmlEntities }}"></p>
+          </div>
+          <div class="box-right">
+            <p innerHTML="{{ (currentPackages[1] ? currentPackages[1].desc : '') | decodeHtmlEntities }}"></p>
           </div>
         </div>
       </div>
-      <div class="box-details-medical clearfix">
-        <div class="box-table-medical">
+
+      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix">
+
+        <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
           <div class="box-border-medical">
-            <h5><span>I. Lâm sàn</span></h5>
+            <h5><span>{{ currentPackageService.name }}</span></h5>
           </div>
           <table class="table table-hover">
             <tbody>
-            <tr>
-              <td>01. Khám nội khoa tổng quát (Sinh hiệu: M, HA, CN, CC, BMI)</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
+
+            <tr *ngFor="let child of currentPackageService.children">
+              <td>{{ child.no }}.{{ child.name }}</td>
+              <td>
+                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[0].id)"/>
+                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[0].id)">
+              </td>
+              <td>
+                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>
+                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[1].id)">
+              </td>
             </tr>
-            <tr>
-              <td>02. Đo thị lực</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>03. Khám & tư vấn với bác sỹ chuyên khoa Mắt</td>
-              <td><img src="images/no-check.png" alt=""></td>
-              <td><img src="images/check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>04. Khám & tư vấn với bác sỹ chuyên khoa Tai Mũi Họng</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>05. Khám Phụ khoa</td>
-              <td><img src="images/no-check.png" alt=""></td>
-              <td><img src="images/check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>06. Khám Tiết Niệu</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
+
             </tbody>
           </table>
         </div>
-        <div class="box-table-medical">
-          <div class="box-border-medical">
-            <h5><span>II. Xét nghiệm</span></h5>
-          </div>
-          <table class="table table-hover">
-            <tbody>
-            <tr>
-              <td>01. Khám nội khoa tổng quát (Sinh hiệu: M, HA, CN, CC, BMI)</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>02. Đo thị lực</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>03. Khám & tư vấn với bác sỹ chuyên khoa Mắt</td>
-              <td><img src="images/no-check.png" alt=""></td>
-              <td><img src="images/check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>04. Khám & tư vấn với bác sỹ chuyên khoa Tai Mũi Họng</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>05. Khám Phụ khoa</td>
-              <td><img src="images/no-check.png" alt=""></td>
-              <td><img src="images/check.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>06. Khám Tiết Niệu</td>
-              <td><img src="images/check.png" alt=""></td>
-              <td><img src="images/no-check.png" alt=""></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+
       </div>
       <div class="box-btn-medical clearfix">
         <a href="#" class="btn-medical">Đăng ký</a>
