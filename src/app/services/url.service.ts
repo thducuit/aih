@@ -30,7 +30,7 @@ export class UrlService {
     return '/patient-services/medical-services';
   }
   static createMediaUrl(thumb) {
-    return `${environment.backend}/${thumb}`;
+    return `${environment.backend}${thumb}`;
   }
   static fixPictureUrl(text) {
     return `${text}`.replace(/\/assets/g, `${environment.backend}/assets`);

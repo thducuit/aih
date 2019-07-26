@@ -8,6 +8,8 @@ export class Insurance {
   public alias;
   public url;
   public parentId;
+  public sort;
+  public children;
   constructor(data) {
     this.id = data.cate_id;
     this.name = data.cate_name;
@@ -16,6 +18,8 @@ export class Insurance {
     this.longDesc = data.cate_longdesc;
     this.alias = data.alias_name;
     this.parentId = data.cate_parentid;
+    this.sort = data.cate_sort;
+    this.children = [];
     this.picturePath = null;
     this.url = null;
   }

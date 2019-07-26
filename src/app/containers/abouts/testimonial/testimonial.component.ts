@@ -37,7 +37,6 @@ export class TestimonialComponent implements OnInit {
           .map((x: any) => {
             return new Testimonial(x);
           });
-        console.log(this.testimonials);
       });
   }
 }

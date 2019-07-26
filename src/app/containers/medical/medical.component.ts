@@ -37,6 +37,7 @@ export class MedicalComponent implements OnInit {
             const post = data.Post || {};
             const page = new Page(post);
             page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+            page.picturePath = UrlService.createPictureUrl(page.picture);
             this.page = page;
 
             this.bannerService

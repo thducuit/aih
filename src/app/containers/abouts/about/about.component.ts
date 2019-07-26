@@ -42,7 +42,6 @@ export class AboutComponent implements OnInit {
             banner.url = banner.Link;
             return banner;
           });
-          console.log('about', this.banners, this.page);
         });
       });
   }
