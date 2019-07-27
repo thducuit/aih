@@ -125,11 +125,12 @@ import { ServiceDetailComponent } from './containers/services/service/service-de
 import { CategoryService } from './services/category.service';
 import { InsuranceService } from './services/insurance.service';
 import { HighlightService } from './services/highlight.service';
-import { DoctorFilterComponent } from './containers/doctor/doctor-filter/doctor-filter.component';
 import { VideoService } from './services/video.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
-import {PackageService} from "./services/package.service";
+import { PackageService } from './services/package.service';
+import { DoctorFilterDropdownComponent } from './containers/doctor/doctor-filter-dropdown/doctor-filter-dropdown.component';
+import { DepartmentService } from './services/department.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -231,8 +232,8 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarComponent,
     ServiceDetailComponent,
     SidebarComponent,
-    DoctorFilterComponent,
     NavItemComponent,
+    DoctorFilterDropdownComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -273,7 +274,8 @@ export function createTranslateLoader(http: HttpClient) {
     InsuranceService,
     HighlightService,
     VideoService,
-    PackageService
+    PackageService,
+    DepartmentService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

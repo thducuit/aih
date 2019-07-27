@@ -6,6 +6,7 @@ import { DoctorService } from '../../services/doctor.service';
 import { BannerService } from '../../services/banner.service';
 import { UrlService } from '../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
+import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
   selector: 'app-doctor',
@@ -15,23 +16,28 @@ import { TranslateService } from '@ngx-translate/core';
 export class DoctorComponent implements OnInit {
 
   public page: Page;
-  public banners: Array<any> = [];
+  public banner: any = {};
   public doctors: Array<Doctor> = [];
+  public departments: any[];
+
   constructor(
     public pageService: PageService,
     public doctorService: DoctorService,
     public bannerService: BannerService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private departmentService: DepartmentService
   ) { }
 
   ngOnInit() {
     this.loadPage();
     this.loadDoctors();
+    this.loadDepartments();
     this.translate
       .onLangChange
       .subscribe(() => {
         this.loadPage();
         this.loadDoctors();
+        this.loadDepartments();
       });
   }
   loadPage() {
@@ -41,17 +47,17 @@ export class DoctorComponent implements OnInit {
       page.longDesc = UrlService.fixPictureUrl(page.longDesc);
       this.page = page;
       this.bannerService
-        .fetch('doctor_page', this.page.id)
+        .fetch('doctor-page', this.page.id)
         .subscribe((bannersResp: any) => {
-          const banners = bannersResp.Banner;
-          this.banners = banners.map(banner => {
+          const banner = bannersResp.Banner[0];
+          if (banner) {
             banner.large = UrlService.createMediaUrl(banner.Url);
             banner.small = banner.large;
             banner.url = banner.Link;
             banner.title = banner.title;
             banner.desc = banner.desc;
-            return banner;
-          });
+            this.banner = banner;
+          }
         });
     });
   }
@@ -70,4 +76,11 @@ export class DoctorComponent implements OnInit {
     });
   }
 
+  loadDepartments() {
+    this.departmentService
+    .fetch()
+    .subscribe((resp) => {
+      this.departments = resp;
+    });
+  }
 }
