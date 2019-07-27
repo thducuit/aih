@@ -5,6 +5,8 @@ import { Blog } from '../../../../models/blog';
 import { CalculatePagination } from 'src/app/utilities';
 import { TranslateService } from '@ngx-translate/core';
 
+const ItemPerPage = 3;
+
 @Component({
   selector: 'app-news-item',
   templateUrl: './news-item.component.html',
@@ -12,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NewsItemComponent implements OnInit {
   public blogs: Array<Blog> = [];
-  public totalRecord = 0;
+  public totalPage = 0;
   public currentPage = 1;
   public pageNumbers: number[] = [];
 
@@ -34,10 +36,10 @@ export class NewsItemComponent implements OnInit {
 
   loadNews() {
     this.blogService
-      .fetch(this.currentPage)
+      .fetch(this.currentPage, ItemPerPage)
       .subscribe((data: any) => {
         const posts = data.Posts || [];
-        this.totalRecord = data.TotalRecord;
+        this.totalPage = Math.ceil(data.TotalRecord / ItemPerPage);
         this.blogs = posts.map(post => {
           const blog = new Blog(post);
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
@@ -49,13 +51,13 @@ export class NewsItemComponent implements OnInit {
   }
 
   selectPage(pageNum: number) {
-    this.currentPage = pageNum;
+    this.currentPage = Math.max(0, Math.min(pageNum, this.totalPage));
     this.loadNews();
   }
 
   private recalculatePages() {
     this.zone.runOutsideAngular(() => {
-      this.pageNumbers = CalculatePagination(this.currentPage, this.totalRecord || 0);
+      this.pageNumbers = CalculatePagination(this.currentPage, this.totalPage);
     });
   }
 }
