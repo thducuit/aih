@@ -1,11 +1,10 @@
 <main id="pDoctor">
   <div class="breadcrumb">
-    <div class="container"><a href="#">Home</a> /
-      <p>{{ page ? page.name : '' }}</p></div>
+    <div class="container"><a routerLink="/">{{'home' | translate}}</a> /
+      <p>{{'find_a_doctor' | translate}}</p></div>
   </div>
 
   <div class="banner-doctor"
-       *ngFor="let banner of banners"
        [style.background]="'url(' + banner.large + ') no-repeat'"
   >
     <div class="container">
@@ -24,11 +23,25 @@
         <h2>{{ page ? page.name : '' }}</h2>
         <div innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
       </div>
-
-      <app-doctor-filter doctors="doctors"></app-doctor-filter>
+      <div class="op-dt-wrap window">
+        <p class="cap"></p>
+        <div class="op-dt clearfix">
+          <app-doctor-filter-dropdown
+            class="sl-wrap"
+            [items]="departments"
+            value="value"
+            placeholder="{{'select_a_specialty' | translate}}">
+          </app-doctor-filter-dropdown>
+          <app-doctor-filter-dropdown
+            class="sl-wrap"
+            [items]="doctors"
+            value="value"
+            placeholder="{{'select_a_doctor' | translate}}">
+          </app-doctor-filter-dropdown>
+        </div>
+      </div>
 
       <ul class="list-dt js-append-more">
-
         <li *ngFor="let doctor of doctors">
           <div class="item-doc">
             <div class="img">
@@ -42,7 +55,7 @@
 
             </div>
             <div class="copy">
-              <p>{{ doctor.shortDesc }}...</p>
+              <p innerHTML="{{ doctor.shortDesc | decodeHtmlEntities }}"></p>
               <a routerLink="{{ doctor.url }}">
                 <span>{{ 'learn_more' | translate }}</span>
               </a>

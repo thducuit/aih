@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Feedback } from '../../../models/feedback';
 import { FeedbackService } from '../../../services/feedback.service';
 import { UrlService } from '../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-section-testimo',
   templateUrl: './section-testimo.component.html',
   styleUrls: ['./section-testimo.component.scss']
 })
-export class SectionTestimoComponent implements OnInit {
-
+export class SectionTestimoComponent implements OnInit, OnDestroy {
   public feedback: Feedback;
+  private subscription: Subscription;
+
   constructor(
     public feedbackService: FeedbackService,
     private translate: TranslateService
@@ -19,11 +21,15 @@ export class SectionTestimoComponent implements OnInit {
 
   ngOnInit() {
     this.loadFeedback();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadFeedback();
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   loadFeedback() {

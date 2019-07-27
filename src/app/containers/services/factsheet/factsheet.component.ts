@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Page } from '../../../models/page';
 import { PageService } from '../../../services/page.service';
 import { BannerService } from '../../../services/banner.service';
@@ -6,17 +6,20 @@ import { UrlService } from '../../../services/url.service';
 import { Highlight } from '../../../models/highlight';
 import { HighlightService } from '../../../services/highlight.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-factsheet',
   templateUrl: './factsheet.component.html',
   styleUrls: ['./factsheet.component.scss']
 })
-export class FactsheetComponent implements OnInit {
+export class FactsheetComponent implements OnInit, OnDestroy {
 
   public page: Page;
   public banners: Array<any> = [];
   public highlights: Array<Highlight> = [];
+  private subscription: Subscription;
+
   constructor(
     public pageService: PageService,
     public highlightService: HighlightService,
@@ -28,13 +31,18 @@ export class FactsheetComponent implements OnInit {
     this.loadPage();
     this.loadFactsheets();
 
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadPage();
         this.loadFactsheets();
       });
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   loadPage() {
     this.pageService.fetch('highlight_page').subscribe((data: any) => {
       const post = data.Post || {};

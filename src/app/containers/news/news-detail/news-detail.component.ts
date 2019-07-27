@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../../services/post.service';
 import { Blog } from '../../../models/blog';
 import { UrlService } from '../../../services/url.service';
 import { BlogService } from '../../../services/blog.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-detail',
   templateUrl: './news-detail.component.html',
   styleUrls: ['./news-detail.component.scss'],
 })
-export class NewsDetailComponent implements OnInit {
+export class NewsDetailComponent implements OnInit, OnDestroy {
   public blog: Blog;
   public blogs: Array<Blog> = [];
+  private subscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     public postService: PostService,
@@ -28,13 +31,17 @@ export class NewsDetailComponent implements OnInit {
       this.loadPosts(alias);
     });
     this.loadFeatureBlogs();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         const alias = this.route.snapshot.params.alias;
         this.loadFeatureBlogs();
         this.loadPosts(alias);
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   private loadPosts(alias: string) {
