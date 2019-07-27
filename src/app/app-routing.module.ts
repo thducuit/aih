@@ -32,6 +32,7 @@ import { RegisterComponent } from './containers/account/register/register.compon
 import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
 import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
 import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
+import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
 
 const routes: Routes = [
   {
@@ -58,11 +59,12 @@ const routes: Routes = [
       { path: 'patient-services/insurance', component: InsuranceComponent },
       { path: 'patient-services/factsheet', component: FactsheetComponent },
       { path: 'doctor', component: DoctorComponent },
-      { path: 'doctor/details/:alias', component: DoctorDetailComponent },
+      { path: 'doctor/detail/:alias', component: DoctorDetailComponent },
       { path: 'news', component: EventComponent },
-      { path: 'news/details/:alias', component: NewsDetailComponent },
+      { path: 'news/detail/:alias', component: NewsDetailComponent },
       { path: 'videos', component: VideoComponent },
       { path: 'career', component: CareerComponent },
+      { path: 'career/detail/:alias', component: CareerDetailComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'medical', component: MedicalComponent },
 

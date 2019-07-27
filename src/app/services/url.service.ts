@@ -13,13 +13,19 @@ export class UrlService {
   }
   static createNewsDetailUrl(alias = null) {
      if (alias) {
-       return `/news/details/${alias}`;
+       return `/news/detail/${alias}`;
      }
      return '/news';
   }
+  static createCareerDetailUrl(alias = null) {
+    if (alias) {
+      return `/career/detail/${alias}`;
+    }
+    return '/career';
+  }
   static createDoctorDetailUrl(alias = null) {
     if (alias) {
-      return `/doctor/details/${alias}`;
+      return `/doctor/detail/${alias}`;
     }
     return '/doctor';
   }

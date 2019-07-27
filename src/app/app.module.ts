@@ -130,7 +130,11 @@ import { VideoService } from './services/video.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
 import {PackageService} from './services/package.service';
-import {InsuranceMediaService} from './services/insurance-media';
+import {InsuranceMediaService} from './services/insurance-media.service';
+import {CareerCategoryService} from './services/career-category.service';
+import {CareerService} from "./services/career.service";
+import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
+import { CareerFormComponent } from './components/career-form/career-form.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -234,6 +238,8 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarComponent,
     DoctorFilterComponent,
     NavItemComponent,
+    CareerDetailComponent,
+    CareerFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -275,7 +281,9 @@ export function createTranslateLoader(http: HttpClient) {
     HighlightService,
     VideoService,
     PackageService,
-    InsuranceMediaService
+    InsuranceMediaService,
+    CareerCategoryService,
+    CareerService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

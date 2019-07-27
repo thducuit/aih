@@ -3,7 +3,7 @@ import {Insurance} from '../../../models/insurance';
 import {InsuranceService} from '../../../services/insurance.service';
 import {UrlService} from '../../../services/url.service';
 import {TranslateService} from '@ngx-translate/core';
-import {InsuranceMediaService} from '../../../services/insurance-media';
+import {InsuranceMediaService} from '../../../services/insurance-media.service';
 import {InsuranceMedia} from '../../../models/insurance-media';
 import {Page} from '../../../models/page';
 import {PageService} from '../../../services/page.service';

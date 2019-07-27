@@ -1,33 +1,26 @@
-<main id="pCareers">
+<main id="pCareers" *ngIf="page">
   <div class="breadcrumb">
-    <div class="container"><a href="index.html">Home</a> / <p>Careers</p></div>
+    <div class="container"><a href="#">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p>
+    </div>
   </div>
   <div class="banner-wrap-car">
     <div class="banner-careers">
-      <div class="item" style="background: url(storage/2018/07/career1531466091.jpg) no-repeat;">
+
+      <div class="item" *ngFor="let banner of banners"
+           [style.background]="'url(' + banner.large + ')'" >
         <div class="container">
           <div class="ct-banner">
-            <img class="banner-careers-mb" src="storage/2018/07/career-mobile1531467964.jpg">
+            <img class="banner-careers-mb" src="{{ banner.large }}">
             <div class="copy">
-              <h3>AIH welcomes talents</h3>
-              <h2>Medical jobs</h2>
-              <a class="btn-page js-scrollForm" href="#">Apply Now</a>
+              <h3>{{ banner ? banner.Content : '' }}</h3>
+              <h2>{{ banner ? banner.Title : '' }}</h2>
+              <a class="btn-page js-scrollForm" href="#">{{ 'apply_now' | translate }}</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="item" style="background: url(storage/2018/07/career21531468142.jpg) no-repeat;">
-        <div class="container">
-          <div class="ct-banner">
-            <img class="banner-careers-mb" src="storage/2018/07/career-mobile-21531468188.jpg">
-            <div class="copy">
-              <h3>AIH WELCOMES TALENTS</h3>
-              <h2>Non-medical jobs</h2>
-              <a class="btn-page js-scrollForm" href="#">Apply Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
   <section class="cr-wrap">
@@ -35,234 +28,30 @@
 
       <div class="item-cr">
         <div class="tt-page">
-          <h4>Careers</h4>
-          <h3>Opportunities</h3>
+          <h4>{{ 'careers' | translate }}</h4>
+          <h3>{{ 'opportunities' | translate }}</h3>
         </div>
       </div>
 
-      <div class="item-cr">
+      <div class="item-cr" *ngFor="let careerCategory of careerCategories">
         <div class="list-cr">
-          <h3>MEDICAL</h3>
+          <h3>{{ careerCategory.name }}</h3>
           <ul class="clearfix js-medical-list">
 
-            <li>
-              <img src="assets/images/icon-cr-2.png">
+            <li *ngFor="let career of careerCategory.careers">
+              <img src="../assets/images/icon-cr-2.png">
               <div class="copy">
-                <h4>DOCTORS</h4>
-                <p>
-                  Consultation and treatment procedure in accordin...</p>
+                <h4>{{ career.name }}</h4>
+                <p innerHTML="{{ career.shortDesc | decodeHtmlEntities }}"></p>
               </div>
-              <a class="link-all" href="career/detail/115-doctors.html"></a>
+              <a class="link-all" routerLink="{{ career.url }}"></a>
             </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>ICU NURSE</h4>
-                <p>1. Co-ordinate and assist doctor to perform the em...</p>
-              </div>
-              <a class="link-all" href="career/detail/376-icu-nurse.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>NICU Nurse</h4>
-                <p>1. Summary of responsibilities:
 
-                  Work following...</p>
-              </div>
-              <a class="link-all" href="career/detail/377-nicu-nurse.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>OB &amp; GYN Doctor</h4>
-                <p>
-                  Care for and treat women during prenatal, natal...</p>
-              </div>
-              <a class="link-all" href="career/detail/378-ob-gyn-doctor.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>PHYSIOTHERAPIST</h4>
-                <p>
-                  Providing Physiotherapy assessments, treatment a...</p>
-              </div>
-              <a class="link-all" href="career/detail/391-physiotherapist.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>HEALTH CARE ASSISSTANT OF O&amp;G DEPARTMENT</h4>
-                <p>Principal duties &amp; Key Tasks
-
-                  Summary of Job...</p>
-              </div>
-              <a class="link-all" href="career/detail/410-health-care-assisstant-of-og-department.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>CLINICAL PHARMACIST</h4>
-                <p>
-                  Clinical pharmacists work in collaboration with...</p>
-              </div>
-              <a class="link-all" href="career/detail/111-clinical-pharmacist.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>MIDWIFE / SENIOR MIDWIFE / TEAM LEADER</h4>
-                <p></p>
-              </div>
-              <a class="link-all" href="career/detail/112-midwife-senior-midwife-team-leader.html"></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="item-cr">
-        <div class="list-cr">
-          <h3>NON-MEDICAL</h3>
-          <ul class="clearfix js-nonmedical-list">
-
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>PURCHASING MANAGER</h4>
-                <p>
-                  To search and develop new suppliers that meet th...</p>
-              </div>
-              <a class="link-all" href="career/detail/98-purchasing-manager.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>MARKETING EXECUTIVE</h4>
-                <p>
-                  Marketing Planning
-                  &nbsp;
-                  - Participate in the...</p>
-              </div>
-              <a class="link-all" href="career/detail/102-marketing-executive.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>BUSINESS DEVELOPMENT EXECUTIVE</h4>
-                <p>COLLABORATORS&nbsp; NETWORKING DEVELOPING: - Propo...</p>
-              </div>
-              <a class="link-all" href="career/detail/315-business-development-executive.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>MEDICAL SECRETARY</h4>
-                <p>
-                  Responsible for scheduling and confirming patien...</p>
-              </div>
-              <a class="link-all" href="career/detail/397-medical-secretary.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>Pricing and Costing Officer</h4>
-                <p>
-                  Pricing and Costing
-
-                  Do costing of services in...</p>
-              </div>
-              <a class="link-all" href="career/detail/404-pricing-and-costing-officer.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>ĐẦU BẾP</h4>
-                <p></p>
-              </div>
-              <a class="link-all" href="career/detail/405-dau-bep.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>GRAPHIC DESIGNER</h4>
-                <p>
-                  Planning concepts by studying relevant informati...</p>
-              </div>
-              <a class="link-all" href="career/detail/406-graphic-designer.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>Secretary to Board of Executives</h4>
-                <p>
-                  Provide administration support to the BOE and th...</p>
-              </div>
-              <a class="link-all" href="career/detail/407-secretary-to-board-of-executives.html"></a>
-            </li>
-            <li>
-              <img src="assets/images/icon-cr-1.png">
-              <div class="copy">
-                <h4>Medical Secretary</h4>
-                <p>
-                  Mastering and proficiently using Hospital softwa...</p>
-              </div>
-              <a class="link-all" href="career/detail/408-medical-secretary.html"></a>
-            </li>
           </ul>
         </div>
       </div>
 
-      <div id="careerForm" class="form-cr clearfix">
-        <div class="tt-form">
-          <h4>Careers</h4>
-          <h3>JOIN US NOW</h3>
-        </div>
-        <form class="frmCareer" method="POST" action="http://www.aih.com.vn/career/apply" enctype="multipart/form-data">
-          <ul class="clearfix">
-            <li>
-              <h3>Fill in the form below</h3>
-            </li>
-            <li>
-              <div class="ip-w">
-                <input type="text" name="fullname" class="js-required form-control" placeholder="Your Name">
-              </div>
-              <div class="ip-w">
-                <input type="text" name="position" class="js-required form-control" placeholder="Desired position">
-              </div>
-            </li>
-            <li>
-              <div class="ip-w">
-                <input type="text" name="phone" class="js-required js-number js-phone form-control"
-                       placeholder="Phone Number">
-              </div>
-              <div class="ip-w">
-                <input type="text" name="email" class="js-required js-email form-control" placeholder="Email address">
-              </div>
-            </li>
-            <li>
-              <div class="text-a">
-                <textarea name="content" placeholder="Enter up to 100 character"></textarea>
-                <div class="att-file">
-                  <a class="js-file" href="#">Attach File</a>
-                  <input id="ipFile" name="file" type="file"
-                         data-message="Only with file .pdf, .doc, .docx, .xls, .xlsx.Max: 3mb" style="display: none;">
-                  <p class="js-file-name">Only with file .pdf, .doc, .docx, .xls, .xlsx.Max: 3mb</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="has-capcha">
-                <div class="g-recaptcha" data-sitekey="6LfiNWoUAAAAAD6vpU0zFLh72P2PVR1Xr5zMinpL"></div>
-              </div>
-            </li>
-            <li>
 
-              <input type="hidden" name="_token" value="VRktS3jTtN9lSqGJgCRwF1g6MI6H04c7KjOAS3Lv">
-              <input class="btn-page js-career-submit" type="submit" placeholder="Submit" value="Submit">
-            </li>
-          </ul>
-        </form>
-      </div>
 
     </div>
   </section>
