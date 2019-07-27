@@ -241,7 +241,7 @@ export function createTranslateLoader(http: HttpClient) {
     ServiceDetailComponent,
     SidebarComponent,
     NavItemComponent,
-    DoctorFilterDropdownComponent
+    DoctorFilterDropdownComponent,
     CareerDetailComponent,
     CareerFormComponent,
   ],

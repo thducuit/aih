@@ -8560,12 +8560,7 @@ a.morelink:hover {
     .copy-quote p:before {
         width: 35px
     }
-    .partner-home ul {
-        margin: 0 -10px
-    }
-    .partner-home ul li {
-        padding: 0 10px
-    }
+
     .ft-wrap .item {
         padding-right: 19px
     }
@@ -9117,12 +9112,7 @@ a.morelink:hover {
     .info-quote span {
         font-size: 15px
     }
-    .partner-home {
-        padding: 11px 0 20px
-    }
-    .partner-home h2 {
-        font-size: 20px
-    }
+    
     #mapCanvas {
         height: 400px
     }
@@ -10801,17 +10791,7 @@ a.morelink:hover {
     .rating ul li .stars {
         float: right
     }
-    .partner-home ul {
-        display: inline-block;
-        text-align: center;
-        margin: 0
-    }
-    .partner-home ul li {
-        width: calc(33.33% - 6px);
-        display: inline-block;
-        float: none;
-        padding: 5px 10px
-    }
+    
     #mapCanvas {
         height: 400px
     }
@@ -11838,9 +11818,7 @@ a.morelink:hover {
         height: 40px;
         padding: 0 60px
     }
-    .partner-home {
-        padding: 25px 0
-    }
+    
     .ft-wrap .item:nth-child(2),
     .ft-wrap .item:nth-child(3) {
         display: none
