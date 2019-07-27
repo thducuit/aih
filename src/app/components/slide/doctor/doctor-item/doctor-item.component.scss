@@ -1,0 +1,17 @@
+.crs-style1 {
+  .item-doc {
+    .copy {
+      >p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 1rem;
+        max-height: 4.1rem;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        padding: 0 0 0.1rem 0;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

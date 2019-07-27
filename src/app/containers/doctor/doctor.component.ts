@@ -41,46 +41,50 @@ export class DoctorComponent implements OnInit {
       });
   }
   loadPage() {
-    this.pageService.fetch('doctor_page').subscribe((data: any) => {
-      const post = data.Post || {};
-      const page = new Page(post);
-      page.longDesc = UrlService.fixPictureUrl(page.longDesc);
-      this.page = page;
-      this.bannerService
-        .fetch('doctor-page', this.page.id)
-        .subscribe((bannersResp: any) => {
-          const banner = bannersResp.Banner[0];
-          if (banner) {
-            banner.large = UrlService.createMediaUrl(banner.Url);
-            banner.small = banner.large;
-            banner.url = banner.Link;
-            banner.title = banner.title;
-            banner.desc = banner.desc;
-            this.banner = banner;
-          }
-        });
-    });
+    this.pageService
+      .fetch('doctor_page')
+      .subscribe((data: any) => {
+        const post = data.Post || {};
+        const page = new Page(post);
+        page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+        this.page = page;
+        this.bannerService
+          .fetch('doctor-page', this.page.id)
+          .subscribe((bannersResp: any) => {
+            const banner = bannersResp.Banner[0];
+            if (banner) {
+              banner.large = UrlService.createMediaUrl(banner.Url);
+              banner.small = banner.large;
+              banner.url = banner.Link;
+              banner.title = banner.title;
+              banner.desc = banner.desc;
+              this.banner = banner;
+            }
+          });
+      });
   }
 
   loadDoctors() {
-    this.doctorService.fetch().subscribe((data: any) => {
-      const posts = data.Posts || [];
-      this.doctors = posts.map(post => {
-        const doctor = new Doctor(post);
-        if (doctor.picture) {
-          doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
-        }
-        doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
-        return doctor;
+    this.doctorService
+      .fetch()
+      .subscribe((data: any) => {
+        const posts = data.Posts || [];
+        this.doctors = posts.map(post => {
+          const doctor = new Doctor(post);
+          if (doctor.picture) {
+            doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
+          }
+          doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
+          return doctor;
+        });
       });
-    });
   }
 
   loadDepartments() {
     this.departmentService
-    .fetch()
-    .subscribe((resp) => {
-      this.departments = resp;
-    });
+      .fetch()
+      .subscribe((resp) => {
+        this.departments = resp;
+      });
   }
 }
