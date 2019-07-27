@@ -1,14 +1,15 @@
 <main id="pServiceInsurance">
   <div class="breadcrumb">
-    <div class="container"><a href="../index.html">Home</a> /
-      <p>Insurance</p></div>
+    <div class="container"><a href="#">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
   </div>
-  <div class="banner-page" style="background: url(../storage/2018/07/insurance-683x1951531465784.jpg);">
+
+  <div class="banner-page" [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length">
     <div class="container">
       <div class="ct-banner">
         <div class="copy-ins">
-          <h2>EXCELLENT CARE</h2>
-          <p>Let us help you make your healthcare experience as convenient as possible</p>
+          <h2>{{ banners[0] ? banners[0].Title : '' }}</h2>
+          <p>{{ banners[0] ? banners[0].Content : '' }}</p>
         </div>
       </div>
     </div>
@@ -23,23 +24,47 @@
 
         <div class="logo-crs">
           <ul>
-
-            <li *ngFor="let child of insurance['child']">
+            <li >
               <div class="list-persond">
 
-                <div *ngFor="let logo of child">
+                <div *ngFor="let media of insurance['media']">
                   <div class="logo-persond"
-                       [style.background]="'url(' + logo + ')'"
+                       [style.background]="'url(' + media.thumb + ')'"
                   >
-                    <img src="/assets/images/logo.gif">
+                    <img src="../assets/images/logo.gif">
                   </div>
                 </div>
 
               </div>
             </li>
-
           </ul>
         </div>
+
+        <div *ngIf="insurance.children">
+            <div class="insurance-child-item" *ngFor="let child of insurance.children">
+                <div class="top-child-ins">
+                    <h2><span>{{ child ? child.name : '' }}</span></h2>
+                </div>
+                <div class="logo-crs">
+                    <ul>
+                        <li >
+                            <div class="list-persond">
+
+                                <div *ngFor="let media2 of child['media']">
+                                    <div class="logo-persond"
+                                         [style.background]="'url(' + media2.thumb + ')'"
+                                    >
+                                        <img src="../assets/images/logo.gif">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
       </div>
     </div>
   </section>

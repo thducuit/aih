@@ -1,0 +1,51 @@
+<div id="careerForm" class="form-cr clearfix">
+  <div class="tt-form">
+    <h4>{{ 'careers' | translate }}</h4>
+    <h3>{{ 'join_us_now' | translate }}</h3>
+  </div>
+  <form class="frmCareer" method="POST" action="" enctype="multipart/form-data">
+    <ul class="clearfix">
+      <li>
+        <h3>{{ 'fill_in_the_form_below' | translate }}</h3>
+      </li>
+      <li>
+        <div class="ip-w">
+          <input type="text" name="fullname" class="js-required form-control" placeholder="{{ 'your_name' | translate }}">
+        </div>
+        <div class="ip-w">
+          <input type="text" name="position" class="js-required form-control" placeholder="{{ 'desired_position' | translate }}">
+        </div>
+      </li>
+      <li>
+        <div class="ip-w">
+          <input type="text" name="phone" class="js-required js-number js-phone form-control"
+                 placeholder="{{ 'phone_number' | translate }}">
+        </div>
+        <div class="ip-w">
+          <input type="text" name="email" class="js-required js-email form-control" placeholder="{{ 'your_email' | translate }}">
+        </div>
+      </li>
+      <li>
+        <div class="text-a">
+          <textarea name="content" placeholder="{{ 'enter_up_to_100_character' | translate }}"></textarea>
+          <div class="att-file">
+            <a class="js-file" href="#">{{ 'attach_file' | translate }}</a>
+            <input id="ipFile" name="file" type="file"
+                   data-message="Only with file .pdf, .doc, .docx, .xls, .xlsx.Max: 3mb" style="display: none;">
+            <p class="js-file-name">{{ 'only_with_file_.pdf,_.doc,_.docx,_.xls,_.xlsx.max:_3mb' | translate }}</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="has-capcha">
+          <div class="g-recaptcha" data-sitekey="6LfiNWoUAAAAAD6vpU0zFLh72P2PVR1Xr5zMinpL"></div>
+        </div>
+      </li>
+      <li>
+
+        <input type="hidden" name="_token" value="">
+        <input class="btn-page js-career-submit" type="submit" placeholder="{{ 'submit' | translate }}" value="{{ 'submit' | translate }}">
+      </li>
+    </ul>
+  </form>
+</div>

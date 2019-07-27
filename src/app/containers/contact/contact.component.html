@@ -1,28 +1,29 @@
-<main id="pContact">
+<main id="pContact" *ngIf="page">
   <div class="breadcrumb">
-    <div class="container"><a href="index.html">Trang chủ</a> / <p>Liên hệ</p></div>
+    <div class="container">
+      <a href="#">{{ 'home' | translate }}</a> /
+      <p>{{ 'contact' | translate }}</p></div>
   </div>
-  <div class="banner-contact" style="background: url(storage/2018/07/contact1531469167.jpg) no-repeat;">
+
+  <div class="banner-contact" *ngIf="banners && banners.length"
+       [style.background]="'url(' + banners[0].large + ')'"
+  >
     <div class="container">
       <div class="ct-banner">
         <div class="copy">
-          <h3>MÔ HÌNH Y TẾ CỦA TƯƠNG LAI</h3>
-          <p>Cho bạn những điều tốt đẹp nhất</p>
+          <h3>{{ banners[0].Title }}</h3>
+          <p>{{ banners[0].Content }}</p>
         </div>
       </div>
     </div>
   </div>
+
   <section class="contact-wrap">
     <div class="container clearfix">
       <div class="copy">
-        <h3>Gửi câu hỏi của bạn cho chúng tôi</h3>
-        <h4>BỆNH VIỆN QUỐC TẾ MỸ</h4>
-        <p>
-          Địa chỉ: Số 6, Đường Bắc Nam 3 (Lối vào 199 Nguyễn Hoàng), Phường An Phú, Quận 2, Tp.HCM<br/>
-          Tel: <a href="tel:028 3910 9999">028 3910 9999</a><br/>
-          Fax: <a href="tel:(84-8) 3924 6129 - 3924 6130">(84-8) 3924 6129 - 3924 6130</a><br/>
-          Email: <a href="mailto:info@aih.com.vn">info@aih.com.vn</a>
-        </p>
+        <h3>{{ 'send_us_your_questions' | translate }}</h3>
+        <h4>{{ page.name }}</h4>
+        <div innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
       </div>
       <div class="form-ct">
         <ul class="frmContact">

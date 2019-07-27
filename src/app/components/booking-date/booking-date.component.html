@@ -4,7 +4,12 @@
 		<em class="ar" [ngClass]="{'show': expanded}"></em>
 		<div class="drop drop-day" [ngClass]="{'show': expanded}">
 			<div class="calendar">
-        <ngb-datepicker #datePicker [(ngModel)]="selectedDate" (select)="onDateSelect($event)"></ngb-datepicker>
+        <ngb-datepicker
+          #datePicker
+          [(ngModel)]="selectedDate"
+          (select)="onDateSelect($event)"
+          [markDisabled]="isDisabled"
+        ></ngb-datepicker>
       </div>
 		</div>  
 		<div class="block"><input type="hidden" class="js-input" name="bookingdate" data-message="Vui lòng chọn ngày thăm khám"></div>

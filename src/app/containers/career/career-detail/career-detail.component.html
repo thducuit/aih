@@ -1,0 +1,48 @@
+<main id="pCareers" *ngIf="career">
+  <div class="breadcrumb"><div class="container"><a href="#">{{ 'home' | translate }}</a> /
+    <a href="#">{{ 'careers' | translate }}</a> /
+    <p>{{ career.name }}</p></div>
+  </div>
+
+  <div class="banner-wrap-car">
+    <div class="banner-detail-cr">
+      <div class="banner-cr-detail" style="background: url(../../storage/2018/06/banner-cr-detail1527837323.jpg) no-repeat;"></div>
+    </div>
+  </div>
+
+  <section class="cr-wrap">
+    <div class="container">
+      <div class="cr-info-dt">
+        <div class="copy">
+          <h3>{{ career.name }}</h3>
+          <p>{{ career.meta.workplace }}</p>
+          <p>{{ career.meta.wage }}</p>
+
+        </div>
+        <div class="btn-wrap">
+          <a class="btn-b js-scrollForm" href="#">{{ 'apply_now' | translate }}</a>
+          <a class="btn-bd" href="#">{{ 'save' | translate }}</a>
+        </div>
+      </div>
+      <div class="detail-cr">
+        <h2>Chi tiết</h2>
+        <div class="ct-copy">
+          <div class="main-if">
+            <p><img src="../assets/images/icon-cr-dt-1.png"> {{ 'date' | translate }}<br/>27/10/2018</p>
+            <p><img src="../assets/images/icon-cr-dt-2.png"> {{ 'level' | translate }}<br/>{{ career.meta.level }}</p>
+            <p><img src="../assets/images/icon-cr-dt-3.png"> {{ 'career' | translate }}<br/>{{ career.meta.career }}</p>
+            <p><img src="../assets/images/icon-cr-dt-4.png"> {{ 'skill' | translate }}<br/>{{ career.meta.skill }}</p>
+          </div>
+          <div innerHTML="{{ career.longDesc | decodeHtmlEntities }}"></div>
+        </div>
+      </div>
+
+      <!--career section -->
+      <!--form section -->
+
+
+
+
+    </div>
+  </section>
+</main>

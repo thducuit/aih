@@ -132,6 +132,13 @@ import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
 import { PackageService } from './services/package.service';
 import { DoctorFilterDropdownComponent } from './containers/doctor/doctor-filter-dropdown/doctor-filter-dropdown.component';
 import { DepartmentService } from './services/department.service';
+import { InsuranceMediaService } from './services/insurance-media.service';
+import { CareerCategoryService } from './services/career-category.service';
+import { CareerService } from './services/career.service';
+import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
+import { CareerFormComponent } from './components/career-form/career-form.component';
+import { BookingService } from './services/booking.service';
+import { DateService } from './services/date.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -235,6 +242,8 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarComponent,
     NavItemComponent,
     DoctorFilterDropdownComponent
+    CareerDetailComponent,
+    CareerFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -277,7 +286,12 @@ export function createTranslateLoader(http: HttpClient) {
     HighlightService,
     VideoService,
     PackageService,
-    DepartmentService
+    DepartmentService,
+    InsuranceMediaService,
+    CareerCategoryService,
+    CareerService,
+    BookingService,
+    DateService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

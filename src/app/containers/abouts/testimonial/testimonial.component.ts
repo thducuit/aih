@@ -43,7 +43,6 @@ export class TestimonialComponent implements OnInit, OnDestroy {
           .map((x: any) => {
             return new Testimonial(x);
           });
-        console.log(this.testimonials);
       });
   }
 }

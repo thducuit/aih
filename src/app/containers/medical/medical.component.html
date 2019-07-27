@@ -2,12 +2,12 @@
   <section>
     <div class="container">
       <div class="becrum clearfix">
-        <a href="#"> Trang chủ</a> <span>/</span>
-        <a class="active" href="#">Gói dịch vụ</a>
+        <a href="#"> {{ 'home' | translate }}</a> <span>/</span>
+        <a class="active" href="#">{{ page ? page.name : '' }}</a>
       </div>
       <div class="medical-content clearfix">
         <div class="box-left">
-          <img src="../assets/images/medical.jpg" alt="">
+          <img src="{{ page.picturePath }}" alt="">
         </div>
         <div class="box-right">
           <h2>{{ page ? page.name : '' }}</h2>
@@ -82,9 +82,10 @@
         </div>
 
       </div>
-      <div class="box-btn-medical clearfix">
+
+      <!--<div class="box-btn-medical clearfix">
         <a href="#" class="btn-medical">Đăng ký</a>
-      </div>
+      </div>-->
 
 
     </div>

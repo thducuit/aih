@@ -7,7 +7,7 @@ import jquery from 'jquery';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss']
 })
-export class BookingComponent implements AfterViewInit {
+export class BookingComponent implements AfterViewInit, OnInit {
   private isBrowser = false;
 
   constructor(
@@ -42,5 +42,8 @@ export class BookingComponent implements AfterViewInit {
         }
       });
     }
+  }
+
+  ngOnInit(): void {
   }
 }
