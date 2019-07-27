@@ -9,6 +9,8 @@ export class Doctor {
   public alias;
   public url;
   public isExpanded;
+  public meta;
+
   constructor(data) {
     this.id = data.post_id;
     this.name = data.post_name;
@@ -19,5 +21,6 @@ export class Doctor {
     this.picture = data.post_picture;
     this.picturePath = null;
     this.isExpanded = false;
+    this.meta = JSON.parse(data.post_meta || '{}');
   }
 }
