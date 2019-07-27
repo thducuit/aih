@@ -17,13 +17,18 @@
 					<h3>{{'doctor' | translate}}</h3>
 					<p class="dt-h">{{'scroll_down_below_list_to_select_a_doctor' | translate}}</p>
 					<!-- <p class="note note-doctor">* Please select a doctor</p> -->	
-					<app-booking-doctor></app-booking-doctor>			
+					<app-booking-doctor
+            (choose)="handleSelectDoctor($event)"
+          ></app-booking-doctor>
 				</div>
 				<div class="item">
 					<h3>{{'date' | translate}}</h3>
 					<p class="dt-h">{{'select_your_referred_day_for_appointment' | translate}}</p>
 					<!-- <p class="note note-day">* Please select an appoitment date</p> -->	
-					<app-booking-date></app-booking-date>
+					<app-booking-date
+            [doctorSchedule]=doctorSchedule
+            (changeDate)="handleSelectDate($event)"
+          ></app-booking-date>
 				</div>
 				<div class="item">
 						<h3>{{'time' | translate}}</h3>

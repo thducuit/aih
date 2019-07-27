@@ -9,8 +9,10 @@
     <app-nav-item name="{{'patient_services' | translate}}" routeUrl="/patient-services/medical-services" [hasChild]="true">
       <a routerLink="/patient-services/medical-services" routerLinkActive="active">{{'medical_services' | translate}}</a>
       <a routerLink="/patient-services/medical-package" routerLinkActive="active">{{'medical_packages' | translate}}</a>
-      <a routerLink="/patient-services/insurance" routerLinkActive="active">{{'insurance' | translate}}</a>
       <a routerLink="/patient-services/factsheet" routerLinkActive="active">{{'fact_sheet' | translate}}</a>
+    </app-nav-item>
+    <app-nav-item routerLink="/patient-services/insurance" name="{{ 'insurance' | translate }}">
+
     </app-nav-item>
     <app-nav-item name="{{'find_a_doctor' | translate}}" routeUrl="/doctor"></app-nav-item>
     <app-nav-item name="{{'news' | translate}}" routeUrl="/news" [hasChild]="true">

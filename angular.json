@@ -30,7 +30,9 @@
               "src/styles.scss",
               "src/assets/css/main.css",
               "src/assets/css/style.css",
-              "src/assets/css/custom.css"
+              "src/assets/css/custom.css",
+              "src/assets/css/nmc.css",
+              "src/assets/css/hoang.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

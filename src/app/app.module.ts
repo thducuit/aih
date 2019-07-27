@@ -135,6 +135,8 @@ import {CareerCategoryService} from './services/career-category.service';
 import {CareerService} from "./services/career.service";
 import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
 import { CareerFormComponent } from './components/career-form/career-form.component';
+import {BookingService} from "./services/booking.service";
+import {DateService} from "./services/date.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -283,7 +285,9 @@ export function createTranslateLoader(http: HttpClient) {
     PackageService,
     InsuranceMediaService,
     CareerCategoryService,
-    CareerService
+    CareerService,
+    BookingService,
+    DateService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

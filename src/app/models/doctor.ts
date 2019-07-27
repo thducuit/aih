@@ -8,6 +8,7 @@ export class Doctor {
   public picture;
   public alias;
   public url;
+  public doctorId;
   public isExpanded;
   constructor(data) {
     this.id = data.post_id;
@@ -17,6 +18,7 @@ export class Doctor {
     this.shortDesc = data.post_shortdesc;
     this.longDesc = data.post_longdesc;
     this.picture = data.post_picture;
+    this.doctorId = data.post_elem01;
     this.picturePath = null;
     this.isExpanded = false;
   }
