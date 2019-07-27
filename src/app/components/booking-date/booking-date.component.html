@@ -8,7 +8,9 @@
           #datePicker
           [(ngModel)]="selectedDate"
           (select)="onDateSelect($event)"
-          [markDisabled]="isDisabled"
+          [minDate]="getMinDate()"
+          [markDisabled]="getMarkDisableDate()"
+          outsideDays="visible"
         ></ngb-datepicker>
       </div>
 		</div>  
