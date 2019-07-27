@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Doctor } from '../../../models/doctor';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../../services/post.service';
 import { UrlService } from '../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-doctor-detail',
@@ -11,8 +12,10 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./doctor-detail.component.scss']
 })
 
-export class DoctorDetailComponent implements OnInit {
+export class DoctorDetailComponent implements OnInit, OnDestroy {
   public doctor: Doctor;
+  private subscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     public postService: PostService,
@@ -26,12 +29,16 @@ export class DoctorDetailComponent implements OnInit {
       this.loadPosts(alias);
     });
 
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         const alias = this.route.snapshot.params.alias;
         this.loadPosts(alias);
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   private loadPosts(alias) {

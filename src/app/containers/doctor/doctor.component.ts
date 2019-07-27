@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Page } from '../../models/page';
 import { Doctor } from '../../models/doctor';
 import { PageService } from '../../services/page.service';
@@ -7,18 +7,20 @@ import { BannerService } from '../../services/banner.service';
 import { UrlService } from '../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
 import { DepartmentService } from 'src/app/services/department.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.scss']
 })
-export class DoctorComponent implements OnInit {
+export class DoctorComponent implements OnInit, OnDestroy {
 
   public page: Page;
   public banner: any = {};
   public doctors: Array<Doctor> = [];
   public departments: any[];
+  private subscription: Subscription;
 
   constructor(
     public pageService: PageService,
@@ -32,7 +34,7 @@ export class DoctorComponent implements OnInit {
     this.loadPage();
     this.loadDoctors();
     this.loadDepartments();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadPage();
@@ -40,6 +42,10 @@ export class DoctorComponent implements OnInit {
         this.loadDepartments();
       });
   }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   loadPage() {
     this.pageService
       .fetch('doctor_page')

@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Video } from '../../../models/video';
 import { UrlService } from '../../../services/url.service';
 import { VideoService } from '../../../services/video.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
 })
-export class VideoComponent implements OnInit {
-
+export class VideoComponent implements OnInit, OnDestroy {
   public videos: Array<Video> = [];
   public video: Video;
+  private subscription: Subscription;
+
   constructor(
     public videoService: VideoService,
     private translate: TranslateService
@@ -20,11 +22,15 @@ export class VideoComponent implements OnInit {
 
   ngOnInit() {
     this.loadVideos();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadVideos();
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   loadVideos() {

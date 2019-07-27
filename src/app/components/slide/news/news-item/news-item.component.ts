@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, NgZone } from '@angular/core';
+import { Component, Input, OnInit, NgZone, OnDestroy } from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
 import { UrlService } from '../../../../services/url.service';
 import { Blog } from '../../../../models/blog';
 import { CalculatePagination } from 'src/app/utilities';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 const ItemPerPage = 3;
 
@@ -12,11 +13,12 @@ const ItemPerPage = 3;
   templateUrl: './news-item.component.html',
   styleUrls: ['./news-item.component.scss'],
 })
-export class NewsItemComponent implements OnInit {
+export class NewsItemComponent implements OnInit, OnDestroy {
   public blogs: Array<Blog> = [];
   public totalPage = 0;
   public currentPage = 1;
   public pageNumbers: number[] = [];
+  private subscription: Subscription;
 
   @Input() showChosenPackage = false;
   constructor(
@@ -27,11 +29,15 @@ export class NewsItemComponent implements OnInit {
 
   ngOnInit() {
     this.loadNews();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadNews();
       });
+  }
+
+  ngOnDestroy () {
+    this.subscription.unsubscribe();
   }
 
   loadNews() {
