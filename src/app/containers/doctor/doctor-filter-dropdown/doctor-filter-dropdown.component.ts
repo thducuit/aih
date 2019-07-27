@@ -36,6 +36,10 @@ export class DoctorFilterDropdownComponent implements OnInit {
     this.selected.emit(item);
   }
 
+  onClickOutside(event) {
+    this.expanded = false;
+  }
+
   getValue(item: any) {
     return item && item[this.value];
   }

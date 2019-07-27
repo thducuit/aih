@@ -12,6 +12,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -233,7 +234,7 @@ export function createTranslateLoader(http: HttpClient) {
     ServiceDetailComponent,
     SidebarComponent,
     NavItemComponent,
-    DoctorFilterDropdownComponent,
+    DoctorFilterDropdownComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -254,7 +255,8 @@ export function createTranslateLoader(http: HttpClient) {
     NgbDatepickerModule,
     SlickCarouselModule,
     BrowserAnimationsModule,
-    AngularStickyThingsModule
+    AngularStickyThingsModule,
+    ClickOutsideModule
   ],
   providers: [
     GlobalEventService,
