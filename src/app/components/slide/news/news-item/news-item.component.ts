@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, NgZone } from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
 import { UrlService } from '../../../../services/url.service';
 import { Blog } from '../../../../models/blog';
@@ -19,37 +19,43 @@ export class NewsItemComponent implements OnInit {
   @Input() showChosenPackage = false;
   constructor(
     public blogService: BlogService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private zone: NgZone
   ) { }
 
   ngOnInit() {
     this.loadNews();
     this.translate
-    .onLangChange
-    .subscribe(() => {
-      this.loadNews();
-    });
+      .onLangChange
+      .subscribe(() => {
+        this.loadNews();
+      });
   }
 
   loadNews() {
-    this.blogService.fetch(this.currentPage).subscribe((data: any) => {
-      const posts = data.Posts || [];
-      this.totalRecord = posts.TotalRecord;
-      this.blogs = posts.map(post => {
-        const blog = new Blog(post);
-        blog.picturePath = UrlService.createPictureUrl(blog.picture);
-        blog.url = UrlService.createNewsDetailUrl(blog.alias);
-        return blog;
+    this.blogService
+      .fetch(this.currentPage)
+      .subscribe((data: any) => {
+        const posts = data.Posts || [];
+        this.totalRecord = data.TotalRecord;
+        this.blogs = posts.map(post => {
+          const blog = new Blog(post);
+          blog.picturePath = UrlService.createPictureUrl(blog.picture);
+          blog.url = UrlService.createNewsDetailUrl(blog.alias);
+          return blog;
+        });
+        this.recalculatePages();
       });
-    });
   }
 
   selectPage(pageNum: number) {
     this.currentPage = pageNum;
-    this.recalculatePages();
+    this.loadNews();
   }
 
   private recalculatePages() {
-    this.pageNumbers = CalculatePagination(this.currentPage, this.totalRecord || 0);
+    this.zone.runOutsideAngular(() => {
+      this.pageNumbers = CalculatePagination(this.currentPage, this.totalRecord || 0);
+    });
   }
 }
