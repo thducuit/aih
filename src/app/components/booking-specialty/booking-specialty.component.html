@@ -1,4 +1,4 @@
-<div class="item-inner">
+<div class="item-inner" (clickOutside)="onClickOutside($event)">
   <div class="ip ip-spec {{ isActive ? 'has-before' : '' }}" (click)="handleInputClick()">
     <input readonly="true"
            name="deparmentname"
@@ -12,7 +12,10 @@
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">
-              <app-specialty-item (choose)="onChoose($event)"></app-specialty-item>
+              <ul>
+                <li *ngFor="let clinic of clinics" class="dep-item-1"
+                    (click)="onChoose(clinic)"><span>{{ clinic.name }}</span></li>
+              </ul>              
           </div>
         </div>
       </div>

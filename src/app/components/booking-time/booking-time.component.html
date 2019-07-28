@@ -1,4 +1,4 @@
-<div class="item-inner">
+<div class="item-inner" (clickOutside)="onClickOutside($event)">
   <div class="ip ip-time {{ isActive ? 'has-before' : '' }}" (click)="handleInputClick()">
     <input readonly="true" class="js-dropBooking-time" type="text" placeholder="{{ placeholder || ('time' | translate) }}">
     <em class="ar"></em>
@@ -6,30 +6,12 @@
       <!-- <h4>content.TIME</h4> -->
 
       <div class="block-time">
-        <div class="item-time">
-          <h5>8:00 - 11:40</h5>
+        <div class="item-time" *ngFor="let blockData of timeBlocks">
+          <h5>{{blockData.label}}</h5>
           <ul class="clearfix">
-            <li *ngFor="let block1Child of block1" class="{{ block1Child.disabled ? 'disable-time' : '' }}">
-              <span *ngIf="block1Child.disabled">{{ block1Child.value }}</span>
-              <span (click)="handleChoose(block1Child)" *ngIf="!block1Child.disabled">{{ block1Child.value }}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="item-time">
-          <h5>13:00 - 16:40</h5>
-          <ul class="clearfix">
-            <li *ngFor="let block2Child of block2" class="{{ block2Child.disabled ? 'disable-time' : '' }}">
-              <span *ngIf="block2Child.disabled">{{ block2Child.value }}</span>
-              <span (click)="handleChoose(block2Child)" *ngIf="!block2Child.disabled">{{ block2Child.value }}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="item-time">
-          <h5>17:00 - 20:40</h5>
-          <ul class="clearfix">
-            <li *ngFor="let block3Child of block3" class="{{ block3Child.disabled ? 'disable-time' : '' }}">
-              <span *ngIf="block3Child.disabled">{{ block3Child.value }}</span>
-              <span (click)="handleChoose(block3Child)" *ngIf="!block3Child.disabled">{{ block3Child.value }}</span>
+            <li *ngFor="let block of blockData.blocks" [ngClass]="{'disable-time' : block.disabled }">
+              <span *ngIf="block.disabled">{{ block.value }}</span>
+              <span (click)="handleChoose(block)" *ngIf="!block.disabled">{{ block.value }}</span>
             </li>
           </ul>
         </div>

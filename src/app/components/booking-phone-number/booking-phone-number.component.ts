@@ -1,8 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {interval} from 'rxjs';
-import {throttleTime} from 'rxjs/operators';
-import {BookingService} from "../../services/booking.service";
-import {TranslateService} from '@ngx-translate/core';
+import {BookingService} from '../../services/booking.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,9 +14,7 @@ export class BookingPhoneNumberComponent implements OnInit {
   @Output() chooseCustomerPhone = new EventEmitter<any>();
 
   constructor(
-    public bookingService: BookingService,
-    private translate: TranslateService
-  ) {
+    public bookingService: BookingService  ) {
   }
 
   ngOnInit() {

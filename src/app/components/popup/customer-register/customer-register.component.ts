@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, OnChanges, EventEmitter, SimpleChanges} from '@angular/core';
-import {BookingService} from "../../../services/booking.service";
+import {BookingService} from '../../../services/booking.service';
 import countryJson from './country.json';
 
 import Swal from 'sweetalert2';

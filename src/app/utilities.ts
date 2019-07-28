@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
 function getNativeLocalStorage() {
   return localStorage;
 }
@@ -42,4 +45,33 @@ export function CalculatePagination(current: number, total: number) {
   }
 
   return rangeWithDots;
+}
+
+export function momentToNgbDate(date: moment.Moment): NgbDateStruct {
+  return {
+    year: date.year(),
+    month: date.month() + 1,
+    day: date.date(),
+  };
+}
+
+export function compareTwoHours(h1: string, h2: string) {
+  if (h1 === h2) {
+    return 0;
+  }
+  const time1 = h1.split(':');
+  const time2 = h2.split(':');
+  if (Number(time1[0]) > Number(time2[0])) {
+    return 1;
+  }
+  if (Number(time1[0]) < Number(time2[0])) {
+    return -1;
+  }
+  if (Number(time1[1]) > Number(time2[1])) {
+    return 1;
+  }
+  if (Number(time1[1]) < Number(time2[1])) {
+    return -1;
+  }
+  return 0;
 }

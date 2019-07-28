@@ -8,6 +8,7 @@ export class Clinic {
   public alias;
   public url;
   public clinicId;
+
   constructor(data) {
     this.id = data.cate_id;
     this.name = data.cate_name;
