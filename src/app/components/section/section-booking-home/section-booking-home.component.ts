@@ -205,6 +205,8 @@ export class SectionBookingHomeComponent
           setTimeout(() => {
             this.bookingDate && this.bookingDate.expandDate(true);
           }, 300);
+        } else {
+          this.bookingDate && (this.bookingDate.selectedDate = null);
         }
       });
     });
