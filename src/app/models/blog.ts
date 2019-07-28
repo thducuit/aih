@@ -8,6 +8,8 @@ export class Blog {
   public alias;
   public picturePath;
   public url;
+  public datepublish;
+
   public sort;
   constructor(data) {
     this.id = data.post_id;
@@ -20,5 +22,6 @@ export class Blog {
     this.alias = data.alias_name;
     this.picturePath = null;
     this.url = null;
+    this.datepublish = new Date(data.post_datepublish);
   }
 }

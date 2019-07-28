@@ -12,6 +12,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -125,18 +126,19 @@ import { ServiceDetailComponent } from './containers/services/service/service-de
 import { CategoryService } from './services/category.service';
 import { InsuranceService } from './services/insurance.service';
 import { HighlightService } from './services/highlight.service';
-import { DoctorFilterComponent } from './containers/doctor/doctor-filter/doctor-filter.component';
 import { VideoService } from './services/video.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
-import {PackageService} from './services/package.service';
-import {InsuranceMediaService} from './services/insurance-media.service';
-import {CareerCategoryService} from './services/career-category.service';
-import {CareerService} from "./services/career.service";
+import { PackageService } from './services/package.service';
+import { DoctorFilterDropdownComponent } from './containers/doctor/doctor-filter-dropdown/doctor-filter-dropdown.component';
+import { DepartmentService } from './services/department.service';
+import { InsuranceMediaService } from './services/insurance-media.service';
+import { CareerCategoryService } from './services/career-category.service';
+import { CareerService } from './services/career.service';
 import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
 import { CareerFormComponent } from './components/career-form/career-form.component';
-import {BookingService} from "./services/booking.service";
-import {DateService} from "./services/date.service";
+import { BookingService } from './services/booking.service';
+import { DateService } from './services/date.service';
 import { CustomerRegisterComponent } from './components/popup/customer-register/customer-register.component';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -239,8 +241,8 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarComponent,
     ServiceDetailComponent,
     SidebarComponent,
-    DoctorFilterComponent,
     NavItemComponent,
+    DoctorFilterDropdownComponent,
     CareerDetailComponent,
     CareerFormComponent,
     CustomerRegisterComponent,
@@ -264,7 +266,8 @@ export function createTranslateLoader(http: HttpClient) {
     NgbDatepickerModule,
     SlickCarouselModule,
     BrowserAnimationsModule,
-    AngularStickyThingsModule
+    AngularStickyThingsModule,
+    ClickOutsideModule
   ],
   providers: [
     GlobalEventService,
@@ -285,6 +288,7 @@ export function createTranslateLoader(http: HttpClient) {
     HighlightService,
     VideoService,
     PackageService,
+    DepartmentService,
     InsuranceMediaService,
     CareerCategoryService,
     CareerService,

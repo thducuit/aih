@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { Blog } from '../../models/blog';
 import { Clinic } from '../../models/clinic';
 import { UrlService } from '../../services/url.service';
 import { ClinicService } from '../../services/clinic.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, OnDestroy {
 
   public blogs: Array<Blog> = [];
   public clinics: Array<Clinic> = [];
+  private subsciption: Subscription;
+
   constructor(
     public blogService: BlogService,
     public clinicService: ClinicService,
@@ -24,13 +27,17 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.loadFeatureBlogs();
     this.loadFeatureClinics();
-    this.translate
+    this.subsciption = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadFeatureBlogs();
         this.loadFeatureClinics();
       });
   }
+  ngOnDestroy() {
+    this.subsciption.unsubscribe();
+  }
+
   loadFeatureBlogs() {
     this.blogService.fetchFeature().subscribe((data: any) => {
       const posts = data.Posts || [];

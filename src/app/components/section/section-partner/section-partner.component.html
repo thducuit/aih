@@ -1,15 +1,12 @@
 <section class="partner-home" *ngIf="partners.length">
-	<div class="container">
-		<h2>{{ 'partners' | translate }}</h2>
-		<ul class="clearfix">
-
-			<li *ngFor="let partner of partners">
-				<div>
-					<img src="{{ partner.thumb }}">
-					<img class="hover" src="{{ partner.thumb }}">
-				</div>
-			</li>
-
-		</ul>
-	</div>
-	</section>
+  <div class="container">
+    <h2>{{ 'partners' | translate }}</h2>
+    <ul class="clearfix">
+      <li *ngFor="let partner of partners">
+        <div class="partner">
+          <img src="{{ partner.thumb }}">
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

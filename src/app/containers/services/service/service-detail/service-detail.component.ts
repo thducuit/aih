@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
 import { ActivatedRoute } from '@angular/router';
 import { UrlService } from '../../../../services/url.service';
 import { CategoryService } from '../../../../services/category.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-service-detail',
   templateUrl: './service-detail.component.html',
   styleUrls: ['./service-detail.component.scss']
 })
-export class ServiceDetailComponent implements OnInit {
-
+export class ServiceDetailComponent implements OnInit, OnDestroy {
   public clinic: Clinic;
+  private subscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     public categoryService: CategoryService,
@@ -25,11 +27,15 @@ export class ServiceDetailComponent implements OnInit {
       const alias = params.get('alias');
       this.loadCategories(alias);
     });
-    this.translate
-    .onLangChange
-    .subscribe(() => {
-      this.loadCategories(this.route.snapshot.params['alias']);
-    });
+    this.subscription = this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadCategories(this.route.snapshot.params['alias']);
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   private loadCategories(alias) {

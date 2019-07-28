@@ -17,7 +17,7 @@ export class BannerService extends BaseService {
       position: 'bannertop',
       obj_id: pageId,
       obj_type: type,
-      lang : 'vi-VN' // I've try with en-US but no result reponse
+      lang : this.getCurrentLocal()
     };
     return this.http.post('banner/list', postData);
   }

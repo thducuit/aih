@@ -1,20 +1,23 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output, OnDestroy} from '@angular/core';
 import {Doctor} from '../../models/doctor';
 import {UrlService} from "../../services/url.service";
 import {DoctorService} from "../../services/doctor.service";
 import {TranslateService} from "@ngx-translate/core";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-booking-doctor',
   templateUrl: './booking-doctor.component.html',
   styleUrls: ['./booking-doctor.component.scss']
 })
-export class BookingDoctorComponent implements OnInit {
+export class BookingDoctorComponent implements OnInit, OnDestroy {
 
   public isActive: boolean;
   public chosenDoctor: Doctor;
   public placeholder: string;
   public doctors: Array<Doctor> = [];
+  private subscription: Subscription;
+
   @Output() choose = new EventEmitter<any>();
   private wasInside = false;
   @HostListener('click')
@@ -39,11 +42,15 @@ export class BookingDoctorComponent implements OnInit {
 
   ngOnInit() {
     this.loadDoctors();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadDoctors();
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   loadDoctors() {

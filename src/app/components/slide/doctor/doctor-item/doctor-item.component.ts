@@ -1,15 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { DoctorService } from '../../../../services/doctor.service';
 import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-doctor-item',
   templateUrl: './doctor-item.component.html',
   styleUrls: ['./doctor-item.component.scss'],
 })
-export class DoctorItemComponent implements OnInit {
+export class DoctorItemComponent implements OnInit, OnDestroy {
   public doctors: Array<Doctor> = [];
   public slideConfig = {
     infinite: true,
@@ -32,6 +33,7 @@ export class DoctorItemComponent implements OnInit {
       }
     ],
   };
+  private subscription: Subscription;
 
   @ViewChild('sliderContainer', { static: false })
   sliderContainer: ElementRef;
@@ -39,15 +41,19 @@ export class DoctorItemComponent implements OnInit {
   constructor(
     public doctorService: DoctorService,
     private translate: TranslateService
-    ) {}
+  ) { }
 
   ngOnInit() {
     this.loadDoctors();
-    this.translate
-    .onLangChange
-    .subscribe(() => {
-      this.loadDoctors();
-    });
+    this.subscription = this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadDoctors();
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   sliderInit(e) {

@@ -1,17 +1,19 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, OnDestroy } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
 import { ClinicService } from '../../../../services/clinic.service';
 import { UrlService } from '../../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
-
+export class SidebarComponent implements OnInit, OnDestroy {
   public clinics: Array<Clinic> = [];
+  private subscription: Subscription;
+
   constructor(
     public clinicService: ClinicService,
     private translate: TranslateService
@@ -19,11 +21,15 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.loadClinics();
-    this.translate
+    this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadClinics();
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   loadClinics() {
