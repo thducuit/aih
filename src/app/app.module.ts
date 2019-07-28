@@ -74,7 +74,6 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
 import { PageLayoutComponent } from './layouts/page-layout/page-layout.component';
 import { HeaderHomeComponent } from './components/header-home/header-home.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { SpecialtyItemComponent } from './components/booking-specialty/specialty-item/specialty-item.component';
 import { DoctorListItemComponent } from './components/booking-doctor/doctor-list-item/doctor-list-item.component';
 import { SectionNewsComponent } from './components/section/section-news/section-news.component';
 import { SectionDoctorComponent } from './components/section/section-doctor/section-doctor.component';
@@ -209,7 +208,6 @@ export function createTranslateLoader(http: HttpClient) {
     ChatComponent,
     HeaderHomeComponent,
     LogoComponent,
-    SpecialtyItemComponent,
     DoctorListItemComponent,
     SectionNewsComponent,
     SectionDoctorComponent,

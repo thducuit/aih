@@ -1,37 +1,51 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output, OnDestroy} from '@angular/core';
 import {Clinic} from '../../models/clinic';
+import { ClinicService } from 'src/app/services/clinic.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-booking-specialty',
   templateUrl: './booking-specialty.component.html',
   styleUrls: ['./booking-specialty.component.scss']
 })
-export class BookingSpecialtyComponent implements OnInit {
+export class BookingSpecialtyComponent implements OnInit, OnDestroy {
 
   public isActive: boolean;
   public chosenClinic: Clinic;
   public placeholder: string;
-  private wasInside = false;
+  public clinics: Array<Clinic> = [];
+  private subscription: Subscription;
   @Output() chooseClinic = new EventEmitter<any>();
-  @HostListener('click')
-  clickInside() {
-    this.wasInside = true;
-  }
 
-  @HostListener('document:click')
-  clickout() {
-    if (!this.wasInside) {
-      this.isActive = false;
-    }
-    this.wasInside = false;
-  }
-
-  constructor() {
+  constructor(
+    public clinicService: ClinicService,
+    private translate: TranslateService) {
     this.isActive = false;
   }
 
   ngOnInit() {
+    this.loadClinics();
+    this.subscription = this.translate
+      .onLangChange
+      .subscribe(() => {
+        this.loadClinics();
+      });
+  }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  onClickOutside(e) {
+    this.isActive = false;
+  }
+
+  loadClinics() {
+    this.clinicService.fetch().subscribe((data: {}) => {
+      const posts = data['Categories'] || [];
+      this.clinics = posts.map(post => new Clinic(post));
+    });
   }
 
   handleInputClick() {
@@ -47,4 +61,7 @@ export class BookingSpecialtyComponent implements OnInit {
     }, 200);
   }
 
+  chooseById(id) {
+    //
+  }
 }
