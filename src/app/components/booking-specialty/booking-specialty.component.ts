@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {Clinic} from '../../models/clinic';
 
 @Component({
@@ -12,7 +12,7 @@ export class BookingSpecialtyComponent implements OnInit {
   public chosenClinic: Clinic;
   public placeholder: string;
   private wasInside = false;
-
+  @Output() chooseClinic = new EventEmitter<any>();
   @HostListener('click')
   clickInside() {
     this.wasInside = true;
@@ -41,6 +41,7 @@ export class BookingSpecialtyComponent implements OnInit {
   onChoose(clinic) {
     this.chosenClinic = clinic;
     this.placeholder = clinic.name;
+    this.chooseClinic.emit(clinic);
     setTimeout (() => {
       this.isActive = false;
     }, 200);

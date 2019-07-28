@@ -4,3 +4,8 @@
 	</div>
 <!-- <p class="note note-phone">* Please select your phone number</p> -->						
 </div>
+<app-customer-register
+  [isShowPopup]="showRegister"
+  (closePopup)="handleCloseRegister()"
+  (getCustomerId)="handleGetCustomerId($event)"
+></app-customer-register>

@@ -12,5 +12,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="play-video js-open-video"></div>
+	<div class="play-video js-open-video" (click)="handleOpenPopup()"></div>
 </section>
+<app-video-popup *ngIf="iframeSrc"
+  iframeSrc="{{ iframeSrc }}"
+  [isShowPopup]=showVideoPopup
+  (closePopup)="handleClosePopup()"
+></app-video-popup>

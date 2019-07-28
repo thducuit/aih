@@ -38,4 +38,26 @@ export class DateService {
     }
     return retVal;
   }
+
+  static getBlockDate(timeBlocks, timeBlocked) {
+    const blocks = [];
+    timeBlocks.forEach(item => {
+      if (!this.isBlocked(item, timeBlocked)) {
+        blocks.push(item);
+      }
+    });
+    return blocks;
+  }
+
+  private static isBlocked(time: any, timeBlocked: any) {
+    let check = false;
+    for (let i = 0; i < timeBlocked.length; i++) {
+      const timeRanger = timeBlocked[i].split('-');
+      if (timeRanger[0] <= time && timeRanger[1] > time) {
+        check = true;
+        break;
+      }
+    }
+    return check;
+  }
 }

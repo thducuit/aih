@@ -12,6 +12,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class SectionTestimoComponent implements OnInit {
 
   public feedback: Feedback;
+  public showVideoPopup = false;
+  public iframeSrc: string;
   constructor(
     public feedbackService: FeedbackService,
     private translate: TranslateService
@@ -30,9 +32,19 @@ export class SectionTestimoComponent implements OnInit {
     this.feedbackService.fetch().subscribe((data: any) => {
       const post = data.Media[0] || {};
       const feedback = new Feedback(post);
+      console.log('feedback', feedback);
       feedback.thumb = UrlService.createMediaUrl(feedback.thumb);
+      this.iframeSrc = UrlService.createIframeUrl(feedback.file);
       this.feedback = feedback;
     });
+  }
+
+  handleOpenPopup() {
+    this.showVideoPopup = true;
+  }
+
+  handleClosePopup() {
+    this.showVideoPopup = false;
   }
 
 }
