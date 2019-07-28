@@ -22,158 +22,31 @@
         </div>
         <div class="copy" innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
       </div>
+
       <div class="service-wrap">
         <div class="tt-page">
-          <h4>Take a look at our main services</h4>
-          <h3>AWESOME SERVICES</h3>
+          <h4>{{ 'take_a_look_at_our_main_services' | translate }}</h4>
+          <h3>{{ 'awesome_services' | translate }}</h3>
         </div>
         <div class="list-sv">
-          <div class="item-sv  right-align ">
+          <div *ngFor="let clinic of clinics; let i = index" class="item-sv  {{ i % 2 === 1 ? 'right-align' : 'left-align' }} ">
             <div class="out-content">
               <div
                 class="img"
-                style="background: url(../storage/2018/10/gastro-main-services1539341852.jpg) center;"
+                [style.background]="'url(' + clinic.picturePath + ')'"
               ></div>
             </div>
             <div class="copy-content">
-              <h3>GASTRO-ENTEROLOGY - HEPATOLOGY</h3>
-              <h4>
-                A leading specialty with high focus on accuracy in diagnosis
-              </h4>
-              <p>
-                Specialized in one of our leading specialties,
-                Gastro-entero-hepatology Department offers a full range of
-                testing, diagnosis and treatment of gastrointestinal diseases.
-                Our team consisting of skillful and experienced
-                gastroenterologists focuses on giving our patients accurate
-                diagnosis and right treatment as soon as possible....
-              </p>
+              <h3>{{ clinic.name }}</h3>
+              <div innerHTML="{{ clinic.shortDesc | decodeHtmlEntities }}"></div>
               <a
-                href="../patient-services/medical-services/5-gastroenterology-hepatology.html"
-              ><span>Learn more</span></a
+                routerLink="{{ clinic.url }}"
+              ><span>{{ 'learn_more' | translate }}</span></a
               >
             </div>
             <a
               class="link-all"
-              href="../patient-services/medical-services/5-gastroenterology-hepatology.html"
-            ></a>
-          </div>
-          <div class="item-sv  left-align ">
-            <div class="out-content">
-              <div
-                class="img"
-                style="background: url(../storage/2018/10/general-surgery-main-services1539341677.jpg) center;"
-              ></div>
-            </div>
-            <div class="copy-content">
-              <h3>GENERAL SURGERY</h3>
-              <h4>
-                An international standard surgical specialty with advanced
-                surgical techniques
-              </h4>
-              <p>
-                Being one of the five leading-edge departments at AIH, our
-                General Surgery Department provides surgical healthcare in a
-                variety of sub-specialties at the highest international
-                standard. Our team of certified surgeons is dedicated to meet
-                all the needs of patients from consultation to post-surgery
-                aftercare. AIH is also applying...
-              </p>
-              <a
-                href="../patient-services/medical-services/3-general-surgery.html"
-              ><span>Learn more</span></a
-              >
-            </div>
-            <a
-              class="link-all"
-              href="../patient-services/medical-services/3-general-surgery.html"
-            ></a>
-          </div>
-          <div class="item-sv  right-align ">
-            <div class="out-content">
-              <div
-                class="img"
-                style="background: url(../storage/2018/10/ob-gyn-main-service1539341358.jpg) center;"
-              ></div>
-            </div>
-            <div class="copy-content">
-              <h3>OBSTETRICS &amp; GYNECOLOGY</h3>
-              <h4>
-                A leading-edge specialty featuring American standard LDRP rooms
-              </h4>
-              <p>
-                Understanding that all women are valuable and deserve the best
-                in their lives, our experienced and diligent Ob-Gyn doctors and
-                medical staffs work with passion and great concern to guarantee
-                exceptional care and treatment for their female patients.
-                Besides consultancy, diagnosis and treatment services of women
-                health related...
-              </p>
-              <a
-                href="../patient-services/medical-services/1-obstetrics-gynecology.html"
-              ><span>Learn more</span></a
-              >
-            </div>
-            <a
-              class="link-all"
-              href="../patient-services/medical-services/1-obstetrics-gynecology.html"
-            ></a>
-          </div>
-          <div class="item-sv  left-align ">
-            <div class="out-content">
-              <div
-                class="img"
-                style="background: url(../storage/2018/10/pediatrics-main-services1539342486.jpg) center;"
-              ></div>
-            </div>
-            <div class="copy-content">
-              <h3>PEDIATRICS</h3>
-              <h4>A place for child care with unconditional love</h4>
-              <p>
-                We believe that children are our future. Taking care of their
-                health and safety is of every family’s top priorities. That is
-                why we at AIH are attaching much importance to developing
-                Pediatrics as one of our 5 leading specialties. Our qualified
-                pediatricians are always available to listen to and care for all
-                your children’s...
-              </p>
-              <a href="../patient-services/medical-services/2-pediatrics.html"
-              ><span>Learn more</span></a
-              >
-            </div>
-            <a
-              class="link-all"
-              href="../patient-services/medical-services/2-pediatrics.html"
-            ></a>
-          </div>
-          <div class="item-sv  right-align ">
-            <div class="out-content">
-              <div
-                class="img"
-                style="background: url(../storage/2018/07/doctor-detail-267x1391530715167.jpg) center;"
-              ></div>
-            </div>
-            <div class="copy-content">
-              <h3>UROLOGY &amp; ANDROLOGY</h3>
-              <h4>
-                Focus on giving patients the most comfortable treatment options
-              </h4>
-              <p>
-                Nephrology - Urology &amp; Andrology Department is also one
-                among five leading-edge departments at AIH. We are dedicated to
-                offer you a wide range of rapid and accurate diagnosis and
-                treatment options for disorders and diseases of urological
-                system and male reproductive organs. Our medical experts use a
-                variety of treatment methods...
-              </p>
-              <a
-                href="../patient-services/medical-services/4-urology-andrology.html"
-              ><span>Learn more</span></a
-              >
-            </div>
-            <a
-              class="link-all"
-              href="../patient-services/medical-services/4-urology-andrology.html"
+              routerLink="{{ clinic.url }}"
             ></a>
           </div>
         </div>
