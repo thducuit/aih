@@ -13,7 +13,8 @@
 					<h3>{{'specialty' | translate}}</h3>
 					<p class="dt-h">{{'scroll_down_below_list_to_select_a_apeciality' | translate}}</p>
 					<!-- <p class="note note-spec">* Please select a specialty</p> -->	
-					<app-booking-specialty
+          <app-booking-specialty
+            #bookingSpecialty
             (chooseClinic)="handleSelectClinic($event)"
           ></app-booking-specialty>
 				</div>

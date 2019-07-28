@@ -22,6 +22,7 @@ import { DateService } from '../../../services/date.service';
 import Swal from 'sweetalert2';
 import { BookingDateComponent } from '../../booking-date/booking-date.component';
 import { BookingDoctorComponent } from '../../booking-doctor/booking-doctor.component';
+import { BookingSpecialtyComponent } from '../../booking-specialty/booking-specialty.component';
 
 @Component({
   selector: 'app-section-booking-home',
@@ -33,6 +34,7 @@ export class SectionBookingHomeComponent
   @ViewChild('frmBooking', { static: false }) frmBooking: ElementRef;
   @ViewChild('bookingDate', { static: false }) bookingDate: BookingDateComponent;
   @ViewChild('bookingDoctor', { static: false }) bookingDoctor: BookingDoctorComponent;
+  @ViewChild('bookingSpecialty', { static: false }) bookingSpecialty: BookingSpecialtyComponent;
   private isBrowser: boolean;
   public schedule: any;
   public doctorSchedule: Schedule;
@@ -84,9 +86,11 @@ export class SectionBookingHomeComponent
     this.schedule = scheduleObj;
   }
 
-  handleSelectDoctor(doctor) {
+  handleSelectDoctor(doctor: Doctor) {
     this.selectedDoctor = doctor;
     this.doctorSchedule = this.schedule[doctor.doctorId];
+
+    this.bookingSpecialty && this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
   }
   handleSelectDate(date) {
     this.selectedDate = date;

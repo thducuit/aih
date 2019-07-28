@@ -1,5 +1,12 @@
-import {Component, EventEmitter, HostListener, OnInit, Output, OnDestroy} from '@angular/core';
-import {Clinic} from '../../models/clinic';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core';
+import { Clinic } from '../../models/clinic';
 import { ClinicService } from 'src/app/services/clinic.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -7,10 +14,9 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-booking-specialty',
   templateUrl: './booking-specialty.component.html',
-  styleUrls: ['./booking-specialty.component.scss']
+  styleUrls: ['./booking-specialty.component.scss'],
 })
 export class BookingSpecialtyComponent implements OnInit, OnDestroy {
-
   public isActive: boolean;
   public chosenClinic: Clinic;
   public placeholder: string;
@@ -20,17 +26,16 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
 
   constructor(
     public clinicService: ClinicService,
-    private translate: TranslateService) {
+    private translate: TranslateService,
+  ) {
     this.isActive = false;
   }
 
   ngOnInit() {
     this.loadClinics();
-    this.subscription = this.translate
-      .onLangChange
-      .subscribe(() => {
-        this.loadClinics();
-      });
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+      this.loadClinics();
+    });
   }
 
   ngOnDestroy() {
@@ -56,12 +61,17 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
     this.chosenClinic = clinic;
     this.placeholder = clinic.name;
     this.chooseClinic.emit(clinic);
-    setTimeout (() => {
+    setTimeout(() => {
       this.isActive = false;
     }, 200);
   }
 
-  chooseById(id) {
-    //
+  chooseByClinicId(clinicId) {
+    const found = (this.clinics || []).find(x => {
+      return x.clinicId === clinicId;
+    });
+    if (found) {
+      this.onChoose(found);
+    }
   }
 }
