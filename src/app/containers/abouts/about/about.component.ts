@@ -1,10 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Page } from '../../../models/page';
-import { PageService } from '../../../services/page.service';
-import { BannerService } from '../../../services/banner.service';
-import { UrlService } from '../../../services/url.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Page} from '../../../models/page';
+import {PageService} from '../../../services/page.service';
+import {BannerService} from '../../../services/banner.service';
+import {UrlService} from '../../../services/url.service';
+import {TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
+import {ClinicService} from "../../../services/clinic.service";
+import {Clinic} from "../../../models/clinic";
 
 @Component({
   selector: 'app-about',
@@ -14,20 +16,25 @@ import { Subscription } from 'rxjs';
 export class AboutComponent implements OnInit, OnDestroy {
   public page: Page;
   public banners: Array<any> = [];
+  public clinics: Array<any> = [];
   private subscription: Subscription;
 
   constructor(
     public pageService: PageService,
     public bannerService: BannerService,
+    public clinicService: ClinicService,
     private translate: TranslateService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadPage();
+    this.loadClinic();
     this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
         this.loadPage();
+        this.loadClinic();
       });
   }
 
@@ -51,6 +58,18 @@ export class AboutComponent implements OnInit, OnDestroy {
           });
         });
       });
+  }
+
+  loadClinic() {
+    this.clinicService.fetchHot().subscribe((data: any) => {
+      const posts = data.Categories || [];
+      this.clinics = posts.map(post => {
+        const clinic = new Clinic(post);
+        clinic.picturePath = UrlService.createPictureUrl(clinic.picture, null, 'category');
+        clinic.url = `/patient-services/medical-services/${clinic.alias}`;
+        return clinic;
+      });
+    });
   }
 
 }

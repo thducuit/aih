@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {BookingService} from "../../../services/booking.service";
+import {Component, OnInit, Input, Output, OnChanges, EventEmitter, SimpleChanges} from '@angular/core';
+import {BookingService} from '../../../services/booking.service';
 import countryJson from './country.json';
 
 import Swal from 'sweetalert2';
@@ -9,9 +9,10 @@ import Swal from 'sweetalert2';
   templateUrl: './customer-register.component.html',
   styleUrls: ['./customer-register.component.scss']
 })
-export class CustomerRegisterComponent implements OnInit {
+export class CustomerRegisterComponent implements OnInit, OnChanges {
 
   @Input() isShowPopup = false;
+  @Input() phoneNumber: string;
   @Output() closePopup = new EventEmitter<any>();
   @Output() getCustomerId = new EventEmitter<any>();
   public form = {
@@ -50,6 +51,7 @@ export class CustomerRegisterComponent implements OnInit {
     }
 
     this.countries = countryJson;
+
   }
 
   openSuccess() {
@@ -84,5 +86,9 @@ export class CustomerRegisterComponent implements OnInit {
 
   handleClosePopup() {
     this.closePopup.emit();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.form.phone = this.phoneNumber;
   }
 }

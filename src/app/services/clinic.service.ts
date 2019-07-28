@@ -34,4 +34,17 @@ export class ClinicService extends BaseService {
     return this.http.post('category/list', postData);
   }
 
+  fetchHot() {
+    const postData = {
+      search: '',
+      publish: 1,
+      hot: 1,
+      rowperpage: 999,
+      pageselected: 1,
+      cate_type: 'clinic',
+      lang : this.getCurrentLocal()
+    };
+    return this.http.post('category/list', postData);
+  }
+
 }

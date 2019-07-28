@@ -1,8 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {interval} from 'rxjs';
-import {throttleTime} from 'rxjs/operators';
-import {BookingService} from "../../services/booking.service";
-import {TranslateService} from '@ngx-translate/core';
+import {BookingService} from '../../services/booking.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,11 +11,10 @@ export class BookingPhoneNumberComponent implements OnInit {
   public phoneNumber: string;
   public showRegister = false;
   @Output() chooseCustomer = new EventEmitter<any>();
+  @Output() chooseCustomerPhone = new EventEmitter<any>();
 
   constructor(
-    public bookingService: BookingService,
-    private translate: TranslateService
-  ) {
+    public bookingService: BookingService  ) {
   }
 
   ngOnInit() {
@@ -49,10 +45,12 @@ export class BookingPhoneNumberComponent implements OnInit {
               this.openAlert();
             } else {
               this.chooseCustomer.emit(customer['customer_id']);
+              this.chooseCustomerPhone.emit(this.phoneNumber);
             }
           });
-        }else {
+        } else {
           this.chooseCustomer.emit(-1);
+          this.chooseCustomerPhone.emit(this.phoneNumber);
         }
       });
     }
@@ -66,8 +64,8 @@ export class BookingPhoneNumberComponent implements OnInit {
   }
 
   handleGetCustomerId(customerId) {
-    console.log('customerId', customerId);
     this.chooseCustomer.emit(customerId);
+    this.chooseCustomerPhone.emit(this.phoneNumber);
   }
 
 }

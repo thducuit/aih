@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-popup',
@@ -10,7 +11,7 @@ export class VideoComponent implements OnInit {
   @Input() iframeSrc: string;
   @Input() isShowPopup = false;
   @Output() closePopup = new EventEmitter<any>();
-  constructor() { }
+  constructor(public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
