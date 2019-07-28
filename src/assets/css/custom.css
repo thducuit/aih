@@ -29,3 +29,7 @@
 .copy img {
   max-width: 100%;
 }
+
+.nav-wrap nav li a:hover {
+  text-decoration: none;
+}

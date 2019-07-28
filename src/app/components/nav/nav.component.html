@@ -11,9 +11,7 @@
       <a routerLink="/patient-services/medical-package" routerLinkActive="active">{{'medical_packages' | translate}}</a>
       <a routerLink="/patient-services/factsheet" routerLinkActive="active">{{'fact_sheet' | translate}}</a>
     </app-nav-item>
-    <app-nav-item routerLink="/patient-services/insurance" name="{{ 'insurance' | translate }}">
-
-    </app-nav-item>
+    <app-nav-item name="{{ 'insurance' | translate }}" routeUrl="/patient-services/insurance" ></app-nav-item>
     <app-nav-item name="{{'find_a_doctor' | translate}}" routeUrl="/doctor"></app-nav-item>
     <app-nav-item name="{{'news' | translate}}" routeUrl="/news" [hasChild]="true">
       <a routerLink="/news" routerLinkActive="active" >{{'news_&_events' | translate}}</a>
