@@ -17,7 +17,7 @@
         </div>
         <div class="copy">
           <h2>{{ blog.name }}</h2>
-          <p>{{ blog.shortDesc }}....</p>
+          <p innerHTML="{{ blog.shortDesc | decodeHtmlEntities }}"></p>
           <a routerLink="{{ blog.url }}"><span>{{ 'learn_more' | translate }}</span></a
           >
         </div>

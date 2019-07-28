@@ -41,4 +41,7 @@ export class UrlService {
   static fixPictureUrl(text) {
     return `${text}`.replace(/\/assets/g, `${environment.backend}/assets`);
   }
+  static createIframeUrl(code) {
+    return `https://www.youtube.com/embed/${code}?rel=0&modestbranding=1&autoplay=1&showinfo=0&controls=1`;
+  }
 }

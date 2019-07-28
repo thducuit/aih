@@ -139,6 +139,7 @@ import { CareerDetailComponent } from './containers/career/career-detail/career-
 import { CareerFormComponent } from './components/career-form/career-form.component';
 import { BookingService } from './services/booking.service';
 import { DateService } from './services/date.service';
+import { CustomerRegisterComponent } from './components/popup/customer-register/customer-register.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -244,6 +245,7 @@ export function createTranslateLoader(http: HttpClient) {
     DoctorFilterDropdownComponent,
     CareerDetailComponent,
     CareerFormComponent,
+    CustomerRegisterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

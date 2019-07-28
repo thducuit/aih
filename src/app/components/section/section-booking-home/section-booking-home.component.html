@@ -4,14 +4,18 @@
 				<div class="item">
 					<h3>{{'enter_your_mobile' | translate}}</h3>
 					<p class="dt-h">{{'please_enter_your_phone_number_to_get_best_support' | translate}}</p>
-					<app-booking-phone-number></app-booking-phone-number>
+					<app-booking-phone-number
+            (chooseCustomer)="handleSelectCustomerId($event)"
+          ></app-booking-phone-number>
 					<!-- <p class="note note-phone">* Please select your phone number</p> -->				
 				</div>
 				<div class="item">
 					<h3>{{'specialty' | translate}}</h3>
 					<p class="dt-h">{{'scroll_down_below_list_to_select_a_apeciality' | translate}}</p>
 					<!-- <p class="note note-spec">* Please select a specialty</p> -->	
-					<app-booking-specialty></app-booking-specialty>			
+					<app-booking-specialty
+            (chooseClinic)="handleSelectClinic($event)"
+          ></app-booking-specialty>
 				</div>
 				<div class="item">
 					<h3>{{'doctor' | translate}}</h3>
@@ -34,7 +38,10 @@
 						<h3>{{'time' | translate}}</h3>
 						<p class="dt-h">{{'select_the_specific_time_for_appointment' | translate}}</p>
 						<!-- <p class="note note-time">* Please select the time</p> -->		
-						<app-booking-time></app-booking-time>				
+						<app-booking-time
+              (chooseTime)="handleSelectTime($event)"
+              [enableTime]=timeBlock
+            ></app-booking-time>
 						<input class="re-btn-booking js-booking" type="submit" value="{{'book_now' | translate}}">
 				</div>
 			</div>

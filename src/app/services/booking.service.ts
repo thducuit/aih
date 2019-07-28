@@ -48,4 +48,25 @@ export class BookingService {
     return this.http.post('aih-api', postData);
   }
 
+  callRegisterCustomer(form) {
+    const newMonth = parseInt(form.monthBirth, 10) < 0 ? `0${form.monthBirth}` : form.monthBirth;
+    const newDay = parseInt(form.dayBirth, 10) < 0 ? `0${form.dayBirth}` : form.dayBirth;
+    const postData = {
+      customer_full_name: `${form.firstName} ${form.lastName}`,
+      customer_gender: form.sex,
+      customer_day_of_birth: `${form.yearBirth}-${newMonth}-${newDay}`,
+      customer_email: form.email,
+      customer_country: form.country,
+      customer_phone: form.phone,
+    };
+    return this.http.post('customer/register', postData);
+  }
+
+  callGetExistedCustomer(phone) {
+    const postData = {
+      customer_phone: phone
+    };
+    return this.http.post('customer/detail', postData);
+  }
+
 }
