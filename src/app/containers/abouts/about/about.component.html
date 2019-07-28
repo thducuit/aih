@@ -1,94 +1,26 @@
 <main id="pAbout">
   <div class="breadcrumb">
     <div class="container">
-      <a href="../index.html">Home</a> /
-      <p>About AIH</p>
+      <a href="#">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p>
     </div>
   </div>
-  <div
-    class="banner-page"
-    style="background: url(../storage/2018/07/aih-view-1-updated-3-resized1532573157.jpg);"
-  >
+  <div class="banner-page"
+    [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length">
     <img
       class="banner-mb"
-      src="../storage/2018/10/aih-about-mobile1539329268.jpg"
+      src="{{ banners[0].small }}"
     />
     <div class="container"></div>
   </div>
-  <section>
+  <section *ngIf="page">
     <div class="container">
       <div class="intro-wrap">
         <div class="tt-page">
-          <h4>Introduction</h4>
-          <h3>WHO WE ARE?</h3>
+          <h4>{{ 'introduction' | translate }}</h4>
+          <h3>{{ 'who_we_are?' | translate }}?</h3>
         </div>
-        <div class="copy">
-          <p style="text-align: justify;">
-            Located in An Phu neighborhood, District 2, Ho Chi Minh City,
-            American International Hospital (AIH) is the pioneer international
-            hospital in Vietnam following both JCI and American standards in
-            design and construction, diagnosis and treatment, and operations and
-            management. AIH commits to bringing comprehensive American standard
-            healthcare services to patients in Vietnam.
-          </p>
-          <p style="text-align: justify;">
-            Keeping that in mind, AIH attaches great importance in investing in
-            state-of-the-art facilities and equipment, applying the latest
-            medical techniques in diagnosis and treatment from the U.S. and
-            developing a team of highly qualified and professional staff working
-            with accountability, care and compassion.
-          </p>
-          <p style="text-align: justify;">
-            Operating in an 11-story building, AIH provides 120 in-patient beds,
-            5 operating rooms and functional rooms. All rooms and services at
-            the hospital comply with the new American standard model to ensure
-            our customer-centric goal of providing the most safety and
-            convenience for patients and their families.
-          </p>
-          <p style="text-align: justify;">
-            AIH provides healthcare services in many specialties including 5
-            leading-edge ones: Obstetrics &amp; Gynecology, Pediatrics, General
-            Surgery, Urology &amp; Andrology, and Gastroenterology - Hepatology.
-            We bring on board a team of highly skilled doctors with proven
-            international working experience and solid educational background
-            from American and European institutions. AIH is also proud to
-            possess a strong workforce of dedicated caregivers and patient
-            service staff who have made significant contribution to our success.
-          </p>
-          <p style="text-align: justify;">
-            In the meantime, AIH has fostered close relationships with top-notch
-            American medical systems, which allows us to continuously develop
-            and enhance our strengths relevant to research and training, medical
-            and professional exchange, diagnosis and treatment, as well as
-            technology transfer and application of latest medical treatment
-            methodologies from the U.S.
-          </p>
-          <p style="text-align: justify;">
-            Aiming to become one of the most trustworthy healthcare providers in
-            South East Asia, AIH focuses on the perfection of our healthcare
-            services to bring complete satisfaction to patients and their
-            families.
-          </p>
-          <p style="text-align: justify;"><strong>Our Vision</strong></p>
-          <p style="text-align: justify;">
-            To be one of the most trusted international healthcare providers in
-            the South East Asia.
-          </p>
-          <p style="text-align: justify;"><strong>Our Mission</strong></p>
-          <p style="text-align: justify;">
-            To bring American standard healthcare services to patients and their
-            families.
-          </p>
-          <p style="text-align: justify;"><strong>Our Core Values</strong></p>
-          <p style="text-align: justify;">
-            <em>- Patient safety:</em> Patient safety is our top priority<br/><em
-          >- Integrity:</em
-          >
-            We work with honesty and reliability<br/><em>- Team Work:</em> We
-            appreciate effective cooperation<br/><em>- Excellent Quality:</em>
-            We strive to bring you American standard medical services.
-          </p>
-        </div>
+        <div class="copy" innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
       </div>
       <div class="service-wrap">
         <div class="tt-page">

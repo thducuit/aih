@@ -1,14 +1,17 @@
-// export function getLanguage() {
-//   if (localStorage) {
-//     const storedLang = localStorage.getItem('lang');
-//     return storedLang || 'vi'; // Default languge is VI
-//   }
-//   return 'vi';
-// }
+function getNativeLocalStorage() {
+  return localStorage;
+}
 
-// export function setLanguage(lang: string) {
-//   localStorage && localStorage.setItem('lang', lang);
-// }
+export function getLanguage() {
+  const storage = getNativeLocalStorage();
+  const storedLang = storage.getItem('lang');
+  return storedLang || 'vi'; // Default languge is VI
+}
+
+export function setLanguage(lang: string) {
+  const storage = getNativeLocalStorage();
+  storage.setItem('lang', lang);
+}
 
 export function CalculatePagination(current: number, total: number) {
   const last = total;

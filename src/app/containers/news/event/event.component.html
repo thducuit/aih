@@ -1,131 +1,139 @@
 <main id="pNews">
   <div class="breadcrumb">
-    <div class="container"><a href="index.html">Home</a> / <p>Blog</p></div>
+    <div class="container"><a href="#">Home</a> / <p>Blog</p></div>
   </div>
   <section class="news-wrap">
     <div class="container clearfix">
       <h2><span>Blog &amp; Events</span></h2>
       <div class="list-news">
-        <div class="item news-item-style align-left style-1">
+
+        <div class="item news-item-style align-left style-1" *ngIf="blogs.length && blogs[0]">
           <div>
             <div class="img">
-              <div style="background: url(storage/2019/05/684x441-en1559009735.png);"></div>
-              <img src="assets/images/news.gif">
+              <div
+                [style.background]="'url(' + blogs[0].picturePath + ')'"
+              ></div>
+              <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
                 <span>Blog</span><br/>
-                AIH X Kawaii Spa: Privilege Promotion For Pregnant
+                {{ blogs[0] ? blogs[0].name : '' }}
               </h3>
               <hr>
               <p class="date">28/05/2019</p>
-              <p>Period of pregnancy is a hard but happy journey for moms-to-be.  Understanding your strenuousness and
-                wishing to bring you the best prenatal care...</p>
+              <p>{{ blogs[0] ? blogs[0].shortDesc : '' }}...</p>
             </div>
-            <a class="link-all" href="news/detail/409-aih-x-kawaii-spa-privilege-promotion-for-pregnant.html"></a>
+            <a class="link-all" routerLink="{{ blogs[0].url }}"></a>
           </div>
         </div>
-        <div class="item news-item-style style-3">
+        <div class="item news-item-style style-3" *ngIf="blogs.length && blogs[1]">
           <div>
             <div datavideo="NOyHViArrLo" class="img has-video js-open-video"
-                 style="background-image: url(storage/2018/07/anhbacsi21530418532.jpg);"></div>
+                 [style.background]="'url(' + blogs[1].picturePath + ')'"
+            ></div>
           </div>
         </div>
-        <div class="item news-item-style align-left style-4">
+        <div class="item news-item-style align-left style-4" *ngIf="blogs.length && blogs[2]">
           <div>
             <div class="img">
-              <div style="background: url(storage/2019/05/684-x-441-eng1557375202.png);"></div>
-              <img src="assets/images/news.gif">
+              <div
+                [style.background]="'url(' + blogs[2].picturePath + ')'"
+              ></div>
+              <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
                 <span>Blog</span><br/>
-                [WARNING] VIETNAM HAD THE THIRD HIGHEST RATE OF LIVER CANCER IN 2018
+                {{ blogs[2] ? blogs[2].name : '' }}
               </h3>
               <hr>
               <p class="date">09/05/2019</p>
-              <p>According to Globocan, in 2018, Vietnam had the third highest rate of liver cancer in men, after
-                Mongolia and Egypt.</p>
+              <p>{{ blogs[2] ? blogs[2].shortDesc : '' }}</p>
             </div>
             <a class="link-all"
-               href="news/detail/402-warning-vietnam-had-the-third-highest-rate-of-liver-cancer-in-2018.html"></a>
+               routerLink="{{ blogs[2].url }}"></a>
           </div>
         </div>
-        <div class="item event-item-style align-right style-4">
+        <div class="item event-item-style align-right style-4" *ngIf="blogs.length && blogs[3]">
           <div>
             <div class="img">
-              <div style="background: url(storage/2019/05/684-x-441-eng1557375503.png);"></div>
-              <img src="assets/images/news.gif">
+              <div
+                [style.background]="'url(' + blogs[3].picturePath + ')'"
+              ></div>
+              <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
                 <span>Blog</span><br/>
-                LIVER CANCER DIAGNOSIS AND TREATMENT INFORMATION
+                {{ blogs[3] ? blogs[3].name : '' }}
               </h3>
               <hr>
               <p class="date">09/05/2019</p>
-              <p>Liver cancer can be treated in different ways. Treatment depends on the stage of your cancer. It also
-                depends on how healthy your liver is (in other...</p>
+              <p>{{ blogs[3] ? blogs[3].shortDesc : '' }}</p>
             </div>
-            <a class="link-all" href="news/detail/403-liver-cancer-diagnosis-and-treatment-information.html"></a>
+            <a class="link-all" routerLink="{{ blogs[3].url }}"></a>
           </div>
         </div>
-        <div class="item news-item-style style-3">
+        <div class="item news-item-style style-3" *ngIf="blogs.length && blogs[4]">
           <div>
             <div class="copy">
               <h3>
                 <span>Blog</span><br/>
-                GALLSTONES
+                {{ blogs[4] ? blogs[4].name : '' }}
               </h3>
               <hr>
               <p class="date">08/05/2019</p>
-              <p>Gallstones are solid, pebble-like concretions that form inside the gallbladder. The gallbladder is
-                located in the upper right abdomen, under the...</p>
+              <p>{{ blogs[4] ? blogs[4].shortDesc : '' }}...</p>
             </div>
-            <a class="link-all" href="news/detail/401-gallstones.html"></a>
+            <a class="link-all" routerLink="{{ blogs[4].url }}"></a>
           </div>
         </div>
-        <div class="item news-item-style align-right style-5">
+        <div class="item news-item-style align-right style-5" *ngIf="blogs.length && blogs[5]">
           <div>
             <div class="img">
-              <div style="background: url(storage/2019/05/684-x-441-eng1557307080.png);"></div>
-              <img src="assets/images/news.gif">
+              <div
+                [style.background]="'url(' + blogs[4].picturePath + ')'"
+              ></div>
+              <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
                 <span>Blog</span><br/>
-                RICKETS AND HOW TO PREVENT IT
+                {{ blogs[5] ? blogs[5].name : '' }}
               </h3>
               <hr>
               <p class="date">08/05/2019</p>
-              <p>Rickets is a condition that affects bone development in children. It causes bone pain, poor growth and
-                soft, weak bones that can lead to bone...</p>
+              <p>{{ blogs[5] ? blogs[5].shortDesc : '' }}...</p>
             </div>
-            <a class="link-all" href="news/detail/399-rickets-and-how-to-prevent-it.html"></a>
+            <a class="link-all" routerLink="{{ blogs[5].url }}"></a>
           </div>
         </div>
-        <div class="item event-item-style align-left style-2">
+        <div class="item event-item-style align-left style-2" *ngIf="blogs.length && blogs[6]">
           <div>
             <div class="img">
-              <div style="background: url(storage/2019/05/684-x-441-eng1557307499.png);"></div>
-              <img src="assets/images/news.gif">
+              <div
+                [style.background]="'url(' + blogs[4].picturePath + ')'"
+              ></div>
+              <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
                 <span>Blog</span><br/>
-                NEWBORN JAUNDICE - SYMPTOMS AND TREATMENT
+                {{ blogs[6] ? blogs[6].name : '' }}
               </h3>
               <hr>
               <p class="date">08/05/2019</p>
-              <p>Jaundice is not a disease, but rather a sign of an elevated blood bilirubin level. Jaundice is not
-                painful, but in some babies, serious conditions...</p>
+              <p>{{ blogs[6] ? blogs[6].shortDesc : '' }}...</p>
             </div>
-            <a class="link-all" href="news/detail/400-newborn-jaundice-symptoms-and-treatment.html"></a>
+            <a class="link-all" routerLink="{{ blogs[6].url }}"></a>
           </div>
         </div>
+
         <div data-append="0" data-parent="" class="paging "><span>1</span><a target="_self" href="news4658.html?page=2">2</a><a
           target="_self" href="news9ba9.html?page=3">3</a><a target="_self" href="newsfdb0.html?page=4">4</a><a
           target="_self" href="news4658.html?page=2" class="next-page"></a></div>
+
       </div>
     </div>
   </section>

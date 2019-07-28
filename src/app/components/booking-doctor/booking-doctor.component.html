@@ -7,7 +7,26 @@
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">
-              <app-doctor-list-item (choose)="onChoose($event)" ></app-doctor-list-item>
+
+            <ul>
+              <li class="doctor-item-23" *ngFor="let doctor of doctors" >
+                <p class="tt-doc {{ doctor.isExpanded ? 'active' : ''  }}">
+                  <em class="js-book-dt" (click)="onChoose(doctor)">{{ doctor.name }}
+                  </em>
+                  <span class="toggle_plus js-accor-doc" (click)="handleExpand($event, doctor)"></span>
+                </p>
+                <div class="copy {{ doctor.isExpanded ? 'open' : ''  }}">
+                  <img src='{{ doctor.picturePath }}'>
+                  <h4>{{ doctor.name }}</h4>
+                  <h4><span>{{ doctor.categoryName }}</span></h4>
+                  <p>{{ doctor.shortDesc }}</p>
+                  <a class="rm" href="#"><span>{{ 'show_more' | translate }}</span></a>
+                  <a class="bm js-book-dt" (click)="onChoose(doctor)">{{ 'book' | translate }}</a>
+                </div>
+              </li>
+            </ul>
+
+
           </div>
         </div>
       </div>

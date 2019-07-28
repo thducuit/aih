@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEventService } from './services/global-event.service';
 import {
@@ -10,6 +10,8 @@ import {
 } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { forkJoin } from 'rxjs';
+import { getLanguage, setLanguage } from './utilities';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,23 +21,31 @@ import { forkJoin } from 'rxjs';
 export class AppComponent implements AfterViewInit {
   loading = false;
   loadingCount = 0;
+  private isBrowser = true;
 
   constructor(
     private translate: TranslateService,
-    private globalEventService: GlobalEventService,
-    private router: Router,
+    globalEventService: GlobalEventService,
     private title: Title,
+    private zone: NgZone,
+    @Inject(PLATFORM_ID) platformId: string
   ) {
+    this.isBrowser = isPlatformBrowser(platformId);
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    this.translate.use('vi'); // Activappe current language or default language
+    if (this.isBrowser) {
+      this.translate.use(getLanguage());
+    } else {
+      this.translate.use('vi'); // Activappe current language or default language
+    }
 
     // Set app title
     this.updateTitle();
     translate.onLangChange.subscribe(() => {
       this.updateTitle();
+      this.updateBodyClasses();
     });
 
     // Listen for global events
@@ -62,24 +72,14 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.router
-    //   .events
-    //   .subscribe((event) => {
-    //     console.log('XXX', event);
-    //     if (event instanceof NavigationStart) {
-    //       this.loading = true;
-    //     } else if (
-    //       event instanceof NavigationEnd ||
-    //       event instanceof NavigationCancel ||
-    //       event instanceof NavigationError
-    //     ) {
-    //       this.loading = false;
-    //     }
-    //   });
+    this.updateBodyClasses();
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
+    if (this.isBrowser) {
+      setLanguage(language);
+    }
   }
 
   updateTitle() {
@@ -88,6 +88,21 @@ export class AppComponent implements AfterViewInit {
       this.translate.get('american_international_hospital'),
     ).subscribe(([home, aihHospital]) => {
       this.title.setTitle(`${home} - ${aihHospital}`);
+    });
+  }
+
+  private updateBodyClasses() {
+    this.zone.runOutsideAngular(() => {
+      const body = document.body;
+      const language = this.translate.currentLang;
+      body.classList.toggle('window', true);
+      if (language === 'vi') {
+        body.classList.toggle('vi', true);
+        body.classList.toggle('en', false);
+      } else {
+        body.classList.toggle('vi', false);
+        body.classList.toggle('en', true);
+      }
     });
   }
 }

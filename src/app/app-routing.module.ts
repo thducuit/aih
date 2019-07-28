@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {HomeComponent} from './containers/home/home.component';
-import {AboutComponent} from './containers/abouts/about/about.component';
+import { HomeComponent } from './containers/home/home.component';
+import { AboutComponent } from './containers/abouts/about/about.component';
 
-import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
-import {PageLayoutComponent} from './layouts/page-layout/page-layout.component';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { PageLayoutComponent } from './layouts/page-layout/page-layout.component';
 import { QaComponent } from './containers/abouts/qa/qa.component';
 import { TestimonialComponent } from './containers/abouts/testimonial/testimonial.component';
 import { ServiceComponent } from './containers/services/service/service.component';
@@ -24,21 +24,21 @@ import { SettingComponent } from './containers/account/setting/setting.component
 import { InformationComponent } from './containers/account/information/information.component';
 import { VoteComponent } from './containers/account/vote/vote.component';
 import { ScheduleHistoryComponent } from './containers/account/schedule-history/schedule-history.component';
-import {ScheduleComponent} from './containers/account/schedule/schedule.component';
-import {ScheduleCancelComponent} from './containers/account/schedule-cancel/schedule-cancel.component';
-import {ScheduleRegisterComponent} from './containers/account/schedule-register/schedule-register.component';
-import {LoginComponent} from './containers/account/login/login.component';
-import {RegisterComponent} from './containers/account/register/register.component';
-import {NewsDetailComponent} from './containers/news/news-detail/news-detail.component';
-import {DoctorDetailComponent} from './containers/doctor/doctor-detail/doctor-detail.component';
+import { ScheduleComponent } from './containers/account/schedule/schedule.component';
+import { ScheduleCancelComponent } from './containers/account/schedule-cancel/schedule-cancel.component';
+import { ScheduleRegisterComponent } from './containers/account/schedule-register/schedule-register.component';
+import { LoginComponent } from './containers/account/login/login.component';
+import { RegisterComponent } from './containers/account/register/register.component';
+import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
+import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
+import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
+import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' }
-    ]
+    children: [{ path: '', component: HomeComponent, pathMatch: 'full' }],
   },
   {
     path: '',
@@ -47,16 +47,24 @@ const routes: Routes = [
       { path: 'about-us/aih-hospital', component: AboutComponent },
       { path: 'about-us/faq', component: QaComponent },
       { path: 'about-us/testimonial', component: TestimonialComponent },
-      { path: 'patient-services/medical-services', component: ServiceComponent },
-      { path: 'patient-services/medical-package', component: PackageComponent },
+      {
+        path: 'patient-services/medical-services',
+        component: ServiceComponent,
+      },
+      {
+        path: 'patient-services/medical-services/:alias',
+        component: ServiceDetailComponent,
+      },
+      { path: 'patient-services/medical-package', component: MedicalComponent },
       { path: 'patient-services/insurance', component: InsuranceComponent },
       { path: 'patient-services/factsheet', component: FactsheetComponent },
       { path: 'doctor', component: DoctorComponent },
-      { path: 'doctor/details/:alias', component: DoctorDetailComponent },
+      { path: 'doctor/detail/:alias', component: DoctorDetailComponent },
       { path: 'news', component: EventComponent },
-      { path: 'news/details/:alias', component: NewsDetailComponent },
+      { path: 'news/detail/:alias', component: NewsDetailComponent },
       { path: 'videos', component: VideoComponent },
       { path: 'career', component: CareerComponent },
+      { path: 'career/detail/:alias', component: CareerDetailComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'medical', component: MedicalComponent },
 
@@ -66,21 +74,25 @@ const routes: Routes = [
       { path: 'account/vote', component: VoteComponent },
       { path: 'account/schedule-history', component: ScheduleHistoryComponent },
       { path: 'account/schedule-cancel', component: ScheduleCancelComponent },
-      { path: 'account/schedule-register', component: ScheduleRegisterComponent },
+      {
+        path: 'account/schedule-register',
+        component: ScheduleRegisterComponent,
+      },
       { path: 'account/schedule', component: ScheduleComponent },
       { path: 'account/login', component: LoginComponent },
       { path: 'account/register', component: RegisterComponent },
-    ]
+    ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    enableTracing: true,
-    useHash: true
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: false,
+      useHash: true,
+    }),
+  ],
   exports: [RouterModule],
-  providers: []
+  providers: [],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

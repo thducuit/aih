@@ -2576,15 +2576,6 @@ header.fixHd .bg {
     opacity: 1
 }
 
-header.fixHd .bookingwrap-hd {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: url(../images/bg-hd-scroll.jpg) bottom no-repeat rgba(255, 255, 255, .1);
-    background-size: cover
-}
-
 .hd-home .bookingwrap-hd {
     display: none
 }
@@ -4007,7 +3998,7 @@ header.fixHd .bookingwrap-hd {
 }
 
 .drop {
-    width: 100%;
+    min-width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
@@ -5204,55 +5195,6 @@ header.fixHd .bookingwrap-hd {
     height: 164px
 }
 
-.partner-home {
-    padding: 35px 0;
-    background: #fff
-}
-
-.partner-home h2 {
-    font-size: 30px;
-    color: #e20e5a;
-    padding-bottom: 20px
-}
-
-.partner-home ul {
-    margin: 0 -25px
-}
-
-.partner-home ul li {
-    display: block;
-    float: left;
-    width: 20%;
-    padding: 0 25px
-}
-
-.partner-home ul li div {
-    position: relative
-}
-
-.partner-home ul li div:hover img {
-    opacity: 0
-}
-
-.partner-home ul li div:hover .hover {
-    opacity: 1
-}
-
-.partner-home ul li img {
-    width: 100%;
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease
-}
-
-.partner-home ul li .hover {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0
-}
-
 #mapCanvas {
     width: 100%;
     height: 560px
@@ -6173,8 +6115,11 @@ header.fixHd .bookingwrap-hd {
 }
 
 .content-sv {
-    padding: 20px 0 0 300px;
-    position: relative
+  display: flex;
+}
+
+.content-sv .copy {
+  flex: 1;
 }
 
 .content-sv .copy p {
@@ -6215,11 +6160,9 @@ header.fixHd .bookingwrap-hd {
 
 .service-cate {
     width: 266px;
-    position: absolute;
-    top: 20px;
-    left: 0;
     background: #e1115b;
-    padding: 12px 0
+    padding: 12px 0;
+    margin-right: 35px;
 }
 
 .service-cate h3 {
@@ -8617,12 +8560,7 @@ a.morelink:hover {
     .copy-quote p:before {
         width: 35px
     }
-    .partner-home ul {
-        margin: 0 -10px
-    }
-    .partner-home ul li {
-        padding: 0 10px
-    }
+
     .ft-wrap .item {
         padding-right: 19px
     }
@@ -9174,12 +9112,7 @@ a.morelink:hover {
     .info-quote span {
         font-size: 15px
     }
-    .partner-home {
-        padding: 11px 0 20px
-    }
-    .partner-home h2 {
-        font-size: 20px
-    }
+    
     #mapCanvas {
         height: 400px
     }
@@ -9611,9 +9544,6 @@ a.morelink:hover {
     }
     .service-cate {
         width: 190px
-    }
-    .content-sv {
-        padding-left: 220px
     }
     .service-cate a {
         padding: 0 25px
@@ -10139,7 +10069,7 @@ a.morelink:hover {
         display: inline-block;
         width: 40px;
         height: 40px;
-        background: url(../images/ar-submenu-mb.png) center center no-repeat;
+        background: url(/assets/images/ar-submenu-mb.png) center center no-repeat;
         background-size: 20px;
         position: absolute;
         top: 50%;
@@ -10861,17 +10791,7 @@ a.morelink:hover {
     .rating ul li .stars {
         float: right
     }
-    .partner-home ul {
-        display: inline-block;
-        text-align: center;
-        margin: 0
-    }
-    .partner-home ul li {
-        width: calc(33.33% - 6px);
-        display: inline-block;
-        float: none;
-        padding: 5px 10px
-    }
+    
     #mapCanvas {
         height: 400px
     }
@@ -11898,9 +11818,7 @@ a.morelink:hover {
         height: 40px;
         padding: 0 60px
     }
-    .partner-home {
-        padding: 25px 0
-    }
+    
     .ft-wrap .item:nth-child(2),
     .ft-wrap .item:nth-child(3) {
         display: none

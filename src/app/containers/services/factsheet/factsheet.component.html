@@ -1,109 +1,44 @@
 <main id="pService">
   <div class="breadcrumb">
-    <div class="container"><a href="../index.html">Home</a> / <p>Fact sheet</p></div>
+    <div class="container">
+      <a href="#">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
   </div>
   <div class="banner-ser">
-    <div class="item" style="background: url(../storage/2018/07/fastsheet-21531998395.jpg) no-repeat;">
+
+    <div class="item" *ngFor="let banner of banners"
+         [style.background]="'url(' + banner.large + ') no-repeat'"
+    >
       <div class="container">
         <div class="ct-banner">
           <div class="copy-fs">
-            <h4>Your health. Our mission</h4>
-            <h2>Excellent care, beyond your expectation</h2>
+            <h4>{{ banner.title }}</h4>
+            <h2>{{ banner.desc }}</h2>
           </div>
         </div>
       </div>
-    </div>
-    <div class="item" style="background: url(../storage/2018/07/fastsheet-41531998339.jpg) no-repeat;">
-      <div class="container">
-        <div class="ct-banner">
-          <div class="copy-fs">
-            <h4>Treat yourself better today with us</h4>
-            <h2>Exceptional healthcare standards to enjoy</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item" style="background: url(../storage/2018/07/fastsheet-31531998272.jpg) no-repeat;">
-      <div class="container">
-        <div class="ct-banner">
-          <div class="copy-fs">
-            <h4>Entrust your health to our doctors</h4>
-            <h2>Medical services that you can trust</h2>
-          </div>
-        </div>
-      </div>
+
     </div>
 
   </div>
   <section class="factsheet-wrap">
     <div class="container">
       <div class="top-factsheet">
-        <h3>How we excel</h3>
-        <p>At AIH, we make every endeavor to pursue our constant goal of being patient centric and excellent in services
-          with the mission “to bring American standard healthcare services to patients and their families”. Coming to
-          AIH, customers can easily access American healthcare services right here in Vietnam. For that reason, we
-          attach great importance to investing in personnel, state-of-the-art facilities and equipment, as well as
-          applying latest medical techniques in diagnosis and treatment from the US. We will also strongly and
-          relentlessly continue to make continuous improvements in everything we do every day with the goal “To become
-          one of the most trusted healthcare providers in South East Asia”.</p>
-      </div>
+        <h3>{{ page ? page.name : '' }}</h3>
+        <p>{{ page ? page.shortDesc : '' }}</div>
       <div class="service-wrap">
         <div class="list-sv">
-          <div class="item-sv  right-align ">
-            <div class="out-content">
-              <div class="img" style="background-image: url(../storage/2018/05/img-81527760365.jpg);"></div>
-            </div>
-            <div class="copy-content">
-              <div>
-                <h3>The modern system of American &quot;LDRP rooms&quot;</h3>
-                <p>AIH uses a system of American standard LDRP (Labor, Delivery, Recovery and Postpartum) rooms equipped
-                  with “4 in 1” facilities: Once a pregnant woman is placed in a room of this kind, this is the only
-                  room she and her family will use from labor, delivery (vaginal delivery) until stabilization. LDRP
-                  rooms help limit risks and pains for moms and babies, especially in cases of difficult birth.</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="item-sv   left-align ">
+          <div class="item-sv {{ i % 2 === 0 ? 'left-align' : 'right-align'}}" *ngFor="let highlight of highlights; let i = index;">
             <div class="out-content">
-              <div datavideo="NOyHViArrLo" class="img has-video js-open-video"
-                   style="background-image: url(../storage/2018/10/aih-about-mobile1539329268.jpg);"></div>
+              <div class="img"
+                   [style.background]="'url(' + highlight.thumb + ')'"
+              ></div>
             </div>
             <div class="copy-content">
               <div>
-                <h3>Excellent care</h3>
-                <p>Aiming at bringing patients the comfort they deserve, we have a dedicated team of patient service
-                  staff trained under American standards to give patients 24/7 support. 100% of inpatients are offered
-                  aftercare support. Our team can speak multi languages such as Vietnamese, English, French, Chinese,
-                  Japanese, Korean, Cambodian.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item-sv  right-align ">
-            <div class="out-content">
-              <div class="img" style="background-image: url(../storage/2018/06/img-111530354539.jpg);"></div>
-            </div>
-            <div class="copy-content">
-              <div>
-                <h3>Comprehensive application of American standards</h3>
-                <p>At AIH, rooms and services comply to the new American standard model to provide the most safe and
-                  convenient experience to patients and families.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item-sv   left-align ">
-            <div class="out-content">
-              <div class="img" style="background-image: url(../storage/2018/07/banner-about-mb1530507722.jpg);"></div>
-            </div>
-            <div class="copy-content">
-              <div>
-                <h3>State-of-the-art equipment and facilities</h3>
-                <p>AIH has invested in advanced medical equipment and facilities which are carefully selected and
-                  imported from world leading medical equipment providers e.g. Olympus (Japan), Karl Storz (Germany),
-                  Johnsons & Johnsons, GE Healthcare, Seiler (US), etc., ensuring the accuracy and efficiency in
-                  diagnosis and treatment.</p>
+                <h3>{{ highlight.title }}</h3>
+                <p innerHTML="{{ (highlight ? highlight.description : '') | decodeHtmlEntities }}">highlight.description</p>
               </div>
             </div>
           </div>
@@ -113,41 +48,5 @@
     </div>
   </section>
 
-  <section class="partner-home">
-    <div class="container">
-      <h2>Partners</h2>
-      <ul class="clearfix">
-        <li>
-          <div>
-            <img src="../storage/2018/07/5a1531383241.png">
-            <img class="hover" src="../storage/2018/07/51531383251.png">
-          </div>
-        </li>
-        <li>
-          <div>
-            <img src="../storage/2018/07/4a1531382446.png">
-            <img class="hover" src="../storage/2018/07/41531382462.png">
-          </div>
-        </li>
-        <li>
-          <div>
-            <img src="../storage/2018/07/3a1531382253.png">
-            <img class="hover" src="../storage/2018/07/31531382267.png">
-          </div>
-        </li>
-        <li>
-          <div>
-            <img src="../storage/2018/07/2a1531381830.png">
-            <img class="hover" src="../storage/2018/07/21531381860.png">
-          </div>
-        </li>
-        <li>
-          <div>
-            <img src="../storage/2018/07/1a1531381438.png">
-            <img class="hover" src="../storage/2018/07/11531381454.png">
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <app-section-partner></app-section-partner>
 </main>

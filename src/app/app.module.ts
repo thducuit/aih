@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -11,6 +12,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -117,6 +119,26 @@ import { NewsComponent } from './containers/news/news/news.component';
 import { PartnerService } from './services/partner.service';
 import { FeedbackService } from './services/feedback.service';
 import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
+import { PageService } from './services/page.service';
+import { BannerService } from './services/banner.service';
+import { SidebarComponent } from './containers/services/service/sidebar/sidebar.component';
+import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
+import { CategoryService } from './services/category.service';
+import { InsuranceService } from './services/insurance.service';
+import { HighlightService } from './services/highlight.service';
+import { VideoService } from './services/video.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavItemComponent } from './components/nav/nav-item/nav-item.component';
+import { PackageService } from './services/package.service';
+import { DoctorFilterDropdownComponent } from './containers/doctor/doctor-filter-dropdown/doctor-filter-dropdown.component';
+import { DepartmentService } from './services/department.service';
+import { InsuranceMediaService } from './services/insurance-media.service';
+import { CareerCategoryService } from './services/career-category.service';
+import { CareerService } from './services/career.service';
+import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
+import { CareerFormComponent } from './components/career-form/career-form.component';
+import { BookingService } from './services/booking.service';
+import { DateService } from './services/date.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -215,6 +237,13 @@ export function createTranslateLoader(http: HttpClient) {
     NewsDetailComponent,
     NewsComponent,
     DoctorDetailComponent,
+    SidebarComponent,
+    ServiceDetailComponent,
+    SidebarComponent,
+    NavItemComponent,
+    DoctorFilterDropdownComponent,
+    CareerDetailComponent,
+    CareerFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -232,8 +261,11 @@ export function createTranslateLoader(http: HttpClient) {
       apiKey: environment.mapApiKey
     }),
     FormsModule,
-    NgbModule,
+    NgbDatepickerModule,
     SlickCarouselModule,
+    BrowserAnimationsModule,
+    AngularStickyThingsModule,
+    ClickOutsideModule
   ],
   providers: [
     GlobalEventService,
@@ -246,9 +278,22 @@ export function createTranslateLoader(http: HttpClient) {
     TestimonialService,
     FaqsService,
     PartnerService,
-    FeedbackService
+    FeedbackService,
+    PageService,
+    BannerService,
+    CategoryService,
+    InsuranceService,
+    HighlightService,
+    VideoService,
+    PackageService,
+    DepartmentService,
+    InsuranceMediaService,
+    CareerCategoryService,
+    CareerService,
+    BookingService,
+    DateService
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],
 })
-export class AppModule {}
+export class AppModule { }

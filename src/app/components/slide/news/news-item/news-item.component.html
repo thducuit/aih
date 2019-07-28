@@ -12,7 +12,7 @@
           <img class="show-mb" src="assets/images/b.gif" />
         </div>
         <div class="tt-news">
-          <p class="date">28/05/2019</p>
+          <p class="date">{{blog.datepublish | date:'dd/MM/yyyy'}}</p>
           <span class="cm">0</span>
         </div>
         <div class="copy">
@@ -26,16 +26,16 @@
     </li>
   </ul>
   <div class="paging js-paging-ajax">
-    <a *ngIf="currentPage > 0" class="prev-page"></a>
+    <a *ngIf="currentPage > 1" class="prev-page" (click)="selectPage(currentPage-1)"></a>
     <ng-template ngFor let-num [ngForOf]="pageNumbers">
-      <span *ngIf="num === currentPage">{{ num }}</span>
-      <a *ngIf="num !== currentPage">{{ num }}</a>
+      <span *ngIf="num === currentPage || num === '...'">{{ num }}</span>
+      <a *ngIf="num !== currentPage && num !== '...'" (click)="selectPage(num)">{{ num }}</a>
     </ng-template>
-    <a *ngIf="currentPage < totalRecord" class="next-page"></a>
+    <a *ngIf="currentPage < totalPage" class="next-page" (click)="selectPage(currentPage+1)"></a>
   </div>
 
   <div class="btn-wrap show-mb">
     <a class="btn-showmore js-btn-loadmore" routerLink="/news">{{'show_more' | translate}}</a>
   </div>
-  <app-choosen-package></app-choosen-package>
+  <app-choosen-package *ngIf="showChosenPackage"></app-choosen-package>
 </div>

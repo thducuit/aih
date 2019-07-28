@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
+import { BaseService } from './base.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
-export class BlogService {
+export class BlogService extends BaseService {
 
-  constructor(private http: RestApiService) { }
+  constructor(private http: RestApiService, translate: TranslateService) {
+    super(translate);
+  }
 
-  fetch(pageNum: number) {
+  fetch(pageNum: number, perPage = 3) {
     const postData = {
       search: '',
       publish: 1,
-      rowperpage: 3,
+      rowperpage: perPage,
       pageselected: pageNum || 1,
       post_type: ['news'],
-      lang: 'vi-VN'
+      lang: this.getCurrentLocal()
     };
     return this.http.post('post/list', postData);
   }
@@ -25,8 +29,8 @@ export class BlogService {
       rowperpage: num,
       pageselected: 1,
       post_type: ['news'],
-      lang: 'vi-VN',
-      sort:['post_datepublish DESC']
+      lang: this.getCurrentLocal(),
+      sort: ['post_datepublish DESC']
     };
     return this.http.post('post/list', postData);
   }

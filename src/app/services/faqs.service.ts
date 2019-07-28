@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
+import { BaseService } from './base.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FaqsService {
+export class FaqsService extends BaseService {
 
-  constructor(private http: RestApiService) { }
+  constructor(private http: RestApiService, translate: TranslateService) {
+    super(translate);
+  }
 
   fetch(pageNum: number) {
     const postData = {
@@ -15,7 +19,7 @@ export class FaqsService {
       rowperpage: 999,
       pageselected: pageNum,
       post_type: ['faqs'],
-      lang : 'vi-VN'
+      lang : this.getCurrentLocal()
     };
     return this.http.post('media/list', postData);
   }

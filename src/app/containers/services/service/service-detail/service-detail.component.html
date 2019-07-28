@@ -1,0 +1,40 @@
+<main id="pServiceCate">
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="#">Trang chủ</a> /
+      <p>{{ clinic ? clinic.name : '' }}</p></div>
+  </div>
+  <section class="service-cate-wrap">
+    <div class="container">
+
+      <!--<div class="service-drop-mb js-cselect" data-target="medicalService">
+        <h3>{{ 'our_departments' | translate }}</h3>
+        <select class="custom-sl">
+          <option value="medical-services.html"> Thông tin chung</option>
+        </select>
+      </div>-->
+
+      <div class="content-sv" *ngIf="clinic">
+        <div class="service-cate">
+          <h3>{{ 'our_departments' | translate }}</h3>
+          <app-sidebar></app-sidebar>
+        </div>
+        <div class="copy" innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doctor-home">
+    <div class="container">
+      <app-doctor-item></app-doctor-item>
+    </div>
+  </section>
+  <section class="news-home">
+    <div class="container">
+      <div class="tt-item">
+        <h3>{{ 'news' | translate }}</h3>
+      </div>
+      <app-news-item></app-news-item>
+    </div>
+  </section>
+</main>

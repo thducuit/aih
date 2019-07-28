@@ -1,7 +1,7 @@
 <main id="pDoctorDetail" *ngIf="doctor">
   <div class="breadcrumb">
-    <div class="container"><a href="#">{{'home' | translate}}</a> /
-      <a href="#">{{'find_a_doctor' | translate}}</a> /
+    <div class="container"><a routerLink="/">{{'home' | translate}}</a> /
+      <a routerLink="/doctor">{{'find_a_doctor' | translate}}</a> /
       <p>{{ doctor ? doctor.name : '' }}</p>
     </div>
   </div>
@@ -17,19 +17,19 @@
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td>{{'degree' | translate}}</td>
-              <td>Specialist Level I</td>
+              <td>{{doctor.meta.title}}</td>
             </tr>
             <tr>
               <td width="50%">{{'title' | translate}}</td>
-              <td width="50%">Deputy Head of Anesthesiologist Department</td>
+              <td width="50%">{{doctor.meta.position}}</td>
             </tr>
             <tr>
               <td>{{'specialty' | translate}}</td>
-              <td>Anesthesiology</td>
+              <td>{{doctor.meta.specialist}}</td>
             </tr>
             <tr>
               <td>{{'experience' | translate}}</td>
-              <td>20 Years</td>
+              <td>{{doctor.meta.experience}}</td>
             </tr>
           </table>
           <div class="btn-wrap">
@@ -37,11 +37,7 @@
             <p class="alert-dt">{{'please_continue_your_booking_on_above_booking_funtion' | translate}}</p>
           </div>
         </div>
-        <div class="copy">
-          <div class="thumb-dt" *ngIf="doctor && doctor.picturePath">
-            <img src="{{ doctor.picturePath }}">
-          </div>
-          <div innerHTML="{{ doctor.longDesc | decodeHtmlEntities }}"></div>
+        <div class="copy" innerHTML="{{ doctor.longDesc | decodeHtmlEntities }}">
         </div>
       </div>
       <div class="btn-dt clearfix">
@@ -55,9 +51,5 @@
     </div>
   </section>
 
-  <section class="doctor-home">
-    <div class="container">
-      <app-doctor-item></app-doctor-item>
-    </div>
-  </section>
+  <app-section-doctor></app-section-doctor>
 </main>

@@ -13,20 +13,32 @@ export class UrlService {
   }
   static createNewsDetailUrl(alias = null) {
      if (alias) {
-       return `/news/details/${alias}`;
+       return `/news/detail/${alias}`;
      }
      return '/news';
   }
+  static createCareerDetailUrl(alias = null) {
+    if (alias) {
+      return `/career/detail/${alias}`;
+    }
+    return '/career';
+  }
   static createDoctorDetailUrl(alias = null) {
     if (alias) {
-      return `/doctor/details/${alias}`;
+      return `/doctor/detail/${alias}`;
     }
     return '/doctor';
   }
+  static createClinicDetailUrl(alias = null) {
+    if (alias) {
+      return `/patient-services/medical-services/${alias}`;
+    }
+    return '/patient-services/medical-services';
+  }
   static createMediaUrl(thumb) {
-    return `${environment.backend}/${thumb}`;
+    return `${environment.backend}${thumb}`;
   }
   static fixPictureUrl(text) {
-    return text;
+    return `${text}`.replace(/\/assets/g, `${environment.backend}/assets`);
   }
 }

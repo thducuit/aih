@@ -8,7 +8,10 @@ export class Doctor {
   public picture;
   public alias;
   public url;
+  public doctorId;
   public isExpanded;
+  public meta;
+
   constructor(data) {
     this.id = data.post_id;
     this.name = data.post_name;
@@ -17,7 +20,9 @@ export class Doctor {
     this.shortDesc = data.post_shortdesc;
     this.longDesc = data.post_longdesc;
     this.picture = data.post_picture;
+    this.doctorId = data.post_elem01;
     this.picturePath = null;
     this.isExpanded = false;
+    this.meta = JSON.parse(data.post_meta || '{}');
   }
 }

@@ -1,4 +1,5 @@
 import 'zone.js/dist/zone-node';
+import domino from 'domino';
 import { enableProdMode } from '@angular/core';
 // Express Engine
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -15,7 +16,7 @@ enableProdMode();
 const app = express();
 
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), 'browser');
+const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
@@ -30,6 +31,14 @@ app.engine('html', ngExpressEngine({
 
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
+
+// DOM fix
+const window = domino.createWindow(' ');
+const document: any = window.document;
+document.ownerDocument = document;
+
+(global as any).window = window;
+(global as any).document = document;
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });

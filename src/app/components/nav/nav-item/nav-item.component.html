@@ -1,0 +1,9 @@
+<li [ngClass]="{'drop-mn': hasChild}">
+  <a routerLink="{{routeUrl}}" routerLinkActive="{{routeActiveClass}}" >
+    <span>{{name}}</span>
+    <em [ngClass]="{'active': expaned}" (click)="toggleSubNav($event)"></em>
+  </a>
+  <div class="megadrop clearfix" [ngClass]="{'show': expaned}" *ngIf="hasChild">
+    <ng-content></ng-content>
+  </div>
+</li>
