@@ -20,7 +20,8 @@ export class BookingDateComponent implements OnInit {
 
   ngOnInit(): void {
     let defaultDate = moment();
-    if (defaultDate.day() >= 6) {
+    // If Sunday then choose next day => Monday
+    if (defaultDate.day() === 0) {
       defaultDate = defaultDate.add(1, 'days');
     }
     this.selectedDate = momentToNgbDate(defaultDate);
@@ -28,6 +29,10 @@ export class BookingDateComponent implements OnInit {
 
   toggleExpandDate() {
     this.expanded = !this.expanded;
+  }
+
+  expandDate(expand: boolean) {
+    this.expanded = expand;
   }
 
   onDateSelect(date: NgbDateStruct) {

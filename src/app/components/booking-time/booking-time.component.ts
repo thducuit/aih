@@ -1,4 +1,5 @@
 import {Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import { compareTwoHours } from 'src/app/utilities';
 
 
 @Component({
@@ -10,177 +11,185 @@ export class BookingTimeComponent implements OnInit, OnChanges {
 
   public isActive: boolean;
   public placeholder: string;
-  public block1 = [
+
+  public timeBlocks = [
     {
-      value: '8:00',
-      disabled: false,
+      label: '8:00 - 11:40',
+      blocks: [
+        {
+          value: '8:00',
+          disabled: false,
+        },
+        {
+          value: '8:20',
+          disabled: false,
+        },
+        {
+          value: '8:40',
+          disabled: false,
+        },
+        {
+          value: '9:00',
+          disabled: false,
+        },
+        {
+          value: '9:20',
+          disabled: false,
+        },
+        {
+          value: '9:40',
+          disabled: false,
+        },
+        {
+          value: '10:00',
+          disabled: false,
+        },
+        {
+          value: '10:20',
+          disabled: true,
+        },
+        {
+          value: '10:40',
+          disabled: false,
+        },
+        {
+          value: '11:00',
+          disabled: false,
+        },
+        {
+          value: '11:20',
+          disabled: false,
+        },
+        {
+          value: '11:40',
+          disabled: false,
+        }
+      ]
     },
     {
-      value: '8:20',
-      disabled: false,
+      label: '13:00 - 16:40',
+      blocks: [
+        {
+          value: '13:00',
+          disabled: false,
+        },
+        {
+          value: '13:20',
+          disabled: false,
+        },
+        {
+          value: '13:40',
+          disabled: false,
+        },
+        {
+          value: '14:00',
+          disabled: false,
+        },
+        {
+          value: '14:20',
+          disabled: false,
+        },
+        {
+          value: '14:40',
+          disabled: false,
+        },
+        {
+          value: '15:00',
+          disabled: false,
+        },
+        {
+          value: '15:20',
+          disabled: false,
+        },
+        {
+          value: '15:40',
+          disabled: false,
+        },
+        {
+          value: '16:00',
+          disabled: false,
+        },
+        {
+          value: '16:20',
+          disabled: false,
+        },
+        {
+          value: '16:40',
+          disabled: false,
+        }
+      ]
     },
     {
-      value: '8:40',
-      disabled: false,
-    },
-    {
-      value: '9:00',
-      disabled: false,
-    },
-    {
-      value: '9:20',
-      disabled: false,
-    },
-    {
-      value: '9:40',
-      disabled: false,
-    },
-    {
-      value: '10:00',
-      disabled: false,
-    },
-    {
-      value: '10:20',
-      disabled: true,
-    },
-    {
-      value: '10:40',
-      disabled: false,
-    },
-    {
-      value: '11:00',
-      disabled: false,
-    },
-    {
-      value: '11:20',
-      disabled: false,
-    },
-    {
-      value: '11:40',
-      disabled: false,
+      label: '17:00 - 20:40',
+      blocks: [
+        {
+          value: '17:00',
+          disabled: false,
+        },
+        {
+          value: '17:20',
+          disabled: false,
+        },
+        {
+          value: '17:40',
+          disabled: false,
+        },
+        {
+          value: '18:00',
+          disabled: false,
+        },
+        {
+          value: '18:20',
+          disabled: false,
+        },
+        {
+          value: '18:40',
+          disabled: false,
+        },
+        {
+          value: '19:00',
+          disabled: false,
+        },
+        {
+          value: '19:20',
+          disabled: false,
+        },
+        {
+          value: '19:40',
+          disabled: false,
+        },
+        {
+          value: '20:00',
+          disabled: false,
+        },
+        {
+          value: '20:20',
+          disabled: false,
+        },
+        {
+          value: '20:40',
+          disabled: false,
+        }
+      ]
     }
   ];
-  public block2 = [
-    {
-      value: '13:00',
-      disabled: false,
-    },
-    {
-      value: '13:20',
-      disabled: false,
-    },
-    {
-      value: '13:40',
-      disabled: false,
-    },
-    {
-      value: '14:00',
-      disabled: false,
-    },
-    {
-      value: '14:20',
-      disabled: false,
-    },
-    {
-      value: '14:40',
-      disabled: false,
-    },
-    {
-      value: '15:00',
-      disabled: false,
-    },
-    {
-      value: '15:20',
-      disabled: false,
-    },
-    {
-      value: '15:40',
-      disabled: false,
-    },
-    {
-      value: '16:00',
-      disabled: false,
-    },
-    {
-      value: '16:20',
-      disabled: false,
-    },
-    {
-      value: '16:40',
-      disabled: false,
-    }
-  ];
-  public block3 = [
-    {
-      value: '17:00',
-      disabled: false,
-    },
-    {
-      value: '17:20',
-      disabled: false,
-    },
-    {
-      value: '17:40',
-      disabled: false,
-    },
-    {
-      value: '18:00',
-      disabled: false,
-    },
-    {
-      value: '18:20',
-      disabled: false,
-    },
-    {
-      value: '18:40',
-      disabled: false,
-    },
-    {
-      value: '19:00',
-      disabled: false,
-    },
-    {
-      value: '19:20',
-      disabled: false,
-    },
-    {
-      value: '19:40',
-      disabled: false,
-    },
-    {
-      value: '20:00',
-      disabled: false,
-    },
-    {
-      value: '20:20',
-      disabled: false,
-    },
-    {
-      value: '20:40',
-      disabled: false,
-    }
-  ];
+
   @Input() enableTime = [];
   @Output() chooseTime = new EventEmitter<any>();
-  private wasInside = false;
-  @HostListener('click')
-  clickInside() {
-    this.wasInside = true;
-  }
-
-  @HostListener('document:click')
-  clickout() {
-    if (!this.wasInside) {
-      this.isActive = false;
-    }
-    this.wasInside = false;
-  }
 
   constructor() {
     this.isActive = false;
   }
 
   ngOnInit() {}
+
+  onClickOutside(e) {
+    this.isActive = false;
+  }
+
+  setExpand(expand: boolean) {
+    this.isActive = expand;
+  }
 
   handleInputClick() {
     this.isActive = true;
@@ -195,23 +204,14 @@ export class BookingTimeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.enableTime) {
-      // enable load date
-      this.block1 = this.block1.map(item => {
-        item.disabled = this.enableTime.indexOf(item.value) === -1;
-        return item;
+    this.timeBlocks.forEach((blockData) => {
+      blockData.blocks.forEach((block) => {
+        const hasEnableBlock = (this.enableTime || []).find((x) => {
+          return compareTwoHours(x, block.value) === 0;
+        });
+        block.disabled = !hasEnableBlock;
       });
-
-      this.block2 = this.block2.map(item => {
-        item.disabled = this.enableTime.indexOf(item.value) === -1;
-        return item;
-      });
-
-      this.block3 = this.block3.map(item => {
-        item.disabled = this.enableTime.indexOf(item.value) === -1;
-        return item;
-      });
-    }
+    });
   }
 
 }

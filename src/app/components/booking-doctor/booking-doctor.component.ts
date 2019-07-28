@@ -1,8 +1,8 @@
 import {Component, EventEmitter, HostListener, OnInit, Output, OnDestroy} from '@angular/core';
 import {Doctor} from '../../models/doctor';
-import {UrlService} from "../../services/url.service";
-import {DoctorService} from "../../services/doctor.service";
-import {TranslateService} from "@ngx-translate/core";
+import {UrlService} from '../../services/url.service';
+import {DoctorService} from '../../services/doctor.service';
+import {TranslateService} from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,19 +19,6 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   @Output() choose = new EventEmitter<any>();
-  private wasInside = false;
-  @HostListener('click')
-  clickInside() {
-    this.wasInside = true;
-  }
-
-  @HostListener('document:click')
-  clickout() {
-    if (!this.wasInside) {
-      this.isActive = false;
-    }
-    this.wasInside = false;
-  }
 
   constructor(
     public doctorService: DoctorService,
@@ -47,6 +34,14 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.loadDoctors();
       });
+  }
+
+  onClickOutside(e) {
+    this.isActive = false;
+  }
+
+  setExpand(expand: boolean) {
+    this.isActive = expand;
   }
 
   ngOnDestroy() {

@@ -13,13 +13,15 @@ import {
 import jquery from 'jquery';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
-import { iif, Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 import { BookingService } from '../../../services/booking.service';
 import { Schedule } from '../../../models/schedule';
 import { Doctor } from '../../../models/doctor';
 import { Clinic } from '../../../models/clinic';
 import { DateService } from '../../../services/date.service';
 import Swal from 'sweetalert2';
+import { BookingDateComponent } from '../../booking-date/booking-date.component';
+import { BookingDoctorComponent } from '../../booking-doctor/booking-doctor.component';
 
 @Component({
   selector: 'app-section-booking-home',
@@ -29,6 +31,8 @@ import Swal from 'sweetalert2';
 export class SectionBookingHomeComponent
   implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('frmBooking', { static: false }) frmBooking: ElementRef;
+  @ViewChild('bookingDate', { static: false }) bookingDate: BookingDateComponent;
+  @ViewChild('bookingDoctor', { static: false }) bookingDoctor: BookingDoctorComponent;
   private isBrowser: boolean;
   public schedule: any;
   public doctorSchedule: Schedule;
@@ -170,10 +174,40 @@ export class SectionBookingHomeComponent
                 aihTimeBlocks,
                 aihTimeBlocked,
               );
+
+              // Selected doctor have no any time block => warning
+              if (!this.timeBlock.length) {
+                this.showPopupTheDoctorTimeBlocksIsFull();
+              }
               console.log(aihTimeBlocks, aihTimeBlocked, this.timeBlock);
             });
         }
       });
+  }
+
+  showPopupTheDoctorTimeBlocksIsFull() {
+    forkJoin(
+      this.translate.get('the_doctors_schedule_is_fully_booked'),
+      this.translate.get('select_another_doctor'),
+      this.translate.get('select_another_booking_date'),
+    ).subscribe(([message, selectDoctor, selectBookingDate]) => {
+      Swal.fire({
+        text: message,
+        showCancelButton: true,
+        confirmButtonText: selectDoctor,
+        cancelButtonText: selectBookingDate,
+      }).then(result => {
+        if (result.value) {
+          setTimeout(() => {
+            this.bookingDoctor && this.bookingDoctor.setExpand(true);
+          }, 300);
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          setTimeout(() => {
+            this.bookingDate && this.bookingDate.expandDate(true);
+          }, 300);
+        }
+      });
+    });
   }
 
   @HostListener('window:resize', ['$event'])
