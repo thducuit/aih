@@ -40,7 +40,7 @@
 						<!-- <p class="note note-time">* Please select the time</p> -->		
 						<app-booking-time
               (chooseTime)="handleSelectTime($event)"
-              [enableTime]=timeBlock
+              [enableTime]="timeBlock"
             ></app-booking-time>
 						<input class="re-btn-booking js-booking" (click)="handleBooking()" type="submit" value="{{'book_now' | translate}}">
 				</div>

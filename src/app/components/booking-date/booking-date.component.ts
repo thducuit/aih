@@ -2,13 +2,14 @@ import {Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter
 import { NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 import {DateService} from '../../services/date.service';
 import moment from 'moment';
+import { momentToNgbDate } from 'src/app/utilities';
 
 @Component({
   selector: 'app-booking-date',
   templateUrl: './booking-date.component.html',
   styleUrls: ['./booking-date.component.scss'],
 })
-export class BookingDateComponent implements OnInit, OnChanges {
+export class BookingDateComponent implements OnInit {
   selectedDate: NgbDateStruct;
   expanded = false;
   @Input() doctorSchedule: any;
@@ -17,7 +18,13 @@ export class BookingDateComponent implements OnInit, OnChanges {
   constructor(private calendar: NgbCalendar) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let defaultDate = moment();
+    if (defaultDate.day() >= 6) {
+      defaultDate = defaultDate.add(1, 'days');
+    }
+    this.selectedDate = momentToNgbDate(defaultDate);
+  }
 
   toggleExpandDate() {
     this.expanded = !this.expanded;
@@ -28,7 +35,12 @@ export class BookingDateComponent implements OnInit, OnChanges {
     const newMonthFormat = date.month < 10 ? `0${date.month}` : date.month;
     const newDayFormat = date.day < 10 ? `0${date.day}` : date.day;
     const newDate = `${newDayFormat}/${newMonthFormat}/${date.year}`;
+    this.selectedDate = date;
     this.changeDate.emit(newDate);
+  }
+
+  onClickOutSide(e) {
+    this.expanded = false;
   }
 
   getDateString() {
@@ -36,21 +48,8 @@ export class BookingDateComponent implements OnInit, OnChanges {
     return date ? `${date.day}-${date.month}-${date.year}` : '';
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    // if (this.doctorSchedule) {
-    //   console.log('this.doctorSchedule', this.doctorSchedule);
-    //   const days = DateService.getDatesByRank(this.doctorSchedule.dateFrom, this.doctorSchedule.dateTo, this.doctorSchedule.slot);
-    //   this.isDisabled = (date: NgbDate, current: {month: number}) => days.indexOf(date.day) === -1;
-    // }
-  }
-
   getMinDate(): NgbDateStruct {
-    const date = moment().subtract(1, 'days');
-    return {
-      year: date.year(),
-      month: date.month() + 1,
-      day: date.date()
-    };
+    return momentToNgbDate(moment());
   }
 
   getMarkDisableDate() {

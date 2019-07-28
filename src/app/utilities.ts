@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
 function getNativeLocalStorage() {
   return localStorage;
 }
@@ -42,4 +45,12 @@ export function CalculatePagination(current: number, total: number) {
   }
 
   return rangeWithDots;
+}
+
+export function momentToNgbDate(date: moment.Moment): NgbDateStruct {
+  return {
+    year: date.year(),
+    month: date.month() + 1,
+    day: date.date()
+  };
 }
