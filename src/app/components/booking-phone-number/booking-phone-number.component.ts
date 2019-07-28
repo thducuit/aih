@@ -51,6 +51,8 @@ export class BookingPhoneNumberComponent implements OnInit {
               this.chooseCustomer.emit(customer['customer_id']);
             }
           });
+        }else {
+          this.chooseCustomer.emit(-1);
         }
       });
     }

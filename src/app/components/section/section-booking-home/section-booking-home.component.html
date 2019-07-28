@@ -42,7 +42,7 @@
               (chooseTime)="handleSelectTime($event)"
               [enableTime]=timeBlock
             ></app-booking-time>
-						<input class="re-btn-booking js-booking" type="submit" value="{{'book_now' | translate}}">
+						<input class="re-btn-booking js-booking" (click)="handleBooking()" type="submit" value="{{'book_now' | translate}}">
 				</div>
 			</div>
 		</div>
