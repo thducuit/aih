@@ -69,4 +69,23 @@ export class BookingService {
     return this.http.post('customer/detail', postData);
   }
 
+  callBooking(clinicId, doctorId, date, time) {
+    const arr = date.split('/');
+    const postData = {
+      booking_clinic_id: clinicId,
+      booking_emp_id: doctorId,
+      booking_datetime: `${arr[2]}-${arr[1]}-${arr[0]} ${time}:00`,
+      booking_lang: 'vi-VN',
+    };
+    return this.http.post('booking/add', postData);
+  }
+
+  callUpdateBooking(customerId, bookingId) {
+    const postData = {
+      customer_id: customerId,
+      booking_id: bookingId
+    };
+    return this.http.post('customer/update-booking', postData);
+  }
+
 }

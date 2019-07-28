@@ -19,6 +19,7 @@ import { Schedule } from "../../../models/schedule";
 import { Doctor } from "../../../models/doctor";
 import { Clinic } from "../../../models/clinic";
 import {DateService} from "../../../services/date.service";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-section-booking-home',
@@ -33,6 +34,7 @@ export class SectionBookingHomeComponent implements OnInit, OnDestroy, AfterView
   public selectedDoctor: Doctor;
   public selectedClinic: Clinic;
   public selectedTime: any;
+  public selectedDate: any;
   public selectedCustomerId: any;
   public timeBlock = [];
   private subscription: Subscription
@@ -83,6 +85,7 @@ export class SectionBookingHomeComponent implements OnInit, OnDestroy, AfterView
     this.doctorSchedule = this.schedule[doctor.doctorId];
   }
   handleSelectDate(date) {
+    this.selectedDate = date;
     this.loadTime( this.selectedDoctor.doctorId, date);
   }
   handleSelectTime(time) {
@@ -93,6 +96,29 @@ export class SectionBookingHomeComponent implements OnInit, OnDestroy, AfterView
   }
   handleSelectClinic(clinic) {
     this.selectedClinic = clinic;
+  }
+  handleBooking() {
+    console.log('booking', this.selectedClinic, this.selectedTime, this.selectedDate);
+    this.bookingService.callBooking(
+      this.selectedClinic.clinicId,
+      this.selectedDoctor.doctorId,
+      this.selectedDate,
+      this.selectedTime
+      ).subscribe( (data: any) => {
+      const bookingId = data['booking_id'] || 0;
+      if (bookingId) {
+        this.openSuccess();
+      }
+    });
+  }
+
+  openSuccess() {
+    Swal.fire({
+      title: 'Success!',
+      text: 'Bạn đã Đặt lịch thành công',
+      type: 'success',
+      confirmButtonText: 'OK'
+    });
   }
 
 
@@ -113,7 +139,7 @@ export class SectionBookingHomeComponent implements OnInit, OnDestroy, AfterView
         const newDate = `${dateArr[2]}-${dateArr[1]}-${dateArr[0]}`;
         this.bookingService.callDateBookingTemp(newDate).subscribe( (data2: any) => {
           console.log('data a chinh', data2);
-          const response2 = data['Bookings'];
+          const response2 = data['Bookings'] || [];
           const timeBlocked = response2.map( item =>  {
             const time = item['booking_datetime'];
             const currentDate = new Date(time);

@@ -42,7 +42,7 @@ export class CustomerRegisterComponent implements OnInit {
     }
     this.months = [];
     for (let i = 1; i < 13; i++) {
-      this.years.push(i);
+      this.months.push(i);
     }
     this.days = [];
     for (let i = 1; i < 32; i++) {
