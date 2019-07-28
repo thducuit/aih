@@ -1,39 +1,45 @@
-import {Component, EventEmitter, HostListener, OnInit, Output, OnDestroy} from '@angular/core';
-import {Doctor} from '../../models/doctor';
-import {UrlService} from '../../services/url.service';
-import {DoctorService} from '../../services/doctor.service';
-import {TranslateService} from '@ngx-translate/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  OnDestroy,
+  Input,
+} from '@angular/core';
+import { Doctor } from '../../models/doctor';
+import { UrlService } from '../../services/url.service';
+import { DoctorService } from '../../services/doctor.service';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-booking-doctor',
   templateUrl: './booking-doctor.component.html',
-  styleUrls: ['./booking-doctor.component.scss']
+  styleUrls: ['./booking-doctor.component.scss'],
 })
 export class BookingDoctorComponent implements OnInit, OnDestroy {
-
   public isActive: boolean;
   public chosenDoctor: Doctor;
   public placeholder: string;
   public doctors: Array<Doctor> = [];
   private subscription: Subscription;
 
+  @Input() doctorIds: string[];
   @Output() choose = new EventEmitter<any>();
 
   constructor(
     public doctorService: DoctorService,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {
     this.isActive = false;
   }
 
   ngOnInit() {
     this.loadDoctors();
-    this.subscription = this.translate
-      .onLangChange
-      .subscribe(() => {
-        this.loadDoctors();
-      });
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+      this.loadDoctors();
+    });
   }
 
   onClickOutside(e) {
@@ -61,6 +67,15 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     });
   }
 
+  filterDoctors() {
+    if (!this.doctorIds) {
+      return this.doctors;
+    }
+    return (this.doctors || []).filter(x => {
+      return this.doctorIds.indexOf(x.doctorId) >= 0;
+    });
+  }
+
   handleExpand($event, doctor) {
     $event.stopPropagation();
     this.doctors.map(item => {
@@ -79,9 +94,8 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     this.chosenDoctor = doctor;
     this.placeholder = doctor.name;
     this.choose.emit(doctor);
-    setTimeout (() => {
+    setTimeout(() => {
       this.isActive = false;
     }, 200);
   }
-
 }

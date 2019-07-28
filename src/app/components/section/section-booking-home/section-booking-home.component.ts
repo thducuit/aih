@@ -36,7 +36,7 @@ export class SectionBookingHomeComponent
   @ViewChild('bookingDoctor', { static: false }) bookingDoctor: BookingDoctorComponent;
   @ViewChild('bookingSpecialty', { static: false }) bookingSpecialty: BookingSpecialtyComponent;
   private isBrowser: boolean;
-  public schedule: any;
+  public schedule: Schedule[];
   public doctorSchedule: Schedule;
   public selectedDoctor: Doctor;
   public selectedClinic: Clinic;
@@ -78,17 +78,16 @@ export class SectionBookingHomeComponent
     //
     // });
     const schedule = JSON.parse(this.json);
-    const scheduleObj = {};
-    schedule.map(item => {
-      const newSchedule = new Schedule(item);
-      scheduleObj[newSchedule.doctorId] = newSchedule;
+    this.schedule = schedule.map((item) =>{
+      return new Schedule(item);
     });
-    this.schedule = scheduleObj;
   }
 
   handleSelectDoctor(doctor: Doctor) {
     this.selectedDoctor = doctor;
-    this.doctorSchedule = this.schedule[doctor.doctorId];
+    this.doctorSchedule = this.schedule.find((x) => {
+      return x.doctorId === doctor.doctorId;
+    });
 
     this.bookingSpecialty && this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
   }
@@ -102,9 +101,24 @@ export class SectionBookingHomeComponent
   handleSelectCustomerId(customerId) {
     this.selectedCustomerId = customerId;
   }
-  handleSelectClinic(clinic) {
+  handleSelectClinic(clinic: Clinic) {
     this.selectedClinic = clinic;
   }
+
+  getAvaiableDoctorBySelectedClinic() {
+    if (!this.selectedClinic || !this.schedule) {
+      return null;
+    }
+    const doctorIds = (this.schedule || [])
+    .filter((x) => {
+      return x.clinicId === this.selectedClinic.clinicId;
+    })
+    .map((x) => {
+      return x.doctorId;
+    });
+    return doctorIds;
+  }
+
   handleBooking() {
     console.log(
       'booking',

@@ -7,9 +7,8 @@
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">
-
             <ul>
-              <li class="doctor-item-23" *ngFor="let doctor of doctors" >
+              <li class="doctor-item-23" *ngFor="let doctor of filterDoctors()" >
                 <p class="tt-doc {{ doctor.isExpanded ? 'active' : ''  }}">
                   <em class="js-book-dt" (click)="onChoose(doctor)">{{ doctor.name }}
                   </em>
@@ -25,8 +24,6 @@
                 </div>
               </li>
             </ul>
-
-
           </div>
         </div>
       </div>
