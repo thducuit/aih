@@ -14,6 +14,7 @@ export class BookingPhoneNumberComponent implements OnInit {
   public phoneNumber: string;
   public showRegister = false;
   @Output() chooseCustomer = new EventEmitter<any>();
+  @Output() chooseCustomerPhone = new EventEmitter<any>();
 
   constructor(
     public bookingService: BookingService,
@@ -49,10 +50,12 @@ export class BookingPhoneNumberComponent implements OnInit {
               this.openAlert();
             } else {
               this.chooseCustomer.emit(customer['customer_id']);
+              this.chooseCustomerPhone.emit(this.phoneNumber);
             }
           });
-        }else {
+        } else {
           this.chooseCustomer.emit(-1);
+          this.chooseCustomerPhone.emit(this.phoneNumber);
         }
       });
     }
@@ -66,8 +69,8 @@ export class BookingPhoneNumberComponent implements OnInit {
   }
 
   handleGetCustomerId(customerId) {
-    console.log('customerId', customerId);
     this.chooseCustomer.emit(customerId);
+    this.chooseCustomerPhone.emit(this.phoneNumber);
   }
 
 }

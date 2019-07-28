@@ -17,7 +17,7 @@
             <input type="" class="form-control" name="email" [(ngModel)]="form.email" placeholder="Địa chỉ email">
           </div>
           <div class="form-group clearfix">
-            <input type="" class="form-control" name="phone" [(ngModel)]="form.phone" placeholder="Số điện thoại di động">
+            <input type="" class="form-control" value="{{ form.phone }}" disabled name="phone" placeholder="Số điện thoại di động">
             <p class="check-must">*</p>
           </div>
         </div>
@@ -62,8 +62,8 @@
           </div>
           <div class="form-group clearfix">
             <div class="center">
-              <select name="sources" id="sources" name="country" [(ngModel)]="form.country" class="custom-select sources" placeholder="Việt Nam">
-                <option value="country['country_rcd']" *ngFor="let country of countries">{{ country['name_l'] }}</option>
+              <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources" placeholder="Việt Nam">
+                <option value="{{ country['country_rcd'] }}" *ngFor="let country of countries">{{ country['name_l'] }}</option>
               </select>
             </div>
           </div>

@@ -6,6 +6,7 @@
 </div>
 <app-customer-register
   [isShowPopup]="showRegister"
+  [phoneNumber]="phoneNumber"
   (closePopup)="handleCloseRegister()"
   (getCustomerId)="handleGetCustomerId($event)"
 ></app-customer-register>

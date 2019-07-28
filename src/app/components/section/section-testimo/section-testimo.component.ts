@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Feedback } from '../../../models/feedback';
-import { FeedbackService } from '../../../services/feedback.service';
-import { UrlService } from '../../../services/url.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Feedback} from '../../../models/feedback';
+import {FeedbackService} from '../../../services/feedback.service';
+import {UrlService} from '../../../services/url.service';
+import {TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-section-testimo',
@@ -15,10 +15,12 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
   public showVideoPopup = false;
   public iframeSrc: string;
   private subscription: Subscription;
+
   constructor(
     public feedbackService: FeedbackService,
     private translate: TranslateService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadFeedback();
@@ -37,9 +39,9 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
     this.feedbackService.fetch().subscribe((data: any) => {
       const post = data.Media[0] || {};
       const feedback = new Feedback(post);
-      console.log('feedback', feedback);
       feedback.thumb = UrlService.createMediaUrl(feedback.thumb);
-      this.iframeSrc = UrlService.createIframeUrl(feedback.file);
+      feedback.iframeSrc = UrlService.createIframeUrl(feedback.file);
+      console.log('feedback', feedback);
       this.feedback = feedback;
     });
   }
