@@ -200,7 +200,10 @@ export class SectionBookingHomeComponent
                         nextDate.setMinutes(currentDate.getMinutes() + 20);
                         const currentNewFormatMin = currentDate.getMinutes() === 0 ? `00` : currentDate.getMinutes();
                         const nextNewFormatMin = nextDate.getMinutes() === 0 ? `00` : nextDate.getMinutes();
-                        return `${currentDate.getHours()}:${currentNewFormatMin}-${nextDate.getHours()}:${nextNewFormatMin}`;
+
+                        const currentNewFormatHour = currentDate.getHours() < 10 ? `0${currentDate.getHours()}` : currentDate.getHours();
+                        const nextNewFormatHour = nextDate.getHours() < 10 ? `0${nextDate.getHours()}` : nextDate.getHours();
+                        return `${currentNewFormatHour}:${currentNewFormatMin}-${nextNewFormatHour}:${nextNewFormatMin}`;
                     });
                     aihTimeBlocked = [...new Set([...aihTimeBlocked, ...timeBlocked])];
                     this.timeBlock = DateService.getBlockDate(aihTimeBlocks, aihTimeBlocked);
