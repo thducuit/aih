@@ -175,8 +175,7 @@ export class SectionBookingHomeComponent
                 const dateArr = selectedDate.split('/');
                 const newDate = `${dateArr[2]}-${dateArr[1]}-${dateArr[0]}`;
                 this.bookingService.callDateBookingTemp(newDate).subscribe((data2: any) => {
-                    console.log('data a chinh', data2);
-                    const response2 = data['Bookings'] || [];
+                    const response2 = data2['Bookings'] || [];
                     const timeBlocked = response2.map(item => {
                         const time = item['booking_datetime'];
                         const currentDate = new Date(time);
@@ -192,7 +191,6 @@ export class SectionBookingHomeComponent
                     if (!this.timeBlock.length) {
                         this.showPopupTheDoctorTimeBlocksIsFull();
                     }
-                    console.log(aihTimeBlocks, aihTimeBlocked, this.timeBlock);
                 });
             }
         });
