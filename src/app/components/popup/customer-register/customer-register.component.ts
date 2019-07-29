@@ -30,6 +30,7 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
   public months = [];
   public days = [];
   public countries = [];
+  public error = '';
 
   constructor(
     public bookingService: BookingService
@@ -73,6 +74,10 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
   }
 
   sendForm() {
+    if (!this.form.firstName) {
+      this.error = 'Vui lòng nhập đầy đủ Họ và Tên';
+      return;
+    }
     this.bookingService.callRegisterCustomer(this.form).subscribe((data: any) => {
       if (data['customer_id']) {
         this.getCustomerId.emit(data['customer_id']);
@@ -90,5 +95,14 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.form.phone = this.phoneNumber;
+    if (this.form.firstName) {
+      this.error = '';
+    }
+  }
+
+  validate() {
+      if (this.form.firstName) {
+          this.error = '';
+      }
   }
 }

@@ -18,7 +18,7 @@
       <div class="medical-bottom clearfix" *ngIf="currentPackages">
         <div class="box-left">
           <p>CHỌN CHƯƠNG TRÌNH KIỂM TRA SỨC KHỎE TOÀN DIỆN</p>
-          <a id="show-hidden-menu" (click)="onExpand()"><img src="../assets/images/icon-rg.png" alt="">Rút gọn</a>
+          <a id="show-hidden-menu" class="{{ isExpand ? 'active': '' }}" (click)="onExpand()"><img src="../assets/images/icon-rg.png" alt="">Rút gọn</a>
         </div>
 
         <div class="box-right">

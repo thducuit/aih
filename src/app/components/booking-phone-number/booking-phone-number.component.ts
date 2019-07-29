@@ -22,10 +22,10 @@ export class BookingPhoneNumberComponent implements OnInit {
 
   openAlert() {
     Swal.fire({
-      title: 'Error!',
-      text: 'Bạn chưa có tài khoản',
-      type: 'error',
-      confirmButtonText: 'OK'
+      title: 'Thông báo',
+      text: 'Vui lòng đăng ký tài khoản bằng cách bấm chuột vào nút Đăng ký',
+      type: 'info',
+      confirmButtonText: 'Đăng ký'
     }).then(result => {
       if (result.value) {
         this.showRegister = true;

@@ -11,6 +11,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import jquery from 'jquery';
+import moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription, forkJoin } from 'rxjs';
@@ -24,7 +25,6 @@ import { BookingDateComponent } from '../../booking-date/booking-date.component'
 import { BookingDoctorComponent } from '../../booking-doctor/booking-doctor.component';
 import { BookingSpecialtyComponent } from '../../booking-specialty/booking-specialty.component';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import moment from 'moment';
 import { stringPadStart } from 'src/app/utilities';
 
 @Component({
@@ -98,6 +98,10 @@ export class SectionBookingHomeComponent
 
     this.bookingSpecialty &&
       this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
+
+    if (this.selectedDate) {
+      this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+    }
   }
 
   handleSelectDate(date: NgbDateStruct) {
@@ -187,13 +191,13 @@ export class SectionBookingHomeComponent
   openSuccess() {
     Swal.fire({
       title: 'Success!',
-      text: 'Bạn đã Đặt lịch thành công',
+      text: 'Quý khách đã Đặt lịch thành công',
       type: 'success',
       confirmButtonText: 'OK',
     });
   }
 
-  loadTime(doctorId, selectedDate) {
+  loadTime(doctorId, selectedDate: NgbDateStruct) {
     this.bookingService
       .callDateBooking(doctorId, selectedDate)
       .subscribe((data: any) => {
@@ -208,8 +212,11 @@ export class SectionBookingHomeComponent
           });
           aihTimeBlocks = [...new Set(aihTimeBlocks)];
           aihTimeBlocked = [...new Set(aihTimeBlocked)];
-          const dateArr = selectedDate.split('/');
-          const newDate = `${dateArr[2]}-${dateArr[1]}-${dateArr[0]}`;
+          const newDate = `${selectedDate.year}-${stringPadStart(
+            String(selectedDate.month),
+            2,
+            '0',
+          )}-${stringPadStart(String(selectedDate.day), 2, '0')}`;
           this.bookingService
             .callDateBookingTemp(newDate)
             .subscribe((data2: any) => {

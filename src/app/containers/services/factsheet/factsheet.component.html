@@ -6,14 +6,14 @@
   </div>
   <div class="banner-ser">
 
-    <div class="item" *ngFor="let banner of banners"
-         [style.background]="'url(' + banner.large + ') no-repeat'"
+    <div class="item"
+         [style.background]="'url(' + banners[0].large + ')'"
     >
       <div class="container">
         <div class="ct-banner">
           <div class="copy-fs">
-            <h4>{{ banner.title }}</h4>
-            <h2>{{ banner.desc }}</h2>
+            <h4>{{ banners[0].title }}</h4>
+            <h2>{{ banners[0].desc }}</h2>
           </div>
         </div>
       </div>
