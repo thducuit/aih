@@ -27,6 +27,8 @@ import { BookingSpecialtyComponent } from '../../booking-specialty/booking-speci
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { stringPadStart } from 'src/app/utilities';
 
+const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+
 @Component({
   selector: 'app-section-booking-home',
   templateUrl: './section-booking-home.component.html',
@@ -150,6 +152,7 @@ export class SectionBookingHomeComponent
             result &&
             dateFrom.isSameOrBefore(currentDate, 'day') &&
             dateTo.isSameOrAfter(currentDate, 'day');
+          result = result && x.slot.indexOf(DaysOfWeek[currentDate.day()]) >= 0;
         }
         return result;
       })
@@ -210,7 +213,7 @@ export class SectionBookingHomeComponent
     });
   }
 
-  loadTime(doctorId, selectedDate: NgbDateStruct) {
+  loadTime(doctorId, selectedDate) {
     this.bookingService
       .callDateBooking(doctorId, selectedDate)
       .subscribe((data: any) => {
@@ -225,11 +228,8 @@ export class SectionBookingHomeComponent
           });
           aihTimeBlocks = [...new Set(aihTimeBlocks)];
           aihTimeBlocked = [...new Set(aihTimeBlocked)];
-          const newDate = `${selectedDate.year}-${stringPadStart(
-            String(selectedDate.month),
-            2,
-            '0',
-          )}-${stringPadStart(String(selectedDate.day), 2, '0')}`;
+          const dateArr = selectedDate.split('/');
+          const newDate = `${dateArr[2]}-${dateArr[1]}-${dateArr[0]}`;
           this.bookingService
             .callDateBookingTemp(newDate)
             .subscribe((data2: any) => {
@@ -245,7 +245,16 @@ export class SectionBookingHomeComponent
                     : currentDate.getMinutes();
                 const nextNewFormatMin =
                   nextDate.getMinutes() === 0 ? `00` : nextDate.getMinutes();
-                return `${currentDate.getHours()}:${currentNewFormatMin}-${nextDate.getHours()}:${nextNewFormatMin}`;
+
+                const currentNewFormatHour =
+                  currentDate.getHours() < 10
+                    ? `0${currentDate.getHours()}`
+                    : currentDate.getHours();
+                const nextNewFormatHour =
+                  nextDate.getHours() < 10
+                    ? `0${nextDate.getHours()}`
+                    : nextDate.getHours();
+                return `${currentNewFormatHour}:${currentNewFormatMin}-${nextNewFormatHour}:${nextNewFormatMin}`;
               });
               aihTimeBlocked = [
                 ...new Set([...aihTimeBlocked, ...timeBlocked]),

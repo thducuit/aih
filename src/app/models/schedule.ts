@@ -4,7 +4,7 @@ export class Schedule {
   public dateFrom: string;
   public dateTo: string;
   public timeSlot: number;
-  public slot: any;
+  public slot: string[];
 
 
   constructor(data: any) {
