@@ -73,12 +73,13 @@ export class BookingService {
   }
 
   callBooking(clinicId, doctorId, date: NgbDateStruct, time, phone) {
-    const monthStr = date.month < 10 ? `0${date.month}` : String(date.month);
-    const dayStr = date.month < 10 ? `0${date.day}` : String(date.day);
+    const monthStr = stringPadStart(String(date.month), 2, '0');
+    const dayStr = stringPadStart(String(date.day), 2, '0');
+    const timeStr = stringPadStart(String(time), 5, '0'); // Should be HH:mm
     const postData = {
       booking_clinic_id: clinicId,
       booking_emp_id: doctorId,
-      booking_datetime: `${date.year}-${monthStr}-${dayStr} ${time}:00`,
+      booking_datetime: `${date.year}-${monthStr}-${dayStr} ${timeStr}:00`,
       booking_description: '',
       customer_phone: phone,
       booking_lang: 'vi-VN',

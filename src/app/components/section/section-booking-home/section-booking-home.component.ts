@@ -159,10 +159,6 @@ export class SectionBookingHomeComponent
     return doctorIds;
   }
 
-  handleSelectCustomerPhone(phone) {
-    this.selectedPhone = phone;
-  }
-
   handleBooking() {
     this.bookingService
       .callBooking(
@@ -179,11 +175,15 @@ export class SectionBookingHomeComponent
             this.openSuccess();
           }
         } else {
-          this.bookingService
-            .callUpdateBooking(this.selectedCustomerId, bookingId)
-            .subscribe((data2: any) => {
-              this.openSuccess();
-            });
+          if (bookingId) {
+            this.bookingService
+              .callUpdateBooking(this.selectedCustomerId, bookingId)
+              .subscribe((data2: any) => {
+                this.openSuccess();
+              });
+          } else {
+            this.openFail();
+          }
         }
       });
   }
@@ -193,7 +193,16 @@ export class SectionBookingHomeComponent
       title: 'Success!',
       text: 'Quý khách đã Đặt lịch thành công',
       type: 'success',
-      confirmButtonText: 'OK',
+      confirmButtonText: 'Đóng lại',
+    });
+  }
+
+  openFail() {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Đã có lỗi xảy ra. Vui lòng liên hệ 028 3910 9999 để được hỗ trợ.',
+      type: 'error',
+      confirmButtonText: 'Đóng lại',
     });
   }
 
