@@ -93,3 +93,11 @@ export function stringPadStart(
     return padString.slice(0, targetLength) + String(str);
   }
 }
+
+export function ngbDateStructToString(date: NgbDateStruct) {
+  return `${date.year}-${stringPadStart(
+    String(date.month),
+    2,
+    '0',
+  )}-${stringPadStart(String(date.day), 2, '0')}`;
+}

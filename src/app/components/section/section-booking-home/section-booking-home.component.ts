@@ -25,7 +25,7 @@ import { BookingDateComponent } from '../../booking-date/booking-date.component'
 import { BookingDoctorComponent } from '../../booking-doctor/booking-doctor.component';
 import { BookingSpecialtyComponent } from '../../booking-specialty/booking-specialty.component';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { stringPadStart } from 'src/app/utilities';
+import { stringPadStart, ngbDateStructToString } from 'src/app/utilities';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -131,13 +131,7 @@ export class SectionBookingHomeComponent
     }
     const selectedDate = this.selectedDate;
     const currentDate = selectedDate
-      ? moment(
-          `${selectedDate.year}-${stringPadStart(
-            String(selectedDate.month),
-            2,
-            '0',
-          )}-${stringPadStart(String(selectedDate.day), 2, '0')}T00:00:00`,
-        )
+      ? moment(`${ngbDateStructToString(selectedDate)}T00:00:00`)
       : null;
     const doctorIds = (this.schedule || [])
       .filter(x => {
@@ -213,7 +207,7 @@ export class SectionBookingHomeComponent
     });
   }
 
-  loadTime(doctorId, selectedDate) {
+  loadTime(doctorId, selectedDate: NgbDateStruct) {
     this.bookingService
       .callDateBooking(doctorId, selectedDate)
       .subscribe((data: any) => {
@@ -228,8 +222,7 @@ export class SectionBookingHomeComponent
           });
           aihTimeBlocks = [...new Set(aihTimeBlocks)];
           aihTimeBlocked = [...new Set(aihTimeBlocked)];
-          const dateArr = selectedDate.split('/');
-          const newDate = `${dateArr[2]}-${dateArr[1]}-${dateArr[0]}`;
+          const newDate = ngbDateStructToString(selectedDate);
           this.bookingService
             .callDateBookingTemp(newDate)
             .subscribe((data2: any) => {
