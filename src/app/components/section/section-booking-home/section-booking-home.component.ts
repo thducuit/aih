@@ -157,7 +157,7 @@ export class SectionBookingHomeComponent
     openSuccess() {
         Swal.fire({
             title: 'Success!',
-            text: 'Bạn đã Đặt lịch thành công',
+            text: 'Quý khách đã Đặt lịch thành công',
             type: 'success',
             confirmButtonText: 'OK',
         });
