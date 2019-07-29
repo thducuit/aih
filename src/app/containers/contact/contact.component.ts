@@ -1,49 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import {Page} from "../../models/page";
-import {PageService} from "../../services/page.service";
-import {BannerService} from "../../services/banner.service";
-import {UrlService} from "../../services/url.service";
+import {Component, OnInit} from '@angular/core';
+import {Page} from '../../models/page';
+import {PageService} from '../../services/page.service';
+import {BannerService} from '../../services/banner.service';
+import {UrlService} from '../../services/url.service';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
 
-  public page: Page;
-  public banners: Array<any> = [];
-  constructor(public pageService: PageService,
-              public bannerService: BannerService) { }
+    public page: Page;
+    public banners: Array<any> = [];
 
-  ngOnInit() {
-    this.loadPage();
-  }
+    constructor(public pageService: PageService,
+                public bannerService: BannerService,
+                private metaService: Meta,
+                private titleService: Title) {
+    }
 
-  loadPage() {
-    this.pageService.fetch('contact_page').subscribe((data: any) => {
-      const post = data.Post || {};
-      const page = new Page(post);
-      page.longDesc = UrlService.fixPictureUrl(page.longDesc);
-      page.picturePath = UrlService.createPictureUrl(page.picture);
-      this.page = page;
+    ngOnInit() {
+        this.loadPage();
+    }
 
-      this.bannerService
-        .fetch('contact_page', this.page.id)
-        .subscribe((bannersResp: any) => {
-          const banners = bannersResp.Banner;
-          this.banners = banners.map(banner => {
-            banner.large = UrlService.createMediaUrl(banner.Url);
-            banner.small = banner.large;
-            banner.url = banner.Link;
-            banner.title = banner.title;
-            banner.desc = banner.desc;
-            return banner;
-          });
+    loadPage() {
+        this.pageService.fetch('contact_page').subscribe((data: any) => {
+            const post = data.Post || {};
+            const page = new Page(post);
+            page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+            page.picturePath = UrlService.createPictureUrl(page.picture);
+            this.page = page;
+            // seo
+            this.titleService.setTitle(this.page.metaTitle);
+            this.metaService.addTag({name: 'description', content: this.page.metaDesc});
+            this.metaService.addTag({name: 'keywords', content: this.page.metaKey});
+            this.bannerService
+                .fetch('contact_page', this.page.id)
+                .subscribe((bannersResp: any) => {
+                    const banners = bannersResp.Banner;
+                    this.banners = banners.map(banner => {
+                        banner.large = UrlService.createMediaUrl(banner.Url);
+                        banner.small = banner.large;
+                        banner.url = banner.Link;
+                        banner.title = banner.title;
+                        banner.desc = banner.desc;
+                        return banner;
+                    });
+                });
+
+
         });
-
-
-    });
-  }
+    }
 
 }

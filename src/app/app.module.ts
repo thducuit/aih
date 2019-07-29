@@ -26,14 +26,12 @@ import { AboutComponent } from './containers/abouts/about/about.component';
 import { QaComponent } from './containers/abouts/qa/qa.component';
 import { TestimonialComponent } from './containers/abouts/testimonial/testimonial.component';
 import { ContactComponent } from './containers/contact/contact.component';
-import { JobComponent } from './containers/job/job.component';
 import { EventComponent } from './containers/news/event/event.component';
 
 // services
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
 import { ServiceComponent } from './containers/services/service/service.component';
 import { FactsheetComponent } from './containers/services/factsheet/factsheet.component';
-import { PackageComponent } from './containers/services/package/package.component';
 
 // COMPONENTS
 import { BookingDoctorComponent } from './components/booking-doctor/booking-doctor.component';
@@ -114,7 +112,6 @@ import { FaqItemComponent } from './components/faq-item/faq-item.component';
 import { environment } from 'src/environments/environment';
 import { PostService } from './services/post.service';
 import { NewsDetailComponent } from './containers/news/news-detail/news-detail.component';
-import { NewsComponent } from './containers/news/news/news.component';
 import { PartnerService } from './services/partner.service';
 import { FeedbackService } from './services/feedback.service';
 import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
@@ -162,14 +159,12 @@ export function createTranslateLoader(http: HttpClient) {
 
     EventComponent,
     VideoComponent,
-    JobComponent,
     ContactComponent,
     CareerComponent,
 
     ServiceComponent,
     InsuranceComponent,
     FactsheetComponent,
-    PackageComponent,
 
     MedicalComponent,
 
@@ -234,7 +229,6 @@ export function createTranslateLoader(http: HttpClient) {
     DoctorItemComponent,
     FaqItemComponent,
     NewsDetailComponent,
-    NewsComponent,
     DoctorDetailComponent,
     SidebarComponent,
     ServiceDetailComponent,

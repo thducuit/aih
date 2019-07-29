@@ -9,7 +9,9 @@ export class Blog {
   public picturePath;
   public url;
   public datepublish;
-
+  public metaDesc;
+  public metaKey;
+  public metaTitle;
   public sort;
   constructor(data) {
     this.id = data.post_id;
@@ -20,6 +22,9 @@ export class Blog {
     this.picture = data.post_picture;
     this.sort = data.post_sort;
     this.alias = data.alias_name;
+    this.metaDesc = data.post_metadesc;
+    this.metaKey = data.post_metakey;
+    this.metaTitle = data.post_metatitle;
     this.picturePath = null;
     this.url = null;
     this.datepublish = new Date(data.post_datepublish);

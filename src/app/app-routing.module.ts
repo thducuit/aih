@@ -11,7 +11,6 @@ import { TestimonialComponent } from './containers/abouts/testimonial/testimonia
 import { ServiceComponent } from './containers/services/service/service.component';
 import { InsuranceComponent } from './containers/services/insurance/insurance.component';
 import { FactsheetComponent } from './containers/services/factsheet/factsheet.component';
-import { PackageComponent } from './containers/services/package/package.component';
 import { DoctorComponent } from './containers/doctor/doctor.component';
 import { VideoComponent } from './containers/news/video/video.component';
 import { EventComponent } from './containers/news/event/event.component';

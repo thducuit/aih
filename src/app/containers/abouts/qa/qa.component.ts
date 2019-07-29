@@ -46,7 +46,6 @@ export class QaComponent implements OnInit, OnDestroy {
 
   loadFaqs() {
     this.faqsService.fetch(this.currentPage).subscribe((response: any) => {
-      console.log(response);
       const media = response.Media || [];
       this.faqs = media
         .filter(x => {

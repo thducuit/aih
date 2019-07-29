@@ -6,6 +6,7 @@ import {Page} from '../../models/page';
 import {PackageService} from '../../services/package.service';
 import {Package} from '../../models/package';
 import {Packagechild} from '../../models/packagechild';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-medical',
@@ -24,7 +25,9 @@ export class MedicalComponent implements OnInit {
 
     constructor(public pageService: PageService,
                 public bannerService: BannerService,
-                public packageService: PackageService) {
+                public packageService: PackageService,
+                private metaService: Meta,
+                private titleService: Title) {
     }
 
     ngOnInit() {
@@ -39,7 +42,10 @@ export class MedicalComponent implements OnInit {
             page.longDesc = UrlService.fixPictureUrl(page.longDesc);
             page.picturePath = UrlService.createPictureUrl(page.picture);
             this.page = page;
-
+            // seo
+            this.titleService.setTitle(this.page.metaTitle);
+            this.metaService.addTag({name: 'description', content: this.page.metaDesc});
+            this.metaService.addTag({name: 'keywords', content: this.page.metaKey});
             this.bannerService
                 .fetch('packagepage', this.page.id)
                 .subscribe((bannersResp: any) => {
