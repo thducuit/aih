@@ -89,6 +89,10 @@ export class SectionBookingHomeComponent
         });
 
         this.bookingSpecialty && this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
+
+        if (this.selectedDate) {
+            this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+        }
     }
 
     handleSelectDate(date) {

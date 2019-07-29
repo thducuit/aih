@@ -1,3 +1,11 @@
 .box-details-medical.active {
   display: block;
 }
+
+#show-hidden-menu img {
+  transform: rotate(0)
+}
+
+#show-hidden-menu.active img {
+  transform: rotate(180deg)
+}
