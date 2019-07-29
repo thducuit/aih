@@ -2,7 +2,7 @@ import {Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter
 import { NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 import {DateService} from '../../services/date.service';
 import moment from 'moment';
-import { momentToNgbDate } from 'src/app/utilities';
+import { momentToNgbDate, stringPadStart } from 'src/app/utilities';
 
 @Component({
   selector: 'app-booking-date',
@@ -13,7 +13,7 @@ export class BookingDateComponent implements OnInit {
   selectedDate: NgbDateStruct;
   expanded = false;
   @Input() doctorSchedule: any;
-  @Output() changeDate = new EventEmitter<any>();
+  @Output() changeDate = new EventEmitter<NgbDateStruct>();
   public isDisabled: any;
   constructor(private calendar: NgbCalendar) {
   }
@@ -37,11 +37,8 @@ export class BookingDateComponent implements OnInit {
 
   onDateSelect(date: NgbDateStruct) {
     this.expanded = false;
-    const newMonthFormat = date.month < 10 ? `0${date.month}` : date.month;
-    const newDayFormat = date.day < 10 ? `0${date.day}` : date.day;
-    const newDate = `${newDayFormat}/${newMonthFormat}/${date.year}`;
     this.selectedDate = date;
-    this.changeDate.emit(newDate);
+    this.changeDate.emit(date);
   }
 
   onClickOutSide(e) {
@@ -50,7 +47,7 @@ export class BookingDateComponent implements OnInit {
 
   getDateString() {
     const date = this.selectedDate;
-    return date ? `${date.day}-${date.month}-${date.year}` : '';
+    return date ? `${stringPadStart(String(date.day), 2, '0')}-${stringPadStart(String(date.month), 2, '0')}-${date.year}` : '';
   }
 
   getMinDate(): NgbDateStruct {

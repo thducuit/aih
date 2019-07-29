@@ -75,3 +75,29 @@ export function compareTwoHours(h1: string, h2: string) {
   }
   return 0;
 }
+
+export function stringPadStart(
+  str: string,
+  targetLength: number,
+  padString: string,
+): string {
+  targetLength = targetLength >> 0; // truncate if number, or convert non-number to 0;
+  padString = String(typeof padString !== 'undefined' ? padString : ' ');
+  if (str.length >= targetLength) {
+    return String(str);
+  } else {
+    targetLength = targetLength - str.length;
+    if (targetLength > padString.length) {
+      padString += padString.repeat(targetLength / padString.length); // append to original to ensure we are longer than needed
+    }
+    return padString.slice(0, targetLength) + String(str);
+  }
+}
+
+export function ngbDateStructToString(date: NgbDateStruct) {
+  return `${date.year}-${stringPadStart(
+    String(date.month),
+    2,
+    '0',
+  )}-${stringPadStart(String(date.day), 2, '0')}`;
+}

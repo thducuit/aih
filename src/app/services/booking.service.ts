@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 import { environment } from '../../environments/environment';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { stringPadStart } from '../utilities';
 
 @Injectable()
 export class BookingService {
@@ -40,8 +42,9 @@ export class BookingService {
     return this.http.post('booking/list', postData);
   }
 
-  callDateBooking(empId, curDate) {
-    const url = `api/booking/loadTimeBlock?empId=${empId}&clinicId=&curDate=${curDate}`;
+  callDateBooking(empId, curDate: NgbDateStruct) {
+    const dateFormatted = `${stringPadStart(String(curDate.day), 2, '0')}/${stringPadStart(String(curDate.month), 2, '0')}/${curDate.year}`;
+    const url = `api/booking/loadTimeBlock?empId=${empId}&clinicId=&curDate=${dateFormatted}`;
     const postData = {
       url
     };
@@ -69,12 +72,14 @@ export class BookingService {
     return this.http.post('customer/detail', postData);
   }
 
-  callBooking(clinicId, doctorId, date, time, phone) {
-    const arr = date.split('/');
+  callBooking(clinicId, doctorId, date: NgbDateStruct, time, phone) {
+    const monthStr = stringPadStart(String(date.month), 2, '0');
+    const dayStr = stringPadStart(String(date.day), 2, '0');
+    const timeStr = stringPadStart(String(time), 5, '0'); // Should be HH:mm
     const postData = {
       booking_clinic_id: clinicId,
       booking_emp_id: doctorId,
-      booking_datetime: `${arr[2]}-${arr[1]}-${arr[0]} ${time}:00`,
+      booking_datetime: `${date.year}-${monthStr}-${dayStr} ${timeStr}:00`,
       booking_description: '',
       customer_phone: phone,
       booking_lang: 'vi-VN',
