@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CareerService} from '../../services/career.service';
 
 @Component({
   selector: 'app-career-form',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CareerFormComponent implements OnInit {
 
-  constructor() { }
+  public form = {
+      fullname: '',
+      position: '',
+      phone: '',
+      email: '',
+      content: '',
+  };
+  constructor(
+      public careerService: CareerService
+  ) { }
 
   ngOnInit() {
+  }
+
+  submitForm() {
+    this.careerService.apply(this.form).subscribe( (data: any) => {
+        console.log('form', data);
+    });
   }
 
 }

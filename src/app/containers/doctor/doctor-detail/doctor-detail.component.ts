@@ -15,6 +15,8 @@ import {Meta, Title} from '@angular/platform-browser';
 
 export class DoctorDetailComponent implements OnInit, OnDestroy {
     public doctor: Doctor;
+    public postNext: Doctor;
+    public postPrev: Doctor;
     private subscription: Subscription;
 
     constructor(private route: ActivatedRoute,
@@ -53,6 +55,19 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
                 }
                 doctor.longDesc = UrlService.fixPictureUrl(doctor.longDesc);
                 this.doctor = doctor;
+                this.postService.fetchNextPrevDoctor(doctor.id).subscribe((data2) => {
+                    if (data2['PostNext']) {
+                        const postNext = new Doctor(data2['PostNext']);
+                        postNext.url = UrlService.createDoctorDetailUrl(postNext.alias);
+                        this.postNext = postNext;
+                    }
+
+                    if (data2['PostPrev']) {
+                        const postPrev = new Doctor(data2['PostPrev']);
+                        postPrev.url = UrlService.createDoctorDetailUrl(postPrev.alias);
+                        this.postPrev = postPrev;
+                    }
+                });
                 // seo
                 this.titleService.setTitle(this.doctor.metaTitle);
                 this.metaService.addTag({name: 'description', content: this.doctor.metaDesc});

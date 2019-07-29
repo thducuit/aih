@@ -15,6 +15,8 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class NewsDetailComponent implements OnInit, OnDestroy {
     public blog: Blog;
+    public postNext: Blog;
+    public postPrev: Blog;
     public blogs: Array<Blog> = [];
     private subscription: Subscription;
 
@@ -58,6 +60,19 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             this.titleService.setTitle(this.blog.metaTitle);
             this.metaService.addTag({name: 'description', content: this.blog.metaDesc});
             this.metaService.addTag({name: 'keywords', content: this.blog.metaKey});
+
+            this.postService.fetchNextPrevNews(blog.id).subscribe((data2) => {
+                if (data2['PostNext']) {
+                    const postNext = new Blog(data2['PostNext']);
+                    postNext.url = UrlService.createNewsDetailUrl(postNext.alias);
+                    this.postNext = postNext;
+                }
+                if (data2['PostPrev']) {
+                    const postPrev = new Blog(data2['PostPrev']);
+                    postPrev.url = UrlService.createNewsDetailUrl(postPrev.alias);
+                    this.postPrev = postPrev;
+                }
+            });
         });
     }
 

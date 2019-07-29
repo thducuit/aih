@@ -10,24 +10,24 @@
       </li>
       <li>
         <div class="ip-w">
-          <input type="text" name="fullname" class="js-required form-control" placeholder="{{ 'your_name' | translate }}">
+          <input type="text" name="fullname" [(ngModel)]="form.fullname" class="js-required form-control" placeholder="{{ 'your_name' | translate }}">
         </div>
         <div class="ip-w">
-          <input type="text" name="position" class="js-required form-control" placeholder="{{ 'desired_position' | translate }}">
+          <input type="text" name="position" [(ngModel)]="form.position" class="js-required form-control" placeholder="{{ 'desired_position' | translate }}">
         </div>
       </li>
       <li>
         <div class="ip-w">
-          <input type="text" name="phone" class="js-required js-number js-phone form-control"
+          <input type="text" name="phone" [(ngModel)]="form.phone" class="js-required js-number js-phone form-control"
                  placeholder="{{ 'phone_number' | translate }}">
         </div>
         <div class="ip-w">
-          <input type="text" name="email" class="js-required js-email form-control" placeholder="{{ 'your_email' | translate }}">
+          <input type="text" name="email" [(ngModel)]="form.email" class="js-required js-email form-control" placeholder="{{ 'your_email' | translate }}">
         </div>
       </li>
       <li>
         <div class="text-a">
-          <textarea name="content" placeholder="{{ 'enter_up_to_100_character' | translate }}"></textarea>
+          <textarea name="content" [(ngModel)]="form.content" placeholder="{{ 'enter_up_to_100_character' | translate }}"></textarea>
           <div class="att-file">
             <a class="js-file" href="#">{{ 'attach_file' | translate }}</a>
             <input id="ipFile" name="file" type="file"
@@ -44,7 +44,7 @@
       <li>
 
         <input type="hidden" name="_token" value="">
-        <input class="btn-page js-career-submit" type="submit" placeholder="{{ 'submit' | translate }}" value="{{ 'submit' | translate }}">
+        <input class="btn-page js-career-submit" (click)="submitForm()" type="submit" placeholder="{{ 'submit' | translate }}" value="{{ 'submit' | translate }}">
       </li>
     </ul>
   </form>

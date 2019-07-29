@@ -40,14 +40,16 @@
         <div class="copy" innerHTML="{{ doctor.longDesc | decodeHtmlEntities }}">
         </div>
       </div>
+
       <div class="btn-dt clearfix">
-        <a class="prev-doctor" href="63-to-van-quyen-md">{{'previous_link' | translate}}
-          <br><span>BS. Tô Văn Quyền</span>
+        <a *ngIf="postPrev" class="prev-doctor" routerLink="{{ postPrev.url }}">{{'previous_link' | translate}}
+          <br><span>{{ postPrev.name }}</span>
         </a>
-        <a class="next-doctor" href="25-nguyen-tan-cuong-md-msc.html">{{'next_link' | translate}}
-          <br/><span>Nguyen Tan Cuong, MD., MSc.</span>
+        <a *ngIf="postNext" class="next-doctor" routerLink="{{ postNext.url }}">{{'next_link' | translate}}
+          <br/><span>{{ postNext.url }}</span>
         </a>
       </div>
+
     </div>
   </section>
 
