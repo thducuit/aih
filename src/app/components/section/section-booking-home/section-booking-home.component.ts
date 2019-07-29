@@ -144,8 +144,8 @@ export class SectionBookingHomeComponent
           const dateTo = moment(x.dateTo);
           result =
             result &&
-            dateFrom.isBefore(currentDate, 'day') &&
-            dateTo.isAfter(currentDate, 'day');
+            dateFrom.isSameOrBefore(currentDate, 'day') &&
+            dateTo.isSameOrAfter(currentDate, 'day');
         }
         return result;
       })
