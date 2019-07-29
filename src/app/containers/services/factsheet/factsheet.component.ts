@@ -61,6 +61,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
             banner.desc = banner.desc;
             return banner;
           });
+          console.log('banners', banners);
         });
     });
   }
