@@ -25,7 +25,7 @@
 					<!-- <p class="note note-doctor">* Please select a doctor</p> -->	
           <app-booking-doctor
             #bookingDoctor
-            [doctorIds]="getAvaiableDoctorBySelectedClinic()"
+            [doctorIds]="filterAvailableDoctors()"
             (choose)="handleSelectDoctor($event)"
           ></app-booking-doctor>
 				</div>
