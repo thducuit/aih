@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 import { environment } from '../../environments/environment';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { stringPadStart } from '../utilities';
 
 @Injectable()
 export class BookingService {
@@ -41,8 +42,9 @@ export class BookingService {
     return this.http.post('booking/list', postData);
   }
 
-  callDateBooking(empId, curDate) {
-    const url = `api/booking/loadTimeBlock?empId=${empId}&clinicId=&curDate=${curDate}`;
+  callDateBooking(empId, curDate: NgbDateStruct) {
+    const dateFormatted = `${stringPadStart(String(curDate.day), 2, '0')}/${stringPadStart(String(curDate.month), 2, '0')}/${curDate.year}`;
+    const url = `api/booking/loadTimeBlock?empId=${empId}&clinicId=&curDate=${dateFormatted}`;
     const postData = {
       url
     };
