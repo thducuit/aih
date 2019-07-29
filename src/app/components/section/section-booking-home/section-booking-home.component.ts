@@ -75,12 +75,13 @@ export class SectionBookingHomeComponent
   }
 
   loadSchedule() {
-    // this.bookingService.callDoctorSchedule().subscribe( (data: any) => {
-    //
-    // });
-    const schedule = JSON.parse(this.json);
-    this.schedule = schedule.map((item) => {
-      return new Schedule(item);
+    this.bookingService.callDoctorSchedule().subscribe( (data: any) => {
+      if (data['Data']) {
+          const schedule = JSON.parse(data['Data']);
+          this.schedule = schedule.map((item) => {
+              return new Schedule(item);
+          });
+      }
     });
   }
 
