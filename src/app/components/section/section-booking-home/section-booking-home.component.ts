@@ -159,6 +159,10 @@ export class SectionBookingHomeComponent
     return doctorIds;
   }
 
+  handleSelectCustomerPhone(phone) {
+    this.selectedPhone = phone;
+  }
+
   handleBooking() {
     this.bookingService
       .callBooking(
