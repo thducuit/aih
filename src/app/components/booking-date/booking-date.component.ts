@@ -58,11 +58,8 @@ export class BookingDateComponent implements OnInit {
   }
 
   getMarkDisableDate() {
-    const days = this.doctorSchedule
-      ? DateService.getDatesByRank(this.doctorSchedule.dateFrom, this.doctorSchedule.dateTo, this.doctorSchedule.slot)
-      : null;
     return (date: NgbDate) => {
-      return this.calendar.getWeekday(date) > 6 || (days && days.indexOf(date.day) === -1);
+      return this.calendar.getWeekday(date) > 6;
     };
   }
 }
