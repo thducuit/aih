@@ -137,6 +137,8 @@ import {BookingService} from './services/booking.service';
 import {DateService} from './services/date.service';
 import {CustomerRegisterComponent} from './components/popup/customer-register/customer-register.component';
 import {NumberDirective} from './shared/numbers-only.directive';
+import {ContactFormComponent} from './components/contact-form/contact-form.component';
+import {ContactService} from './services/contact.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -239,6 +241,7 @@ export function createTranslateLoader(http: HttpClient) {
         CareerDetailComponent,
         CareerFormComponent,
         CustomerRegisterComponent,
+        ContactFormComponent,
         NumberDirective
     ],
     imports: [
@@ -287,7 +290,8 @@ export function createTranslateLoader(http: HttpClient) {
         CareerCategoryService,
         CareerService,
         BookingService,
-        DateService
+        DateService,
+        ContactService
     ],
     bootstrap: [AppComponent],
     exports: [DecodeHtmlEntitiesModule],

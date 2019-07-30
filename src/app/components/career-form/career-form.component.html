@@ -10,19 +10,19 @@
       </li>
       <li>
         <div class="ip-w">
-          <input type="text" (blur)="validate()" name="fullname" [(ngModel)]="form.fullname" class="js-required form-control {{ errorFullname ? 'error' : '' }}" placeholder="{{ 'your_name' | translate }}">
+          <input type="text" (blur)="validator()" name="fullname" [(ngModel)]="form.fullname" class="js-required form-control {{ errorFullname ? 'error' : '' }}" placeholder="{{ 'your_name' | translate }}">
         </div>
         <div class="ip-w">
-          <input type="text" (blur)="validate()" name="position" [(ngModel)]="form.position" class="js-required form-control {{ errorPosition ? 'error' : '' }}" placeholder="{{ 'desired_position' | translate }}">
+          <input type="text" (blur)="validator()" name="position" [(ngModel)]="form.position" class="js-required form-control {{ errorPosition ? 'error' : '' }}" placeholder="{{ 'desired_position' | translate }}">
         </div>
       </li>
       <li>
         <div class="ip-w">
-          <input type="text" (blur)="validate()" name="phone" numbersOnly [(ngModel)]="form.phone" class="js-required js-number js-phone form-control {{ errorPhone ? 'error' : '' }}"
+          <input type="text" (blur)="validator()" name="phone" numbersOnly [(ngModel)]="form.phone" class="js-required js-number js-phone form-control {{ errorPhone ? 'error' : '' }}"
                  placeholder="{{ 'phone_number' | translate }}">
         </div>
         <div class="ip-w">
-          <input type="text" (blur)="validate()" name="email" [(ngModel)]="form.email" class="js-required js-email form-control {{ errorEmail ? 'error' : '' }}" placeholder="{{ 'your_email' | translate }}">
+          <input type="text" (blur)="validator()" name="email" [(ngModel)]="form.email" class="js-required js-email form-control {{ errorEmail ? 'error' : '' }}" placeholder="{{ 'your_email' | translate }}">
         </div>
       </li>
       <li>

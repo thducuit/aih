@@ -184,5 +184,11 @@
   "text_career_form_success": "Thông tin của bạn đã gửi thành công. Chúng tôi sẽ liên hệ trong thời gian sớm nhất",
   "text_career_form_fail": "Có lỗi xảy ra vui lòng thử lại!!!",
   "text_file_size": "Tối đa 3MB",
-  "text_file_type": "Chỉ cho phép loại file: doc, xls, pdf"
+  "text_file_type": "Chỉ cho phép loại file: doc, xls, pdf",
+  "text_contact_form_success": "Chúng tôi sẽ liên hệ bạn trong thời gian ngắn nhất",
+  "text_contact_form_fail": "Có lỗi. Vui lòng thử lại!!!",
+  "contact_name": "Họ và tên",
+  "contact_email": "Email",
+  "contact_question": "Câu hỏi",
+  "contact_send": "Gửi"
 }

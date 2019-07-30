@@ -184,5 +184,11 @@
   "text_career_form_success": "Your information is sent successful.We will contact you soon",
   "text_career_form_fail": "Error. Please try again!!!",
   "text_file_size": "Maximum file size is 3MB",
-  "text_file_type": "Only type doc, xls, pdf"
+  "text_file_type": "Only type doc, xls, pdf",
+  "text_contact_form_success": "We will reply you soon, Thank you",
+  "text_contact_form_fail": "Error. Please try again!!!",
+  "contact_name": "Fullname",
+  "contact_email": "Email",
+  "contact_question": "Question",
+  "contact_send": "Send"
 }

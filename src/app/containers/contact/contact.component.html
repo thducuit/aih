@@ -25,33 +25,7 @@
         <h4>{{ page.name }}</h4>
         <div innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
       </div>
-      <div class="form-ct">
-        <ul class="frmContact">
-          <li>
-            <div>
-              <label>Họ tên*</label>
-              <input type="text" name="fullname" class="js-required form-control" placeholder="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <label>Email*</label>
-              <input type="text" name="email" class="js-required js-email form-control" placeholder="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <label>Câu hỏi</label>
-              <textarea name="message" class="form-control"></textarea>
-            </div>
-          </li>
-          <li>
-            <div class="g-recaptcha" data-sitekey="6LfiNWoUAAAAAD6vpU0zFLh72P2PVR1Xr5zMinpL"></div>
-            <input type="hidden" name="_token" value="VRktS3jTtN9lSqGJgCRwF1g6MI6H04c7KjOAS3Lv">
-            <input class="btn-page" data-href="http://www.aih.com.vn/contact" type="submit" value="Gửi">
-          </li>
-        </ul>
-      </div>
+      <app-contact-form></app-contact-form>
       <div class="rating">
         <h3>Đánh giá</h3>
         <ul class="frmRating">
