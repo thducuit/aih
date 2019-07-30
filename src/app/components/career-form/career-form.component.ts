@@ -25,7 +25,7 @@ export class CareerFormComponent implements OnInit {
     public errorPhone = false;
     public errorEmail = false;
 
-    @ViewChild('uploadFile') uploadFile: ElementRef<HTMLElement>;
+    @ViewChild('uploadFile', {static: false}) uploadFile: ElementRef<HTMLElement>;
 
     constructor(public careerService: CareerService, private translate: TranslateService) {
     }
@@ -122,7 +122,7 @@ export class CareerFormComponent implements OnInit {
         fileReader.onloadend = () => {
             let binary = '';
             const buffer = fileReader.result;
-            const bytes = new Uint8Array(buffer);
+            const bytes = new Uint8Array(buffer as ArrayBuffer);
             const len = bytes.byteLength;
             for (let i = 0; i < len; i++) {
                 binary += String.fromCharCode(bytes[i]);
