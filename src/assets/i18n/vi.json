@@ -180,5 +180,9 @@
   "register_female": "Nữ",
   "register_country": "Vùng/Khu vực",
   "text_register_success": "Quý khách đăng ký tài khoản thành công",
-  "text_register_fail": "Có lỗi xảy ra vui lòng liên hệ ban quản trị"
+  "text_register_fail": "Có lỗi xảy ra vui lòng liên hệ ban quản trị",
+  "text_career_form_success": "Thông tin của bạn đã gửi thành công. Chúng tôi sẽ liên hệ trong thời gian sớm nhất",
+  "text_career_form_fail": "Có lỗi xảy ra vui lòng thử lại!!!",
+  "text_file_size": "Tối đa 3MB",
+  "text_file_type": "Chỉ cho phép loại file: doc, xls, pdf"
 }

@@ -10,27 +10,27 @@
       </li>
       <li>
         <div class="ip-w">
-          <input type="text" name="fullname" [(ngModel)]="form.fullname" class="js-required form-control" placeholder="{{ 'your_name' | translate }}">
+          <input type="text" (blur)="validate()" name="fullname" [(ngModel)]="form.fullname" class="js-required form-control {{ errorFullname ? 'error' : '' }}" placeholder="{{ 'your_name' | translate }}">
         </div>
         <div class="ip-w">
-          <input type="text" name="position" [(ngModel)]="form.position" class="js-required form-control" placeholder="{{ 'desired_position' | translate }}">
+          <input type="text" (blur)="validate()" name="position" [(ngModel)]="form.position" class="js-required form-control {{ errorPosition ? 'error' : '' }}" placeholder="{{ 'desired_position' | translate }}">
         </div>
       </li>
       <li>
         <div class="ip-w">
-          <input type="text" name="phone" [(ngModel)]="form.phone" class="js-required js-number js-phone form-control"
+          <input type="text" (blur)="validate()" name="phone" numbersOnly [(ngModel)]="form.phone" class="js-required js-number js-phone form-control {{ errorPhone ? 'error' : '' }}"
                  placeholder="{{ 'phone_number' | translate }}">
         </div>
         <div class="ip-w">
-          <input type="text" name="email" [(ngModel)]="form.email" class="js-required js-email form-control" placeholder="{{ 'your_email' | translate }}">
+          <input type="text" (blur)="validate()" name="email" [(ngModel)]="form.email" class="js-required js-email form-control {{ errorEmail ? 'error' : '' }}" placeholder="{{ 'your_email' | translate }}">
         </div>
       </li>
       <li>
         <div class="text-a">
           <textarea name="content" [(ngModel)]="form.content" placeholder="{{ 'enter_up_to_100_character' | translate }}"></textarea>
           <div class="att-file">
-            <a class="js-file" href="#">{{ 'attach_file' | translate }}</a>
-            <input id="ipFile" name="file" type="file"
+            <a class="js-file" (click)="openSelectFile()" >{{ 'attach_file' | translate }}</a>
+            <input #uploadFile id="ipFile" name="file" type="file" (change)="processUploadFile($event)"
                    data-message="Only with file .pdf, .doc, .docx, .xls, .xlsx.Max: 3mb" style="display: none;">
             <p class="js-file-name">{{ 'only_with_file_.pdf,_.doc,_.docx,_.xls,_.xlsx.max:_3mb' | translate }}</p>
           </div>
