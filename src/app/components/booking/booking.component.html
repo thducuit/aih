@@ -2,16 +2,7 @@
 <div stickyThing [spacer]="spacer" class="bookingwrap-hd frmBooking">
 	<div class="container clearfix bbase">
 		<div class="booking-hd">
-			<div class="booking-wrap">
-
-				<div class="item"><app-booking-phone-number></app-booking-phone-number></div>
-				<div class="item"><app-booking-specialty></app-booking-specialty></div>
-				<div class="item"><app-booking-doctor></app-booking-doctor></div>
-				<div class="item"><app-booking-date></app-booking-date></div>
-				<div class="item"><app-booking-time></app-booking-time></div>
-				
-			</div>
-			<input class="btn-booking js-booking" type="submit" value="">
+			<app-booking-base [useForHome]="false"></app-booking-base>
 		</div>
 	</div>
 </div>
