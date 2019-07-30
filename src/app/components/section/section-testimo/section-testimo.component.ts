@@ -41,7 +41,6 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
       const feedback = new Feedback(post);
       feedback.thumb = UrlService.createMediaUrl(feedback.thumb);
       feedback.iframeSrc = UrlService.createIframeUrl(feedback.file);
-      console.log('feedback', feedback);
       this.feedback = feedback;
     });
   }
