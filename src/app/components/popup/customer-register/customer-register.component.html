@@ -1,34 +1,31 @@
 <section class="modal modalWindow {{ isShowPopup ? 'active' : 'deactive' }}" id="popupOne">
   <section class="modalWrapper">
     <div class="box-popup-regis-form">
-      <h4>ĐĂNG KÝ TÀI KHOẢN</h4>
-      <p>Vui lòng điền vào thông tin bên dưới</p>
-      <div class="error" *ngIf="error">{{ error }}</div>
+      <h4>{{ 'register_title' | translate }}</h4>
+      <p>{{ 'register_note' | translate }}</p>
       <form action="">
 
         <div class="box-popup-regis-textbox">
           <div class="form-group clearfix">
-            <input (blur)="validate()" type="" class="form-control" name="firstName" [(ngModel)]="form.firstName" placeholder="Họ và Tên">
+            <input (blur)="validate()" type="" class="form-control {{ errorFirstName ? 'error' : '' }}" name="firstName" [(ngModel)]="form.firstName" placeholder="{{ 'register_name' | translate }}">
             <p class="check-must">*</p>
           </div>
-          <!--<div class="form-group clearfix">
-            <input type="" class="form-control" name="lastName" [(ngModel)]="form.lastName" placeholder="Họ">
-            <p class="check-must">*</p>
-          </div>-->
+
           <div class="form-group clearfix">
-            <input type="" class="form-control" name="email" [(ngModel)]="form.email" placeholder="Địa chỉ email">
+            <input type="" class="form-control {{ errorEmail ? 'error' : '' }}" name="email" [(ngModel)]="form.email" placeholder="{{ 'register_email' | translate }}">
           </div>
           <div class="form-group clearfix">
-            <input type="" class="form-control" value="{{ form.phone }}" disabled name="phone" placeholder="Số điện thoại di động">
+            <input type="" class="form-control" value="{{ form.phone }}" disabled name="phone" placeholder="{{ 'register_phone' | translate }}">
             <p class="check-must">*</p>
           </div>
         </div>
         <div class="box-popup-regis-textbox">
           <div class="form-group clearfix">
             <div class="center">
-              <select id="sex"  name="sex" [(ngModel)]="form.sex" class="custom-select sources" placeholder="Chọn giới tính">
-                <option value="1">Nam</option>
-                <option value="2">Nữ</option>
+              <select id="sex" (change)="validate()"  name="sex" [(ngModel)]="form.sex" class="custom-select sources {{ errorSex ? 'error' : '' }}">
+                <option value="0">{{ 'register_sex' | translate }}</option>
+                <option value="1">{{ 'register_male' | translate }}</option>
+                <option value="2">{{ 'register_female' | translate }}</option>
               </select>
             </div>
             <p class="check-must">*</p>
@@ -37,7 +34,8 @@
             <div class="box-choose">
               <div class="form-group clearfix">
                 <div class="center">
-                  <select id="dayBirth" name="dayBirth" [(ngModel)]="form.dayBirth" class="custom-select sources" placeholder="Ngày sinh">
+                  <select id="dayBirth" name="dayBirth" [(ngModel)]="form.dayBirth" class="custom-select sources" >
+                    <option value="">{{ 'register_dbirth' | translate }}</option>
                     <option *ngFor="let item of days" value="{{ item }}">{{ item }}</option>
                   </select>
                 </div>
@@ -46,7 +44,8 @@
             <div class="box-choose">
               <div class="form-group clearfix">
                 <div class="center">
-                  <select id="monthBirth"  name="monthBirth" [(ngModel)]="form.monthBirth" class="custom-select sources" placeholder="Tháng sinh">
+                  <select id="monthBirth"  name="monthBirth" [(ngModel)]="form.monthBirth" class="custom-select sources" >
+                    <option value="">{{ 'register_mbirth' | translate }}</option>
                     <option *ngFor="let item of months" value="{{ item }}">{{ item }}</option>
                   </select>
                 </div>
@@ -55,7 +54,8 @@
             <div class="box-choose">
               <div class="form-group clearfix">
                 <div class="center">
-                  <select id="yearBirth"  name="yearBirth" [(ngModel)]="form.yearBirth" class="custom-select sources" placeholder="Năm sinh">
+                  <select id="yearBirth"  name="yearBirth" [(ngModel)]="form.yearBirth" class="custom-select sources" >
+                    <option value="">{{ 'register_dbirth' | translate }}</option>
                     <option *ngFor="let item of years" value="{{ item }}">{{ item }}</option>
                   </select>
                 </div>
@@ -64,19 +64,20 @@
           </div>
           <div class="form-group clearfix">
             <div class="center">
-              <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources" placeholder="Việt Nam">
+              <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources">
+                <option value="">{{ 'register_country' | translate }}</option>
                 <option value="{{ country['country_rcd'] }}" *ngFor="let country of countries">{{ country['name_l'] }}</option>
               </select>
             </div>
           </div>
           <div class="form-group clearfix">
-            <a class="btn-form-send" (click)="sendForm()">GỬI</a>
+            <a class="btn-form-send" (click)="sendForm()">{{ 'register_send' | translate }}</a>
           </div>
         </div>
       </form>
 
     </div>
   </section>
-  <a class="closeBtn" (click)="handleClosePopup()">ĐÓNG X</a>
+  <a class="closeBtn" (click)="handleClosePopup()">{{ 'register_close' | translate }} X</a>
 </section>
 <section class="modal overlay"></section>

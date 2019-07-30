@@ -158,5 +158,27 @@
   "©_2018_american_international_hospital._all_rights_reserved.": "© 2018 American International Hospital. All rights reserved.",
   "menu": {
     "home": "Trang chủ"
-  }
+  },
+  "text_close": "Đóng lại",
+  "text_booking_require_phone": "Vui lòng nhập số điện thoại",
+  "text_booking_require_doctor": "Vui lòng chọn bác sỹ",
+  "text_booking_require_time": "Vui lòng chọn giờ",
+  "text_booking_success": "Quý khách đã đăng ký thành công",
+  "text_booking_error": "Có lỗi trong quá trình đăng ký",
+  "register_title": "ĐĂNG KÝ TÀI KHOẢN",
+  "register_note": "Vui lòng điền vào thông tin bên dưới",
+  "register_name": "Họ và tên",
+  "register_email": "Địa chỉ email của bạn",
+  "register_phone": "Số điện thoại của bạn",
+  "register_sex": "Chọn giới tính",
+  "register_dbirth": "Ngày sinh",
+  "register_mbirth": "Tháng sinh",
+  "register_ybirth": "Năm sinh",
+  "register_send": "GỬI",
+  "register_close": "ĐÓNG",
+  "register_male": "Nam",
+  "register_female": "Nữ",
+  "register_country": "Vùng/Khu vực",
+  "text_register_success": "Quý khách đăng ký tài khoản thành công",
+  "text_register_fail": "Có lỗi xảy ra vui lòng liên hệ ban quản trị"
 }

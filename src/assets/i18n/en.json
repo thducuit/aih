@@ -158,5 +158,27 @@
   "©_2018_american_international_hospital._all_rights_reserved.": "© 2018 American International Hospital. All rights reserved.",
   "menu": {
     "home": "Home"
-  }
+  },
+  "text_close": "Close",
+  "text_booking_require_phone": "Phone number is required",
+  "text_booking_require_doctor": "Select doctor before booking",
+  "text_booking_require_time": "Select time before booking",
+  "text_booking_success": "Booking success",
+  "text_booking_error": "Booking error. Try again!!!",
+  "register_title": "REGISTER ACCOUNT",
+  "register_note": "Please input form above",
+  "register_name": "Fullname",
+  "register_email": "Your email",
+  "register_phone": "Your phone",
+  "register_sex": "Sex",
+  "register_dbirth": "Day of birth",
+  "register_mbirth": "Month of birth",
+  "register_ybirth": "Year of birth",
+  "register_send": "SEND",
+  "register_close": "CLOSE",
+  "register_male": "Male",
+  "register_female": "Female",
+  "register_country": "Country",
+  "text_register_success": "Register account is success",
+  "text_register_fail": "Register account is fail.Please contact us"
 }
