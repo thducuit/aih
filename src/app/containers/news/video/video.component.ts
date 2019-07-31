@@ -52,7 +52,6 @@ export class VideoComponent implements OnInit, OnDestroy {
                     return item;
                 }
             });
-            console.log('this.videos', videos);
         });
     }
 

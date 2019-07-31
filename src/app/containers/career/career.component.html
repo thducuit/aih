@@ -15,7 +15,7 @@
             <div class="copy">
               <h3>{{ banner ? banner.Content : '' }}</h3>
               <h2>{{ banner ? banner.Title : '' }}</h2>
-              <a class="btn-page js-scrollForm" href="#">{{ 'apply_now' | translate }}</a>
+              <a class="btn-page js-scrollForm" >{{ 'apply_now' | translate }}</a>
             </div>
           </div>
         </div>
@@ -25,32 +25,9 @@
   </div>
 
   <section class="cr-wrap">
-    <div class="container">
-
-      <div class="item-cr">
-        <div class="tt-page">
-          <h4>{{ 'careers' | translate }}</h4>
-          <h3>{{ 'opportunities' | translate }}</h3>
-        </div>
-      </div>
-
-      <div class="item-cr" *ngFor="let careerCategory of careerCategories">
-        <div class="list-cr">
-          <h3>{{ careerCategory.name }}</h3>
-          <ul class="clearfix js-medical-list">
-
-            <li *ngFor="let career of careerCategory.careers">
-              <img src="../assets/images/icon-cr-2.png">
-              <div class="copy">
-                <h4>{{ career.name }}</h4>
-                <p innerHTML="{{ career.shortDesc | decodeHtmlEntities }}"></p>
-              </div>
-              <a class="link-all" routerLink="{{ career.url }}"></a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
+    <div class="container" #sectionForm>
+      <app-career-section></app-career-section>
     </div>
   </section>
+
 </main>
