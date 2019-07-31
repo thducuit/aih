@@ -10,7 +10,7 @@ export class BlogService extends BaseService {
     super(translate);
   }
 
-  fetch(pageNum: number, perPage = 3) {
+  fetch(pageNum: number, perPage = 999) {
     const postData = {
       search: '',
       publish: 1,

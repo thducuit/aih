@@ -190,5 +190,7 @@
   "contact_name": "Fullname",
   "contact_email": "Email",
   "contact_question": "Question",
-  "contact_send": "Send"
+  "contact_send": "Send",
+  "blog_event": "Blog & Events",
+  "blog": "Blog"
 }

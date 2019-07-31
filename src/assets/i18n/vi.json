@@ -190,5 +190,7 @@
   "contact_name": "Họ và tên",
   "contact_email": "Email",
   "contact_question": "Câu hỏi",
-  "contact_send": "Gửi"
+  "contact_send": "Gửi",
+  "blog_event": "Tin tức & Sự kiện",
+  "blog": "Tin tức"
 }
