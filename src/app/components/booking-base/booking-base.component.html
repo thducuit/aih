@@ -66,8 +66,11 @@
 </div>
 <input
   *ngIf="!useForHome"
-  class="btn-booking js-booking"
+  class="btn-booking js-booking hide-md"
   type="submit"
   value=""
   (click)="handleBooking()"
 />
+<div class="btn-wrap">
+  <input class="btn-booking js-booking" type="submit" value="{{'book_an_appointment' | translate}}">
+</div>
