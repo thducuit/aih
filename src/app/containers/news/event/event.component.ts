@@ -41,7 +41,7 @@ export class EventComponent implements OnInit, OnDestroy {
     }
 
     loadNews() {
-        this.blogService.fetch().subscribe((data: any) => {
+        this.blogService.fetch(1, 999).subscribe((data: any) => {
             const posts = data.Posts || [];
             this.totalRecord = posts.TotalRecord;
             this.blogs = posts.map(post => {
@@ -62,7 +62,10 @@ export class EventComponent implements OnInit, OnDestroy {
 
     calcPages() {
         const pages = Math.floor(this.blogs.length / this.perPage);
-        this.pages = Array(pages).fill().map((x, i) => i += 1);
+        this.pages = [];
+        for (let i = 1; i <= pages; i++) {
+            this.pages.push(i);
+        }
     }
 
     selectPage(pageNum: number) {

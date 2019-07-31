@@ -16,7 +16,7 @@ export class VideoComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     public iframeSrc: string;
-    public showVideoPopup: false;
+    public showVideoPopup = false;
 
     constructor(public videoService: VideoService,
                 private translate: TranslateService) {

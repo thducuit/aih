@@ -9,6 +9,7 @@ export class Doctor {
     public alias;
     public url;
     public doctorId;
+    public categoryId;
     public isExpanded;
     public meta;
     public metaDesc;
