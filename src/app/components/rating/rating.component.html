@@ -1,0 +1,8 @@
+<div class="stars">
+    <div class='rating-stars text-center'>
+        <input type="hidden" name="doctor" class="js-required form-control" value="">
+        <ul class='stars'>
+            <li *ngFor="let star of stars" (mouseleave)="handleLeave()" (click)="handleChosen(star)" (mouseenter)="handleHover(star)"  class="star {{ star.isHover || star.isChosen ? 'hover' : '' }}" title='{{ star.label }}' ></li>
+        </ul>
+    </div>
+</div>

@@ -192,5 +192,8 @@
   "contact_question": "Câu hỏi",
   "contact_send": "Gửi",
   "blog_event": "Tin tức & Sự kiện",
-  "blog": "Tin tức"
+  "blog": "Tin tức",
+  "text_contact_rating_require": "Vui lòng chọn ít nhất 1 dịch vụ",
+  "text_contact_rating_success": "Cám ơn bạn đã đánh giá",
+  "text_contact_rating_fail": "Lỗi. Vui lòng liên hệ ban quản trị"
 }

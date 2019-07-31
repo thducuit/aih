@@ -192,5 +192,8 @@
   "contact_question": "Question",
   "contact_send": "Send",
   "blog_event": "Blog & Events",
-  "blog": "Blog"
+  "blog": "Blog",
+  "text_contact_rating_require": "Please choose a least service",
+  "text_contact_rating_success": "Thank for your rating",
+  "text_contact_rating_fail": "Error. Please try again!!!"
 }

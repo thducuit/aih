@@ -20,4 +20,13 @@ export class ContactService extends BaseService {
         return this.http.post('form/contact', postData);
     }
 
+    rating(content) {
+        const postData = {
+            content,
+            lang: 'vi-VN'
+        };
+        return this.http.post('form/rating', postData);
+    }
+
+
 }

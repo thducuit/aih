@@ -27,91 +27,38 @@
       </div>
       <app-contact-form></app-contact-form>
       <div class="rating">
-        <h3>Đánh giá</h3>
+        <h3>{{ 'rating' | translate }}</h3>
         <ul class="frmRating">
           <li>
-            <p>Bác sĩ</p>
-            <div class="stars">
-              <div class='rating-stars text-center'>
-                <input type="hidden" name="doctor" class="js-required form-control" value="">
-                <ul class='stars'>
-                  <li class='star' title='Poor' data-value='1'></li>
-                  <li class='star' title='Fair' data-value='2'></li>
-                  <li class='star' title='Good' data-value='3'></li>
-                  <li class='star' title='Excellent' data-value='4'></li>
-                  <li class='star' title='WOW!!!' data-value='5'></li>
-                </ul>
-              </div>
-            </div>
+            <p>{{ 'select_a_doctor' | translate }}</p>
+            <app-rating
+              (takePoint)="takePointDoctor($event)"
+            ></app-rating>
           </li>
           <li>
-            <p>Dịch vụ</p>
-            <div class="stars">
-              <div class='rating-stars text-center'>
-                <input type="hidden" name="service" class="js-required form-control" value="">
-                <ul class='stars'>
-                  <li class='star' title='Poor' data-value='1'>
-                  </li>
-                  <li class='star' title='Fair' data-value='2'>
-                  </li>
-                  <li class='star' title='Good' data-value='3'>
-                  </li>
-                  <li class='star' title='Excellent' data-value='4'>
-                  </li>
-                  <li class='star' title='WOW!!!' data-value='5'>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p>{{ 'service' | translate }}</p>
+            <app-rating
+                    (takePoint)="takePointService($event)"
+            ></app-rating>
           </li>
           <li>
-            <p>Cơ sở vật chất</p>
-            <div class="stars">
-              <div class='rating-stars text-center'>
-                <input type="hidden" name="facilties" class="js-required form-control">
-                <ul class='stars'>
-                  <li class='star' title='Poor' data-value='1'>
-                  </li>
-                  <li class='star' title='Fair' data-value='2'>
-                  </li>
-                  <li class='star' title='Good' data-value='3'>
-                  </li>
-                  <li class='star' title='Excellent' data-value='4'>
-                  </li>
-                  <li class='star' title='WOW!!!' data-value='5'>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p>{{ 'facilties' | translate }}</p>
+            <app-rating
+                    (takePoint)="takePointFaci($event)"
+            ></app-rating>
           </li>
           <li>
-            <p>Giá</p>
-            <div class="stars">
-              <div class='rating-stars text-center'>
-                <input type="text" name="price" class="js-required form-control">
-                <ul class='stars'>
-                  <li class='star' title='Poor' data-value='1'>
-                  </li>
-                  <li class='star' title='Fair' data-value='2'>
-                  </li>
-                  <li class='star' title='Good' data-value='3'>
-                  </li>
-                  <li class='star' title='Excellent' data-value='4'>
-                  </li>
-                  <li class='star' title='WOW!!!' data-value='5'>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p>{{ 'price' | translate }}</p>
+            <app-rating
+                    (takePoint)="takePointPrice($event)"
+            ></app-rating>
           </li>
           <li>
-            <label>Bình luận</label>
-            <textarea name="rating_comment" class="form-control"></textarea>
+            <label>{{ 'comment' | translate }}</label>
+            <textarea [(ngModel)]="content" name="rating_comment" class="form-control"></textarea>
           </li>
           <li>
-            <input type="hidden" name="_token" value="VRktS3jTtN9lSqGJgCRwF1g6MI6H04c7KjOAS3Lv">
-            <input type="submit" data-message="Vui lòng chọn ít nhất một dịch vụ."
-                   data-href="http://www.aih.com.vn/rating" name="" value="Gửi">
+            <input type="submit" name="" value="{{ 'send' | translate }}" (click)="submitRatingForm()">
           </li>
         </ul>
       </div>

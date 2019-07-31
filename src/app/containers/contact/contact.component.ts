@@ -4,6 +4,10 @@ import {PageService} from '../../services/page.service';
 import {BannerService} from '../../services/banner.service';
 import {UrlService} from '../../services/url.service';
 import {Meta, Title} from '@angular/platform-browser';
+import {forkJoin} from 'rxjs';
+import Swal from "sweetalert2";
+import {TranslateService} from '@ngx-translate/core';
+import {ContactService} from '../../services/contact.service';
 
 @Component({
     selector: 'app-contact',
@@ -15,10 +19,17 @@ export class ContactComponent implements OnInit {
     public page: Page;
     public banners: Array<any> = [];
 
+    public doctorPoint = 0;
+    public servicePoint = 0;
+    public faciPoint = 0;
+    public pricePoint = 0;
+
     constructor(public pageService: PageService,
                 public bannerService: BannerService,
                 private metaService: Meta,
-                private titleService: Title) {
+                private titleService: Title,
+                private translate: TranslateService,
+                public contactService: ContactService) {
     }
 
     ngOnInit() {
@@ -52,6 +63,66 @@ export class ContactComponent implements OnInit {
 
 
         });
+    }
+
+    openAlert() {
+        forkJoin(
+            this.translate.get('text_contact_rating_require'),
+            this.translate.get('text_close'),
+        ).subscribe(([message, buttonText]) => {
+            Swal.fire({
+                text: message,
+                confirmButtonText: buttonText
+            });
+        });
+    }
+
+    openSuccess() {
+        forkJoin(
+            this.translate.get('text_contact_rating_success'),
+            this.translate.get('text_close'),
+        ).subscribe(([message, buttonText]) => {
+            Swal.fire({
+                text: message,
+                confirmButtonText: buttonText
+            });
+        });
+    }
+
+    openFail() {
+        forkJoin(
+            this.translate.get('text_contact_rating_fail'),
+            this.translate.get('text_close'),
+        ).subscribe(([message, buttonText]) => {
+            Swal.fire({
+                text: message,
+                confirmButtonText: buttonText
+            });
+        });
+    }
+
+    submitRatingForm() {
+        if (!this.doctorPoint && !this.servicePoint && !this.faciPoint && !this.pricePoint) {
+            this.openAlert();
+            return;
+        }
+        this.openSuccess();
+    }
+
+    takePointDoctor(point) {
+        this.doctorPoint = point;
+    }
+
+    takePointService(point) {
+        this.servicePoint = point;
+    }
+
+    takePointFaci(point) {
+        this.faciPoint = point;
+    }
+
+    takePointPrice(point) {
+        this.pricePoint = point;
     }
 
 }

@@ -141,6 +141,7 @@ import {ContactFormComponent} from './components/contact-form/contact-form.compo
 import {ContactService} from './services/contact.service';
 import { BookingBaseComponent } from './components/booking-base/booking-base.component';
 import {CareerSectionComponent} from './containers/career/career-section/career-section.component';
+import {RatingComponent} from './components/rating/rating.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -247,6 +248,7 @@ export function createTranslateLoader(http: HttpClient) {
         NumberDirective,
         BookingBaseComponent,
         CareerSectionComponent,
+        RatingComponent
     ],
     imports: [
         BrowserModule.withServerTransition({appId: 'serverApp'}),
