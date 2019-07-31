@@ -8,5 +8,6 @@ export class Video {
     this.description = data.media_description;
     this.title = data.media_title;
     this.hot = data.media_ishot;
+    this.file = data.media_file;
   }
 }
