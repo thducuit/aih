@@ -3,7 +3,7 @@
     <input readonly="true" class="js-dropBooking-doctor" type="text"
            placeholder="{{ placeholder || 'select_a_doctor' | translate }}">
     <em class="ar"></em>
-    <div class="drop drop-doctor {{ isActive ? 'active' : '' }}">
+    <div class="drop drop-doctor {{ !isActive ? 'un-active' : '' }}">
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">

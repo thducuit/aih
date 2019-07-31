@@ -58,4 +58,9 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 this.metaService.addTag({name: 'keywords', content: this.career.metaKey});
             });
     }
+
+    scrollToForm() {
+        const el = document.getElementById('careerForm');
+        el.scrollIntoView();
+    }
 }

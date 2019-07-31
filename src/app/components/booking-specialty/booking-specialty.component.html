@@ -7,7 +7,7 @@
            placeholder="{{ placeholder || 'select_a_specialty' | translate }}"
     >
     <em class="ar"></em>
-    <div class="drop drop-spec {{ isActive ? 'active' : '' }}">
+    <div class="drop drop-spec {{ !isActive ? 'un-active' : '' }}">
       <input type="hidden" class="js-input" name="deparmentid">
       <div class="copyscroll">
         <div class="nano">

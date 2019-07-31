@@ -30,6 +30,11 @@
   max-width: 100%;
 }
 
+.calendar .ngb-dp-header {background: none}
+.calendar .ngb-dp-weekdays {border-bottom: none}
+.calendar .ngb-dp-day {font-size: 10px}
+.calendar .bg-light {background-color: unset!important;}
+
 .nav-wrap nav li a:hover {
   text-decoration: none;
 }

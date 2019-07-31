@@ -5,6 +5,7 @@
 		<div class="drop drop-day" [ngClass]="{'show': expanded}">
 			<div class="calendar">
         <ngb-datepicker
+				class="c-datepicker"
           #datePicker
           [startDate]="selectedDate"
           (select)="onDateSelect($event)"

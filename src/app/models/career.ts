@@ -14,6 +14,7 @@ export class Career {
     public metaDesc;
     public metaKey;
     public metaTitle;
+    public date;
 
     constructor(data) {
         this.id = data.post_id;
@@ -27,6 +28,7 @@ export class Career {
         this.metaDesc = data.post_metadesc;
         this.metaKey = data.post_metakey;
         this.metaTitle = data.post_metatitle;
+        this.date = data.post_datepublish;
         this.meta = data.post_meta ? JSON.parse(data.post_meta) : {};
         this.alias = data.alias_name;
         this.picturePath = null;
