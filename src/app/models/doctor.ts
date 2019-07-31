@@ -20,6 +20,7 @@ export class Doctor {
         this.name = data.post_name;
         this.alias = data.alias_name;
         this.categoryName = data.cate_name;
+        this.categoryId = data.post_cateid;
         this.shortDesc = data.post_shortdesc;
         this.longDesc = data.post_longdesc;
         this.picture = data.post_picture;

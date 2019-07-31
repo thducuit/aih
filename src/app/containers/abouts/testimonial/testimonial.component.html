@@ -1,7 +1,7 @@
 <main id="pAbout">
   <div class="breadcrumb">
     <div class="container"><a href="#">{{ 'home' | translate }}</a> /
-      <p>Testimonials</p></div>
+      <p>{{ 'testimonials' | translate }}</p></div>
   </div>
 
   <div class="banner-quote">
@@ -14,6 +14,7 @@
       </div>
     </div>
   </div>
+
   <section>
     <div class="container">
       <div class="list-quote">
@@ -21,10 +22,10 @@
           <li *ngFor="let item of testimonials">
             <div class="item">
               <div class="copy">
-                <div class="ava" style="background: url();">
+                <div class="ava" >
                   <img src="../assets/images/b.gif">
                 </div>
-                <p datamore="Show more" dataless="Show less" class="text js-text">{{item.logdesc}}</p>
+                <p class="text js-text">{{item.logdesc}}</p>
                 <div class="info-quote">
                   <h4>{{item.title}}</h4>
                   <span>{{item.description}}</span>

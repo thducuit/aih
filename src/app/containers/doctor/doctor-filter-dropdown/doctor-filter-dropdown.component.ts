@@ -1,51 +1,53 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-doctor-filter-dropdown',
-  templateUrl: './doctor-filter-dropdown.component.html',
-  styleUrls: ['./doctor-filter-dropdown.component.scss']
+    selector: 'app-doctor-filter-dropdown',
+    templateUrl: './doctor-filter-dropdown.component.html',
+    styleUrls: ['./doctor-filter-dropdown.component.scss']
 })
 export class DoctorFilterDropdownComponent implements OnInit {
-  @Input()
-  public items: any[];
+    @Input()
+    public items: any[];
 
-  @Input()
-  public value = 'value';
+    @Input()
+    public value = 'name';
 
-  @Input()
-  public placeholder: string;
+    @Input()
+    public placeholder: string;
 
-  @Output()
-  public selected = new EventEmitter<any>();
+    @Input()
+    public isNavigate: false;
 
-  selectedItem: any;
-  expanded = false;
+    @Output()
+    public selected = new EventEmitter<any>();
 
-  constructor() { }
+    selectedItem: any;
+    expanded = false;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
 
-  toggleDropdown(e: Event) {
-    this.expanded = !this.expanded;
-  }
+    ngOnInit() {
+    }
 
-  onSelectAnItem(item: any) {
-    this.selectedItem = item;
-    this.expanded = false;
-    this.selected.emit(item);
-  }
+    toggleDropdown(e: Event) {
+        this.expanded = !this.expanded;
+    }
 
-  onClickOutside(event) {
-    this.expanded = false;
-  }
+    onSelectAnItem(item: any) {
+        this.selectedItem = item;
+        this.expanded = false;
+        this.selected.emit(item);
+    }
 
-  getValue(item: any) {
-    return item && item[this.value];
-  }
+    onClickOutside(event) {
+        this.expanded = false;
+    }
 
-  getDisplayValue() {
-    if (!this.selectedItem) { return this.placeholder; }
-    return this.selectedItem[this.value];
-  }
+    getDisplayValue() {
+        if (!this.selectedItem) {
+            return this.placeholder;
+        }
+        return this.selectedItem.name;
+    }
 }

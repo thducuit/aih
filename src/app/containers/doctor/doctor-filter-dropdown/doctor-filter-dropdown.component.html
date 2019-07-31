@@ -4,8 +4,11 @@
     <div class="select-options" *ngIf="expanded">
       <div class="copyscroll">
         <div class="nano has-scrollbar">
-          <div class="nano-content" tabindex="0">
-            <p *ngFor="let item of items" (click)="onSelectAnItem(item)">{{getValue(item)}}</p>
+          <div class="nano-content" tabindex="0" *ngIf="!isNavigate">
+            <p *ngFor="let item of items" (click)="onSelectAnItem(item)">{{item.name}}</p>
+          </div>
+          <div class="nano-content" tabindex="0" *ngIf="isNavigate">
+            <p *ngFor="let item of items" ><a routerLink="{{ item.url }}">{{item.name}}</a></p>
           </div>
         </div>
       </div>

@@ -9,6 +9,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {DepartmentService} from 'src/app/services/department.service';
 import {Subscription} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
+import {Clinic} from '../../models/clinic';
+import {ClinicService} from '../../services/clinic.service';
 
 @Component({
     selector: 'app-doctor',
@@ -20,12 +22,20 @@ export class DoctorComponent implements OnInit, OnDestroy {
     public page: Page;
     public banner: any = {};
     public doctors: Array<Doctor> = [];
+    public clinics: Array<Clinic> = [];
     public departments: any[];
     private subscription: Subscription;
+
+    public currPage = 1;
+    public currDoctors = [];
+    public filterDoctors = [];
+    private perPage = 8;
+    public hideShowMore = false;
 
     constructor(public pageService: PageService,
                 public doctorService: DoctorService,
                 public bannerService: BannerService,
+                public clinicService: ClinicService,
                 private translate: TranslateService,
                 private departmentService: DepartmentService,
                 private metaService: Meta,
@@ -90,14 +100,33 @@ export class DoctorComponent implements OnInit, OnDestroy {
                     doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
                     return doctor;
                 });
+                this.filterDoctors = [...this.doctors];
+                this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
             });
     }
 
     loadDepartments() {
-        this.departmentService
-            .fetch()
-            .subscribe((resp) => {
-                this.departments = resp;
-            });
+        this.clinicService.fetch().subscribe((data: {}) => {
+            const posts = data['Categories'] || [];
+            this.clinics = posts.map(post => new Clinic(post));
+        });
+    }
+
+    loadMore() {
+        this.currPage += 1;
+        this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
+        if (this.currDoctors.length >= this.filterDoctors.length) {
+            this.hideShowMore = true;
+        }
+    }
+
+    handleSelectedClinic(item) {
+        this.filterDoctors = this.doctors.filter((doctor) => item.id === doctor.categoryId);
+        this.currPage = 1;
+        this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
+        this.hideShowMore = false;
+        if (this.currDoctors.length >= this.filterDoctors.length) {
+            this.hideShowMore = true;
+        }
     }
 }

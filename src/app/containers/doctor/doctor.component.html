@@ -28,21 +28,23 @@
         <div class="op-dt clearfix">
           <app-doctor-filter-dropdown
             class="sl-wrap"
-            [items]="departments"
+            [items]="clinics"
             value="value"
+            (selected)="handleSelectedClinic($event)"
             placeholder="{{'select_a_specialty' | translate}}">
           </app-doctor-filter-dropdown>
           <app-doctor-filter-dropdown
             class="sl-wrap"
-            [items]="doctors"
+            [items]="filterDoctors"
             value="value"
+            isNavigate="true"
             placeholder="{{'select_a_doctor' | translate}}">
           </app-doctor-filter-dropdown>
         </div>
       </div>
 
       <ul class="list-dt js-append-more">
-        <li *ngFor="let doctor of doctors">
+        <li *ngFor="let doctor of currDoctors">
           <div class="item-doc">
             <div class="img">
               <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
@@ -65,8 +67,8 @@
         </li>
 
       </ul>
-      <div class="btn-wrap">
-        <a class="btn-showmore js-btn-loadmore" data-maxpage="7" data-page="2" href="#">{{ 'show_more' | translate }}</a>
+      <div class="btn-wrap" *ngIf="!hideShowMore">
+        <a class="btn-showmore js-btn-loadmore" (click)="loadMore()">{{ 'show_more' | translate }}</a>
       </div>
     </div>
   </section>
