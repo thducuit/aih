@@ -1,19 +1,19 @@
 <main id="pService">
   <div class="breadcrumb">
     <div class="container">
-      <a href="#">{{ 'home' | translate }}</a> /
+      <a routerLink="/">{{ 'home' | translate }}</a> /
       <p>{{ page ? page.name : '' }}</p></div>
   </div>
   <div class="banner-ser">
 
     <div class="item"
-         [style.background]="'url(' + banners[0].large + ')'"
+         [style.background]="'url(' + banner.large + ')'"
     >
       <div class="container">
         <div class="ct-banner">
           <div class="copy-fs">
-            <h4>{{ banners[0].title }}</h4>
-            <h2>{{ banners[0].desc }}</h2>
+            <h4>{{ banner.title }}</h4>
+            <h2>{{ banner.longDesc }}</h2>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
     <div class="container">
       <div class="top-factsheet">
         <h3>{{ page ? page.name : '' }}</h3>
-        <p>{{ page ? page.shortDesc : '' }}</div>
+        <p innerHtml="{{ (page ? page.longDesc : '') | decodeHtmlEntities }}"></div>
       <div class="service-wrap">
         <div class="list-sv">
 

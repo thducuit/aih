@@ -18,6 +18,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
 
     public page: Page;
     public banners: Array<any> = [];
+    public banner: any = {};
     public highlights: Array<Highlight> = [];
     private subscription: Subscription;
 
@@ -49,7 +50,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
         this.pageService.fetch('highlight_page').subscribe((data: any) => {
             const post = data.Post || {};
             const page = new Page(post);
-            page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+            // page.longDesc = UrlService.fixPictureUrl(page.longDesc);
             this.page = page;
             // seo
             this.titleService.setTitle(this.page.metaTitle);
@@ -67,6 +68,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
                         banner.desc = banner.desc;
                         return banner;
                     });
+                    this.banner = this.banners[0];
                 });
         });
     }
