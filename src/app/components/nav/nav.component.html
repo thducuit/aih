@@ -1,6 +1,6 @@
 <nav>
   <ul id="nav">
-    <app-nav-item name="{{'menu.home' | translate}}" routeUrl="/"></app-nav-item>
+    <app-nav-item name="{{'menu.home' | translate}}" routeUrl="/" [routeOptions]="{'exact': true}"></app-nav-item>
     <app-nav-item name="{{'about_us' | translate}}" routeUrl="/about-us/aih-hospital" [hasChild]="true">
       <a routerLink="/about-us/aih-hospital" routerLinkActive="active">{{'about_us' | translate}}</a>
       <a routerLink="/about-us/faq" routerLinkActive="active">{{'faqs' | translate}}</a>

@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-nav-item',
   templateUrl: './nav-item.component.html',
-  styleUrls: ['./nav-item.component.scss']
+  styleUrls: ['./nav-item.component.scss'],
 })
 export class NavItemComponent implements OnInit {
   expaned = false;
@@ -15,12 +15,13 @@ export class NavItemComponent implements OnInit {
   @Input()
   public routeActiveClass = 'active';
   @Input()
+  public routeOptions = { exact: false };
+  @Input()
   public hasChild = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   toggleSubNav(event: Event) {
     event.preventDefault();
