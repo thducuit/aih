@@ -101,6 +101,9 @@ export class BookingBaseComponent implements OnInit {
 
   handleSelectClinic(clinic) {
     this.selectedClinic = clinic;
+    if (clinic) {
+      this.bookingDoctor.chosenDoctor = null;
+    }
   }
 
   filterAvailableDoctors() {

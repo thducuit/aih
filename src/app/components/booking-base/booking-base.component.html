@@ -72,5 +72,10 @@
   (click)="handleBooking()"
 />
 <div class="btn-wrap">
-  <input class="btn-booking js-booking" type="submit" value="{{'book_an_appointment' | translate}}">
+  <input
+    class="btn-booking js-booking"
+    type="submit"
+    value="{{ 'book_an_appointment' | translate }}"
+    (click)="handleBooking()"
+  />
 </div>
