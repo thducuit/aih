@@ -71,7 +71,7 @@
   value=""
   (click)="handleBooking()"
 />
-<div class="btn-wrap">
+<div class="btn-wrap" *ngIf="!useForHome">
   <input
     class="btn-booking js-booking"
     type="submit"
