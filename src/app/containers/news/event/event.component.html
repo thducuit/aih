@@ -18,21 +18,22 @@
             </div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[0].categoryName }}</span><br/>
-                {{ filterBlogs[0] ? filterBlogs[0].name : '' }}
+                <span>{{ 'news' | translate }}</span><br/>
+                <div>{{ truncateText(filterBlogs[0] ? filterBlogs[0].name : '', 51) }}</div>
               </h3>
               <hr>
               <p class="date">{{filterBlogs[0].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ filterBlogs[0] ? filterBlogs[0].shortDesc : '' }}...</p>
+              <p>{{ truncateText(filterBlogs[0] ? filterBlogs[0].shortDesc : '', 120) }}</p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[0].url }}"></a>
           </div>
         </div>
+
         <div class="item news-item-style style-3" *ngIf="filterBlogs.length && filterBlogs[1]">
           <div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[1].categoryName }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br/>
                 {{ filterBlogs[1] ? filterBlogs[1].name : '' }}
               </h3>
               <hr>
@@ -53,12 +54,12 @@
             </div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[2].categoryName }}</span><br/>
-                {{ filterBlogs[2] ? filterBlogs[2].name : '' }}
+                <span>{{ 'news' | translate }}</span><br/>
+                {{ truncateText(filterBlogs[2] ? filterBlogs[2].name : '' , 51)}}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[2].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ filterBlogs[2] ? filterBlogs[2].shortDesc : '' }}</p>
+              <p>{{ truncateText(filterBlogs[2] ? filterBlogs[2].shortDesc : '', 115) }}</p>
             </div>
             <a class="link-all"
                routerLink="{{ filterBlogs[2].url }}"></a>
@@ -75,12 +76,12 @@
             </div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[3].categoryName }}</span><br/>
-                {{ filterBlogs[3] ? filterBlogs[3].name : '' }}
+                <span>{{ 'news' | translate }}</span><br/>
+                {{ truncateText(filterBlogs[3] ? filterBlogs[3].name : '', 51) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[3].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ filterBlogs[3] ? filterBlogs[3].shortDesc : '' }}</p>
+              <p>{{ truncateText(filterBlogs[3] ? filterBlogs[3].shortDesc : '', 115) }}</p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[3].url }}"></a>
           </div>
@@ -90,12 +91,12 @@
           <div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[4].categoryName }}</span><br/>
-                {{ filterBlogs[4] ? filterBlogs[4].name : '' }}
+                <span>{{ 'news' | translate }}</span><br/>
+                {{ truncateText(filterBlogs[4] ? filterBlogs[4].name : '', 51) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[4].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ filterBlogs[4] ? filterBlogs[4].shortDesc : '' }}...</p>
+              <p>{{ truncateText(filterBlogs[4] ? filterBlogs[4].shortDesc : '', 115) }}</p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[4].url }}"></a>
           </div>
@@ -111,12 +112,12 @@
             </div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[5].categoryName }}</span><br/>
-                {{ filterBlogs[5] ? filterBlogs[5].name : '' }}
+                <span>{{ 'news' | translate }}</span><br/>
+                {{ truncateText(filterBlogs[5] ? filterBlogs[5].name : '', 51) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[5].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ filterBlogs[5] ? filterBlogs[5].shortDesc : '' }}...</p>
+              <p>{{ truncateText(filterBlogs[5] ? filterBlogs[5].shortDesc : '', 125) }}</p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[5].url }}"></a>
           </div>
@@ -132,12 +133,12 @@
             </div>
             <div class="copy">
               <h3>
-                <span>{{ filterBlogs[6].categoryName }}</span><br/>
-                {{ filterBlogs[6] ? filterBlogs[6].name : '' }}
+                <span>{{ 'news' | translate }}</span><br/>
+                {{ truncateText(filterBlogs[6] ? filterBlogs[6].name : '', 51) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[6].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ filterBlogs[6] ? filterBlogs[6].shortDesc : '' }}...</p>
+              <p>{{ truncateText(filterBlogs[6] ? filterBlogs[6].shortDesc : '', 120) }}</p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[6].url }}"></a>
           </div>
