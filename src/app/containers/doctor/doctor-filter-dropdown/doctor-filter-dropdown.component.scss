@@ -1,6 +1,13 @@
 .select-options {
   display: block;
 }
+.copyscroll {
+  transition: all .3s ease-in-out;
+}
+
+.un-active .copyscroll{
+  height: 0
+}
 
 .nano-content p a {
   width: 100%;

@@ -1,6 +1,3 @@
-.active {
-  display:block
-}
 
 .open {
   overflow: hidden;
@@ -15,4 +12,14 @@ ul {
       }
     }
   }
+}
+
+.drop {
+  display: block;
+}
+.copyscroll {
+  transition: height .3s ease-in-out;
+}
+.un-active .copyscroll {
+  height: 0;
 }

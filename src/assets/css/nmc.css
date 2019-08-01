@@ -86,8 +86,9 @@ body .page-medical-all{padding-bottom: 30px;}
 	}
 
 /*Calendar*/
-.calendar .ngb-dp-weekday.small{font-weight:700;font-size: .9em; font-style: normal;}
+.calendar .ngb-dp-weekday.small{font-weight:700;font-size: .8em; font-style: normal;color: #3a90af}
 .calendar ngb-datepicker-navigation-select>.custom-select{border-radius: 0px; margin: 0px 1px;}
+
 /*End Calendar*/
 
 

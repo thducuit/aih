@@ -1,7 +1,7 @@
 <div class="js-cselect" (clickOutside)="onClickOutside($event)">
   <div class="select">
     <div class="select-styled" [ngClass]="{'active': expanded}" (click)="toggleDropdown($event)">{{getDisplayValue()}}</div>
-    <div class="select-options" *ngIf="expanded">
+    <div class="select-options" [ngClass]="{'un-active': !expanded}">
       <div class="copyscroll">
         <div class="nano has-scrollbar">
           <div class="nano-content" tabindex="0" *ngIf="!isNavigate">

@@ -1,3 +1,14 @@
-.active {
-  display:block
+.drop {
+  display: block;
+}
+.block-time {
+  transition: all .3s ease-in-out;
+}
+.un-active .block-time {
+  height: 0;
+  overflow: hidden;
+}
+
+.block-time {
+  height: 375px;
 }

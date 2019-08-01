@@ -20,15 +20,15 @@
 
         </div>
         <div class="btn-wrap">
-          <a class="btn-b js-scrollForm" href="#">{{ 'apply_now' | translate }}</a>
-          <a class="btn-bd" href="#">{{ 'save' | translate }}</a>
+          <a class="btn-b js-scrollForm" (click)="scrollToForm()" >{{ 'apply_now' | translate }}</a>
+          <a class="btn-bd" >{{ 'save' | translate }}</a>
         </div>
       </div>
       <div class="detail-cr">
         <h2>{{ 'detail' | translate }}</h2>
         <div class="ct-copy">
           <div class="main-if">
-            <p><img src="../assets/images/icon-cr-dt-1.png"> {{ 'date' | translate }}<br/>27/10/2018</p>
+            <p><img src="../assets/images/icon-cr-dt-1.png"> {{ 'date' | translate }}<br/>{{ career.date | date:'dd/MM/yyyy'}}</p>
             <p><img src="../assets/images/icon-cr-dt-2.png"> {{ 'level' | translate }}<br/>{{ career.meta.level }}</p>
             <p><img src="../assets/images/icon-cr-dt-3.png"> {{ 'career' | translate }}<br/>{{ career.meta.career }}</p>
             <p><img src="../assets/images/icon-cr-dt-4.png"> {{ 'skill' | translate }}<br/>{{ career.meta.skill }}</p>
@@ -40,7 +40,7 @@
       <!--career section -->
       <app-career-section></app-career-section>
       <!--form section -->
-      <app-career-form></app-career-form>
+      <app-career-form #careerForm></app-career-form>
 
 
 
