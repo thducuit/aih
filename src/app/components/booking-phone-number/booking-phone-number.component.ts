@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {BookingService} from '../../services/booking.service';
 import Swal from 'sweetalert2';
 
@@ -12,6 +12,7 @@ export class BookingPhoneNumberComponent implements OnInit {
   public showRegister = false;
   @Output() chooseCustomer = new EventEmitter<any>();
   @Output() chooseCustomerPhone = new EventEmitter<any>();
+  @Input() animateAfter = false;
 
   constructor(
     public bookingService: BookingService  ) {
