@@ -56,8 +56,12 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
 
   public animatePhone = false;
   public animateClinic = false;
+  public animateDoctor = false;
+  public animateDate = false;
+  public animateTime = false;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId,
     private translate: TranslateService,
     public bookingService: BookingService,
   ) {}
@@ -67,7 +71,11 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.animateNextStep();
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.animateNextStep();
+      }, 500);
+    }
   }
 
   loadSchedule() {
@@ -351,6 +359,24 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     this.animateClinic = false;
     if (!this.selectedClinic) {
       this.animateClinic = true;
+      return;
+    }
+
+    this.animateDoctor = false;
+    if (this.selectedDoctor) {
+      this.animateDoctor = true;
+      return;
+    }
+
+    this.animateDate = false;
+    if (!this.selectedDate) {
+      this.animateDate = true;
+      return;
+    }
+
+    this.animateTime = false;
+    if (!this.selectedTime) {
+      this.animateTime = true;
       return;
     }
   }

@@ -26,10 +26,11 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     @Input() doctorIds: string[];
+    @Input() animateAfter: boolean;
     @Output() choose = new EventEmitter<any>();
 
     constructor(public doctorService: DoctorService,
-                private translate: TranslateService,) {
+                private translate: TranslateService) {
         this.isActive = false;
     }
 
