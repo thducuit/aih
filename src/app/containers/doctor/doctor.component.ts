@@ -72,7 +72,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
                 this.metaService.addTag({name: 'description', content: this.page.metaDesc});
                 this.metaService.addTag({name: 'keywords', content: this.page.metaKey});
                 this.bannerService
-                    .fetch('doctor-page', this.page.id)
+                    .fetch('doctor_page', this.page.id)
                     .subscribe((bannersResp: any) => {
                         const banner = bannersResp.Banner[0];
                         if (banner) {
