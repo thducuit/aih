@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TestimonialService } from 'src/app/services/testimonial.service';
 import { Testimonial } from 'src/app/models/testimonial';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-testimonial',
@@ -16,14 +17,17 @@ export class TestimonialComponent implements OnInit, OnDestroy {
 
   constructor(
     private testimonialService: TestimonialService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private titleService: Title
   ) { }
 
   ngOnInit() {
     this.loadTestimonials();
+    this.applyTitle();
     this.subcription = this.translate
       .onLangChange
       .subscribe(() => {
+        this.applyTitle();
         this.loadTestimonials();
       });
   }
@@ -41,5 +45,15 @@ export class TestimonialComponent implements OnInit, OnDestroy {
             return new Testimonial(x);
           });
       });
+  }
+
+  applyTitle() {
+    forkJoin(
+      this.translate.get('testimonials'),
+      this.translate.get('american_international_hospital')
+    )
+    .subscribe(([mainTitle, subTitle]) => {
+      this.titleService.setTitle(`${mainTitle} - ${subTitle}`);
+    });
   }
 }

@@ -4,7 +4,8 @@ import { UrlService } from '../../../services/url.service';
 import { BlogService } from '../../../services/blog.service';
 import { CalculatePagination } from '../../../utilities';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event',
@@ -25,12 +26,19 @@ export class EventComponent implements OnInit, OnDestroy {
   constructor(
     public blogService: BlogService,
     private translate: TranslateService,
-  ) {}
+    private titleService: Title
+  ) { }
 
   ngOnInit() {
     this.loadNews();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadNews();
+    });
+    forkJoin(
+      this.translate.get('news'),
+      this.translate.get('american_international_hospital')
+    ).subscribe(([newsStr, aihStr]) => {
+      this.titleService.setTitle(`${newsStr} - ${aihStr}`);
     });
   }
 
@@ -39,19 +47,21 @@ export class EventComponent implements OnInit, OnDestroy {
   }
 
   loadNews() {
-    this.blogService.fetch(1, 999).subscribe((data: any) => {
-      const posts = data.Posts || [];
-      this.totalRecord = posts.TotalRecord;
-      const convertedBlogs: any[] = posts.map(post => {
-        const blog = new Blog(post);
-        blog.picturePath = UrlService.createPictureUrl(blog.picture);
-        blog.url = UrlService.createNewsDetailUrl(blog.alias);
-        return blog;
+    this.blogService
+      .fetch(1, 999)
+      .subscribe((data: any) => {
+        const posts = data.Posts || [];
+        this.totalRecord = posts.TotalRecord;
+        const convertedBlogs: any[] = posts.map(post => {
+          const blog = new Blog(post);
+          blog.picturePath = UrlService.createPictureUrl(blog.picture);
+          blog.url = UrlService.createNewsDetailUrl(blog.alias);
+          return blog;
+        });
+        this.blogs = convertedBlogs;
+        this.pagination();
+        this.calcPages();
       });
-      this.blogs = convertedBlogs;
-      this.pagination();
-      this.calcPages();
-    });
   }
 
   pagination() {
