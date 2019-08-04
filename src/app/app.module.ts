@@ -143,6 +143,7 @@ import { BookingBaseComponent } from './components/booking-base/booking-base.com
 import {CareerSectionComponent} from './containers/career/career-section/career-section.component';
 import {RatingComponent} from './components/rating/rating.component';
 import { ServiceDropMbComponent } from './containers/services/service/service-drop-mb/service-drop-mb.component';
+import { TestimonialItemComponent } from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -250,7 +251,8 @@ export function createTranslateLoader(http: HttpClient) {
         BookingBaseComponent,
         CareerSectionComponent,
         RatingComponent,
-        ServiceDropMbComponent
+        ServiceDropMbComponent,
+        TestimonialItemComponent
     ],
     imports: [
         BrowserModule.withServerTransition({appId: 'serverApp'}),

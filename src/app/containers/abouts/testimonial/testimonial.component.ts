@@ -37,9 +37,6 @@ export class TestimonialComponent implements OnInit, OnDestroy {
       .fetch(this.currentPage)
       .subscribe((response: any) => {
         this.testimonials = (response.Media || [])
-          .filter(x => {
-            return x.media_type === 'customer_feedback';
-          })
           .map((x: any) => {
             return new Testimonial(x);
           });

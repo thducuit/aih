@@ -101,3 +101,12 @@ export function ngbDateStructToString(date: NgbDateStruct) {
     '0',
   )}-${stringPadStart(String(date.day), 2, '0')}`;
 }
+
+export function escapeHtml(str: string) {
+  const doc = new DOMParser().parseFromString(str, 'text/html');
+  return doc.body.textContent;
+}
+
+export function extractHtmlText(str: string) {
+  return `${str}`.replace(/(<([^>]+)>)/ig, '');
+}
