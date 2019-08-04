@@ -175,6 +175,7 @@ export class BookingTimeComponent implements OnInit, OnChanges {
   ];
 
   @Input() enableTime = [];
+  @Input() animateAfter: boolean;
   @Output() chooseTime = new EventEmitter<any>();
 
   constructor() {

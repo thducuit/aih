@@ -32,6 +32,7 @@
     <!-- <p class="note note-doctor">* Please select a doctor</p> -->
     <app-booking-doctor
       #bookingDoctor
+      [animateAfter]="animateDoctor"
       [doctorIds]="filterAvailableDoctors()"
       (choose)="handleSelectDoctor($event)"
     ></app-booking-doctor>
@@ -44,6 +45,7 @@
     <!-- <p class="note note-day">* Please select an appoitment date</p> -->
     <app-booking-date
       #bookingDate
+      [animateAfter]="animateDate"
       [doctorSchedule]="doctorSchedule"
       (changeDate)="handleSelectDate($event)"
     ></app-booking-date>
@@ -57,6 +59,7 @@
     <app-booking-time
       (chooseTime)="handleSelectTime($event)"
       [enableTime]="timeBlock"
+      [animateAfter]="animateTime"
     ></app-booking-time>
     <input
       *ngIf="useForHome"
