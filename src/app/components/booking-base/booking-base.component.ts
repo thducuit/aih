@@ -74,7 +74,7 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
         this.animateNextStep();
-      }, 500);
+      }, 1000);
     }
   }
 
