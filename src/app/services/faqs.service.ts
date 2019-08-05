@@ -18,7 +18,7 @@ export class FaqsService extends BaseService {
       publish: 1,
       rowperpage: 999,
       pageselected: pageNum,
-      post_type: ['faqs'],
+      media_type: ['faqs'],
       lang : this.getCurrentLocal()
     };
     return this.http.post('media/list', postData);
