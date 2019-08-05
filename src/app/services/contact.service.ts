@@ -20,9 +20,14 @@ export class ContactService extends BaseService {
         return this.http.post('form/contact', postData);
     }
 
-    rating(content) {
+    rating(form) {
+        const { content, doctor, price, service, facilities } = form;
         const postData = {
             content,
+            doctor,
+            price,
+            service,
+            facilities,
             lang: 'vi-VN'
         };
         return this.http.post('form/rating', postData);

@@ -4,12 +4,12 @@
       <img src="../assets/images/b.gif">
     </div>
     <p class="text js-text">
-      {{getShortDesc()}}
+      <span innerHTML="{{ getShortDesc() | decodeHtmlEntities }}"></span>
       <span class="moreellipses" *ngIf="needShowMore && !expaned">...</span>
       <span class="morecontent" *ngIf="needShowMore">
-        <span *ngIf="expaned" [ngClass]="{'show': expaned}">{{getShowMoreContent()}}</span>
-        <a href="javascript:void(0)" class="morelink" *ngIf="!expaned" (click)="expandShowMore(true)">Show more</a>
-        <a href="javascript:void(0)" class="morelink less" *ngIf="expaned" (click)="expandShowMore(false)">Show less</a>
+        <span *ngIf="expaned" [ngClass]="{'show': expaned}" innerHTML="{{ getShowMoreContent() | decodeHtmlEntities }}"></span>
+        <a href="javascript:void(0)" class="morelink" *ngIf="!expaned" (click)="expandShowMore(true)">{{ 'show_more' | translate }}</a>
+        <a href="javascript:void(0)" class="morelink less" *ngIf="expaned" (click)="expandShowMore(false)">{{ 'show_less' | translate }}</a>
       </span>
     </p>
     <div class="info-quote">
