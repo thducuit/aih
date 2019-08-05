@@ -37,7 +37,9 @@ const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    children: [{ path: '', component: HomeComponent, pathMatch: 'full' }],
+    children: [
+      { path: '', component: HomeComponent, pathMatch: 'full' }
+    ],
   },
   {
     path: '',
@@ -88,7 +90,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       enableTracing: false,
-      useHash: true,
+      useHash: false,
     }),
   ],
   exports: [RouterModule],

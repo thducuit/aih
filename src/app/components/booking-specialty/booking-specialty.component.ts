@@ -5,6 +5,7 @@ import {
   OnInit,
   Output,
   OnDestroy,
+  Input,
 } from '@angular/core';
 import { Clinic } from '../../models/clinic';
 import { ClinicService } from 'src/app/services/clinic.service';
@@ -22,6 +23,7 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
   public placeholder: string;
   public clinics: Array<Clinic> = [];
   private subscription: Subscription;
+  @Input() animateAfter = false;
   @Output() chooseClinic = new EventEmitter<any>();
 
   constructor(

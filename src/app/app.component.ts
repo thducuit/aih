@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID, NgZone, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEventService } from './services/global-event.service';
 import {
@@ -9,7 +9,7 @@ import {
   NavigationError,
 } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { getLanguage, setLanguage } from './utilities';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -18,10 +18,11 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnDestroy {
   loading = false;
   loadingCount = 0;
   private isBrowser = true;
+  private subscription: Subscription;
 
   constructor(
     private translate: TranslateService,
@@ -42,9 +43,9 @@ export class AppComponent implements AfterViewInit {
     }
 
     // Set app title
-    this.updateTitle();
-    translate.onLangChange.subscribe(() => {
-      this.updateTitle();
+    this.subscription = translate
+    .onLangChange
+    .subscribe(() => {
       this.updateBodyClasses();
     });
 
@@ -71,6 +72,10 @@ export class AppComponent implements AfterViewInit {
       });
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   ngAfterViewInit(): void {
     this.updateBodyClasses();
   }
@@ -80,15 +85,6 @@ export class AppComponent implements AfterViewInit {
     if (this.isBrowser) {
       setLanguage(language);
     }
-  }
-
-  updateTitle() {
-    forkJoin(
-      this.translate.get('home'),
-      this.translate.get('american_international_hospital'),
-    ).subscribe(([home, aihHospital]) => {
-      this.title.setTitle(`${home} - ${aihHospital}`);
-    });
   }
 
   private updateBodyClasses() {

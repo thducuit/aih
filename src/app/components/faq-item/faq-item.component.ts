@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Faq } from 'src/app/models/faq';
 
 @Component({
@@ -10,11 +10,14 @@ export class FaqItemComponent {
   @Input()
   public faq: Faq;
 
+  @Output()
+  public selectToggle = new EventEmitter<any>();
+
   public expanded = false;
 
   constructor() { }
 
   toggle() {
-    this.expanded = ! this.expanded;
+    this.selectToggle.emit(this);
   }
 }

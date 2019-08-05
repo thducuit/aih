@@ -1,0 +1,6 @@
+.select-options {
+  display: none;
+  &.show {
+    display: block;
+  }
+}

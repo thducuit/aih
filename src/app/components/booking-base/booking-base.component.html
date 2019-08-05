@@ -5,6 +5,8 @@
       {{ 'please_enter_your_phone_number_to_get_best_support' | translate }}
     </p>
     <app-booking-phone-number
+      #bookingPhoneNumer
+      [animateAfter]="animatePhone"
       (chooseCustomer)="handleSelectCustomerId($event)"
       (chooseCustomerPhone)="handleSelectCustomerPhone($event)"
     ></app-booking-phone-number>
@@ -19,6 +21,7 @@
     <app-booking-specialty
       #bookingSpecialty
       (chooseClinic)="handleSelectClinic($event)"
+      [animateAfter]="animateClinic"
     ></app-booking-specialty>
   </div>
   <div class="item">
@@ -29,6 +32,7 @@
     <!-- <p class="note note-doctor">* Please select a doctor</p> -->
     <app-booking-doctor
       #bookingDoctor
+      [animateAfter]="animateDoctor"
       [doctorIds]="filterAvailableDoctors()"
       (choose)="handleSelectDoctor($event)"
     ></app-booking-doctor>
@@ -41,6 +45,7 @@
     <!-- <p class="note note-day">* Please select an appoitment date</p> -->
     <app-booking-date
       #bookingDate
+      [animateAfter]="animateDate"
       [doctorSchedule]="doctorSchedule"
       (changeDate)="handleSelectDate($event)"
     ></app-booking-date>
@@ -54,6 +59,7 @@
     <app-booking-time
       (chooseTime)="handleSelectTime($event)"
       [enableTime]="timeBlock"
+      [animateAfter]="animateTime"
     ></app-booking-time>
     <input
       *ngIf="useForHome"
@@ -66,8 +72,16 @@
 </div>
 <input
   *ngIf="!useForHome"
-  class="btn-booking js-booking"
+  class="btn-booking js-booking hide-md"
   type="submit"
   value=""
   (click)="handleBooking()"
 />
+<div class="btn-wrap" *ngIf="!useForHome">
+  <input
+    class="btn-booking js-booking"
+    type="submit"
+    value="{{ 'book_an_appointment' | translate }}"
+    (click)="handleBooking()"
+  />
+</div>

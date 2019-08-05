@@ -1,128 +1,146 @@
-import {Component, OnInit} from '@angular/core';
-import {Page} from '../../models/page';
-import {PageService} from '../../services/page.service';
-import {BannerService} from '../../services/banner.service';
-import {UrlService} from '../../services/url.service';
-import {Meta, Title} from '@angular/platform-browser';
-import {forkJoin} from 'rxjs';
-import Swal from "sweetalert2";
-import {TranslateService} from '@ngx-translate/core';
-import {ContactService} from '../../services/contact.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Page } from '../../models/page';
+import { PageService } from '../../services/page.service';
+import { BannerService } from '../../services/banner.service';
+import { UrlService } from '../../services/url.service';
+import { Meta, Title } from '@angular/platform-browser';
+import { forkJoin, Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
-    public page: Page;
-    public banners: Array<any> = [];
+  public page: Page;
+  public banners: Array<any> = [];
 
-    public doctorPoint = 0;
-    public servicePoint = 0;
-    public faciPoint = 0;
-    public pricePoint = 0;
+  public doctorPoint = 0;
+  public servicePoint = 0;
+  public faciPoint = 0;
+  public pricePoint = 0;
 
-    constructor(public pageService: PageService,
-                public bannerService: BannerService,
-                private metaService: Meta,
-                private titleService: Title,
-                private translate: TranslateService,
-                public contactService: ContactService) {
-    }
+  private subscription: Subscription;
 
-    ngOnInit() {
+  constructor(
+    public pageService: PageService,
+    public bannerService: BannerService,
+    private metaService: Meta,
+    private titleService: Title,
+    private translate: TranslateService,
+    public contactService: ContactService) {
+  }
+
+  ngOnInit() {
+    this.loadPage();
+    this.subscription = this
+      .translate
+      .onLangChange
+      .subscribe(() => {
         this.loadPage();
-    }
+      });
+  }
 
-    loadPage() {
-        this.pageService.fetch('contact_page').subscribe((data: any) => {
-            const post = data.Post || {};
-            const page = new Page(post);
-            page.longDesc = UrlService.fixPictureUrl(page.longDesc);
-            page.picturePath = UrlService.createPictureUrl(page.picture);
-            this.page = page;
-            // seo
-            this.titleService.setTitle(this.page.metaTitle);
-            this.metaService.addTag({name: 'description', content: this.page.metaDesc});
-            this.metaService.addTag({name: 'keywords', content: this.page.metaKey});
-            this.bannerService
-                .fetch('contact_page', this.page.id)
-                .subscribe((bannersResp: any) => {
-                    const banners = bannersResp.Banner;
-                    this.banners = banners.map(banner => {
-                        banner.large = UrlService.createMediaUrl(banner.Url);
-                        banner.small = banner.large;
-                        banner.url = banner.Link;
-                        banner.title = banner.title;
-                        banner.desc = banner.desc;
-                        return banner;
-                    });
-                });
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
-
-        });
-    }
-
-    openAlert() {
-        forkJoin(
-            this.translate.get('text_contact_rating_require'),
-            this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
-            Swal.fire({
-                text: message,
-                confirmButtonText: buttonText
+  loadPage() {
+    forkJoin(
+      this.pageService
+        .fetch('contact_page'),
+      this.translate.get('american_international_hospital')
+    )
+      .subscribe(([data, aihStr]) => {
+        const post = data.Post || {};
+        const page = new Page(post);
+        page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+        page.picturePath = UrlService.createPictureUrl(page.picture);
+        this.page = page;
+        // seo
+        this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
+        this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
+        this.metaService.addTag({ name: 'keywords', content: this.page.metaKey });
+        this.bannerService
+          .fetch('contact_page', this.page.id)
+          .subscribe((bannersResp: any) => {
+            const banners = bannersResp.Banner;
+            this.banners = banners.map(banner => {
+              banner.large = UrlService.createMediaUrl(banner.Url);
+              banner.small = banner.large;
+              banner.url = banner.Link;
+              banner.title = banner.title;
+              banner.desc = banner.desc;
+              return banner;
             });
-        });
-    }
+          });
 
-    openSuccess() {
-        forkJoin(
-            this.translate.get('text_contact_rating_success'),
-            this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
-            Swal.fire({
-                text: message,
-                confirmButtonText: buttonText
-            });
-        });
-    }
 
-    openFail() {
-        forkJoin(
-            this.translate.get('text_contact_rating_fail'),
-            this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
-            Swal.fire({
-                text: message,
-                confirmButtonText: buttonText
-            });
-        });
-    }
+      });
+  }
 
-    submitRatingForm() {
-        if (!this.doctorPoint && !this.servicePoint && !this.faciPoint && !this.pricePoint) {
-            this.openAlert();
-            return;
-        }
-        this.openSuccess();
-    }
+  openAlert() {
+    forkJoin(
+      this.translate.get('text_contact_rating_require'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText
+      });
+    });
+  }
 
-    takePointDoctor(point) {
-        this.doctorPoint = point;
-    }
+  openSuccess() {
+    forkJoin(
+      this.translate.get('text_contact_rating_success'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText
+      });
+    });
+  }
 
-    takePointService(point) {
-        this.servicePoint = point;
-    }
+  openFail() {
+    forkJoin(
+      this.translate.get('text_contact_rating_fail'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText
+      });
+    });
+  }
 
-    takePointFaci(point) {
-        this.faciPoint = point;
+  submitRatingForm() {
+    if (!this.doctorPoint && !this.servicePoint && !this.faciPoint && !this.pricePoint) {
+      this.openAlert();
+      return;
     }
+    this.openSuccess();
+  }
 
-    takePointPrice(point) {
-        this.pricePoint = point;
-    }
+  takePointDoctor(point) {
+    this.doctorPoint = point;
+  }
+
+  takePointService(point) {
+    this.servicePoint = point;
+  }
+
+  takePointFaci(point) {
+    this.faciPoint = point;
+  }
+
+  takePointPrice(point) {
+    this.pricePoint = point;
+  }
 
 }

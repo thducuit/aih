@@ -1,0 +1,9 @@
+.booking-mb {
+  .container {
+    ::ng-deep {
+      .hide-md {
+        display: none;
+      }
+    }
+  }
+}

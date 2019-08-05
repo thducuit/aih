@@ -1,3 +1,5 @@
+import { escapeHtml, extractHtmlText } from '../utilities';
+
 export class Testimonial {
   public id: number;
   public cateid: number;
@@ -11,7 +13,7 @@ export class Testimonial {
     this.cateid = data.media_cateid;
     this.description = data.media_description;
     this.thumb = data.media_thumb;
-    this.longdesc = data.media_longdesc;
+    this.longdesc = `${extractHtmlText(escapeHtml(data.media_longdesc))}`.trim();
     this.title = data.media_title;
   }
 }

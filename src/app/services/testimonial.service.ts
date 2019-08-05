@@ -18,7 +18,7 @@ export class TestimonialService extends BaseService {
       publish: 1,
       rowperpage: 999,
       pageselected: pageNum,
-      post_type: 'customer_feedback',
+      media_type: ['customer_feedback'],
       lang : this.getCurrentLocal()
     };
     return this.http.post('media/list', postData);
