@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 import { BaseService } from './base.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PageService extends BaseService {
     super(translate);
   }
 
-  fetch(type) {
+  fetch(type): Observable<any> {
     const postData = {
       post_type: type,
       lang : this.getCurrentLocal()

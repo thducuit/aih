@@ -1,0 +1,20 @@
+<div class="item">
+  <div class="copy">
+    <div class="ava">
+      <img src="../assets/images/b.gif">
+    </div>
+    <p class="text js-text">
+      {{getShortDesc()}}
+      <span class="moreellipses" *ngIf="needShowMore && !expaned">...</span>
+      <span class="morecontent" *ngIf="needShowMore">
+        <span *ngIf="expaned" [ngClass]="{'show': expaned}">{{getShowMoreContent()}}</span>
+        <a href="javascript:void(0)" class="morelink" *ngIf="!expaned" (click)="expandShowMore(true)">Show more</a>
+        <a href="javascript:void(0)" class="morelink less" *ngIf="expaned" (click)="expandShowMore(false)">Show less</a>
+      </span>
+    </p>
+    <div class="info-quote">
+      <h4>{{testimonial.title}}</h4>
+      <span>{{testimonial.description}}</span>
+    </div>
+  </div>
+</div>

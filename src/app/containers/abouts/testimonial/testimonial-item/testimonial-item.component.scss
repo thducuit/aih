@@ -1,0 +1,14 @@
+@import "../../../../../variable";
+
+a {
+  color: $color-allports;
+  cursor: pointer;
+}
+
+.morecontent {
+  >span {
+    &.show {
+      display: inline;
+    }
+  }
+}

@@ -20,18 +20,7 @@
       <div class="list-quote">
         <ul>
           <li *ngFor="let item of testimonials">
-            <div class="item">
-              <div class="copy">
-                <div class="ava" >
-                  <img src="../assets/images/b.gif">
-                </div>
-                <p class="text js-text">{{item.logdesc}}</p>
-                <div class="info-quote">
-                  <h4>{{item.title}}</h4>
-                  <span>{{item.description}}</span>
-                </div>
-              </div>
-            </div>
+            <app-testimonial-item [testimonial]="item"></app-testimonial-item>
           </li>
         </ul>
       </div>

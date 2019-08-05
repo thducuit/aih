@@ -13,6 +13,7 @@ export class BookingDateComponent implements OnInit {
   selectedDate: NgbDateStruct;
   expanded = false;
   @Input() doctorSchedule: any;
+  @Input() animateAfter: boolean;
   @Output() changeDate = new EventEmitter<NgbDateStruct>();
   public isDisabled: any;
   constructor(private calendar: NgbCalendar) {

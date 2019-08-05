@@ -1,5 +1,5 @@
 <div class="item-inner" (clickOutside)="onClickOutSide($event)">
-	<div class="ip ip-day">
+	<div class="ip ip-day" [ngClass]="{'aniAfter': animateAfter}">
 		<input value="{{getDateString()}}" readonly="true" class="js-dropBooking-day" type="text" placeholder="{{'date' | translate}}" (click)="toggleExpandDate()">
 		<em class="ar" [ngClass]="{'show': expanded}"></em>
 		<div class="drop drop-day" [ngClass]="{'show': expanded}">

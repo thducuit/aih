@@ -1,25 +1,6 @@
 <section class="booking-mb frmBooking">
 	<div class="container bmobile">
-		<h2>Đặt lịch khám</h2>
-		<div class="booking-wrap">
-			<div class="item">
-			<!-- <p class="note note-phone">* Please select your phone number</p> -->					
-			</div>
-			<div class="item">
-			<!-- <p class="note note-spec">* Please select a specialty</p> -->			
-			</div>
-			<div class="item">
-			<!-- <p class="note note-doctor">* Please select a doctor</p> -->			
-			</div>
-			<div class="item">
-			<!-- <p class="note note-day">* Please select an appoitment date</p> -->			
-			</div>
-			<div class="item">
-			<!-- <p class="note note-time">* Please select the time</p> -->
-			</div>
-		</div>
-		<div class="btn-wrap">
-			<input class="btn-booking js-booking" type="submit" value="Đặt lịch khám">
-		</div>
+		<h2>{{'book_an_appointment' | translate}}</h2>
+		<app-booking-base [useForHome]="false"></app-booking-base>
 	</div>
 </section>

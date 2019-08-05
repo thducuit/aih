@@ -71,6 +71,7 @@
             <app-faq-item
               *ngFor="let item of getLeftColumnItems()"
               [faq]="item"
+              (selectToggle)="onTryToggleItem($event)"
             >
             </app-faq-item>
           </div>
@@ -78,6 +79,7 @@
             <app-faq-item
               *ngFor="let item of getRightColumnItems()"
               [faq]="item"
+              (selectToggle)="onTryToggleItem($event)"
             >
             </app-faq-item>
           </div>
