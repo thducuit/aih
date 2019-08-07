@@ -15,52 +15,56 @@
         </div>
       </div>
       
-      <div class="medical-bottom clearfix" *ngIf="currentPackages">
-        <div class="box-left box-chosen">
-          <p class="{{ isExpand ? 'active': '' }}" (click)="onExpand()">CHỌN GÓI DỊCH VỤ <img src="../assets/images/dropdown.png" alt=""></p>
+      <div class="medical-bottom clearfix" *ngIf="currentPackages" (clickOutside)="onClickOutsideUl($event)">
+        <div class="box-left box-chosen {{ isExpand ? 'active': '' }}" >
+          <div (click)="onExpand()">
+            <p *ngIf="!chosenPackage">{{ 'choose_service_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
+            <p *ngIf="chosenPackage">{{ chosenPackage.name }}</p>
+          </div>
+
           <a id="show-hidden-menu" ></a>
-          <ul>
-            <li>Chương trình khám sức khoẻ toàn diện</li>
-            <li>Chương trình khám sức khoẻ tiêu chuẩn</li>
-            <li>Chương trình sinh</li>
-            <li>Chương trình theo dõi và chăm sóc</li>
+          <ul >
+            <li *ngFor="let currentPackage of currentPackages" (click)="choosePackage(currentPackage)" class="{{ currentPackage.active ? 'active' : '' }}">{{ currentPackage.name }}</li>
           </ul>
         </div>
 
         <div class="box-right">
-          <div class="box-top box-detail">
+          <div class="box-top box-detail {{ isExpandChild ? 'active': '' }}" (clickOutside)="onClickOutsideOl($event)">
             <ul>
               <li>
-                <p>CHỌN CHI TIẾT GÓI <img src="../assets/images/dropdown.png" alt=""></p>
-                <ol>
-                  <li>Nam</li>
-                  <li>Nữ</li>
+                <div (click)="onExpandChild()">
+                  <p *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
+                  <p *ngIf="chosenPackageChild">{{ chosenPackageChild.name }}</p>
+                </div>
+                <ol >
+                  <li *ngFor="let child of chosenPackageChilds" (click)="choosePackageChild(child)" class="{{ child.active ? 'active' : '' }}">{{ child.name }}</li>
                 </ol>
               </li>
             </ul>
           </div>
           <div class="box-bottom">
             <ul>
-              <li>GIÁ DỊCH VỤ</li>
+              <li *ngIf="!chosenPackageChild">GIÁ DỊCH VỤ</li>
+              <li *ngIf="chosenPackageChild">{{ chosenPackageChild.meta.price }}</li>
             </ul>
           </div>
         </div>
 
       </div>
 
-      <div class="medical-bottom medical-all clearfix">
-        <div class="box-left"></div>
-        <div class="box-right">
-          <div class="box-left">
-            <p innerHTML="{{ (currentPackages[0] ? currentPackages[0].desc : '') | decodeHtmlEntities }}"></p>
-          </div>
-          <div class="box-right">
-            <p innerHTML="{{ (currentPackages[1] ? currentPackages[1].desc : '') | decodeHtmlEntities }}"></p>
-          </div>
-        </div>
-      </div>
+      <!--<div class="medical-bottom medical-all clearfix">-->
+        <!--<div class="box-left"></div>-->
+        <!--<div class="box-right">-->
+          <!--<div class="box-left">-->
+            <!--<p innerHTML="{{ (currentPackages[0] ? currentPackages[0].desc : '') | decodeHtmlEntities }}"></p>-->
+          <!--</div>-->
+          <!--<div class="box-right">-->
+            <!--<p innerHTML="{{ (currentPackages[1] ? currentPackages[1].desc : '') | decodeHtmlEntities }}"></p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
 
-      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix">
+      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild">
 
         <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
           <div class="box-border-medical">
@@ -72,8 +76,8 @@
             <tr *ngFor="let child of currentPackageService.children">
               <td>{{ child.no }}.{{ child.name }}</td>
               <td>
-                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[0].id)"/>
-                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[0].id)">
+                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id)"/>
+                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(chosenPackageChild.id)">
               </td>
               <!-- <td>
                 <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>
@@ -83,6 +87,7 @@
 
             </tbody>
           </table>
+          <p innerHTML="{{ (chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities }}"></p>
         </div>
 
       </div>

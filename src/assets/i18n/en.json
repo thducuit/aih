@@ -196,5 +196,7 @@
   "blog": "Blog",
   "text_contact_rating_require": "Please choose a least service",
   "text_contact_rating_success": "Thank for your rating",
-  "text_contact_rating_fail": "Error. Please try again!!!"
+  "text_contact_rating_fail": "Error. Please try again!!!",
+  "choose_service_package": "CHOOSE SERVICE PACKAGE",
+  "choose_detail_package": "CHOOSE DETAIL PACKAGE"
 }

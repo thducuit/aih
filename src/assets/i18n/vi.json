@@ -196,5 +196,7 @@
   "blog": "Tin tức",
   "text_contact_rating_require": "Vui lòng chọn ít nhất 1 dịch vụ",
   "text_contact_rating_success": "Cám ơn bạn đã đánh giá",
-  "text_contact_rating_fail": "Lỗi. Vui lòng liên hệ ban quản trị"
+  "text_contact_rating_fail": "Lỗi. Vui lòng liên hệ ban quản trị",
+  "choose_service_package": "CHỌN GÓI DỊCH VỤ",
+  "choose_detail_package": "CHỌN CHI TIẾT GÓI"
 }
