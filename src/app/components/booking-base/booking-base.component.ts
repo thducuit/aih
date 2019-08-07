@@ -89,17 +89,23 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     });
   }
 
+  findDoctorSchedule(doctorId) {
+    return this.schedule.find(x => {
+      return x.doctorId === doctorId;
+    });
+  }
+
   handleSelectDoctor(doctor: Doctor) {
     this.selectedDoctor = doctor;
-    this.doctorSchedule = this.schedule.find(x => {
-      return x.doctorId === doctor.doctorId;
-    });
+    if (doctor) {
+      this.doctorSchedule = this.findDoctorSchedule(doctor.doctorId);
 
-    this.bookingSpecialty &&
-      this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
+      this.bookingSpecialty &&
+        this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
 
-    if (this.selectedDate) {
-      this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+      if (this.selectedDate) {
+        this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+      }
     }
   }
 
@@ -108,10 +114,12 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     if (this.selectedDoctor) {
       this.loadTime(this.selectedDoctor.doctorId, date);
     }
+    this.animateNextStep();
   }
 
   handleSelectTime(time) {
     this.selectedTime = time;
+    this.animateNextStep();
   }
 
   handleSelectCustomerId(customerId) {
@@ -119,11 +127,20 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     this.animateNextStep();
   }
 
-  handleSelectClinic(clinic) {
+  handleSelectClinic(clinic: Clinic) {
     this.selectedClinic = clinic;
     if (clinic) {
-      this.bookingDoctor.chosenDoctor = null;
+      this.bookingDoctor.filterDoctors(this.filterAvailableDoctors());
+      if (this.selectedDoctor) {
+        const doctorSchedule = this.findDoctorSchedule(
+          this.selectedDoctor.doctorId,
+        );
+        if (doctorSchedule && doctorSchedule.clinicId !== clinic.clinicId) {
+          this.bookingDoctor.onChoose(null);
+        }
+      }
     }
+    this.animateNextStep();
   }
 
   filterAvailableDoctors() {
@@ -350,7 +367,7 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
   }
 
   animateNextStep() {
-    this.animateClinic = false;
+    this.animatePhone = false;
     if (!this.selectedPhone || !this.selectedCustomerId) {
       this.animatePhone = true;
       return;
@@ -363,7 +380,7 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     }
 
     this.animateDoctor = false;
-    if (this.selectedDoctor) {
+    if (!this.selectedDoctor) {
       this.animateDoctor = true;
       return;
     }

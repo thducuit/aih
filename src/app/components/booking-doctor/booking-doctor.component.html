@@ -1,14 +1,14 @@
 <div class="item-inner" (clickOutside)="onClickOutside($event)">
   <div class="ip ip-doctor" [ngClass]="{'aniAfter': animateAfter, 'has-before': isActive}" (click)="handleInputClick()">
-    <input readonly="true" class="js-dropBooking-doctor" type="text"
-           placeholder="{{ placeholder || 'select_a_doctor' | translate }}">
+    <input readonly="true" class="js-dropBooking-doctor" type="text" [value]="doctorName"
+           placeholder="{{ 'select_a_doctor' | translate }}">
     <em class="ar"></em>
     <div class="drop drop-doctor {{ !isActive ? 'un-active' : '' }}">
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">
             <ul>
-              <li class="doctor-item-23" *ngFor="let doctor of filterDoctors()" >
+              <li class="doctor-item-23" *ngFor="let doctor of filteredDoctors" >
                 <p class="tt-doc {{ doctor.isExpanded ? 'active' : ''  }}">
                   <em class="js-book-dt" (click)="onChoose(doctor)">{{ doctor.name }}
                   </em>
