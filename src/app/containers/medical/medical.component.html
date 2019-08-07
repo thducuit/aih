@@ -33,7 +33,7 @@
             <ul>
               <li>
                 <div (click)="onExpandChild()">
-                  <p *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
+                  <p class="choose-child-package" *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
                   <p *ngIf="chosenPackageChild">{{ chosenPackageChild.name }}</p>
                 </div>
                 <ol >
