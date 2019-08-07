@@ -1,14 +1,21 @@
 .drop {
   display: block;
+  overflow: hidden;
 }
 .block-time {
   transition: all .3s ease-in-out;
 }
 .un-active .block-time {
   height: 0;
-  overflow: hidden;
 }
-
 .block-time {
   height: 375px;
+  display: block;
+  float: left;
+}
+
+.item-time {
+  background: #fff;
+  float: left;
+  width: 100%;
 }

@@ -1,5 +1,5 @@
-.box-details-medical.active {
-  display: block;
+.box-details-medical {
+ display: block;
 }
 
 #show-hidden-menu img {
@@ -8,4 +8,100 @@
 
 #show-hidden-menu.active img {
   transform: rotate(180deg)
+}
+
+.medical-bottom .box-left p {
+	text-align: left;
+	padding-left: 30px;	
+}
+
+.medical-bottom .box-left p img {
+	padding-left: 15px
+}
+
+.medical-bottom .box-right .box-top, .medical-bottom .box-right .box-bottom{
+	    width: 100%;
+    float: left;
+    background: #0199ca;
+}
+
+.medical-bottom .box-right .box-bottom {
+	overflow: hidden
+}
+
+.medical-bottom .box-right .box-bottom ul li {
+	height: 50px;
+}
+
+.box-chosen {
+	position: relative;
+	cursor: pointer;
+}
+.choose-child-package img {
+	padding-left: 15px;
+}
+.box-chosen ul {
+	position: absolute;
+    width: 100%;
+    top: 100px;
+    z-index: 10;
+    background: #fff;
+	display: none;
+}
+
+.box-chosen.active ul {
+	display: block;
+}
+
+.box-detail {
+	position: relative;
+	cursor: pointer;
+}
+
+.box-detail ol {
+	position: absolute;
+    background: #fff;
+    width: 100%;
+    padding: 0;
+	display: none;
+	z-index: 10;
+}
+
+.box-detail.active ol {
+	display: block;
+}
+
+.box-detail ol li {
+	color: #666666;
+	text-align: left;
+	    padding-left: 20px;
+	    cursor: pointer
+}
+
+.box-detail ol li:hover, .box-detail ol li.active {
+	background: #cce3ea;
+}
+
+.box-chosen ul li {
+	font-size: 18px;
+	text-transform: uppercase;
+	padding: 20px;
+	color: #007297;
+	cursor: pointer;
+}
+
+.box-chosen ul li:hover, .box-chosen ul li.active {
+	background: #cce3ea;
+	    font-family: utm_avobold;
+	color: #007297
+}
+
+.box-details-medical .table tbody tr td:nth-child(2) {
+	width: 50%
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+	.page-medical-all .medical-bottom .box-left p {
+	    margin-top: 35px;
+	}
 }

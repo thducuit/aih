@@ -14,49 +14,57 @@
           <p innerHTML="{{ (page ? page.longDesc : '') | decodeHtmlEntities }}"></p>
         </div>
       </div>
-      <a (click)="resetFormat()">Trở lại</a>
-      <div class="medical-bottom clearfix" *ngIf="currentPackages">
-        <div class="box-left">
-          <p>CHỌN CHƯƠNG TRÌNH KIỂM TRA SỨC KHỎE TOÀN DIỆN</p>
-          <a id="show-hidden-menu" class="{{ isExpand ? 'active': '' }}" (click)="onExpand()"><img src="../assets/images/icon-rg.png" alt="">Rút gọn</a>
+      
+      <div class="medical-bottom clearfix" *ngIf="currentPackages" (clickOutside)="onClickOutsideUl($event)">
+        <div class="box-left box-chosen {{ isExpand ? 'active': '' }}" >
+          <div (click)="onExpand()">
+            <p *ngIf="!chosenPackage">{{ 'choose_service_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
+            <p *ngIf="chosenPackage">{{ chosenPackage.name }}</p>
+          </div>
+
+          <a id="show-hidden-menu" ></a>
+          <ul >
+            <li *ngFor="let currentPackage of currentPackages" (click)="choosePackage(currentPackage)" class="{{ currentPackage.active ? 'active' : '' }}">{{ currentPackage.name }}</li>
+          </ul>
         </div>
 
         <div class="box-right">
-          <div class="box-left">
+          <div class="box-top box-detail {{ isExpandChild ? 'active': '' }}" (clickOutside)="onClickOutsideOl($event)">
             <ul>
-              <li>{{ currentPackages[0] ? currentPackages[0].name : '' }}</li>
               <li>
-                <span *ngIf="currentPackages[0] && currentPackages[0].parentId !== 0">{{ currentPackages[0].meta.price }}</span>
-                <span *ngIf="currentPackages[0] && currentPackages[0].parentId === 0"><input (click)="changeFormat(currentPackages[0].id)" type="radio" /></span>
+                <div (click)="onExpandChild()">
+                  <p class="choose-child-package" *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
+                  <p *ngIf="chosenPackageChild">{{ chosenPackageChild.name }}</p>
+                </div>
+                <ol >
+                  <li *ngFor="let child of chosenPackageChilds" (click)="choosePackageChild(child)" class="{{ child.active ? 'active' : '' }}">{{ child.name }}</li>
+                </ol>
               </li>
             </ul>
           </div>
-          <div class="box-right">
+          <div class="box-bottom">
             <ul>
-              <li>{{ currentPackages[1] ? currentPackages[1].name : '' }}</li>
-              <li>
-                <span *ngIf="currentPackages[1] && currentPackages[1].parentId !== 0">{{ currentPackages[1].meta.price }}</span>
-                <span *ngIf="currentPackages[1] && currentPackages[1].parentId === 0"><input (click)="changeFormat(currentPackages[1].id)" type="radio" /></span>
-              </li>
+              <li *ngIf="!chosenPackageChild">GIÁ DỊCH VỤ</li>
+              <li *ngIf="chosenPackageChild">{{ chosenPackageChild.meta.price }}</li>
             </ul>
           </div>
         </div>
 
       </div>
 
-      <div class="medical-bottom medical-all clearfix">
-        <div class="box-left"></div>
-        <div class="box-right">
-          <div class="box-left">
-            <p innerHTML="{{ (currentPackages[0] ? currentPackages[0].desc : '') | decodeHtmlEntities }}"></p>
-          </div>
-          <div class="box-right">
-            <p innerHTML="{{ (currentPackages[1] ? currentPackages[1].desc : '') | decodeHtmlEntities }}"></p>
-          </div>
-        </div>
-      </div>
+      <!--<div class="medical-bottom medical-all clearfix">-->
+        <!--<div class="box-left"></div>-->
+        <!--<div class="box-right">-->
+          <!--<div class="box-left">-->
+            <!--<p innerHTML="{{ (currentPackages[0] ? currentPackages[0].desc : '') | decodeHtmlEntities }}"></p>-->
+          <!--</div>-->
+          <!--<div class="box-right">-->
+            <!--<p innerHTML="{{ (currentPackages[1] ? currentPackages[1].desc : '') | decodeHtmlEntities }}"></p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
 
-      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix">
+      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild">
 
         <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
           <div class="box-border-medical">
@@ -68,17 +76,18 @@
             <tr *ngFor="let child of currentPackageService.children">
               <td>{{ child.no }}.{{ child.name }}</td>
               <td>
-                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[0].id)"/>
-                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[0].id)">
+                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id)"/>
+                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(chosenPackageChild.id)">
               </td>
-              <td>
+              <!-- <td>
                 <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>
                 <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[1].id)">
-              </td>
+              </td> -->
             </tr>
 
             </tbody>
           </table>
+          <p innerHTML="{{ (chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities }}"></p>
         </div>
 
       </div>
