@@ -48,7 +48,7 @@ export class EventComponent implements OnInit, OnDestroy {
 
   loadNews() {
     this.blogService
-      .fetch(1, 999)
+      .fetch(1, 999, ['post_ishot DESC', 'post_datepublish DESC'])
       .subscribe((data: any) => {
         const posts = data.Posts || [];
         this.totalRecord = posts.TotalRecord;
@@ -58,6 +58,7 @@ export class EventComponent implements OnInit, OnDestroy {
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
           return blog;
         });
+        console.log('this.blogs', this.blogs);
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();

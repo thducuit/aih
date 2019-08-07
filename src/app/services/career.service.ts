@@ -28,8 +28,10 @@ export class CareerService extends BaseService {
             phone: form.phone,
             email: form.email,
             content: form.content,
-            attach: form.attach,
         };
+        if (form.attach.fileName) {
+            postData['attach'] = form.attach;
+        }
         return this.http.post('form/career', postData);
     }
 
