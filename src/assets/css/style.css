@@ -20,7 +20,7 @@ section.modal {
 section.modalWindow {
   display: none;
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999 !important;
@@ -29,6 +29,8 @@ section.modalWindow {
   background: #FFF;
   cursor: default;
   margin: 0 auto;
+  height: 450px;
+  background: #f0f0f0
 }
 section.modal.overlay {
   display: none;
@@ -43,7 +45,7 @@ section.modal.overlay {
 }
 section.modalWindow section.modalWrapper {
   margin: 30px;
-  padding: 15px;
+  /*padding: 15px;*/
   text-align: left;
   line-height: 20px !important;
 }
@@ -67,7 +69,7 @@ section.modalWindow section.modalWrapper {
 .box-popup-regis-form p {
   font-family: utm_avoregular;
   font-size: 14px;
-  margin: 20px 0px 15px;
+  margin: 10px 0px 15px;
   color: #007297;
 }
 .box-popup-regis-form  form .box-popup-regis-textbox:nth-child(1){

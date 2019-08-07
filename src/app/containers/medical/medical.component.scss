@@ -9,3 +9,80 @@
 #show-hidden-menu.active img {
   transform: rotate(180deg)
 }
+
+.medical-bottom .box-left p {
+	text-align: left;
+	padding-left: 30px;	
+}
+
+.medical-bottom .box-left p img {
+	padding-left: 15px
+}
+
+.medical-bottom .box-right .box-top, .medical-bottom .box-right .box-bottom{
+	    width: 100%;
+    float: left;
+    background: #0199ca;
+}
+
+.medical-bottom .box-right .box-bottom {
+	overflow: hidden
+}
+
+.box-chosen {
+	position: relative;
+}
+
+.box-chosen ul {
+	    position: absolute;
+    width: 100%;
+    top: 100px;
+    z-index: 10;
+    background: #fff;
+}
+
+.box-detail {
+	position: relative
+}
+
+.box-detail ol {
+	position: absolute;
+    background: #fff;
+    width: 100%;
+    padding: 0
+}
+
+.box-detail ol li {
+	color: #666666;
+	text-align: left;
+	    padding-left: 20px;
+	    cursor: pointer
+}
+
+.box-detail ol li:hover {
+	background: #cce3ea;
+}
+
+.box-chosen ul li {
+	font-size: 18px;
+	text-transform: uppercase;
+	padding: 20px;
+	color: #007297;
+	cursor: pointer;
+}
+
+.box-chosen ul li:hover {
+	background: #cce3ea;
+	    font-family: utm_avobold;
+	color: #007297
+}
+
+.box-details-medical .table tbody tr td:nth-child(2) {
+	width: 50%
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+	.page-medical-all .medical-bottom .box-left p {
+	    margin-top: 35px;
+	}
+}
