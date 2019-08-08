@@ -2,7 +2,7 @@
   color: #df0c5a !important;
   position: absolute;
   right: -15px;
-  top: -11px;
+  top: 3px;
   font-size: 18px;
   z-index: 9;
   content: "";
@@ -87,12 +87,12 @@ section.modalWindow section.modalWrapper {
   float: left;
   margin-right: 0px;
 }
-.form-popup .box-popup-regis-textbox .form-group{
+.form-popup1 .box-popup-regis-textbox .form-group{
   margin-bottom: 40px;
   height: 45px;
   position: relative;
 }
-.form-popup .box-popup-regis-textbox .form-group p.check-must {
+.form-popup1 .box-popup-regis-textbox .form-group p.check-must {
   color: #df0c5a;
   position: absolute;
   right: -15px;
@@ -100,16 +100,16 @@ section.modalWindow section.modalWrapper {
   z-index: 9;
   content: "";
 }
-.form-popup .box-popup-regis-textbox .form-control {
-  border: 1px solid #90c2d2;
-  border-radius: 4px;
+.form-popup1 .box-popup-regis-textbox .form-control {
+  border: 2px solid #007298;
+  border-radius: 6px;
   color: #666666;
   height: 45px;
   padding: 6px 12px;
   font-size: 12px;
 }
 
-.form-popup .box-popup-regis-textbox .form-control::placeholder{
+.form-popup1 .box-popup-regis-textbox .form-control::placeholder{
   color: #666666;
   font-family: utm_avoregular;
 }
@@ -134,6 +134,9 @@ section.modalWindow section.modalWrapper {
 }
 .custom-select {
   position: relative;
+  border: 2px solid #007298;
+  border-radius: 6px;
+  font-size: 12px;
 }
 .custom-select-trigger {
   position: relative;
@@ -234,7 +237,7 @@ section.modalWindow section.modalWrapper {
     font-size: 20px;
     padding-bottom: 15px;
   }
-  .form-popup .box-popup-regis-textbox .form-group {
+  .form-popup1 .box-popup-regis-textbox .form-group {
     margin-bottom: 20px;
     height: 45px;
   }
@@ -269,7 +272,7 @@ section.modalWindow section.modalWrapper {
     width: 100%;
     padding: 0px;
   }
-  .form-popup .box-popup-regis-textbox .form-group {
+  .form-popup1 .box-popup-regis-textbox .form-group {
     display: block;
   }
   .custom-select-trigger {
@@ -280,12 +283,12 @@ section.modalWindow section.modalWrapper {
   section.modalWindow {
     top: 7%;
   }
-  .form-popup .box-popup-regis-textbox .form-control {
+  .form-popup1 .box-popup-regis-textbox .form-control {
     height: 35px;
     padding: 6px 12px;
     font-size: 12px;
   }
-  .form-popup .box-popup-regis-textbox .form-group {
+  .form-popup1 .box-popup-regis-textbox .form-group {
     margin-bottom: 20px;
     height: 35px;
   }
