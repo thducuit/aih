@@ -1,10 +1,16 @@
 <section class="modal modalWindow {{ isShowPopup ? 'active' : 'deactive' }}" id="popupOne">
   <section class="modalWrapper">
-    <div class="box-popup-regis-form">
+    <div class="box-popup-regis-form form-popup1">
       <p>{{ 'register_note' | translate }}</p>
       <form action="">
 
         <div class="box-popup-regis-textbox">
+
+          <div class="form-group clearfix">
+            <input (blur)="validate()" type="" class="form-control {{ errorLastName ? 'error' : '' }}" name="lastName" [(ngModel)]="form.lastName" placeholder="{{ 'register_lastName' | translate }}">
+            <p class="check-must">*</p>
+          </div>
+
           <div class="form-group clearfix">
             <input (blur)="validate()" type="" class="form-control {{ errorFirstName ? 'error' : '' }}" name="firstName" [(ngModel)]="form.firstName" placeholder="{{ 'register_name' | translate }}">
             <p class="check-must">*</p>
@@ -13,11 +19,13 @@
           <div class="form-group clearfix">
             <input type="" class="form-control {{ errorEmail ? 'error' : '' }}" name="email" [(ngModel)]="form.email" placeholder="{{ 'register_email' | translate }}">
           </div>
+          
           <div class="form-group clearfix">
             <input type="" class="form-control" value="{{ form.phone }}" disabled name="phone" placeholder="{{ 'register_phone' | translate }}">
             <p class="check-must">*</p>
           </div>
         </div>
+
         <div class="box-popup-regis-textbox">
           <div class="form-group clearfix">
             <div class="center">
@@ -31,9 +39,9 @@
           </div>
           <div class="form-group box-choose-day clearfix">
             <div class="box-choose">
-              <div class="form-group clearfix">
+              <div class="clearfix">
                 <div class="center">
-                  <select id="dayBirth" name="dayBirth" [(ngModel)]="form.dayBirth" class="custom-select sources" >
+                  <select (change)="validate()" id="dayBirth" name="dayBirth" [(ngModel)]="form.dayBirth" class="custom-select sources {{ errorDayBirth ? 'error' : '' }}" >
                     <option value="">{{ 'register_dbirth' | translate }}</option>
                     <option *ngFor="let item of days" value="{{ item }}">{{ item }}</option>
                   </select>
@@ -41,9 +49,9 @@
               </div>
             </div>
             <div class="box-choose">
-              <div class="form-group clearfix">
+              <div class="clearfix">
                 <div class="center">
-                  <select id="monthBirth"  name="monthBirth" [(ngModel)]="form.monthBirth" class="custom-select sources" >
+                  <select (change)="validate()" id="monthBirth"  name="monthBirth" [(ngModel)]="form.monthBirth" class="custom-select sources {{ errorMonthBirth ? 'error' : '' }}" >
                     <option value="">{{ 'register_mbirth' | translate }}</option>
                     <option *ngFor="let item of months" value="{{ item }}">{{ item }}</option>
                   </select>
@@ -51,15 +59,16 @@
               </div>
             </div>
             <div class="box-choose">
-              <div class="form-group clearfix">
+              <div class="clearfix">
                 <div class="center">
-                  <select id="yearBirth"  name="yearBirth" [(ngModel)]="form.yearBirth" class="custom-select sources" >
+                  <select (change)="validate()" id="yearBirth"  name="yearBirth" [(ngModel)]="form.yearBirth" class="custom-select sources {{ errorYearBirth ? 'error' : '' }}" >
                     <option value="">{{ 'register_dbirth' | translate }}</option>
                     <option *ngFor="let item of years" value="{{ item }}">{{ item }}</option>
                   </select>
                 </div>
               </div>
             </div>
+            <p class="check-must">*</p>
           </div>
           <div class="form-group clearfix">
             <div class="center">
@@ -77,6 +86,6 @@
 
     </div>
   </section>
-  <a class="closeBtn" (click)="handleClosePopup()">{{ 'register_close' | translate }} X</a>
+  <!-- <a class="closeBtn" (click)="handleClosePopup()">{{ 'register_close' | translate }} X</a> -->
 </section>
 <section class="modal overlay"></section>

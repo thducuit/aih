@@ -12,7 +12,9 @@ export class Blog {
   public metaDesc;
   public metaKey;
   public metaTitle;
+  public meta;
   public sort;
+  public iframeUrl;
   constructor(data) {
     this.id = data.post_id;
     this.name = data.post_name;
@@ -25,8 +27,10 @@ export class Blog {
     this.metaDesc = data.post_metadesc;
     this.metaKey = data.post_metakey;
     this.metaTitle = data.post_metatitle;
+    this.meta = data.post_meta ? JSON.parse(data.post_meta) : {};
     this.picturePath = null;
     this.url = null;
+    this.iframeUrl = null;
     this.datepublish = new Date(data.post_datepublish);
   }
 }

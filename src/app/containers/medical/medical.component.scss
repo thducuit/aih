@@ -10,13 +10,25 @@
   transform: rotate(180deg)
 }
 
+.page-medical-all .medical-bottom .box-left p {
+	font-size: 18px;
+}
+
 .medical-bottom .box-left p {
 	text-align: left;
 	padding-left: 30px;	
 }
 
 .medical-bottom .box-left p img {
-	padding-left: 15px
+	margin-left: 15px;
+	width: 20px;
+	margin-top: -6px;
+	transition: transform .3s ease;
+	transform: rotate(0)
+}
+
+.medical-bottom .box-left.active p img {
+	transform: rotate(180deg)
 }
 
 .medical-bottom .box-right .box-top, .medical-bottom .box-right .box-bottom{
@@ -37,8 +49,16 @@
 	position: relative;
 	cursor: pointer;
 }
+
+.box-top.active .choose-child-package img {
+	transform: rotate(180deg)
+}
 .choose-child-package img {
-	padding-left: 15px;
+	margin-left: 15px;
+	width: 16px;
+	margin-top: -3px;
+	transition: transform .3s ease;
+	transform: rotate(0)
 }
 .box-chosen ul {
 	position: absolute;
@@ -83,7 +103,7 @@
 }
 
 .box-chosen ul li {
-	font-size: 18px;
+	font-size: 16px;
 	text-transform: uppercase;
 	padding: 20px;
 	color: #007297;

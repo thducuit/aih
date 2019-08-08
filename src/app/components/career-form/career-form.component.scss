@@ -1,6 +1,24 @@
-.error {
-  background: #e3e3e3;
-  border: 1px solid #a94442!important
+
+.has-error .form-control {
+  border: 1px solid #a94442!important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.has-error input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #e2185c!important;
+  opacity: 1; /* Firefox */
+}
+.has-error input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e2185c!important;
+}
+.has-error input::-moz-placeholder { /* Firefox 19+ */
+  color: #e2185c!important;
+}
+.has-error input:-ms-input-placeholder { /* IE 10+ */
+  color: #e2185c!important;
+}
+.has-error input:-moz-placeholder { /* Firefox 18- */
+  color: #e2185c!important;
 }
 
 .form-cr ul li .text-a a:hover {
@@ -8,3 +26,4 @@
   color: #ffffff;
   cursor: pointer;
 }
+

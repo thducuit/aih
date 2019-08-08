@@ -25,6 +25,7 @@
       </div>
     </li>
   </ul>
+  
   <div class="paging js-paging-ajax">
     <a *ngIf="currentPage > 1" class="prev-page" (click)="selectPage(currentPage-1)"></a>
     <ng-template ngFor let-num [ngForOf]="pageNumbers">

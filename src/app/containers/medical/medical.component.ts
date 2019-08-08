@@ -105,7 +105,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
                     let no = 1;
                     this.packageServices.map((item) => {
                         if (item.parentId === parentItem.id) {
-                            item.no = no < 9 ? `0${no}` : no;
+                            item.no = no < 10 ? `0${no}` : `${no}`;
                             children.push(item);
                             no += 1;
                         }
@@ -113,7 +113,9 @@ export class MedicalComponent implements OnInit, OnDestroy {
                     parentItem['children'] = children;
                     return parentItem;
                 });
+                
             });
+            
         });
     }
 

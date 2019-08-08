@@ -36,13 +36,13 @@ export class NewsItemComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
   loadNews() {
     this.blogService
-      .fetch(this.currentPage, ItemPerPage)
+      .fetch(this.currentPage, ItemPerPage, [], true)
       .subscribe((data: any) => {
         const posts = data.Posts || [];
         this.totalPage = Math.ceil(data.TotalRecord / ItemPerPage);

@@ -80,7 +80,7 @@
   "our_departments": "Our Departments",
   "our_doctors": "Our Doctors",
   "persond_insurance": "PERSOND INSURANCE",
-  "please_choose<br/>_our_medical_packages": "PLEASE CHOOSE<br/> OUR MEDICAL PACKAGES",
+  "please_choose_our_medical_packages": "PLEASE CHOOSE <br/> OUR MEDICAL PACKAGES",
   "partners": "Partners",
   "patient_services": "Patient services",
   "phone_number": "Phone Number",
@@ -169,7 +169,8 @@
   "text_booking_error": "Booking error. Try again!!!",
   "register_title": "REGISTER ACCOUNT",
   "register_note": "Please input form above",
-  "register_name": "Fullname",
+  "register_name": "First Name",
+  "register_lastName": "Last Name",
   "register_email": "Your email",
   "register_phone": "Your phone",
   "register_sex": "Sex",
@@ -197,7 +198,10 @@
   "blog": "Blog",
   "text_contact_rating_require": "Please choose a least service",
   "text_contact_rating_success": "Thank for your rating",
+  "text_subsribe_form_success": "Thank for your subscribe",
+  "text_subsribe_form_fail": "Error, please try again!!!",
   "text_contact_rating_fail": "Error. Please try again!!!",
   "choose_service_package": "CHOOSE SERVICE PACKAGE",
-  "choose_detail_package": "CHOOSE DETAIL PACKAGE"
+  "choose_detail_package": "CHOOSE DETAIL PACKAGE",
+  "choose_price_package": "PRICE"
 }

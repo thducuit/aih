@@ -76,37 +76,37 @@ export class CareerFormComponent implements OnInit {
     }
 
     validator() {
+        let flat = true;
         if (!this.form.fullname) {
             this.errorFullname = true;
-            return false;
+            flat = false;
         } else {
             this.errorFullname = false;
         }
         if (!this.form.phone) {
             this.errorPhone = true;
-            return false;
+            flat = false;
         } else {
             this.errorPhone = false;
         }
         if (!this.form.position) {
             this.errorPosition = true;
-            return false;
+            flat = false;
         } else {
             this.errorPosition = false;
         }
         if (!this.form.email) {
             this.errorEmail = true;
-            return false;
         } else {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if (!re.test(String(this.form.email).toLowerCase())) {
                 this.errorEmail = true;
-                return false;
+                flat = false;
             } else {
                 this.errorEmail = false;
             }
         }
-        return true;
+        return flat;
     }
 
 

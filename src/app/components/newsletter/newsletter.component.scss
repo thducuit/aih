@@ -1,0 +1,21 @@
+
+input.error {
+	border: 1px solid #a94442!important;
+}
+input.error::placeholder {
+	color: #e2185c!important;
+  	opacity: 1; /* Firefox */
+}
+
+input.error::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e2185c!important;
+}
+input.error::-moz-placeholder { /* Firefox 19+ */
+  color: #e2185c!important;
+}
+input.error:-ms-input-placeholder { /* IE 10+ */
+  color: #e2185c!important;
+}
+input.error:-moz-placeholder { /* Firefox 18- */
+  color: #e2185c!important;
+}
