@@ -33,5 +33,13 @@ export class ContactService extends BaseService {
         return this.http.post('form/rating', postData);
     }
 
+    subsribe(email) {
+        const postData = {
+            email,
+            lang: 'vi-VN'
+        };
+        return this.http.post('form/newsletter', postData);
+    }
+
 
 }

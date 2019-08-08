@@ -79,7 +79,7 @@
   "our_departments": "Chuyên khoa",
   "our_doctors": "Đội ngũ bác sĩ",
   "persond_insurance": "PERSOND INSURANCE",
-  "please_choose<br/>_our_medical_packages": "VUI LÒNG CHỌN<br/> GÓI DỊCH VỤ",
+  "please_choose_our_medical_packages": "VUI LÒNG CHỌN<br/> GÓI DỊCH VỤ",
   "partners": "Đối tác",
   "patient_services": "Dịch vụ y khoa",
   "phone_number": "Số điện thoại",
@@ -196,7 +196,10 @@
   "blog": "Tin tức",
   "text_contact_rating_require": "Vui lòng chọn ít nhất 1 dịch vụ",
   "text_contact_rating_success": "Cám ơn bạn đã đánh giá",
+  "text_subsribe_form_success": "Cám ơn bạn đã theo dõi",
+  "text_subsribe_form_fail": "Lỗi vui lòng thử lại",
   "text_contact_rating_fail": "Lỗi. Vui lòng liên hệ ban quản trị",
   "choose_service_package": "CHỌN GÓI DỊCH VỤ",
-  "choose_detail_package": "CHỌN CHI TIẾT GÓI"
+  "choose_detail_package": "CHỌN CHI TIẾT GÓI",
+  "choose_price_package": "GIÁ DỊCH VỤ"
 }

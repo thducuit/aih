@@ -44,7 +44,7 @@
           </div>
           <div class="box-bottom">
             <ul>
-              <li *ngIf="!chosenPackageChild">GIÁ DỊCH VỤ</li>
+              <li *ngIf="!chosenPackageChild"></li>
               <li *ngIf="chosenPackageChild">{{ chosenPackageChild.meta.price }}</li>
             </ul>
           </div>
@@ -67,27 +67,30 @@
       <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild">
 
         <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
-          <div class="box-border-medical">
-            <h5><span>{{ currentPackageService.name }}</span></h5>
+          <div *ngIf="currentPackageService.meta.indexOf(chosenPackage.id) > -1">
+            <div class="box-border-medical">
+              <h5><span>{{ currentPackageService.name }}</span></h5>
+            </div>
+            <table class="table table-hover">
+              <tbody>
+
+              <ng-container  *ngFor="let child of currentPackageService.children" >     
+                <tr *ngIf="child.meta.indexOf(chosenPackage.id) > -1" >
+                  <td>{{ child.no }}.{{ child.name }}</td>
+                  <td>
+                    <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id) > -1"/>
+                    <img src="../assets/images/no-check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id) === -1">
+                  </td>
+                  <!-- <td>
+                    <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>
+                    <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[1].id)">
+                  </td> -->
+                </tr>
+              </ng-container>
+
+              </tbody>
+            </table>
           </div>
-          <table class="table table-hover">
-            <tbody>
-
-            <tr *ngFor="let child of currentPackageService.children">
-              <td>{{ child.no }}.{{ child.name }}</td>
-              <td>
-                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id)"/>
-                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(chosenPackageChild.id)">
-              </td>
-              <!-- <td>
-                <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>
-                <img src="../assets/images/no-check.png" alt="" *ngIf="!child.meta.indexOf(currentPackages[1].id)">
-              </td> -->
-            </tr>
-
-            </tbody>
-          </table>
-
         </div>
         <p innerHTML="{{ (chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities }}"></p>
       </div>

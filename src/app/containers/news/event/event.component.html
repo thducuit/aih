@@ -30,7 +30,7 @@
         </div>
 
         <div class="item news-item-style style-3" *ngIf="blogs.length && blogs[0]">
-          <div>
+          <div (click)="openIframeVideo(blogs[0])">
             <div class="img has-video js-open-video"
                  [style.background]="'url(' + blogs[0].picturePath + ')'"
             ></div>
@@ -146,4 +146,10 @@
       </div>
     </div>
   </section>
+
+  <app-video-popup *ngIf="iframeSrc"
+                   [iframeSrc]=iframeSrc
+                   [isShowPopup]=showVideoPopup
+                   (closePopup)="handleClosePopup()"
+  ></app-video-popup>
 </main>

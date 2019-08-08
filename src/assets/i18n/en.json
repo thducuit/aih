@@ -79,7 +79,7 @@
   "our_departments": "Our Departments",
   "our_doctors": "Our Doctors",
   "persond_insurance": "PERSOND INSURANCE",
-  "please_choose<br/>_our_medical_packages": "PLEASE CHOOSE<br/> OUR MEDICAL PACKAGES",
+  "please_choose_our_medical_packages": "PLEASE CHOOSE <br/> OUR MEDICAL PACKAGES",
   "partners": "Partners",
   "patient_services": "Patient services",
   "phone_number": "Phone Number",
@@ -196,7 +196,10 @@
   "blog": "Blog",
   "text_contact_rating_require": "Please choose a least service",
   "text_contact_rating_success": "Thank for your rating",
+  "text_subsribe_form_success": "Thank for your subscribe",
+  "text_subsribe_form_fail": "Error, please try again!!!",
   "text_contact_rating_fail": "Error. Please try again!!!",
   "choose_service_package": "CHOOSE SERVICE PACKAGE",
-  "choose_detail_package": "CHOOSE DETAIL PACKAGE"
+  "choose_detail_package": "CHOOSE DETAIL PACKAGE",
+  "choose_price_package": "PRICE"
 }

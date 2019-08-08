@@ -23,6 +23,9 @@ export class EventComponent implements OnInit, OnDestroy {
   public pageNumbers: number[] = [];
   private subscription: Subscription;
 
+  public showVideoPopup = false;
+  public iframeSrc;
+
   constructor(
     public blogService: BlogService,
     private translate: TranslateService,
@@ -56,9 +59,14 @@ export class EventComponent implements OnInit, OnDestroy {
           const blog = new Blog(post);
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
+          const {video} = blog.meta;
+          if(video) {
+            const code = video.substring(video.indexOf('?v=') + 3, video.length);
+            blog.iframeUrl = UrlService.createIframeUrl(code);
+          }
           return blog;
         });
-        console.log('this.blogs', this.blogs);
+        
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();
@@ -111,5 +119,14 @@ export class EventComponent implements OnInit, OnDestroy {
       return str;
     }
     return str.substr(0, length - 3).trim() + '...';
+  }
+
+  handleClosePopup() {
+    this.showVideoPopup = false;
+  }
+
+  openIframeVideo(video) {
+    this.iframeSrc = video.iframeUrl;
+    this.showVideoPopup = true;
   }
 }
