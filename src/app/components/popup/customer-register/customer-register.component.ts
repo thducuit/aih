@@ -32,9 +32,14 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
     public months = [];
     public days = [];
     public countries = [];
+
     public errorFirstName = false;
+    public errorLastName = false;
     public errorSex = false;
     public errorEmail = false;
+    public errorDayBirth = false;
+    public errorMonthBirth = false;
+    public errorYearBirth = false;
 
     constructor(public bookingService: BookingService, private translate: TranslateService) {
     }
@@ -82,20 +87,8 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
     }
 
     sendForm() {
-        if (!this.form.firstName) {
-            this.errorFirstName = true;
+        if (!this.validate()) {
             return;
-        }
-        if (!this.form.sex) {
-            this.errorSex = true;
-            return;
-        }
-        if (this.form.email) {
-            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (!re.test(String(this.form.email).toLowerCase())) {
-                this.errorEmail = true;
-                return;
-            }
         }
         this.bookingService.callRegisterCustomer(this.form).subscribe((data: any) => {
             if (data['customer_id']) {
@@ -114,26 +107,61 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         this.form.phone = this.phoneNumber;
-        if (this.form.firstName) {
-            this.errorFirstName = false;
-        }
-        if (this.form.sex) {
-            this.errorSex = false;
-        }
     }
 
     validate() {
-        if (this.form.firstName) {
+        let flag = true;
+        if (!this.form.firstName) {
+            this.errorFirstName = true;
+            flag = false;
+        } else {
             this.errorFirstName = false;
         }
-        if (this.form.sex) {
+
+        if (!this.form.lastName) {
+            this.errorLastName = true;
+            flag = false;
+        } else {
+            this.errorLastName = false;
+        }
+
+        if (!this.form.sex) {
+            this.errorSex = true;
+            flag = false;
+        } else {
             this.errorSex = false;
         }
+
+        if (!this.form.dayBirth) {
+            this.errorDayBirth = true;
+            flag = false;
+        } else {
+            this.errorDayBirth = false;
+        }
+
+        if (!this.form.monthBirth) {
+            this.errorMonthBirth = true;
+            flag = false;
+        } else {
+            this.errorMonthBirth = false;
+        }
+
+        if (!this.form.yearBirth) {
+            this.errorYearBirth = true;
+            flag = false;
+        } else {
+            this.errorYearBirth = false;
+        }
+
         if (this.form.email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (re.test(String(this.form.email).toLowerCase())) {
+            if (!re.test(String(this.form.email).toLowerCase())) {
+                this.errorEmail = true;
+                flag = false;
+            } else {
                 this.errorEmail = false;
             }
         }
+        return flag;
     }
 }

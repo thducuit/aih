@@ -19,7 +19,7 @@
         <div class="box-left box-chosen {{ isExpand ? 'active': '' }}" >
           <div (click)="onExpand()">
             <p *ngIf="!chosenPackage">{{ 'choose_service_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-            <p *ngIf="chosenPackage">{{ chosenPackage.name }}</p>
+            <p *ngIf="chosenPackage">{{ chosenPackage.name }} <img src="../assets/images/dropdown.png" alt=""></p>
           </div>
 
           <a id="show-hidden-menu" ></a>
@@ -34,7 +34,7 @@
               <li>
                 <div (click)="onExpandChild()">
                   <p class="choose-child-package" *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-                  <p *ngIf="chosenPackageChild">{{ chosenPackageChild.name }}</p>
+                  <p class="choose-child-package" *ngIf="chosenPackageChild">{{ chosenPackageChild.name }} <img src="../assets/images/dropdown.png" alt=""></p>
                 </div>
                 <ol >
                   <li *ngFor="let child of chosenPackageChilds" (click)="choosePackageChild(child)" class="{{ child.active ? 'active' : '' }}">{{ child.name }}</li>

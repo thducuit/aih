@@ -1,8 +1,8 @@
 #popupOne.active {
   display: block;
 }
-.error {
-  border: 1px solid red;
+.form-popup1 .box-popup-regis-textbox .form-control.error {
+  border: 2px solid red;
 }
 
 .btn-form-send {
@@ -16,6 +16,9 @@
   height: 45px;
 }
 
+.custom-select.error {
+  border: 2px solid red;
+}
 
 .form-popup .box-popup-regis-textbox .form-control {
 	height: 45px;

@@ -66,7 +66,7 @@ export class BookingService {
     const newDay =
       parseInt(form.dayBirth, 10) < 0 ? `0${form.dayBirth}` : form.dayBirth;
     const postData = {
-      customer_full_name: `${form.firstName}`,
+      customer_full_name: `${form.firstName} ${form.lastName}`,
       customer_gender: form.sex,
       customer_email: form.email,
       customer_phone: form.phone,
