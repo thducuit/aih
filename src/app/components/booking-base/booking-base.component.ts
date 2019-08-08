@@ -7,7 +7,6 @@ import {
   Inject,
   ViewChild,
   PLATFORM_ID,
-  NgZone,
   AfterViewInit,
   OnDestroy,
 } from '@angular/core';
@@ -159,6 +158,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
 
   chooseDoctorById(doctorId) {
     this.bookingDoctor && this.bookingDoctor.chooseDoctor(doctorId);
+    this.animateNextStep();
   }
 
   filterAvailableDoctors() {
