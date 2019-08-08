@@ -67,7 +67,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     @Inject(PLATFORM_ID) private platformId,
     private translate: TranslateService,
     public bookingService: BookingService,
-    private globalEventService: GlobalEventService
+    private globalEventService: GlobalEventService,
   ) {
     this.chooseDoctorDelegate = this.chooseDoctorById.bind(this);
   }
@@ -82,17 +82,11 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        this.animateNextStep();
-      }, 1000);
-    }
+    this.animateNextStep();
   }
 
   loadSchedule() {
-    this.bookingService
-    .callDoctorSchedule()
-    .subscribe((data: any) => {
+    this.bookingService.callDoctorSchedule().subscribe((data: any) => {
       if (data['Data']) {
         const schedule = JSON.parse(data['Data']);
         this.schedule = schedule.map(item => {
@@ -385,34 +379,38 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   animateNextStep() {
-    this.animatePhone = false;
-    if (!this.selectedPhone || !this.selectedCustomerId) {
-      this.animatePhone = true;
-      return;
-    }
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.animatePhone = false;
+        if (!this.selectedPhone || !this.selectedCustomerId) {
+          this.animatePhone = true;
+          return;
+        }
 
-    this.animateClinic = false;
-    if (!this.selectedClinic) {
-      this.animateClinic = true;
-      return;
-    }
+        this.animateClinic = false;
+        if (!this.selectedClinic) {
+          this.animateClinic = true;
+          return;
+        }
 
-    this.animateDoctor = false;
-    if (!this.selectedDoctor) {
-      this.animateDoctor = true;
-      return;
-    }
+        this.animateDoctor = false;
+        if (!this.selectedDoctor) {
+          this.animateDoctor = true;
+          return;
+        }
 
-    this.animateDate = false;
-    if (!this.selectedDate) {
-      this.animateDate = true;
-      return;
-    }
+        this.animateDate = false;
+        if (!this.selectedDate) {
+          this.animateDate = true;
+          return;
+        }
 
-    this.animateTime = false;
-    if (!this.selectedTime) {
-      this.animateTime = true;
-      return;
+        this.animateTime = false;
+        if (!this.selectedTime) {
+          this.animateTime = true;
+          return;
+        }
+      }, 1000);
     }
   }
 }

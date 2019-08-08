@@ -11751,7 +11751,7 @@ a.morelink:hover {
         transform-origin: 50% 50%
     }
     .item-doc .copy p {
-        display: none
+        display: none!important;
     }
     .tt-doc-crs h2 {
         font-size: 15px
