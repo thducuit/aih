@@ -16,7 +16,7 @@
         <div
           ngxSlickItem
           class="item"
-          *ngFor="let banner of banners"
+          *ngFor="let banner of banners;trackBy: trackBannersFunc"
           [style.background]="'url(' + banner.large + ')'"
         >
           <div class="container">

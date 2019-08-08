@@ -20,6 +20,7 @@ export class CareerComponent implements OnInit, OnDestroy {
   public careers: Array<any> = [];
   private subscription: Subscription;
   public slideConfig = {
+    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -81,4 +82,8 @@ export class CareerComponent implements OnInit, OnDestroy {
   }
 
   sliderInit(e) {}
+
+  trackBannersFunc(banner) {
+    return banner.Url;
+  }
 }

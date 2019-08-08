@@ -9,7 +9,7 @@
 <div class="crs-style1" #sliderContainer>
   <ul>
     <ngx-slick-carousel [config]="slideConfig" #slickModal="slick-carousel" (init)="sliderInit($event)">
-      <li *ngFor="let doctor of doctors" ngxSlickItem>
+      <li *ngFor="let doctor of doctors;trackBy: trackDoctorId" ngxSlickItem>
         <div class="item-doc">
           <div class="img">
             <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
