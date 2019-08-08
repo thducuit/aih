@@ -25,7 +25,8 @@ export class BookingDateComponent implements OnInit {
     if (defaultDate.day() === 0) {
       defaultDate = defaultDate.add(1, 'days');
     }
-    this.selectedDate = momentToNgbDate(defaultDate);
+
+    this.onDateSelect(momentToNgbDate(defaultDate));
   }
 
   toggleExpandDate() {
