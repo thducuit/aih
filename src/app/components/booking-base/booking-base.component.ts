@@ -9,6 +9,7 @@ import {
   PLATFORM_ID,
   NgZone,
   AfterViewInit,
+  OnDestroy,
 } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Clinic } from 'src/app/models/clinic';
@@ -24,6 +25,7 @@ import { ngbDateStructToString } from 'src/app/utilities';
 import { DateService } from 'src/app/services/date.service';
 import { forkJoin } from 'rxjs';
 import { BookingPhoneNumberComponent } from '../booking-phone-number/booking-phone-number.component';
+import { GlobalEventService } from 'src/app/services/global-event.service';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -32,7 +34,7 @@ const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
   templateUrl: './booking-base.component.html',
   styleUrls: ['./booking-base.component.scss'],
 })
-export class BookingBaseComponent implements OnInit, AfterViewInit {
+export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input()
   public useForHome: boolean;
 
@@ -60,14 +62,24 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
   public animateDate = false;
   public animateTime = false;
 
+  private chooseDoctorDelegate: (id) => void;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId,
     private translate: TranslateService,
     public bookingService: BookingService,
-  ) {}
+    private globalEventService: GlobalEventService
+  ) {
+    this.chooseDoctorDelegate = this.chooseDoctorById.bind(this);
+  }
 
   ngOnInit() {
     this.loadSchedule();
+    this.globalEventService.on('book_doctor', this.chooseDoctorDelegate);
+  }
+
+  ngOnDestroy() {
+    this.globalEventService.off('book_doctor', this.chooseDoctorDelegate);
   }
 
   ngAfterViewInit() {
@@ -79,7 +91,9 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
   }
 
   loadSchedule() {
-    this.bookingService.callDoctorSchedule().subscribe((data: any) => {
+    this.bookingService
+    .callDoctorSchedule()
+    .subscribe((data: any) => {
       if (data['Data']) {
         const schedule = JSON.parse(data['Data']);
         this.schedule = schedule.map(item => {
@@ -141,6 +155,10 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
       }
     }
     this.animateNextStep();
+  }
+
+  chooseDoctorById(doctorId) {
+    this.bookingDoctor && this.bookingDoctor.chooseDoctor(doctorId);
   }
 
   filterAvailableDoctors() {

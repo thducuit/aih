@@ -117,4 +117,11 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
       this.isActive = false;
     }, 200);
   }
+
+  chooseDoctor(doctorId) {
+    const doctor = this.doctors.find(x => x.doctorId === doctorId);
+    if (doctor) {
+      this.onChoose(doctor);
+    }
+  }
 }

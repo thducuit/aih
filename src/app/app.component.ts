@@ -1,15 +1,8 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, NgZone, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEventService } from './services/global-event.service';
-import {
-  Router,
-  NavigationStart,
-  NavigationEnd,
-  NavigationCancel,
-  NavigationError,
-} from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { forkJoin, Subscription } from 'rxjs';
+import { Title, Meta } from '@angular/platform-browser';
+import {  Subscription } from 'rxjs';
 import { getLanguage, setLanguage } from './utilities';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -28,6 +21,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     private translate: TranslateService,
     globalEventService: GlobalEventService,
     private title: Title,
+    private metaService: Meta,
     private zone: NgZone,
     @Inject(PLATFORM_ID) platformId: string
   ) {
@@ -47,6 +41,20 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     .onLangChange
     .subscribe(() => {
       this.updateBodyClasses();
+    });
+
+    // Meta service
+    this.translate
+    .get('american_international_hospital_meta_desc')
+    .subscribe(desc => {
+      this.metaService.addTag({
+        name: 'description',
+        content: desc
+      });
+      this.metaService.addTag({
+        property: 'og:description',
+        content: desc
+      });
     });
 
     // Listen for global events

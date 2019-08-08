@@ -64,7 +64,7 @@ export class ContactComponent implements OnInit, OnDestroy {
                 this.page = page;
                 // seo
                 this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-                this.metaService.addTag({name: 'description', content: this.page.metaDesc});
+                this.page.metaDesc && this.metaService.addTag({name: 'description', content: this.page.metaDesc});
                 this.metaService.addTag({name: 'keywords', content: this.page.metaKey});
                 this.bannerService
                     .fetch('contact_page', this.page.id)
