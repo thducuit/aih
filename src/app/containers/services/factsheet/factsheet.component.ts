@@ -21,6 +21,16 @@ export class FactsheetComponent implements OnInit, OnDestroy {
   public banner: any = {};
   public highlights: Array<Highlight> = [];
   private subscription: Subscription;
+  private slideConfig = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: false,
+    autoplaySpeed: 5000,
+    appendDots: '.banner-ser'
+  };
 
   constructor(
     public pageService: PageService,
@@ -90,4 +100,9 @@ export class FactsheetComponent implements OnInit, OnDestroy {
     });
   }
 
+  trackBannerItem(banner: any) {
+    return banner.large;
+  }
+
+  sliderInit(e) {}
 }
