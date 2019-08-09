@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PageService} from '../../services/page.service';
 import {BannerService} from '../../services/banner.service';
 import {UrlService} from '../../services/url.service';
@@ -9,47 +9,48 @@ import {Packagechild} from '../../models/packagechild';
 import {Meta, Title} from '@angular/platform-browser';
 import {forkJoin, Subscription} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
-import { Router } from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-choosen-package',
-  templateUrl: './choosen-package.component.html',
-  styleUrls: ['./choosen-package.component.scss']
+    selector: 'app-choosen-package',
+    templateUrl: './choosen-package.component.html',
+    styleUrls: ['./choosen-package.component.scss']
 })
 export class ChoosenPackageComponent implements OnInit {
 
 
-  public isActive: boolean;
-  public isActiveChild: boolean;
+    public isActive: boolean;
+    public isActiveChild: boolean;
 
-  	public page: Page;
-	public banners: Array<any> = [];
-	public currentPackages: Array<any> = [];
-	public currentPackageServices: Array<any> = [];
-	public packages: Array<any> = [];
-	public packageServices: Array<any> = [];
-	public isExpand: boolean | false;
-	public isExpandChild: boolean | false;
-	private subscription: Subscription;
+    public page: Page;
+    public banners: Array<any> = [];
+    public currentPackages: Array<any> = [];
+    public currentPackageServices: Array<any> = [];
+    public packages: Array<any> = [];
+    public packageServices: Array<any> = [];
+    public isExpand: boolean | false;
+    public isExpandChild: boolean | false;
+    private subscription: Subscription;
 
-	public chosenPackage;
-	public chosenPackageChild;
-	public chosenPackageChilds = [];
-  
-  constructor(  public packageService: PackageService,
+    public chosenPackage;
+    public chosenPackageChild;
+    public chosenPackageChilds = [];
+
+    constructor(public packageService: PackageService,
                 private translate: TranslateService,
-                private router: Router) { }
+                private router: Router) {
+    }
 
-  ngOnInit() {
-  		this.loadPackages();
+    ngOnInit() {
+        this.loadPackages();
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
                 this.loadPackages();
             });
-  }
+    }
 
-  loadPackages() {
+    loadPackages() {
         this.packageService.fetch().subscribe((data: {}) => {
             const posts = data['Categories'] || [];
             this.packages = posts.map(post => {
@@ -61,51 +62,37 @@ export class ChoosenPackageComponent implements OnInit {
     }
 
 
-  handleInputClick() {
+    handleInputClick() {
         this.isActive = true;
-  }
+    }
 
-  handleInputChildClick() {
-  	this.isActiveChild = true;
-  }
+    handleInputChildClick() {
+        this.isActiveChild = true;
+    }
 
-  onClickOutside(e) {
-  	this.isActive = false;
-  }
+    onClickOutside(e) {
+        this.isActive = false;
+    }
 
-  onClickOutsideChild(e) {
-    this.isActiveChild = false;
-  }
+    onClickOutsideChild(e) {
+        this.isActiveChild = false;
+    }
 
-  chooseParent(item) {
-  	this.chosenPackage = item;
-  	this.chosenPackageChilds = this.packages.filter(child => child.parentId === item.id);
-  	this.isActive = false;
-  }
+    chooseParent(item) {
+        this.chosenPackage = item;
+        this.chosenPackageChilds = this.packages.filter(child => child.parentId === item.id);
+        this.chosenPackageChild = null;
+        this.isActive = false;
+    }
 
-  chooseChild(item) {
-  	this.chosenPackageChild = item;
-  	console.log('item', item);
-  	this.isActiveChild = false;
-  }
+    chooseChild(item) {
+        this.chosenPackageChild = item;
+        this.isActiveChild = false;
+    }
 
-  gotoDetail() {
-    // var myurl = `${url}/${id}`;
-    // this.router.navigateByUrl(myurl).then(e => {
-    //   if (e) {
-    //     console.log("Navigation is successful!");
-    //   } else {
-    //     console.log("Navigation has failed!");
-    //   }
-    // });
-
-    // this.router.navigate([url, id]).then( (e) => {
-    //   if (e) {
-    //     console.log("Navigation is successful!");
-    //   } else {
-    //     console.log("Navigation has failed!");
-    //   }
-    // });
-  }
+    gotoDetail() {
+        const url = `/patient-services/medical-package?package=${this.chosenPackage.id}&detail=${this.chosenPackageChild.id}`;
+        this.router.navigateByUrl(url).then(e => {});
+    }
 
 }
