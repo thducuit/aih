@@ -56,7 +56,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         this.page = new Page(page);
         // seo
         this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-        this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
+        this.page.metaDesc && this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
         this.metaService.addTag({ name: 'keywords', content: this.page.metaKey });
         this.bannerService.fetch('aboutus', this.page.id).subscribe((bannerData: any) => {
           const banners = bannerData.Banner;

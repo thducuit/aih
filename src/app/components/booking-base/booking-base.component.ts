@@ -7,8 +7,8 @@ import {
   Inject,
   ViewChild,
   PLATFORM_ID,
-  NgZone,
   AfterViewInit,
+  OnDestroy,
 } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Clinic } from 'src/app/models/clinic';
@@ -24,6 +24,7 @@ import { ngbDateStructToString } from 'src/app/utilities';
 import { DateService } from 'src/app/services/date.service';
 import { forkJoin } from 'rxjs';
 import { BookingPhoneNumberComponent } from '../booking-phone-number/booking-phone-number.component';
+import { GlobalEventService } from 'src/app/services/global-event.service';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -32,7 +33,7 @@ const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
   templateUrl: './booking-base.component.html',
   styleUrls: ['./booking-base.component.scss'],
 })
-export class BookingBaseComponent implements OnInit, AfterViewInit {
+export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input()
   public useForHome: boolean;
 
@@ -60,22 +61,28 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
   public animateDate = false;
   public animateTime = false;
 
+  private chooseDoctorDelegate: (id) => void;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId,
     private translate: TranslateService,
     public bookingService: BookingService,
-  ) {}
+    private globalEventService: GlobalEventService,
+  ) {
+    this.chooseDoctorDelegate = this.chooseDoctorById.bind(this);
+  }
 
   ngOnInit() {
     this.loadSchedule();
+    this.globalEventService.on('book_doctor', this.chooseDoctorDelegate);
+  }
+
+  ngOnDestroy() {
+    this.globalEventService.off('book_doctor', this.chooseDoctorDelegate);
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        this.animateNextStep();
-      }, 500);
-    }
+    this.animateNextStep();
   }
 
   loadSchedule() {
@@ -89,17 +96,23 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     });
   }
 
+  findDoctorSchedule(doctorId) {
+    return this.schedule.find(x => {
+      return x.doctorId === doctorId;
+    });
+  }
+
   handleSelectDoctor(doctor: Doctor) {
     this.selectedDoctor = doctor;
-    this.doctorSchedule = this.schedule.find(x => {
-      return x.doctorId === doctor.doctorId;
-    });
+    if (doctor) {
+      this.doctorSchedule = this.findDoctorSchedule(doctor.doctorId);
 
-    this.bookingSpecialty &&
-      this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
+      this.bookingSpecialty &&
+        this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
 
-    if (this.selectedDate) {
-      this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+      if (this.selectedDate) {
+        this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+      }
     }
   }
 
@@ -108,10 +121,12 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     if (this.selectedDoctor) {
       this.loadTime(this.selectedDoctor.doctorId, date);
     }
+    this.animateNextStep();
   }
 
   handleSelectTime(time) {
     this.selectedTime = time;
+    this.animateNextStep();
   }
 
   handleSelectCustomerId(customerId) {
@@ -119,11 +134,25 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
     this.animateNextStep();
   }
 
-  handleSelectClinic(clinic) {
+  handleSelectClinic(clinic: Clinic) {
     this.selectedClinic = clinic;
     if (clinic) {
-      this.bookingDoctor.chosenDoctor = null;
+      this.bookingDoctor.filterDoctors(this.filterAvailableDoctors());
+      if (this.selectedDoctor) {
+        const doctorSchedule = this.findDoctorSchedule(
+          this.selectedDoctor.doctorId,
+        );
+        if (doctorSchedule && doctorSchedule.clinicId !== clinic.clinicId) {
+          this.bookingDoctor.onChoose(null);
+        }
+      }
     }
+    this.animateNextStep();
+  }
+
+  chooseDoctorById(doctorId) {
+    this.bookingDoctor && this.bookingDoctor.chooseDoctor(doctorId);
+    this.animateNextStep();
   }
 
   filterAvailableDoctors() {
@@ -350,34 +379,38 @@ export class BookingBaseComponent implements OnInit, AfterViewInit {
   }
 
   animateNextStep() {
-    this.animateClinic = false;
-    if (!this.selectedPhone || !this.selectedCustomerId) {
-      this.animatePhone = true;
-      return;
-    }
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.animatePhone = false;
+        if (!this.selectedPhone || !this.selectedCustomerId) {
+          this.animatePhone = true;
+          return;
+        }
 
-    this.animateClinic = false;
-    if (!this.selectedClinic) {
-      this.animateClinic = true;
-      return;
-    }
+        this.animateClinic = false;
+        if (!this.selectedClinic) {
+          this.animateClinic = true;
+          return;
+        }
 
-    this.animateDoctor = false;
-    if (this.selectedDoctor) {
-      this.animateDoctor = true;
-      return;
-    }
+        this.animateDoctor = false;
+        if (!this.selectedDoctor) {
+          this.animateDoctor = true;
+          return;
+        }
 
-    this.animateDate = false;
-    if (!this.selectedDate) {
-      this.animateDate = true;
-      return;
-    }
+        this.animateDate = false;
+        if (!this.selectedDate) {
+          this.animateDate = true;
+          return;
+        }
 
-    this.animateTime = false;
-    if (!this.selectedTime) {
-      this.animateTime = true;
-      return;
+        this.animateTime = false;
+        if (!this.selectedTime) {
+          this.animateTime = true;
+          return;
+        }
+      }, 1000);
     }
   }
 }

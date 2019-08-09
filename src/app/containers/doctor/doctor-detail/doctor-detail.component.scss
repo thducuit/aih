@@ -1,7 +1,14 @@
+@import '../../../../variable';
+
 .doctor-dt-wrap {
   .container {
     .content-dt {
       min-height: 350px;
     }
+  }
+
+  .js-submit-page {
+    color: $color-white;
+    cursor: pointer;
   }
 }

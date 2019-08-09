@@ -19,6 +19,16 @@ export class CareerComponent implements OnInit, OnDestroy {
   public careerCategories: Array<any> = [];
   public careers: Array<any> = [];
   private subscription: Subscription;
+  public slideConfig = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: false,
+    autoplaySpeed: 5000,
+    appendDots: '.banner-careers'
+  };
 
   constructor(
     public pageService: PageService,
@@ -54,7 +64,7 @@ export class CareerComponent implements OnInit, OnDestroy {
       this.page = page;
       // seo
       this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-      this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
+      this.page.metaDesc && this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
       this.metaService.addTag({ name: 'keywords', content: this.page.metaKey });
 
       this.bannerService
@@ -65,11 +75,15 @@ export class CareerComponent implements OnInit, OnDestroy {
             banner.large = UrlService.createMediaUrl(banner.Url);
             banner.small = banner.large;
             banner.url = banner.Link;
-            banner.title = banner.title;
-            banner.desc = banner.desc;
             return banner;
           });
         });
     });
+  }
+
+  sliderInit(e) {}
+
+  trackBannersFunc(banner) {
+    return banner.Url;
   }
 }
