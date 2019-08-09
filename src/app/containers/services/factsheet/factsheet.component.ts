@@ -21,7 +21,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
   public banner: any = {};
   public highlights: Array<Highlight> = [];
   private subscription: Subscription;
-  private slideConfig = {
+  public slideConfig = {
     dots: true,
     infinite: true,
     slidesToShow: 1,
