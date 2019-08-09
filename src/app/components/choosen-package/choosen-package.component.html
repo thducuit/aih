@@ -1,14 +1,30 @@
-<div class="choosen-wrap">
-	<h2>{{ 'please_choose_our_medical_packages' | translate }}</h2>
+<div class="choosen-wrap" (clickOutside)="onClickOutside($event)">
+	<h2>{{ 'please_choose' | translate }}<br/> {{ 'please_choose_our_medical_packages' | translate }}</h2>
 	<ul>
 		<li>
-			<div class="drop-pk js-package-home">
-				<p>{{ 'medical_packages' | translate }}</p>
-				<div class="dropdown-list">
+			<div class="drop-pk js-package-home" >
+				<p *ngIf="!chosenPackage" (click)="handleInputClick()">{{ 'medical_packages' | translate }}</p>
+				<p *ngIf="chosenPackage" (click)="handleInputClick()"><span class="animateSpan">{{ chosenPackage.name }}</span></p>
+				<div class="dropdown-list {{ isActive ? 'active' : '' }}">
 					<div class="copyscroll">
 						<div class="nano">
 							<div class="nano-content">
-								<span data-id="317" datavnd="3.834.000" datausd="165">Gói khám sức khỏe tổng quát tiêu chuẩn dành cho nữ</span>
+								<span *ngFor="let package of currentPackages" (click)="chooseParent(package)">{{ package.name }}</span>
+							</div>
+						</div>
+					</div>	        																				
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="drop-pk js-package-home" (clickOutside)="onClickOutsideChild($event)">
+				<p *ngIf="!chosenPackageChild" (click)="handleInputChildClick()">{{ 'medical_packages' | translate }}</p>
+				<p *ngIf="chosenPackageChild" (click)="handleInputChildClick()"><span class="animateSpan">{{ chosenPackageChild.name }}</span></p>
+				<div class="dropdown-list {{ isActiveChild ? 'active' : '' }}">
+					<div class="copyscroll">
+						<div class="nano">
+							<div class="nano-content">
+								<span *ngFor="let childPackage of chosenPackageChilds" (click)="chooseChild(childPackage)">{{ childPackage.name }}</span>
 							</div>
 						</div>
 					</div>	        																				
@@ -17,16 +33,11 @@
 		</li>
 		<li>
 			<div class="item-pk">
-				<p>VND <span class="vl-vnd"></span></p>
+				<p>{{ 'price' | translate }} <span class="vl-usd" *ngIf="chosenPackageChild">{{ chosenPackageChild.meta.price }}</span></p>
 			</div>
 		</li>
 		<li>
-			<div class="item-pk">
-				<p>USD <span class="vl-usd"></span></p>
-			</div>
-		</li>
-		<li>
-			<a data-href="#">{{ 'detail' | translate }}</a>
+			<a (click)="gotoDetail()" >{{ 'detail' | translate }}</a>
 		</li>
 	</ul>
 </div>

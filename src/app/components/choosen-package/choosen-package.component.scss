@@ -1,0 +1,15 @@
+.dropdown-list {
+	display: block	
+}
+
+.dropdown-list .copyscroll {
+	height: 0;
+}
+
+.dropdown-list.active .copyscroll {
+	height: 164px;
+}
+
+.drop-pk {
+	cursor: pointer
+}
