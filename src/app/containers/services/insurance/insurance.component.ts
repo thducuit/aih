@@ -114,7 +114,6 @@ export class InsuranceComponent implements OnInit, OnDestroy {
           insurance.children = children;
           return insurance;
         });
-        console.log('this.insurances', this.insurances);
       });
     });
   }
