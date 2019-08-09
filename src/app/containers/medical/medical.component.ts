@@ -9,6 +9,7 @@ import {Packagechild} from '../../models/packagechild';
 import {Meta, Title} from '@angular/platform-browser';
 import {forkJoin, Subscription} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-medical',
@@ -36,7 +37,8 @@ export class MedicalComponent implements OnInit, OnDestroy {
                 public packageService: PackageService,
                 private metaService: Meta,
                 private titleService: Title,
-                private translate: TranslateService) {
+                private translate: TranslateService,
+                private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -94,6 +96,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
             }).sort((obj1, obj2) => obj1.sort >= obj2.sort ? 1 : -1);
 
             this.currentPackages = this.packages.filter(item => item.parentId === 0);
+
             this.packageService.fetchService().subscribe((data2: {}) => {
                 const post2s = data2['Categories'] || [];
                 this.packageServices = post2s.map(post => {
@@ -113,9 +116,18 @@ export class MedicalComponent implements OnInit, OnDestroy {
                     parentItem['children'] = children;
                     return parentItem;
                 });
-                
+
+                this.activatedRoute.queryParams.subscribe(params => {
+                    const p = params['package'];
+                    const d = params['detail'];
+                    this.chosenPackage = this.currentPackages.find(item => item.id === parseInt(p, 10));
+                    this.chosenPackageChild = this.packages.find(item => item.id === parseInt(d, 10));
+                    this.chosenPackageChilds = this.packages.filter(currentPackage => currentPackage.parentId === this.chosenPackage.id);
+                    // this.choosePackageChild(this.chosenPackageChild);
+                });
+
             });
-            
+
         });
     }
 
