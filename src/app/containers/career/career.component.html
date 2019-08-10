@@ -1,26 +1,42 @@
 <main id="pCareers" *ngIf="page">
   <div class="breadcrumb">
-    <div class="container"><a routerLink="/">{{ 'home' | translate }}</a> /
+    <div class="container">
+      <a routerLink="/">{{ 'home' | translate }}</a> /
       <p>{{ page ? page.name : '' }}</p>
     </div>
   </div>
   <div class="banner-wrap-car">
     <div class="banner-careers">
-
-      <div class="item" *ngFor="let banner of banners"
-           [style.background]="'url(' + banner.large + ')'" >
-        <div class="container">
-          <div class="ct-banner">
-            <img class="banner-careers-mb" src="{{ banner.large }}">
-            <div class="copy">
-              <h3>{{ banner ? banner.Content : '' }}</h3>
-              <h2>{{ banner ? banner.Title : '' }}</h2>
-              <a class="btn-page js-scrollForm" >{{ 'apply_now' | translate }}</a>
+      <ngx-slick-carousel
+        [config]="slideConfig"
+        #slickModal="slick-carousel"
+        (init)="sliderInit($event)"
+        class="slick-list"
+      >
+        <div
+          ngxSlickItem
+          class="item"
+          *ngFor="let banner of banners;trackBy: trackBannersFunc"
+          [style.background]="'url(' + banner.large + ')'"
+        >
+          <div class="container">
+            <div class="ct-banner">
+              <img class="banner-careers-mb" src="{{ banner.large }}" />
+              <div class="copy">
+                <h3>{{ banner ? banner.Content : '' }}</h3>
+                <h2>{{ banner ? banner.Title : '' }}</h2>
+                <a class="btn-page js-scrollForm">{{
+                  'apply_now' | translate
+                }}</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
+      </ngx-slick-carousel>
+      <!-- <ul class="slick-dots" style="display: block;" role="tablist">
+        <li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00"><button type="button" data-role="none" role="button" tabindex="0">1</button></li>
+        <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01" class=""><button type="button" data-role="none" role="button" tabindex="0">2</button></li>
+      </ul> -->
     </div>
   </div>
 
@@ -31,6 +47,4 @@
       <app-career-form></app-career-form>
     </div>
   </section>
-
-
 </main>

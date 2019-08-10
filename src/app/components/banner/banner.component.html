@@ -5,7 +5,7 @@
     (init)="slickInit($event)"
   >
     <div
-      *ngFor="let item of banners"
+      *ngFor="let item of banners;trackBy: trackBannerUrl"
       ngxSlickItem
       class="item"
       [ngStyle]="{ background: 'url(' + item.large + ') no-repeat' }"

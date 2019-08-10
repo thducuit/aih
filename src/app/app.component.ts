@@ -1,17 +1,18 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID, NgZone, OnDestroy } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  Inject,
+  PLATFORM_ID,
+  NgZone,
+  OnDestroy,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEventService } from './services/global-event.service';
-import {
-  Router,
-  NavigationStart,
-  NavigationEnd,
-  NavigationCancel,
-  NavigationError,
-} from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { forkJoin, Subscription } from 'rxjs';
+import { Title, Meta } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 import { getLanguage, setLanguage } from './utilities';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
@@ -28,8 +29,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     private translate: TranslateService,
     globalEventService: GlobalEventService,
     private title: Title,
+    private metaService: Meta,
     private zone: NgZone,
-    @Inject(PLATFORM_ID) platformId: string
+    @Inject(PLATFORM_ID) platformId: string,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     // this language will be used as a fallback when a translation isn't found in the current language
@@ -43,11 +45,12 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
 
     // Set app title
-    this.subscription = translate
-    .onLangChange
-    .subscribe(() => {
+    this.subscription = translate.onLangChange.subscribe(() => {
       this.updateBodyClasses();
     });
+
+    // Meta service
+    this.setSeoMeta();
 
     // Listen for global events
     globalEventService
@@ -99,6 +102,46 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         body.classList.toggle('vi', false);
         body.classList.toggle('en', true);
       }
+    });
+  }
+
+  private setSeoMeta() {
+    const meta = this.metaService;
+    this.translate
+      .get('american_international_hospital_meta_desc')
+      .subscribe(desc => {
+        meta.addTag({
+          name: 'description',
+          content: desc,
+        });
+        meta.addTag({
+          property: 'og:description',
+          content: desc,
+        });
+      });
+    meta.addTag({
+      name: 'author',
+      content: environment.host
+    });
+    meta.addTag({
+      name: 'webRoot',
+      content: environment.host
+    });
+    meta.addTag({
+      property: 'og:url',
+      content: environment.host,
+    });
+    meta.addTag({
+      property: 'og:image',
+      content: `${environment.host}/assets/images/share-social.jpg`,
+    });
+    meta.addTag({
+      property: 'og:image:width',
+      content: '1200',
+    });
+    meta.addTag({
+      property: 'og:image:height',
+      content: '630',
     });
   }
 }

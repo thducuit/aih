@@ -54,7 +54,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 this.career = career;
                 // seo
                 this.titleService.setTitle(this.career.metaTitle);
-                this.metaService.addTag({name: 'description', content: this.career.metaDesc});
+                this.career.metaDesc && this.metaService.addTag({name: 'description', content: this.career.metaDesc});
                 this.metaService.addTag({name: 'keywords', content: this.career.metaKey});
             });
     }

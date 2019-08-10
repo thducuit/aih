@@ -25,4 +25,8 @@ export class BannerComponent implements OnInit {
   slickInit(e) {
     this.bannerHome.nativeElement.style.opacity = 1;
   }
+
+  trackBannerUrl(banner) {
+    return banner.Url;
+  }
 }

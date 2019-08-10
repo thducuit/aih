@@ -41,7 +41,6 @@ export class BookingPhoneNumberComponent implements OnInit {
             this.bookingService
               .callGetExistedCustomer(this.phoneNumber)
               .subscribe((data2: any) => {
-                console.log('data2', data2);
                 const customer = data2['Customer'] || {};
                 if (!customer['customer_id']) {
                   this.openAlert();

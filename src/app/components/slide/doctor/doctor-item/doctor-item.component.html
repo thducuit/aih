@@ -1,5 +1,5 @@
 <div class="tt-item">
-  <a href="#">{{ 'our_doctors' | translate }}</a>
+  <a href="javascript:void(0)">{{ 'our_doctors' | translate }}</a>
   <h4>{{ 'professionals' | translate }}</h4>
   <div class="btn-crs">
     <span class="btn-prev crs-prev" (click)="slickModal.slickPrev()"></span>
@@ -8,8 +8,11 @@
 </div>
 <div class="crs-style1" #sliderContainer>
   <ul>
-    <ngx-slick-carousel [config]="slideConfig" #slickModal="slick-carousel" (init)="sliderInit($event)">
-      <li *ngFor="let doctor of doctors" ngxSlickItem>
+    <ngx-slick-carousel
+      [config]="slideConfig"
+      #slickModal="slick-carousel"
+      (init)="sliderInit($event)">
+      <li *ngFor="let doctor of doctors;trackBy: trackDoctorId" ngxSlickItem>
         <div class="item-doc">
           <div class="img">
             <div [style.background]="'url(' + doctor.picturePath + ')'"></div>

@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate, AnimationEvent } from '@angular/animations';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+  AnimationEvent,
+} from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-header',
@@ -8,32 +16,40 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./main-header.component.scss'],
   animations: [
     trigger('toggleNav', [
-      state('initial', style({
-        left: '-100%'
-      })),
-      state('final', style({
-        left: 0
-      })),
+      state(
+        'initial',
+        style({
+          left: '-100%',
+        }),
+      ),
+      state(
+        'final',
+        style({
+          left: 0,
+        }),
+      ),
       transition('initial=>final', animate('500ms')),
-      transition('final=>initial', animate('500ms'))
-    ])
-  ]
+      transition('final=>initial', animate('500ms')),
+    ]),
+  ],
 })
-export class MainHeaderComponent implements OnInit {
+export class MainHeaderComponent implements OnInit, OnDestroy {
   currentState = 'initial';
   isMobileNavOpened = false;
+  routerSubscription: Subscription;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router
-    .events
-    .subscribe((event) => {
+    this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.currentState = 'initial';
-        console.log('Nav close');
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
   }
 
   toggleState() {
@@ -42,7 +58,8 @@ export class MainHeaderComponent implements OnInit {
 
   onAnimation(event: AnimationEvent) {
     if (event.phaseName === 'done') {
-      document.body.style.overflow = event.toState === 'final' ? 'hidden' : 'auto';
+      document.body.style.overflow =
+        event.toState === 'final' ? 'hidden' : 'auto';
     } else {
       this.isMobileNavOpened = event.toState === 'final';
     }

@@ -27,6 +27,7 @@ export class VideoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadVideos();
+    this.applyTitle();
     this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
