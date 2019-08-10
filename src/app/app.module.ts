@@ -11,8 +11,10 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {AgmCoreModule} from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
-import { RecaptchaModule } from 'ng-recaptcha';
 
+import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
+import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
+import {RecaptchaModule} from 'ng-recaptcha';
 import {DecodeHtmlEntitiesModule} from 'decode-html-entities';
 import {ClickOutsideModule} from 'ng-click-outside';
 
@@ -142,176 +144,199 @@ import {CustomerRegisterComponent} from './components/popup/customer-register/cu
 import {NumberDirective} from './shared/numbers-only.directive';
 import {ContactFormComponent} from './components/contact-form/contact-form.component';
 import {ContactService} from './services/contact.service';
-import { BookingBaseComponent } from './components/booking-base/booking-base.component';
+import {BookingBaseComponent} from './components/booking-base/booking-base.component';
 import {CareerSectionComponent} from './containers/career/career-section/career-section.component';
 import {RatingComponent} from './components/rating/rating.component';
-import { ServiceDropMbComponent } from './containers/services/service/service-drop-mb/service-drop-mb.component';
-import { TestimonialItemComponent } from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
+import {ServiceDropMbComponent} from './containers/services/service/service-drop-mb/service-drop-mb.component';
+import {TestimonialItemComponent} from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
 import {SearchService} from './services/search.service';
+import {CommentService} from "./services/comment.service";
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('14220395643-q0laiaiitlin2cc0agkl0gvbjh520ne8.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('365507434348874')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
+// @ts-ignore
 @NgModule({
-    declarations: [
-        AppComponent,
+  declarations: [
+    AppComponent,
 
-        // Layouts
-        HomeLayoutComponent,
-        PageLayoutComponent,
+    // Layouts
+    HomeLayoutComponent,
+    PageLayoutComponent,
 
-        // containers
-        HomeComponent,
-        DoctorComponent,
+    // containers
+    HomeComponent,
+    DoctorComponent,
 
-        QaComponent,
-        AboutComponent,
-        TestimonialComponent,
+    QaComponent,
+    AboutComponent,
+    TestimonialComponent,
 
-        EventComponent,
-        VideoComponent,
-        ContactComponent,
-        CareerComponent,
+    EventComponent,
+    VideoComponent,
+    ContactComponent,
+    CareerComponent,
 
-        ServiceComponent,
-        InsuranceComponent,
-        FactsheetComponent,
+    ServiceComponent,
+    InsuranceComponent,
+    FactsheetComponent,
 
-        MedicalComponent,
+    MedicalComponent,
 
-        // shared
-        LoadingComponent,
-        InputComponent,
-        SelectComponent,
-        DatepickerComponent,
-        TimepickerComponent,
-        AlertComponent,
-        ButtonComponent,
+    // shared
+    LoadingComponent,
+    InputComponent,
+    SelectComponent,
+    DatepickerComponent,
+    TimepickerComponent,
+    AlertComponent,
+    ButtonComponent,
 
-        // components
-        HotlineComponent,
-        TopHeaderComponent,
-        MainHeaderComponent,
-        BookingDoctorComponent,
-        SearchFormComponent,
-        VideoComponent2,
-        LanguageComponent,
-        NewsletterComponent,
-        NavComponent,
-        NewsItemComponent,
-        BookingPhoneNumberComponent,
-        BookingSpecialtyComponent,
-        BookingTimeComponent,
-        BookingDateComponent,
-        BookingComponent,
-        WebTitleComponent,
-        BannerComponent,
-        BookingMobileComponent,
-        BookingHomeComponent,
-        FooterComponent,
-        BackToTopComponent,
-        SuccessComponent,
-        ChatComponent,
-        HeaderHomeComponent,
-        LogoComponent,
-        DoctorListItemComponent,
-        SectionNewsComponent,
-        SectionDoctorComponent,
-        SectionBookingHomeComponent,
-        SectionBookingMbComponent,
-        SectionMapComponent,
-        SectionPartnerComponent,
-        SectionTestimoComponent,
-        ChoosenPackageComponent,
-        HeaderPageComponent,
-        // account
-        SettingComponent,
-        RegisterComponent,
-        LoginComponent,
-        SupportComponent,
-        ScheduleComponent,
-        ScheduleRegisterComponent,
-        ScheduleHistoryComponent,
-        NotificationComponent,
-        InformationComponent,
-        SupportDetailComponent,
-        ScheduleCancelComponent,
-        VoteComponent,
-        DoctorItemComponent,
-        FaqItemComponent,
-        NewsDetailComponent,
-        DoctorDetailComponent,
-        SidebarComponent,
-        ServiceDetailComponent,
-        SidebarComponent,
-        NavItemComponent,
-        DoctorFilterDropdownComponent,
-        CareerDetailComponent,
-        CareerFormComponent,
-        CustomerRegisterComponent,
-        ContactFormComponent,
-        NumberDirective,
-        BookingBaseComponent,
-        CareerSectionComponent,
-        RatingComponent,
-        ServiceDropMbComponent,
-        TestimonialItemComponent,
-        SearchComponent
-    ],
-    imports: [
-        BrowserModule.withServerTransition({appId: 'serverApp'}),
-        AppRoutingModule,
-        HttpClientModule,
-        DecodeHtmlEntitiesModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient],
-            },
-        }),
-        AgmCoreModule.forRoot({
-            apiKey: environment.mapApiKey
-        }),
-        FormsModule,
-        NgbDatepickerModule,
-        SlickCarouselModule,
-        BrowserAnimationsModule,
-        AngularStickyThingsModule,
-        ClickOutsideModule,
-        RecaptchaModule,
-    ],
-    providers: [
-        GlobalEventService,
-        RestApiService,
-        DoctorService,
-        ClinicService,
-        BlogService,
-        PostService,
-        UrlService,
-        TestimonialService,
-        FaqsService,
-        PartnerService,
-        FeedbackService,
-        PageService,
-        BannerService,
-        CategoryService,
-        InsuranceService,
-        HighlightService,
-        VideoService,
-        PackageService,
-        DepartmentService,
-        InsuranceMediaService,
-        CareerCategoryService,
-        CareerService,
-        BookingService,
-        DateService,
-        ContactService,
-        SearchService
-    ],
-    bootstrap: [AppComponent],
-    exports: [DecodeHtmlEntitiesModule],
+    // components
+    HotlineComponent,
+    TopHeaderComponent,
+    MainHeaderComponent,
+    BookingDoctorComponent,
+    SearchFormComponent,
+    VideoComponent2,
+    LanguageComponent,
+    NewsletterComponent,
+    NavComponent,
+    NewsItemComponent,
+    BookingPhoneNumberComponent,
+    BookingSpecialtyComponent,
+    BookingTimeComponent,
+    BookingDateComponent,
+    BookingComponent,
+    WebTitleComponent,
+    BannerComponent,
+    BookingMobileComponent,
+    BookingHomeComponent,
+    FooterComponent,
+    BackToTopComponent,
+    SuccessComponent,
+    ChatComponent,
+    HeaderHomeComponent,
+    LogoComponent,
+    DoctorListItemComponent,
+    SectionNewsComponent,
+    SectionDoctorComponent,
+    SectionBookingHomeComponent,
+    SectionBookingMbComponent,
+    SectionMapComponent,
+    SectionPartnerComponent,
+    SectionTestimoComponent,
+    ChoosenPackageComponent,
+    HeaderPageComponent,
+    // account
+    SettingComponent,
+    RegisterComponent,
+    LoginComponent,
+    SupportComponent,
+    ScheduleComponent,
+    ScheduleRegisterComponent,
+    ScheduleHistoryComponent,
+    NotificationComponent,
+    InformationComponent,
+    SupportDetailComponent,
+    ScheduleCancelComponent,
+    VoteComponent,
+    DoctorItemComponent,
+    FaqItemComponent,
+    NewsDetailComponent,
+    DoctorDetailComponent,
+    SidebarComponent,
+    ServiceDetailComponent,
+    SidebarComponent,
+    NavItemComponent,
+    DoctorFilterDropdownComponent,
+    CareerDetailComponent,
+    CareerFormComponent,
+    CustomerRegisterComponent,
+    ContactFormComponent,
+    NumberDirective,
+    BookingBaseComponent,
+    CareerSectionComponent,
+    RatingComponent,
+    ServiceDropMbComponent,
+    TestimonialItemComponent,
+    SearchComponent
+  ],
+  imports: [
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
+    AppRoutingModule,
+    HttpClientModule,
+    DecodeHtmlEntitiesModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: environment.mapApiKey
+    }),
+    FormsModule,
+    NgbDatepickerModule,
+    SlickCarouselModule,
+    BrowserAnimationsModule,
+    AngularStickyThingsModule,
+    ClickOutsideModule,
+    RecaptchaModule,
+    SocialLoginModule
+  ],
+  providers: [
+    GlobalEventService,
+    RestApiService,
+    DoctorService,
+    ClinicService,
+    BlogService,
+    PostService,
+    UrlService,
+    TestimonialService,
+    FaqsService,
+    PartnerService,
+    FeedbackService,
+    PageService,
+    BannerService,
+    CategoryService,
+    InsuranceService,
+    HighlightService,
+    VideoService,
+    PackageService,
+    DepartmentService,
+    InsuranceMediaService,
+    CareerCategoryService,
+    CareerService,
+    BookingService,
+    DateService,
+    ContactService,
+    SearchService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
+    CommentService
+  ],
+  bootstrap: [AppComponent],
+  exports: [DecodeHtmlEntitiesModule],
 })
 export class AppModule {
 }

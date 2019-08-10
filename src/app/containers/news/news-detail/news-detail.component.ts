@@ -1,12 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PostService } from '../../../services/post.service';
-import { Blog } from '../../../models/blog';
-import { UrlService } from '../../../services/url.service';
-import { BlogService } from '../../../services/blog.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
-import { Meta, Title } from '@angular/platform-browser';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PostService} from '../../../services/post.service';
+import {Blog} from '../../../models/blog';
+import {UrlService} from '../../../services/url.service';
+import {BlogService} from '../../../services/blog.service';
+import {TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
+import {Meta, Title} from '@angular/platform-browser';
+
+import {forkJoin} from 'rxjs';
+import Swal from 'sweetalert2';
+
+import {AuthService} from 'angularx-social-login';
+import {FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
+import {CommentService} from '../../../services/comment.service';
 
 @Component({
   selector: 'app-news-detail',
@@ -21,6 +28,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   public keyword;
+  public content;
 
   constructor(private route: ActivatedRoute,
               public postService: PostService,
@@ -28,7 +36,9 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
               private translate: TranslateService,
               private metaService: Meta,
               private titleService: Title,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService,
+              public commentService: CommentService) {
   }
 
   ngOnInit() {
@@ -63,8 +73,8 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       this.blog = blog;
       // seo
       this.titleService.setTitle(this.blog.metaTitle);
-      this.metaService.addTag({ name: 'description', content: this.blog.metaDesc });
-      this.metaService.addTag({ name: 'keywords', content: this.blog.metaKey });
+      this.metaService.addTag({name: 'description', content: this.blog.metaDesc});
+      this.metaService.addTag({name: 'keywords', content: this.blog.metaKey});
 
       this.postService.fetchNextPrevNews(blog.id).subscribe((data2) => {
         if (data2['PostNext']) {
@@ -96,6 +106,88 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   gotoSearch() {
     const url = `/search?keyword=${this.keyword}`;
-    this.router.navigateByUrl(url).then(e => {});
+    this.router.navigateByUrl(url).then(e => {
+    });
+  }
+
+  sendComment() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      this.showSocialLogin();
+      return;
+    }
+    if (!this.content) {
+      this.openContentAlert();
+      return;
+    }
+    this.commentService.comment(user, this.blog.id, 'news', this.content).subscribe((data: any) => {
+      if (data['StatusCode'] === 1) {
+        this.openComment(true);
+      } else {
+        this.openComment();
+      }
+      this.content = '';
+    });
+  }
+
+  openContentAlert() {
+    forkJoin(
+      this.translate.get('text_comment_alert'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText,
+      });
+    });
+  }
+
+  openComment(isSuccess = false) {
+    forkJoin(
+      this.translate.get('text_comment_success'),
+      this.translate.get('text_comment_fail'),
+      this.translate.get('text_close'),
+      // tslint:disable-next-line:no-shadowed-variable
+    ).subscribe(([messageSuccess, messageFail, buttonText]) => {
+      Swal.fire({
+        text: isSuccess ? messageSuccess : messageFail,
+        confirmButtonText: buttonText,
+      });
+    });
+  }
+
+
+  showSocialLogin() {
+    forkJoin(
+      this.translate.get('text_login_social')
+    ).subscribe(([message]) => {
+      Swal.fire({
+        text: message,
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'FACEBOOK',
+        cancelButtonText: 'GOOGLE',
+      }).then((result) => {
+        if (result.value) {
+          this.signInWithFB();
+        } else {
+          this.signInWithGoogle();
+        }
+      });
+    });
+  }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(userData => {
+      localStorage.setItem('user', JSON.stringify(userData));
+    });
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(userData => {
+      localStorage.setItem('user', JSON.stringify(userData));
+    });
   }
 }

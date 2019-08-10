@@ -207,5 +207,9 @@
   "choose_detail_package": "CHOOSE DETAIL PACKAGE",
   "choose_price_package": "PRICE",
   "text_career_form__captcha_fail": "Please input Captcha",
-  "text_career_form_require_attach": "Please upload your CV"
+  "text_career_form_require_attach": "Please upload your CV",
+  "text_comment_alert": "Please input content",
+  "text_comment_success": "Thank for your comment",
+  "text_comment_fail": "Error, please try again",
+  "text_login_social": "Please login before use this function!"
 }

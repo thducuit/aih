@@ -207,5 +207,9 @@
   "choose_detail_package": "CHỌN CHI TIẾT GÓI",
   "choose_price_package": "GIÁ DỊCH VỤ",
   "text_career_form__captcha_fail": "Vui lòng hoàn thành captcha",
-  "text_career_form_require_attach": "Vui lòng tải CV của bạn"
+  "text_career_form_require_attach": "Vui lòng tải CV của bạn",
+  "text_comment_alert": "Vui lòng nhập nội dung",
+  "text_comment_success": "Bạn đã bình luận thành công",
+  "text_comment_fail": "Lỗi, vui lòng thử lại",
+  "text_login_social": "Vui lòng đăng nhập trước khi sử dụng!"
 }

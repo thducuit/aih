@@ -42,13 +42,11 @@
         </div>
         <div class="comment-wrap">
           <h3>{{ 'comment' | translate }}</h3>
-          <div class="big-ip frmComment"
-               data-facebook="http://www.aih.com.vn/login-facebook.html?ref=http%3A%2F%2Fwww.aih.com.vn%2Fnews%2Fdetail%2F53-home-remedy-for-knee-pain"
-               data-google="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&amp;access_type=offline&amp;include_granted_scopes=true&amp;state=state_parameter_passthrough_value&amp;redirect_uri=http://www.aih.com.vn/login-google.html&amp;response_type=code&amp;client_id=450508891221-at752chceg0hpn6aid4aunn0grg1o0p7.apps.googleusercontent.com">
+          <div class="big-ip frmComment" >
             <div class="ava-cm" style="background: url(../../assets/images/avatar.jpg);"></div>
-            <textarea name="comment" class="form-control"></textarea>
+            <textarea name="comment" class="form-control" [(ngModel)]="content"></textarea>
             <div class="btn-wrap">
-              <input class="btn-page" type="submit" value="{{ 'send' | translate }}"/>
+              <input class="btn-page" type="submit" value="{{ 'send' | translate }}" (click)="sendComment()"/>
             </div>
           </div>
           <div class="list-cm-wrap">
@@ -68,7 +66,7 @@
           <div class="item">
             <h3>{{ 'be_the_first_to_read' | translate }}</h3>
             <div class="ct-tab">
-              <span class="js-tab active" tab="tab-1"><em>{{ 'latest' | translate }}</em></span>
+              <span class="active" tab="tab-1"><em>{{ 'latest' | translate }}</em></span>
               <!--<span class="js-tab" tab="tab-2"><em>Phổ biến</em></span>
               <span class="js-tab" tab="tab-3"><em>Bình luận</em></span>-->
             </div>
@@ -90,7 +88,7 @@
             </div>
           </div>
           <div class="btn-wrap">
-            <a data-department="11" class="btn-page js-submit-page" href="#">{{ 'book_now' | translate }}</a>
+            <a class="btn-page js-submit-page" href="#">{{ 'book_now' | translate }}</a>
             <p class="alert-dt">{{ 'please_continue_your_booking_on_above_booking_funtion' | translate }}</p>
           </div>
 
