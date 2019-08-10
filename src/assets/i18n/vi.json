@@ -205,5 +205,7 @@
   "text_contact_rating_fail": "Lỗi. Vui lòng liên hệ ban quản trị",
   "choose_service_package": "CHỌN GÓI DỊCH VỤ",
   "choose_detail_package": "CHỌN CHI TIẾT GÓI",
-  "choose_price_package": "GIÁ DỊCH VỤ"
+  "choose_price_package": "GIÁ DỊCH VỤ",
+  "text_career_form__captcha_fail": "Vui lòng hoàn thành captcha",
+  "text_career_form_require_attach": "Vui lòng tải CV của bạn"
 }

@@ -11,6 +11,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {AgmCoreModule} from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 import {DecodeHtmlEntitiesModule} from 'decode-html-entities';
 import {ClickOutsideModule} from 'ng-click-outside';
 
@@ -277,7 +279,8 @@ export function createTranslateLoader(http: HttpClient) {
         SlickCarouselModule,
         BrowserAnimationsModule,
         AngularStickyThingsModule,
-        ClickOutsideModule
+        ClickOutsideModule,
+        RecaptchaModule,
     ],
     providers: [
         GlobalEventService,

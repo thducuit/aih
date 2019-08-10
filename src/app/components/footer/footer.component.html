@@ -19,7 +19,7 @@
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
-									<p>May 28, 2019</p>
+									<p>{{blog.datepublish | date:'dd/MM/yyyy'}}</p>
 									<p><span>{{ blog.name }}...</span></p>
 								</div>
 								<a class="link-all" routerLink="{{ blog.url }}"></a>
@@ -40,7 +40,7 @@
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
-									<p>May 25, 2018</p>
+									<p>{{clinic.datepublish | date:'dd/MM/yyyy'}}</p>
 									<p><span>{{ clinic.name }}</span></p>
 								</div>
 								<a class="link-all" routerLink="{{ clinic.url }}"></a>

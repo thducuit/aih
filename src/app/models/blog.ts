@@ -15,6 +15,7 @@ export class Blog {
   public meta;
   public sort;
   public iframeUrl;
+
   constructor(data) {
     this.id = data.post_id;
     this.name = data.post_name;

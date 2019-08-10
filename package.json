@@ -41,6 +41,7 @@
     "moment": "^2.24.0",
     "nanoscroller": "^0.8.7",
     "ng-click-outside": "^4.0.0",
+    "ng-recaptcha": "^5.0.0",
     "ngx-scrollbar": "^4.2.0",
     "ngx-slick-carousel": "^0.4.4",
     "rxjs": "~6.4.0",

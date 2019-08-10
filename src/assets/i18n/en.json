@@ -205,5 +205,7 @@
   "text_contact_rating_fail": "Error. Please try again!!!",
   "choose_service_package": "CHOOSE SERVICE PACKAGE",
   "choose_detail_package": "CHOOSE DETAIL PACKAGE",
-  "choose_price_package": "PRICE"
+  "choose_price_package": "PRICE",
+  "text_career_form__captcha_fail": "Please input Captcha",
+  "text_career_form_require_attach": "Please upload your CV"
 }

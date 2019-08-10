@@ -32,13 +32,14 @@
             <a class="js-file" (click)="openSelectFile()" >{{ 'attach_file' | translate }}</a>
             <input #uploadFile id="ipFile" name="file" type="file" (change)="processUploadFile($event)"
                    data-message="Only with file .pdf, .doc, .docx, .xls, .xlsx.Max: 3mb" style="display: none;">
-            <p class="js-file-name">{{ 'only_with_file_.pdf,_.doc,_.docx,_.xls,_.xlsx.max:_3mb' | translate }}</p>
+            <p *ngIf="!form.attach.fileName">{{ 'only_with_file_.pdf,_.doc,_.docx,_.xls,_.xlsx.max:_3mb' | translate }}</p>
+            <p *ngIf="form.attach.fileName">{{ form.attach.fileName }}</p>
           </div>
         </div>
       </li>
       <li>
         <div class="has-capcha">
-          <div class="g-recaptcha" data-sitekey="6LfiNWoUAAAAAD6vpU0zFLh72P2PVR1Xr5zMinpL"></div>
+          <re-captcha (resolved)="resolved($event)" siteKey="6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK"></re-captcha>
         </div>
       </li>
       <li>

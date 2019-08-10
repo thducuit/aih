@@ -1,3 +1,8 @@
+p span.animateSpan {
+  -webkit-animation: 12s linear infinite moveLeft;
+  animation: 12s linear infinite moveLeft
+}
+
 .box-details-medical {
  display: block;
 }

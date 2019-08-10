@@ -50,7 +50,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
             this.clinic = clinic;
 
             // seo
-            this.titleService.setTitle(this.clinic.metaTitle);
+            this.titleService.setTitle(this.clinic.metaTitle || this.clinic.name);
             this.metaService.addTag({name: 'description', content: this.clinic.metaDesc});
             this.metaService.addTag({name: 'keywords', content: this.clinic.metaKey});
         });

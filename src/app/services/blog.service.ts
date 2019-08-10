@@ -30,6 +30,7 @@ export class BlogService extends BaseService {
         const postData = {
             search: '',
             publish: 1,
+            hot: 0,
             rowperpage: num,
             pageselected: 1,
             post_type: ['news'],
