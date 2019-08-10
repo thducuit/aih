@@ -14,7 +14,7 @@ export class CommentService extends BaseService {
     const postData = {
       comment_fullname: user.name,
       comment_email: user.email,
-      comment_avatar: user.photo,
+      comment_avatar: user.photoUrl,
       comment_social_type: user.provider,
       comment_social_id: user.id,
       comment_message: content,
@@ -32,7 +32,7 @@ export class CommentService extends BaseService {
       obj_id: id,
       lang: 'vi-VN'
     };
-    return this.http.post('form/rating', postData);
+    return this.http.post('comment/list', postData);
   }
 
 

@@ -5,3 +5,29 @@
 .slider-news-dt img {
   max-width: 100%;
 }
+
+.list-cm-wrap li {
+  border-bottom: 1px solid #d8d7d7;
+  margin-bottom: 15px;
+}
+
+.list-cm-wrap li .box-left {
+  float: left;
+}
+
+.list-cm-wrap li .avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.list-cm-wrap li .avatar img {
+  max-width: 80%;
+}
+
+.list-cm-wrap li .box-right .header{
+  font-weight: bold;
+}
+
+.list-cm-wrap li .box-right .content{
+  padding: 10px 0;
+}

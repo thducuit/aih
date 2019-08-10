@@ -50,6 +50,18 @@
             </div>
           </div>
           <div class="list-cm-wrap">
+            <ul>
+              <li *ngFor="let comment of comments" class="clearfix">
+                <div class="box-left avatar">
+                  <img *ngIf="!comment.photo" src="../../assets/images/avatar.jpg" alt="">
+                  <img *ngIf="comment.photo" src="{{ comment.photo }}" alt="">
+                </div>
+                <div class="box-right">
+                  <div class="header">{{ comment.name }}</div>
+                  <div class="content">{{ comment.content }}</div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
