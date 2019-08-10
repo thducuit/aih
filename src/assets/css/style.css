@@ -1,3 +1,32 @@
+.alert-booking {
+  border-radius: unset!important;
+  width: 900px!important;
+  height: 600px;
+  color: #fff;
+}
+.alert-custom-booking {
+  margin-top: 25px;
+}
+.alert-booking .img-logo {
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  background: url(../images/booking_success.png) no-repeat;
+}
+
+.alert-header {
+  font-size: 36px;
+  font-family: utm_avobold;
+  color: #fff;
+  margin: 60px 0;
+}
+
+.alert-content {
+  color: #93c5d5;
+  padding: 20px 100px;
+  font-size: 22px;
+}
+
 #popupOne p.check-must {
   color: #df0c5a !important;
   position: absolute;

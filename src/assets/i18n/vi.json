@@ -211,5 +211,8 @@
   "text_comment_alert": "Vui lòng nhập nội dung",
   "text_comment_success": "Bạn đã bình luận thành công",
   "text_comment_fail": "Lỗi, vui lòng thử lại",
-  "text_login_social": "Vui lòng đăng nhập trước khi sử dụng!"
+  "text_login_social": "Vui lòng đăng nhập trước khi sử dụng!",
+  "text_booking_success_1": "CẢM ƠN QUÝ KHÁCH",
+  "text_booking_success_2": "ĐÃ ĐẶT LỊCH KHÁM TẠI AIH!",
+  "text_booking_success_3": "Bệnh viện Quốc tế Mỹ sẽ liên hệ Quý khách trong vòng 24h để xác nhận cuộc hẹn. Xin cảm ơn!"
 }

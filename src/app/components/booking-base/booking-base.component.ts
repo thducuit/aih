@@ -108,7 +108,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
       this.doctorSchedule = this.findDoctorSchedule(doctor.doctorId);
 
       this.bookingSpecialty &&
-        this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
+      this.bookingSpecialty.chooseByClinicId(this.doctorSchedule.clinicId);
 
       if (this.selectedDate) {
         this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
@@ -248,10 +248,22 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     forkJoin(
       this.translate.get('text_booking_success'),
       this.translate.get('text_close'),
-    ).subscribe(([message, buttonText]) => {
+      this.translate.get('text_booking_success_1'),
+      this.translate.get('text_booking_success_2'),
+      this.translate.get('text_booking_success_3'),
+    ).subscribe(([message, buttonText, m1, m2, m3]) => {
       Swal.fire({
         text: message,
-        confirmButtonText: buttonText,
+        customClass: 'alert-booking',
+        background: '#007298',
+        html: '<div class="alert-custom-booking"><div class="img-logo"></div>' +
+          '<div class="alert-header">' + m1 + '<br/>' +  m2 +
+          '</div> ' +
+          '<div class="alert-content">' + m3 + '</div>' +
+          '</div>',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: false,
       });
     });
   }
