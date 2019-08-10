@@ -17,6 +17,7 @@ import { EventComponent } from './containers/news/event/event.component';
 import { CareerComponent } from './containers/career/career.component';
 import { ContactComponent } from './containers/contact/contact.component';
 import { MedicalComponent } from './containers/medical/medical.component';
+import { SearchComponent } from './containers/search/search.component';
 
 // account
 import { SettingComponent } from './containers/account/setting/setting.component';
@@ -68,6 +69,7 @@ const routes: Routes = [
       { path: 'career/detail/:alias', component: CareerDetailComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'medical', component: MedicalComponent },
+      { path: 'search', component: SearchComponent },
 
       // account
       { path: 'account/setting', component: SettingComponent },

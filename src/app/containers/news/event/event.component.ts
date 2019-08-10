@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Blog } from '../../../models/blog';
-import { UrlService } from '../../../services/url.service';
-import { BlogService } from '../../../services/blog.service';
-import { CalculatePagination } from '../../../utilities';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription, forkJoin } from 'rxjs';
-import { Title } from '@angular/platform-browser';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Blog} from '../../../models/blog';
+import {UrlService} from '../../../services/url.service';
+import {BlogService} from '../../../services/blog.service';
+import {CalculatePagination} from '../../../utilities';
+import {TranslateService} from '@ngx-translate/core';
+import {Subscription, forkJoin} from 'rxjs';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event',
@@ -30,7 +30,8 @@ export class EventComponent implements OnInit, OnDestroy {
     public blogService: BlogService,
     private translate: TranslateService,
     private titleService: Title
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadNews();
@@ -60,13 +61,12 @@ export class EventComponent implements OnInit, OnDestroy {
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
           const {video} = blog.meta;
-          if(video) {
+          if (video) {
             const code = video.substring(video.indexOf('?v=') + 3, video.length);
             blog.iframeUrl = UrlService.createIframeUrl(code);
           }
           return blog;
         });
-        
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();

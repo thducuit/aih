@@ -34,7 +34,7 @@
               <li>
                 <div (click)="onExpandChild()">
                   <p class="choose-child-package" *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-                  <p class="choose-child-package" *ngIf="chosenPackageChild">{{ chosenPackageChild.name }} <img src="../assets/images/dropdown.png" alt=""></p>
+                  <p class="choose-child-package" *ngIf="chosenPackageChild"><span class="animateSpan">{{ chosenPackageChild.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
                 </div>
                 <ol >
                   <li *ngFor="let child of chosenPackageChilds" (click)="choosePackageChild(child)" class="{{ child.active ? 'active' : '' }}">{{ child.name }}</li>

@@ -121,7 +121,9 @@ export class MedicalComponent implements OnInit, OnDestroy {
                     const p = params['package'];
                     const d = params['detail'];
                     this.chosenPackage = this.currentPackages.find(item => item.id === parseInt(p, 10));
+                    this.chosenPackage.active = true;
                     this.chosenPackageChild = this.packages.find(item => item.id === parseInt(d, 10));
+                    this.chosenPackageChild.active = true;
                     this.chosenPackageChilds = this.packages.filter(currentPackage => currentPackage.parentId === this.chosenPackage.id);
                     // this.choosePackageChild(this.chosenPackageChild);
                 });

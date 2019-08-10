@@ -40,7 +40,7 @@ import {LanguageComponent} from './components/language/language.component';
 import {MainHeaderComponent} from './components/main-header/main-header.component';
 import {NavComponent} from './components/nav/nav.component';
 import {NewsletterComponent} from './components/newsletter/newsletter.component';
-import {SearchComponent} from './components/search/search.component';
+import {SearchFormComponent} from './components/search-form/search-form.component';
 import {VideoComponent} from './containers/news/video/video.component';
 import {VideoComponent as VideoComponent2} from './components/popup/video/video.component';
 import {NewsItemComponent} from './components/slide/news/news-item/news-item.component';
@@ -96,6 +96,7 @@ import {SupportDetailComponent} from './containers/account/support-detail/suppor
 import {ScheduleCancelComponent} from './containers/account/schedule-cancel/schedule-cancel.component';
 import {VoteComponent} from './containers/account/vote/vote.component';
 import {MedicalComponent} from './containers/medical/medical.component';
+import {SearchComponent} from './containers/search/search.component';
 import {GlobalEventService} from './services/global-event.service';
 
 // SERVICE
@@ -144,6 +145,7 @@ import {CareerSectionComponent} from './containers/career/career-section/career-
 import {RatingComponent} from './components/rating/rating.component';
 import { ServiceDropMbComponent } from './containers/services/service/service-drop-mb/service-drop-mb.component';
 import { TestimonialItemComponent } from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
+import {SearchService} from './services/search.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -190,7 +192,7 @@ export function createTranslateLoader(http: HttpClient) {
         TopHeaderComponent,
         MainHeaderComponent,
         BookingDoctorComponent,
-        SearchComponent,
+        SearchFormComponent,
         VideoComponent2,
         LanguageComponent,
         NewsletterComponent,
@@ -252,7 +254,8 @@ export function createTranslateLoader(http: HttpClient) {
         CareerSectionComponent,
         RatingComponent,
         ServiceDropMbComponent,
-        TestimonialItemComponent
+        TestimonialItemComponent,
+        SearchComponent
     ],
     imports: [
         BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -301,7 +304,8 @@ export function createTranslateLoader(http: HttpClient) {
         CareerService,
         BookingService,
         DateService,
-        ContactService
+        ContactService,
+        SearchService
     ],
     bootstrap: [AppComponent],
     exports: [DecodeHtmlEntitiesModule],

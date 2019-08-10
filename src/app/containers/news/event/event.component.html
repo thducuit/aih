@@ -8,7 +8,7 @@
       <h2><span>{{ 'blog_event' | translate }}</span></h2>
       <div class="list-news">
 
-        <div class="item news-item-style align-left style-1" *ngIf="filterBlogs.length && filterBlogs[1]">
+        <div class="item news-item-style align-left style-1" *ngIf="filterBlogs.length && filterBlogs[1] && currentPage === 1">
           <div>
             <div class="img">
               <div
@@ -29,11 +29,48 @@
           </div>
         </div>
 
-        <div class="item news-item-style style-3" *ngIf="blogs.length && blogs[0]">
+        <div class="item news-item-style style-3" *ngIf="blogs.length && blogs[0] && currentPage === 1">
           <div (click)="openIframeVideo(blogs[0])">
             <div class="img has-video js-open-video"
                  [style.background]="'url(' + blogs[0].picturePath + ')'"
             ></div>
+          </div>
+        </div>
+
+
+        <div class="item news-item-style align-left style-1" *ngIf="filterBlogs.length && filterBlogs[0] && currentPage > 1">
+          <div>
+            <div class="img">
+              <div
+                [style.background]="'url(' + filterBlogs[0].picturePath + ')'"
+              ></div>
+              <img src="../assets/images/news.gif">
+            </div>
+            <div class="copy">
+              <h3>
+                <span>{{ 'news' | translate }}</span><br/>
+                <div>{{ truncateText(filterBlogs[0] ? filterBlogs[0].name : '', 51) }}</div>
+              </h3>
+              <hr>
+              <p class="date">{{filterBlogs[0].datepublish | date:'dd/MM/yyyy'}}</p>
+              <p>{{ truncateText(filterBlogs[0] ? filterBlogs[0].shortDesc : '', 120) }}</p>
+            </div>
+            <a class="link-all" routerLink="{{ filterBlogs[0].url }}"></a>
+          </div>
+        </div>
+
+        <div class="item news-item-style style-3" *ngIf="filterBlogs.length && filterBlogs[1] && currentPage > 1">
+          <div>
+            <div class="copy">
+              <h3>
+                <span>{{ 'news' | translate }}</span><br/>
+                {{ filterBlogs[1] ? filterBlogs[1].name : '' }}
+              </h3>
+              <hr>
+              <p class="date">{{filterBlogs[1].datepublish | date:'dd/MM/yyyy'}}</p>
+              <p>{{ filterBlogs[1] ? filterBlogs[1].shortDesc : '' }}...</p>
+            </div>
+            <a class="link-all" routerLink="{{ filterBlogs[1].url }}"></a>
           </div>
         </div>
 

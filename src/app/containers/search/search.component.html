@@ -1,0 +1,65 @@
+<main id="pSearch">
+  <section>
+    <div class="container clearfix">
+      <div class="search-wrap frmSearch">
+        <input type="text" name="keyword" [(ngModel)]="keyword" class="form-control" placeholder="{{ 'search' | translate}}" />
+        <input type="submit" value="" (click)="handleSearch()">
+      </div>
+      <h3 class="cap">{{ 'search_results_for' | translate }} :"{{ keyword }}"</h3>
+
+      <div class="item-search" *ngIf="blogs && blogs.length">
+        <h5>{{ 'blog' | translate }}</h5>
+        <ul class="list-result">
+
+          <li *ngFor="let blog of blogs">
+            <div class="item">
+              <div class="img">
+                <div [style.background]="'url(' + blog.picturePath + ')'"></div>
+                <img src="{{ blog.picturePath }}">
+              </div>
+              <h4>{{ blog.name }}</h4>
+              <a class="link-all" routerLink="{{ blog.url }}"></a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="item-search" *ngIf="clinics && clinics.length">
+        <h5>{{ 'our_departments' | translate }}</h5>
+        <ul class="list-result">
+
+          <li *ngFor="let clinic of clinics">
+            <div class="item">
+              <div class="img">
+                <div [style.background]="'url(' + clinic.picturePath + ')'"></div>
+                <img src="{{ clinic.picturePath }}">
+              </div>
+              <h4>{{ clinic.name }}</h4>
+              <a class="link-all" routerLink="{{ clinic.url }}"></a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="item-search" *ngIf="doctors && doctors.length">
+        <h5>{{ 'doctor_text' | translate }}</h5>
+        <ul class="list-result">
+          <li *ngFor="let doctor of doctors">
+            <div class="item">
+              <div class="img">
+                <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
+                <img src="{{ doctor.picturePath }}">
+              </div>
+              <h4>{{ doctor.name }}</h4>
+              <a class="link-all" routerLink="{{ doctor.url }}"></a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
