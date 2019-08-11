@@ -6,6 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {UrlService} from '../../../services/url.service';
 import {Subscription} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
     selector: 'app-career-detail',
@@ -19,12 +20,14 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
     constructor(private route: ActivatedRoute,
                 public postService: PostService,
                 private translate: TranslateService,
+                private animateScrollService: NgAnimateScrollService,
                 private metaService: Meta,
                 private titleService: Title) {
     }
 
     ngOnInit() {
         // const alias = this.route.snapshot.paramMap.get('alias');
+
         this.route.paramMap.subscribe(params => {
             const alias = params.get('alias');
             this.loadPosts(alias);
@@ -53,14 +56,18 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 career.longDesc = UrlService.fixPictureUrl(career.longDesc);
                 this.career = career;
                 // seo
-                this.titleService.setTitle(this.career.metaTitle);
+                this.titleService.setTitle(this.career.metaTitle || this.career.name);
                 this.career.metaDesc && this.metaService.addTag({name: 'description', content: this.career.metaDesc});
                 this.metaService.addTag({name: 'keywords', content: this.career.metaKey});
+                setTimeout(() => {
+                    this.animateScrollService.scrollToElement('pCareers', 150);
+                }, 100);
             });
     }
 
     scrollToForm() {
-        const el = document.getElementById('careerForm');
-        el.scrollIntoView();
+        // const el = document.getElementById('careerForm');
+        // el.scrollIntoView();
+        this.animateScrollService.scrollToElement('careerForm', 150)
     }
 }

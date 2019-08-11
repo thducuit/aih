@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { Blog } from '../../models/blog';
 import { Clinic } from '../../models/clinic';
@@ -12,11 +12,15 @@ import { Subscription } from 'rxjs';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
+
+
 export class FooterComponent implements OnInit, OnDestroy {
 
   public blogs: Array<Blog> = [];
   public clinics: Array<Clinic> = [];
   private subsciption: Subscription;
+
+  
 
   constructor(
     public blogService: BlogService,
@@ -62,5 +66,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       });
     });
   }
+
+  
 
 }
