@@ -38,3 +38,7 @@
 .nav-wrap nav li a:hover {
   text-decoration: none;
 }
+
+ngb-datepicker {
+  border: none!important;
+}

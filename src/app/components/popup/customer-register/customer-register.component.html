@@ -88,4 +88,4 @@
   </section>
    <a class="closeBtn" (click)="handleClosePopup()">{{ 'register_close' | translate }} X</a>
 </section>
-<section class="modal overlay"></section>
+<section class="modal overlay {{ isShowPopup ? 'active' : 'deactive' }}"></section>

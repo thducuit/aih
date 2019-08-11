@@ -142,6 +142,7 @@ import {BookingService} from './services/booking.service';
 import {DateService} from './services/date.service';
 import {CustomerRegisterComponent} from './components/popup/customer-register/customer-register.component';
 import {NumberDirective} from './shared/numbers-only.directive';
+import {MatchHeightDirective} from './shared/match-height.directive';
 import {ContactFormComponent} from './components/contact-form/contact-form.component';
 import {ContactService} from './services/contact.service';
 import {BookingBaseComponent} from './components/booking-base/booking-base.component';
@@ -271,6 +272,7 @@ export function provideConfig() {
     CustomerRegisterComponent,
     ContactFormComponent,
     NumberDirective,
+    MatchHeightDirective,
     BookingBaseComponent,
     CareerSectionComponent,
     RatingComponent,

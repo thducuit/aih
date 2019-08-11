@@ -8,7 +8,7 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
 })
 export class BackToTopComponent implements OnInit {
 
-	public isShowButtonToTop: false;
+	public isShowButtonToTop;
 
   constructor(private animateScrollService: NgAnimateScrollService) { }
 
@@ -25,7 +25,7 @@ export class BackToTopComponent implements OnInit {
   }
 
   backtoTop() {
-		this.animateScrollService.scrollToElement('headerPage', 150)
+		this.animateScrollService.scrollToElement('header-top', 150)
   }
 
 }
