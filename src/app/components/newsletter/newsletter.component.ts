@@ -17,6 +17,7 @@ export class NewsletterComponent implements OnInit {
   constructor(public contactService: ContactService, private translate: TranslateService) { }
 
   ngOnInit() {
+    this.errorEmail = false;
   }
 
   openSuccess() {

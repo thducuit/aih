@@ -18,7 +18,7 @@
 		</li>
 		<li>
 			<div class="drop-pk js-package-home" (clickOutside)="onClickOutsideChild($event)">
-				<p *ngIf="!chosenPackageChild" (click)="handleInputChildClick()">{{ 'medical_packages' | translate }}</p>
+				<p *ngIf="!chosenPackageChild" (click)="handleInputChildClick()">{{ 'medical_packages_detail' | translate }}</p>
 				<p *ngIf="chosenPackageChild" (click)="handleInputChildClick()"><span class="animateSpan">{{ chosenPackageChild.name }}</span></p>
 				<div class="dropdown-list {{ isActiveChild ? 'active' : '' }}">
 					<div class="copyscroll">
