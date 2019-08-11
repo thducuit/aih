@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-form',
@@ -28,6 +28,6 @@ export class SearchFormComponent implements OnInit {
 
   gotoSearch() {
     const url = `/search?keyword=${this.keyword}`;
-    this.router.navigateByUrl(url).then(e => {});
+    this.router.navigateByUrl(url).then(e => { });
   }
 }

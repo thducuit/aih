@@ -150,7 +150,7 @@ import {RatingComponent} from './components/rating/rating.component';
 import {ServiceDropMbComponent} from './containers/services/service/service-drop-mb/service-drop-mb.component';
 import {TestimonialItemComponent} from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
 import {SearchService} from './services/search.service';
-import {CommentService} from "./services/comment.service";
+import {CommentService} from './services/comment.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -279,7 +279,7 @@ export function provideConfig() {
     SearchComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'serverApp'}),
+    BrowserModule.withServerTransition({appId: 'aih-app'}),
     AppRoutingModule,
     HttpClientModule,
     DecodeHtmlEntitiesModule,
