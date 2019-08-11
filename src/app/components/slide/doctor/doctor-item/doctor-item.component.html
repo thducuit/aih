@@ -7,7 +7,7 @@
   </div>
 </div>
 <div class="crs-style1" #sliderContainer>
-  <ul>
+  <ul myMatchHeight="tt-doc-crs">
     <ngx-slick-carousel
       [config]="slideConfig"
       #slickModal="slick-carousel"
@@ -24,7 +24,7 @@
             <p>{{ doctor.categoryName }}</p>
           </div>
           <div class="copy">
-            <p>{{ doctor.shortDesc }}</p>
+            <p innerHTML="{{ doctor.shortDesc | decodeHtmlEntities }}"></p>
             <a routerLink="{{ doctor.url }}">
               <span>{{ 'learn_more' | translate }}</span>
             </a>

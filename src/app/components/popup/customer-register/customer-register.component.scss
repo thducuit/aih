@@ -1,4 +1,4 @@
-#popupOne.active {
+#popupOne.active, .modal.overlay.active {
   display: block;
 }
 .form-popup1 .box-popup-regis-textbox .form-control.error {
@@ -24,3 +24,4 @@
 	height: 45px;
 	border: 1px solid #007298;
 }
+

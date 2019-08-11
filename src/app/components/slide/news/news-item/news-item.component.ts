@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, NgZone, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, NgZone, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
 import { UrlService } from '../../../../services/url.service';
 import { Blog } from '../../../../models/blog';
@@ -13,14 +13,17 @@ const ItemPerPage = 3;
   templateUrl: './news-item.component.html',
   styleUrls: ['./news-item.component.scss'],
 })
-export class NewsItemComponent implements OnInit, OnDestroy {
+export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit  {
   public blogs: Array<Blog> = [];
   public totalPage = 0;
   public currentPage = 1;
   public pageNumbers: number[] = [];
   private subscription: Subscription;
 
+  public minHeight;
+
   @Input() showChosenPackage = false;
+
   constructor(
     public blogService: BlogService,
     private translate: TranslateService,
@@ -66,4 +69,12 @@ export class NewsItemComponent implements OnInit, OnDestroy {
       this.pageNumbers = CalculatePagination(this.currentPage, this.totalPage);
     });
   }
+
+
+  ngAfterViewInit() {
+    setTimeout( () => {
+      this.minHeight = document.getElementById("choosen-wrap-w").offsetHeight;
+    }, 100 )
+  }
+
 }

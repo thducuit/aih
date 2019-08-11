@@ -3,6 +3,7 @@ import { PageService } from '../../services/page.service';
 import { Page } from '../../models/page';
 import { UrlService } from '../../services/url.service';
 import { BannerService } from '../../services/banner.service';
+import { GlobalEventService } from '../../services/global-event.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public bannerService: BannerService,
     private translate: TranslateService,
     private metaService: Meta,
+    private globalEventService: GlobalEventService,
     private titleService: Title) {
   }
 
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.globalEventService.emit('show-loading');
     forkJoin(
       this.pageService
         .fetch('homepage'),
@@ -62,6 +65,8 @@ export class HomeComponent implements OnInit, OnDestroy {
               banner.url = banner.Link;
               return banner;
             });
+
+            this.globalEventService.emit('hide-loading');
           });
       });
   }

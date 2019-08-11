@@ -1,7 +1,7 @@
 <div class="news-list-wrap">
   <ul class="clearfix js-list-news js-append-more">
     <li *ngFor="let blog of blogs">
-      <div class="item-news">
+      <div class="item-news" [ngStyle]="{'min-height.px': minHeight}">
         <div class="img">
           <div
             class="lazyload"
@@ -38,5 +38,8 @@
   <div class="btn-wrap show-mb">
     <a class="btn-showmore js-btn-loadmore" routerLink="/news">{{'show_more' | translate}}</a>
   </div>
-  <app-choosen-package *ngIf="showChosenPackage"></app-choosen-package>
+
+  <app-choosen-package *ngIf="showChosenPackage" ></app-choosen-package>
+  
+  
 </div>

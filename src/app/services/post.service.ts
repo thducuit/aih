@@ -33,6 +33,7 @@ export class PostService extends BaseService {
     const postData = {
       post_id: postId,
       category: 0,
+      hot: 0,
       post_type: 'doctor',
       lang: this.getCurrentLocal()
     };

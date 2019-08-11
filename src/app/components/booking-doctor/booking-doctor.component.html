@@ -8,7 +8,7 @@
         <div class="nano">
           <div class="nano-content">
             <ul>
-              <li class="doctor-item-23" *ngFor="let doctor of filteredDoctors" >
+              <li *ngFor="let doctor of filteredDoctors" >
                 <p class="tt-doc {{ doctor.isExpanded ? 'active' : ''  }}">
                   <em class="js-book-dt" (click)="onChoose(doctor)">{{ doctor.name }}
                   </em>
