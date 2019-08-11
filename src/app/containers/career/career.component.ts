@@ -6,6 +6,7 @@ import { BannerService } from '../../services/banner.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { forkJoin, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-career',
@@ -35,7 +36,8 @@ export class CareerComponent implements OnInit, OnDestroy {
     public bannerService: BannerService,
     private metaService: Meta,
     private titleService: Title,
-    private translate: TranslateService) {
+    private translate: TranslateService,
+    private animateScrollService: NgAnimateScrollService) {
   }
 
   ngOnInit() {
@@ -85,5 +87,9 @@ export class CareerComponent implements OnInit, OnDestroy {
 
   trackBannersFunc(banner) {
     return banner.Url;
+  }
+
+  scrollToForm() {
+      this.animateScrollService.scrollToElement('careerForm', 150)
   }
 }

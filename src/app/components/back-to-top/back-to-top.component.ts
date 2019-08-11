@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-back-to-top',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackToTopComponent implements OnInit {
 
-  constructor() { }
+	public isShowButtonToTop: false;
+
+  constructor(private animateScrollService: NgAnimateScrollService) { }
 
   ngOnInit() {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event) {
+        if (window.pageYOffset > 100) {
+            this.isShowButtonToTop = true;
+        }else {
+            this.isShowButtonToTop = false;
+        }
+  }
+
+  backtoTop() {
+		this.animateScrollService.scrollToElement('headerPage', 150)
   }
 
 }

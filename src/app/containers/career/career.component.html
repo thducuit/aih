@@ -25,7 +25,7 @@
               <div class="copy">
                 <h3>{{ banner ? banner.Content : '' }}</h3>
                 <h2>{{ banner ? banner.Title : '' }}</h2>
-                <a class="btn-page js-scrollForm">{{
+                <a class="btn-page" (click)="scrollToForm()">{{
                   'apply_now' | translate
                 }}</a>
               </div>
@@ -44,7 +44,7 @@
     <div class="container" #sectionForm>
       <app-career-section></app-career-section>
 
-      <app-career-form></app-career-form>
+      <app-career-form #careerForm></app-career-form>
     </div>
   </section>
 </main>

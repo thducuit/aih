@@ -1,19 +1,20 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {PostService} from '../../../services/post.service';
-import {Blog} from '../../../models/blog';
-import {UrlService} from '../../../services/url.service';
-import {BlogService} from '../../../services/blog.service';
-import {TranslateService} from '@ngx-translate/core';
-import {Subscription} from 'rxjs';
-import {Meta, Title} from '@angular/platform-browser';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PostService } from '../../../services/post.service';
+import { Blog } from '../../../models/blog';
+import { Comment } from '../../../models/comment';
+import { UrlService } from '../../../services/url.service';
+import { BlogService } from '../../../services/blog.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
-import {forkJoin} from 'rxjs';
+import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
 
-import {AuthService} from 'angularx-social-login';
-import {FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
-import {CommentService} from '../../../services/comment.service';
+import { AuthService } from 'angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
+import { CommentService } from '../../../services/comment.service';
 
 @Component({
   selector: 'app-news-detail',
@@ -29,6 +30,8 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   public keyword;
   public content;
+
+  public comments: Array<Comment> = [];
 
   constructor(private route: ActivatedRoute,
               public postService: PostService,
@@ -73,8 +76,16 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       this.blog = blog;
       // seo
       this.titleService.setTitle(this.blog.metaTitle);
-      this.metaService.addTag({name: 'description', content: this.blog.metaDesc});
-      this.metaService.addTag({name: 'keywords', content: this.blog.metaKey});
+      this.metaService.addTag({ name: 'description', content: this.blog.metaDesc });
+      this.metaService.addTag({ name: 'keywords', content: this.blog.metaKey });
+
+      this.commentService.comments(this.blog.id, 'news').subscribe((data2: any) => {
+        const comments = data2['Comments'] || [];
+        this.comments = comments.map(comment => {
+          return new Comment(comment);
+        });
+        console.log(this.comments);
+      });
 
       this.postService.fetchNextPrevNews(blog.id).subscribe((data2) => {
         if (data2['PostNext']) {
@@ -159,7 +170,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   showSocialLogin() {
     forkJoin(
-      this.translate.get('text_login_social')
+      this.translate.get('text_login_social'),
     ).subscribe(([message]) => {
       Swal.fire({
         text: message,
