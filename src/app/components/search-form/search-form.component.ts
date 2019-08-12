@@ -1,33 +1,35 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-search-form',
-  templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+    selector: 'app-search-form',
+    templateUrl: './search-form.component.html',
+    styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements OnInit {
 
-  public isOpen = false;
-  public keyword;
+    public isOpen = false;
+    public keyword;
 
-  constructor(private router: Router) {
-  }
+    constructor(private router: Router) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 
-  open() {
-    this.isOpen = true;
-  }
+    open() {
+        this.isOpen = true;
+    }
 
-  close() {
-    this.isOpen = false;
-  }
+    close() {
+        this.isOpen = false;
+    }
 
-  gotoSearch() {
-    const url = `/search?keyword=${this.keyword}`;
-    this.router.navigateByUrl(url).then(e => {});
-  }
+    gotoSearch() {
+        const url = `/search?keyword=${this.keyword}`;
+        this.router.navigateByUrl(url).then(e => {
+        });
+        this.isOpen = false;
+    }
 }

@@ -6,6 +6,7 @@ import {CategoryService} from '../../../../services/category.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
     selector: 'app-service-detail',
@@ -20,6 +21,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
                 public categoryService: CategoryService,
                 private translate: TranslateService,
                 private metaService: Meta,
+                private animateScrollService: NgAnimateScrollService,
                 private titleService: Title) {
     }
 
@@ -53,6 +55,10 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
             this.titleService.setTitle(this.clinic.metaTitle || this.clinic.name);
             this.metaService.addTag({name: 'description', content: this.clinic.metaDesc});
             this.metaService.addTag({name: 'keywords', content: this.clinic.metaKey});
+
+            setTimeout(() => {
+                this.animateScrollService.scrollToElement('headerPage', 150);
+            }, 100);
         });
     }
 }

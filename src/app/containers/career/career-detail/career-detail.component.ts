@@ -4,9 +4,12 @@ import {ActivatedRoute} from '@angular/router';
 import {PostService} from '../../../services/post.service';
 import {TranslateService} from '@ngx-translate/core';
 import {UrlService} from '../../../services/url.service';
-import {Subscription} from 'rxjs';
+import {forkJoin, Subscription} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import {Page} from '../../../models/page';
+import {BannerService} from '../../../services/banner.service';
+import { PageService } from '../../../services/page.service';
 
 @Component({
     selector: 'app-career-detail',
@@ -17,8 +20,24 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
     public career: Career;
     private subscription: Subscription;
 
+    public page: Page;
+    public banners: Array<any> = [];
+
+    public slideConfig = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: false,
+        autoplaySpeed: 5000,
+        appendDots: '.banner-careers'
+    };
+
     constructor(private route: ActivatedRoute,
+                public pageService: PageService,
                 public postService: PostService,
+                public bannerService: BannerService,
                 private translate: TranslateService,
                 private animateScrollService: NgAnimateScrollService,
                 private metaService: Meta,
@@ -33,9 +52,12 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
             this.loadPosts(alias);
         });
 
+        this.loadPage();
+
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
+                this.loadPage();
                 const alias = this.route.snapshot.params.alias;
                 this.loadPosts(alias);
             });
@@ -43,6 +65,37 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
+    }
+
+    sliderInit(e) {}
+
+    trackBannersFunc(banner) {
+        return banner.Url;
+    }
+
+    loadPage() {
+        forkJoin(
+            this.pageService.fetch('careerpage'),
+            this.translate.get('american_international_hospital')
+        ).subscribe(([data, aihStr]) => {
+            const post = data.Post || {};
+            const page = new Page(post);
+            page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+            page.picturePath = UrlService.createPictureUrl(page.picture);
+            this.page = page;
+
+            this.bannerService
+                .fetch('careerpage', this.page.id)
+                .subscribe((bannersResp: any) => {
+                    const banners = bannersResp.Banner;
+                    this.banners = banners.map(banner => {
+                        banner.large = UrlService.createMediaUrl(banner.Url);
+                        banner.small = banner.large;
+                        banner.url = banner.Link;
+                        return banner;
+                    });
+                });
+        });
     }
 
     private loadPosts(alias) {
