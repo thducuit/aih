@@ -3,7 +3,7 @@ import { TestimonialService } from 'src/app/services/testimonial.service';
 import { Testimonial } from 'src/app/models/testimonial';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-testimonial',
@@ -18,7 +18,8 @@ export class TestimonialComponent implements OnInit, OnDestroy {
   constructor(
     private testimonialService: TestimonialService,
     private translate: TranslateService,
-    private titleService: Title
+    private titleService: Title,
+    private meta: Meta
   ) { }
 
   ngOnInit() {
@@ -53,7 +54,12 @@ export class TestimonialComponent implements OnInit, OnDestroy {
       this.translate.get('american_international_hospital')
     )
     .subscribe(([mainTitle, subTitle]) => {
-      this.titleService.setTitle(`${mainTitle} - ${subTitle}`);
+      const pageTitle = `${mainTitle} - ${subTitle}`;
+      this.titleService.setTitle(pageTitle);
+      this.meta.updateTag({
+        property: 'og:title',
+        content: pageTitle
+      });
     });
   }
 }

@@ -52,12 +52,17 @@ export class InsuranceComponent implements OnInit, OnDestroy {
       const page = data.Post || {};
       this.page = new Page(page);
       // seo
-      this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-      // this.metaService.addTag({
+      const pageTitle = `${this.page.name} - ${aihStr}`;
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle,
+      });
+      // this.metaService.updateTag({
       //   name: 'description',
       //   content: this.page.metaDesc,
       // });
-      // this.metaService.addTag({ name: 'keywords', content: this.page.metaKey });
+      // this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
       this.bannerService
         .fetch('insurancepage', this.page.id)
         .subscribe((bannerData: any) => {
