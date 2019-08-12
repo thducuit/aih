@@ -82,6 +82,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             this.titleService.setTitle(this.blog.metaTitle);
             this.metaService.updateTag({name: 'description', content: this.blog.metaDesc});
             this.metaService.updateTag({name: 'keywords', content: this.blog.metaKey});
+            this.metaService.updateTag({property: 'og:description', content: this.blog.metaDesc});
             this.metaService.updateTag({
                 property: 'og:url',
                 content: blog.url,

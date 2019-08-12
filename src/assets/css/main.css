@@ -2388,7 +2388,7 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-backface-visibility: hidden;
     font-family: utm_avoregular;
-    overflow-x: hidden
+    overflow-x: hidden!important;
 }
 
 ::-moz-selection {
