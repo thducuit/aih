@@ -5,6 +5,12 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 import { BrowserModule } from '@angular/platform-browser';
+// import { TranslateUniversalLoader } from './translate-universal-loader';
+// import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
+// export function createTranslateLoader() {
+//   return new TranslateUniversalLoader('./assets/i18n/', '.json');
+// }
 
 @NgModule({
   imports: [
@@ -14,6 +20,13 @@ import { BrowserModule } from '@angular/platform-browser';
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
+    // TranslateModule.forRoot({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: createTranslateLoader,
+    //     deps: [],
+    //   },
+    // }),
   ],
   bootstrap: [AppComponent],
 })
