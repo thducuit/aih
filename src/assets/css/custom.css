@@ -42,3 +42,12 @@
 ngb-datepicker {
   border: none!important;
 }
+
+.cr-content h3, .cr-content strong {
+  font-size: 15px;
+  padding-bottom: 8px;
+  color: #007297;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: utm_avobold;
+}
