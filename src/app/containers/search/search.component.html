@@ -13,7 +13,7 @@
 
           <li *ngFor="let blog of blogs">
             <div class="item">
-              <div class="img">
+              <div class="img" *ngIf="blog.picture">
                 <div [style.background]="'url(' + blog.picturePath + ')'"></div>
                 <img src="{{ blog.picturePath }}">
               </div>
@@ -30,8 +30,8 @@
         <ul class="list-result">
 
           <li *ngFor="let clinic of clinics">
-            <div class="item">
-              <div class="img">
+            <div class="item" >
+              <div class="img" *ngIf="clinic.picture">
                 <div [style.background]="'url(' + clinic.picturePath + ')'"></div>
                 <img src="{{ clinic.picturePath }}">
               </div>
@@ -48,7 +48,7 @@
         <ul class="list-result">
           <li *ngFor="let doctor of doctors">
             <div class="item">
-              <div class="img">
+              <div class="img" *ngIf="doctor.picture">
                 <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
                 <img src="{{ doctor.picturePath }}">
               </div>
