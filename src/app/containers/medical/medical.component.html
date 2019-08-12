@@ -44,7 +44,7 @@
           </div>
           <div class="box-bottom">
             <ul>
-              <li *ngIf="!chosenPackageChild"></li>
+              <li *ngIf="!chosenPackageChild">{{ 'choose_detail_package_price' | translate }}</li>
               <li *ngIf="chosenPackageChild">{{ chosenPackageChild.meta.price }}</li>
             </ul>
           </div>

@@ -32,8 +32,8 @@ p span {
 }
 
 .medical-bottom .box-left p {
-	text-align: left;
-	padding-left: 30px;	
+	/*text-align: left;*/
+	padding: 0 20px;	
 }
 
 .medical-bottom .box-left p img {
@@ -52,6 +52,10 @@ p span {
 	    width: 100%;
     float: left;
     background: #0199ca;
+}
+
+.medical-bottom .box-right .box-bottom {
+	background: #0380b0
 }
 
 .medical-bottom .box-right .box-bottom {
@@ -140,5 +144,54 @@ p span {
 @media screen and (max-width: 1600px) and (min-width: 1200px) {
 	.page-medical-all .medical-bottom .box-left p {
 	    margin-top: 35px;
+	}
+}
+
+@media screen and (max-width: 767px){
+	.medical-bottom .box-right .box-top {
+	  width: 50%;
+	}
+
+	.medical-bottom .box-right .box-top ul {
+		border-right: 1px solid #fff;
+	}
+
+	.medical-bottom .box-right .box-bottom {
+	  width: 50%;
+	}
+
+	.medical-bottom .box-right .box-bottom {
+		border-left: 1px solid #fff;
+	}
+
+	.medical-bottom .box-right .box-bottom ul li {
+		height: 52px
+	}
+
+	.box-chosen ul {
+		top: 75px;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.page-medical-all .medical-bottom .box-left p {
+	    font-size: 16px;
+	    margin-top: 24px;
+	}
+	.medical-bottom  .box-right ul li {
+	    font-size: 14px;
+	    line-height: 48px;
+	}
+
+	.medical-bottom .box-left p img {
+		margin-left: 6px;
+	    width: 13px;
+	    margin-top: -4px;
+	}
+
+	.choose-child-package img {
+		    margin-left: 6px;
+		    width: 13px;
+		    margin-top: -2px;
 	}
 }
