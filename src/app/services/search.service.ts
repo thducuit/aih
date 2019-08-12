@@ -14,7 +14,6 @@ export class SearchService extends BaseService {
     const postData = {
       search: keyword,
       publish: 1,
-      hot: 1,
       rowperpage: 999,
       pageselected: 1,
       post_type: [type],
@@ -27,7 +26,6 @@ export class SearchService extends BaseService {
     const postData = {
       search: keyword,
       publish: 1,
-      hot: 1,
       rowperpage: 999,
       pageselected: 1,
       cate_type: type,
