@@ -311,6 +311,7 @@ section.modalWindow section.modalWrapper {
   }
   section.modalWindow {
     top: 7%;
+    height: auto;
   }
   .form-popup1 .box-popup-regis-textbox .form-control {
     height: 35px;
