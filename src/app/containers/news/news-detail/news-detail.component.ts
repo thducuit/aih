@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 import {AuthService} from 'angularx-social-login';
 import {FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {CommentService} from '../../../services/comment.service';
+import {environment} from '../../../../environments/environment.prod';
 
 @Component({
     selector: 'app-news-detail',
@@ -81,6 +82,14 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             this.titleService.setTitle(this.blog.metaTitle);
             this.metaService.addTag({name: 'description', content: this.blog.metaDesc});
             this.metaService.addTag({name: 'keywords', content: this.blog.metaKey});
+            this.metaService.addTag({
+                property: 'og:url',
+                content: blog.url,
+            });
+            this.metaService.addTag({
+                property: 'og:image',
+                content: blog.picturePath,
+            });
 
             this.commentService.comments(this.blog.id, 'news').subscribe((data2: any) => {
                 const comments = data2['Comments'] || [];
