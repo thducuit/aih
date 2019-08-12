@@ -21,7 +21,7 @@ export class CommentService extends BaseService {
       comment_type: type,
       comment_objid: id,
       comment_parentid: 0,
-      lang: 'vi-VN'
+      lang: this.getCurrentLocal()
     };
     return this.http.post('comment/add', postData);
   }
@@ -30,7 +30,7 @@ export class CommentService extends BaseService {
     const postData = {
       comment_type: type,
       obj_id: id,
-      lang: 'vi-VN'
+      lang: this.getCurrentLocal()
     };
     return this.http.post('comment/list', postData);
   }

@@ -15,7 +15,7 @@ export class ContactService extends BaseService {
             fullname: form.fullname,
             email: form.email,
             content: form.content,
-            lang: 'vi-VN'
+            lang: this.getCurrentLocal()
         };
         return this.http.post('form/contact', postData);
     }
@@ -28,7 +28,7 @@ export class ContactService extends BaseService {
             price,
             service,
             facilities,
-            lang: 'vi-VN'
+            lang: this.getCurrentLocal()
         };
         return this.http.post('form/rating', postData);
     }
@@ -36,7 +36,7 @@ export class ContactService extends BaseService {
     subsribe(email) {
         const postData = {
             email,
-            lang: 'vi-VN'
+            lang: this.getCurrentLocal()
         };
         return this.http.post('form/newsletter', postData);
     }
