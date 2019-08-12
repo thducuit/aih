@@ -81,6 +81,9 @@ export class DoctorItemComponent implements OnInit, OnDestroy {
   }
 
   trackDoctorId(doctor: Doctor) {
+    if (!doctor) {
+      return null;
+    }
     return doctor.id;
   }
 
