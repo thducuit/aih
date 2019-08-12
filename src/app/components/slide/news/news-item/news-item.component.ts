@@ -73,8 +73,11 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   ngAfterViewInit() {
     setTimeout( () => {
-      this.minHeight = document.getElementById("choosen-wrap-w").offsetHeight;
-    }, 100 )
+      const h = document.getElementById('choosen-wrap-w');
+      if (h) {
+          this.minHeight = h.offsetHeight;
+      }
+    }, 100 );
   }
 
 }

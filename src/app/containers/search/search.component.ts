@@ -64,7 +64,7 @@ export class SearchComponent implements OnInit {
       this.clinics = posts.map(post => {
         const clinic = new Clinic(post);
         clinic.picturePath = UrlService.createPictureUrl(clinic.picture, null, 'category');
-        clinic.url = '/patient-services/medical-services';
+        clinic.url = UrlService.createClinicDetailUrl(clinic.alias);
         return clinic;
       });
     });

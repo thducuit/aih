@@ -6,7 +6,7 @@
     <span class="btn-next crs-next" (click)="slickModal.slickNext()"></span>
   </div>
 </div>
-<div class="crs-style1" #sliderContainer>
+<div class="crs-style1" #sliderContainer *ngIf="doctors">
   <ul myMatchHeight="tt-doc-crs">
     <ngx-slick-carousel
       [config]="slideConfig"
