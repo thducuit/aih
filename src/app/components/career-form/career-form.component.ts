@@ -37,6 +37,23 @@ export class CareerFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.reset();
+  }
+
+  reset() {
+    this.captchaResponse = null;
+    this.form = {
+        fullname: '',
+        position: '',
+        phone: '',
+        email: '',
+        content: '',
+        attach: {
+            fileName: null,
+            contentType: null,
+            contentAsBase64String: null,
+        },
+    };
   }
 
   openSelectFile() {
@@ -53,6 +70,7 @@ export class CareerFormComponent implements OnInit {
         text: message,
         confirmButtonText: buttonText,
       });
+      this.reset();
     });
   }
 
@@ -65,6 +83,7 @@ export class CareerFormComponent implements OnInit {
         text: message,
         confirmButtonText: buttonText,
       });
+      this.reset();
     });
   }
 

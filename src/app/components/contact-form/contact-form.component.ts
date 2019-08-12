@@ -26,6 +26,16 @@ export class ContactFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.reset();
+  }
+
+  reset() {
+      this.captchaResponse = null;
+      this.form = {
+          fullname: '',
+          email: '',
+          content: '',
+      };
   }
 
   openSuccess() {
@@ -37,6 +47,7 @@ export class ContactFormComponent implements OnInit {
         text: message,
         confirmButtonText: buttonText,
       });
+      this.reset();
     });
   }
 
@@ -49,6 +60,7 @@ export class ContactFormComponent implements OnInit {
         text: message,
         confirmButtonText: buttonText,
       });
+      this.reset();
     });
   }
 
