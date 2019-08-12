@@ -1,4 +1,4 @@
-<div id="choosen-wrap-w" class="choosen-wrap" (clickOutside)="onClickOutside($event)">
+<div id="choosen-wrap-w" class="choosen-wrap" (clickOutside)="onClickOutside($event)" >
 	<h2>{{ 'please_choose' | translate }}<br/> {{ 'please_choose_our_medical_packages' | translate }}</h2>
 	<ul>
 		<li>
@@ -17,7 +17,7 @@
 			</div>
 		</li>
 		<li>
-			<div class="drop-pk js-package-home" (clickOutside)="onClickOutsideChild($event)">
+			<div class="drop-pk js-package-home-child" (clickOutside)="onClickOutsideChild($event)">
 				<p *ngIf="!chosenPackageChild" (click)="handleInputChildClick()">{{ 'medical_packages_detail' | translate }}</p>
 				<p *ngIf="chosenPackageChild" (click)="handleInputChildClick()"><span class="animateSpan">{{ chosenPackageChild.name }}</span></p>
 				<div class="dropdown-list {{ isActiveChild ? 'active' : '' }}">

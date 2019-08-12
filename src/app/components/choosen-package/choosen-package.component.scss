@@ -22,3 +22,18 @@
 .btn-choose-package:hover {
 	color: #ffffff!important;
 }
+
+.drop-pk p {
+	width: 95%;
+}
+.js-package-home p, .js-package-home .dropdown-list {
+	z-index: 10;
+}
+
+.drop-pk.js-package-home:after {
+	z-index: 0!important;
+}
+
+.js-package-home-child p {
+	z-index: 8;
+}
