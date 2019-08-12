@@ -2602,9 +2602,9 @@ header.fixHd .bg {
 }
 
 .hd-home .main-hd {
-    background: rgba(255, 255, 255, .1);
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1)
+    background: rgba(255, 255, 255, .2);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2)
 }
 
 .top-hd {
