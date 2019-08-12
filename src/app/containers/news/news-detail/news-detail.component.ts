@@ -80,13 +80,13 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             this.blog = blog;
             // seo
             this.titleService.setTitle(this.blog.metaTitle);
-            this.metaService.addTag({name: 'description', content: this.blog.metaDesc});
-            this.metaService.addTag({name: 'keywords', content: this.blog.metaKey});
-            this.metaService.addTag({
+            this.metaService.updateTag({name: 'description', content: this.blog.metaDesc});
+            this.metaService.updateTag({name: 'keywords', content: this.blog.metaKey});
+            this.metaService.updateTag({
                 property: 'og:url',
                 content: blog.url,
             });
-            this.metaService.addTag({
+            this.metaService.updateTag({
                 property: 'og:image',
                 content: blog.picturePath,
             });
