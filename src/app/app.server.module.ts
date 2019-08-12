@@ -9,7 +9,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateUniversalLoader } from './shared/translate-universal-loader';
 
 export function createTranslateLoader() {
-  return new TranslateUniversalLoader('./assets/i18n/', '.json');
+  const path = './dist/browser/assets/i18n';
+  return new TranslateUniversalLoader(path, '.json');
 }
 
 @NgModule({

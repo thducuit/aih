@@ -4,17 +4,17 @@ import fs from 'fs-extra';
 
 export class TranslateUniversalLoader implements TranslateLoader {
   constructor(
-    private prifix: string = 'i18n',
+    private prefix: string = 'i18n',
     private suffix: string = '.json',
   ) {}
 
   public getTranslation(lang: string): Observable<any> {
     return Observable.create(observer => {
-      observer.next(
-        JSON.parse(
-          fs.readFileSync(`${this.prifix}/${lang}${this.suffix}`, 'utf8'),
-        ),
+      const jsonContent = fs.readFileSync(
+        `${this.prefix}/${lang}${this.suffix}`,
+        'utf8',
       );
+      observer.next(JSON.parse(jsonContent));
       observer.complete();
     });
   }
