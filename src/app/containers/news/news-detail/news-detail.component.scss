@@ -31,3 +31,16 @@
 .list-cm-wrap li .box-right .content{
   padding: 10px 0;
 }
+
+.btn-page {
+  cursor: pointer;
+  color: #fff!important;
+}
+
+.btn-page:hover {
+  text-decoration: unset
+}
+
+.alert-dt.show {
+  display: block;
+}

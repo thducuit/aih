@@ -2,7 +2,7 @@
 <div class="search-ct-wrap frmSearch {{ isOpen ? 'active' : '' }}">
 	<div class="btn-close" (click)="close()"><img src="../assets/images/btn-close.png"></div>
 	<div class="search-wrap {{ isOpen ? 'show' : '' }}">
-		<input (keyup.enter)="gotoSearch()" type="text" [(ngModel)]="keyword" name="keyword"  class="form-control" placeholder="{{ 'search' | translate }}">
+		<input (keyup.enter)="gotoSearch()" type="text" [(ngModel)]="keyword" name="keyword" placeholder="{{ 'search' | translate }}">
 		<input type="submit" (keyup.enter)="gotoSearch()" (click)="gotoSearch()" value="">
 	</div>
 </div>

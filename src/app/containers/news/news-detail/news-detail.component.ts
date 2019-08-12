@@ -33,6 +33,8 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
     public comments: Array<Comment> = [];
 
+    public isShowWarning;
+
     constructor(private route: ActivatedRoute,
                 public postService: PostService,
                 public blogService: BlogService,
@@ -45,6 +47,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.isShowWarning = false;
         // const alias = this.route.snapshot.paramMap.get('alias');
         this.route.paramMap.subscribe(params => {
             const alias = params.get('alias');
@@ -203,5 +206,9 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
         this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(userData => {
             localStorage.setItem('user', JSON.stringify(userData));
         });
+    }
+
+    booking() {
+        this.isShowWarning = true;
     }
 }
