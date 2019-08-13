@@ -21,6 +21,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
 import { ClickOutsideModule } from 'ng-click-outside';
 
+import { TransferHttpCacheModule } from '@nguniversal/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -310,6 +312,7 @@ export function provideConfig() {
     ClickOutsideModule,
     RecaptchaModule,
     SocialLoginModule,
+    TransferHttpCacheModule
   ],
   providers: [
     GlobalEventService,
