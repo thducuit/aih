@@ -1,26 +1,38 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UrlService} from '../../../services/url.service';
 import {CareerCategoryService} from '../../../services/career-category.service';
 import {CareerCategory} from '../../../models/career-category';
 import {Career} from '../../../models/career';
 import {CareerService} from '../../../services/career.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-career-section',
     templateUrl: './career-section.component.html',
     styleUrls: ['./career-section.component.scss']
 })
-export class CareerSectionComponent implements OnInit {
+export class CareerSectionComponent implements OnInit, OnDestroy {
 
     public careerCategories: Array<any> = [];
     public careers: Array<any> = [];
 
     constructor(public careerCategoryService: CareerCategoryService,
-                public careerService: CareerService) {
+                public careerService: CareerService,
+                private translate: TranslateService) {
     }
 
     ngOnInit() {
         this.loadList();
+        this.subscription = this
+            .translate
+            .onLangChange
+            .subscribe(() => {
+                this.loadList();
+            });
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 
     loadList() {
