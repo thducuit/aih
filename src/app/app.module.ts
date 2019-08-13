@@ -155,6 +155,7 @@ import { ServiceDropMbComponent } from './containers/services/service/service-dr
 import { TestimonialItemComponent } from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
 import { SearchService } from './services/search.service';
 import { CommentService } from './services/comment.service';
+import { TawkComponent } from './shared/tawk/tawk.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -284,6 +285,7 @@ export function provideConfig() {
     ServiceDropMbComponent,
     TestimonialItemComponent,
     SearchComponent,
+    TawkComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),
