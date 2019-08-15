@@ -1,55 +1,72 @@
 import {
-    Directive, ElementRef, AfterViewChecked, 
-    Input, HostListener
+  Directive,
+  ElementRef,
+  AfterViewChecked,
+  Input,
+  HostListener,
+  Inject,
+  PLATFORM_ID,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
-    selector: '[myMatchHeight]'
+  selector: '[myMatchHeight]',
 })
 export class MatchHeightDirective implements AfterViewChecked {
+  // class name to match height
+  @Input()
+  myMatchHeight: any;
 
-    // class name to match height
-    @Input()
-    myMatchHeight: any;
+  constructor(
+    private el: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: object,
+  ) {}
 
-    constructor(private el: ElementRef) {
+  ngAfterViewChecked() {
+    // call our matchHeight function here later
+    if (isPlatformBrowser(this.platformId)) {
+      this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+    }
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    // call our matchHeight function here later
+    if (isPlatformBrowser(this.platformId)) {
+      this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+    }
+  }
+
+  matchHeight(parent: HTMLElement, className: string) {
+    // match height logic here
+
+    if (!parent) {
+      return;
+    }
+    const children = parent.getElementsByClassName(className);
+
+    if (!children) {
+      return;
     }
 
-    ngAfterViewChecked() {
-        // call our matchHeight function here later
-        this.matchHeight(this.el.nativeElement, this.myMatchHeight);
-    }
+    // reset all children height
+    Array.from(children).forEach((x: HTMLElement) => {
+      x.style.height = 'initial';
+    });
 
-    @HostListener('window:resize') 
-    onResize() {
-        // call our matchHeight function here later
-        this.matchHeight(this.el.nativeElement, this.myMatchHeight);
-    }
+    // gather all height
+    const itemHeights = Array.from(children).map(
+      x => x.getBoundingClientRect().height,
+    );
 
-    matchHeight(parent: HTMLElement, className: string) {
-        // match height logic here
+    // find max height
+    const maxHeight = itemHeights.reduce((prev, curr) => {
+      return curr > prev ? curr : prev;
+    }, 0);
 
-        if (!parent) return;
-        const children = parent.getElementsByClassName(className);
-
-        if (!children) return;
-
-        // reset all children height
-        Array.from(children).forEach((x: HTMLElement) => {
-            x.style.height = 'initial';
-        })
-
-        // gather all height
-        const itemHeights = Array.from(children)
-            .map(x => x.getBoundingClientRect().height);
-
-        // find max height
-        const maxHeight = itemHeights.reduce((prev, curr) => {
-            return curr > prev ? curr : prev;
-        }, 0);
-
-        // apply max height
-        Array.from(children)
-            .forEach((x: HTMLElement) => x.style.height = `${maxHeight}px`);
-    }
+    // apply max height
+    Array.from(children).forEach(
+      (x: HTMLElement) => (x.style.height = `${maxHeight}px`),
+    );
+  }
 }

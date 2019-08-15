@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, HostListener, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { DoctorService } from '../../../../services/doctor.service';
 import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
@@ -81,13 +81,16 @@ export class DoctorItemComponent implements OnInit, OnDestroy {
   }
 
   trackDoctorId(doctor: Doctor) {
+    if (!doctor) {
+      return null;
+    }
     return doctor.id;
   }
 
   @HostListener('window:resize')
   onWindowResize() {
     if (isPlatformBrowser(this.platformId)) {
-      this.slickSlider && this.slickSlider.initSlick();
+      this.slickSlider && this.doctors && this.doctors.length && this.slickSlider.initSlick();
     }
   }
 }

@@ -49,10 +49,15 @@ export class ServiceComponent implements OnInit, OnDestroy {
         const page = new Page(post);
         page.longDesc = UrlService.fixPictureUrl(page.longDesc);
         this.page = page;
+        const pageTitle = `${this.page.name} - ${aihStr}`;
         // seo
-        this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-        this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
-        this.metaService.addTag({ name: 'keywords', content: this.page.metaKey });
+        this.titleService.setTitle(pageTitle);
+        this.metaService.updateTag({
+          property: 'og:title',
+          content: pageTitle
+        });
+        this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
+        this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
       });
   }
 

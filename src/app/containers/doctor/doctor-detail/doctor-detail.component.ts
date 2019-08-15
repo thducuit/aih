@@ -68,20 +68,21 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
       });
       // seo
       this.translate
-      .get('american_international_hospital')
-      .subscribe(aihStr => {
-        const pageTitle = `${this.doctor.name} - ${aihStr}`;
-        this.titleService.setTitle(pageTitle);
-        this.metaService.addTag({
-          property: 'og:title',
-          content: pageTitle
+        .get('american_international_hospital')
+        .subscribe(aihStr => {
+          const pageTitle = `${this.doctor.name} - ${aihStr}`;
+          this.titleService.setTitle(pageTitle);
+          this.metaService.updateTag({
+            property: 'og:title',
+            content: pageTitle,
+          });
         });
-      });
-      this.doctor.metaDesc && this.metaService.addTag({
-        name: 'description',
-        content: this.doctor.metaDesc,
-      });
-      this.metaService.addTag({
+      this.doctor.metaDesc &&
+        this.metaService.updateTag({
+          name: 'description',
+          content: this.doctor.metaDesc,
+        });
+      this.metaService.updateTag({
         name: 'keywords',
         content: this.doctor.metaKey,
       });
