@@ -48,39 +48,44 @@ export class ContactComponent implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
     }
 
-    loadPage() {
-        forkJoin(
-            this.pageService.fetch('contact_page'),
-            this.translate.get('american_international_hospital'),
-        ).subscribe(([data, aihStr]) => {
-            const post = data.Post || {};
-            const page = new Page(post);
-            page.longDesc = UrlService.fixPictureUrl(page.longDesc);
-            page.picturePath = UrlService.createPictureUrl(page.picture);
-            this.page = page;
-            // seo
-            this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-            this.page.metaDesc &&
-            this.metaService.addTag({
-                name: 'description',
-                content: this.page.metaDesc,
-            });
-            this.metaService.addTag({name: 'keywords', content: this.page.metaKey});
-            this.bannerService
-                .fetch('contact_page', this.page.id)
-                .subscribe((bannersResp: any) => {
-                    const banners = bannersResp.Banner;
-                    this.banners = banners.map(banner => {
-                        banner.large = UrlService.createMediaUrl(banner.Url);
-                        banner.small = banner.large;
-                        banner.url = banner.Link;
-                        banner.title = banner.title;
-                        banner.desc = banner.desc;
-                        return banner;
-                    });
-                });
+  loadPage() {
+    forkJoin(
+      this.pageService.fetch('contact_page'),
+      this.translate.get('american_international_hospital'),
+    ).subscribe(([data, aihStr]) => {
+      const post = data.Post || {};
+      const page = new Page(post);
+      page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+      page.picturePath = UrlService.createPictureUrl(page.picture);
+      this.page = page;
+      // seo
+      const pageTitle = `${this.page.name} - ${aihStr}`;
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle,
+      });
+      this.page.metaDesc &&
+        this.metaService.updateTag({
+          name: 'description',
+          content: this.page.metaDesc,
         });
-    }
+      this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+      this.bannerService
+        .fetch('contact_page', this.page.id)
+        .subscribe((bannersResp: any) => {
+          const banners = bannersResp.Banner;
+          this.banners = banners.map(banner => {
+            banner.large = UrlService.createMediaUrl(banner.Url);
+            banner.small = banner.large;
+            banner.url = banner.Link;
+            banner.title = banner.title;
+            banner.desc = banner.desc;
+            return banner;
+          });
+        });
+    });
+  }
 
     openAlert() {
         forkJoin(

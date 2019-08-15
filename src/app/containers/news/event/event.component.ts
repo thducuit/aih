@@ -5,7 +5,7 @@ import {BlogService} from '../../../services/blog.service';
 import {CalculatePagination} from '../../../utilities';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription, forkJoin} from 'rxjs';
-import {Title} from '@angular/platform-browser';
+import {Title, Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event',
@@ -29,7 +29,8 @@ export class EventComponent implements OnInit, OnDestroy {
   constructor(
     public blogService: BlogService,
     private translate: TranslateService,
-    private titleService: Title
+    private titleService: Title,
+    private metaService: Meta
   ) {
   }
 
@@ -42,7 +43,12 @@ export class EventComponent implements OnInit, OnDestroy {
       this.translate.get('news'),
       this.translate.get('american_international_hospital')
     ).subscribe(([newsStr, aihStr]) => {
-      this.titleService.setTitle(`${newsStr} - ${aihStr}`);
+      const pageTitle = `${newsStr} - ${aihStr}`;
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle,
+      });
     });
   }
 

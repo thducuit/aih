@@ -10,7 +10,7 @@ import { Faq } from 'src/app/models/faq';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { FaqItemComponent } from 'src/app/components/faq-item/faq-item.component';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-qa',
@@ -28,7 +28,8 @@ export class QaComponent implements OnInit, OnDestroy {
   constructor(
     private faqsService: FaqsService,
     private translate: TranslateService,
-    private titleService: Title
+    private titleService: Title,
+    private meta: Meta
   ) { }
 
   ngOnInit() {
@@ -92,7 +93,12 @@ export class QaComponent implements OnInit, OnDestroy {
       this.translate.get('faqs'),
       this.translate.get('american_international_hospital')
     ).subscribe(([faqsStr, aihStr]) => {
-      this.titleService.setTitle(`${faqsStr} - ${aihStr}`);
+      const pageTitle = `${faqsStr} - ${aihStr}`;
+      this.titleService.setTitle(pageTitle);
+      this.meta.updateTag({
+        property: 'og:title',
+        content: pageTitle
+      });
     });
   }
 }

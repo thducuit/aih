@@ -110,36 +110,36 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     this.translate
       .get('american_international_hospital_meta_desc')
       .subscribe(desc => {
-        meta.addTag({
+        meta.updateTag({
           name: 'description',
           content: desc,
         });
-        meta.addTag({
+        meta.updateTag({
           property: 'og:description',
           content: desc,
         });
       });
-    meta.addTag({
+    meta.updateTag({
       name: 'author',
       content: environment.host
     });
-    meta.addTag({
+    meta.updateTag({
       name: 'webRoot',
       content: environment.host
     });
-    meta.addTag({
+    meta.updateTag({
       property: 'og:url',
       content: environment.host,
     });
-    meta.addTag({
+    meta.updateTag({
       property: 'og:image',
       content: `${environment.host}/assets/images/share-social.jpg`,
     });
-    meta.addTag({
+    meta.updateTag({
       property: 'og:image:width',
       content: '1200',
     });
-    meta.addTag({
+    meta.updateTag({
       property: 'og:image:height',
       content: '630',
     });

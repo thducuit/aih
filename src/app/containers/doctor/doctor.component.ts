@@ -38,7 +38,6 @@ export class DoctorComponent implements OnInit, OnDestroy {
     public bannerService: BannerService,
     public clinicService: ClinicService,
     private translate: TranslateService,
-    private departmentService: DepartmentService,
     private metaService: Meta,
     private titleService: Title) {
   }
@@ -72,9 +71,14 @@ export class DoctorComponent implements OnInit, OnDestroy {
         page.longDesc = UrlService.fixPictureUrl(page.longDesc);
         this.page = page;
         // seo
-        this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-        this.metaService.addTag({ name: 'description', content: this.page.metaDesc });
-        this.metaService.addTag({ name: 'keywords', content: this.page.metaKey });
+        const pageTitle = `${this.page.name} - ${aihStr}`;
+        this.titleService.setTitle(pageTitle);
+        this.metaService.updateTag({
+          property: 'og:title',
+          content: pageTitle,
+        });
+        this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
+        this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
         this.bannerService
           .fetch('doctor_page', this.page.id)
           .subscribe((bannersResp: any) => {
