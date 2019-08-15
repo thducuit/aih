@@ -5,6 +5,7 @@ import {CareerCategory} from '../../../models/career-category';
 import {Career} from '../../../models/career';
 import {CareerService} from '../../../services/career.service';
 import {TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-career-section',
@@ -15,6 +16,7 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
 
     public careerCategories: Array<any> = [];
     public careers: Array<any> = [];
+    private subscription: Subscription;
 
     constructor(public careerCategoryService: CareerCategoryService,
                 public careerService: CareerService,

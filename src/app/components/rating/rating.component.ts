@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import {DomSanitizer} from '@angular/platform-browser';
     templateUrl: './rating.component.html',
     styleUrls: ['./rating.component.scss']
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent implements OnInit, OnChanges {
 
     public stars = [
         {
@@ -42,6 +42,8 @@ export class RatingComponent implements OnInit {
     ];
 
     @Output() takePoint = new EventEmitter<any>();
+    @Input() isReset;
+
     constructor(public sanitizer: DomSanitizer) {
     }
 
@@ -76,6 +78,16 @@ export class RatingComponent implements OnInit {
             star.isHover = false;
             return star;
         });
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (this.isReset) {
+            this.stars = this.stars.map(star => {
+                star.isHover = false;
+                star.isChosen = false;
+                return star;
+            });
+        }
     }
 
 }
