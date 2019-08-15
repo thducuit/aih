@@ -60,6 +60,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     public animateDoctor = false;
     public animateDate = false;
     public animateTime = false;
+    public animateBooking = false;
 
     private chooseDoctorDelegate: (id) => void;
 
@@ -92,7 +93,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 });
 
                 if (this.bookingDoctor) {
-                    this.bookingDoctor.filterDoctors(this.filterAvailableDoctors());
+                    this.bookingDoctor.filterDoctors(this.filterAvailableDoctors(), true);
                 }
             }
         });
@@ -427,7 +428,29 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                     this.animateTime = true;
                     return;
                 }
+
+                this.animateBooking = false;
+                if (this.selectedPhone && this.selectedClinic && this.selectedDoctor && this.selectedDate && this.selectedTime) {
+                    this.animateBooking = true;
+                    return;
+                }
             }, 1000);
         }
+    }
+
+    reset() {
+        this.animatePhone = false;
+        this.animateClinic = false;
+        this.animateDoctor = false;
+        this.animateDate = false;
+        this.animateTime = false;
+        this.animateBooking = false;
+
+        this.selectedDoctor = null;
+        this.selectedClinic = null;
+        this.selectedTime = null;
+        this.selectedDate = null;
+        this.selectedCustomerId = null;
+        this.selectedPhone = null;
     }
 }

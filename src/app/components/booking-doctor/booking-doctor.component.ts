@@ -77,14 +77,14 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     });
   }
 
-  filterDoctors(doctorIds: string[]) {
+  filterDoctors(doctorIds: string[], isFirstLoad = false) {
     if (!doctorIds) {
       return this.doctors;
     }
     const filteredDoctors = this.filteredDoctors = (this.doctors || []).filter(x => {
       return doctorIds.indexOf(x.doctorId) >= 0;
     });
-    if (!filteredDoctors.length) {
+    if (!filteredDoctors.length && !isFirstLoad) {
       this.translate
       .get('no_doctor_for_speciality')
       .subscribe(str => {
