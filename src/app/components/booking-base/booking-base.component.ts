@@ -16,6 +16,7 @@ import { DateService } from 'src/app/services/date.service';
 import { forkJoin } from 'rxjs';
 import { BookingPhoneNumberComponent } from '../booking-phone-number/booking-phone-number.component';
 import { GlobalEventService } from 'src/app/services/global-event.service';
+import {BookingTimeComponent} from '../booking-time/booking-time.component';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -36,6 +37,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   bookingDoctor: BookingDoctorComponent;
   @ViewChild('bookingSpecialty', { static: false })
   bookingSpecialty: BookingSpecialtyComponent;
+  @ViewChild('bookingTime', { static: false })
+  bookingTime: BookingTimeComponent;
   public schedule: Schedule[];
   public doctorSchedule: Schedule;
   public selectedDoctor: Doctor;
@@ -241,6 +244,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.selectedCustomerId === -1) {
           if (bookingId) {
             this.openSuccess();
+            this.reset();
           }
         } else {
           if (bookingId) {
@@ -248,6 +252,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
               .callUpdateBooking(this.selectedCustomerId, bookingId)
               .subscribe((data2: any) => {
                 this.openSuccess();
+                this.reset();
               });
           } else {
             this.openFail();
@@ -470,5 +475,11 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selectedDate = null;
     this.selectedCustomerId = null;
     this.selectedPhone = null;
+
+    this.bookingPhoneNumer.reset();
+    this.bookingDate.reset();
+    this.bookingDoctor.reset();
+    this.bookingSpecialty.reset();
+    this.bookingTime.reset();
   }
 }
