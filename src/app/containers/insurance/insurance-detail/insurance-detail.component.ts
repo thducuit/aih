@@ -42,7 +42,10 @@ export class InsuranceDetailComponent implements OnInit {
 
     ngOnInit() {
         this.loadPage();
-        this.loadPosts(this.route.snapshot.params.alias);
+        this.route.paramMap.subscribe(params => {
+          const alias = params.get('alias');
+          this.loadPosts(alias);
+        });
         this.subscription = this.translate.onLangChange.subscribe(() => {
             this.loadPage();
             this.loadPosts(this.route.snapshot.params.alias);
