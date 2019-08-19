@@ -4,7 +4,8 @@
            name="deparmentname"
            class="js-dropBooking-spec"
            type="text"
-           placeholder="{{ placeholder || 'select_a_specialty' | translate }}"
+           [value]="clinicName"
+           placeholder="{{ 'select_a_specialty' | translate }}"
     >
     <em class="ar" [ngClass]="{'show': isActive}"></em>
     <div class="drop drop-spec {{ !isActive ? 'un-active' : '' }}">

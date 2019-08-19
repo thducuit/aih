@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="insurance-top">
+  <div class="insurance-top" id="insurance-top">
     <div class="container">
       <div class="heading">INSURANCE CONSULTING</div>
       <div class="content">
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <section class="insurance-consulting insurance-consulting-detail clearfix">
+  <section class="insurance-consulting insurance-consulting-detail clearfix" id="insurance-consulting-detail">
     <div class="container">
 
       <div class="insurance-consulting-content clearfix">
@@ -36,64 +36,24 @@
       </div>
 
       <ul class="list-dt">
-        <li>
+        <li *ngFor="let service of services">
           <div class="item-doc">
             <div class="img">
-              <div [style.background]="'url(../assets/images/insurance-item.jpg)'"></div>
+              <div [style.background]="'url('+ service.picturePath + ')'"></div>
               <img class="img-1366" src="assets/images/dt.gif">
               <img src="assets/images/b.gif">
             </div>
             <div class="tt-doc-crs">
-              <h2>Direct Billing Partners</h2>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad </p>
+              <h2>{{ service.name }}</h2>
+              <p innerHTML="{{ service.shortDesc | decodeHtmlEntities }}"></p>
             </div>
             <div class="copy">
               <p></p>
-              <a routerLink="#">
+              <a routerLink="{{ service.url }}">
                 <span>{{ 'learn_more' | translate }}</span>
               </a>
             </div>
-            <a class="link" routerLink="#"></a>
-          </div>
-        </li>
-        <li>
-          <div class="item-doc">
-            <div class="img">
-              <div [style.background]="'url(../assets/images/insurance-item.jpg)'"></div>
-              <img class="img-1366" src="assets/images/dt.gif">
-              <img src="assets/images/b.gif">
-            </div>
-            <div class="tt-doc-crs">
-              <h2>Direct Billing Partners</h2>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad </p>
-            </div>
-            <div class="copy">
-              <p></p>
-              <a routerLink="#">
-                <span>{{ 'learn_more' | translate }}</span>
-              </a>
-            </div>
-            <a class="link" routerLink="#"></a>
-          </div>
-        </li>
-        <li>
-          <div class="item-doc">
-            <div class="img">
-              <div [style.background]="'url(../assets/images/insurance-item.jpg)'"></div>
-              <img class="img-1366" src="assets/images/dt.gif">
-              <img src="assets/images/b.gif">
-            </div>
-            <div class="tt-doc-crs">
-              <h2>Direct Billing Partners</h2>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad </p>
-            </div>
-            <div class="copy">
-              <p></p>
-              <a routerLink="#">
-                <span>{{ 'learn_more' | translate }}</span>
-              </a>
-            </div>
-            <a class="link" routerLink="#"></a>
+            <a class="link" routerLink="{{ service.url }}"></a>
           </div>
         </li>
       </ul>

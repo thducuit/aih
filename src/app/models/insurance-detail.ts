@@ -2,6 +2,7 @@ export class InsuranceDetail {
   public id;
   public name;
   public categoryName;
+  public categoryId;
   public shortDesc;
   public longDesc;
   public picture;
@@ -21,6 +22,7 @@ export class InsuranceDetail {
     this.id = data.post_id;
     this.name = data.post_name;
     this.categoryName = data.cate_name;
+    this.categoryId = data.post_cateid;
     this.shortDesc = data.post_shortdesc;
     this.longDesc = data.post_longdesc;
     this.picture = data.post_picture;

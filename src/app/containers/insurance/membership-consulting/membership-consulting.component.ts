@@ -11,6 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { UrlService } from '../../../services/url.service';
 import { ActivatedRoute } from '@angular/router';
 import { InsuranceDetail } from '../../../models/insurance-detail';
+import {NgAnimateScrollService} from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-membership-consulting',
@@ -34,6 +35,7 @@ export class MembershipConsultingComponent implements OnInit {
     private translate: TranslateService,
     private metaService: Meta,
     private titleService: Title,
+    private animateScrollService: NgAnimateScrollService
   ) {}
 
   ngOnInit() {
@@ -76,6 +78,10 @@ export class MembershipConsultingComponent implements OnInit {
             return banner;
           });
         });
+
+      setTimeout(() => {
+          this.animateScrollService.scrollToElement('insurance-top', 150);
+      }, 100);
     });
   }
 

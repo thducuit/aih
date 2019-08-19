@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="insurance-top">
+  <div class="insurance-top" id="insurance-top">
     <div class="container">
       <div class="heading">MEMBERSHIP</div>
       <div class="content">
@@ -43,11 +43,13 @@
       <ul class="list-meml" *ngIf="services">
 
         <li *ngFor="let service of services">
-          <div class="box-left"><img src="{{ service.picturePath }}" alt="" /></div>
+          <div class="box-left">
+            <a routerLink="{{ service.url }}"><img src="{{ service.picturePath }}" alt="" /></a>
+          </div>
           <div class="box-right">
             <div class="heading">{{ service.name }}</div>
             <div class="sum" innerHTML="{{ service.shortDesc | decodeHtmlEntities }}"></div>
-            <a routerLink="{{ service.url }}" class="read-more"><span>Learn more</span></a>
+            <a routerLink="{{ service.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
           </div>
         </li>
 
