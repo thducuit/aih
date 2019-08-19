@@ -23,6 +23,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
 import { ClickOutsideModule } from 'ng-click-outside';
 
+import { TransferHttpCacheModule } from '@nguniversal/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -157,6 +159,12 @@ import { ServiceDropMbComponent } from './containers/services/service/service-dr
 import { TestimonialItemComponent } from './containers/abouts/testimonial/testimonial-item/testimonial-item.component';
 import { SearchService } from './services/search.service';
 import { CommentService } from './services/comment.service';
+import { TawkComponent } from './shared/tawk/tawk.component';
+import { InsuranceConsultingComponent } from './containers/insurance/insurance-consulting/insurance-consulting.component';
+import { MembershipConsultingComponent } from './containers/insurance/membership-consulting/membership-consulting.component';
+import { MembershipComponent } from './containers/insurance/membership/membership.component';
+import { InsuranceMembershipComponent } from './containers/insurance/insurance-membership/insurance-membership.component';
+import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -286,6 +294,12 @@ export function provideConfig() {
     ServiceDropMbComponent,
     TestimonialItemComponent,
     SearchComponent,
+    TawkComponent,
+    InsuranceConsultingComponent,
+    MembershipConsultingComponent,
+    MembershipComponent,
+    InsuranceMembershipComponent,
+    InsuranceDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),
@@ -311,6 +325,7 @@ export function provideConfig() {
     ClickOutsideModule,
     RecaptchaModule,
     SocialLoginModule,
+    TransferHttpCacheModule
   ],
   providers: [
     GlobalEventService,

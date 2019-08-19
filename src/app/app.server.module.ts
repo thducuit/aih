@@ -7,6 +7,7 @@ import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader'
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateUniversalLoader } from './shared/translate-universal-loader';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader() {
   const path = './dist/browser/assets/i18n';
@@ -22,6 +23,7 @@ export function createTranslateLoader() {
     ServerModule,
     ServerTransferStateModule,
     ModuleMapLoaderModule,
+    NoopAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -62,7 +62,7 @@
     ></app-booking-time>
     <input
       *ngIf="useForHome"
-      class="re-btn-booking js-booking"
+      class="re-btn-booking js-booking" [ngClass]="{'booking-aniopacity': animateBooking}"
       (click)="handleBooking()"
       type="submit"
       value="{{ 'book_now' | translate }}"
@@ -71,14 +71,14 @@
 </div>
 <input
   *ngIf="!useForHome"
-  class="btn-booking js-booking hide-md"
+  class="btn-booking js-booking hide-md" [ngClass]="{'booking-aniopacity': animateBooking}"
   type="submit"
   value=""
   (click)="handleBooking()"
 />
 <div class="btn-wrap" *ngIf="!useForHome">
   <input
-    class="btn-booking js-booking"
+    class="btn-booking js-booking" [ngClass]="{'booking-aniopacity': animateBooking}"
     type="submit"
     value="{{ 'book_an_appointment' | translate }}"
     (click)="handleBooking()"

@@ -51,3 +51,64 @@ ngb-datepicker {
   text-transform: uppercase;
   font-family: utm_avobold;
 }
+
+
+.insurance-top{
+  height: 200px;
+  background: #007298;
+  color: #fff;
+}
+
+.insurance-top .heading {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: utm_avobold;
+  padding: 30px 0;
+}
+
+.insurance-top .content {
+  line-height: 1.6rem;
+}
+
+.insurance-consulting .item-doc .img {
+  height: 130px;
+}
+
+.insurance-consulting-detail .item-doc .img {
+  height: 230px;
+}
+.insurance-consulting .tt-doc-crs {
+  border: none;
+  padding: 20px 0;
+}
+
+.insurance-consulting .tt-doc-crs h2{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d8d7d7;
+  text-transform: uppercase;
+}
+
+.insurance-consulting .tt-doc-crs p {
+  padding: 15px 0;
+}
+
+.insurance-consulting .item-doc .copy {
+  border: none;
+  padding: 0;
+}
+
+.insurance-consulting .item-doc .copy p {
+  padding-bottom: 0;
+}
+
+.insurance-consulting .item-doc:hover .tt-doc-crs {
+  background: none;
+}
+
+.insurance-consulting .item-doc:hover .tt-doc-crs h2 {
+  color: #e1115b;
+}
+
+.insurance-consulting-detail  .list-dt li {
+  width: 33.33%;
+}

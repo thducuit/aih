@@ -1,15 +1,6 @@
 import moment from 'moment';
 import Swal from 'sweetalert2';
-import {
-  Component,
-  OnInit,
-  Input,
-  Inject,
-  ViewChild,
-  PLATFORM_ID,
-  AfterViewInit,
-  OnDestroy,
-} from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Clinic } from 'src/app/models/clinic';
 import { Doctor } from 'src/app/models/doctor';
@@ -60,15 +51,14 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   public animateDoctor = false;
   public animateDate = false;
   public animateTime = false;
+  public animateBooking = false;
 
   private chooseDoctorDelegate: (id) => void;
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId,
-    private translate: TranslateService,
-    public bookingService: BookingService,
-    private globalEventService: GlobalEventService,
-  ) {
+  constructor(@Inject(PLATFORM_ID) private platformId,
+              private translate: TranslateService,
+              public bookingService: BookingService,
+              private globalEventService: GlobalEventService) {
     this.chooseDoctorDelegate = this.chooseDoctorById.bind(this);
   }
 
@@ -92,6 +82,10 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         this.schedule = schedule.map(item => {
           return new Schedule(item);
         });
+
+        if (this.bookingDoctor) {
+          this.bookingDoctor.filterDoctors(this.filterAvailableDoctors(), true);
+        }
       }
     });
   }
@@ -118,6 +112,9 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
 
   handleSelectDate(date: NgbDateStruct) {
     this.selectedDate = date;
+    if (this.bookingDoctor) {
+      this.bookingDoctor.filterDoctors(this.filterAvailableDoctors());
+    }
     if (this.selectedDoctor) {
       this.loadTime(this.selectedDoctor.doctorId, date);
     }
@@ -163,6 +160,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     const currentDate = selectedDate
       ? moment(`${ngbDateStructToString(selectedDate)}T00:00:00`)
       : null;
+
+    // available Doctor
     const doctorIds = (this.schedule || [])
       .filter(x => {
         let result = true;
@@ -183,7 +182,32 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
       .map(x => {
         return x.doctorId;
       });
-    return doctorIds;
+
+    // absence Doctor
+    const doctorOffIds = (this.schedule || [])
+      .filter(x => x.timeSlot === -1)
+      .filter(x => {
+        let result = true;
+        if (this.selectedClinic) {
+          result = result && x.clinicId === this.selectedClinic.clinicId;
+        }
+        if (currentDate) {
+          const dateFrom = moment(x.dateFrom);
+          const dateTo = moment(x.dateTo);
+          result =
+            result &&
+            dateFrom.isSameOrBefore(currentDate, 'day') &&
+            dateTo.isSameOrAfter(currentDate, 'day');
+        }
+        return result;
+      })
+      .map(x => {
+        return x.doctorId;
+      });
+
+    return doctorIds.filter(x => {
+      return doctorOffIds.indexOf(x) < 0;
+    });
   }
 
   handleSelectCustomerPhone(phone) {
@@ -257,7 +281,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         customClass: 'alert-booking',
         background: '#007298',
         html: '<div class="alert-custom-booking"><div class="img-logo"></div>' +
-          '<div class="alert-header">' + m1 + '<br/>' +  m2 +
+          '<div class="alert-header">' + m1 + '<br/>' + m2 +
           '</div> ' +
           '<div class="alert-content">' + m3 + '</div>' +
           '</div>',
@@ -422,7 +446,29 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
           this.animateTime = true;
           return;
         }
+
+        this.animateBooking = false;
+        if (this.selectedPhone && this.selectedClinic && this.selectedDoctor && this.selectedDate && this.selectedTime) {
+          this.animateBooking = true;
+          return;
+        }
       }, 1000);
     }
+  }
+
+  reset() {
+    this.animatePhone = false;
+    this.animateClinic = false;
+    this.animateDoctor = false;
+    this.animateDate = false;
+    this.animateTime = false;
+    this.animateBooking = false;
+
+    this.selectedDoctor = null;
+    this.selectedClinic = null;
+    this.selectedTime = null;
+    this.selectedDate = null;
+    this.selectedCustomerId = null;
+    this.selectedPhone = null;
   }
 }

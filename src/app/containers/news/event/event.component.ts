@@ -1,11 +1,11 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Blog} from '../../../models/blog';
-import {UrlService} from '../../../services/url.service';
-import {BlogService} from '../../../services/blog.service';
-import {CalculatePagination} from '../../../utilities';
-import {TranslateService} from '@ngx-translate/core';
-import {Subscription, forkJoin} from 'rxjs';
-import {Title, Meta} from '@angular/platform-browser';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Blog } from '../../../models/blog';
+import { UrlService } from '../../../services/url.service';
+import { BlogService } from '../../../services/blog.service';
+import { CalculatePagination } from '../../../utilities';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription, forkJoin } from 'rxjs';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event',
@@ -30,7 +30,7 @@ export class EventComponent implements OnInit, OnDestroy {
     public blogService: BlogService,
     private translate: TranslateService,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
   ) {
   }
 
@@ -41,7 +41,7 @@ export class EventComponent implements OnInit, OnDestroy {
     });
     forkJoin(
       this.translate.get('news'),
-      this.translate.get('american_international_hospital')
+      this.translate.get('american_international_hospital'),
     ).subscribe(([newsStr, aihStr]) => {
       const pageTitle = `${newsStr} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
@@ -66,13 +66,13 @@ export class EventComponent implements OnInit, OnDestroy {
           const blog = new Blog(post);
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
-          const {video} = blog.meta;
+          const { video } = blog.meta;
           if (video) {
             const code = video.substring(video.indexOf('?v=') + 3, video.length);
             blog.iframeUrl = UrlService.createIframeUrl(code);
           }
           return blog;
-        });
+        }).sort((obj1, obj2) => obj1.isHot < obj2.isHot ? 1 : -1);
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();

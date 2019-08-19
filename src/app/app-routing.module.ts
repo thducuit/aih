@@ -33,6 +33,11 @@ import { NewsDetailComponent } from './containers/news/news-detail/news-detail.c
 import { DoctorDetailComponent } from './containers/doctor/doctor-detail/doctor-detail.component';
 import { ServiceDetailComponent } from './containers/services/service/service-detail/service-detail.component';
 import { CareerDetailComponent } from './containers/career/career-detail/career-detail.component';
+import { InsuranceMembershipComponent } from './containers/insurance/insurance-membership/insurance-membership.component';
+import { InsuranceConsultingComponent } from './containers/insurance/insurance-consulting/insurance-consulting.component';
+import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
+import { MembershipConsultingComponent } from './containers/insurance/membership-consulting/membership-consulting.component';
+import { MembershipComponent } from './containers/insurance/membership/membership.component';
 
 const routes: Routes = [
   {
@@ -84,6 +89,12 @@ const routes: Routes = [
       { path: 'account/schedule', component: ScheduleComponent },
       { path: 'account/login', component: LoginComponent },
       { path: 'account/register', component: RegisterComponent },
+
+      { path: 'insurance/insurance-membership', component: InsuranceMembershipComponent },
+      { path: 'insurance/insurance-consulting/:id', component: InsuranceConsultingComponent },
+      { path: 'insurance/insurance-detail/:alias', component: InsuranceDetailComponent },
+      { path: 'insurance/membership-consulting/:id', component: MembershipConsultingComponent },
+      { path: 'insurance/membership/:alias', component: MembershipComponent },
     ],
   },
 ];

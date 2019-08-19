@@ -32,24 +32,28 @@
           <li>
             <p>{{ 'select_a_doctor' | translate }}</p>
             <app-rating
+               [isReset]="isReset"
               (takePoint)="takePointDoctor($event)"
             ></app-rating>
           </li>
           <li>
             <p>{{ 'service' | translate }}</p>
             <app-rating
+                    [isReset]="isReset"
                     (takePoint)="takePointService($event)"
             ></app-rating>
           </li>
           <li>
             <p>{{ 'facilties' | translate }}</p>
             <app-rating
+                    [isReset]="isReset"
                     (takePoint)="takePointFaci($event)"
             ></app-rating>
           </li>
           <li>
             <p>{{ 'price' | translate }}</p>
             <app-rating
+                    [isReset]="isReset"
                     (takePoint)="takePointPrice($event)"
             ></app-rating>
           </li>

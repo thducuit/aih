@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <ul class="list-dt js-append-more" myMatchHeight="tt-doc-crs">
+      <ul class="list-dt" myMatchHeight="tt-doc-crs">
         <li *ngFor="let doctor of currDoctors">
           <div class="item-doc">
             <div class="img">
@@ -69,7 +69,7 @@
 
       </ul>
       <div class="btn-wrap" *ngIf="!hideShowMore">
-        <a class="btn-showmore js-btn-loadmore" (click)="loadMore()">{{ 'show_more' | translate }}</a>
+        <a class="btn-showmore" (click)="loadMore()">{{ 'show_more' | translate }}</a>
       </div>
     </div>
   </section>

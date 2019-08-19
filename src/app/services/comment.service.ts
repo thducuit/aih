@@ -30,6 +30,7 @@ export class CommentService extends BaseService {
     const postData = {
       comment_type: type,
       obj_id: id,
+      publish: 1,
       lang: this.getCurrentLocal()
     };
     return this.http.post('comment/list', postData);

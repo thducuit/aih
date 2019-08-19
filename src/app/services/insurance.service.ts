@@ -22,6 +22,31 @@ export class InsuranceService extends BaseService {
     return this.http.post('category/list', postData);
   }
 
+  fetchServiceCate() {
+    const postData = {
+      search: '',
+      publish: 1,
+      rowperpage: 999,
+      pageselected: 1,
+      cate_type: 'insuranceservicecate',
+      lang : this.getCurrentLocal()
+    };
+    return this.http.post('category/list', postData);
+  }
+
+  fetchService(id) {
+    const postData = {
+      search: '',
+      publish: 1,
+      rowperpage: 999,
+      pageselected: 1,
+      cate_id: [id],
+      post_type: 'insuranceservice',
+      lang : this.getCurrentLocal()
+    };
+    return this.http.post('post/list', postData);
+  }
+
   fetchFeature() {
     const postData = {
       search: '',

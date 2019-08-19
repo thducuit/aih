@@ -1759,14 +1759,15 @@ div.stars {
 }
 
 .breadcrumb {
-    position: absolute;
-    top: 196px;
-    left: 0;
     width: 100%;
     z-index: 2;
     font-size: 15px;
     font-family: utm_avobold;
     color: #007297
+}
+
+.breadcrumb >.container {
+  padding-top: 15px;
 }
 
 .breadcrumb a {
@@ -4548,7 +4549,7 @@ header.fixHd .bg {
     line-height: 20px
 }
 
-.item-doc .copy a {
+.item-doc .copy a, .read-more {
     font-size: 12px;
     color: #e1115b;
     text-transform: uppercase;
@@ -4557,13 +4558,13 @@ header.fixHd .bg {
     z-index: 2
 }
 
-.item-doc .copy a span {
+.item-doc .copy a span, .read-more span {
     display: inline-block;
     position: relative;
     padding-right: 42px
 }
 
-.item-doc .copy a span:after {
+.item-doc .copy a span:after, .read-more span:after {
     content: '';
     display: inline-block;
     width: 30px;
@@ -4578,11 +4579,11 @@ header.fixHd .bg {
     transition: all .3s ease
 }
 
-.item-doc .copy a:hover {
+.item-doc .copy a:hover, .read-more:hover {
     color: #11789b
 }
 
-.item-doc .copy a:hover span:after {
+.item-doc .copy a:hover span:after, .read-more:hover span:after {
     background: url(../images/ar-link-hv.png) no-repeat;
     background-size: 100%;
     right: -10px
@@ -7325,21 +7326,6 @@ a.morelink:hover {
     display: block
 }
 
-.news-wrap {
-    padding-top: 40px
-}
-
-.news-wrap h2 {
-    text-align: center;
-    font-size: 40px;
-    color: #007297
-}
-
-.news-wrap h2 span {
-    display: inline-block;
-    border-bottom: 2px solid #e1115b
-}
-
 .list-news {
     display: -webkit-box;
     display: -webkit-flex;
@@ -7579,90 +7565,6 @@ a.morelink:hover {
     width: 100%;
     padding-right: 392px;
     position: relative
-}
-
-.ct-dt h3 {
-    font-size: 40px;
-    color: #000;
-    padding-bottom: 35px
-}
-
-.ct-dt .tt-news {
-    border-bottom: 1px solid #d8d7d7;
-    position: relative;
-    clear: both;
-    overflow: hidden
-}
-
-.ct-dt .tt-news .date {
-    display: inline-block;
-    font-size: 11px;
-    background: url(../images/icon-date.png) left center no-repeat;
-    padding-left: 28px;
-    background-size: 18px;
-    min-height: 38px;
-    color: #646667;
-    padding-top: 11px
-}
-
-.ct-dt .tt-news .cm {
-    display: inline-block;
-    float: right;
-    font-size: 11px;
-    background: url(../images/icon-cm.png) left center no-repeat;
-    padding-left: 18px;
-    background-size: 11px;
-    min-height: 38px;
-    color: #646667;
-    padding-top: 11px
-}
-
-.ct-dt .tt-news .like {
-    display: inline-block;
-    float: right;
-    font-size: 11px;
-    background: url(../images/icon-like.png) left center no-repeat;
-    padding-left: 18px;
-    background-size: 11px;
-    min-height: 38px;
-    color: #646667;
-    padding-top: 11px;
-    margin-right: 20px
-}
-
-.ct-dt .copy {
-    padding-top: 20px
-}
-
-.ct-dt .copy p {
-    padding-bottom: 22px;
-    text-align: left!important
-}
-
-.ct-dt .copy p strong {
-    font-family: utm_avobold
-}
-
-.ct-dt .copy p img {
-    max-width: 100%
-}
-
-.ct-dt .copy p ul {
-    padding-left: 20px
-}
-
-.ct-dt .copy p ul li {
-    padding-bottom: 10px
-}
-
-.ct-dt .btn-dt {
-    border-bottom: 1px solid #d8d7d7;
-    border-top: 1px solid #d8d7d7;
-    padding: 15px 0
-}
-
-.ct-dt .btn-dt a {
-    width: 100%
 }
 
 .slider-news-dt {
@@ -8828,10 +8730,6 @@ a.morelink:hover {
     }
     .news-detail-wrap {
         padding-right: 280px
-    }
-    .ct-dt h3 {
-        font-size: 25px;
-        padding-bottom: 20px
     }
     .side-news .item .ct-search input[type=text] {
         height: 35px;
@@ -11112,10 +11010,6 @@ a.morelink:hover {
     .list-news .item {
         padding: 5px
     }
-    .news-wrap {
-        padding-top: 40px
-    }
-    .news-wrap h2,
     .top-video h3 {
         font-size: 30px
     }
@@ -11133,10 +11027,6 @@ a.morelink:hover {
         width: 100%;
         position: relative;
         padding-left: 0
-    }
-    .ct-dt h3 {
-        font-size: 20px;
-        padding-bottom: 15px
     }
     .side-news .item .tab-content li {
         width: 100%;
@@ -11556,12 +11446,6 @@ a.morelink:hover {
     .ft-wrap .item:nth-child(1) p {
         font-size: 10px
     }
-    .ct-dt .copy {
-        padding-top: 10px
-    }
-    .ct-dt .copy p {
-        padding-bottom: 10px
-    }
     .list-cm ul li p {
         font-size: 11px
     }
@@ -11609,9 +11493,7 @@ a.morelink:hover {
         top: auto;
         padding-top: 10px
     }
-    #pNews .news-wrap {
-        padding-top: 10px
-    }
+
     .item-doc .copy p,
     .item-news .copy h2,
     .item-news .copy p,
@@ -12113,7 +11995,6 @@ a.morelink:hover {
     .side-news .item .tab-content li {
         margin-top: 10px
     }
-    .news-wrap h2,
     .top-video h3 {
         font-size: 25px
     }

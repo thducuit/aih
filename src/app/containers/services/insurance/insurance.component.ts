@@ -37,6 +37,7 @@ export class InsuranceComponent implements OnInit, OnDestroy {
     this.loadPage();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadInsurances();
+      this.loadPage();
     });
   }
 
@@ -58,11 +59,11 @@ export class InsuranceComponent implements OnInit, OnDestroy {
         property: 'og:title',
         content: pageTitle,
       });
-      // this.metaService.updateTag({
-      //   name: 'description',
-      //   content: this.page.metaDesc,
-      // });
-      // this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+      this.metaService.updateTag({
+        name: 'description',
+        content: this.page.metaDesc,
+      });
+      this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
       this.bannerService
         .fetch('insurancepage', this.page.id)
         .subscribe((bannerData: any) => {
