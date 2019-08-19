@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {BookingService} from '../../services/booking.service';
 import Swal from 'sweetalert2';
+import {TranslateService} from '@ngx-translate/core';
+import {forkJoin} from 'rxjs';
 
 @Component({
     selector: 'app-booking-phone-number',
@@ -14,22 +16,29 @@ export class BookingPhoneNumberComponent implements OnInit {
     @Output() chooseCustomerPhone = new EventEmitter<any>();
     @Input() animateAfter: boolean;
 
-    constructor(public bookingService: BookingService) {
+    constructor(public bookingService: BookingService,
+                private translate: TranslateService) {
     }
 
     ngOnInit() {
     }
 
     openAlert() {
-        Swal.fire({
-            title: 'Thông báo',
-            text: 'Vui lòng đăng ký tài khoản bằng cách bấm chuột vào nút Đăng ký',
-            type: 'info',
-            confirmButtonText: 'Đăng ký',
-        }).then(result => {
-            if (result.value) {
-                this.showRegister = true;
-            }
+        forkJoin(
+            this.translate.get('text_booking_phone_title'),
+            this.translate.get('text_booking_phone_content'),
+            this.translate.get('text_booking_phone_close'),
+        ).subscribe(([titleText, message, buttonText]) => {
+            Swal.fire({
+                title: titleText,
+                text: message,
+                type: 'info',
+                confirmButtonText: buttonText,
+            }).then(result => {
+                if (result.value) {
+                    this.showRegister = true;
+                }
+            });
         });
     }
 
