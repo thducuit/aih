@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
+import { TransferHttpCacheModule } from '@nguniversal/common';
+
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -287,6 +289,7 @@ export function provideConfig() {
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),
+    TransferHttpCacheModule,
     AppRoutingModule,
     HttpClientModule,
     DecodeHtmlEntitiesModule,
