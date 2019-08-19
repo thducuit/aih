@@ -10,6 +10,7 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { Page } from '../../../models/page';
 import { BannerService } from '../../../services/banner.service';
 import { PageService } from '../../../services/page.service';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-career-detail',
@@ -43,6 +44,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
     private animateScrollService: NgAnimateScrollService,
     private metaService: Meta,
     private titleService: Title,
+    private scrollToService: ScrollToService
   ) {}
 
   ngOnInit() {
@@ -131,6 +133,13 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
   scrollToForm() {
     // const el = document.getElementById('careerForm');
     // el.scrollIntoView();
-    this.animateScrollService.scrollToElement('careerForm', 150);
+    // this.animateScrollService.scrollToElement('careerForm', 150);
+
+      const config: ScrollToConfigOptions = {
+          target: 'career-form',
+          offset: 700
+      };
+
+      this.scrollToService.scrollTo(config);
   }
 }

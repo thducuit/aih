@@ -7,6 +7,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { forkJoin, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-career',
@@ -37,7 +38,8 @@ export class CareerComponent implements OnInit, OnDestroy {
     private metaService: Meta,
     private titleService: Title,
     private translate: TranslateService,
-    private animateScrollService: NgAnimateScrollService) {
+    private animateScrollService: NgAnimateScrollService,
+    private scrollToService: ScrollToService) {
   }
 
   ngOnInit() {
@@ -95,6 +97,12 @@ export class CareerComponent implements OnInit, OnDestroy {
   }
 
   scrollToForm() {
-      this.animateScrollService.scrollToElement('careerForm', 150)
+      // this.animateScrollService.scrollToElement('careerForm', 150)
+      const config: ScrollToConfigOptions = {
+          target: 'career-form',
+          offset: 700
+      };
+
+      this.scrollToService.scrollTo(config);
   }
 }

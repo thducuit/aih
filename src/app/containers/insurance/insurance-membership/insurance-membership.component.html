@@ -24,7 +24,7 @@
             <div class="img" *ngIf="category.picturePath"><img src="{{ category.picturePath }}" alt="" /></div>
             <div class="heading">{{ category.name }}</div>
             <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
-            <a routerLink="{{ category.url }}" class="read-more"><span>Learn more</span></a>
+            <a routerLink="{{ category.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
           </div>
 
       </div>

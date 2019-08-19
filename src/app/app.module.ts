@@ -20,6 +20,7 @@ import {
 import { RecaptchaModule } from 'ng-recaptcha';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -314,6 +315,7 @@ export function provideConfig() {
     AgmCoreModule.forRoot({
       apiKey: environment.mapApiKey,
     }),
+    ScrollToModule.forRoot(),
     FormsModule,
     NgbDatepickerModule,
     SlickCarouselModule,
