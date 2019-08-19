@@ -34,6 +34,52 @@
 .calendar .ngb-dp-weekdays {border-bottom: none}
 .calendar .ngb-dp-day {font-size: 10px}
 .calendar .bg-light {background-color: unset!important;}
+.calendar ngb-datepicker-navigation-select>.custom-select {
+  font-size: .675rem;
+  height: 1.65rem;
+}
+
+.calendar .ngb-dp-today{
+  border: none;
+  border-bottom: 1px solid #007297;
+  background: url(../images/day-sl.png) top right no-repeat;
+  font-weight: 400;
+  color: #007297!important;
+  margin: 0 1px;
+}
+
+.calendar .btn-light:hover,
+.calendar .btn-light:not(:disabled):not(.disabled):active,
+.calendar .show > .btn-light.dropdown-toggle{
+  background: #007297;
+  font-weight: 400;
+  color: #fff!important;
+  border-radius: 0
+}
+
+
+.calendar .btn-light:not(:disabled):not(.disabled).active {
+  font-weight: 400;
+  color: #fff!important;
+  border-radius: 0
+}
+
+.calendar .bg-primary {
+  background-color: #007297!important;
+  border-radius: 0;
+}
+
+.calendar .ngb-dp-day {
+  border-bottom: 1px solid #007297;
+  font-weight: 400;
+  color: #007297!important;
+}
+
+.calendar .ngb-dp-day.disabled {
+  border: none;
+  border-bottom: 1px solid #e1115b;
+  color: #c7cdd8;
+}
 
 .nav-wrap nav li a:hover {
   text-decoration: none;
@@ -41,6 +87,14 @@
 
 ngb-datepicker {
   border: none!important;
+}
+
+.calendar .btn-link{
+  color: #007297!important;
+}
+
+.calendar .btn-light{
+  color: #007297
 }
 
 .cr-content h3, .cr-content strong {
