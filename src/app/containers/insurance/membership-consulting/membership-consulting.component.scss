@@ -1,0 +1,46 @@
+.box-content {
+  margin: 50px 0 25px;
+
+  .heading {
+    color: #007297;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-family: utm_avobold;
+    margin-bottom: 40px;
+  }
+}
+
+.list-meml .box-left {
+  width: 30%;
+  float: left;
+  padding-right: 10px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.list-meml li {
+  margin: 25px 0;
+  float: left;
+  width: 100%;
+}
+.list-meml .box-right {
+  width: 70%;
+  float: right;
+  padding-left: 10px;
+}
+
+.list-meml .box-right .heading {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #007297;
+  font-family: utm_avobold;
+  margin-top: -5px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #d8d7d7;
+}
+
+.list-meml .box-right .sum {
+  margin: 30px 0 25px;
+}

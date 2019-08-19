@@ -1,25 +1,26 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { forkJoin, Subscription } from 'rxjs';
+import { Page } from '../../../models/page';
+import { UrlService } from '../../../services/url.service';
 import { Insurance } from '../../../models/insurance';
 import { InsuranceService } from '../../../services/insurance.service';
-import { UrlService } from '../../../services/url.service';
-import { TranslateService } from '@ngx-translate/core';
 import { InsuranceMediaService } from '../../../services/insurance-media.service';
-import { InsuranceMedia } from '../../../models/insurance-media';
-import { Page } from '../../../models/page';
 import { PageService } from '../../../services/page.service';
 import { BannerService } from '../../../services/banner.service';
-import { Subscription, forkJoin } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-insurance',
-  templateUrl: './insurance.component.html',
-  styleUrls: ['./insurance.component.scss'],
+  selector: 'app-insurance-membership',
+  templateUrl: './insurance-membership.component.html',
+  styleUrls: ['./insurance-membership.component.scss']
 })
-export class InsuranceComponent implements OnInit, OnDestroy {
+export class InsuranceMembershipComponent implements OnInit {
+
   public insurances: Array<Insurance> = [];
   public page: Page;
   public banners: Array<any> = [];
+  public categories: Array<any> = [];
   private subscription: Subscription;
 
   constructor(
@@ -33,17 +34,14 @@ export class InsuranceComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.loadInsurances();
     this.loadPage();
+    this.loadCategory();
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadInsurances();
       this.loadPage();
+      this.loadCategory();
     });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
   loadPage() {
     forkJoin(
@@ -78,49 +76,16 @@ export class InsuranceComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadInsurances() {
-    this.insuranceService.fetch().subscribe((data: {}) => {
-      const posts = data['Categories'] || [];
-      const insurances = posts
-        .map(post => {
-          return new Insurance(post);
-        })
-        .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
-
-      this.insuranceMediaService.fetch().subscribe((dataMedia: {}) => {
-        const mediaCats = dataMedia['Media'] || [];
-        const medias = mediaCats
-          .map(media => {
-            const newMedia = new InsuranceMedia(media);
-            newMedia.thumb = UrlService.createMediaUrl(newMedia.thumb);
-            return newMedia;
-          })
-          .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
-
-        insurances.map(insurance => {
-          const children = [];
-          medias.map(media => {
-            if (insurance.id === media.cateid) {
-              children.push(media);
-            }
-          });
-          insurance.media = children;
-        });
-
-        this.insurances = insurances.filter(
-          insurance => insurance.parentId === 0,
-        );
-        this.insurances = this.insurances.map(insurance => {
-          const children = [];
-          insurances.map(insuranceChild => {
-            if (insuranceChild.parentId === insurance.id) {
-              children.push(insuranceChild);
-            }
-          });
-          insurance.children = children;
-          return insurance;
-        });
-      });
+  loadCategory() {
+    this.insuranceService.fetchServiceCate().subscribe( (data: any) => {
+      const categories = data['Categories'] || [];
+      this.categories = categories.map( item => {
+        const insurance = new Insurance(item);
+        insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
+        insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+        return insurance;
+      }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
     });
   }
+
 }

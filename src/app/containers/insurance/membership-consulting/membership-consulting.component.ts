@@ -1,28 +1,32 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
-import { InsuranceService } from '../../../services/insurance.service';
-import { UrlService } from '../../../services/url.service';
-import { TranslateService } from '@ngx-translate/core';
-import { InsuranceMediaService } from '../../../services/insurance-media.service';
-import { InsuranceMedia } from '../../../models/insurance-media';
 import { Page } from '../../../models/page';
+import { forkJoin, Subscription } from 'rxjs';
+import { InsuranceService } from '../../../services/insurance.service';
+import { InsuranceMediaService } from '../../../services/insurance-media.service';
 import { PageService } from '../../../services/page.service';
 import { BannerService } from '../../../services/banner.service';
-import { Subscription, forkJoin } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { UrlService } from '../../../services/url.service';
+import { ActivatedRoute } from '@angular/router';
+import { InsuranceDetail } from '../../../models/insurance-detail';
 
 @Component({
-  selector: 'app-insurance',
-  templateUrl: './insurance.component.html',
-  styleUrls: ['./insurance.component.scss'],
+  selector: 'app-membership-consulting',
+  templateUrl: './membership-consulting.component.html',
+  styleUrls: ['./membership-consulting.component.scss']
 })
-export class InsuranceComponent implements OnInit, OnDestroy {
+export class MembershipConsultingComponent implements OnInit {
+
   public insurances: Array<Insurance> = [];
   public page: Page;
   public banners: Array<any> = [];
+  public services: Array<any> = [];
   private subscription: Subscription;
 
   constructor(
+    private route: ActivatedRoute,
     public insuranceService: InsuranceService,
     public insuranceMediaService: InsuranceMediaService,
     public pageService: PageService,
@@ -33,17 +37,14 @@ export class InsuranceComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.loadInsurances();
     this.loadPage();
+    this.loadService(this.route.snapshot.params.id);
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadInsurances();
       this.loadPage();
+      this.loadService(this.route.snapshot.params.id);
     });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
   loadPage() {
     forkJoin(
@@ -78,49 +79,16 @@ export class InsuranceComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadInsurances() {
-    this.insuranceService.fetch().subscribe((data: {}) => {
-      const posts = data['Categories'] || [];
-      const insurances = posts
-        .map(post => {
-          return new Insurance(post);
-        })
-        .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
-
-      this.insuranceMediaService.fetch().subscribe((dataMedia: {}) => {
-        const mediaCats = dataMedia['Media'] || [];
-        const medias = mediaCats
-          .map(media => {
-            const newMedia = new InsuranceMedia(media);
-            newMedia.thumb = UrlService.createMediaUrl(newMedia.thumb);
-            return newMedia;
-          })
-          .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
-
-        insurances.map(insurance => {
-          const children = [];
-          medias.map(media => {
-            if (insurance.id === media.cateid) {
-              children.push(media);
-            }
-          });
-          insurance.media = children;
-        });
-
-        this.insurances = insurances.filter(
-          insurance => insurance.parentId === 0,
-        );
-        this.insurances = this.insurances.map(insurance => {
-          const children = [];
-          insurances.map(insuranceChild => {
-            if (insuranceChild.parentId === insurance.id) {
-              children.push(insuranceChild);
-            }
-          });
-          insurance.children = children;
-          return insurance;
-        });
+  loadService(id) {
+    this.insuranceService.fetchService(id).subscribe( (data: any) => {
+      const posts = data['Posts'] || [];
+      this.services = posts.map( item => {
+        const service = new InsuranceDetail(item);
+        service.picturePath = UrlService.createPictureUrl(service.picture);
+        service.url = UrlService.createMemberDetailUrl(service.alias);
+        return service;
       });
-    });
+  });
   }
+
 }

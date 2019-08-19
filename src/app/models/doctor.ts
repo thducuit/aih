@@ -15,6 +15,7 @@ export class Doctor {
     public metaDesc;
     public metaKey;
     public metaTitle;
+    public categories;
 
     constructor(data) {
         this.id = data.post_id;
@@ -32,5 +33,6 @@ export class Doctor {
         this.picturePath = null;
         this.isExpanded = false;
         this.meta = JSON.parse(data.post_meta || '{}');
+        this.categories = this.meta.categories ? [...this.meta.categories, this.categoryId] : [this.categoryId];
     }
 }

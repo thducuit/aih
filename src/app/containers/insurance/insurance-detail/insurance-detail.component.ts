@@ -1,28 +1,33 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
-import { InsuranceService } from '../../../services/insurance.service';
-import { UrlService } from '../../../services/url.service';
-import { TranslateService } from '@ngx-translate/core';
-import { InsuranceMediaService } from '../../../services/insurance-media.service';
-import { InsuranceMedia } from '../../../models/insurance-media';
 import { Page } from '../../../models/page';
+import { forkJoin, Subscription } from 'rxjs';
+import { InsuranceService } from '../../../services/insurance.service';
+import { InsuranceMediaService } from '../../../services/insurance-media.service';
 import { PageService } from '../../../services/page.service';
 import { BannerService } from '../../../services/banner.service';
-import { Subscription, forkJoin } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { UrlService } from '../../../services/url.service';
+import { InsuranceDetail } from '../../../models/insurance-detail';
+import { PostService } from '../../../services/post.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-insurance',
-  templateUrl: './insurance.component.html',
-  styleUrls: ['./insurance.component.scss'],
+  selector: 'app-insurance-detail',
+  templateUrl: './insurance-detail.component.html',
+  styleUrls: ['./insurance-detail.component.scss']
 })
-export class InsuranceComponent implements OnInit, OnDestroy {
+export class InsuranceDetailComponent implements OnInit {
+
   public insurances: Array<Insurance> = [];
   public page: Page;
   public banners: Array<any> = [];
   private subscription: Subscription;
+  public service;
 
   constructor(
+    private route: ActivatedRoute,
     public insuranceService: InsuranceService,
     public insuranceMediaService: InsuranceMediaService,
     public pageService: PageService,
@@ -30,20 +35,18 @@ export class InsuranceComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private metaService: Meta,
     private titleService: Title,
-  ) {}
+    public postService: PostService
+    ) {}
 
   ngOnInit() {
-    this.loadInsurances();
     this.loadPage();
+    this.loadPosts(this.route.snapshot.params.alias);
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadInsurances();
       this.loadPage();
+      this.loadPosts(this.route.snapshot.params.alias);
     });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
   loadPage() {
     forkJoin(
@@ -78,49 +81,48 @@ export class InsuranceComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadInsurances() {
-    this.insuranceService.fetch().subscribe((data: {}) => {
-      const posts = data['Categories'] || [];
-      const insurances = posts
-        .map(post => {
-          return new Insurance(post);
-        })
-        .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+  private loadPosts(alias: string) {
+    forkJoin(
+      this.postService.fetch(alias),
+      this.translate.get('american_international_hospital'),
+    ).subscribe(([data, aihStr]) => {
+      const service = new InsuranceDetail(data['Post']);
+      if (service.picture) {
+        service.picturePath = UrlService.createPictureUrl(service.picture);
+      }
+      service.longDesc = UrlService.fixPictureUrl(service.longDesc);
 
-      this.insuranceMediaService.fetch().subscribe((dataMedia: {}) => {
-        const mediaCats = dataMedia['Media'] || [];
-        const medias = mediaCats
-          .map(media => {
-            const newMedia = new InsuranceMedia(media);
-            newMedia.thumb = UrlService.createMediaUrl(newMedia.thumb);
-            return newMedia;
-          })
-          .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+      this.service = service;
 
-        insurances.map(insurance => {
-          const children = [];
-          medias.map(media => {
-            if (insurance.id === media.cateid) {
-              children.push(media);
-            }
-          });
-          insurance.media = children;
-        });
-
-        this.insurances = insurances.filter(
-          insurance => insurance.parentId === 0,
-        );
-        this.insurances = this.insurances.map(insurance => {
-          const children = [];
-          insurances.map(insuranceChild => {
-            if (insuranceChild.parentId === insurance.id) {
-              children.push(insuranceChild);
-            }
-          });
-          insurance.children = children;
-          return insurance;
-        });
+      // seo
+      const pageTitle = `${this.service.metaTitle} - ${aihStr}`;
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle,
       });
+      this.metaService.updateTag({
+        name: 'description',
+        content: this.service.metaDesc,
+      });
+      this.metaService.updateTag({
+        name: 'keywords',
+        content: this.service.metaKey,
+      });
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: this.service.metaDesc,
+      });
+      this.metaService.updateTag({
+        property: 'og:url',
+        content: service.url,
+      });
+      this.metaService.updateTag({
+        property: 'og:image',
+        content: service.picturePath,
+      });
+
     });
   }
+
 }

@@ -1,4 +1,4 @@
-export class Blog {
+export class InsuranceDetail {
   public id;
   public name;
   public categoryName;

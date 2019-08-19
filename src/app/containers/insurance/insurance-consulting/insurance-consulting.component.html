@@ -1,0 +1,70 @@
+<main id="pServiceInsurance" class="page-insurance-membership">
+  <div class="breadcrumb">
+    <div class="container"><a href="#">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
+  </div>
+
+  <div class="banner-page" [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length">
+    <div class="container">
+      <div class="ct-banner">
+        <div class="copy-ins">
+          <h2>{{ banners[0] ? banners[0].Title : '' }}</h2>
+          <p>{{ banners[0] ? banners[0].Content : '' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insurance-top">
+    <div class="container">
+      <div class="heading">INSURANCE CONSULTING</div>
+      <div class="content">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+  </div>
+
+  <section class="insurance-consulting clearfix">
+    <div class="container">
+
+      <div class="insurance-consulting-content clearfix">
+        <div class="box-left">
+          <img src="../assets/images/insurance.jpg" alt="">
+        </div>
+        <div class="box-right">
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            <br>
+            <br>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
+          </p>
+        </div>
+      </div>
+
+      <ul class="list-dt" *ngIf="services">
+        <li *ngFor="let service of services">
+          <div class="item-doc">
+            <div class="img">
+              <div [style.background]="'url('+ service.picturePath + ')'"></div>
+              <img class="img-1366" src="assets/images/dt.gif">
+              <img src="assets/images/b.gif">
+            </div>
+            <div class="tt-doc-crs">
+              <h2>{{ service.name }}</h2>
+              <p innerHTML="{{ service.shortDesc | decodeHtmlEntities }}"></p>
+            </div>
+            <div class="copy">
+              <p></p>
+              <a routerLink="{{ service.url }}">
+                <span>{{ 'learn_more' | translate }}</span>
+              </a>
+            </div>
+            <a class="link" routerLink="#"></a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</main>
