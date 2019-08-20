@@ -62,7 +62,7 @@
               <div class="clearfix">
                 <div class="center">
                   <select (change)="validate()" id="yearBirth"  name="yearBirth" [(ngModel)]="form.yearBirth" class="custom-select sources {{ errorYearBirth ? 'error' : '' }}" >
-                    <option value="">{{ 'register_dbirth' | translate }}</option>
+                    <option value="">{{ 'register_ybirth' | translate }}</option>
                     <option *ngFor="let item of years" value="{{ item }}">{{ item }}</option>
                   </select>
                 </div>
