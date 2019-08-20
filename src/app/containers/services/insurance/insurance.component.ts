@@ -34,10 +34,10 @@ export class InsuranceComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadInsurances();
-    this.loadPage();
+    // this.loadPage();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadInsurances();
-      this.loadPage();
+      // this.loadPage();
     });
   }
 

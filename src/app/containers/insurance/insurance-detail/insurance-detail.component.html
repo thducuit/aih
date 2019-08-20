@@ -15,12 +15,10 @@
     </div>
   </div>
 
-  <div class="insurance-top" id="insurance-top">
+  <div class="insurance-top" id="insurance-top" *ngIf="category">
     <div class="container">
-      <div class="heading">INSURANCE CONSULTING</div>
-      <div class="content">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-      </div>
+      <div class="heading">{{ category.name }}</div>
+      <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
     </div>
   </div>
 
@@ -31,7 +29,10 @@
 
         <div class="box-content" *ngIf="service">
           <div class="heading">{{ service.name }}</div>
-          <p innerHTML="{{ service.longDesc | decodeHtmlEntities }}"></p>
+          <span *ngFor="let longDesc of longDescs">
+            <p [innerHTML]="longDesc.content | decodeHtmlEntities"></p>
+            <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
+          </span>
         </div>
       </div>
 

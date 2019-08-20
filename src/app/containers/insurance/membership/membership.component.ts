@@ -28,6 +28,7 @@ export class MembershipComponent implements OnInit {
     public banners: Array<any> = [];
     private subscription: Subscription;
     public service;
+    public category;
 
     constructor(private route: ActivatedRoute,
                 public insuranceService: InsuranceService,
@@ -43,7 +44,10 @@ export class MembershipComponent implements OnInit {
 
     ngOnInit() {
         this.loadPage();
-        this.loadPosts(this.route.snapshot.params.alias);
+        this.route.paramMap.subscribe(params => {
+            const alias = params.get('alias');
+            this.loadPosts(alias);
+        });
         this.subscription = this.translate.onLangChange.subscribe(() => {
             this.loadPage();
             this.loadPosts(this.route.snapshot.params.alias);
@@ -81,10 +85,6 @@ export class MembershipComponent implements OnInit {
                         return banner;
                     });
                 });
-
-            setTimeout(() => {
-                this.animateScrollService.scrollToElement('insurance-top', 150);
-            }, 100);
         });
     }
 
@@ -100,6 +100,8 @@ export class MembershipComponent implements OnInit {
             service.longDesc = UrlService.fixPictureUrl(service.longDesc);
 
             this.service = service;
+
+            this.loadCategory(service.categoryId);
 
             // seo
             const pageTitle = `${this.service.metaTitle} - ${aihStr}`;
@@ -129,6 +131,22 @@ export class MembershipComponent implements OnInit {
                 content: service.picturePath,
             });
 
+        });
+    }
+
+    loadCategory(id) {
+        this.insuranceService.fetchServiceCate().subscribe((data: any) => {
+            const categories = data['Categories'] || [];
+            this.category = categories.map(item => {
+                const insurance = new Insurance(item);
+                insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
+                insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+                return insurance;
+            }).find(item => item.id === parseInt(id, 10));
+
+            setTimeout(() => {
+                this.animateScrollService.scrollToElement('insurance-top', 150);
+            }, 100);
         });
     }
 }

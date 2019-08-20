@@ -47,6 +47,7 @@
     "nanoscroller": "^0.8.7",
     "ng-animate-scroll": "^7.1.0",
     "ng-click-outside": "^4.0.0",
+    "ng-dynamic": "^3.0.2",
     "ng-recaptcha": "^5.0.0",
     "ngx-scrollbar": "^4.2.0",
     "ngx-slick-carousel": "^0.4.6",
