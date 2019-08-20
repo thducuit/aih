@@ -1,10 +1,99 @@
 .lang {
-  >a {
+  > a {
     cursor: pointer;
 
     &.show {
       display: block;
     }
   }
-  z-index: 10;
+}
+
+.lang {
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  .item {
+    display: inline-block;
+    background: url(/assets/images/ar-down.png) right center no-repeat;
+    background-size: 10px;
+    padding-right: 23px;
+    cursor: pointer;
+    img {
+      width: 20px;
+      display: inline-block;
+    }
+    em {
+      display: inline-block;
+      font-size: 12px;
+      color: #fff;
+      font-style: normal;
+    }
+  }
+  a {
+    display: none;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 5px;
+    width: 110px;
+    padding: 5px;
+    img {
+      width: 20px;
+      display: inline-block;
+    }
+    em {
+      display: inline-block;
+      font-size: 12px;
+      color: #11789b;
+      font-style: normal;
+      margin-left: 5px;
+      position: relative;
+      padding-bottom: 5px;
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #11789b;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+    }
+    &:hover {
+      em {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1659px) {
+  .lang {
+    margin-top: 13px;
+    .item {
+      img {
+        width: 20px;
+      }
+    }
+    a {
+      width: 110px;
+      img {
+        width: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .lang {
+    display: none;
+  }
 }

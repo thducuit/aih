@@ -1,0 +1,125 @@
+@import "./../../../variable";
+
+.top-hd {
+  width: 100%;
+  border-bottom: 1px solid rgba($color-white, 0.5);
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  display: none;
+  .left-hd {
+    display: inline-block;
+    float: right;
+    margin-top: 9px;
+    margin-right: 65px;
+    li {
+      display: block;
+      float: left;
+      padding-right: 15px;
+      padding-left: 15px;
+      border-right: 1px solid $color-white;
+      &:last-child {
+        border: none;
+      }
+      a {
+        font-size: 14px;
+        color: #fff;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #e1115b;
+        }
+      }
+    }
+  }
+  .right-hd {
+    display: inline-block;
+    float: right;
+    margin-top: 9px;
+    margin-right: 130px;
+    display: flex;
+    align-items: center;
+    .phone-icon {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background: url(/assets/images/telephone.svg) no-repeat;
+      background-size: 100% !important;
+      margin-right: 5px;
+    }
+    .phone {
+      font-weight: 700;
+      color: #fff;
+      display: inline-block;
+      margin-top: 1px;
+    }
+    ul {
+      float: left;
+      display: inline-block;
+      li {
+        display: block;
+        float: left;
+        a {
+          padding: 2px 5px;
+          -webkit-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          &:hover {
+            opacity: 0.88;
+          }
+        }
+        img {
+          height: 15px;
+        }
+      }
+    }
+    .lang {
+      display: none;
+    }
+  }
+}
+
+.left-hd {
+  .emergancy {
+    color: $color-razzmatazz;
+    font-style: normal;
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1659px) {
+  .top-hd {
+    height: 31px;
+    .left-hd {
+      margin-top: 7px;
+      li {
+        a {
+          font-size: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+    .right-hd {
+      margin-top: 7px;
+      .phone {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .top-hd .left-hd {
+    margin-top: 9px;
+  }
+
+  .top-hd .left-hd li a {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .top-hd {
+    display: none!important;
+  }
+}

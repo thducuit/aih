@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
-import { TransferHttpCacheModule } from '@nguniversal/common';
-
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -83,7 +81,6 @@ import { ChatComponent } from './components/chat/chat.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { PageLayoutComponent } from './layouts/page-layout/page-layout.component';
 import { HeaderHomeComponent } from './components/header-home/header-home.component';
-import { LogoComponent } from './components/logo/logo.component';
 import { DoctorListItemComponent } from './components/booking-doctor/doctor-list-item/doctor-list-item.component';
 import { SectionNewsComponent } from './components/section/section-news/section-news.component';
 import { SectionDoctorComponent } from './components/section/section-doctor/section-doctor.component';
@@ -250,7 +247,6 @@ export function provideConfig() {
     SuccessComponent,
     ChatComponent,
     HeaderHomeComponent,
-    LogoComponent,
     DoctorListItemComponent,
     SectionNewsComponent,
     SectionDoctorComponent,
@@ -326,8 +322,7 @@ export function provideConfig() {
     AngularStickyThingsModule,
     ClickOutsideModule,
     RecaptchaModule,
-    SocialLoginModule,
-    TransferHttpCacheModule
+    SocialLoginModule
   ],
   providers: [
     GlobalEventService,

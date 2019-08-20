@@ -1,7 +1,9 @@
 <div class="main-hd">
 	<div class="container clearfix">
 		
-		<app-logo></app-logo>	
+		<a class="logo" routerLink="/">
+      <img src="assets/images/logo.png">
+    </a>
 
 		<div class="hamburger-menu" (click)="toggleState()">
 			<div class="bar" [ngClass]="{'animate': isMobileNavOpened}"></div>

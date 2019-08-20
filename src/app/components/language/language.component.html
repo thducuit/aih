@@ -1,4 +1,4 @@
-<div class="lang">
+<div class="lang" (clickOutside)="clickOutside($event)">
   <p class="item" (click)="toggleLanguage()">
     <span *ngIf="language === 'vi'"><img src="assets/images/vi.png"></span>
     <span *ngIf="language === 'en'"><img src="assets/images/en.png"></span>
