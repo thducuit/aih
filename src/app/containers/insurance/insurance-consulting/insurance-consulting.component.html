@@ -15,29 +15,22 @@
     </div>
   </div>
 
-  <div class="insurance-top" id="insurance-top">
+  <div class="insurance-top" id="insurance-top" *ngIf="category">
     <div class="container">
-      <div class="heading">INSURANCE CONSULTING</div>
-      <div class="content">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-      </div>
+      <div class="heading">{{ category.name }}</div>
+      <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
     </div>
   </div>
 
   <section class="insurance-consulting clearfix">
     <div class="container">
 
-      <div class="insurance-consulting-content clearfix">
+      <div class="insurance-consulting-content clearfix" *ngIf="category">
         <div class="box-left">
-          <img src="../assets/images/insurance.jpg" alt="">
+          <img src="{{ category.picturePath }}" alt="">
         </div>
         <div class="box-right">
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-            <br>
-            <br>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-          </p>
+          <p innerHTML="{{ category.longDesc | decodeHtmlEntities }}"></p>
         </div>
       </div>
 

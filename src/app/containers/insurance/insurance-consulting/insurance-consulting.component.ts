@@ -25,6 +25,7 @@ export class InsuranceConsultingComponent implements OnInit {
     public banners: Array<any> = [];
     public services: Array<any> = [];
     private subscription: Subscription;
+    public category;
 
     constructor(private route: ActivatedRoute,
                 public insuranceService: InsuranceService,
@@ -39,10 +40,15 @@ export class InsuranceConsultingComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loadService(this.route.snapshot.params.id);
         this.loadPage();
+        this.route.paramMap.subscribe(params => {
+            const id = params.get('id');
+            this.loadService(id);
+            this.loadCategory(id);
+        });
         this.subscription = this.translate.onLangChange.subscribe(() => {
             this.loadService(this.route.snapshot.params.id);
+            this.loadCategory(this.route.snapshot.params.id);
             this.loadPage();
         });
     }
@@ -79,9 +85,7 @@ export class InsuranceConsultingComponent implements OnInit {
                     });
                 });
 
-            setTimeout(() => {
-                this.animateScrollService.scrollToElement('insurance-top', 150);
-            }, 100);
+
         });
     }
 
@@ -94,6 +98,22 @@ export class InsuranceConsultingComponent implements OnInit {
                 service.url = UrlService.createInsuranceUrl(service.alias);
                 return service;
             });
+        });
+    }
+
+    loadCategory(id) {
+        this.insuranceService.fetchServiceCate().subscribe( (data: any) => {
+            const categories = data['Categories'] || [];
+            this.category = categories.map( item => {
+                const insurance = new Insurance(item);
+                insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
+                insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+                return insurance;
+            }).find( item => item.id === parseInt(id, 10) );
+
+            setTimeout(() => {
+                this.animateScrollService.scrollToElement('insurance-top', 150);
+            }, 100);
         });
     }
 
