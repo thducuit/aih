@@ -13,6 +13,7 @@ import {InsuranceDetail} from '../../../models/insurance-detail';
 import {PostService} from '../../../services/post.service';
 import {ActivatedRoute} from '@angular/router';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-insurance-detail',
@@ -27,6 +28,8 @@ export class InsuranceDetailComponent implements OnInit {
     private subscription: Subscription;
     public service;
     public services;
+    public longDescs;
+    public category;
 
     constructor(private route: ActivatedRoute,
                 public insuranceService: InsuranceService,
@@ -42,7 +45,10 @@ export class InsuranceDetailComponent implements OnInit {
 
     ngOnInit() {
         this.loadPage();
-        this.loadPosts(this.route.snapshot.params.alias);
+        this.route.paramMap.subscribe(params => {
+            const alias = params.get('alias');
+            this.loadPosts(alias);
+        });
         this.subscription = this.translate.onLangChange.subscribe(() => {
             this.loadPage();
             this.loadPosts(this.route.snapshot.params.alias);
@@ -81,9 +87,7 @@ export class InsuranceDetailComponent implements OnInit {
                     });
                 });
 
-            setTimeout(() => {
-                this.animateScrollService.scrollToElement('insurance-top', 150);
-            }, 100);
+
         });
     }
 
@@ -97,8 +101,22 @@ export class InsuranceDetailComponent implements OnInit {
                 service.picturePath = UrlService.createPictureUrl(service.picture);
             }
             service.longDesc = UrlService.fixPictureUrl(service.longDesc);
+            const longDescs = service.longDesc.split('[direct_billing_partners][/direct_billing_partners]');
+
+            this.longDescs = longDescs.map( item => {
+                return {
+                    content: item,
+                    haveHook: true
+                };
+            } );
+
+            if ( !service.longDesc.endsWith('[direct_billing_partners][/direct_billing_partners]') ) {
+                this.longDescs[this.longDescs.length - 1]['haveHook'] = false;
+            }
 
             this.service = service;
+
+            this.loadCategory(service.categoryId);
 
             this.loadService(service.categoryId, service.id);
 
@@ -142,6 +160,22 @@ export class InsuranceDetailComponent implements OnInit {
                 service.url = UrlService.createInsuranceUrl(service.alias);
                 return service;
             }).filter(item => exceptId !== item.id);
+        });
+    }
+
+    loadCategory(id) {
+        this.insuranceService.fetchServiceCate().subscribe((data: any) => {
+            const categories = data['Categories'] || [];
+            this.category = categories.map(item => {
+                const insurance = new Insurance(item);
+                insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
+                insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+                return insurance;
+            }).find(item => item.id === parseInt(id, 10));
+
+            setTimeout(() => {
+                this.animateScrollService.scrollToElement('insurance-top', 150);
+            }, 100);
         });
     }
 

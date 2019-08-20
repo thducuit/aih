@@ -99,14 +99,14 @@ ngb-datepicker {
 }
 
 .calendar .ngb-dp-day, .calendar .ngb-dp-week-number,  .calendar .ngb-dp-weekday {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .calendar [ngbDatepickerDayView] {
-  width: 1.6rem;
-  height: 1.6rem;
-  line-height: 1.6rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
 }
 
 .cr-content h3, .cr-content strong {
