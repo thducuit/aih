@@ -42,10 +42,8 @@ import { MembershipComponent } from './containers/insurance/membership/membershi
 const routes: Routes = [
   {
     path: '',
-    component: HomeLayoutComponent,
-    children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' }
-    ],
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
     path: '',
@@ -57,6 +55,7 @@ const routes: Routes = [
       {
         path: 'patient-services/medical-services',
         component: ServiceComponent,
+        pathMatch: 'full'
       },
       {
         path: 'patient-services/medical-services/:alias',
