@@ -73,7 +73,7 @@
   border-bottom: 1px solid #007297;
   font-weight: 400;
   color: #007297!important;
-  margin: 0 1px;
+  margin: 0 2px;
 }
 
 .calendar .ngb-dp-day.disabled {
@@ -98,16 +98,16 @@ ngb-datepicker {
   color: #007297
 }
 
-.calendar .ngb-dp-day, .calendar .ngb-dp-week-number,  .calendar .ngb-dp-weekday {
-  width: 1.8rem;
-  height: 1.8rem;
-}
+/*.calendar .ngb-dp-day, .calendar .ngb-dp-week-number,  .calendar .ngb-dp-weekday {*/
+  /*width: 1.8rem;*/
+  /*height: 1.8rem;*/
+/*}*/
 
-.calendar [ngbDatepickerDayView] {
-  width: 1.8rem;
-  height: 1.8rem;
-  line-height: 1.8rem;
-}
+/*.calendar [ngbDatepickerDayView] {*/
+  /*width: 1.8rem;*/
+  /*height: 1.8rem;*/
+  /*line-height: 1.8rem;*/
+/*}*/
 
 .calendar .ngb-dp-weekday.small {
 	    margin: 0 1px;
