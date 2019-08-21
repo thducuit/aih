@@ -220,5 +220,6 @@
   "text_booking_success_3": "Bệnh viện Quốc tế Mỹ sẽ liên hệ Quý khách trong vòng 24h để xác nhận cuộc hẹn. Xin cảm ơn!",
   "text_booking_phone_title": "Thông báo",
   "text_booking_phone_content": "Vui lòng đăng ký tài khoản bằng cách ấn vào nút Đăng ký",
-  "text_booking_phone_close": "Đăng ký"
+  "text_booking_phone_close": "Đăng ký",
+  "text_subsribe_form_existed": "Email này đã đăng ký"
 }

@@ -39,6 +39,8 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
     public isShowWarning;
 
+    public liked;
+
     constructor(private route: ActivatedRoute,
                 public postService: PostService,
                 public blogService: BlogService,
@@ -54,6 +56,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
         this.isShowWarning = false;
         // const alias = this.route.snapshot.paramMap.get('alias');
         this.route.paramMap.subscribe(params => {
+            this.liked = false;
             const alias = params.get('alias');
             this.loadPosts(alias);
         });
@@ -91,6 +94,11 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             )}`;
 
             this.blog = blog;
+
+            const storageLiked = localStorage.getItem('liked');
+            const liked = storageLiked ? JSON.parse(storageLiked) : [];
+            this.liked = liked.indexOf(blog.id) >= 0;
+
             // seo
             const pageTitle = `${this.blog.metaTitle} - ${aihStr}`;
             this.titleService.setTitle(pageTitle);
@@ -186,6 +194,24 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
                 }
                 this.content = '';
             });
+    }
+
+    vote(isUnlike = false) {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user) {
+            this.showSocialLogin();
+            return;
+        }
+        const storageLiked = localStorage.getItem('liked');
+        let liked = storageLiked ? JSON.parse(storageLiked) : [];
+        if (isUnlike) {
+            liked = liked.filter(item => item !== this.blog.id);
+            this.liked = false;
+        } else {
+            liked.push(this.blog.id);
+            this.liked = true;
+        }
+        localStorage.setItem('liked', JSON.stringify(liked));
     }
 
     openContentAlert() {

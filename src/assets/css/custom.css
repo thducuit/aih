@@ -73,7 +73,7 @@
   border-bottom: 1px solid #007297;
   font-weight: 400;
   color: #007297!important;
-  margin: 0 1px;
+  margin: 0 2px;
 }
 
 .calendar .ngb-dp-day.disabled {
@@ -99,14 +99,14 @@ ngb-datepicker {
 }
 
 .calendar .ngb-dp-day, .calendar .ngb-dp-week-number,  .calendar .ngb-dp-weekday {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.94rem;
+  height: 1.94rem;
 }
 
 .calendar [ngbDatepickerDayView] {
-  width: 1.8rem;
-  height: 1.8rem;
-  line-height: 1.8rem;
+  width: 1.94rem;
+  height: 1.94rem;
+  line-height: 1.94rem;
 }
 
 .calendar .ngb-dp-weekday.small {
@@ -197,4 +197,13 @@ ngb-datepicker {
 
 .insurance-consulting-detail  .list-dt li {
   width: 33.33%;
+}
+
+
+.link-like {
+  cursor: pointer;
+}
+.link-like.liked, .link-like:hover {
+  color: #236284!important;
+  background: url(../images/ic-like-hv.png) left no-repeat
 }
