@@ -60,7 +60,7 @@ export class BookingDateComponent implements OnInit {
     this.changeDate.emit(date);
   }
 
-  onClickOutSide() {
+  onClickOutSide(e) {
     this.expanded = false;
   }
 
