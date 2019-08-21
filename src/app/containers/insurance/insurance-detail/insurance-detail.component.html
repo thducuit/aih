@@ -19,6 +19,9 @@
     <div class="container">
       <div class="heading">{{ category.name }}</div>
       <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
+      <div class="content-right">
+        <button>{{ 'send' | translate }}</button>
+      </div>
     </div>
   </div>
 

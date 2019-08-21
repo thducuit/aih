@@ -134,6 +134,22 @@ ngb-datepicker {
 
 .insurance-top .content {
   line-height: 1.6rem;
+  width: 80%;
+  float: left
+}
+.insurance-top .content-right {
+  float: right;
+  width: 20%;
+}
+
+.insurance-top .content-right button {
+  float: right;
+  background: #e1115b;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 30px;
+  border-radius: 3px;
+  border: none;
 }
 
 .insurance-consulting .item-doc .img {
