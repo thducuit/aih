@@ -34,3 +34,13 @@
     float: right;
   }
 }
+
+@media(max-width: 769px){
+  .persond-ins {
+    .box{
+      .heading{
+        font-size: 20px;
+      }
+    }
+  }
+}
