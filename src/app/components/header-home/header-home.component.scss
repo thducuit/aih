@@ -3,29 +3,38 @@
 .hd-home {
   background: rgba($color-gray-chateau, 0.5);
 
-  ::ng-deep {
-    .bookingwrap-hd {
-      display: none;
-    }
-    &.fixHd {
+  &.fixHd {
+    ::ng-deep {
       .bookingwrap-hd {
         display: block;
       }
     }
+  }
+
+  ::ng-deep {
+    .bookingwrap-hd {
+      display: none;
+    }
+
     .bg {
       opacity: 0;
     }
+
     .top-hd {
       display: block;
+
       .lang {
         display: none;
       }
     }
+
     .lang {
       a {
         background: 0 0;
+
         em {
           color: $color-white;
+
           &:after {
             background: $color-white;
           }
@@ -41,6 +50,7 @@
       .main-hd {
         padding-bottom: 12px;
       }
+
       .top-hd {
         display: none;
       }

@@ -1,6 +1,23 @@
 .bookingwrap-hd.is-sticky {
-  width: 100%!important;
+  width: 100% !important;
   width: 100%;
   background: url(/assets/images/bg-hd-scroll.jpg) bottom no-repeat rgba(255, 255, 255, .1);
   background-size: cover
+}
+
+.bookingwrap-hd {
+  padding-top: 10px
+}
+
+.bookingwrap-hd .booking-hd .booking-wrap .ip .drop {
+  width: auto;
+}
+
+@media screen and (min-width:1281px) and (max-width:1659px) {
+
+  .bookingwrap-hd .drop-doctor ul li .copy h4,
+  .bookingwrap-hd .drop-doctor ul li .copy h4 span,
+  .bookingwrap-hd .tt-doc {
+    font-size: 9px
+  }
 }

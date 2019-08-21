@@ -2645,10 +2645,6 @@ header.fixHd .bg {
     background: url(../images/btn-login-hv.png) no-repeat
 }
 
-.bookingwrap-hd {
-    padding-top: 10px
-}
-
 .booking-hd {
     width: 100%;
     float: left;
@@ -8172,11 +8168,6 @@ a.morelink:hover {
     }
     .tt-doc .toggle_plus {
         width: 20px
-    }
-    .bookingwrap-hd .drop-doctor ul li .copy h4,
-    .bookingwrap-hd .drop-doctor ul li .copy h4 span,
-    .bookingwrap-hd .tt-doc {
-        font-size: 9px
     }
     .drop-doctor ul li .copy h4 {
         font-size: 10px
