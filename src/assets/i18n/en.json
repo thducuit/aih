@@ -220,5 +220,6 @@
   "text_booking_success_3": "AIH will contact you within 24 hours  to confirm your appointment. Thank you!",
   "text_booking_phone_title": "Warning",
   "text_booking_phone_content": "Please register new account by click to Register button",
-  "text_booking_phone_close": "Register"
+  "text_booking_phone_close": "Register",
+  "text_subsribe_form_existed": "Email is registered"
 }

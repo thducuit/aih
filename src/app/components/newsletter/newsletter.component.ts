@@ -34,15 +34,18 @@ export class NewsletterComponent implements OnInit {
         });
     }
 
-    openFail() {
+    openFail(isExisted = false) {
         forkJoin(
             this.translate.get('text_subsribe_form_fail'),
+            this.translate.get('text_subsribe_form_existed'),
             this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
+        ).subscribe(([message, existedMessage, buttonText]) => {
             Swal.fire({
-                text: message,
+                text: isExisted ? existedMessage : message,
                 confirmButtonText: buttonText
             });
+            this.errorEmail = false;
+            this.email = '';
         });
     }
 
@@ -71,6 +74,8 @@ export class NewsletterComponent implements OnInit {
         this.contactService.subsribe(this.email).subscribe((data: any) => {
             if (parseInt(data['StatusCode'], 10) === 1) {
                 this.openSuccess();
+            } else if (parseInt(data['StatusCode'], 10) === 77) {
+                this.openFail(true);
             } else {
                 this.openFail();
             }
