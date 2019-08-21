@@ -1,8 +1,8 @@
 <main id="pContact" *ngIf="page">
   <div class="breadcrumb">
     <div class="container">
-      <a href="#">{{ 'home' | translate }}</a> /
-      <p>{{ 'contact' | translate }}</p></div>
+      <a routerLink="/">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
   </div>
 
   <div class="banner-contact" *ngIf="banners && banners.length"

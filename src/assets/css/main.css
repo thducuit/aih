@@ -3719,7 +3719,7 @@ header.fixHd .bg {
 }
 
 .drop {
-    min-width: 100%;
+    min-width: unset;
     position: absolute;
     top: 100%;
     left: 0;
@@ -8161,10 +8161,10 @@ a.morelink:hover {
         padding-right: 40px
     }
     .booking-hd .booking-wrap .ip .drop {
-        width: 120%
+        /*width: 120%*/
     }
     .booking-hd .booking-wrap .ip .drop.drop-doctor {
-        width: 140%
+        /*width: 140%*/
     }
     .tt-doc {
         font-size: 9px;
