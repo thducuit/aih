@@ -98,16 +98,16 @@ ngb-datepicker {
   color: #007297
 }
 
-/*.calendar .ngb-dp-day, .calendar .ngb-dp-week-number,  .calendar .ngb-dp-weekday {*/
-  /*width: 1.8rem;*/
-  /*height: 1.8rem;*/
-/*}*/
+.calendar .ngb-dp-day, .calendar .ngb-dp-week-number,  .calendar .ngb-dp-weekday {
+  width: 1.94rem;
+  height: 1.94rem;
+}
 
-/*.calendar [ngbDatepickerDayView] {*/
-  /*width: 1.8rem;*/
-  /*height: 1.8rem;*/
-  /*line-height: 1.8rem;*/
-/*}*/
+.calendar [ngbDatepickerDayView] {
+  width: 1.94rem;
+  height: 1.94rem;
+  line-height: 1.94rem;
+}
 
 .calendar .ngb-dp-weekday.small {
 	    margin: 0 1px;
