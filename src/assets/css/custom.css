@@ -198,3 +198,12 @@ ngb-datepicker {
 .insurance-consulting-detail  .list-dt li {
   width: 33.33%;
 }
+
+
+.link-like {
+  cursor: pointer;
+}
+.link-like.liked, .link-like:hover {
+  color: #236284!important;
+  background: url(../images/ic-like-hv.png) left no-repeat
+}

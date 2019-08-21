@@ -32,8 +32,9 @@
 
 
           <div class="op-news">
-            <a class="link-like js-btn-vote" data-type="votenews"
-               href="#">{{ 'like' | translate }}</a>
+            <a *ngIf="!liked" class="link-like like" data-type="votenews" (click)="vote()">{{ 'like' | translate }}</a>
+            <a *ngIf="liked" class="link-like liked" data-type="votenews" (click)="vote(true)">{{ 'like' | translate }}</a>
+
             <a class="link-cm" href="#">{{ 'comment' | translate }}</a>
             <a target="_blank"
                href="https://facebook.com/sharer.php?u={{ blog.url }}"
@@ -100,7 +101,7 @@
             </div>
           </div>
           <div class="btn-wrap">
-            <a class="btn-page js-submit-page" (click)="booking()">{{ 'book_now' | translate }}</a>
+            <a class="btn-page" (click)="booking()">{{ 'book_now' | translate }}</a>
             <p class="alert-dt {{ isShowWarning ? 'show' : '' }}">{{ 'please_continue_your_booking_on_above_booking_funtion' | translate }}</p>
           </div>
 
