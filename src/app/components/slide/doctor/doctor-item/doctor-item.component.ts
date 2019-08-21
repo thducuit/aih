@@ -76,7 +76,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy {
         }
         doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
         return doctor;
-      });
+      }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
     });
   }
 

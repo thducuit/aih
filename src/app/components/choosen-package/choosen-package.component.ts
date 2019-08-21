@@ -36,12 +36,15 @@ export class ChoosenPackageComponent implements OnInit {
 
     constructor(public packageService: PackageService,
                 private translate: TranslateService,
-                private router: Router,) {
+                private router: Router) {
     }
 
     ngOnInit() {
         this.loadPackages();
         this.subscription = this.translate.onLangChange.subscribe(() => {
+            this.chosenPackage = null;
+            this.chosenPackageChild = null;
+            this.chosenPackageChilds = [];
             this.loadPackages();
         });
     }

@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Doctor} from '../../../models/doctor';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../../services/post.service';
 import {UrlService} from '../../../services/url.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -26,6 +26,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private metaService: Meta,
                 private titleService: Title,
+                private router: Router,
                 private animateScrollService: NgAnimateScrollService) {
     }
 
@@ -38,7 +39,14 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
 
         this.subscription = this.translate.onLangChange.subscribe(() => {
             const alias = this.route.snapshot.params.alias;
-            this.loadPosts(alias);
+            this.postService.getAlias(alias).subscribe((data: any) => {
+                const newAlias = data['alias'];
+                if (newAlias) {
+                    return this.router.navigate([UrlService.createDoctorDetailUrl(newAlias)]);
+                } else {
+                    return this.router.navigate(['/doctor']);
+                }
+            });
         });
     }
 

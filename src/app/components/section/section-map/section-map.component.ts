@@ -198,11 +198,16 @@ export class SectionMapComponent implements OnInit {
       icon: {
         url: 'assets/images/marker.png',
         scaledSize: { width: 81, height: 113 },
-      },
+      }
     },
   ];
 
   constructor() {}
 
   ngOnInit() {}
+
+  gotoMap(lat, lng) {
+      const url = `https://maps.google.co.uk/maps?q=${lat}, ${lng}`;
+      window.open(url, '_blank');
+  }
 }
