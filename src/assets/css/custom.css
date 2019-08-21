@@ -109,6 +109,10 @@ ngb-datepicker {
   line-height: 1.8rem;
 }
 
+.calendar .ngb-dp-weekday.small {
+	    margin: 0 1px;
+}
+
 .cr-content h3, .cr-content strong {
   font-size: 15px;
   padding-bottom: 8px;
