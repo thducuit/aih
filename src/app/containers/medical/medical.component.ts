@@ -134,10 +134,12 @@ export class MedicalComponent implements OnInit, OnDestroy {
         this.activatedRoute.queryParams.subscribe(params => {
           const p = params['package'];
           const d = params['detail'];
-          this.chosenPackage = this.currentPackages.find(
+          const choosenPackage = (this.chosenPackage = this.currentPackages.find(
             item => item.id === parseInt(p, 10),
-          );
-          this.chosenPackage.active = true;
+          ));
+          if (choosenPackage) {
+            choosenPackage.active = true;
+          }
           this.chosenPackageChild = this.packages.find(
             item => item.id === parseInt(d, 10),
           );

@@ -1,0 +1,49 @@
+@import '../../../variable';
+
+.hd-home {
+  background: rgba($color-gray-chateau, 0.5);
+
+  ::ng-deep {
+    .bookingwrap-hd {
+      display: none;
+    }
+    &.fixHd {
+      .bookingwrap-hd {
+        display: block;
+      }
+    }
+    .bg {
+      opacity: 0;
+    }
+    .top-hd {
+      display: block;
+      .lang {
+        display: none;
+      }
+    }
+    .lang {
+      a {
+        background: 0 0;
+        em {
+          color: $color-white;
+          &:after {
+            background: $color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1659px) {
+  .hd-home {
+    ::ng-deep {
+      .main-hd {
+        padding-bottom: 12px;
+      }
+      .top-hd {
+        display: none;
+      }
+    }
+  }
+}

@@ -32,4 +32,8 @@ export class LanguageComponent {
   toggleLanguage() {
     this.expanded = !this.expanded;
   }
+
+  clickOutside(e) {
+    this.expanded = false;
+  }
 }

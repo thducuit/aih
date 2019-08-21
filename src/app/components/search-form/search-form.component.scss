@@ -2,6 +2,49 @@
   display: block;
 }
 
-input:focus, textarea {
+input:focus,
+textarea {
   outline: none !important;
+}
+
+.btn-search {
+  display: inline-block;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-left: 15px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-size: 100% !important;
+  margin-top: 20px;
+  background: url(/assets/images/btn-search.png) no-repeat;
+  &:hover {
+    background: url(/assets/images/btn-search-hv.png) no-repeat;
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1659px) {
+  .btn-search {
+    width: 20px;
+    height: 20px;
+    margin: 13px 0 0 8px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .btn-search {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .btn-search {
+    margin-left: 20px;
+    margin-top: 20px;
+    background: url(/assets/images/btn-search-mb.png) no-repeat;
+  }
 }
