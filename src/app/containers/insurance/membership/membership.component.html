@@ -32,7 +32,10 @@
 
         <div class="box-content" *ngIf="service">
           <div class="heading">{{ service.name }}</div>
-          <p innerHTML="{{ service.longDesc | decodeHtmlEntities }}"></p>
+          <span *ngFor="let longDesc of longDescs">
+            <p [innerHTML]="longDesc.content | decodeHtmlEntities"></p>
+            <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
+          </span>
         </div>
       </div>
 

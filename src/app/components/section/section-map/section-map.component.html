@@ -14,6 +14,7 @@
         [opacity]="maker.opacity"
         [title]="maker.title"
         [iconUrl]="maker.icon"
+        (markerClick)="gotoMap(maker.latitude, maker.longitude)"
         *ngFor="let maker of mapMakers"
       >
       <agm-info-window [maxWidth]="350" [isOpen]="true">

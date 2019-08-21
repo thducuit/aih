@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { UrlService } from '../../../../services/url.service';
 import { CategoryService } from '../../../../services/category.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import {PostService} from '../../../../services/post.service';
 
 @Component({
   selector: 'app-service-detail',
@@ -20,8 +21,10 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     public categoryService: CategoryService,
+    public postService: PostService,
     private translate: TranslateService,
     private metaService: Meta,
+    private router: Router,
     private animateScrollService: NgAnimateScrollService,
     private titleService: Title,
   ) {}
@@ -33,7 +36,15 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
       this.loadCategories(alias);
     });
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadCategories(this.route.snapshot.params['alias']);
+      const alias = this.route.snapshot.params['alias'];
+      this.postService.getAlias(alias).subscribe((data: any) => {
+          const newAlias = data['alias'];
+          if (newAlias) {
+              return this.router.navigate([UrlService.createClinicDetailUrl(newAlias)]);
+          } else {
+              return this.router.navigate(['/patient-services/medical-services']);
+          }
+      });
     });
   }
 

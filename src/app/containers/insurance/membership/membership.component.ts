@@ -29,6 +29,7 @@ export class MembershipComponent implements OnInit {
     private subscription: Subscription;
     public service;
     public category;
+    public longDescs;
 
     constructor(private route: ActivatedRoute,
                 public insuranceService: InsuranceService,
@@ -98,6 +99,19 @@ export class MembershipComponent implements OnInit {
                 service.picturePath = UrlService.createPictureUrl(service.picture);
             }
             service.longDesc = UrlService.fixPictureUrl(service.longDesc);
+
+            const longDescs = service.longDesc.split('[direct_billing_partners][/direct_billing_partners]');
+
+            this.longDescs = longDescs.map( item => {
+                return {
+                    content: item,
+                    haveHook: true
+                };
+            } );
+
+            if ( !service.longDesc.endsWith('[direct_billing_partners][/direct_billing_partners]') ) {
+                this.longDescs[this.longDescs.length - 1]['haveHook'] = false;
+            }
 
             this.service = service;
 

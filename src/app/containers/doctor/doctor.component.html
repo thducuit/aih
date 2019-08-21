@@ -44,30 +44,32 @@
         </div>
       </div>
 
-      <ul class="list-dt" myMatchHeight="tt-doc-crs">
-        <li *ngFor="let doctor of currDoctors">
-          <div class="item-doc">
-            <div class="img">
-              <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
-              <img class="img-1366" src="assets/images/dt.gif">
-              <img src="assets/images/b.gif">
-            </div>
-            <div class="tt-doc-crs">
-              <h2>{{ doctor.name }}</h2>
-              <p>{{ doctor.categoryName }}</p>
+      <div myMatchHeight="copy-p">
+        <ul class="list-dt" myMatchHeight="tt-doc-crs">
+          <li *ngFor="let doctor of currDoctors">
+            <div class="item-doc">
+              <div class="img">
+                <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
+                <img class="img-1366" src="assets/images/dt.gif">
+                <img src="assets/images/b.gif">
+              </div>
+              <div class="tt-doc-crs">
+                <h2>{{ doctor.name }}</h2>
+                <p>{{ doctor.categoryName }}</p>
 
+              </div>
+              <div class="copy">
+                <p class="copy-p" innerHTML="{{ doctor.shortDesc | decodeHtmlEntities }}"></p>
+                <a routerLink="{{ doctor.url }}">
+                  <span>{{ 'learn_more' | translate }}</span>
+                </a>
+              </div>
+              <a class="link" routerLink="{{ doctor.url }}"></a>
             </div>
-            <div class="copy">
-              <p innerHTML="{{ doctor.shortDesc | decodeHtmlEntities }}"></p>
-              <a routerLink="{{ doctor.url }}">
-                <span>{{ 'learn_more' | translate }}</span>
-              </a>
-            </div>
-            <a class="link" routerLink="{{ doctor.url }}"></a>
-          </div>
-        </li>
+          </li>
 
-      </ul>
+        </ul>
+      </div>
       <div class="btn-wrap" *ngIf="!hideShowMore">
         <a class="btn-showmore" (click)="loadMore()">{{ 'show_more' | translate }}</a>
       </div>
