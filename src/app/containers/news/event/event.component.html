@@ -1,7 +1,8 @@
 <main id="pNews">
   <div class="breadcrumb">
-    <div class="container"><a href="#">Home</a> /
-      <p>Blog</p></div>
+    <div class="container">
+      <a routerLink="/">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : 'Blog' }}</p></div>
   </div>
   <section class="news-wrap">
     <div class="container clearfix">

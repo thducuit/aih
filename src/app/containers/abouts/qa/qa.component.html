@@ -1,19 +1,23 @@
 <main id="pAbout">
   <div class="breadcrumb">
     <div class="container">
-      <a href="#">{{ 'home' | translate }}</a> /
-      <p>{{ 'faqs' | translate }}</p>
+      <a routerLink="/">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p>
     </div>
   </div>
+
   <div
     class="banner-page"
-    style="background: url(/assets/storage/2018/07/about-us1531469333.jpg);"
+    [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length"
   >
-    <img class="banner-mb" src="/assets/storage/2018/07/about-us-21531469372.jpg" />
+    <img
+            class="banner-mb"
+            src="{{ banners[0].small }}"
+    />
     <div class="container">
       <div class="copy">
-        <h4>MÔ HÌNH Y TẾ CỦA TƯƠNG LAI</h4>
-        <h2>Cho bạn những điều tốt đẹp nhất</h2>
+        <h4>{{ banners[0].content }}</h4>
+        <h2>{{ banners[0].title }}</h2>
       </div>
     </div>
   </div>

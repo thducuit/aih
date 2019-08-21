@@ -1,15 +1,17 @@
 <main id="pAbout">
   <div class="breadcrumb">
-    <div class="container"><a href="#">{{ 'home' | translate }}</a> /
-      <p>{{ 'testimonials' | translate }}</p></div>
+    <div class="container">
+      <a routerLink="/">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
   </div>
 
   <div class="banner-quote">
     <div class="item"
-         style="background: url(/assets/storage/2018/07/medical-package-otorhinolaryngology1531465063.jpg) no-repeat;">
+         [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length"
+    >
       <div class="container">
         <div class="ct-banner">
-          <img class="banner-home-mb" src="/assets/storage/2018/07/medical-package-otorhinolaryngology1531465063.jpg">
+          <img class="banner-home-mb" src="{{ banners[0].small }}" />
         </div>
       </div>
     </div>

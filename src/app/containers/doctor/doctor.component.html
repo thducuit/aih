@@ -1,7 +1,8 @@
 <main id="pDoctor">
   <div class="breadcrumb">
-    <div class="container"><a routerLink="/">{{'home' | translate}}</a> /
-      <p>{{'find_a_doctor' | translate}}</p></div>
+    <div class="container">
+      <a routerLink="/">{{'home' | translate}}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
   </div>
 
   <div class="banner-doctor"

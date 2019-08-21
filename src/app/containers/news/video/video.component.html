@@ -1,6 +1,8 @@
 <main id="pNewsVideo">
   <div class="breadcrumb">
-    <div class="container"><a href="index.html">Home</a> / <p>Video</p></div>
+    <div class="container">
+      <a routerLink="/">{{ 'home' | translate }}</a> /
+      <p>Video</p></div>
   </div>
   <section class="news-wrap" *ngIf="video">
     <div class="container clearfix">
