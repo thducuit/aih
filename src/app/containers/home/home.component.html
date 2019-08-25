@@ -1,10 +1,14 @@
-<main id="pHome">
-	<app-banner [banners]="banners"></app-banner>
-	<app-section-booking-mb></app-section-booking-mb>
-	<app-section-booking-home></app-section-booking-home>
-	<app-section-doctor></app-section-doctor>
-	<app-section-news></app-section-news>
-	<app-section-testimo></app-section-testimo>
-	<app-section-partner></app-section-partner>
-	<app-section-map></app-section-map>
-</main>
+<div [ngClass]="pageClasses">
+  <app-header-home></app-header-home>
+  <main id="pHome">
+    <app-banner [banners]="banners"></app-banner>
+    <app-section-booking-mb></app-section-booking-mb>
+    <app-section-booking-home></app-section-booking-home>
+    <app-section-doctor></app-section-doctor>
+    <app-section-news></app-section-news>
+    <app-section-testimo></app-section-testimo>
+    <app-section-partner></app-section-partner>
+    <app-section-map></app-section-map>
+  </main>
+  <app-footer></app-footer>
+</div>

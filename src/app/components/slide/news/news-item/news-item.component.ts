@@ -58,7 +58,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit {
           } else {
             blog.picturePath = UrlService.createPictureUrl(blog.picture);
           }
-          
+
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
           return blog;
         }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));

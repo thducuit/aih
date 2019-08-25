@@ -1759,15 +1759,14 @@ div.stars {
 }
 
 .breadcrumb {
+    position: absolute;
+    top: 145px;
+    left: 0;
     width: 100%;
     z-index: 2;
     font-size: 15px;
     font-family: utm_avobold;
     color: #007297
-}
-
-.breadcrumb >.container {
-  padding-top: 15px;
 }
 
 .breadcrumb a {
@@ -1787,7 +1786,7 @@ div.stars {
 }
 
 main {
-    padding-top: 184px;
+    padding-top: 135px;
     position: relative
 }
 
@@ -2643,10 +2642,6 @@ header.fixHd .bg {
 
 .btn-login:hover {
     background: url(../images/btn-login-hv.png) no-repeat
-}
-
-.bookingwrap-hd {
-    padding-top: 10px
 }
 
 .booking-hd {
@@ -5815,10 +5810,10 @@ header.fixHd .bg {
 }
 
 #pServiceCate .breadcrumb {
-    position: relative;
-    top: 0;
-    left: 0;
-    padding-top: 15px
+  position: relative;
+  top: 0;
+  left: 0;
+  padding-top: 15px
 }
 
 #pServiceCate .btn-crs {
@@ -8173,11 +8168,6 @@ a.morelink:hover {
     .tt-doc .toggle_plus {
         width: 20px
     }
-    .bookingwrap-hd .drop-doctor ul li .copy h4,
-    .bookingwrap-hd .drop-doctor ul li .copy h4 span,
-    .bookingwrap-hd .tt-doc {
-        font-size: 9px
-    }
     .drop-doctor ul li .copy h4 {
         font-size: 10px
     }
@@ -8219,7 +8209,7 @@ a.morelink:hover {
         height: 400px
     }
     main {
-        padding-top: 136px
+        padding-top: 130px
     }
     .item-top-faq ul li img {
         max-width: 66px
@@ -8469,7 +8459,7 @@ a.morelink:hover {
         font-size: 34px
     }
     .breadcrumb {
-        top: 147px
+        top: 140px
     }
     .top-factsheet h3 {
         font-size: 30px

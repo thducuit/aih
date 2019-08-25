@@ -38,11 +38,13 @@ export class EventComponent implements OnInit, OnDestroy {
     this.loadNews();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadNews();
+      this.applyTitle();
     });
-    forkJoin(
-      this.translate.get('news'),
-      this.translate.get('american_international_hospital'),
-    ).subscribe(([newsStr, aihStr]) => {
+    this.applyTitle();
+  }
+
+  private applyTitle() {
+    forkJoin(this.translate.get('news'), this.translate.get('american_international_hospital')).subscribe(([newsStr, aihStr]) => {
       const pageTitle = `${newsStr} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({

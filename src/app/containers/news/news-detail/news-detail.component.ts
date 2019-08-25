@@ -18,7 +18,6 @@ import {
     GoogleLoginProvider,
 } from 'angularx-social-login';
 import {CommentService} from '../../../services/comment.service';
-import {environment} from '../../../../environments/environment.prod';
 
 @Component({
     selector: 'app-news-detail',
