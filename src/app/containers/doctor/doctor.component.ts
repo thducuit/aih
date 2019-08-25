@@ -129,7 +129,11 @@ export class DoctorComponent implements OnInit, OnDestroy {
   }
 
   handleSelectedClinic(item) {
-    this.filterDoctors = this.doctors.filter((doctor) => doctor.categories.indexOf(item.id) >= 0);
+    this.filterDoctors = this.doctors.filter( (doctor) =>  {
+      const postHis = doctor.meta.his_clinic_ids || [];
+      const catHis = item.meta.his_clinic_ids || [];
+      return postHis.some(r => catHis.indexOf(r) >= 0) || doctor.categories.indexOf(item.id) >= 0 || item.id === doctor.categoryId;
+    });
     this.currPage = 1;
     this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
     this.hideShowMore = false;

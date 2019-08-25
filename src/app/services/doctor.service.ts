@@ -20,7 +20,7 @@ export class DoctorService extends BaseService {
       post_type: ['doctor'],
       lang : this.getCurrentLocal()
     };
-    return this.http.post('post/list', postData);
+    return this.http.post('post/doctor', postData);
   }
 
 }

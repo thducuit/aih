@@ -16,6 +16,7 @@ export class Blog {
   public sort;
   public iframeUrl;
   public isHot;
+  public clinicIds;
 
   constructor(data) {
     this.id = data.post_id;
@@ -31,6 +32,7 @@ export class Blog {
     this.metaTitle = data.post_metatitle;
     this.isHot = data.post_ishot ? 1 : 0;
     this.meta = data.post_meta ? JSON.parse(data.post_meta) : {};
+    this.clinicIds = this.meta.clinic_ids || [];
     this.picturePath = null;
     this.url = null;
     this.iframeUrl = null;

@@ -17,6 +17,7 @@ import {PostService} from '../../../../services/post.service';
 export class ServiceDetailComponent implements OnInit, OnDestroy {
   public clinic: Clinic;
   private subscription: Subscription;
+  public clinicIds;
 
   constructor(
     private route: ActivatedRoute,
@@ -64,10 +65,14 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
       clinic.longDesc = UrlService.fixPictureUrl(clinic.longDesc);
       this.clinic = clinic;
 
+      this.clinicIds = [clinic.id];
+
       // seo
       const pageTitle = `${this.clinic.metaTitle ||
         this.clinic.name} - ${aihStr}`;
+
       this.titleService.setTitle(pageTitle);
+
       this.metaService.updateTag({
         property: 'og:title',
         content: pageTitle,

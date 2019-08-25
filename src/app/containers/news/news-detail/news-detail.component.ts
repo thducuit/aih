@@ -100,7 +100,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             this.liked = liked.indexOf(blog.id) >= 0;
 
             // seo
-            const pageTitle = `${this.blog.metaTitle} - ${aihStr}`;
+            const pageTitle = this.blog.metaTitle ? `${this.blog.metaTitle} - ${aihStr}` : `${this.blog.name} - ${aihStr}`;
             this.titleService.setTitle(pageTitle);
             this.metaService.updateTag({
                 property: 'og:title',
