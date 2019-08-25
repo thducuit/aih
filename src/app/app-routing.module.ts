@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './containers/home/home.component';
 import { AboutComponent } from './containers/abouts/about/about.component';
 
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { PageLayoutComponent } from './layouts/page-layout/page-layout.component';
 import { QaComponent } from './containers/abouts/qa/qa.component';
 import { TestimonialComponent } from './containers/abouts/testimonial/testimonial.component';
@@ -41,61 +40,197 @@ import { MembershipComponent } from './containers/insurance/membership/membershi
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeLayoutComponent,
+    path: 'about-us',
+    component: PageLayoutComponent,
     children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      {
+        path: 'aih-hospital',
+        component: AboutComponent,
+      },
+      {
+        path: 'faq',
+        component: QaComponent,
+      },
+      {
+        path: 'testimonial',
+        component: TestimonialComponent,
+      },
     ],
   },
   {
-    path: '',
+    path: 'patient-services',
     component: PageLayoutComponent,
     children: [
-      { path: 'about-us/aih-hospital', component: AboutComponent },
-      { path: 'about-us/faq', component: QaComponent },
-      { path: 'about-us/testimonial', component: TestimonialComponent },
       {
-        path: 'patient-services/medical-services',
+        path: 'medical-services',
         component: ServiceComponent,
       },
       {
-        path: 'patient-services/medical-services/:alias',
+        path: 'medical-services/:alias',
         component: ServiceDetailComponent,
       },
-      { path: 'patient-services/medical-package', component: MedicalComponent },
-      { path: 'patient-services/insurance', component: InsuranceComponent },
-      { path: 'patient-services/factsheet', component: FactsheetComponent },
-      { path: 'doctor', component: DoctorComponent },
-      { path: 'doctor/detail/:alias', component: DoctorDetailComponent },
-      { path: 'news', component: EventComponent },
-      { path: 'news/detail/:alias', component: NewsDetailComponent },
-      { path: 'videos', component: VideoComponent },
-      { path: 'career', component: CareerComponent },
-      { path: 'career/detail/:alias', component: CareerDetailComponent },
-      { path: 'contact', component: ContactComponent },
-      { path: 'medical', component: MedicalComponent },
-      { path: 'search', component: SearchComponent },
-
-      // account
-      { path: 'account/setting', component: SettingComponent },
-      { path: 'account/information', component: InformationComponent },
-      { path: 'account/vote', component: VoteComponent },
-      { path: 'account/schedule-history', component: ScheduleHistoryComponent },
-      { path: 'account/schedule-cancel', component: ScheduleCancelComponent },
       {
-        path: 'account/schedule-register',
+        path: 'medical-package',
+        component: MedicalComponent,
+      },
+      {
+        path: 'insurance',
+        component: InsuranceComponent,
+      },
+      {
+        path: 'factsheet',
+        component: FactsheetComponent,
+      },
+    ],
+  },
+  {
+    path: 'doctor',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: 'detail/:alias',
+        component: DoctorDetailComponent,
+      },
+      {
+        path: '',
+        component: DoctorComponent,
+      },
+    ],
+  },
+  {
+    path: 'news',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: 'detail/:alias',
+        component: NewsDetailComponent,
+      },
+      {
+        path: '',
+        component: EventComponent,
+      },
+    ],
+  },
+  {
+    path: 'videos',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: VideoComponent,
+      },
+    ],
+  },
+  {
+    path: 'career',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: 'detail/:alias',
+        component: CareerDetailComponent,
+      },
+      { path: '', component: CareerComponent },
+    ],
+  },
+  {
+    path: 'contact',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: ContactComponent,
+      },
+    ],
+  },
+  {
+    path: 'medical',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: MedicalComponent,
+      },
+    ],
+  },
+  {
+    path: 'search',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: SearchComponent,
+      },
+    ],
+  },
+  {
+    path: 'account',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: 'setting',
+        component: SettingComponent,
+      },
+      {
+        path: 'information',
+        component: InformationComponent,
+      },
+      {
+        path: 'vote',
+        component: VoteComponent,
+      },
+      {
+        path: 'schedule-history',
+        component: ScheduleHistoryComponent,
+      },
+      {
+        path: 'schedule-cancel',
+        component: ScheduleCancelComponent,
+      },
+      {
+        path: 'schedule-register',
         component: ScheduleRegisterComponent,
       },
-      { path: 'account/schedule', component: ScheduleComponent },
-      { path: 'account/login', component: LoginComponent },
-      { path: 'account/register', component: RegisterComponent },
-
-      { path: 'insurance/insurance-membership', component: InsuranceMembershipComponent },
-      { path: 'insurance/insurance-consulting/:id', component: InsuranceConsultingComponent },
-      { path: 'insurance/insurance-detail/:alias', component: InsuranceDetailComponent },
-      { path: 'insurance/membership-consulting/:id', component: MembershipConsultingComponent },
-      { path: 'insurance/membership/:alias', component: MembershipComponent },
+      {
+        path: 'schedule',
+        component: ScheduleComponent,
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+      },
     ],
+  },
+  {
+    path: 'insurance',
+    component: PageLayoutComponent,
+    children: [
+      {
+        path: 'insurance-membership',
+        component: InsuranceMembershipComponent,
+      },
+      {
+        path: 'insurance-consulting/:id',
+        component: InsuranceConsultingComponent,
+      },
+      {
+        path: 'insurance-detail/:alias',
+        component: InsuranceDetailComponent,
+      },
+      {
+        path: 'membership-consulting/:id',
+        component: MembershipConsultingComponent,
+      },
+      { path: 'membership/:alias', component: MembershipComponent },
+    ],
+  },
+  {
+    path: '**',
+    component: HomeComponent,
+    pathMatch: 'full',
   },
 ];
 

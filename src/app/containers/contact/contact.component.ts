@@ -1,52 +1,53 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Page} from '../../models/page';
-import {PageService} from '../../services/page.service';
-import {BannerService} from '../../services/banner.service';
-import {UrlService} from '../../services/url.service';
-import {Meta, Title} from '@angular/platform-browser';
-import {forkJoin, Subscription} from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Page } from '../../models/page';
+import { PageService } from '../../services/page.service';
+import { BannerService } from '../../services/banner.service';
+import { UrlService } from '../../services/url.service';
+import { Meta, Title } from '@angular/platform-browser';
+import { forkJoin, Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
-import {TranslateService} from '@ngx-translate/core';
-import {ContactService} from '../../services/contact.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss'],
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit, OnDestroy {
-    public page: Page;
-    public banners: Array<any> = [];
+  public page: Page;
+  public banners: Array<any> = [];
 
-    public doctorPoint = 0;
-    public servicePoint = 0;
-    public faciPoint = 0;
-    public pricePoint = 0;
+  public doctorPoint = 0;
+  public servicePoint = 0;
+  public faciPoint = 0;
+  public pricePoint = 0;
 
-    public content;
-    public isReset;
+  public content;
+  public isReset;
 
-    private subscription: Subscription;
+  private subscription: Subscription;
 
-    constructor(public pageService: PageService,
-                public bannerService: BannerService,
-                private metaService: Meta,
-                private titleService: Title,
-                private translate: TranslateService,
-                public contactService: ContactService,) {
-    }
+  constructor(
+    public pageService: PageService,
+    public bannerService: BannerService,
+    private metaService: Meta,
+    private titleService: Title,
+    private translate: TranslateService,
+    public contactService: ContactService,
+  ) {}
 
-    ngOnInit() {
-        this.loadPage();
-        this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadPage();
-        });
-        this.isReset = false;
-    }
+  ngOnInit() {
+    this.loadPage();
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+      this.loadPage();
+    });
+    this.isReset = false;
+  }
 
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
   loadPage() {
     forkJoin(
@@ -70,7 +71,10 @@ export class ContactComponent implements OnInit, OnDestroy {
           name: 'description',
           content: this.page.metaDesc,
         });
-      this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+      this.metaService.updateTag({
+        name: 'keywords',
+        content: this.page.metaKey,
+      });
       this.bannerService
         .fetch('contact_page', this.page.id)
         .subscribe((bannersResp: any) => {
@@ -87,84 +91,84 @@ export class ContactComponent implements OnInit, OnDestroy {
     });
   }
 
-    openAlert() {
-        forkJoin(
-            this.translate.get('text_contact_rating_require'),
-            this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
-            Swal.fire({
-                text: message,
-                confirmButtonText: buttonText,
-            });
-        });
+  openAlert() {
+    forkJoin(
+      this.translate.get('text_contact_rating_require'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText,
+      });
+    });
+  }
+
+  openSuccess() {
+    forkJoin(
+      this.translate.get('text_contact_rating_success'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText,
+      });
+      this.content = '';
+      this.isReset = true;
+      setTimeout(() => {
+        this.isReset = false;
+      }, 100);
+    });
+  }
+
+  openFail() {
+    forkJoin(
+      this.translate.get('text_contact_rating_fail'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText,
+      });
+    });
+  }
+
+  submitRatingForm() {
+    if (
+      !this.doctorPoint &&
+      !this.servicePoint &&
+      !this.faciPoint &&
+      !this.pricePoint
+    ) {
+      this.openAlert();
+      return;
     }
 
-    openSuccess() {
-        forkJoin(
-            this.translate.get('text_contact_rating_success'),
-            this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
-            Swal.fire({
-                text: message,
-                confirmButtonText: buttonText,
-            });
-            this.content = '';
-            this.isReset = true;
-            setTimeout(() => {
-                this.isReset = false;
-            }, 100);
-        });
-    }
+    this.contactService
+      .rating({
+        doctor: this.doctorPoint,
+        service: this.servicePoint,
+        facilities: this.faciPoint,
+        price: this.pricePoint,
+        content: this.content,
+      })
+      .subscribe((data: any) => {
+        this.openSuccess();
+      });
+  }
 
-    openFail() {
-        forkJoin(
-            this.translate.get('text_contact_rating_fail'),
-            this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
-            Swal.fire({
-                text: message,
-                confirmButtonText: buttonText,
-            });
-        });
-    }
+  takePointDoctor(point) {
+    this.doctorPoint = point;
+  }
 
-    submitRatingForm() {
-        if (
-            !this.doctorPoint &&
-            !this.servicePoint &&
-            !this.faciPoint &&
-            !this.pricePoint
-        ) {
-            this.openAlert();
-            return;
-        }
+  takePointService(point) {
+    this.servicePoint = point;
+  }
 
-        this.contactService
-            .rating({
-                doctor: this.doctorPoint,
-                service: this.servicePoint,
-                facilities: this.faciPoint,
-                price: this.pricePoint,
-                content: this.content,
-            })
-            .subscribe((data: any) => {
-                this.openSuccess();
-            });
-    }
+  takePointFaci(point) {
+    this.faciPoint = point;
+  }
 
-    takePointDoctor(point) {
-        this.doctorPoint = point;
-    }
-
-    takePointService(point) {
-        this.servicePoint = point;
-    }
-
-    takePointFaci(point) {
-        this.faciPoint = point;
-    }
-
-    takePointPrice(point) {
-        this.pricePoint = point;
-    }
+  takePointPrice(point) {
+    this.pricePoint = point;
+  }
 }
