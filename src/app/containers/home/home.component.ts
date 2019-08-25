@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private metaService: Meta,
     private globalEventService: GlobalEventService,
-    private titleService: Title) {
-  }
+    private titleService: Title,
+  ) {}
 
   get pageClasses() {
     const language = this.translate.currentLang;
@@ -34,11 +34,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadPage();
-    this.subscription = this.translate
-      .onLangChange
-      .subscribe(() => {
-        this.loadPage();
-      });
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+      this.loadPage();
+    });
   }
 
   ngOnDestroy() {
@@ -48,31 +46,40 @@ export class HomeComponent implements OnInit, OnDestroy {
   loadPage() {
     this.globalEventService.emit('show-loading');
     forkJoin(
-      this.pageService
-        .fetch('homepage'),
-      this.translate.get('american_international_hospital')
-    )
-      .subscribe(([homeResp, aihStr]) => {
-        const page = homeResp.Post || {};
-        this.page = new Page(page);
-        // seo
-        this.titleService.setTitle(`${this.page.name} - ${aihStr}`);
-        this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
-        this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
-
-        this.bannerService
-          .fetch('homepage', this.page.id)
-          .subscribe((bannersResp: any) => {
-            const banners = bannersResp.Banner;
-            this.banners = banners.map(banner => {
-              banner.large = UrlService.createMediaUrl(banner.Url);
-              banner.small = banner.large;
-              banner.url = banner.Link;
-              return banner;
-            });
-
-            this.globalEventService.emit('hide-loading');
-          });
+      this.pageService.fetch('homepage'),
+      this.translate.get('american_international_hospital'),
+    ).subscribe(([homeResp, aihStr]) => {
+      const page = homeResp.Post || {};
+      this.page = new Page(page);
+      const pageTitle = `${this.page.name} - ${aihStr}`;
+      // seo
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle,
       });
+      this.metaService.updateTag({
+        name: 'description',
+        content: this.page.metaDesc,
+      });
+      this.metaService.updateTag({
+        name: 'keywords',
+        content: this.page.metaKey,
+      });
+
+      this.bannerService
+        .fetch('homepage', this.page.id)
+        .subscribe((bannersResp: any) => {
+          const banners = bannersResp.Banner;
+          this.banners = banners.map(banner => {
+            banner.large = UrlService.createMediaUrl(banner.Url);
+            banner.small = banner.large;
+            banner.url = banner.Link;
+            return banner;
+          });
+
+          this.globalEventService.emit('hide-loading');
+        });
+    });
   }
 }
