@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {
+  Routes,
+  RouterModule,
+} from '@angular/router';
 
 import { HomeComponent } from './containers/home/home.component';
 import { AboutComponent } from './containers/abouts/about/about.component';
@@ -39,6 +42,11 @@ import { MembershipConsultingComponent } from './containers/insurance/membership
 import { MembershipComponent } from './containers/insurance/membership/membership.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'about-us',
     component: PageLayoutComponent,
@@ -227,11 +235,10 @@ const routes: Routes = [
       { path: 'membership/:alias', component: MembershipComponent },
     ],
   },
-  {
-    path: '**',
-    component: HomeComponent,
-    pathMatch: 'full',
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: '/',
+  // },
 ];
 
 @NgModule({
