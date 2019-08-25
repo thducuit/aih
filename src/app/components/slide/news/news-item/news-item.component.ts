@@ -13,7 +13,7 @@ const ItemPerPage = 3;
   templateUrl: './news-item.component.html',
   styleUrls: ['./news-item.component.scss'],
 })
-export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit  {
+export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit {
   public blogs: Array<Blog> = [];
   public totalPage = 0;
   public currentPage = 1;
@@ -27,8 +27,9 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit  {
   constructor(
     public blogService: BlogService,
     private translate: TranslateService,
-    private zone: NgZone
-  ) { }
+    private zone: NgZone,
+  ) {
+  }
 
   ngOnInit() {
     this.loadNews();
@@ -51,7 +52,13 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit  {
         this.totalPage = Math.ceil(data.TotalRecord / ItemPerPage);
         this.blogs = posts.map(post => {
           const blog = new Blog(post);
-          blog.picturePath = UrlService.createPictureUrl(blog.picture);
+
+          if (blog.meta.picture) {
+            blog.picturePath = UrlService.createPictureUrl(blog.picture, null, null, true);
+          } else {
+            blog.picturePath = UrlService.createPictureUrl(blog.picture);
+          }
+          
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
           return blog;
         }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
@@ -72,12 +79,12 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit  {
 
 
   ngAfterViewInit() {
-    setTimeout( () => {
+    setTimeout(() => {
       const h = document.getElementById('choosen-wrap-w');
       if (h) {
-          this.minHeight = h.offsetHeight;
+        this.minHeight = h.offsetHeight;
       }
-    }, 100 );
+    }, 100);
   }
 
 }

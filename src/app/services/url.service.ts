@@ -7,7 +7,10 @@ export class UrlService {
   constructor() {
   }
 
-  static createPictureUrl(pictureName, size = null, type = 'post') {
+  static createPictureUrl(pictureName, size = null, type = 'post', isMeta = false) {
+    if(isMeta) {
+      return `${environment.backend}${pictureName}`;
+    }
     if (size) {
       return `${environment.backend}/assets/uploads/images/${type}/thumbs/${size}/${pictureName}`;
     }
