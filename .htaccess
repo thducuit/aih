@@ -1,0 +1,14 @@
+DirectoryIndex 
+
+# START: HTTP => HTTPS
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+# END: HTTP => HTTPS
+
+RewriteRule ^$ http://127.0.0.1:8091/ [P,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://127.0.0.1:8091/$1 [P,L]
