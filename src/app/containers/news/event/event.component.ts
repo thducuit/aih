@@ -30,7 +30,7 @@ export class EventComponent implements OnInit, OnDestroy {
     public blogService: BlogService,
     private translate: TranslateService,
     private titleService: Title,
-    private metaService: Meta,
+    private metaService: Meta
   ) {
   }
 
