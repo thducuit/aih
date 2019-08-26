@@ -14,9 +14,9 @@
       <div class="content-sv" *ngIf="clinic">
         <div class="service-cate" #serviceCate>
           <h3>{{ 'our_departments' | translate }}</h3>
-          <app-sidebar></app-sidebar>
+          <app-sidebar (loadFinish)="handleLoadCateFinish($event)"></app-sidebar>
         </div>
-        <div class="copy copy-cate" #copyCate innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
+        <div [style.minHeight]="minHeight" class="copy copy-cate" #copyCate innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
       </div>
     </div>
   </section>
