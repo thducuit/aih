@@ -19,7 +19,7 @@
         <div class="box-left box-chosen {{ isExpand ? 'active': '' }}" >
           <div (click)="onExpand()">
             <p *ngIf="!chosenPackage">{{ 'choose_service_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-            <p *ngIf="chosenPackage">{{ chosenPackage.name }} <img src="../assets/images/dropdown.png" alt=""></p>
+            <p *ngIf="chosenPackage"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 15 }">{{ chosenPackage.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
           </div>
 
           <a id="show-hidden-menu" ></a>

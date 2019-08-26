@@ -3285,7 +3285,9 @@ a.order-calender{
 	 font-family: utm_avobold;
 	 margin-top: 30px;
 	 text-transform: uppercase;
-	 text-align: center;
+	 text-align: left;
+     overflow: hidden;
+      width: 85%;
 }
 .medical-bottom .box-right .box-right{
 	width: 50%;
