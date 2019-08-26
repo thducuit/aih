@@ -27,6 +27,34 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
     monthBirth: '',
     yearBirth: '',
     country: '',
+    passport: '',
+    passportNo: '',
+    martialStatus: '',
+    other: '',
+    province: '',
+    district: '',
+    religion: '',
+    ethnic: '',
+    residenceAddress: '',
+    residenceAddress2: '',
+    tel: '',
+
+    fullNameEmergency: '',
+    telRelationship: '',
+    requestEmergency: '',
+    relationship: '',
+    mobileRelationship: '',
+
+    fullNameGuardian: '',
+    telGuardian: '',
+    mobileGuardian: '',
+    requestGuardian: '',
+
+    insuranceCompany: '',
+    insuranceCard: '',
+    occupation: '',
+    guarantee: '',
+    insuranceOther: '',
   };
   public years = [];
   public months = [];
@@ -55,6 +83,35 @@ export class CustomerRegisterComponent implements OnInit, OnChanges {
       monthBirth: '',
       yearBirth: '',
       country: '',
+
+      passport: '',
+      passportNo: '',
+      martialStatus: '',
+      other: '',
+      province: '',
+      district: '',
+      religion: '',
+      ethnic: '',
+      residenceAddress: '',
+      residenceAddress2: '',
+      tel: '',
+
+      fullNameEmergency: '',
+      telRelationship: '',
+      requestEmergency: '',
+      relationship: '',
+      mobileRelationship: '',
+
+      fullNameGuardian: '',
+      telGuardian: '',
+      mobileGuardian: '',
+      requestGuardian: '',
+
+      insuranceCompany: '',
+      insuranceCard: '',
+      occupation: '',
+      guarantee: '',
+      insuranceOther: '',
     };
   }
 

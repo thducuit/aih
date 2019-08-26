@@ -24,6 +24,43 @@
             <input type="" class="form-control" value="{{ form.phone }}" disabled name="phone" placeholder="{{ 'register_phone' | translate }}">
             <p class="check-must">*</p>
           </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="passport" name="passport" [(ngModel)]="form.passport" class="custom-select sources">
+                <option value="">{{ 'register_passport' | translate }}</option>
+                <option value="NATID">NATID/CMND</option>
+                <option value="PSPRT">Passport</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.passportNo }}" name="passportNo" placeholder="{{ 'register_passportNo' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="martial_status" name="martial_status" [(ngModel)]="form.martialStatus" class="custom-select sources">
+                <option value="">{{ 'register_martialStatus' | translate }}</option>
+                <option value="0">{{ 'text_Single' | translate }}</option>
+                <option value="1">{{ 'text_Married' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.other }}" name="other" placeholder="{{ 'register_other' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="province" name="province" [(ngModel)]="form.province" class="custom-select sources">
+                <option value="">{{ 'register_province' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
         </div>
 
         <div class="box-popup-regis-textbox">
@@ -70,6 +107,7 @@
             </div>
             <p class="check-must">*</p>
           </div>
+
           <div class="form-group clearfix">
             <div class="center">
               <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources">
@@ -78,9 +116,248 @@
               </select>
             </div>
           </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="religion" name="religion" [(ngModel)]="form.religion" class="custom-select sources">
+                <option value="">{{ 'register_religion' | translate }}</option>
+                <option value="{{ 'text_Daoism' | translate }}">{{ 'text_Daoism' | translate }}</option>
+                <option value="{{ 'text_Hinduism' | translate }}">{{ 'text_Hinduism' | translate }}</option>
+                <option value="{{ 'text_No_religion' | translate }}">{{ 'text_No_religion' | translate }}</option>
+                <option value="{{ 'text_Buddhism' | translate }}">{{ 'text_Buddhism' | translate }}</option>
+                <option value="{{ 'text_Shinto' | translate }}">{{ 'text_Shinto' | translate }}</option>
+                <option value="{{ 'text_Christianity' | translate }}">{{ 'text_Christianity' | translate }}</option>
+                <option value="{{ 'text_Confucianism' | translate }}">{{ 'text_Confucianism' | translate }}</option>
+                <option value="{{ 'text_Islam' | translate }}">{{ 'text_Islam' | translate }}</option>
+                <option value="{{ 'text_Judaism' | translate }}">{{ 'text_Judaism' | translate }}</option>
+                <option value="{{ 'text_Unknown' | translate }}">{{ 'text_Unknown' | translate }}</option>
+                <option value="{{ 'text_Caodaism' | translate }}">{{ 'text_Caodaism' | translate }}</option>
+                <option value="{{ 'text_Jain' | translate }}">{{ 'text_Jain' | translate }}</option>
+                <option value="{{ 'text_Catholicism' | translate }}">{{ 'text_Catholicism' | translate }}</option>
+                <option value="{{ 'text_Protestantism' | translate }}">{{ 'text_Protestantism' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="ethnic" name="ethnic" [(ngModel)]="form.ethnic" class="custom-select sources">
+                <option value="">{{ 'register_ethnic' | translate }}</option>
+                <option value="Ba-na">Ba-na</option>
+                <option value="Bố Y">Bố Y</option>
+                <option value="Brâu">Brâu</option>
+                <option value="Bru-Vân Kiều">Bru-Vân Kiều</option>
+                <option value="Chăm (chàm)">Chăm (chàm)</option>
+                <option value="Chơ Ro">Chơ Ro</option>
+                <option value="Chu-ru">Chu-ru</option>
+                <option value="Chứt">Chứt</option>
+                <option value="Co">Co</option>
+                <option value="Cờ lao">Cờ lao</option>
+                <option value="Cơ tu">Cơ tu</option>
+                <option value="Cơ-ho">Cơ-ho</option>
+                <option value="Cống">Cống</option>
+                <option value="Dao">Dao</option>
+                <option value="Ê-đê">Ê-đê</option>
+                <option value="Gia-rai">Gia-rai</option>
+                <option value="Giáy">Giáy</option>
+                <option value="Gié-Triêng">Gié-Triêng</option>
+                <option value="Hà Nhì">Hà Nhì</option>
+                <option value="H'Mông">H'Mông</option>
+                <option value="Hoa">Hoa</option>
+                <option value="Hrê">Hrê</option>
+                <option value="Kháng">Kháng</option>
+                <option value="Khmer">Khmer</option>
+                <option value="Khơ Mú">Khơ Mú</option>
+                <option value="Kinh">Kinh</option>
+                <option value="La Chí">La Chí</option>
+                <option value="La Ha">La Ha</option>
+                <option value="La Hủ">La Hủ</option>
+                <option value="Lào">Lào</option>
+                <option value="Lô Lô">Lô Lô</option>
+                <option value="Lự">Lự</option>
+                <option value="Mạ">Mạ</option>
+                <option value="Mảng">Mảng</option>
+                <option value="M'Nông">M'Nông</option>
+                <option value="Mường">Mường</option>
+                <option value="Ngái">Ngái</option>
+                <option value="Nùng">Nùng</option>
+                <option value="Ơ Đu">Ơ Đu</option>
+                <option value="Pà Thẻn">Pà Thẻn</option>
+                <option value="Phù Lá">Phù Lá</option>
+                <option value="Pu Péo">Pu Péo</option>
+                <option value="Ra Glai">Ra Glai</option>
+                <option value="Rơ Măm">Rơ Măm</option>
+                <option value="Sán Chay">Sán Chay</option>
+                <option value="Sán Dìu">Sán Dìu</option>
+                <option value="Si La">Si La</option>
+                <option value="Tà Ôi">Tà Ôi</option>
+                <option value="Tày">Tày</option>
+                <option value="Thái">Thái</option>
+                <option value="Thổ">Thổ</option>
+                <option value="Unknown">Unknown</option>
+                <option value="Xơ Đăng">Xơ Đăng</option>
+                <option value="Xinh Mun">Xinh Mun</option>
+                <option value="X'Tiêng">X'Tiêng</option>
+                <option value="{{ 'text_Black' | translate }}">{{ 'text_Black' | translate }}</option>
+                <option value="{{ 'text_White' | translate }}">{{ 'text_White' | translate }}</option>
+                <option value="{{ 'text_Others' | translate }}">{{ 'text_Others' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.residenceAddress }}" name="residenceAddress" placeholder="{{ 'register_residenceAddress' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.residenceAddress2 }}"  name="residenceAddress2" placeholder="{{ 'register_residenceAddress2' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.tel }}" name="tel" placeholder="{{ 'register_tel' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="district" name="district" [(ngModel)]="form.district" class="custom-select sources">
+                <option value="">{{ 'register_district' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+        <p>{{ 'register_emergency' | translate }}</p>
+        <div class="box-popup-regis-textbox">
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.fullNameEmergency }}" name="fullNameEmergency" placeholder="{{ 'register_fullNameEmergency' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.telRelationship }}" name="telRelationship" placeholder="{{ 'register_telRelationship' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="requestEmergency" name="requestEmergency" [(ngModel)]="form.requestEmergency " class="custom-select sources">
+                <option value="">{{ 'register_requestEmergency' | translate }}</option>
+                <option value="0">{{ 'text_Medical_Report' | translate }}</option>
+                <option value="1">{{ 'text_Hospital_fee' | translate }}</option>
+                <option value="2">{{ 'text_Personal_Information' | translate }}</option>
+                <option value="3">{{ 'text_Choose_all' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <div class="box-popup-regis-textbox">
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="relationship" name="relationship" [(ngModel)]="form.relationship" class="custom-select sources">
+                <option value="">{{ 'register_relationship' | translate }}</option>
+                <option value="{{ 'text_Brother' | translate }}">{{ 'text_Brother' | translate }}</option>
+                <option value="{{ 'text_Daughter' | translate }}">{{ 'text_Daughter' | translate }}</option>
+                <option value="{{ 'text_Contact' | translate }}">{{ 'text_Contact' | translate }}</option>
+                <option value="{{ 'text_Father' | translate }}">{{ 'text_Father' | translate }}</option>
+                <option value="{{ 'text_Mother' | translate }}">{{ 'text_Mother' | translate }}</option>
+                <option value="{{ 'text_Other' | translate }}">{{ 'text_Other' | translate }}</option>
+                <option value="{{ 'text_Spouse' | translate }}">{{ 'text_Spouse' | translate }}</option>
+                <option value="{{ 'text_Sister' | translate }}">{{ 'text_Sister' | translate }}</option>
+                <option value="{{ 'text_Son' | translate }}">{{ 'text_Son' | translate }}</option>
+                <option value="{{ 'text_Uncle' | translate }}">{{ 'text_Uncle' | translate }}</option>
+                <option value="{{ 'text_Aunt' | translate }}">{{ 'text_Aunt' | translate }}</option>
+                <option value="{{ 'text_Grandparents' | translate }}">{{ 'text_Grandparents' | translate }}</option>
+                <option value="{{ 'text_Friend' | translate }}">{{ 'text_Friend' | translate }}</option>
+                <option value="{{ 'text_Husband' | translate }}">{{ 'text_Husband' | translate }}</option>
+                <option value="{{ 'text_Wife' | translate }}">{{ 'text_Wife' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.mobileRelationship }}" name="mobileRelationship" placeholder="{{ 'register_mobileRelationship' | translate }}">
+          </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+        <p>{{ 'register_guardian' | translate }}</p>
+        <div class="box-popup-regis-textbox">
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.fullNameGuardian }}" name="fullNameGuardian" placeholder="{{ 'register_fullNameGuardian' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.telGuardian }}" name="telGuardian" placeholder="{{ 'register_telGuardian' | translate }}">
+          </div>
+        </div>
+        <div class="box-popup-regis-textbox">
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.mobileGuardian }}" name="mobileGuardian" placeholder="{{ 'register_mobileGuardian' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="requestGuardian" name="requestGuardian" [(ngModel)]="form.requestGuardian " class="custom-select sources">
+                <option value="">{{ 'register_requestEmergency' | translate }}</option>
+                <option value="0">{{ 'text_Medical_Report' | translate }}</option>
+                <option value="1">{{ 'text_Hospital_fee' | translate }}</option>
+                <option value="2">{{ 'text_Personal_Information' | translate }}</option>
+                <option value="3">{{ 'text_Choose_all' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <p>{{ 'register_insurance' | translate }}</p>
+        <div class="box-popup-regis-textbox">
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.insuranceCompany }}" name="insuranceCompany" placeholder="{{ 'register_insuranceCompany' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.insuranceCard }}" name="insuranceCard" placeholder="{{ 'register_insuranceCard' | translate }}">
+          </div>
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="occupation" name="occupation" [(ngModel)]="form.occupation" class="custom-select sources">
+                <option value="">{{ 'register_occupation' | translate }}</option>
+                <option value="0">{{ 'text_BusinessOwner' | translate }}</option>
+                <option value="1">{{ 'text_BlueCollar' | translate }}</option>
+                <option value="2">{{ 'text_WhiteCollar' | translate }}</option>
+                <option value="3">{{ 'text_Other' | translate }}</option>
+                <option value="4">{{ 'text_Student' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <div class="box-popup-regis-textbox">
+
+          <div class="form-group clearfix">
+            <div class="center">
+              <select id="guarantee" name="guarantee" [(ngModel)]="form.guarantee" class="custom-select sources">
+                <option value="">{{ 'register_guarantee' | translate }}</option>
+                <option value="0">{{ 'text_Outpatient' | translate }}</option>
+                <option value="1">{{ 'text_Inpatient' | translate }}</option>
+                <option value="2">{{ 'text_Both' | translate }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group clearfix">
+            <input type="" class="form-control" value="{{ form.insuranceOther }}" name="insuranceOther" placeholder="{{ 'register_insuranceOther' | translate }}">
+          </div>
+
           <div class="form-group clearfix">
             <a class="btn-form-send" (click)="sendForm()">{{ 'register_send' | translate }}</a>
           </div>
+
         </div>
       </form>
 

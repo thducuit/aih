@@ -27,6 +27,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     private titleService: Title) {
   }
 
+  get pageClasses() {
+    const language = this.translate.currentLang;
+    return [language, 'window'];
+  }
+
   ngOnInit() {
     this.loadPage();
     this.subscription = this.translate

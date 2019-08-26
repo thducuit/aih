@@ -2,24 +2,23 @@
   <div class="breadcrumb">
     <div class="container">
       <a routerLink="/">{{ 'home' | translate }}</a> /
-      <p>{{ page ? page.name : 'Blog' }}</p></div>
+      <p>{{ 'blog' | translate }}</p></div>
   </div>
   <section class="news-wrap">
     <div class="container clearfix">
       <h2><span>{{ 'blog_event' | translate }}</span></h2>
       <div class="list-news">
 
-        <div class="item news-item-style align-left style-1" *ngIf="filterBlogs.length && filterBlogs[1] && currentPage === 1">
+        <div class="item news-item-style align-left style-1"
+          *ngIf="filterBlogs.length && filterBlogs[1] && currentPage === 1">
           <div>
             <div class="img">
-              <div
-                [style.background]="'url(' + filterBlogs[1].picturePath + ')'"
-              ></div>
+              <div [style.background]="'url(' + filterBlogs[1].picturePath + ')'"></div>
               <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 <div>{{ truncateText(filterBlogs[1] ? filterBlogs[1].name : '', 51) }}</div>
               </h3>
               <hr>
@@ -32,24 +31,21 @@
 
         <div class="item news-item-style style-3" *ngIf="blogs.length && blogs[0] && currentPage === 1">
           <div (click)="openIframeVideo(blogs[0])">
-            <div class="img has-video js-open-video"
-                 [style.background]="'url(' + blogs[0].picturePath + ')'"
-            ></div>
+            <div class="img has-video js-open-video" [style.background]="'url(' + blogs[0].picturePath + ')'"></div>
           </div>
         </div>
 
 
-        <div class="item news-item-style align-left style-1" *ngIf="filterBlogs.length && filterBlogs[0] && currentPage > 1">
+        <div class="item news-item-style align-left style-1"
+          *ngIf="filterBlogs.length && filterBlogs[0] && currentPage > 1">
           <div>
             <div class="img">
-              <div
-                [style.background]="'url(' + filterBlogs[0].picturePath + ')'"
-              ></div>
+              <div [style.background]="'url(' + filterBlogs[0].picturePath + ')'"></div>
               <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 <div>{{ truncateText(filterBlogs[0] ? filterBlogs[0].name : '', 51) }}</div>
               </h3>
               <hr>
@@ -64,7 +60,7 @@
           <div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 {{ filterBlogs[1] ? filterBlogs[1].name : '' }}
               </h3>
               <hr>
@@ -78,36 +74,31 @@
         <div class="item news-item-style align-left style-4" *ngIf="filterBlogs.length && filterBlogs[2]">
           <div>
             <div class="img">
-              <div
-                [style.background]="'url(' + filterBlogs[2].picturePath + ')'"
-              ></div>
+              <div [style.background]="'url(' + filterBlogs[2].picturePath + ')'"></div>
               <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 {{ truncateText(filterBlogs[2] ? filterBlogs[2].name : '' , 51)}}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[2].datepublish | date:'dd/MM/yyyy'}}</p>
               <p>{{ truncateText(filterBlogs[2] ? filterBlogs[2].shortDesc : '', 115) }}</p>
             </div>
-            <a class="link-all"
-               routerLink="{{ filterBlogs[2].url }}"></a>
+            <a class="link-all" routerLink="{{ filterBlogs[2].url }}"></a>
           </div>
         </div>
 
         <div class="item event-item-style align-right style-4" *ngIf="filterBlogs.length && filterBlogs[3]">
           <div>
             <div class="img">
-              <div
-                [style.background]="'url(' + filterBlogs[3].picturePath + ')'"
-              ></div>
+              <div [style.background]="'url(' + filterBlogs[3].picturePath + ')'"></div>
               <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 {{ truncateText(filterBlogs[3] ? filterBlogs[3].name : '', 51) }}
               </h3>
               <hr>
@@ -122,7 +113,7 @@
           <div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 {{ truncateText(filterBlogs[4] ? filterBlogs[4].name : '', 51) }}
               </h3>
               <hr>
@@ -136,14 +127,12 @@
         <div class="item news-item-style align-right style-5" *ngIf="filterBlogs.length && filterBlogs[5]">
           <div>
             <div class="img">
-              <div
-                [style.background]="'url(' + filterBlogs[4].picturePath + ')'"
-              ></div>
+              <div [style.background]="'url(' + filterBlogs[4].picturePath + ')'"></div>
               <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 {{ truncateText(filterBlogs[5] ? filterBlogs[5].name : '', 51) }}
               </h3>
               <hr>
@@ -157,14 +146,12 @@
         <div class="item event-item-style align-left style-2" *ngIf="filterBlogs.length && filterBlogs[6]">
           <div>
             <div class="img">
-              <div
-                [style.background]="'url(' + filterBlogs[4].picturePath + ')'"
-              ></div>
+              <div [style.background]="'url(' + filterBlogs[4].picturePath + ')'"></div>
               <img src="../assets/images/news.gif">
             </div>
             <div class="copy">
               <h3>
-                <span>{{ 'news' | translate }}</span><br/>
+                <span>{{ 'news' | translate }}</span><br />
                 {{ truncateText(filterBlogs[6] ? filterBlogs[6].name : '', 51) }}
               </h3>
               <hr>
@@ -177,7 +164,8 @@
 
         <div class="paging">
           <a target="_self" class="prev-page" *ngIf="currentPage > 1" (click)="prev()"></a>
-          <a targea="_self" class="{{ page === currentPage ? 'active' : '' }}" *ngFor="let page of pages"(click)="changePage(page)">{{ page }}</a>
+          <a targea="_self" class="{{ page === currentPage ? 'active' : '' }}" *ngFor="let page of pages"
+            (click)="changePage(page)">{{ page }}</a>
           <a target="_self" class="next-page" *ngIf="currentPage < pages.length" (click)="next()"></a>
         </div>
 
@@ -185,9 +173,6 @@
     </div>
   </section>
 
-  <app-video-popup *ngIf="iframeSrc"
-                   [iframeSrc]=iframeSrc
-                   [isShowPopup]=showVideoPopup
-                   (closePopup)="handleClosePopup()"
-  ></app-video-popup>
+  <app-video-popup *ngIf="iframeSrc" [iframeSrc]=iframeSrc [isShowPopup]=showVideoPopup
+    (closePopup)="handleClosePopup()"></app-video-popup>
 </main>

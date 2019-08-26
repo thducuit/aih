@@ -1,4 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy, HostListener, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy,
+  HostListener,
+  Inject,
+  PLATFORM_ID,
+  NgZone,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { DoctorService } from '../../../../services/doctor.service';
 import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
@@ -12,7 +25,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './doctor-item.component.html',
   styleUrls: ['./doctor-item.component.scss'],
 })
-export class DoctorItemComponent implements OnInit, OnDestroy {
+export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
   public doctors: Array<Doctor> = [];
   public slideConfig = {
     infinite: true,
@@ -31,23 +44,26 @@ export class DoctorItemComponent implements OnInit, OnDestroy {
       },
       {
         breakpoint: 767,
-        settings: 'unslick'
-      }
+        settings: 'unslick',
+      },
     ],
   };
   private subscription: Subscription;
 
-  @ViewChild('slickModal', {static: true})
+  @ViewChild('slickModal', { static: true })
   slickSlider: SlickCarouselComponent;
 
   @ViewChild('sliderContainer', { static: false })
   sliderContainer: ElementRef;
 
+  @Input() clinicIds;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId,
     public doctorService: DoctorService,
-    private translate: TranslateService
-  ) { }
+    private translate: TranslateService,
+  ) {
+  }
 
   ngOnInit() {
     this.loadDoctors();
@@ -69,14 +85,19 @@ export class DoctorItemComponent implements OnInit, OnDestroy {
   loadDoctors() {
     this.doctorService.fetch().subscribe((data: any) => {
       const posts = data.Posts || [];
-      this.doctors = posts.map(post => {
-        const doctor = new Doctor(post);
-        if (doctor.picture) {
-          doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
-        }
-        doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
-        return doctor;
-      }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+      this.doctors = posts
+        .map(post => {
+          const doctor = new Doctor(post);
+          if (doctor.picture) {
+            doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
+          }
+          doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
+          return doctor;
+        })
+        .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+      if (this.clinicIds && this.clinicIds.length) {
+        this.doctors = this.doctors.filter(item => this.clinicIds.indexOf(item.categoryId) >= 0);
+      }
     });
   }
 
@@ -92,5 +113,9 @@ export class DoctorItemComponent implements OnInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       this.slickSlider && this.doctors && this.doctors.length && this.slickSlider.initSlick();
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.loadDoctors();
   }
 }

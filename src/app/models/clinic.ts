@@ -12,6 +12,7 @@ export class Clinic {
   public metaKey;
   public metaTitle;
   public datepublish;
+  public meta;
 
   constructor(data) {
     this.id = data.cate_id;
@@ -25,6 +26,7 @@ export class Clinic {
     this.metaKey = data.cate_metakey;
     this.metaTitle = data.cate_metatitle;
     this.datepublish = data.cate_datepublish;
+    this.meta = JSON.parse(data.cate_meta || '{}');
     this.picturePath = null;
     this.url = null;
   }

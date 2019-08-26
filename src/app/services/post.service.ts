@@ -12,12 +12,16 @@ export class PostService extends BaseService {
         super(translate);
     }
 
-    fetch(alias) {
+    fetch(alias, haveCount = false) {
         this.currentLang = this.getCurrentLocal();
         const postData = {
             alias,
-            lang: this.getCurrentLocal()
+            lang: this.getCurrentLocal(),
         };
+        if(haveCount) {
+          postData['commentsCount'] = true;
+          postData['likesCount'] = true;
+        }
         return this.http.post('post/detail', postData);
     }
 

@@ -2,7 +2,7 @@
 	<div class="ip ip-day" [ngClass]="{'aniAfter': animateAfter}">
 		<input value="{{getDateString()}}" readonly="true" class="js-dropBooking-day" type="text" placeholder="{{'date' | translate}}" (click)="toggleExpandDate()">
 		<em class="ar" [ngClass]="{'show': expanded}"></em>
-		<div class="drop drop-day" [ngClass]="{'show': expanded}">
+		<div class="drop drop-day show" *ngIf="expanded" @slideInOut>
 			<div class="calendar">
         <ngb-datepicker
 				class="c-datepicker"

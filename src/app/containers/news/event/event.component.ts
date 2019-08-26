@@ -38,11 +38,13 @@ export class EventComponent implements OnInit, OnDestroy {
     this.loadNews();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadNews();
+      this.applyTitle();
     });
-    forkJoin(
-      this.translate.get('news'),
-      this.translate.get('american_international_hospital'),
-    ).subscribe(([newsStr, aihStr]) => {
+    this.applyTitle();
+  }
+
+  private applyTitle() {
+    forkJoin(this.translate.get('news'), this.translate.get('american_international_hospital')).subscribe(([newsStr, aihStr]) => {
       const pageTitle = `${newsStr} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({
@@ -63,8 +65,14 @@ export class EventComponent implements OnInit, OnDestroy {
         const posts = data.Posts || [];
         this.totalRecord = posts.TotalRecord;
         const convertedBlogs: any[] = posts.map(post => {
+
           const blog = new Blog(post);
-          blog.picturePath = UrlService.createPictureUrl(blog.picture);
+          if (blog.meta.picture) {
+            blog.picturePath = UrlService.createPictureUrl(blog.picture, null, null, true);
+          } else {
+            blog.picturePath = UrlService.createPictureUrl(blog.picture);
+          }
+
           blog.url = UrlService.createNewsDetailUrl(blog.alias);
           const { video } = blog.meta;
           if (video) {
