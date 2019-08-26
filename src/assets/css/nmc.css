@@ -4,9 +4,9 @@
 
 @media screen and (max-width: 1599px) and (min-width: 1281px){
 	header .container{    padding: 0 150px;}	
-	.service-cate-wrap .content-sv {
+	/*.service-cate-wrap .content-sv {
      padding-left: 0px; 
-	}
+	}*/
 	body .vn .nav-wrap nav li {
 		margin: 0 10px;
 	}

@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UrlService } from '../../../../services/url.service';
 import { CategoryService } from '../../../../services/category.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
-import {PostService} from '../../../../services/post.service';
+import { PostService } from '../../../../services/post.service';
 
 @Component({
   selector: 'app-service-detail',
@@ -19,6 +19,11 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   public clinicIds;
 
+  public minHeight = 'auto';
+
+  @ViewChild('serviceCate', { static: false }) serviceCate;
+  @ViewChild('copyCate', { static: false }) copyCate;
+
   constructor(
     private route: ActivatedRoute,
     public categoryService: CategoryService,
@@ -28,7 +33,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     private animateScrollService: NgAnimateScrollService,
     private titleService: Title,
-  ) {}
+    private cdr: ChangeDetectorRef
+  ) {
+  }
 
   ngOnInit() {
     // const alias = this.route.snapshot.paramMap.get('alias');
@@ -39,19 +46,30 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     this.subscription = this.translate.onLangChange.subscribe(() => {
       const alias = this.route.snapshot.params['alias'];
       this.postService.getAlias(alias).subscribe((data: any) => {
-          const newAlias = data['alias'];
-          if (newAlias) {
-              return this.router.navigate([UrlService.createClinicDetailUrl(newAlias)]);
-          } else {
-              return this.router.navigate(['/patient-services/medical-services']);
-          }
+        const newAlias = data['alias'];
+        if (newAlias) {
+          return this.router.navigate([UrlService.createClinicDetailUrl(newAlias)]);
+        } else {
+          return this.router.navigate(['/patient-services/medical-services']);
+        }
       });
     });
+
+
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  // ngAfterViewInit() {
+  //   if (this.serviceCate && this.copyCate) {
+  //     const serviceCateHeight = this.serviceCate.nativeElement.offsetHeight;
+  //     const copyCateHeight = this.copyCate.nativeElement.offsetHeight;
+  //     console.log(serviceCateHeight, copyCateHeight);
+  //     this.copyCate.nativeElement.style.minHeight = serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : 'auto';
+  //   }
+  // }
 
   private loadCategories(alias) {
     forkJoin(
@@ -69,7 +87,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
 
       // seo
       const pageTitle = `${this.clinic.metaTitle ||
-        this.clinic.name} - ${aihStr}`;
+      this.clinic.name} - ${aihStr}`;
 
       this.titleService.setTitle(pageTitle);
 

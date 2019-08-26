@@ -17,6 +17,8 @@ export class Blog {
   public iframeUrl;
   public isHot;
   public clinicIds;
+  public totalComments;
+  public totalLikes;
 
   constructor(data) {
     this.id = data.post_id;

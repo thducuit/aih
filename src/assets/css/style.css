@@ -59,7 +59,8 @@ section.modalWindow {
   cursor: default;
   margin: 0 auto;
   height: 450px;
-  background: #f0f0f0
+  background: #f0f0f0;
+  overflow-y: scroll;
 }
 section.modal.overlay {
   display: none;
@@ -101,12 +102,26 @@ section.modalWindow section.modalWrapper {
   margin: 10px 0px 15px;
   color: #007297;
 }
-.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(1){
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(1),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(3),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(5),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(7),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(9),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(11),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(13)
+{
   width: 50%;
   float: left;
   padding-right: 20px;
 }
-.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(2){
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(2),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(4),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(6),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(8),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(10),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(12),
+.box-popup-regis-form  form .box-popup-regis-textbox:nth-child(14)
+{
   width: 50%;
   float: left;
   padding-left: 20px;

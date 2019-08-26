@@ -207,3 +207,8 @@ ngb-datepicker {
   color: #236284!important;
   background: url(../images/ic-like-hv.png) left no-repeat
 }
+
+.ct-dt .copy p {
+  padding-bottom: 22px;
+  text-align: left!important;
+}

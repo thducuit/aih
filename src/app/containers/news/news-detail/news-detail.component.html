@@ -20,8 +20,8 @@
           </div>
           <div class="tt-news">
             <p class="date">{{blog.datepublish | date:'dd/MM/yyyy'}}</p>
-            <span class="cm">0</span>
-            <span class="like">0</span>
+            <span class="cm">{{blog.totalComments}}</span>
+            <span class="like">{{blog.totalLikes}}</span>
           </div>
           <div class="copy" innerHTML="{{ blog.longDesc | decodeHtmlEntities }}"></div>
 
