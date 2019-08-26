@@ -143,5 +143,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       property: 'og:image:height',
       content: '630',
     });
+    meta.updateTag({
+      property: 'og:type',
+      content: 'website'
+    });
   }
 }

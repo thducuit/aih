@@ -40,16 +40,17 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   public liked;
 
-  constructor(private route: ActivatedRoute,
-              public postService: PostService,
-              public blogService: BlogService,
-              private translate: TranslateService,
-              private metaService: Meta,
-              private titleService: Title,
-              private router: Router,
-              private authService: AuthService,
-              public commentService: CommentService) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    public postService: PostService,
+    public blogService: BlogService,
+    private translate: TranslateService,
+    private metaService: Meta,
+    private titleService: Title,
+    private router: Router,
+    private authService: AuthService,
+    public commentService: CommentService,
+  ) {}
 
   ngOnInit() {
     this.isShowWarning = false;
@@ -66,7 +67,9 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       this.postService.getAlias(alias).subscribe((data: any) => {
         const newAlias = data['alias'];
         if (newAlias) {
-          return this.router.navigate([UrlService.createNewsDetailUrl(newAlias)]);
+          return this.router.navigate([
+            UrlService.createNewsDetailUrl(newAlias),
+          ]);
         } else {
           return this.router.navigate(['/news']);
         }
@@ -102,7 +105,9 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       this.liked = liked.indexOf(blog.id) >= 0;
 
       // seo
-      const pageTitle = this.blog.metaTitle ? `${this.blog.metaTitle} - ${aihStr}` : `${this.blog.name} - ${aihStr}`;
+      const pageTitle = this.blog.metaTitle
+        ? `${this.blog.metaTitle} - ${aihStr}`
+        : `${this.blog.name} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({
         property: 'og:title',
@@ -172,8 +177,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   gotoSearch() {
     const url = `/search?keyword=${this.keyword}`;
-    this.router.navigateByUrl(url).then(e => {
-    });
+    this.router.navigateByUrl(url).then(e => {});
   }
 
   sendComment() {

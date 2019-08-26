@@ -5,5 +5,5 @@ export const environment = {
   api: 'https://api.aih.tqdesign.vn/',
   mapApiKey: 'AIzaSyD77nJoVaeLUFJAGd_wp0qmTiNUJemumnE',
   secretKey: 'GwBqWPA4ezINGtLPzwNilw==',
-  host: 'https://aih.tqdesign.vn'
+  host: 'http://45.117.168.148/'
 };

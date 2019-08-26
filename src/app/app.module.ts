@@ -163,6 +163,7 @@ import { MembershipConsultingComponent } from './containers/insurance/membership
 import { MembershipComponent } from './containers/insurance/membership/membership.component';
 import { InsuranceMembershipComponent } from './containers/insurance/insurance-membership/insurance-membership.component';
 import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -297,6 +298,7 @@ export function provideConfig() {
     MembershipComponent,
     InsuranceMembershipComponent,
     InsuranceDetailComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),
