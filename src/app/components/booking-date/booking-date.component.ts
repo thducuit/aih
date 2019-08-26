@@ -5,7 +5,7 @@ import {
   NgbDate,
 } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
-import { momentToNgbDate, stringPadStart } from 'src/app/utilities';
+import { momentToNgbDate, stringPadStart, maxMomentToNgbDate } from 'src/app/utilities';
 import {
   trigger,
   state,
@@ -39,6 +39,8 @@ export class BookingDateComponent implements OnInit {
   @Input() animateAfter: boolean;
   @Output() changeDate = new EventEmitter<NgbDateStruct>();
   public isDisabled: any;
+
+  public disableDays = [];
 
   constructor(private calendar: NgbCalendar) {}
 
@@ -79,19 +81,33 @@ export class BookingDateComponent implements OnInit {
     return momentToNgbDate(moment());
   }
 
+  getMaxDate(): NgbDateStruct {
+      return maxMomentToNgbDate(moment());
+  }
+
   getMarkDisableDate() {
     return (date: NgbDate) => {
-      return this.calendar.getWeekday(date) > 6;
+      const rs = this.disableDays.find(item => {
+        return item.year === date.year && item.month === date.month && item.day === date.day;
+      });
+      return this.calendar.getWeekday(date) > 6 || rs;
     };
   }
 
-  reset() {
-    let defaultDate = moment();
-    // If Sunday then choose next day => Monday
-    if (defaultDate.day() === 0) {
-      defaultDate = defaultDate.add(1, 'days');
-    }
+  handleDisableDays(offs) {
+    this.disableDays = offs.map(item => {
+      return momentToNgbDate(item);
+    });
+  }
 
-    this.onDateSelect(momentToNgbDate(defaultDate));
+  reset() {
+    this.selectedDate = null;
+    // let defaultDate = moment();
+    // If Sunday then choose next day => Monday
+    // if (defaultDate.day() === 0) {
+    //   defaultDate = defaultDate.add(1, 'days');
+    // }
+
+    // this.onDateSelect(momentToNgbDate(defaultDate));
   }
 }

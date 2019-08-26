@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UrlService } from '../../../../services/url.service';
@@ -14,7 +14,7 @@ import { PostService } from '../../../../services/post.service';
   templateUrl: './service-detail.component.html',
   styleUrls: ['./service-detail.component.scss'],
 })
-export class ServiceDetailComponent implements OnInit, OnDestroy {
+export class ServiceDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   public clinic: Clinic;
   private subscription: Subscription;
   public clinicIds;
@@ -23,6 +23,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('serviceCate', { static: false }) serviceCate;
   @ViewChild('copyCate', { static: false }) copyCate;
+  @ViewChild('pServiceCate', { static: false }) contentEl: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +34,8 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     private animateScrollService: NgAnimateScrollService,
     private titleService: Title,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private renderer: Renderer2
   ) {
   }
 
@@ -62,14 +64,13 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  // ngAfterViewInit() {
-  //   if (this.serviceCate && this.copyCate) {
-  //     const serviceCateHeight = this.serviceCate.nativeElement.offsetHeight;
-  //     const copyCateHeight = this.copyCate.nativeElement.offsetHeight;
-  //     console.log(serviceCateHeight, copyCateHeight);
-  //     this.copyCate.nativeElement.style.minHeight = serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : 'auto';
-  //   }
-  // }
+  ngAfterViewInit() {
+      const serviceCateHeight = this.serviceCate.nativeElement.offsetHeight;
+      const copyCateHeight = this.copyCate.nativeElement.offsetHeight;
+      const copyCateSection = this.contentEl.nativeElement.querySelector('.copy-cate');
+      const minHeight = serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : 'auto';
+      this.renderer.setStyle(copyCateSection, 'min-height', minHeight);
+  }
 
   private loadCategories(alias) {
     forkJoin(

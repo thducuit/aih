@@ -55,12 +55,12 @@
 
           <div class="form-group clearfix">
             <div class="center">
-              <select id="province" name="province" [(ngModel)]="form.province" class="custom-select sources">
+              <select (change)="onChangeProvince()" id="province" name="province" [(ngModel)]="form.province" class="custom-select sources">
                 <option value="">{{ 'register_province' | translate }}</option>
+                <option value="{{ province['province_id'] }}" *ngFor="let province of provinces">{{ lang==='vi' ? province['province_name_l'] : province['province_name_e'] }}</option>
               </select>
             </div>
           </div>
-
         </div>
 
         <div class="box-popup-regis-textbox">
@@ -112,7 +112,7 @@
             <div class="center">
               <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources">
                 <option value="">{{ 'register_country' | translate }}</option>
-                <option value="{{ country['country_rcd'] }}" *ngFor="let country of countries">{{ country['name_l'] }}</option>
+                <option value="{{ country['country_rcd'] }}" *ngFor="let country of countries">{{ lang === 'vi' ? country['name_l'] : country['name_e'] }}</option>
               </select>
             </div>
           </div>
@@ -221,11 +221,10 @@
             <div class="center">
               <select id="district" name="district" [(ngModel)]="form.district" class="custom-select sources">
                 <option value="">{{ 'register_district' | translate }}</option>
+                <option value="{{ district['district_id'] }}" *ngFor="let district of districtFilters">{{ lang=== 'vi' ? district['district_name_l'] : district['district_name_e'] }}</option>
               </select>
             </div>
           </div>
-
-
         </div>
 
         <div class="clearfix"></div>

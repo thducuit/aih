@@ -64,7 +64,7 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     loadDoctors() {
         this.doctorService.fetch().subscribe((data: any) => {
             const posts = data.Posts || [];
-            this.doctors = posts.map(post => {
+            this.filteredDoctors = this.doctors = posts.map(post => {
                 const doctor = new Doctor(post);
                 if (doctor.picture) {
                     doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
@@ -92,6 +92,14 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
                     });
                 });
         }
+    }
+
+    filterDoctorsByClinic(clinic) {
+        this.filteredDoctors = (this.doctors || []).filter(doctor => {
+            const postHis = doctor.meta.his_clinic_ids || [];
+            const catHis = clinic.meta.his_clinic_ids || [];
+            return postHis.some(r => catHis.indexOf(r) >= 0) || doctor.categories.indexOf(clinic.id) >= 0 || clinic.id === doctor.categoryId;
+        });
     }
 
     handleExpand($event, doctor) {

@@ -10,6 +10,7 @@
           [startDate]="selectedDate"
           (select)="onDateSelect($event)"
           [minDate]="getMinDate()"
+          [maxDate]="getMaxDate()"
           [markDisabled]="getMarkDisableDate()"
           outsideDays="visible"
         ></ngb-datepicker>

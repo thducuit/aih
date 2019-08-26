@@ -166,7 +166,7 @@
   },
   "text_close": "Close",
   "text_booking_require_phone": "Phone number is required",
-  "text_booking_require_doctor": "Select doctor before booking",
+  "text_booking_require_doctor": "Select doctor before booking or contact to Hotline 028 3910 9999 for support",
   "text_booking_require_time": "Select time before booking",
   "text_booking_success": "Booking success",
   "text_booking_error": "Booking error. Try again!!!",

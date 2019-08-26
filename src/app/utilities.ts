@@ -55,6 +55,14 @@ export function momentToNgbDate(date: moment.Moment): NgbDateStruct {
   };
 }
 
+export function maxMomentToNgbDate(date: moment.Moment): NgbDateStruct {
+    return {
+        year: date.year(),
+        month: date.month() + 3,
+        day: date.date(),
+    };
+}
+
 export function compareTwoHours(h1: string, h2: string) {
   if (h1 === h2) {
     return 0;

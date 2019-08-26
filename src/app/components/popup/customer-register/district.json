@@ -1,0 +1,4850 @@
+[
+  {
+    "district_id": "3CD53FF0-B814-418F-A7B3-007D80D6AAD3",
+    "district_name_e": "Thi xa Binh Long District",
+    "district_name_l": "Thị xã Bình Long",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "239DD08B-A4AD-4984-BCC7-008C67E01175",
+    "district_name_e": "Tp. Chi Linh",
+    "district_name_l": "Tp. Chí Linh",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "4662563B-E57B-48BF-8573-00BDCEABADF9",
+    "district_name_e": "A Luoi District",
+    "district_name_l": "Huyện A Lưới",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "BC0EF8C3-8EB5-4E44-8925-0121DB057299",
+    "district_name_e": "Nong Cong District",
+    "district_name_l": "Huyện Nông Cống",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "AC522503-E901-4E0C-90B3-01CF81190F3D",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "23A25AA9-A558-4D74-A898-02C16A2289D6",
+    "district_name_e": "Tp. Soc Trang",
+    "district_name_l": "Tp. Sóc Trăng",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "01C63C38-BC9F-401A-8DD7-0388780D6C51",
+    "district_name_e": "Thi xa Di An District",
+    "district_name_l": "Thị xã Dĩ An",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "86B10FBF-6417-4A5C-9224-038E78FE69D0",
+    "district_name_e": "Giang Thanh District",
+    "district_name_l": "Huyện Giang Thành",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "DF5415F4-05CB-4DCD-9BBE-03E6CA81689F",
+    "district_name_e": "Hoang Su Phi District",
+    "district_name_l": "Huyện Hoàng Su Phì",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "D6AD4902-4AF4-4611-9187-03F6DA676E65",
+    "district_name_e": "Ky Son District",
+    "district_name_l": "Huyện Kỳ Sơn",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "13553BCA-AA31-4F60-87AF-0416CB07BCC1",
+    "district_name_e": "Luong Son District",
+    "district_name_l": "Huyện Lương Sơn",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "6EEE6366-6276-4A29-B916-04AB1C1BCEB1",
+    "district_name_e": "Giao Thuy District",
+    "district_name_l": "Huyện Giao Thủy",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "F022D11E-A6CC-479C-B320-04D42EEB81DE",
+    "district_name_e": "Co To District",
+    "district_name_l": "Huyện Cô Tô",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "D48A89F3-BF62-4538-A428-04E2CD923EF5",
+    "district_name_e": "Lak District",
+    "district_name_l": "Huyện Lắk",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "6DD4E21E-149C-4169-B754-05085F50828D",
+    "district_name_e": "Kien Thuy Distric",
+    "district_name_l": "Huyện Kiến Thuỵ",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "5EAE6C92-FE6E-4AA6-BBF3-0538CD813CA5",
+    "district_name_e": "Tan Thanh District",
+    "district_name_l": "Huyện Tân Thành",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "ADACF871-4FE7-4317-87D6-054DAE594169",
+    "district_name_e": "Tuy Phong District",
+    "district_name_l": "Huyện Tuy Phong",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "64A908E9-099D-458A-8286-0568F7642835",
+    "district_name_e": "Viet Tri City",
+    "district_name_l": "Thành phố Việt Trì",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "486AEDF1-4E1C-41A8-8479-05E923205FF8",
+    "district_name_e": "Tp. Nam Dinh",
+    "district_name_l": "Tp. Nam Định",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "8F46A28A-4AE4-441D-8B96-062FAD60C02C",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "AD6C82A1-642B-4192-AD00-064906B2FDF0",
+    "district_name_e": "Le Thuy Provincial Town",
+    "district_name_l": "Huyện Lệ Thủy",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "EEC321AF-8461-4A34-9AE0-07764A328CAD",
+    "district_name_e": "Hon Quan District",
+    "district_name_l": "Huyện Hớn Quản",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "52C2416E-36B8-42D9-ADCF-0779DA8D0616",
+    "district_name_e": "Cam Duong District",
+    "district_name_l": "Thị xã Cam Đường",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "003CEE5E-20BF-4EB6-B40C-08225683528D",
+    "district_name_e": "Tp. Vinh Yen",
+    "district_name_l": "Tp. Vĩnh Yên",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "4ACD81BA-0870-4121-A738-088DF197A1F5",
+    "district_name_e": "Ayun Pa District",
+    "district_name_l": "Huyện Ayun Pa",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "6B648307-921B-4201-AB9B-08E829111C85",
+    "district_name_e": "Tp. Phan Rang-Thap Cham",
+    "district_name_l": "Tp. Phan Rang-Tháp Chàm",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "25BE98A0-3C87-42B8-ACD0-08E839DEA3A4",
+    "district_name_e": "Vung Liem District",
+    "district_name_l": "Huyện Vũng Liêm",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "0CA59AD3-5C63-438A-BF01-08EBCF9BB0DF",
+    "district_name_e": "Son Duong District",
+    "district_name_l": "Huyện Sơn Dương",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "683A31C5-441E-442B-94FA-093A46DFD0C5",
+    "district_name_e": "Tam Duong District",
+    "district_name_l": "Huyện Tam Dương",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "EBFE4C98-32F8-4FAF-B1E8-09614C55E6F5",
+    "district_name_e": "Phu Ly City",
+    "district_name_l": "Tp. Phủ Lý",
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0"
+  },
+  {
+    "district_id": "A6067A58-8F35-4073-B3B6-099BFEE2AE28",
+    "district_name_e": "Dau Tieng District",
+    "district_name_l": "Huyện Dầu Tiếng",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "C21A07E1-FEC6-4027-B867-099FDDBC4DA2",
+    "district_name_e": "Tp. Bao Loc",
+    "district_name_l": "Tp. Bảo Lộc",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "893E798E-BA68-4EEA-BEB8-09BD3B865DBB",
+    "district_name_e": "Me Linh Distric",
+    "district_name_l": "Huyện Mê Linh",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "2555C8BB-6705-404B-B92A-0A0B001293D0",
+    "district_name_e": "Yen Lac District",
+    "district_name_l": "Huyện Yên Lạc",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "3838D0BA-2B28-4776-A8B0-0A771E84B410",
+    "district_name_e": "Da Lat City",
+    "district_name_l": "Thành phố Đà Lạt",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "AEAF856F-DBBE-4703-BF8B-0A8020A8F755",
+    "district_name_e": "Anh Son District",
+    "district_name_l": "Huyện Anh Sơn",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "1C72C290-6237-4C7A-8EC8-0AB328E31486",
+    "district_name_e": "Binh Luc District",
+    "district_name_l": "Huyện Bình Lục",
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0"
+  },
+  {
+    "district_id": "22C65FC5-A108-4C5C-B344-0B4FD8021ECE",
+    "district_name_e": "Tan Hong District",
+    "district_name_l": "Huyện Tân Hồng",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "1857BE7F-DF43-4262-ABA1-0C023A0D555C",
+    "district_name_e": "Lam Binh District",
+    "district_name_l": "Huyện Lâm Bình",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "F4EA50AA-9F6F-4B54-945B-0C3E8081B6E7",
+    "district_name_e": "Krong No District",
+    "district_name_l": "Huyện Krông Nô",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "D266C9F9-AE51-4704-BF05-0CE99608E210",
+    "district_name_e": "Tp. Chau Doc",
+    "district_name_l": "Tp. Châu Đốc",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "D5252599-947E-41A3-A8E0-0D4A415A354D",
+    "district_name_e": "Tuy Phuoc District",
+    "district_name_l": "Huyện Tuy Phước",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "83D44BAB-E23F-42E7-BEB4-0DA64ED8BD95",
+    "district_name_e": "Gia Binh District",
+    "district_name_l": "Huyện Gia Bình",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "236B589F-FD41-42E7-A2D0-0DAF7C7ADDA3",
+    "district_name_e": "Chon Thanh District",
+    "district_name_l": "Huyện Chơn Thành",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "6971BBDD-664A-4401-80F2-0E032D77C3AA",
+    "district_name_e": "Ninh Hai District",
+    "district_name_l": "Huyện Ninh Hải",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "3445DA6B-DCDD-40BB-ABA3-0E3804623C96",
+    "district_name_e": "My Tho City",
+    "district_name_l": "Thành phố Mỹ Tho",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "E020CC67-26CE-4215-8A65-0E934DA695DD",
+    "district_name_e": "Thi xa Huong Tra District",
+    "district_name_l": "Thị xã Hương Trà",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "A30B8884-4FFB-4E0F-B3DB-0E93E28381C0",
+    "district_name_e": "Uong Bi Provincial Town",
+    "district_name_l": "Thị xã Uông Bí",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "33F173C5-ED59-4252-8F1D-0F0574B58D15",
+    "district_name_e": "1 District",
+    "district_name_l": "Quận 1",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "3987780A-E48C-4990-906A-0F873AEC60EC",
+    "district_name_e": "Tay Giang District",
+    "district_name_l": "Huyện Tây Giang",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "D918104F-7BA3-4BB7-91B2-0FC005193DC1",
+    "district_name_e": "Nha Trang City",
+    "district_name_l": "Thành phố Nha Trang",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "4410B0B5-8CEF-498E-8D9A-0FDC29508CC4",
+    "district_name_e": "Thai Nguyen City",
+    "district_name_l": "Thành phố Thái Nguyên",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "783875DF-71E2-4D27-8947-100FD4D6ACE4",
+    "district_name_e": "Meo Vac District",
+    "district_name_l": "Huyện Mèo Vạc",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "E49EFFDF-BC4D-45B9-9831-1091B8DBA740",
+    "district_name_e": "Ke Sach District",
+    "district_name_l": "Huyện Kế Sách",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "3799B1EC-A201-45AF-A526-10C0F027281E",
+    "district_name_e": "Ninh Phuoc District",
+    "district_name_l": "Huyện Ninh Phước",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "F4EDF52F-01EE-4045-AD38-113ABCBF4CF0",
+    "district_name_e": "Gio Linh District",
+    "district_name_l": "Huyện Gio Linh",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "4BCC33C7-1BF6-4595-8BAF-1154E333451B",
+    "district_name_e": "Nghi Loc District",
+    "district_name_l": "Huyện Nghi Lộc",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "AFE3A516-D3F7-4FC0-89ED-117DF0C6E29F",
+    "district_name_e": "Son Tay District",
+    "district_name_l": "Huyện Sơn Tây",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "AA54996A-D36E-4491-AE78-11A842BE3EBB",
+    "district_name_e": "Tinh Bien District",
+    "district_name_l": "Huyện Tịnh Biên",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "1B971ACB-0E32-4848-8A4C-11D7F599913B",
+    "district_name_e": "Huong Tra District",
+    "district_name_l": "Huyện Hương Trà",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "E2275F3D-48F6-4B89-99BB-1247B862CEA6",
+    "district_name_e": "Dien Bien District",
+    "district_name_l": "Huyện Điện Biên",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "63D792D9-252F-4002-8174-1374F5433278",
+    "district_name_e": "Hoai Nhon District",
+    "district_name_l": "Huyện Hoài Nhơn",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "2B7E6D45-3186-4A23-B61A-13B73A73FAAD",
+    "district_name_e": "Lac Duong District",
+    "district_name_l": "Huyện Lạc Dương",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "CED635E8-559F-48B6-9072-13FB27677D3D",
+    "district_name_e": "Dao Hoang Sa District",
+    "district_name_l": "Huyện Đảo Hoàng Sa",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "8C804345-3801-4B90-84A6-1409BD50121D",
+    "district_name_e": "Nghia Lo City",
+    "district_name_l": "Thị xã Nghĩa Lộ",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "78A4B124-4BAF-4965-8F47-144080E674D0",
+    "district_name_e": "Thi xa Song Cau District",
+    "district_name_l": "Thị xã Sông Cầu",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "EA60B3BF-632A-4E04-BF76-14543B06377A",
+    "district_name_e": "Tp. Tuyen Quang",
+    "district_name_l": "Tp. Tuyên Quang",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "F5E0166B-CCAF-4DE9-ABB1-1494E39AD51E",
+    "district_name_e": "Van Yen District",
+    "district_name_l": "Huyện Văn Yên",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "AF5D2422-E390-4CB3-B979-14BE3CFC6879",
+    "district_name_e": "Can Gio District",
+    "district_name_l": "Huyện Cần Giờ",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "21CFEA12-720A-474B-A5BD-150FEE46E154",
+    "district_name_e": "Tp. Viet Tri",
+    "district_name_l": "Tp. Việt Trì",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "53BA51A6-6319-4274-8E93-15433371EC8F",
+    "district_name_e": "Binh Gia District",
+    "district_name_l": "Huyện Bình Gia",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "74479762-9D92-4165-BFDD-156716862D9A",
+    "district_name_e": "Tan Ky District",
+    "district_name_l": "Huyện Tân Kỳ",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "96DB01BF-9E03-46FD-97F4-15F89E664103",
+    "district_name_e": "Vi Thanh Provincial Town",
+    "district_name_l": "Thị xã Vị Thanh",
+    "province_id": "18F833E1-61BF-4F73-AA86-DF4823806FE4"
+  },
+  {
+    "district_id": "664BFA43-527B-4A4D-884B-15FC46AFA2F9",
+    "district_name_e": "Nam Sach District",
+    "district_name_l": "Huyện Nam Sách",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "8721FC59-209A-4EFB-A957-165734F9932B",
+    "district_name_e": "Tam Nong District",
+    "district_name_l": "Huyện Tam Nông",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "847CA7BB-FA11-406C-8171-16A1B423419C",
+    "district_name_e": "Ninh Giang District",
+    "district_name_l": "Huyện Ninh Giang",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "0BADB0D0-3136-46A9-BF30-170B36037BB7",
+    "district_name_e": "Tp. Uong Bi",
+    "district_name_l": "Tp. Uông Bí",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "5F43494B-968A-4110-8BCF-173E8C54393C",
+    "district_name_e": "Le Chan District",
+    "district_name_l": "Quận Lê Chân",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "28528F14-E970-434B-9BBB-1774B79C41BC",
+    "district_name_e": "Ninh Hoa District",
+    "district_name_l": "Huyện Ninh Hòa",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "4C5DD120-94FC-4578-BAFB-1788BC39EEC3",
+    "district_name_e": "Cang Long District",
+    "district_name_l": "Huyện Càng Long",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "354489B0-D31F-47A8-A9C8-17899865AF06",
+    "district_name_e": "Luc Ngan District",
+    "district_name_l": "Huyện Lục Ngạn",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "38CF3308-F44A-4300-8C3D-17B000F94FAB",
+    "district_name_e": "Tp. Bien Hoa",
+    "district_name_l": "Tp. Biên Hòa",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "4BDD3DFB-0B10-4329-A10A-17F4A85878B3",
+    "district_name_e": "Hoi An Provincial Town",
+    "district_name_l": "Thị xã Hội An",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "89CCC5FD-5D6A-4D3B-AB7D-1860FBE5BD30",
+    "district_name_e": "7 District",
+    "district_name_l": "Quận 7",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "219EE14F-F9AF-4DBB-B0CB-187E4247A39E",
+    "district_name_e": "Me Linh Distric",
+    "district_name_l": "Huyện Mê Linh",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "4191EC80-C29D-4898-8CE1-18A0448EFBFB",
+    "district_name_e": "Bac Tra My District",
+    "district_name_l": "Huyện Bắc Trà My",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "C6607CA6-E8CE-4110-86F1-18AE70C87112",
+    "district_name_e": "Huong Khe District",
+    "district_name_l": "Huyện Hương Khê",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "4B31EF05-B73C-43C8-8A0D-18E096652BB5",
+    "district_name_e": "Chu Pah District",
+    "district_name_l": "Huyện Chư Păh",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "8B46F5C8-38D8-4010-903D-190A89A43401",
+    "district_name_e": "Dam Rong District",
+    "district_name_l": "Huyện Đam Rông",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "30C420D9-A618-4D24-A066-1A431635D1F9",
+    "district_name_e": "An Nhon District",
+    "district_name_l": "Huyện An Nhơn",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "AE886FE9-9FE6-4102-ADB4-1AB92860D8CC",
+    "district_name_e": "Phong Tho District",
+    "district_name_l": "Huyện Phong Thổ",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "3EC90534-DA90-4EB2-BE33-1AE9AEEE076C",
+    "district_name_e": " Vung Liem District",
+    "district_name_l": "Huyện Vũng Liêm",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "3986B110-E256-449C-988A-1B7A5EEDA096",
+    "district_name_e": "Ninh Son District",
+    "district_name_l": "Huyện Ninh Sơn",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "C9EE666E-FF5B-46DD-B08B-1B82E7E298C2",
+    "district_name_e": "Thi xa Ba Don District",
+    "district_name_l": "Thị xã Ba Đồn",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "B861EE54-79EA-45E6-9992-1BF54F2553F8",
+    "district_name_e": "Tuy An District",
+    "district_name_l": "Huyện Tuy An",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "DB206FFE-77AB-4B97-A0B2-1C486A9733A2",
+    "district_name_e": "Dong Xuan District",
+    "district_name_l": "Huyện Đồng Xuân",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "9B06351A-3F0C-4139-9266-1C49F7E34132",
+    "district_name_e": "Vinh Hung District",
+    "district_name_l": "Huyện Vĩnh Hưng",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "5C340893-D030-4722-9F4B-1CDBABD13FAC",
+    "district_name_e": "Duc Co District",
+    "district_name_l": "Huyện Đức Cơ",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "9F181713-1A6D-4020-84C0-1D086B713B14",
+    "district_name_e": "Huong Hoa District",
+    "district_name_l": "Huyện Hướng Hóa",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "41B388D1-C9C3-442E-839D-1D22E469E5C4",
+    "district_name_e": "Truc Ninh District",
+    "district_name_l": "Huyện Trực Ninh",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "900EE66F-931E-4F07-9EC0-1D50119C43C7",
+    "district_name_e": "An Bien District",
+    "district_name_l": "Huyện An Biên",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "C6134C8D-D300-4CCE-BBDF-1DDE3E48FA25",
+    "district_name_e": "Tanh Thanh District",
+    "district_name_l": "Huyện Tân Thạnh",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "43AE17DF-4DCB-46AB-A92F-1E57C8E2B1E3",
+    "district_name_e": "Vinh Cuu District",
+    "district_name_l": "Huyện Vĩnh Cừu",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "DBE579E5-8DED-46ED-AEDB-1E936612CD3F",
+    "district_name_e": "Tay Ninh Provincial Town",
+    "district_name_l": "Thị xã Tây Ninh",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "E318A763-1DDC-42C6-BF1C-1EEE55B188E9",
+    "district_name_e": "Thanh Hoa District",
+    "district_name_l": "Huyện Thạnh Hóa",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "0264053D-FCFD-4200-8F8C-1FC30EE290C6",
+    "district_name_e": "Ngan Son District",
+    "district_name_l": "Huyện Ngân Sơn",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "CFF0B176-C154-437F-AEE8-2023AA4CCC69",
+    "district_name_e": "Tp. Ha Long",
+    "district_name_l": "Tp. Hạ Long",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "77160093-802B-4F79-9559-2038726A8501",
+    "district_name_e": "An Lao District",
+    "district_name_l": "Huyện An Lão",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "17204E54-01AF-4368-9748-205CD7B1AD3A",
+    "district_name_e": "Yen Hung District",
+    "district_name_l": "Huyện Yên Hưng",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "BDFE9647-BAE7-446D-BC6C-20AC00148CF1",
+    "district_name_e": "Hoa Binh District",
+    "district_name_l": "Huyện Hoà Bình",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "5C9C9410-01B9-4148-9217-20BDB5DE02F5",
+    "district_name_e": "Thi xa Phuoc Long District",
+    "district_name_l": "Thị xã Phước Long",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "C9B01088-D82B-4972-80C6-213061C102BE",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "9AAAEF18-5434-435F-B80D-23D79FA5989F",
+    "district_name_e": "Nam Nhun District",
+    "district_name_l": "Huyện Nậm Nhùn",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "38C6E22F-44B8-4750-A946-247C7913997C",
+    "district_name_e": "Van Lang District",
+    "district_name_l": "Huyện Văn Lãng",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "4E86A42C-1936-4E6B-A738-2482BD850CC1",
+    "district_name_e": "Tp. Song Cong",
+    "district_name_l": "Tp. Sông Công",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "ADC22232-E716-48EA-948F-248C5E92BA51",
+    "district_name_e": "Quy Hop District",
+    "district_name_l": "Huyện Quỳ Hợp",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "5E690F07-A589-49AE-B3DF-2508110AF25A",
+    "district_name_e": "Vinh Yen District",
+    "district_name_l": "Thị xã Vĩnh Yên",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "46FCD6A2-4496-46FF-B425-251C634DE1E3",
+    "district_name_e": "Thoai Son District",
+    "district_name_l": "Huyện Thoại Sơn",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "B8A54F6B-5610-468E-83C5-259BA33A80EF",
+    "district_name_e": "Bu Gia Map District",
+    "district_name_l": "Huyện Bù Gia Mập",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "265DB2AC-9390-4C95-B49A-25CFD4DAEC21",
+    "district_name_e": "Tp. Kon Tum",
+    "district_name_l": "Tp. Kon Tum",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "52E57F5A-8A8C-40CA-8917-25FDAF395B11",
+    "district_name_e": "Da Bac District",
+    "district_name_l": "Huyện Đà Bắc",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "B91D55BC-55B0-4EE9-B119-26447D5E02CC",
+    "district_name_e": "Tan Bien District",
+    "district_name_l": "Huyện Tân Biên",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "E255E944-E3F6-4ED1-83CD-26563BE9E15E",
+    "district_name_e": "Thi xa Tan Chau District",
+    "district_name_l": "Thị xã Tân Châu",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "E5812017-2280-4C82-93B7-26851309CE2E",
+    "district_name_e": "Lao Cai City",
+    "district_name_l": "Tp. Lào Cai",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "6D122A75-ED29-4B2E-8B14-26C29D7766FB",
+    "district_name_e": "Cat Tien District",
+    "district_name_l": "Huyện Cát Tiên",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "F025D89C-4B45-4398-808C-276B237C5183",
+    "district_name_e": "Tra My Provincial Town",
+    "district_name_l": "Huyện Trà My",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "CB859A7F-425F-4403-8FB5-27711E1A2D61",
+    "district_name_e": "Phu My District",
+    "district_name_l": "Huyện Phù Mỹ",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "AB23223C-F5F5-4183-A87C-27D4CFD30D1F",
+    "district_name_e": "Dinh Hoa District",
+    "district_name_l": "Huyện Định Hóa",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "06164621-4132-4AF8-B029-27E8EDF7304A",
+    "district_name_e": "Tp. Dong Ha",
+    "district_name_l": "Tp. Đông Hà",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "DE6753AE-DEC1-42D2-A439-28A4C4C8BBC4",
+    "district_name_e": "Bac Lieu Provincial Town",
+    "district_name_l": "Thị xã Bạc Liêu",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "DE2A8C58-8FBC-4897-8D2D-28AEFA59875C",
+    "district_name_e": "Que Phong District",
+    "district_name_l": "Huyện Quế Phong",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "A88EC23F-BF52-4F11-B22E-28B3FB9E81E6",
+    "district_name_e": "Quy Chau District",
+    "district_name_l": "Huyện Quỳ Châu",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "AB109A79-8A4B-432A-9DD9-290ADC68995B",
+    "district_name_e": "Sam Son Provincial Town",
+    "district_name_l": "Thị xã Sầm Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "6DF85C64-7DC5-4E49-AF35-29B0AB606E52",
+    "district_name_e": "Kim Son District",
+    "district_name_l": "Huyện Kim Sơn",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "4C409D86-E1F0-4CB4-8A50-2A16F6862698",
+    "district_name_e": "Song Ma District",
+    "district_name_l": "Huyện Sông Mã",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "81910A23-03C0-4321-80D0-2A3F1C5A8259",
+    "district_name_e": "Bao Loc Provincial Town",
+    "district_name_l": "Thị xã Bảo Lộc",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "EF9750AA-5FE6-48F8-B780-2A6661278826",
+    "district_name_e": "Tam Ky Provincial Town",
+    "district_name_l": "Thị xã Tam Kỳ",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "F96E6B09-AB54-433F-AEFD-2A7794398B23",
+    "district_name_e": "Van Giang District",
+    "district_name_l": "Huyện Văn Giang",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "4516C97B-8E59-4DC7-BD36-2A82A83F600B",
+    "district_name_e": "Long Phu District",
+    "district_name_l": "Huyện Long Phú",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "BEF0064E-CF51-4F40-9E2F-2AE4AE1F140A",
+    "district_name_e": "Bac Giang Provincial Town",
+    "district_name_l": "Thị xã Bắc Giang",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "455AD798-16A2-4F94-8784-2B52ADBF4F7F",
+    "district_name_e": "Ngo Quyen District",
+    "district_name_l": "Quận Ngô Quyền",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "A682F9C9-664E-444B-AD1F-2C2EEA199670",
+    "district_name_e": "Phu Hoa District",
+    "district_name_l": "Huyện Phú Hoà",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "95FF4F67-415F-468A-BFAC-2CB567E41DC3",
+    "district_name_e": "Ha Long City",
+    "district_name_l": "Thành phố Hạ Long",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "DD124F0E-3615-4B08-886C-2D4176A0D2BE",
+    "district_name_e": "Hue City",
+    "district_name_l": "Thành phố Huế",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "6A5BF209-8179-4A94-939E-2D749D0FC586",
+    "district_name_e": "Khanh Son District",
+    "district_name_l": "Huyện Khánh Sơn",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "F4E9E66E-AE67-433B-86F0-2DE5CA45049C",
+    "district_name_e": "Truong Sa District",
+    "district_name_l": "Huyện Trường Sa",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "29E45F91-9593-4CC7-99CB-2E41D91DBBAE",
+    "district_name_e": "Tp. Vi Thanh",
+    "district_name_l": "Tp. Vị Thanh",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "33C4DFDB-5E19-4125-B895-2E79FD10FE5B",
+    "district_name_e": "Dien Ban District",
+    "district_name_l": "Huyện Điện Bàn",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "BFAB8EEB-A345-4412-9604-2E81D7DC2CD8",
+    "district_name_e": "Yen Dung District",
+    "district_name_l": "Huyện Yên Dũng",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "43F71656-690C-4BD5-B999-2EE1A6BE2B79",
+    "district_name_e": "Tp. Cam Pha",
+    "district_name_l": "Tp. Cẩm Phả",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "A3A4FFA8-AB77-49F7-B23A-2F09CF59F5F4",
+    "district_name_e": "Van Ho District",
+    "district_name_l": "Huyện Vân Hồ",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "96859018-F9F9-4210-B62B-2F7A67CD02ED",
+    "district_name_e": "Thi xa My Hao District",
+    "district_name_l": "Thị xã Mỹ Hào",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "281EBD23-1898-4B25-AF7D-2F93807F6818",
+    "district_name_e": "Dak Glei District",
+    "district_name_l": "Huyện Đắk Glei",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "EC4426CF-7640-408C-A0E3-30925F6C9E65",
+    "district_name_e": "Minh Long District",
+    "district_name_l": "Huyện Minh Long",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "8FB86004-BE82-42EF-AAAC-30B5CFF5A5CB",
+    "district_name_e": "Ben Tre Provincial Town",
+    "district_name_l": "Thị xã Bến Tre",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "2BE2FD4C-11CD-46B7-A0C2-30BB646431C0",
+    "district_name_e": "Go Vap District",
+    "district_name_l": "Quận Gò Vấp",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "3F8B0698-DEF0-454A-B7F6-30CB627608C9",
+    "district_name_e": "Quang Trach District",
+    "district_name_l": "Huyện Quảng Trạch",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "0D2D2BE3-3A61-486F-B997-3103D6C20337",
+    "district_name_e": "Long Thanh District",
+    "district_name_l": "Huyện Long Thành",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "BF7E69ED-C96C-4CD9-9CC1-3119B20ECF64",
+    "district_name_e": "Cam Ranh District",
+    "district_name_l": "Huyện Cam Ranh",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "030BDF84-D99C-42B9-986D-313C16EA525F",
+    "district_name_e": "Cai Be District",
+    "district_name_l": "Huyện Cái Bè",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "932B67F7-A78C-4A20-A530-315F23EE0FA3",
+    "district_name_e": "Huong Thuy District",
+    "district_name_l": "Huyện Hương Thủy",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "8755F5B1-46AF-4175-B6E8-3213ED83EB9E",
+    "district_name_e": "Dong Hung District",
+    "district_name_l": "Huyện Đông Hưng",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "CA6E4E7B-8A6A-4558-9CB8-3265C8866D73",
+    "district_name_e": "Song Cau District",
+    "district_name_l": "Huyện Sông Cầu",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "C0C291CB-8324-4206-8F65-328DCF351540",
+    "district_name_e": "Tp. Bac Lieu",
+    "district_name_l": "Tp. Bạc Liêu",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "BA63EBE2-DD12-4BF9-946A-32D648EE4D3C",
+    "district_name_e": "Tp. Cao Lanh",
+    "district_name_l": "Tp. Cao Lãnh",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "9752F76D-2173-42FE-A7D1-32E7409E5112",
+    "district_name_e": "Thanh Son District",
+    "district_name_l": "Huyện Thanh Sơn",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "FFFBF637-B413-450A-A5A0-333650AE2152",
+    "district_name_e": "12 District",
+    "district_name_l": "Quận 12",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "57D823B9-025F-42AD-9413-33C19AB2882F",
+    "district_name_e": "Tay Hoa District",
+    "district_name_l": "Huyện Tây Hoà",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "C13F6A91-6F65-4A87-9FB0-33F283782BCE",
+    "district_name_e": "Tp. Sam Son",
+    "district_name_l": "Tp. Sầm Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "9E45FD5A-7F37-4D69-B8FF-341740929B82",
+    "district_name_e": "Giang District",
+    "district_name_l": "Huyện Giằng",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "3215DCC2-27DE-4672-9766-348E51EF65D1",
+    "district_name_e": "Vung Tau City",
+    "district_name_l": "Thành phố Vũng Tàu",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "8E69C2CC-B5CB-4745-87C7-34F3486CE9D7",
+    "district_name_e": "Hiep Hoa District",
+    "district_name_l": "Huyện Hiệp Hòa",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "9D8FD4E0-0D73-4321-8B24-3529C83C3F01",
+    "district_name_e": "Tp. Hoa Binh",
+    "district_name_l": "Tp. Hòa Bình",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "29321189-694F-471A-840A-360505AB8759",
+    "district_name_e": "Ha Giang City",
+    "district_name_l": "Tp. Hà Giang",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "1199C6C2-C4BE-400F-A854-36107659D0F6",
+    "district_name_e": "Tu Nghia District",
+    "district_name_l": "Huyện Tư Nghĩa",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "945CE6E7-B07C-499A-A64A-373F515DC427",
+    "district_name_e": "Phu Vang District",
+    "district_name_l": "Huyện Phú Vang",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "40E662F0-BA17-4464-9BCC-377D64C0A51B",
+    "district_name_e": "Tan Phu District",
+    "district_name_l": "Huyện Tân Phú",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "03BFC3C2-E69F-46AB-AFB1-37AB69CFDA65",
+    "district_name_e": "Tho Xuan District",
+    "district_name_l": "Huyện Thọ Xuân",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "35DCF1E8-149A-47F3-AED5-37C094320766",
+    "district_name_e": "Nhon Trach District",
+    "district_name_l": "Huyện Nhơn Trạch",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "82B200ED-DC6A-4BC5-80B4-380FB8ED2DC9",
+    "district_name_e": "Hoang Sa District",
+    "district_name_l": "Huyện Hoàng Sa",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "4E4C0BB3-421F-4A1C-984E-385EEBE69793",
+    "district_name_e": "Muong Te District",
+    "district_name_l": "Huyện Mường Tè",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "F2FCCACD-5E1B-4A88-9241-38832A21269F",
+    "district_name_e": "4 District",
+    "district_name_l": "Quận 4",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "73DA5196-715D-4FA2-B527-38F21FAEEFD0",
+    "district_name_e": "5 District",
+    "district_name_l": "Quận 5",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "EF3E57A3-210F-4682-A22E-38F66EF983A0",
+    "district_name_e": "Bao Thang District",
+    "district_name_l": "Huyện Bảo Thắng",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "B3433219-0E3A-4A78-8406-390712BD36C8",
+    "district_name_e": "Thi xa Dong Trieu District",
+    "district_name_l": "Thị xã Đông Triều",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "17699966-1077-483D-88F9-39212C977089",
+    "district_name_e": "Tam Diep District",
+    "district_name_l": "Thị xã Tam Điệp",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "6C1EB40B-A0C2-424C-8A49-3978A9541E65",
+    "district_name_e": "Tu Ky District",
+    "district_name_l": "Huyện Tứ Kỳ",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "C81F1402-82D1-4BE9-8A8E-397C6FDA947E",
+    "district_name_e": "Bao Lam District",
+    "district_name_l": "Huyện Bảo Lâm",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "5C6269E5-9E39-4DD1-9917-399126F841D1",
+    "district_name_e": "Dak Mil District",
+    "district_name_l": "Huyện Đắk Mil",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "C4C92E6B-055A-40AB-940E-3A49BFA2171D",
+    "district_name_e": "Con Cuong District",
+    "district_name_l": "Huyện Con Cuông",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "56BB1327-8F24-4EB6-895B-3AB2A46E8887",
+    "district_name_e": "Phu Cat District",
+    "district_name_l": "Huyện Phù Cát",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "5A8B5C65-775E-4E50-8BF4-3B0D0A6437C6",
+    "district_name_e": "Son Tra District",
+    "district_name_l": "Quận Sơn Trà",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "17DE4B3F-B36D-4D4A-AF0F-3B23BBABED61",
+    "district_name_e": "Tan Yen District",
+    "district_name_l": "Huyện Tân Yên",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "9DE82EF7-0A6E-4C1D-87B2-3B964CB34CEB",
+    "district_name_e": "Bach Thong District",
+    "district_name_l": "Huyện Bạch Thông",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "8511BCBC-A447-43FA-8029-3BFFF02C0CEC",
+    "district_name_e": "Mo Cay Nam District",
+    "district_name_l": "Huyện Mỏ Cày Nam",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "4E402C8F-D1E2-4836-9A67-3C95BEE852A1",
+    "district_name_e": "M'Drak District",
+    "district_name_l": "Huyện M'Đrắk",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "A8917E1D-0C64-4A08-8C0B-3D0AFFDE7F15",
+    "district_name_e": "Ngoc Lac District",
+    "district_name_l": "Huyện Ngọc Lạc",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "C46A9092-EBCC-43C9-B805-3D1CDCD913FF",
+    "district_name_e": "Dong Giang District",
+    "district_name_l": "Huyện Đông Giang",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "3864F731-C148-4E4D-BC68-3E4C83979FBD",
+    "district_name_e": "Kien Hai District",
+    "district_name_l": "Huyện Kiên Hải",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "F6546E8A-0E02-4E57-B774-3E53EA69438B",
+    "district_name_e": "Ninh Binh City",
+    "district_name_l": "Tp. Ninh Bình",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "B081919B-66C7-4E4D-A4C3-3E8B30228EED",
+    "district_name_e": "Tp. Lai Chau",
+    "district_name_l": "Tp. Lai Châu",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "E8B732CA-4DF2-4F1A-BF6E-3EBCFDBBFAE7",
+    "district_name_e": "Thi xa Ben Cat District",
+    "district_name_l": "Thị xã Bến Cát",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "B8173318-E6FB-42EA-AC0A-3F06E744FECD",
+    "district_name_e": "Phuc Hoa District",
+    "district_name_l": "Huyện Phục Hoà",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "51343EDB-10E9-448E-82B2-3F0943ED73BE",
+    "district_name_e": "Thanh Tri District",
+    "district_name_l": "Huyện Thanh Trì",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "EC23719B-0A3E-4321-896E-3F1938B0833F",
+    "district_name_e": "Di An Distric",
+    "district_name_l": "Huyện Dĩ An",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "B6B073B7-DD81-4DA2-B51E-3F7A6814A531",
+    "district_name_e": "Gia Lam District",
+    "district_name_l": "Huyện Gia Lâm",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "E25816F7-9862-4F5B-85AB-3FF18E1FA4A7",
+    "district_name_e": "Da Huoai District",
+    "district_name_l": "Huyện Đạ Huoai",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "089D0843-0302-46D2-9717-4010EDE9E174",
+    "district_name_e": "Dak Ha District",
+    "district_name_l": "Huyện Đak Hà",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "0CD4D310-34D6-4EEA-A560-40FA90CEE15E",
+    "district_name_e": "Lap Vo District",
+    "district_name_l": "Huyện Lấp Vò",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "79AB0049-5987-492C-9447-41234F7B89F1",
+    "district_name_e": "8 District",
+    "district_name_l": "Quận 8",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "A79084DC-10F7-4BC9-BBE6-41663C541F3B",
+    "district_name_e": "Phu Xuyen District",
+    "district_name_l": "Huyện Phú Xuyên",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "F903BFDB-CBB7-4B92-854C-419B95BA78BD",
+    "district_name_e": "Dam Ha District",
+    "district_name_l": "Huyện Đầm Hà",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "0553BEAE-899F-4A21-A239-425F4B572804",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "98B6C136-F9C7-43A5-AEBD-4324C041142B",
+    "district_name_e": "Cam Pha Provincial Town",
+    "district_name_l": "Thị xã Cẩm Phả",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "E5680E5B-FC7F-4DBF-8382-438811B0BAC6",
+    "district_name_e": "Tp. Nha Trang",
+    "district_name_l": "Tp. Nha Trang",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "EB98FC16-91E6-4190-90CA-43A8D157C313",
+    "district_name_e": "Tan Chau District",
+    "district_name_l": "Huyện Tân Châu",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "F6605B02-75E8-4D2B-86B7-43D375077D77",
+    "district_name_e": "Vu Thu District",
+    "district_name_l": "Huyện Vũ Thư",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "BD07D1EE-55D1-4B7D-85AD-44928454D388",
+    "district_name_e": "Quâng Ninh District",
+    "district_name_l": "Huyện Quảng Ninh",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "B3987ACA-3D39-4AAE-83DE-45869E384008",
+    "district_name_e": "Pac Nam District",
+    "district_name_l": "Huyện Pác Nặm",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "B06751E2-CF8C-4DAF-AD88-45FC83E0861D",
+    "district_name_e": "Nam Tu Liem District",
+    "district_name_l": "Quận Nam Từ Liêm",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "A589C5B9-0B7A-4387-AD89-4605AA9BD38F",
+    "district_name_e": "Ninh Kieu District",
+    "district_name_l": "Quận Ninh Kiều",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "CB88EC8F-A05B-40BC-9B88-46B65793CF58",
+    "district_name_e": "Quang Ha District",
+    "district_name_l": "Huyện Quảng Hà",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "CB6328E9-04A5-4A81-8F6B-46E1D3BE0B70",
+    "district_name_e": "Bo Trach District",
+    "district_name_l": "Huyện Bố Trạch",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "7AFE3DCD-0F5F-4B00-9843-47282DAC2A3F",
+    "district_name_e": "Binh Giang District",
+    "district_name_l": "Huyện Bình Giang",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "8ED004A0-F3C7-4DA9-8D66-47D761922A16",
+    "district_name_e": "Thanh Binh District",
+    "district_name_l": "Huyện Thanh Bình",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "754237EB-F99B-4872-8C2A-48372F05BCA3",
+    "district_name_e": "Cao Loc District",
+    "district_name_l": "Huyện Cao Lộc",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "4F6BC9BA-3E51-4B59-9755-4838A33B770C",
+    "district_name_e": "Nghi Xuan District",
+    "district_name_l": "Huyện Nghi Xuân",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "0C97E8E7-259E-4447-B55C-489A5169F458",
+    "district_name_e": "Qui Nhon District",
+    "district_name_l": "Thành phố Qui Nhơn",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "3564FDCF-0734-4968-84FF-4924B432A7AE",
+    "district_name_e": "Tp. Vinh Long",
+    "district_name_l": "Tp. Vĩnh Long",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "A694C979-6B0C-4B57-8F33-49B0E7CBFAC4",
+    "district_name_e": "Sin Ho District",
+    "district_name_l": "Huyện Sìn Hồ",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "427B0522-DADD-4732-974F-49BAE576F2C0",
+    "district_name_e": "Bau Bang District",
+    "district_name_l": "Huyện Bàu Bàng",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "920279EC-A29A-4D8A-9985-4A3F6CC49A7F",
+    "district_name_e": "Phu Ninh District",
+    "district_name_l": "Huyện Phù Ninh",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "A0191E7E-45DD-431C-B532-4A66375EF93B",
+    "district_name_e": "Song Lo District",
+    "district_name_l": "Huyện Sông Lô",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "A68DE2B0-1B0C-475D-A6AD-4A7F4EF747CB",
+    "district_name_e": "Chu Prong District",
+    "district_name_l": "Huyện Chư Prông",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "4CFC3B0F-88BC-47A5-A3FA-4AACA273997C",
+    "district_name_e": "Cao Lanh District",
+    "district_name_l": "Huyện Cao Lãnh",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "02F2E2A8-D832-4AC4-B0B2-4AC0E352F9A8",
+    "district_name_e": "Doan Hung District",
+    "district_name_l": "Huyện Đoan Hùng",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "56CA3ABA-0083-4E29-8B5E-4AC126EBC643",
+    "district_name_e": "Go Cong Tay District",
+    "district_name_l": "Huyện Gò Công Tây",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "A4ED4012-E18F-402B-93DB-4B217CB164EF",
+    "district_name_e": "Thi xa Gia Rai District",
+    "district_name_l": "Thị xã Giá Rai",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "EE17F4F8-407D-482E-BEE4-4B5826A7FA68",
+    "district_name_e": "Tien Yen District",
+    "district_name_l": "Huyện Tiên Yên",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "529E5825-6742-4440-8479-4BD5BA0B66E7",
+    "district_name_e": "Thanh Xuan District",
+    "district_name_l": "Quận Thanh Xuân",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "58E641D6-02E4-4559-BEDB-4BE4E0FB99A1",
+    "district_name_e": "Kon Tum Provincial Town",
+    "district_name_l": "Thị xã Kon Tum",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "6C66493C-B281-46B8-9DC1-4C434D36D1BF",
+    "district_name_e": "Lac Thuy District",
+    "district_name_l": "Huyện Lạc Thủy",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "E30DFC3A-EF38-40CA-9A59-4C8DE5DF9BCC",
+    "district_name_e": "Thi Xa Buon Ho District",
+    "district_name_l": "Thị Xã Buôn Hồ",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "E0D38134-40DD-432B-A140-4D6BC2824DFE",
+    "district_name_e": "Mai Son District",
+    "district_name_l": "Huyện Mai Sơn",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "FCCE9F66-C16F-4F07-BB4B-4E00BC42616D",
+    "district_name_e": "Long My District",
+    "district_name_l": "Huyện Long Mỹ",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "3DD3D785-725C-46D7-AE4D-4E1A594FC43A",
+    "district_name_e": "Ky Son District",
+    "district_name_l": "Huyện Kỳ Sơn",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "8DF73369-6E18-42B8-ADCE-4E57EF8A567A",
+    "district_name_e": "Bim Son Provincial Town",
+    "district_name_l": "Thị xã Bỉm Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "3756BE3E-8952-4917-BF2F-4EA63DCF8FBA",
+    "district_name_e": "Cau Giay District",
+    "district_name_l": "Quận Cầu Giấy",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "330363A7-EFFF-4D04-A9FB-4F3E5FEE1CB3",
+    "district_name_e": "Son Tinh District",
+    "district_name_l": "Huyện Sơn Tịnh",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "1F77C60C-2F59-4686-86FD-5005DE1BE1FF",
+    "district_name_e": "My Duc District",
+    "district_name_l": "Huyện Mỹ Đức",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "64A20461-0B47-4ADA-905A-5033424232FB",
+    "district_name_e": "Thuan Nam District",
+    "district_name_l": "Huyện Thuận Nam",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "E1270196-B3B7-4ACB-B957-50A4C0FE9493",
+    "district_name_e": "Dai Tu District",
+    "district_name_l": "Huyện Đại Từ",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "75CB1B35-7BF1-49E6-A938-50B847ADA1E5",
+    "district_name_e": "Tan Phu District",
+    "district_name_l": "Quận Tân Phú",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "430A12E1-6494-4BC8-A2ED-50FA61116294",
+    "district_name_e": "Cu Lao Dung District",
+    "district_name_l": "Huyện Cù Lao Dung",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "8C5BF417-2DD8-4538-B1D4-511037654EF4",
+    "district_name_e": "Dinh Lap District",
+    "district_name_l": "Huyện Đình Lập",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "2DBE47A7-B3B4-48A1-A8CA-5182BB130D72",
+    "district_name_e": "An Lao District",
+    "district_name_l": "Huyện An Lão",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "F099B311-9738-4232-AA2B-5193B6558955",
+    "district_name_e": "Quynh Luu District",
+    "district_name_l": "Huyện Quỳnh Lưu",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "1AD5EBBE-0488-4302-BCB3-52E17EB988BD",
+    "district_name_e": "Bu Dang District",
+    "district_name_l": "Huyện Bù Đăng",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "E341AC05-FB49-41F8-A892-5323420BA24E",
+    "district_name_e": "Ea Sup District",
+    "district_name_l": "Huyện Ea Súp",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "6D51EB1C-F6A8-4FFD-A945-533235C4CCF9",
+    "district_name_e": "Cai Nuoc District",
+    "district_name_l": "Huyện Cái Nước",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "47D50520-9D0E-411E-8F9F-53BCC9FF269E",
+    "district_name_e": "Hai Hau District",
+    "district_name_l": "Huyện Hải Hậu",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "90AA14B7-0546-4B3B-BA63-54CA6A789223",
+    "district_name_e": "Thuan Thanh District",
+    "district_name_l": "Huyện Thuận Thành",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "EAD96931-1F4B-474F-AB51-55E672D827B2",
+    "district_name_e": "Ly Nhan District",
+    "district_name_l": "Huyện Lý Nhân",
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0"
+  },
+  {
+    "district_id": "CE12865E-6FAF-47BA-A699-55FCDA69E8C3",
+    "district_name_e": "Tanh Linh District",
+    "district_name_l": "Huyện Tánh Linh",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "8B0614E0-77D4-4D81-8917-5604A591982D",
+    "district_name_e": "Bien Hoa City",
+    "district_name_l": "Thành phố Biên Hòa",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "C933AE29-0FBA-4269-A84D-562E5773A721",
+    "district_name_e": "Phuoc Long District",
+    "district_name_l": "Huyện Phước Long",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "3BA3A9A6-679E-4281-A619-56A24E4D85B9",
+    "district_name_e": "Cho Moi District",
+    "district_name_l": "Huyện Chợ Mới",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "41080C1D-9532-44C8-92F8-56D052CA3AA7",
+    "district_name_e": "Tien Lu District",
+    "district_name_l": "Huyện Tiên Lữ",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "C82F8724-F13C-4214-AAE7-56D0AA7F7424",
+    "district_name_e": "Krong Bong District",
+    "district_name_l": "Huyện Krông Bông",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "644D8792-C90C-4665-954E-56D4E0CB810B",
+    "district_name_e": "Krong Nang District",
+    "district_name_l": "Huyện Krông Năng",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "2DEB6D29-BEF5-43C9-A5D8-5716A3C403BC",
+    "district_name_e": "Tay Tra District",
+    "district_name_l": "Huyện Tây Trà",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "D90CCBF5-AD07-4138-A972-572AC2894F8B",
+    "district_name_e": "Thoi Lai District",
+    "district_name_l": "Huyện Thới Lai",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "DF38D691-09D2-4211-80EA-572F37804525",
+    "district_name_e": "Tp. My Tho",
+    "district_name_l": "Tp. Mỹ Tho",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "897CB307-071F-4AA6-A861-577A7E4543E2",
+    "district_name_e": "Can Giuoc District",
+    "district_name_l": "Huyện Cần Giuộc",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "74E892C1-7433-4AF8-A166-57840C06A977",
+    "district_name_e": "Don Duong District",
+    "district_name_l": "Huyện Đơn Dương",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "30A267E2-B7A1-48E7-BB7A-57BB36DCB355",
+    "district_name_e": "Ngoc Hien District",
+    "district_name_l": "Huyện Ngọc Hiển",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "48076BDF-F8DB-4A3B-B5C5-592DC14DA893",
+    "district_name_e": "Phuc Tho District",
+    "district_name_l": "Huyện Phúc Thọ",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "11F23F82-B6AC-4DE5-B9A9-59C8747FB867",
+    "district_name_e": "Lac Son District",
+    "district_name_l": "Huyện Lạc Sơn",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "7F390E59-8202-412D-A39D-5A5CA875942D",
+    "district_name_e": "Do Son District",
+    "district_name_l": "Quận Đồ Sơn",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "B329B19A-4509-466A-A761-5A73310865E2",
+    "district_name_e": "Cat Hai District",
+    "district_name_l": "Huyện Cát Hải",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "46760865-3EA5-432E-95F5-5AAC7FDA89A0",
+    "district_name_e": "Hoa Binh Provincial Town",
+    "district_name_l": "Thị xã Hòa Bình",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "FA1F62AB-3924-4A76-A550-5AC4016A9490",
+    "district_name_e": "Gia Vien District",
+    "district_name_l": "Huyện Gia Viễn",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "B69F62B2-2BDD-443B-A9B5-5BD3A111C302",
+    "district_name_e": "Thi xa Thai Hoa District",
+    "district_name_l": "Thị xã Thái Hoà",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "9253AC1B-5E74-41B9-8DCB-5BE813B6B3A0",
+    "district_name_e": "Bac Ai District",
+    "district_name_l": "Huyện Bác Ái",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "BF95A41D-776E-403A-9928-5C7C87B289DB",
+    "district_name_e": "Hung Ha District",
+    "district_name_l": "Huyện Hưng Hà",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "87378222-5217-4E3C-AE44-5CC3DB0750F0",
+    "district_name_e": "Binh Dai District",
+    "district_name_l": "Huyện Bình Đại",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "77CC1688-B652-4E04-982F-5CED6EBAE8ED",
+    "district_name_e": "Long Xuyen City",
+    "district_name_l": "Thành Phố Long Xuyên",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "D4BEC139-5AA0-47B6-A544-5CFF8C0F895B",
+    "district_name_e": "Tan Phuoc District",
+    "district_name_l": "Huyện Tân Phước",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "FC028EEE-3A86-4F9D-9976-5D31B3291E02",
+    "district_name_e": "Phu Quoc District",
+    "district_name_l": "Huyện Phú Quốc",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "2AC96DD9-B2CD-4E56-B79A-5D46A2E9C642",
+    "district_name_e": "Xuyen Moc District",
+    "district_name_l": "Huyện Xuyên Mộc",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "91EFAD1C-9606-4F80-AD69-5D7B42DA1440",
+    "district_name_e": "Buon Don District",
+    "district_name_l": "Huyện Buôn Đôn",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "454074FB-804C-4F3F-B8CE-5D9FEDCA054D",
+    "district_name_e": "Nam Dinh City ",
+    "district_name_l": "Thành phố Nam Định",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "827B9569-9CA1-45A1-BABB-5DAFE8182DDA",
+    "district_name_e": "Tran Van Thoi District",
+    "district_name_l": "Huyện Trần Văn Thời",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "0A41EFE3-2D75-4A24-9B18-5DDCC4EDD359",
+    "district_name_e": "Yen Chau District",
+    "district_name_l": "Huyện Yên Châu",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "B4BB0B13-0889-45DB-A55F-5DE4438CD386",
+    "district_name_e": "Tp. Phuc Yen",
+    "district_name_l": "Tp. Phúc Yên",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "3E63849B-E454-402D-94C3-5DE4B756D394",
+    "district_name_e": "Bac Me District",
+    "district_name_l": "Huyện Bắc Mê",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "90D44E41-5985-4554-9EEE-5E0679EBA903",
+    "district_name_e": "Phong Chau District",
+    "district_name_l": "Huyện Phong Châu",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "6582D86E-6157-4AB1-B42F-5E6AD596ED7F",
+    "district_name_e": "Mo Duc District",
+    "district_name_l": "Huyện Mộ Đức",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "29364F5C-6A1F-4B7E-BB20-5E713FDF2DD0",
+    "district_name_e": "Thi xa Phu My District",
+    "district_name_l": "Thị xã Phú Mỹ",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "EFC18AE9-08C3-462E-B10B-5E7A879740CB",
+    "district_name_e": "Thi xa Pho Yen District",
+    "district_name_l": "Thị xã Phổ Yên",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "85FA5A9F-1337-4605-89C6-5F3A99152FAA",
+    "district_name_e": "Hong Dan District",
+    "district_name_l": "Huyện Hồng Dân",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "75E5A764-BFF7-4472-960D-603C544EB21B",
+    "district_name_e": "Huong Son District",
+    "district_name_l": "Huyện Hương Sơn",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "6DB8FABC-A4A4-4C08-BC71-6050126B3B39",
+    "district_name_e": "Nui Thanh District",
+    "district_name_l": "Huyện Núi Thành",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "FD55FD4C-13AF-4A33-ACFA-60E086B86223",
+    "district_name_e": "Nam Can District",
+    "district_name_l": "Huyện Năm Căn",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "A506C01F-938C-4165-B436-60F182E44F3A",
+    "district_name_e": "Tp. Bac Giang",
+    "district_name_l": "Tp. Bắc Giang",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "81E6C323-B4B7-4884-8AD5-6127EE1CC8F7",
+    "district_name_e": "Tuy Hoa District",
+    "district_name_l": "Huyện Tuy Hòa",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "0B8D816D-A552-4757-BBD1-615417FA06EB",
+    "district_name_e": "Bao Lac District",
+    "district_name_l": "Huyện Bảo Lạc",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "1E04DB68-FFBB-4020-97CD-6156415597D0",
+    "district_name_e": "Kon Plong District",
+    "district_name_l": "Huyện Kon Plông",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "99C15D4D-C16F-4843-B917-620B206F3F6D",
+    "district_name_e": "Thach Ha District",
+    "district_name_l": "Huyện Thạch Hà",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "09E2886E-85D1-4FE5-8F0E-621E19B1A9AD",
+    "district_name_e": "Thai Thuy District",
+    "district_name_l": "Huyện Thái Thụy",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "9B9B2015-6C99-4CB0-849E-62819A3ABB4F",
+    "district_name_e": "Tien Du District",
+    "district_name_l": "Huyện Tiên Du",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "249FB6C2-373B-4B85-9D29-62E82A39BC3B",
+    "district_name_e": "Hung Nguyen District",
+    "district_name_l": "Huyện Hưng Nguyên",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "39173C7D-350B-4D9A-9722-631D2B0C7875",
+    "district_name_e": "Phu Tan District",
+    "district_name_l": "Huyện Phú Tân",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "BA634795-A9DE-43AD-B29A-632FD2778266",
+    "district_name_e": "An Thi District",
+    "district_name_l": "Huyện Ân Thi",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "A9864BDD-8C0D-41DC-814D-63555FADEF81",
+    "district_name_e": "U Minh Thuong District",
+    "district_name_l": "Huyện U Minh Thượng",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "79A87E2C-61AE-416E-8217-63B05784D45D",
+    "district_name_e": "Phu Rieng District",
+    "district_name_l": "Huyện Phú Riềng",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "7D87258B-1E63-449B-B113-63B21DE2E9F7",
+    "district_name_e": "Quang Binh District",
+    "district_name_l": "Huyện Quang Bình",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "AF079C79-63F0-470F-BC06-63EDC3914B9D",
+    "district_name_e": "Kim Thanh District",
+    "district_name_l": "Huyện Kim Thành",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "8A5FCA8D-40A9-450F-9642-642B226054BC",
+    "district_name_e": "Ha Hoa District",
+    "district_name_l": "Huyện Hạ Hoà",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "F084D5E0-E81B-41B8-ACBB-644C58C5C4BC",
+    "district_name_e": "Phu Cu District",
+    "district_name_l": "Huyện Phù Cừ",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "446994D5-F208-482D-901B-648B560EA278",
+    "district_name_e": "Ha Lang District",
+    "district_name_l": "Huyện Hạ Lang",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "9A851D8A-D8C2-4B71-9A89-64C7B647C09C",
+    "district_name_e": "Bac Kan City",
+    "district_name_l": "Tp. Bắc Kạn",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "3BAEF832-9B45-49C5-995C-653BB0B474C7",
+    "district_name_e": "Quoc Oai District",
+    "district_name_l": "Huyện Quốc Oai",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "C32941BC-A235-4928-959E-65C5EA7F8B43",
+    "district_name_e": "O Mon District",
+    "district_name_l": "Huyện Ô Môn",
+    "province_id": "18F833E1-61BF-4F73-AA86-DF4823806FE4"
+  },
+  {
+    "district_id": "7ADF6ADD-DA1D-4061-99CC-65D33CEDDA53",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "5BB23A14-AA44-4408-A80A-6616175E0951",
+    "district_name_e": "Vo Nhai District",
+    "district_name_l": "Huyện Võ Nhai",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "C9FD978D-02D1-486D-B1CF-666DC81F96E1",
+    "district_name_e": "Cau Ngang District",
+    "district_name_l": "Huyện Cầu Ngang",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "34662533-160D-4371-AB39-669037AE60BB",
+    "district_name_e": "Duc Hue District",
+    "district_name_l": "Huyện Đức Huệ",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "1E955DBD-907A-41A8-AE7D-678E64641813",
+    "district_name_e": "Kinh Dong District",
+    "district_name_l": "Huyện Kim Động",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "81980C74-558E-41B9-A67C-67B4BB5A6633",
+    "district_name_e": "Ia H' Drai District",
+    "district_name_l": "Huyện Ia H' Drai",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "404181A3-22F7-489D-B543-67C47C20F7BA",
+    "district_name_e": "Tien Phuoc District",
+    "district_name_l": "Huyện Tiên Phước",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "CB6503B4-69E4-4188-A355-6876CF484DC7",
+    "district_name_e": "Yen Mo District",
+    "district_name_l": "Huyện Yên Mô",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "F24CF55D-18A5-40A9-85A3-68FB66AE9F90",
+    "district_name_e": "Van Quan District",
+    "district_name_l": "Huyện Văn Quan",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "3457DF6E-4F41-4A9F-A647-699CC7957282",
+    "district_name_e": "Thi xa An Nhon District",
+    "district_name_l": "Thị xã An Nhơn",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "E2A7D1B3-C9C7-4C93-B010-69BDB400D02C",
+    "district_name_e": "Tp. Tay Ninh",
+    "district_name_l": "Tp. Tây Ninh",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "8A1F9A76-E09E-4AF6-ABA9-69C170B15FC2",
+    "district_name_e": "Ba Dinh District",
+    "district_name_l": "Quận Ba Đình",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "AF044643-9C52-4151-B974-69CAF655D562",
+    "district_name_e": "Phu Luong District",
+    "district_name_l": "Huyện Phú Lương",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "049E6C9B-5BAE-46B8-8137-6A1E191EDECB",
+    "district_name_e": "Quynh Nhai District",
+    "district_name_l": "Huyện Quỳnh Nhai",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "A16BB7E0-F2C1-4A81-9203-6A215F2A19EB",
+    "district_name_e": "Thuan Bac District",
+    "district_name_l": "Huyện Thuận Bắc",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "C2B2340C-9D4F-485E-89CD-6A58AD0F7F95",
+    "district_name_e": "Kim Bang District",
+    "district_name_l": "Huyện Kim Bảng",
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0"
+  },
+  {
+    "district_id": "28F313A3-2244-4856-8C76-6A62658BA5B2",
+    "district_name_e": "Cam Thuy District",
+    "district_name_l": "Huyện Cẩm Thủy",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "24E03169-9B90-455F-B218-6AB7FC39CE5C",
+    "district_name_e": "Bac Tu Liem District",
+    "district_name_l": "Quận Bắc Từ Liêm",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "6878BFCF-8EB5-4A08-AB13-6BAC0883650A",
+    "district_name_e": "Giong Rieng District",
+    "district_name_l": "Huyện Giồng Riềng",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "070AE221-4A84-4EDD-A7E5-6CA32FF0EF48",
+    "district_name_e": "Phu Giao District",
+    "district_name_l": "Huyện Phú Giáo",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "CB30CAF7-D87C-416A-852F-6CABEA27AD51",
+    "district_name_e": "Thuan An District",
+    "district_name_l": "Huyện Thuận An",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "F0F85492-8BA6-4BDD-9007-6CAE21343543",
+    "district_name_e": "Ha Quang District",
+    "district_name_l": "Huyện Hà Quảng",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "A8CEBF34-AA39-42D0-91D4-6D438536628D",
+    "district_name_e": "Thanh Thuy District",
+    "district_name_l": "Huyện Thanh Thuỷ",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "6CCA7DDE-EAED-4D60-9FC2-6D653EF99874",
+    "district_name_e": "Lai Vung District",
+    "district_name_l": "Huyện Lai Vung",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "55C0C74B-C1E5-43BF-B4E7-6D8CBBD070A4",
+    "district_name_e": "Viet Yen District",
+    "district_name_l": "Huyện Việt Yên",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "1D4B9938-4BD2-4F98-9394-6DCF193105DD",
+    "district_name_e": "Tp. Thai Nguyen",
+    "district_name_l": "Tp. Thái Nguyên",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "4FAB4CD5-51A3-45FC-8E59-6DD16798120C",
+    "district_name_e": "Ben Luc District",
+    "district_name_l": "Huyện Bến Lức",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "CE0DA0B6-7F3F-42BC-B89C-6DDFFC20649B",
+    "district_name_e": "Thanh Tri District",
+    "district_name_l": "Huyện Thạnh Trị",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "2C0D346D-1838-46AC-9C0E-6E431794D64A",
+    "district_name_e": "Ba Vi District",
+    "district_name_l": "Huyện Ba Vì",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "900A9140-BE21-465A-B548-6E7D860C8308",
+    "district_name_e": "Tp. Thu Dau Mot",
+    "district_name_l": "Tp. Thủ Dầu Một",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "D54C9C73-88F5-4B2A-A9C6-6E835BD18158",
+    "district_name_e": "Phu Thien District",
+    "district_name_l": "Huyện Phú Thiện",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "44162264-DB8E-4053-BEF2-6F29F3A4CFDE",
+    "district_name_e": "Pleiku Provincial Town",
+    "district_name_l": "Thị xã Pleiku",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "C0056B5C-CD2D-4B87-B729-6F6C83F039A3",
+    "district_name_e": "Hiep Duc District",
+    "district_name_l": "Huyện Hiệp Đức",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "EF99BA3E-B045-49D5-9ACD-6F7D7D4BE521",
+    "district_name_e": "Dong Hoi Provincial Town",
+    "district_name_l": "Thị xã Đồng Hới",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "E2800F47-66B5-4CDC-83A7-6FBA8CA2C7CA",
+    "district_name_e": "Chi Lang District",
+    "district_name_l": "Huyện Chi Lăng",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "20D6B7D6-E1BE-4A5F-B172-7072855D51E2",
+    "district_name_e": "Thanh Oai District",
+    "district_name_l": "Huyện Thanh Oai",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "9C411BF8-3D9D-4B01-8AE8-70DB176BCDFC",
+    "district_name_e": "Duy Tien District",
+    "district_name_l": "Huyện Duy Tiên",
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0"
+  },
+  {
+    "district_id": "EBBD2FF9-AF5F-450E-A795-711312A425C0",
+    "district_name_e": "Thuong Tin District",
+    "district_name_l": "Huyện Thường Tín",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "07D3BB97-BEDF-439A-97FE-7181BA1AAD62",
+    "district_name_e": "Tp. Hue",
+    "district_name_l": "Tp. Huế",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "B7AD03BB-C86C-49A7-AB9C-71F489A56478",
+    "district_name_e": "Nguyen Binh District",
+    "district_name_l": "Huyện Nguyên Bình",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "94B85057-BF51-4536-8339-722F3D5BE69B",
+    "district_name_e": "Bao Yen District",
+    "district_name_l": "Huyện Bảo Yên",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "A8C12942-3B0E-4EBB-A92A-734183600B95",
+    "district_name_e": "Cao Lanh Provincial Town",
+    "district_name_l": "Thị xã Cao Lãnh",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "E6A6DB44-0400-42B3-B1AB-73D043B941A3",
+    "district_name_e": "Tp. Quang Ngai",
+    "district_name_l": "Tp. Quảng Ngãi",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "4B934829-1422-43EE-BC53-7518218A5825",
+    "district_name_e": "Ba Ria Provincial Town",
+    "district_name_l": "Thị xã Bà Rịa",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "D727D2E2-1498-48D7-BE1C-757DBE1C54A0",
+    "district_name_e": "Vi Thuy District",
+    "district_name_l": "Huyện Vị Thuỷ",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "B6987DD5-6152-4187-9450-759DD74474E9",
+    "district_name_e": "Moc Hoa District",
+    "district_name_l": "Huyện Mộc Hóa",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "BE0A06B7-EEDE-428A-9BBB-75B821989DF0",
+    "district_name_e": "Bac Yen District",
+    "district_name_l": "Huyện Bắc Yên",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "CCA8B879-E048-4EF0-8ACB-762228B67838",
+    "district_name_e": "Mo Cay District",
+    "district_name_l": "Huyện Mỏ Cày",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "A645611E-3D83-4645-9EB8-76651964FA3A",
+    "district_name_e": "Thuong Xuan District",
+    "district_name_l": "Huyện Thường Xuân",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "9740B7E8-0146-44F0-AA3C-76C95F23745A",
+    "district_name_e": "Thach An District",
+    "district_name_l": "Huyện Thạch An",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "F3BC62AB-2F64-4792-AE12-76E709592C0C",
+    "district_name_e": "Hai Chau District",
+    "district_name_l": "Quận Hải Châu",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "2F7784C4-80A5-4094-9BC9-77403D889FD1",
+    "district_name_e": "Tien Lang Distric",
+    "district_name_l": "Huyện Tiên Lãng",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "D8404390-DA76-4F80-9DE3-7761ADF80123",
+    "district_name_e": "Tra Cu District",
+    "district_name_l": "Huyện Trà Cú",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "F12CDC86-252E-4081-A97A-7772E9195D9A",
+    "district_name_e": "My Loc District",
+    "district_name_l": "Huyện Mỹ Lộc",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "30905894-2F79-4A0B-8CA3-77760C51D7BD",
+    "district_name_e": "Vinh Chau District",
+    "district_name_l": "Huyện Vĩnh Châu",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "C9B7BB54-1FDD-4F56-BD5D-7780D09E4458",
+    "district_name_e": "Nghia Hanh District",
+    "district_name_l": "Huyện Nghĩa Hành",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "333EF529-75DC-42CB-AA8A-77A91C8C9997",
+    "district_name_e": "Phu Ninh District",
+    "district_name_l": "Huyện Phú Ninh",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "4FB30093-97C4-4545-8F03-77B9FC98B137",
+    "district_name_e": "Thanh Khe District",
+    "district_name_l": "Quận Thanh Khê",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "C612323F-F298-4399-8CAD-77F2A9C216EF",
+    "district_name_e": "Tp. Ha Tien",
+    "district_name_l": "Tp. Hà Tiên",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "02ABC135-3023-4E8F-9F15-7817741B0CAB",
+    "district_name_e": "Vinh Tuong District",
+    "district_name_l": "Huyện Vĩnh Tường",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "9A086E21-3124-4BC2-B4A6-782C29440A7C",
+    "district_name_e": "Tan Phu Dong District",
+    "district_name_l": "Huyện Tân Phú Đông",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "F3E7BBEA-8A66-4CD6-95C8-782F655C0E07",
+    "district_name_e": "Tp. Rach Gia",
+    "district_name_l": "Tp. Rạch Giá",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "4287FEF1-2931-4AD7-BB74-7836CED0529F",
+    "district_name_e": "Lien Chieu District",
+    "district_name_l": "Quận Liên Chiểu",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "ABCC8337-E86C-4570-A761-784ED31523A1",
+    "district_name_e": "Muong Lat District",
+    "district_name_l": "Huyện Mường Lát",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "E3F36AB7-B18B-4B64-B244-791906A72423",
+    "district_name_e": "Duong Kinh District",
+    "district_name_l": "Quận Dương Kinh",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "0C7348DC-5004-4087-80F1-7919FE55F8DD",
+    "district_name_e": "Tp. Da Lat",
+    "district_name_l": "Tp. Đà Lạt",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "9B84CA40-DCB3-49BB-B996-791C44F985AB",
+    "district_name_e": "Vinh Thuan District",
+    "district_name_l": "Huyện Vĩnh Thuận",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "3F479051-37C3-4848-B394-79A55BC4C969",
+    "district_name_e": "Mo Cay Bac District",
+    "district_name_l": "Huyện Mỏ Cày Bắc",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "E606E693-9FB1-4330-9888-79B682DDAF89",
+    "district_name_e": "Dinh Quan District",
+    "district_name_l": "Huyện Định Quán",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "D29746AE-5709-4A1B-B346-7A017F07A35E",
+    "district_name_e": "Tram Tau District",
+    "district_name_l": "Huyện Trạm Tấu",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "B4F8F4F5-E829-4298-9FF6-7AA67C3E0848",
+    "district_name_e": "Vinh Linh District",
+    "district_name_l": "Huyện Vĩnh Linh",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "B79D0174-F3B8-4B36-B736-7B165917762C",
+    "district_name_e": "Binh Tan District",
+    "district_name_l": "Quận Bình Tân",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "CE04D58B-2CD3-4399-9AE0-7BE37BB0C1B7",
+    "district_name_e": "Long Ho District",
+    "district_name_l": "Huyện Long Hồ",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "2E31A266-3374-43E9-ABA3-7CD24CF960D1",
+    "district_name_e": "Dam Doi District",
+    "district_name_l": "Huyện Đầm Dơi",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "15EACBB0-112E-46C8-BB5D-7D80D965549E",
+    "district_name_e": "Ha Tien Provincial Town",
+    "district_name_l": "Thị xã Hà Tiên",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "B11DA5AD-B2AD-4703-9EDE-7EA8787AF327",
+    "district_name_e": "Muong Kuong District",
+    "district_name_l": "Huyện Mường Khương",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "162BF982-CF97-49FA-8B26-7ED7B18B2B1F",
+    "district_name_e": "Ham Tan District",
+    "district_name_l": "Huyện Hàm Tân",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "4C18D30D-FD46-43F3-8BF7-7EE6EEAD8178",
+    "district_name_e": "Tp. Mong Cai",
+    "district_name_l": "Tp. Móng Cái",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "81101FA8-F411-40CE-9D5C-7F27E7095DEA",
+    "district_name_e": "Do Son Provincial Town",
+    "district_name_l": "Thị xã Đồ Sơn",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "4C133AC4-AA0F-476A-9BE9-7F334B71726B",
+    "district_name_e": "Loc Ha District",
+    "district_name_l": "Huyện Lộc Hà",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "37E3D24B-6D28-4E55-994C-7F41B8A6A922",
+    "district_name_e": "Ngu Hanh Son District",
+    "district_name_l": "Quận Ngũ Hành Sơn",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "C514E635-E5EA-4921-99F7-7F67999BFF05",
+    "district_name_e": "Dak Doa District",
+    "district_name_l": "Huyện Đăk Đoa",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "440A4580-2B63-4D7A-8D14-80B7E96807A9",
+    "district_name_e": "Ea Kar District",
+    "district_name_l": "Huyện Ea Kar",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "2746EB77-039B-44EF-8C67-80E4E8D2A512",
+    "district_name_e": "Binh Thuy District",
+    "district_name_l": "Quận Bình Thuỷ",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "AF562D43-06CF-47E8-B083-80F70DBC4AB4",
+    "district_name_e": "Khoai Chau District",
+    "district_name_l": "Huyện Khoái Châu",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "29203DDF-31E3-405F-8CC0-810C6F2900E6",
+    "district_name_e": "Yen Lap District",
+    "district_name_l": "Huyện Yên Lập",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "B42031CA-8E92-4252-BD2C-811D129599C1",
+    "district_name_e": "Quang Hoa District",
+    "district_name_l": "Huyện Quảng Hoà",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "BD94812A-EA36-4E5F-A151-8141F713F9B8",
+    "district_name_e": "Thoi Binh District",
+    "district_name_l": "Huyện Thới Bình",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "35D318BF-F5B3-47AA-8D6A-8150B4353582",
+    "district_name_e": "Chiem Hoa District",
+    "district_name_l": "Huyện Chiêm Hóa",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "421FD6BD-EC22-4CB1-8592-823DDB57D648",
+    "district_name_e": "Tra Linh District",
+    "district_name_l": "Huyện Trà Lĩnh",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "02D0315D-02B3-4F6A-A596-828D6A878060",
+    "district_name_e": "Hien District",
+    "district_name_l": "Huyện Hiên",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "ED0E8483-137B-4526-85EB-82BBC6307454",
+    "district_name_e": "Tp. Tam Ky",
+    "district_name_l": "Tp. Tam Kỳ",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "722EE23A-FDCC-45D2-B412-8314BF9AD88E",
+    "district_name_e": "Kinh Mon District",
+    "district_name_l": "Huyện Kinh Môn",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "0B6B5D8B-FA55-48BC-A673-8399B5AB38D8",
+    "district_name_e": "Thi xa Dien Ban District",
+    "district_name_l": "Thị xã Điện Bàn",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "2C0AD4D3-3557-4166-8CBC-83D419DE3971",
+    "district_name_e": "Ngoc Hoi District",
+    "district_name_l": "Huyện Ngọc Hồi",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "A0B45063-824E-4C48-B8C0-8434A6FCB973",
+    "district_name_e": "Tp. Pleiku",
+    "district_name_l": "Tp. Pleiku",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "46E979CB-7D83-4E7F-A280-849F94D56375",
+    "district_name_e": "Mang Thit District",
+    "district_name_l": "Huyện Mang Thít",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "FC759841-2EC6-48C6-AFDE-84ACDFEF41CF",
+    "district_name_e": "Trang Dinh District",
+    "district_name_l": "Huyện Tràng Định",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "9F1F9D08-3F04-4EB1-A73E-84E287830F46",
+    "district_name_e": "Thi xa Duyen Hai District",
+    "district_name_l": "Thị xã Duyên Hải",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "DD673B7B-71B8-4FBF-BA9C-84ED3416ADCC",
+    "district_name_e": "Thi xa Quang Yen District",
+    "district_name_l": "Thị xã Quảng Yên",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "A45C7382-1A3B-450E-A356-854D2F9BA76F",
+    "district_name_e": "Giong Gieng District",
+    "district_name_l": "Huyện Giồng Giềng",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "5AA0947B-B037-4FF3-9050-85DC78D52133",
+    "district_name_e": "Quan Son District",
+    "district_name_l": "Huyện Quan Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "4259A309-5162-458A-872A-85E8371266CC",
+    "district_name_e": "Duc Tho District",
+    "district_name_l": "Huyện Đức Thọ",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "28BE14DD-BED5-479D-922D-86305C7EB588",
+    "district_name_e": "Pho Yen District",
+    "district_name_l": "Huyện Phổ Yên",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "D898DD33-C47B-46CB-B7EA-86C9DF1B2D93",
+    "district_name_e": "Nghia Dan District",
+    "district_name_l": "Huyện Nghĩa Đàn",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "AF7A3580-0B66-40D6-8C6C-8748045C5810",
+    "district_name_e": "Tien Hai District",
+    "district_name_l": "Huyện Tiền Hải",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "E051D03D-8648-4151-B514-883C17BE6847",
+    "district_name_e": "Ham Thuan Bac District",
+    "district_name_l": "Huyện Hàm Thuận Bắc",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "78A2B263-8856-4E1C-BEBE-887D100C2B45",
+    "district_name_e": "Ba To District",
+    "district_name_l": "Huyện Ba Tơ",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "5EAFAC79-8828-4628-A92E-887DA3057728",
+    "district_name_e": "3 District",
+    "district_name_l": "Quận 3",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "2FA30514-8AFA-4EBD-9CAC-887F3727D2E2",
+    "district_name_e": "Dong Anh District",
+    "district_name_l": "Huyện Đông Anh",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "DE9BB62D-D714-4393-9586-88ACF4A13AF2",
+    "district_name_e": "Phu Binh District",
+    "district_name_l": "Huyện Phú Bình",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "2E24DCE8-2D86-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Đăk Glong District",
+    "district_name_l": "Huyện Đăk Glong",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "0D908CF8-2D86-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Gia Nghĩa Town",
+    "district_name_l": "Thị xã Gia Nghĩa",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "E6580C33-2D87-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Muong Cha District",
+    "district_name_l": "Huyện Mường Chà",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "C00DED55-2D87-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Mường Nhé District",
+    "district_name_l": "Huyện Mường Nhé",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "97F31E8A-2D87-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Muong Lay Town",
+    "district_name_l": "Thị Xã Mường Lay",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "3493888F-2D87-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Tuy Duc District",
+    "district_name_l": "Huyện Tuy Đức",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "1F49259E-2D87-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Đắk Song District",
+    "district_name_l": "Huyện Đắk Song",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "7F4D5EB9-2D87-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Dien Bien Phu City",
+    "district_name_l": "Thành phố Điện Biên Phủ",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "E366212C-2D88-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Ngã Bảy Town",
+    "district_name_l": "Thị xã Ngã Bảy",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "8833E15B-2D88-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Nậm Pồ District",
+    "district_name_l": "Huyện Nậm Pồ",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "C6D26DBF-2D88-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Vị Thanh City",
+    "district_name_l": "Thành phố Vị Thanh",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "6AC3F9FA-2D88-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Mường Ảng District",
+    "district_name_l": "Huyện Mường Ảng",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "049017A0-2D89-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Châu Thành A Distict",
+    "district_name_l": "Huyện Châu Thành A",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "62DD24C4-2D89-11E8-B36D-88B111EA60D6",
+    "district_name_e": "Long My Town",
+    "district_name_l": "Thị xã Long Mỹ",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "710430EC-7071-40D4-87C4-88B22CB08C31",
+    "district_name_e": "Huu Lung District",
+    "district_name_l": "Huyện Hữu Lũng",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "6B625866-C1B8-43CA-BC5D-89D9876EC7D7",
+    "district_name_e": "Trung Khanh District",
+    "district_name_l": "Huyện Trùng Khánh",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "5B3D2052-1D93-44CF-9762-8A204C164F18",
+    "district_name_e": "Chi Linh District",
+    "district_name_l": "Huyện Chí Linh",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "599FD552-14EA-4FBD-BF26-8A28926C885D",
+    "district_name_e": "Song Hinh District",
+    "district_name_l": "Huyện Sông Hinh",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "B3F077E8-A7D8-476A-91AE-8A45E5D1D246",
+    "district_name_e": "Bac Binh District",
+    "district_name_l": "Huyện Bắc Bình",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "D1F2F667-3E1D-4F93-86CD-8A68ADE13C05",
+    "district_name_e": "Thuy Nguyen District",
+    "district_name_l": "Huyện Thuỷ Nguyên",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "A4EE9282-D4D2-4A04-ABFA-8ACB04D8AC44",
+    "district_name_e": "Dien Bien Dong District",
+    "district_name_l": "Huyện Điện Biên Đông",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "C927102D-65B4-4F7F-B84D-8B56D09FAAD4",
+    "district_name_e": "Tieu Can District",
+    "district_name_l": "Huyện Tiểu Cần",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "3BE45BC5-37F2-4FC0-908E-8C6E6317E503",
+    "district_name_e": "Ba Tri District",
+    "district_name_l": "Huyện Ba Tri",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "8412F6E6-C72B-4A22-8A94-8CD81A51A317",
+    "district_name_e": "Ham Yen District",
+    "district_name_l": "Huyện Hàm Yên",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "D98AD1AF-7195-4C37-8165-8D0280F99432",
+    "district_name_e": "Ha Tien District",
+    "district_name_l": "Huyện Hà Tiên",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "210659CA-04DA-4DC6-8382-8D15758FA9DF",
+    "district_name_e": "Cho Gao District",
+    "district_name_l": "Huyện Chợ Gạo",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "8230A90F-138C-408B-9EBB-8DB39E34FFAA",
+    "district_name_e": "Duc Hoa District",
+    "district_name_l": "Huyện Đức Hòa",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "F8EBD9FD-BB20-4F78-B098-8E57AA6F7B2F",
+    "district_name_e": "Con Co District",
+    "district_name_l": "Huyện Cồn Cỏ",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "CFE613C7-0A3E-430B-A42F-8E7DC62521F3",
+    "district_name_e": "Kien An District",
+    "district_name_l": "Quận Kiến An",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "4C6F9174-A19B-4CD2-BF6C-8F2340D672ED",
+    "district_name_e": "Tp. Vung Tau",
+    "district_name_l": "Tp. Vũng Tàu",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "17263151-B70D-4211-ACFB-8FEC5BAAEC6F",
+    "district_name_e": "Cam Khe District",
+    "district_name_l": "Huyện Cẩm Khê",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "0B4B2F81-744A-42BC-8969-901346ADD8AF",
+    "district_name_e": "Binh Lieu District",
+    "district_name_l": "Huyện Bình Liêu",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "1E23FF6A-22C5-42E7-883E-909FC7720A5E",
+    "district_name_e": "Phuoc Son District",
+    "district_name_l": "Huyện Phước Sơn",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "EC2F0525-433D-479E-9287-90B500A79140",
+    "district_name_e": "Quang Ngai Provincial Town",
+    "district_name_l": "Thị xã Quảng Ngãi",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "736BB584-D845-4E59-9082-913C441B01E9",
+    "district_name_e": "Vi Xuyen District",
+    "district_name_l": "Huyện Vị Xuyên",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "DF86D5D4-673E-411F-9879-9182172094B5",
+    "district_name_e": "Cam Giang District",
+    "district_name_l": "Huyện Cẩm Giàng",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "672AE052-D417-45F5-A7B0-91B06D87CE06",
+    "district_name_e": "Duc Linh District",
+    "district_name_l": "Huyện Đức Linh",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "EBEB4BBC-FD25-44C1-8831-9200DD4FA6C4",
+    "district_name_e": "Thi xa Ninh Hoa District",
+    "district_name_l": "Thị xã Ninh Hòa",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "942DF372-8DA8-4A94-8583-94ABC87795F3",
+    "district_name_e": "Vinh Thanh District",
+    "district_name_l": "Huyện Vĩnh Thạnh",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "AA2ABAEA-17A9-40FA-93EE-94DE3167D9EE",
+    "district_name_e": "Phong Dien District",
+    "district_name_l": "Huyện Phong Điền",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "8F2756CE-E0C5-4A02-A39D-954C7A546E80",
+    "district_name_e": "Lam Thao District",
+    "district_name_l": "Huyện Lâm Thao",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "01B36D89-3309-41C5-9C31-95657BEA7B66",
+    "district_name_e": "Tp. Dong Xoai",
+    "district_name_l": "Tp. Đồng Xoài",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "8B15D6FC-FD05-4342-9E2E-9576031E5B2B",
+    "district_name_e": "Can Tho City",
+    "district_name_l": "Thành phố Cần Thơ",
+    "province_id": "18F833E1-61BF-4F73-AA86-DF4823806FE4"
+  },
+  {
+    "district_id": "34412079-E453-40E3-8A93-9577C48CE52B",
+    "district_name_e": "Luc Nam District",
+    "district_name_l": "Huyện Lục Nam",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "28D6188D-E829-4563-804A-961DE5F210C5",
+    "district_name_e": "Cau Ke District",
+    "district_name_l": "Huyện Cầu Kè",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "4D354E50-C891-4E1A-B34A-9652C95B8DAD",
+    "district_name_e": "Dong Hoa District",
+    "district_name_l": "Huyện Đông Hòa",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "B37F7521-B857-4275-92AD-9688D2300885",
+    "district_name_e": "Tua Chua District",
+    "district_name_l": "Huyện Tủa Chùa",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "B3618B89-8CEB-47E5-8862-971CCC0DAF8C",
+    "district_name_e": "Cai Rang District",
+    "district_name_l": "Quận Cái Răng",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "92101C03-2B82-45C4-AAF2-97297760B4B2",
+    "district_name_e": "Hai Duong City",
+    "district_name_l": "Thành phố Hải Dương",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "046DCA2A-3EE0-4E02-A70B-974743125318",
+    "district_name_e": "Co Do District",
+    "district_name_l": "Huyện Cờ Đỏ",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "05AD0117-66AF-43CC-9A02-979C3E957C79",
+    "district_name_e": "Dai Loc District",
+    "district_name_l": "Huyện Đại Lộc",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "20459425-F477-4403-83B8-979CDD40A73E",
+    "district_name_e": "Go Quao District",
+    "district_name_l": "Huyện Gò Quao",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "27F5D373-D4A5-4533-9D39-988D2542C92F",
+    "district_name_e": "Binh Minh District",
+    "district_name_l": "Huyện Bình Minh",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "A750CE66-1723-463C-959A-9900B662DB3A",
+    "district_name_e": "Thi xa Hoang Mai District",
+    "district_name_l": "Thị xã Hoàng Mai",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "F6C3E451-E4BE-47F4-BE9C-990A23E91ED4",
+    "district_name_e": "Tran De District",
+    "district_name_l": "Huyện Trần Đề",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "7B0AF3B5-10CF-4AA0-9AA8-99589D7AF5FF",
+    "district_name_e": "Krong Buk District",
+    "district_name_l": "Huyện Krông Búk",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "9A04B64A-5E8D-460D-9A62-995BDD476821",
+    "district_name_e": "Giong Trom District",
+    "district_name_l": "Huyện Giồng Trôm",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "57D6EF7A-4A92-44B5-9015-99EAEDF54814",
+    "district_name_e": "Tp. Sa Dec",
+    "district_name_l": "Tp. Sa Đéc",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "5FE474B7-E207-4216-9E90-9A0372A23F0F",
+    "district_name_e": "Nam Dong District",
+    "district_name_l": "Huyện Nam Đông",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "53AF261E-6DFB-4F9E-9291-9A0A63C40B79",
+    "district_name_e": "Hau Loc District",
+    "district_name_l": "Huyện Hậu Lộc",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "0B77DF7E-F88E-499E-AE99-9A1B3A44ED74",
+    "district_name_e": "Long Bien District",
+    "district_name_l": "Quận Long Biên",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "285FC6F6-D62C-4E7B-B1B6-9A3C442AF5C6",
+    "district_name_e": "Long Dat District",
+    "district_name_l": "Huyện Long Đất",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "7212669B-5C03-41EB-AE35-9AC3F07F8F3D",
+    "district_name_e": "Song Cong District",
+    "district_name_l": "Thị xã Sông Công",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "8E115D93-742D-4EF4-8F43-9B43DE952ECC",
+    "district_name_e": "Yen Thanh District",
+    "district_name_l": "Huyện Yên Thành",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "B4E9AF5E-7301-4ECA-9D7E-9B4A7499B494",
+    "district_name_e": "Dong Trieu District",
+    "district_name_l": "Huyện Đông Triều",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "C462C6D7-9B87-4F93-8DFB-9B548B3C9262",
+    "district_name_e": "Go Cong Dong District",
+    "district_name_l": "Huyện Gò Công Đông",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "A44C7DBA-F005-4EC1-A4C0-9B638F497E73",
+    "district_name_e": "Thach Thanh District",
+    "district_name_l": "Huyện Thạch Thành",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "E1AA0024-B591-413F-BAFB-9B7116C3739E",
+    "district_name_e": "Tp. Buon Ma Thuot",
+    "district_name_l": "Tp. Buôn Ma Thuột",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "D803806B-DA11-40D8-8422-9D30B9CDE343",
+    "district_name_e": "Tp. Ca Mau",
+    "district_name_l": "Tp. Cà Mau",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "34641C3E-E674-489B-936A-9D811736ECE9",
+    "district_name_e": "Than Uyen District",
+    "district_name_l": "Huyện Than Uyên",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "D994C186-2DFD-4702-9333-9DD3B119E043",
+    "district_name_e": "Van Lam District",
+    "district_name_l": "Huyện Văn Lâm",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "32B46BF6-9394-464F-A0C5-9E0917A9169B",
+    "district_name_e": "Dien Chau District",
+    "district_name_l": "Huyện Diễn Châu",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "ADE2CC40-90E0-4D60-8EF4-9E638934BAD2",
+    "district_name_e": "Xuan Loc District",
+    "district_name_l": "Huyện Xuân Lộc",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "68FBB53D-68A8-45E1-844A-A07135A6EB0F",
+    "district_name_e": "Trang Bom District",
+    "district_name_l": "Huyện Trảng Bom",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "FD773C24-E765-47B4-AE2B-A08CEDB6857E",
+    "district_name_e": "Hoanh Bo District",
+    "district_name_l": "Huyện Hoành Bồ",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "2DB6FA50-6595-49D1-90E7-A0E578DE68A9",
+    "district_name_e": "Binh Thanh District",
+    "district_name_l": "Quận Bình Thạnh",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "BCD0D481-2C7B-4ABB-ADEA-A0F3A9E1626C",
+    "district_name_e": "Tp. Long Xuyen",
+    "district_name_l": "Tp. Long Xuyên",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "664010C4-B996-49DF-9206-A0F3C900F8A8",
+    "district_name_e": "Tp. Long Khanh",
+    "district_name_l": "Tp. Long Khánh",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "A8C3AA01-3673-4891-BEBB-A0F642D4FAE2",
+    "district_name_e": "Thap Muoi District",
+    "district_name_l": "Huyện Tháp Mười",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "8D00829A-230C-4BCA-A331-A10576DE00DD",
+    "district_name_e": "Sa Dec Provincial Town",
+    "district_name_l": "Thị xã Sa Đéc",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "D9579602-3588-4171-A409-A136ACC7C12B",
+    "district_name_e": "Dak To District",
+    "district_name_l": "Huyện Đắk Tô",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "A0A452C3-5EF7-4904-8A3D-A1B7E21F3811",
+    "district_name_e": "Nam Truc District",
+    "district_name_l": "Huyện Nam Trực",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "582F7F9D-6950-488A-A8CC-A1BC1C662B3F",
+    "district_name_e": "La Grai District",
+    "district_name_l": "Huyện Ia Grai",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "675BF278-348E-4084-A0BF-A1FD972DA303",
+    "district_name_e": "Ham Thuan Nam District",
+    "district_name_l": "Huyện Hàm Thuận Nam",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "B4790780-0D56-4021-905B-A28DEFBCFB7B",
+    "district_name_e": "Duc Trong District",
+    "district_name_l": "Huyện Đức Trọng",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "4F58C82B-ECB0-4301-B19F-A2960E5B914C",
+    "district_name_e": "Tan Hung District",
+    "district_name_l": "Huyện Tân Hưng",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "57C2DB12-0BF1-4391-A077-A2F649ACB4FD",
+    "district_name_e": "Ha Tinh Provincial Town",
+    "district_name_l": "Thị xã Hà Tĩnh",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "C32603B9-9535-47CA-B26A-A32C7AC23683",
+    "district_name_e": "Tinh Gia District",
+    "district_name_l": "Huyện Tĩnh Gia",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "E88B28E6-56DB-4E73-99DB-A383E99B43A3",
+    "district_name_e": "Yen Dinh District",
+    "district_name_l": "Huyện Yên Định",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "A2EBDB48-D463-4877-902D-A3A6BD65ECD8",
+    "district_name_e": "Tp. Tan An",
+    "district_name_l": "Tp. Tân An",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "EA2218C6-E7D7-4A94-9A54-A585AB775FF4",
+    "district_name_e": "Kim Boi District",
+    "district_name_l": "Huyện Kim Bôi",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "559FB4A7-CCD9-4384-9E1A-A5A30E63B16D",
+    "district_name_e": "Tp. Phan Thiet",
+    "district_name_l": "Tp. Phan Thiết",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "E646688D-A658-4992-92B0-A5CB567AAF8F",
+    "district_name_e": "Cho Lach District",
+    "district_name_l": "Huyện Chợ Lách",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "1C2A8C52-571A-4E97-BA6B-A5FB7CA68F1E",
+    "district_name_e": "Hoai An District",
+    "district_name_l": "Huyện Hoài Ân",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "870D03AC-DD28-4283-9D9F-A60D8ED578BB",
+    "district_name_e": "Loc Ninh District",
+    "district_name_l": "Huyện Lộc Ninh",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "F23762D6-B30B-4358-A20C-A6AD593BFEDB",
+    "district_name_e": "Binh Xuyen District",
+    "district_name_l": "Huyện Bình Xuyên",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "088FE310-0C38-447D-9BEE-A733CA45E2DF",
+    "district_name_e": "Moc Chau District",
+    "district_name_l": "Huyện Mộc Châu",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "DF94EEED-0606-44F0-BC92-A7DAC7A973B2",
+    "district_name_e": "Hai Ba Trung District",
+    "district_name_l": "Quận Hai Bà Trưng",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "B9384A72-8B31-49BD-80CB-A8B7E554D48E",
+    "district_name_e": "Soc Trang Provincial Town",
+    "district_name_l": "Thị xã Sóc Trăng",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "DC95DD1C-5F49-4783-96FA-A9358846940D",
+    "district_name_e": "Ky Anh District",
+    "district_name_l": "Huyện Kỳ Anh",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "1E977488-BC8B-4634-A1EE-A94A233840EB",
+    "district_name_e": "Tuyen Quang City",
+    "district_name_l": "Tp Tuyên Quang",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "9C3A4604-33B5-4E6B-A0B6-A964438E9F91",
+    "district_name_e": "Gia Loc District",
+    "district_name_l": "Huyện Gia Lộc",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "CBF88552-ACF5-4099-A1AA-A9D018E19AD6",
+    "district_name_e": "Go Cong Provincial Town",
+    "district_name_l": "Thị xã Gò Công",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "1079B639-BF7D-409D-8DD5-AA417B5F2084",
+    "district_name_e": "Yen Son District",
+    "district_name_l": "Huyện Yên Sơn",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "8A2D2D89-48E1-44ED-A9A3-AAB7594A8F29",
+    "district_name_e": "Son Dong District",
+    "district_name_l": "Huyện Sơn Động",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "D8241B79-CA71-4E83-A58F-AB5A889A7128",
+    "district_name_e": "Kong Chro District",
+    "district_name_l": "Huyện Kông Chro",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "B17A031F-802A-47F8-A664-AB6B4A189081",
+    "district_name_e": "Nong Son District",
+    "district_name_l": "Huyện Nông Sơn",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "A2891B87-72EF-402D-89FE-ABEFB8E48E45",
+    "district_name_e": "Dak Po District",
+    "district_name_l": "Huyện Đăk Pơ",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "D087B645-54A9-4E23-93BD-ABF083767679",
+    "district_name_e": "Cu Jut District",
+    "district_name_l": "Huyện Cư Jút",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "0A2CABC4-20C4-47F8-8F73-AC0BC0B8B866",
+    "district_name_e": "Yen Thuy District",
+    "district_name_l": "Huyện Yên Thủy",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "B3083410-19AA-4CC7-9E36-AC8DB578C84B",
+    "district_name_e": "Phu Nhuan District",
+    "district_name_l": "Quận Phú Nhuận",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "CF9CC8D9-AD9F-4BBB-B6FB-ACFFD6E4F911",
+    "district_name_e": "Tan An Provincial Town",
+    "district_name_l": "Thị xã Tân An",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "7E5C2E65-F572-4F1F-A134-AD5B5508620B",
+    "district_name_e": "Da Teh District",
+    "district_name_l": "Huyện Đạ Tẻh",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "2E348D62-1AE9-41B5-9997-AD787B1EA1BC",
+    "district_name_e": "Hoan Kiem District",
+    "district_name_l": "Quận Hoàn Kiếm",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "686388C4-709B-45D3-AB92-AD982D24C137",
+    "district_name_e": "Tay Son District",
+    "district_name_l": "Huyện Tây Sơn",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "8FE6B195-D4B2-4CC2-85A6-AE2494BC42E2",
+    "district_name_e": "Buon Ma Thuot City",
+    "district_name_l": "Thành phố Buôn Ma Thuột",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "668C0D88-2FB6-4611-8B1C-AE5785DC0890",
+    "district_name_e": "Phu Yen District",
+    "district_name_l": "Huyện Phù Yên",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "840D94C0-7FE7-468A-B267-AE779270BB71",
+    "district_name_e": "Nga Son District",
+    "district_name_l": "Huyện Nga Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "9D23B72B-528E-4863-AF97-AEC339B32944",
+    "district_name_e": "Thanh Ba District",
+    "district_name_l": "Huyện Thanh Ba",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "92042C06-6EFC-4BB8-8776-AF49645B04DA",
+    "district_name_e": "Thong Nong District",
+    "district_name_l": "Huyện Thông Nông",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "E2C6986C-17C5-4956-837F-AF805FB3D5AD",
+    "district_name_e": "Thanh Phu District",
+    "district_name_l": "Huyện Thạnh Phú",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "A43C06A4-92E7-46DE-A8D0-AF9BFDD5BCD5",
+    "district_name_e": "Vinh Long Provincial Town",
+    "district_name_l": "Thị xã Vĩnh Long",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "73172ADA-3F9B-4891-A531-B091EEB0461B",
+    "district_name_e": "Trieu Son",
+    "district_name_l": "Huyện Triệu Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "A76F14DE-2C67-4734-9F9F-B1593DD63DA4",
+    "district_name_e": "Lai Chau Provincial Town",
+    "district_name_l": "Thị xã Lai Châu",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "FE4122DD-CD49-4B6F-95E1-B17BE6E82EE3",
+    "district_name_e": "Lang Son City",
+    "district_name_l": "Tp. Lạng Sơn",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "369543C6-AFEF-48ED-B815-B1BA52CE20FD",
+    "district_name_e": "Duc Pho District",
+    "district_name_l": "Huyện Đức Phổ",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "1BD3F94D-275B-4BA3-92C3-B1F091C347EB",
+    "district_name_e": "Ha Trung District",
+    "district_name_l": "Huyện Hà Trung",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "64371993-F4AC-47CC-A223-B20FFC7DC80D",
+    "district_name_e": "Yen Bai City",
+    "district_name_l": "Tp. Yên Bái",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "5A7F2EB8-D3BF-44D3-BA20-B2759CB8369F",
+    "district_name_e": "Nghia Hung District",
+    "district_name_l": "Huyện Nghĩa Hưng",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "6B21C18C-EFE2-4108-840A-B2E41B2F5B02",
+    "district_name_e": "La Gi Provincial Town",
+    "district_name_l": "Thị xã La Gi",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "CCE80B95-AFCE-4050-BB1E-B329120FA7CE",
+    "district_name_e": "Kien Xuong District",
+    "district_name_l": "Huyện Kiến Xương",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "43F10998-A6A2-49E5-85AF-B3C2482AD541",
+    "district_name_e": "Tu Son District",
+    "district_name_l": "Huyện Từ Sơn",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "54CA93BB-FB76-4E9C-9D0B-B492EC896753",
+    "district_name_e": "Hoc Mon District",
+    "district_name_l": "Huyện Hóc Môn",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "67F7E570-8B55-4062-B0DF-B4C67B893DDA",
+    "district_name_e": "Sa Thay District",
+    "district_name_l": "Huyện Sa Thầy",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "23103211-F00E-4CA0-A6FE-B5A8557F7AFB",
+    "district_name_e": "Tam Dao District",
+    "district_name_l": "Huyện Tam Đảo",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "61F46065-B9BD-4ADF-8396-B5B9B7A367CF",
+    "district_name_e": "Phung Hiep District",
+    "district_name_l": "Huyện Phụng Hiệp",
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "E56EE082-57D5-414C-97FC-B636B27486A6",
+    "district_name_e": "Kbang District",
+    "district_name_l": "Huyện KBang",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "88BE099C-ECA1-47A7-A82B-B63CBD1FF597",
+    "district_name_e": "Thi xa Tan Uyen District",
+    "district_name_l": "Thị xã Tân Uyên",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "274D6303-9E24-4271-9945-B646C0C9F53B",
+    "district_name_e": "Chuong My District",
+    "district_name_l": "Huyện Chương Mỹ",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "48CA2CE5-3393-4ECA-A442-B6BEB3DCCA7D",
+    "district_name_e": "Tp. Son La",
+    "district_name_l": "Tp. Sơn La",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "15147F45-8F08-49C2-B201-B7C1898DEC56",
+    "district_name_e": "Tra On District",
+    "district_name_l": "Huyện Trà Ôn",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "A2E84320-471D-4216-81B1-B7C1A514B7B3",
+    "district_name_e": "Si Ma Cai District",
+    "district_name_l": "Huyện Si Ma Cai",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "8F568E10-32DB-4A37-B6E4-B81C744CD054",
+    "district_name_e": "Thanh Chuong District",
+    "district_name_l": "Huyện Thanh Chương",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "6D4CC4AD-BA8F-4585-BD95-B86DE5BE6C80",
+    "district_name_e": "Tuyen Hoa District",
+    "district_name_l": "Huyện Tuyên Hóa",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "AAF5E443-F68F-46CD-8125-B88FEB11652A",
+    "district_name_e": "Vu Ban District",
+    "district_name_l": "Huyện Vụ Bản",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "04C3E9C7-7CE9-42A4-A499-B8B66330EADE",
+    "district_name_e": "Song Thao District",
+    "district_name_l": "Huyện Sông Thao",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "4F948590-3328-4852-B877-B97C42525197",
+    "district_name_e": "11 District",
+    "district_name_l": "Quận 11",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "B4B16F80-C630-49EF-B2CA-B9A15DCE7F0A",
+    "district_name_e": "Tp. Tra Vinh",
+    "district_name_l": "Tp. Trà Vinh",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "9A0E4BBE-00C9-4CF3-984C-B9AF6C3A6FE6",
+    "district_name_e": "My Xuyen District",
+    "district_name_l": "Huyện Mỹ Xuyên",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "815D9567-C739-4636-9D3D-B9DA48A2BD49",
+    "district_name_e": "Hai Lang District",
+    "district_name_l": "Huyện Hải Lăng",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "AB8CD03F-307B-4778-AC8F-BA2EA46C838A",
+    "district_name_e": "Van Dong District",
+    "district_name_l": "Huyện Vân Đồn",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "7D347502-C964-40F4-A112-BA50A0E6325E",
+    "district_name_e": "Can Duoc District",
+    "district_name_l": "Huyện Cần Đước",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "F1E3A0ED-2B51-40B2-BC88-BABC6CD9FDBF",
+    "district_name_e": "Y Yen District",
+    "district_name_l": "Huyện ý Yên",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "63C04E5E-A2B4-4746-AA74-BB0016F5DACD",
+    "district_name_e": "Yen Phong District",
+    "district_name_l": "Huyện Yên Phong",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "F7D40F11-1D21-414E-92E4-BB7D3588EB10",
+    "district_name_e": "Vinh City",
+    "district_name_l": "Thành phố Vinh",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "47DD8DCB-29EA-428A-B822-BB7FD53AB089",
+    "district_name_e": "An Khe District",
+    "district_name_l": "Huyện An Khê",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "7F857EC9-EF36-4530-A7B3-BBA6D00B7FFC",
+    "district_name_e": "Cao Bang City",
+    "district_name_l": "Tp. Cao Bằng",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "5AEA6314-9B0B-4007-BF33-BC066964F3B8",
+    "district_name_e": "Tp. Tuy Hoa",
+    "district_name_l": "Tp. Tuy Hoà",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "B262601B-F072-48F2-8D36-BC3AED2C1664",
+    "district_name_e": "My Hao District",
+    "district_name_l": "Huyện Mỹ Hào",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "C76538B2-853B-40BE-9F5F-BD3CEF65CBCC",
+    "district_name_e": "Yen My District",
+    "district_name_l": "Huyện Yên Mỹ",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "9279281A-A1E6-4621-8AEA-BD78CEA425FC",
+    "district_name_e": "Tan Son District",
+    "district_name_l": "Huyện Tân Sơn",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "5675B673-FFEC-427D-A818-BD85335439DE",
+    "district_name_e": "Mang Yang District",
+    "district_name_l": "Huyện Mang Yang",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "8BE3AB86-BF9F-4A3B-980C-BDE6AFCC6AB9",
+    "district_name_e": "Hai An District",
+    "district_name_l": "Huyện Hải An",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "DDA87270-B5CB-43C7-A7F7-BECA48FDE025",
+    "district_name_e": "Dien Khanh District",
+    "district_name_l": "Huyện Diên Khánh",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "DA78E138-AA2A-4F79-A239-BEFD0D0B753C",
+    "district_name_e": "Hưng Yen District",
+    "district_name_l": "Tp. Hưng Yên",
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95"
+  },
+  {
+    "district_id": "B619BAA4-232D-4532-9FC5-BF56CDDD257A",
+    "district_name_e": "Cu Chi District",
+    "district_name_l": "Huyện Củ Chi",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "6D185131-5132-4377-9042-BFA5BA472717",
+    "district_name_e": "Tp. Ben Tre",
+    "district_name_l": "Tp. Bến Tre",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "434663B9-D3C6-437C-8214-BFA947EC64A2",
+    "district_name_e": "Tan Tru District",
+    "district_name_l": "Huyện Tân Trụ",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "B637670D-6E86-4950-8711-C02C7C78DE82",
+    "district_name_e": "Yen Binh District",
+    "district_name_l": "Huyện Yên Bình",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "C31999B6-D9E6-479C-B399-C1268F3F8FE2",
+    "district_name_e": "Tan Uyen District",
+    "district_name_l": "Huyện Tân Uyên",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "25378337-5D4B-494A-A554-C1B7137339FF",
+    "district_name_e": "Thi xa Vinh Chau District",
+    "district_name_l": "Thị xã Vĩnh Châu",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "EB2FF67F-AB2A-48B2-9EF7-C260D1954D5D",
+    "district_name_e": "Vinh Loi District",
+    "district_name_l": "Huyện Vĩnh Lợi",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "218C49E5-A2AB-4655-9BF8-C2DECAA240DE",
+    "district_name_e": "Chau Doc Provincial Town",
+    "district_name_l": "Thị xã Châu Đốc",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "BD62470B-8F79-4391-BFB5-C351DB547139",
+    "district_name_e": "Sa Pa District",
+    "district_name_l": "Huyện Sa Pa",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "76BD6C1E-45D6-453A-9EB5-C3DDD298DC7C",
+    "district_name_e": "Thi xa Kien Tuong District",
+    "district_name_l": "Thị xã Kiến Tường",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "5DF27F24-007B-4107-BC3D-C41A0D8BAB4C",
+    "district_name_e": "Thu Thua District",
+    "district_name_l": "Huyện Thủ Thừa",
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA"
+  },
+  {
+    "district_id": "3A411DE2-99BD-4B5B-BBDD-C45E720D0EEC",
+    "district_name_e": "Go Dau District",
+    "district_name_l": "Huyện Gò Dầu",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "B522982D-BA6C-4718-941A-C5681B7CBD6D",
+    "district_name_e": "Thu Dau Mot Provincial Town",
+    "district_name_l": "Thị xã Thủ Dầu Một",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "D68F9576-75BE-4AA4-9E81-C5CFD7DAC585",
+    "district_name_e": "Tam Thanh District",
+    "district_name_l": "Huyện Tam Thanh",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "31327813-0625-4CF2-9562-C65357C03256",
+    "district_name_e": "Tan Chau District",
+    "district_name_l": "Huyện Tân Châu",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "DE79D96A-91D2-411F-AE95-C68A18046409",
+    "district_name_e": "Tp. Dien Bien Phu",
+    "district_name_l": "Tp. Điện Biên Phủ",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "51B9DB19-1A68-43EE-A23C-C737348F19AA",
+    "district_name_e": "Quynh Phu District",
+    "district_name_l": "Huyện Quỳnh Phụ",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "38A384B2-5D2C-43A0-827F-C7CB61924C94",
+    "district_name_e": "Thi xa Ky Anh District",
+    "district_name_l": "Thị xã Kỳ Anh",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "D383EF39-11E7-4AE1-9A4E-C85489B82C4C",
+    "district_name_e": "Hoang Mai District",
+    "district_name_l": "Quận Hoàng Mai",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "03240F1E-574B-4403-A9F2-C8B18385B49D",
+    "district_name_e": "Tay Ho District",
+    "district_name_l": "Quận Tây Hồ",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "8F3EB318-7F07-4BE6-9593-C8DD141EC329",
+    "district_name_e": "Sop Cop District",
+    "district_name_l": "Huyện Sốp Cộp",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "8B378E03-CF0C-4FAB-B7AA-C91F0AF5BBF7",
+    "district_name_e": "Binh Son District",
+    "district_name_l": "Huyện Bình Sơn",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "454BCBFD-4487-4973-BABE-C93AF57A44FD",
+    "district_name_e": "Quang Uyen District",
+    "district_name_l": "Huyện Quảng Uyên",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "A9173F48-DC39-4247-B8AF-C95B188FB2F6",
+    "district_name_e": "Son Tay District",
+    "district_name_l": "Thị xã Sơn Tây",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "CD80FE67-FE5F-4C8B-B60B-CA047696217A",
+    "district_name_e": "Luc Yen District",
+    "district_name_l": "Huyện Lục Yên",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "21A1EB27-6D55-43D7-A8EF-CA3C047810B4",
+    "district_name_e": "Tra Vinh Provincial Town",
+    "district_name_l": "Thị xã Trà Vinh",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "48124038-66E0-4C65-B66E-CA83BD3E171C",
+    "district_name_e": "Dong Ha Provincial Town",
+    "district_name_l": "Thị xã Đông Hà",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "043A4448-0CAE-4F37-8ABB-CABC00E0A9EA",
+    "district_name_e": "Hoang Hoa District",
+    "district_name_l": "Huyện Hoằng Hóa",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "82B33FC3-15E4-4660-AE7B-CAC16CAFE7C6",
+    "district_name_e": "Tp. Ha Tinh",
+    "district_name_l": "Tp. Hà Tĩnh",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "74094EA0-FF43-472F-8910-CAF7206D3AD4",
+    "district_name_e": "Thanh Ha District",
+    "district_name_l": "Huyện Thanh Hà",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "59F227F5-AC09-4958-80E5-CB042DE607E9",
+    "district_name_e": "Van Chan District",
+    "district_name_l": "Huyện Văn Chấn",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "BA7F5D32-1020-406E-9990-CB41C85C5E0B",
+    "district_name_e": "My Tu District",
+    "district_name_l": "Huyện Mỹ Tú",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "AA15F028-E192-49B8-869C-CB871BBF8795",
+    "district_name_e": "Duy Xuyen District",
+    "district_name_l": "Huyện Duy Xuyên",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "B5748E93-BDB4-4D0F-9843-CC025E10127E",
+    "district_name_e": "Hai Ha District",
+    "district_name_l": "Huyện Hải Hà",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "7C49F057-339A-4866-92A4-CCCE373A44E9",
+    "district_name_e": "Hoa An District",
+    "district_name_l": "Huyện Hoà An",
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556"
+  },
+  {
+    "district_id": "D5BB5762-3DFA-4555-872B-CD10B4A62D26",
+    "district_name_e": "Nam Dan District",
+    "district_name_l": "Huyện Nam Đàn",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "260FC501-AE29-4FC0-B4F0-CEB4E6DEE763",
+    "district_name_e": "Yen Minh District",
+    "district_name_l": "Huyện Yên Minh",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "9E3B7499-AD86-4992-938B-CEDE40591A5B",
+    "district_name_e": "Que Son District",
+    "district_name_l": "Huyện Quế Sơn",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "76A95774-1AEF-43E1-A67D-CEE511FA9C3E",
+    "district_name_e": "Dong Hai District",
+    "district_name_l": "Huyện Đông Hải",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "313ED361-FD6A-489B-B4D6-CF5A983A958F",
+    "district_name_e": "Phu Tho Provincial Town",
+    "district_name_l": "Thị xã Phú Thọ",
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE"
+  },
+  {
+    "district_id": "22A67E00-4285-4D8D-9A75-CF9F1F82AB51",
+    "district_name_e": "Hong Bang District",
+    "district_name_l": "Quận Hồng Bàng",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "8B4D76E6-2E14-44FE-AB69-D011D0727B32",
+    "district_name_e": "Dan Phuong District",
+    "district_name_l": "Huyện Đan Phượng ",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "5B22CB4A-3EB6-4E1D-9B0E-D10656126323",
+    "district_name_e": "Thieu Hoa District",
+    "district_name_l": "Huyện Thiệu Hoá",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "414845CB-6362-4C1E-BBF5-D1233BD0D87C",
+    "district_name_e": "Mu Cang Chai District",
+    "district_name_l": "Huyện Mù Căng Chải",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "00B8C3A1-5A15-40E7-8D06-D140D8BFD018",
+    "district_name_e": "Thong Nhat District",
+    "district_name_l": "Huyện Thống Nhất",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "8A303A6C-5293-4FA3-A281-D22C169D948C",
+    "district_name_e": "Son Hoa District",
+    "district_name_l": "Huyện Sơn Hòa",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "90FDEC80-95D1-477C-B53E-D2A9DE994CA5",
+    "district_name_e": "Krong A Na District",
+    "district_name_l": "Huyện Krông A Na",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "02B2C072-3362-433A-A535-D2B5448CC0CD",
+    "district_name_e": "Tu Mo Rong District",
+    "district_name_l": "Huyện Tu Mơ Rông",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "117FC981-5043-40DA-B599-D332ACC3AA42",
+    "district_name_e": "Binh Chanh District",
+    "district_name_l": "Quận Bình Chánh",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "1FD92246-0865-4A90-9360-D3BDFDD86C6F",
+    "district_name_e": "Trang Bang District",
+    "district_name_l": "Huyện Trảng Bàng",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "373D2390-F809-46FE-8F45-D3DD84C31E2A",
+    "district_name_e": "Nhu Thanh District",
+    "district_name_l": "Huyện Như Thanh",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "73225B5F-03AF-4FE9-B352-D3FBCDB0A220",
+    "district_name_e": "Thot Not District",
+    "district_name_l": "Huyện Thốt Nốt",
+    "province_id": "18F833E1-61BF-4F73-AA86-DF4823806FE4"
+  },
+  {
+    "district_id": "3682F975-0E6F-42F2-8370-D4384C3E3381",
+    "district_name_e": "Thi xa Hong Ngu District",
+    "district_name_l": "Thị xã Hồng Ngự",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "9286204A-F0F7-4A12-88D9-D4734C42B730",
+    "district_name_e": "Xuan Truong District",
+    "district_name_l": "Huyện Xuân Trường",
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0"
+  },
+  {
+    "district_id": "92DEAEEB-46A8-42B7-A887-D4C22CFAFD2E",
+    "district_name_e": "Lang Chanh District",
+    "district_name_l": "Huyện Lang Chánh",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "09B083D7-BCAC-4F82-A798-D516C365AE09",
+    "district_name_e": "Thi xa Thuan An District",
+    "district_name_l": "Thị xã Thuận An",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "651E399C-07EA-4B7C-91EB-D51FBE9977F3",
+    "district_name_e": "Thanh Hoa City",
+    "district_name_l": "Thành phố Thanh Hóa",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "6A95DB14-6D12-4902-9C4D-D55A283C87FA",
+    "district_name_e": "Nhu Xuan District",
+    "district_name_l": "Huyện Như Xuân",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "904F9C3A-4640-4765-B359-D57E6D6AD23A",
+    "district_name_e": "Ha Dong District",
+    "district_name_l": "Quận Hà Đông",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "88D9BFFA-7D1A-49DC-A0C2-D5BCE448B04C",
+    "district_name_e": "Nha Be District",
+    "district_name_l": "Quận Nhà Bè",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "955906B3-8EAC-4719-B9B9-D5ED7AE59FA4",
+    "district_name_e": "Phu Qui District",
+    "district_name_l": "Huyện Phú Quí",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "117B6990-3B38-4BE4-97BC-D6C2299F65F0",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713"
+  },
+  {
+    "district_id": "DEAF86C9-A71B-477D-AE1F-D6CD84B42973",
+    "district_name_e": "Minh Hoa District",
+    "district_name_l": "Huyện Minh Hóa",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "B9E96D8A-E2E5-4BBC-9CA8-D6CF28C7B22E",
+    "district_name_e": "Con Dao District",
+    "district_name_l": "Huyện Côn Đảo",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "150C1155-4A5E-44A2-9465-D71787B34F5A",
+    "district_name_e": "Can Loc District",
+    "district_name_l": "Huyện Can Lộc",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "54739561-2B8B-4BD5-93FD-D71B299537BD",
+    "district_name_e": "Dong Son District",
+    "district_name_l": "Huyện Đông Sơn",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "F43B5323-C157-467E-BC5E-D71B55AEBACE",
+    "district_name_e": "Bat Xat District",
+    "district_name_l": "Huyện Bát Xát",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "4EE39E10-9C2D-4AD8-A12E-D75702BDED8E",
+    "district_name_e": "Ba Che District",
+    "district_name_l": "Huyện Ba Chẽ",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "665E96AC-9263-4502-BCC6-D76E45211D21",
+    "district_name_e": "U Minh District",
+    "district_name_l": "Huyện U Minh",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "AEDC66AF-D214-47FD-9942-D7B7F4C971CA",
+    "district_name_e": "Cu Kuin District",
+    "district_name_l": "Huyện Cư Kuin",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "CE747C6C-FFEF-4486-AC68-D87D4AB4C2D3",
+    "district_name_e": "Chu Se District",
+    "district_name_l": "Huyện Chư Sê",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "894FB1F6-29B1-41C3-B60A-D8A5E93A1D7A",
+    "district_name_e": "Tuan Giao District",
+    "district_name_l": "Huyện Tuần Giáo",
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "1034BC03-AA0E-4404-B9D8-D9B41F2E21A0",
+    "district_name_e": "Muong Lay District",
+    "district_name_l": "Huyện Mường Lay",
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3"
+  },
+  {
+    "district_id": "68DE9E86-008B-4FBF-9FA6-D9C2E18930E1",
+    "district_name_e": "Dong Van District",
+    "district_name_l": "Huyện Đồng Văn",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "B4365D7A-D199-431C-A969-D9CF977AC710",
+    "district_name_e": "Que Vo District",
+    "district_name_l": "Huyện Quế Võ",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "E6DC9AC9-69B4-44B2-8836-D9FDB984DB71",
+    "district_name_e": "Ben Cat District",
+    "district_name_l": "Huyện Bến Cát",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "7C27E2E0-EE5E-49C8-B8F7-DA035A1BF2A7",
+    "district_name_e": "Luong Tai District",
+    "district_name_l": "Huyện Lương Tài",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "F434F0D3-0756-44D8-9F41-DA3751CE65B7",
+    "district_name_e": "Na Ri District",
+    "district_name_l": "Huyện Na Rì",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "C368EE95-4FAC-4BA4-805B-DA8EFCCAD604",
+    "district_name_e": "Dak R'Lap District",
+    "district_name_l": "Huyện Đắk R'Lấp",
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6"
+  },
+  {
+    "district_id": "AFE9F4C3-5889-4751-A616-DAE25AD36F19",
+    "district_name_e": "Tp. Dong Hoi",
+    "district_name_l": "Tp. Đồng Hới",
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49"
+  },
+  {
+    "district_id": "8DAE3291-C72B-45C4-B718-DBA20DEEF103",
+    "district_name_e": "Van Ninh District",
+    "district_name_l": "Huyện Vạn Ninh",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "46A90510-BD99-49FC-BA80-DBBFFBB51A6F",
+    "district_name_e": "Cho Moi District",
+    "district_name_l": "Huyện Chợ Mới",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "937B4133-9B70-4C0E-8C93-DBC651F951B3",
+    "district_name_e": "Loc Binh District",
+    "district_name_l": "Huyện Lộc Bình",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "26C240D7-C858-45F8-8AAF-DC01E4D8C34D",
+    "district_name_e": "Bu Dop District",
+    "district_name_l": "Huyện Bù Đốp",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "87644B4D-100B-4349-B40D-DC996CF3FDDF",
+    "district_name_e": "Hong Linh Provincial Town",
+    "district_name_l": "Thị xã Hồng Lĩnh",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "6A1E90FE-B8E5-4984-97F2-DD3FE0FE5F60",
+    "district_name_e": "Chu Puh District",
+    "district_name_l": "Huyện Chư Pưh",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "A6D738EA-AFBD-46C8-A539-DDA62F0906C6",
+    "district_name_e": "An Phu District",
+    "district_name_l": "Huyện An Phú",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "B8453C53-4E6D-42D4-8759-DEA9B02C853A",
+    "district_name_e": "Dat Do District",
+    "district_name_l": "Huyện Đất Đỏ",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "C7635283-11B9-4DBD-9665-DEB1C5951AD5",
+    "district_name_e": "Da Krong District",
+    "district_name_l": "Huyện Đa Krông",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "229F44E9-66D6-42B7-AA74-E011798BCAD6",
+    "district_name_e": "Bac Ha District",
+    "district_name_l": "Huyện Bắc Hà",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "FF0C5F13-71AE-4231-A0DC-E04B8F19D2B1",
+    "district_name_e": "Dong Da District",
+    "district_name_l": "Quận Đống Đa",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "CC2B0C7A-071E-44AA-A834-E050E6D19720",
+    "district_name_e": "Thai Binh City",
+    "district_name_l": "Tp. Thái Bình",
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596"
+  },
+  {
+    "district_id": "168739CF-69DC-4FB9-8B82-E0B71FDB4579",
+    "district_name_e": "Do Luong District",
+    "district_name_l": "Huyện Đô Lương",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "CD255391-C8F3-4EB2-8224-E0DAF543FC24",
+    "district_name_e": "Chau Phu District",
+    "district_name_l": "Huyện Châu Phú",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "1BEE3E67-EEF6-4207-A70D-E123C198E4FB",
+    "district_name_e": "Bac Ninh city",
+    "district_name_l": "Tp. Bắc Ninh",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "5BC508E2-CEDA-48FB-9A81-E1473901E596",
+    "district_name_e": "2 District",
+    "district_name_l": "Quận 2",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "F4049F27-E16A-4381-AFAB-E15013DEB7BF",
+    "district_name_e": "Tp. Hai Duong",
+    "district_name_l": "Tp. Hải Dương",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "058C7216-7F0B-4209-9A57-E1C1E2E6E5E9",
+    "district_name_e": "Tan Binh District",
+    "district_name_l": "Quận Tân Bình",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "4AE5E915-52F4-4FD2-910D-E22AE56EA9E8",
+    "district_name_e": "Tp. Vinh",
+    "district_name_l": "Tp. Vinh",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "0FCAFE3D-AE20-444E-86B9-E266253591A4",
+    "district_name_e": "Thi xa Ayun Pa District",
+    "district_name_l": "Thị xã Ayun Pa",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "5AA80574-6DEC-4574-BF1A-E28612E1232E",
+    "district_name_e": "An Duong District",
+    "district_name_l": "Huyện An Dương",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "43CBA8F3-0E2C-4683-829A-E2B7A82F4598",
+    "district_name_e": "Ben Dau District",
+    "district_name_l": "Huyện Bến Cầu",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "971C4217-7E27-4A85-8A10-E2BF79C9D572",
+    "district_name_e": "Lang Giang District",
+    "district_name_l": "Huyện Lạng Giang",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "F49DBDCF-20FB-402D-A654-E2CBBCDBFFD0",
+    "district_name_e": "Cam My District",
+    "district_name_l": "Huyện Cẩm Mỹ",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "53D8D454-5E59-4526-B5CD-E364A72CB752",
+    "district_name_e": "Khanh Vinh District",
+    "district_name_l": "Huyện Khánh Vĩnh",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "ED105B95-A436-4810-96EA-E4087BC7B448",
+    "district_name_e": "Van Canh District",
+    "district_name_l": "Huyện Vân Canh",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "0EC126E5-3941-43ED-BF6C-E4486BB37F1F",
+    "district_name_e": "Bac Son District",
+    "district_name_l": "Huyện Bắc Sơn",
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1"
+  },
+  {
+    "district_id": "E1FB7BCE-1FDC-4ECD-B60C-E45D7E4B82A5",
+    "district_name_e": "Cua Lo Provincial Town",
+    "district_name_l": "Thị xã Cửa Lò",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "83B57E04-FCE7-4BA2-88FD-E4B5DB10262A",
+    "district_name_e": "Phu Loc District",
+    "district_name_l": "Huyện Phú Lộc",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "46B07A62-AA18-4D51-9D0A-E4D5D2D5503E",
+    "district_name_e": "Phan Thiet Provincial Town",
+    "district_name_l": "Thị xã Phan Thiết",
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24"
+  },
+  {
+    "district_id": "8C8F526F-6A84-4FEA-B7CA-E4EB1AB04BDB",
+    "district_name_e": "10 District",
+    "district_name_l": "Quận 10",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "326C3B4E-CBBD-458E-AB64-E521BD2A25D8",
+    "district_name_e": "Di Linh District",
+    "district_name_l": "Huyện Di Linh",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "0193392A-BF13-484F-844C-E5B15339F8A6",
+    "district_name_e": "Thi xa An Khe District",
+    "district_name_l": "Thị xã An Khê",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "B6A2D243-44FE-4FE8-9B5A-E5CF9D53B60A",
+    "district_name_e": "Yen Khanh District",
+    "district_name_l": "Huyện Yên Khánh",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "29A48B55-B341-446E-9916-E649D62C9EC6",
+    "district_name_e": "Van Ban District",
+    "district_name_l": "Huyện Văn Bàn",
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669"
+  },
+  {
+    "district_id": "3AC21F1E-D93F-410D-A01D-E65BB6A46C6C",
+    "district_name_e": "Cam Le District",
+    "district_name_l": "Quận Cẩm Lệ",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "B082BFFA-A256-4E5E-BBC8-E76F47701F61",
+    "district_name_e": "Mong Cai Provincial Town",
+    "district_name_l": "Thị Xã Móng Cái",
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D"
+  },
+  {
+    "district_id": "8F4E4489-2829-4507-A29F-E7AEC5C6ED3D",
+    "district_name_e": "Soc Son District",
+    "district_name_l": "Huyện Sóc Sơn",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "8080679F-4A54-483F-A950-E88BBFD67895",
+    "district_name_e": "Thi xa Nga Nam District",
+    "district_name_l": "Thị xã Ngã Năm",
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402"
+  },
+  {
+    "district_id": "D4237C53-D030-4D32-BF9A-E89D1A785EA0",
+    "district_name_e": "Tp. Ba Ria",
+    "district_name_l": "Tp. Bà Rịa",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "D332FF66-81BF-4860-843B-E8AC4FE539E9",
+    "district_name_e": "6 District",
+    "district_name_l": "Quận 6",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "E840581F-FEDB-445F-A9F8-E8DEAC131460",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "43703FE5-1500-4A41-B970-E9074A055E6C",
+    "district_name_e": "Thach That District",
+    "district_name_l": "Huyện Thạch Thất",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "6B199823-F1B1-4FA7-8C88-E910106944C7",
+    "district_name_e": "Thuan Chau District",
+    "district_name_l": "Huyện Thuận Châu",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "D6FB4539-97BE-4250-B5A3-E935C3C814F5",
+    "district_name_e": "Tan Hiep District",
+    "district_name_l": "Huyện Tân Hiệp",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "ADDC6EFB-C3ED-457B-8F19-E958EF68BE09",
+    "district_name_e": "Thi xa Binh Minh District",
+    "district_name_l": "Thị xã Bình Minh",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "E6C79A37-26F0-40B3-8EBD-E9632EB6F460",
+    "district_name_e": "Na Hang District",
+    "district_name_l": "Huyện Nà Hang",
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E"
+  },
+  {
+    "district_id": "C8902B81-14EC-4593-9FD5-E9A32BB7619D",
+    "district_name_e": "Cam Lo District",
+    "district_name_l": "Huyện Cam Lộ",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "5ABBCCE5-8C67-4857-BEAE-EA14ABF54D9D",
+    "district_name_e": "Hoa Thanh District",
+    "district_name_l": "Huyện Hòa Thành",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "BC671E81-6128-4DD6-B71D-EA5A4AEA8708",
+    "district_name_e": "Thu Duc District",
+    "district_name_l": "Quận Thủ Đức",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "59A3FD9E-FF16-4A0E-94C2-EA877A81023A",
+    "district_name_e": "Nam Giang District",
+    "district_name_l": "Huyện Nam Giang",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "6EF34418-498E-45D5-8B56-EAAD8E1B6798",
+    "district_name_e": "Krong Pac District",
+    "district_name_l": "Huyện Krông Pắc",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "838BDAF4-1C9E-4920-A416-EB0480B9DD76",
+    "district_name_e": "Tuy Hoa Provincial Town",
+    "district_name_l": "Thị xã Tuy Hòa",
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7"
+  },
+  {
+    "district_id": "F144D1DB-8C41-4A21-B009-EB4D1F6FCA80",
+    "district_name_e": "Duyen Hai District",
+    "district_name_l": "Huyện Duyên Hải",
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799"
+  },
+  {
+    "district_id": "B1F8D2C5-1F82-4826-B75A-EB892C0C0168",
+    "district_name_e": "Thanh Liem District",
+    "district_name_l": "Huyện Thanh Liêm",
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0"
+  },
+  {
+    "district_id": "AA016FBA-96E2-470E-97A4-EC76403B4015",
+    "district_name_e": "Hon Dat District",
+    "district_name_l": "Huyện Hòn Đất",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "E3A8F2D4-D122-4017-ABB9-ECF08F43E931",
+    "district_name_e": "Nho Quan District",
+    "district_name_l": "Huyện Nho Quan",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "AF0A5B5D-927E-49EF-B3F0-ED44FBBA5777",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "C3B5794E-8754-49D0-97B2-ED64DDA33332",
+    "district_name_e": "Xin Man District",
+    "district_name_l": "Huyện Xín Mần",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "D6A1D15D-20C6-45D6-9E67-EE665D175ADF",
+    "district_name_e": "Krong Pa District",
+    "district_name_l": "Huyện Krông Pa",
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56"
+  },
+  {
+    "district_id": "7EF5E688-A9E0-494C-A125-EE7C5038480F",
+    "district_name_e": "Vu Quang District",
+    "district_name_l": "Huyện Vũ Quang",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "4F4AD84B-D70C-41E0-90B0-EEAFC6FA7F1F",
+    "district_name_e": "Dong Hy District",
+    "district_name_l": "Huyện Đồng Hỷ",
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14"
+  },
+  {
+    "district_id": "A0D1A8F7-2240-4AB5-A894-EECAE09C9FD6",
+    "district_name_e": "Bach Long Vi District",
+    "district_name_l": "Huyện Bạch Long Vĩ",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "79B2332D-DD18-44AF-806D-EEFFC62FA3EC",
+    "district_name_e": "Tp. Tam Diep",
+    "district_name_l": "Tp. Tam Điệp",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "F81406E6-C7A1-41ED-B353-EF39BBC4AD64",
+    "district_name_e": "Trieu Phong District",
+    "district_name_l": "Huyện Triệu Phong",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "38C5BA43-5D89-4580-8671-F05E9BC31DB2",
+    "district_name_e": "Mai Chau",
+    "district_name_l": "Huyện Mai Châu",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "F7448B2E-CA02-456E-83C9-F0A7C3949BAB",
+    "district_name_e": "Quang Ba District",
+    "district_name_l": "Huyện Quản Bạ",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "021DEEEC-8AB4-4456-B85E-F105DAEDC31B",
+    "district_name_e": "Ea H'leo District",
+    "district_name_l": "Huyện Ea H'leo",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "0C7764A2-6391-461B-B8DC-F11D86A63E3F",
+    "district_name_e": "Kon Ray District",
+    "district_name_l": "Huyện Kon Rẫy",
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F"
+  },
+  {
+    "district_id": "12860339-8557-4852-9B1D-F165A92B9849",
+    "district_name_e": "Nam Tra My District",
+    "district_name_l": "Huyện Nam Trà My",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "1F969F57-8FB7-43AB-8555-F1C7DC5A7F91",
+    "district_name_e": "Tp. Cam Ranh",
+    "district_name_l": "Tp. Cam Ranh",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "AFDAA722-135E-4BB2-8B13-F1F49ED49950",
+    "district_name_e": "Muong La District",
+    "district_name_l": "Huyện Mường La",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "A4B97256-D1A5-48A7-93C1-F20A4C8C326F",
+    "district_name_e": "Cao Phong District",
+    "district_name_l": "Huyện Cao Phong",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "3963E8F2-5740-481B-9D43-F226FD9ACE56",
+    "district_name_e": "Cai Lay District",
+    "district_name_l": "Huyện Cai Lậy",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "207D8192-7040-4002-BF67-F286C97B1D22",
+    "district_name_e": "Cam Xuyen District",
+    "district_name_l": "Huyện Cẩm Xuyên",
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF"
+  },
+  {
+    "district_id": "F8A939EA-D0D2-49D6-8A3F-F2BB530C4B0D",
+    "district_name_e": "Son Ha District",
+    "district_name_l": "Huyện Sơn Hà",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "4ED94B8C-E188-44F1-93CA-F2DD253B4FB9",
+    "district_name_e": "Quang Dien District",
+    "district_name_l": "Huyện Quảng Điền",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "CD80B7C5-EFA4-431A-B3CB-F3BB50662755",
+    "district_name_e": "Tp. Hoi An",
+    "district_name_l": "Tp. Hội An",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "4B929398-ADBB-4D74-BB31-F505730C6836",
+    "district_name_e": "Ly Son District",
+    "district_name_l": "Huyện Lý Sơn",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  },
+  {
+    "district_id": "094F1D29-D096-4BAA-A992-F50A35B8E835",
+    "district_name_e": "Duong Minh Chau District",
+    "district_name_l": "Huyện Dương Minh Châu",
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718"
+  },
+  {
+    "district_id": "B653B158-1366-4877-935F-F51D09C25E81",
+    "district_name_e": "Lam Ha District",
+    "district_name_l": "Huyện Lâm Hà",
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87"
+  },
+  {
+    "district_id": "D7A71A20-07DE-4758-A10E-F5429B0B5382",
+    "district_name_e": "Long Khanh District",
+    "district_name_l": "Huyện Long Khánh",
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B"
+  },
+  {
+    "district_id": "9977970C-7056-40B0-A5CF-F646829081D8",
+    "district_name_e": "Rach Gia Provincial Town",
+    "district_name_l": "Thị xã Rạch Giá",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "2CD8B789-EA47-4CE9-9F13-F67016EE44A1",
+    "district_name_e": "Tam Binh District",
+    "district_name_l": "Huyện Tam Bình",
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116"
+  },
+  {
+    "district_id": "AC97F932-C8C7-4DCB-A07E-F6827EC720B4",
+    "district_name_e": "Kien Luong District",
+    "district_name_l": "Huyện Kiên Lương",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "60F15B11-20F5-4121-BDBE-F6B24A91FC2F",
+    "district_name_e": "Thanh Mien District",
+    "district_name_l": "Huyện Thanh Miện",
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D"
+  },
+  {
+    "district_id": "38E2E59A-1CE4-4DB9-8E7C-F72CCB2BD7A5",
+    "district_name_e": "Ba Be District",
+    "district_name_l": "Huyện Ba Bể",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "0A056739-086B-4153-BB0F-F738D95858A1",
+    "district_name_e": "An Minh District",
+    "district_name_l": "Huyện An Minh",
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA"
+  },
+  {
+    "district_id": "972691F6-4F71-4A3E-B375-F73F5DC64917",
+    "district_name_e": "Hoai Duc District",
+    "district_name_l": "Huyện Hoài Đức",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "854D3AD4-2847-4C85-8391-F7B22A1BA49D",
+    "district_name_e": "Bac Tan Uyen District",
+    "district_name_l": "Huyện Bắc Tân Uyên",
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B"
+  },
+  {
+    "district_id": "81443E83-A7AD-4DBA-BDA5-F8092C444211",
+    "district_name_e": "Ca Mau Provincial Town",
+    "district_name_l": "Thị xã Cà Mau",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "DC7A8DF9-599C-49BA-BD4B-F811E2E375F4",
+    "district_name_e": "Chau Thanh District",
+    "district_name_l": "Huyện Châu Thành",
+    "province_id": "18F833E1-61BF-4F73-AA86-DF4823806FE4"
+  },
+  {
+    "district_id": "07FAFA9C-DA63-439D-BF73-F85F3FA26FD5",
+    "district_name_e": "Quang Xuong District",
+    "district_name_l": "Huyện Quảng Xương",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "D3541B59-6848-4E18-9740-F8735103C2F7",
+    "district_name_e": "Quang Tri Provincial Town",
+    "district_name_l": "Thị xã Quảng Trị",
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454"
+  },
+  {
+    "district_id": "514E0CFC-82EA-4250-A2AA-F899DD253E42",
+    "district_name_e": "Cu M'gar District",
+    "district_name_l": "Huyện Cư M'gar",
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439"
+  },
+  {
+    "district_id": "6894B095-644B-4C81-BFC9-F8DEE46AD69B",
+    "district_name_e": "Binh Long District",
+    "district_name_l": "Huyện Bình Long",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "4AEDA40F-2DB6-40C1-B4AA-F90685C14F93",
+    "district_name_e": "Thi xa Huong Thuy District",
+    "district_name_l": "Thị xã Hương Thủy",
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD"
+  },
+  {
+    "district_id": "4E5259D9-7DEF-4BFF-BBAA-F91A8F44E0D3",
+    "district_name_e": "Thi xa Cai Lay District",
+    "district_name_l": "Thị xã Cai Lậy",
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C"
+  },
+  {
+    "district_id": "40BB2595-E294-4325-B49C-F9919737F01E",
+    "district_name_e": "Thi xa Tu Son District",
+    "district_name_l": "Thị xã Từ Sơn",
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8"
+  },
+  {
+    "district_id": "AC5567FD-635B-41F0-B3C0-F99FC19662ED",
+    "district_name_e": "Gia Rai District",
+    "district_name_l": "Huyện Giá Rai",
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B"
+  },
+  {
+    "district_id": "73CE8734-8027-45E6-96A7-F9B1F13A1053",
+    "district_name_e": "Tp. Thanh Hoa",
+    "district_name_l": "Tp. Thanh Hóa",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "FAC54554-BD7B-404E-8270-F9B5982ABDA1",
+    "district_name_e": "Long Dien District",
+    "district_name_l": "Huyện Long Điền",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "29558C17-0C90-4E6D-B271-F9ECDE7A3969",
+    "district_name_e": "Hoa Vang District",
+    "district_name_l": "Huyện Hoà Vang",
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565"
+  },
+  {
+    "district_id": "EB4716FF-EA32-4443-8D21-FA0857F829BF",
+    "district_name_e": "Son La Provincial Town",
+    "district_name_l": "Thị xã Sơn La",
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C"
+  },
+  {
+    "district_id": "B641D467-B037-4F7C-870B-FA3DF3A22864",
+    "district_name_e": "Tran Yen District",
+    "district_name_l": "Huyện Trấn Yên",
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234"
+  },
+  {
+    "district_id": "4857A1C4-8691-450C-AEC6-FAA4FFC48088",
+    "district_name_e": "Dong Phu District",
+    "district_name_l": "Huyện Đồng Phú",
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3"
+  },
+  {
+    "district_id": "8F6A42D3-A5E6-4499-A943-FAF92D7906AC",
+    "district_name_e": "Hoa Lu District",
+    "district_name_l": "Huyện Hoa Lư",
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4"
+  },
+  {
+    "district_id": "90CF36B1-D440-4625-9E9B-FB5B342A99B5",
+    "district_name_e": "Ba Thuoc District",
+    "district_name_l": "Huyện Bá Thước",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "83E53E6D-73AC-45E5-A83F-FB9FFFF7E69F",
+    "district_name_e": "Chau Duc District",
+    "district_name_l": "Huyện Châu Đức",
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD"
+  },
+  {
+    "district_id": "3350DABA-C1E7-4046-8CA5-FBC09976E2D2",
+    "district_name_e": "Lap Thach District",
+    "district_name_l": "Huyện Lập Thạch",
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A"
+  },
+  {
+    "district_id": "3CA0CB83-768E-43FF-9DF1-FC23C326A726",
+    "district_name_e": "Tan Lac District",
+    "district_name_l": "Huyện Tân Lạc",
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB"
+  },
+  {
+    "district_id": "5C4DBD73-AC59-4D8E-BD2E-FC9324D09B49",
+    "district_name_e": "Ia Pa District",
+    "district_name_l": "Huyện Ia Pa",
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6"
+  },
+  {
+    "district_id": "F8EBE968-B9BA-4C4D-8EA6-FCAF881D5D3A",
+    "district_name_e": "Tuong Duong District",
+    "district_name_l": "Huyện Tương Dương",
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC"
+  },
+  {
+    "district_id": "3B3F3871-9414-4BFD-91DF-FCF700EA6FC7",
+    "district_name_e": "Bac Quang District",
+    "district_name_l": "Huyện Bắc Quang",
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02"
+  },
+  {
+    "district_id": "1943B211-DDA8-4F59-A24B-FD5996FAE9A2",
+    "district_name_e": "Thang Binh District",
+    "district_name_l": "Huyện Thăng Bình",
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2"
+  },
+  {
+    "district_id": "3044B9A3-BF3C-436D-94DB-FD8CBF10865C",
+    "district_name_e": "Phan Rang - Thap Cham Provincial Town",
+    "district_name_l": "Thị xã Phan Rang-Tháp Chàm",
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931"
+  },
+  {
+    "district_id": "FBFCCBA9-60A5-4F12-96D7-FDC413EFA057",
+    "district_name_e": "Cam Lam District",
+    "district_name_l": "Huyện Cam Lâm",
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E"
+  },
+  {
+    "district_id": "D75550BD-9554-4C66-BB0A-FE23FFCDD73A",
+    "district_name_e": "9 District",
+    "district_name_l": "Quận 9",
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2"
+  },
+  {
+    "district_id": "A4B671B3-5640-4CAE-8127-FE34EFC72071",
+    "district_name_e": "Vinh Loc District",
+    "district_name_l": "Huyện Vĩnh Lộc",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "61B2A6F1-0E73-4C84-9E06-FE87C9E4F271",
+    "district_name_e": "Yen The Provincial Town",
+    "district_name_l": "Huyện Yên Thế",
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788"
+  },
+  {
+    "district_id": "AAB7DB2F-BF28-41E5-8A68-FE9485F6C16A",
+    "district_name_e": "Hong Ngu District",
+    "district_name_l": "Huyện Hồng Ngự",
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC"
+  },
+  {
+    "district_id": "6875D49E-34F1-4BB5-92AF-FEC83E110F6A",
+    "district_name_e": "Tri Ton District",
+    "district_name_l": "Huyện Tri Tôn",
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8"
+  },
+  {
+    "district_id": "181F70D8-64C5-4042-A33E-FEEF27D1F838",
+    "district_name_e": "Vinh Bao Distric",
+    "district_name_l": "Huyện Vĩnh Bảo",
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8"
+  },
+  {
+    "district_id": "EDC4B4F2-ACC7-4293-900A-FEFC5B0EF806",
+    "district_name_e": "Quan Hoa District",
+    "district_name_l": "Huyện Quan Hóa",
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C"
+  },
+  {
+    "district_id": "37D186E1-DFE0-449A-933D-FF529B40534B",
+    "district_name_e": "Tp. Qui Nhon",
+    "district_name_l": "Tp. Qui Nhơn",
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A"
+  },
+  {
+    "district_id": "AB613E24-6D3B-4E6B-8789-FFAE12D7A884",
+    "district_name_e": "Ung Hoa District",
+    "district_name_l": "Huyện Ứng Hòa",
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4"
+  },
+  {
+    "district_id": "D215F883-6E8F-4735-804D-FFD338AD605D",
+    "district_name_e": "Cho Don District",
+    "district_name_l": "Huyện Chợ Đồn",
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76"
+  },
+  {
+    "district_id": "C4D75851-D7D6-4E06-8076-FFE4A770A436",
+    "district_name_e": "Tra Bong District",
+    "district_name_l": "Huyện Trà Bồng",
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9"
+  }
+]

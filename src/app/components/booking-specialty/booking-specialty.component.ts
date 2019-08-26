@@ -74,6 +74,17 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
         }
     }
 
+    filterClinicByDoctor(doctor) {
+        const found = (this.clinics || []).find(x => {
+            const postHis = doctor.meta.his_clinic_ids || [];
+            const catHis = x.meta.his_clinic_ids || [];
+            return  x.id === doctor.categoryId || doctor.categories.indexOf(x.id) >= 0 || postHis.some(r => catHis.indexOf(r) >= 0);
+        });
+        if (found) {
+            this.onChoose(found);
+        }
+    }
+
     get clinicName() {
         if (!this.chosenClinic) {
             return '';

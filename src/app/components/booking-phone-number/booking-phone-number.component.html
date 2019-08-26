@@ -1,6 +1,6 @@
 <div class="item-inner">
 	<div class="ip ip-phone" [ngClass]="{'aniAfter' : animateAfter}">
-  		<input type="text" numbersOnly (blur)="onChange()" [(ngModel)]="phoneNumber" class="js-phone js-number js-input"  placeholder="{{'phone_number' | translate}}" >
+  		<input #phoneNumberInput type="text" numbersOnly (blur)="onChange()" [(ngModel)]="phoneNumber" class="js-phone js-number js-input"  placeholder="{{'phone_number' | translate}}" >
 	</div>
 </div>
 <app-customer-register

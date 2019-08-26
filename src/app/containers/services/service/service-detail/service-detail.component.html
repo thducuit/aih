@@ -1,4 +1,4 @@
-<main id="pServiceCate">
+<main id="pServiceCate" class="pServiceCate">
   <div class="breadcrumb">
     <div class="container">
       <a routerLink="/">{{'home' | translate}}</a> /
@@ -16,7 +16,7 @@
           <h3>{{ 'our_departments' | translate }}</h3>
           <app-sidebar></app-sidebar>
         </div>
-        <div class="copy" #copyCate innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
+        <div class="copy copy-cate" #copyCate innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
       </div>
     </div>
   </section>

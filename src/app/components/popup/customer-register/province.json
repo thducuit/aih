@@ -1,0 +1,380 @@
+[
+  {
+    "province_id": "62E4AACB-0EE8-421C-AD17-035D91D456AA",
+    "province_name_e": "Kien Giang Province",
+    "province_name_l": "Tỉnh Kiên Giang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "5C6BA346-A687-4544-9247-0BC30479CB95",
+    "province_name_e": "Hung Yen Province",
+    "province_name_l": "Tỉnh Hưng Yên",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "54026810-C044-4949-88D8-0CA9915494FC",
+    "province_name_e": "Dong Thap Province",
+    "province_name_l": "Tỉnh Đồng Tháp",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "CA1E246E-A288-4001-86DE-0E0400EAEBA8",
+    "province_name_e": "Bac Ninh Province",
+    "province_name_l": "Tỉnh Bắc Ninh",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "A04380FB-E76C-43C5-89B7-0E48B9324799",
+    "province_name_e": "Tra Vinh Province",
+    "province_name_l": "Tỉnh Trà Vinh",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "BFD275CD-23D1-4E31-99B3-1514D9014788",
+    "province_name_e": "Bac Giang Province",
+    "province_name_l": "Tỉnh Bắc Giang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "C6DA155D-FF56-43FB-BD13-189023B9D5F1",
+    "province_name_e": "Lang Son Province",
+    "province_name_l": "Tỉnh Lạng Sơn",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "06C4BAAE-EBB6-47A5-9642-1B17D9FD572A",
+    "province_name_e": "Vinh Phuc Province",
+    "province_name_l": "Tỉnh Vĩnh Phúc",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "E6BDF87C-38AC-47CE-815A-21407F98D26C",
+    "province_name_e": "Son La Province",
+    "province_name_l": "Tỉnh Sơn La",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "03437D53-7DB9-435B-A0DB-24DDD80D7718",
+    "province_name_e": "Tay Ninh Province",
+    "province_name_l": "Tỉnh Tây Ninh",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "BA733600-EA1A-430F-AC4B-2693B595FEB6",
+    "province_name_e": "Ca Mau Province",
+    "province_name_l": "Tỉnh Cà Mau",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "C8DB136A-D765-4BCE-B907-2A4218757596",
+    "province_name_e": "Thai Binh Province",
+    "province_name_l": "Tỉnh Thái Bình",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "3FB72A7A-F286-49CB-ADEA-2B8376DE58A3",
+    "province_name_e": "Binh Phuoc Province",
+    "province_name_l": "Tỉnh Bình Phước",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "263E2E7D-C2E4-4F47-8C12-2D1DDCA7E0C9",
+    "province_name_e": "Quang Ngai Province",
+    "province_name_l": "Tỉnh Quảng Ngãi",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "44CC878B-3A84-4A50-814F-317B1A4E3F14",
+    "province_name_e": "Thai Nguyen Province",
+    "province_name_l": "Tỉnh Thái Nguyên",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "4DE0BA66-F542-4B98-9F37-39E9BC7F8454",
+    "province_name_e": "Quang Tri Province",
+    "province_name_l": "Tỉnh Quảng Trị",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "9150BFBD-AC6A-49A1-BAA4-3B155F752931",
+    "province_name_e": "Ninh Thuan Province",
+    "province_name_l": "Tỉnh Ninh Thuận",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "A4D54100-F47F-4255-8A72-44AE8C5FC1B0",
+    "province_name_e": "Ha Nam Province",
+    "province_name_l": "Tỉnh Hà Nam",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "1120729A-DA08-450D-9C77-4D28854BCF2C",
+    "province_name_e": "Thanh Hoa Province",
+    "province_name_l": "Tỉnh Thanh Hóa",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "620FE8AA-39CD-4AA7-ABE4-51401AC87565",
+    "province_name_e": "Da Nang City",
+    "province_name_l": "TP. Đà Nẵng",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "18919DB4-87FE-43C2-986A-5F58E0E8366D",
+    "province_name_e": "Hai Duong Province",
+    "province_name_l": "Tỉnh Hải Dương",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "4918D15E-26B6-409D-9A42-6378398A6B8B",
+    "province_name_e": "Bac Lieu Province",
+    "province_name_l": "Tỉnh Bạc Liêu",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "9FE28194-1768-493F-8817-647A7C774D02",
+    "province_name_e": "Ha Giang Province",
+    "province_name_l": "Tỉnh Hà Giang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "1EA23456-6A40-48AB-B401-65B44D495713",
+    "province_name_e": "Ben Tre Province",
+    "province_name_l": "Tỉnh Bến Tre",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "AEB50365-D575-4215-B695-66C4246DD19F",
+    "province_name_e": "Kon Tum Province",
+    "province_name_l": "Tỉnh Kon Tum",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "34EA302B-26EA-4E89-9E51-6930D3772439",
+    "province_name_e": "Dak Lak Province",
+    "province_name_l": "Tỉnh Dak Lak",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "CD78D6E1-252D-4280-94E9-6B9F272476A4",
+    "province_name_e": "Ha Noi City",
+    "province_name_l": "Tp. Hà Nội",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "683495B9-A672-4CF1-97D3-6FCA98511EA2",
+    "province_name_e": "HCM City",
+    "province_name_l": "Tp. HCM",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "B7726467-16CF-4E39-9B75-722EBE0171D2",
+    "province_name_e": "Quang Nam Province",
+    "province_name_l": "Tỉnh Quảng Nam",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "7D630DED-DB1F-479C-B897-783E2B6519E3",
+    "province_name_e": "Lai Chau Province",
+    "province_name_l": "Tỉnh Lai Châu",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "9258E855-547D-4688-B1A5-814B32CFD116",
+    "province_name_e": "Vinh Long Province",
+    "province_name_l": "Tỉnh Vĩnh Long",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "27825341-CBED-4E80-AB07-82B451D83556",
+    "province_name_e": "Cao Bang Province",
+    "province_name_l": "Tỉnh Cao Bằng",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "75AB281A-7890-4BC7-9418-83271A1B014B",
+    "province_name_e": "Dong Nai Province",
+    "province_name_l": "Tỉnh Đồng Nai",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "64524096-ACBA-4245-ABE0-86587AB8826B",
+    "province_name_e": "Binh Duong Province",
+    "province_name_l": "Tỉnh Bình Dương",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "CA3D232A-84F7-4A7F-BC88-88AFA7F3E0F0",
+    "province_name_e": "Nam Dinh Province",
+    "province_name_l": "Tỉnh Nam Định",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "799AC723-2D85-11E8-B36D-88B111EA60D6",
+    "province_name_e": "Hau Giang Province",
+    "province_name_l": "Tỉnh Hậu Giang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "62C9687B-2D85-11E8-B36D-88B111EA60D6",
+    "province_name_e": "Dien Bien Province",
+    "province_name_l": "Tỉnh Điện Biên",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "4EFBAA9F-2D85-11E8-B36D-88B111EA60D6",
+    "province_name_e": "Dak Nong Province",
+    "province_name_l": "Tỉnh Đắk Nông",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "C8B36E5E-7921-4FF3-9CBD-898924F3FACF",
+    "province_name_e": "Ha Tinh Province",
+    "province_name_l": "Tỉnh Hà Tĩnh",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "DABB447E-12E3-4CBE-9055-8B67E4D88234",
+    "province_name_e": "Yen Bai Procince",
+    "province_name_l": "Tỉnh Yên Bái",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "1E86550B-EACC-4481-8570-9943C4BCF669",
+    "province_name_e": "Lao Cai Province",
+    "province_name_l": "Tỉnh Lào Cai",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "0925843F-2A70-48D0-B958-9C51A894092A",
+    "province_name_e": "Binh Dinh Province",
+    "province_name_l": "Tỉnh Bình Định",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "305ACFD4-9C2E-4510-B991-9D6AFB0268BB",
+    "province_name_e": "Hoa Binh Province",
+    "province_name_l": "Tỉnh Hòa Bình",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "223741FC-B9C5-4222-9305-A24668DF5F87",
+    "province_name_e": "Lam Dong Province",
+    "province_name_l": "Tỉnh Lâm Đồng",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "FE2CF8CA-8BE4-46AB-AB0F-AD825C42E93E",
+    "province_name_e": "Tuyen Quang Province",
+    "province_name_l": "Tỉnh Tuyên Quang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "73FA4A3F-AEB5-4D6F-AEBE-BA05E64CFA4C",
+    "province_name_e": "Tien Giang Province",
+    "province_name_l": "Tỉnh Tiền Giang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "42619834-80C3-463D-8040-BB980FA38F76",
+    "province_name_e": "Bac Kan Province",
+    "province_name_l": "Tỉnh Bắc Kạn",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "D94807C1-486F-4CE2-811E-BBCD2EB9CACE",
+    "province_name_e": "Phu Tho Province",
+    "province_name_l": "Tỉnh Phú Thọ",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "D8C8F6EC-EADE-4B55-A99F-C334335310A7",
+    "province_name_e": "Phu Yen Province",
+    "province_name_l": "Tỉnh Phú Yên",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "CC0022D3-20D1-441F-AE71-C7B8BC0EA3DD",
+    "province_name_e": "Ba Ria - Vung Tau Province",
+    "province_name_l": "Tỉnh Bà Rịa - Vũng Tàu",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "8B222BBE-2A27-479D-878D-CCE3806BB3DC",
+    "province_name_e": "Nghe An Province",
+    "province_name_l": "Tỉnh Nghệ An",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "0E837EDB-32EB-4682-A317-CF3D1B7F6DD4",
+    "province_name_e": "Ninh Binh Province",
+    "province_name_l": "Tỉnh Ninh Bình",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "049C3284-5B42-4797-B454-D0775FC4FAC8",
+    "province_name_e": "Hai Phong City",
+    "province_name_l": "Tp. Hải Phòng",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "9CFB0548-ABAF-4BF7-9972-D0C376CF81AA",
+    "province_name_e": "Long An Province",
+    "province_name_l": "Tỉnh Long An",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "279B39DB-AC66-4DBF-9598-DBAD0917ED6D",
+    "province_name_e": "Quang Ninh Province",
+    "province_name_l": "Tỉnh Quảng Ninh",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "18F833E1-61BF-4F73-AA86-DF4823806FE4",
+    "province_name_e": "Can Tho City",
+    "province_name_l": "TP. Cần Thơ",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "0D47D5C9-B5E8-445A-87FF-E236D4AD6A49",
+    "province_name_e": "Quang Binh Province",
+    "province_name_l": "Tỉnh Quảng Bình",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "8F3B6C98-F263-4E5B-9991-E4508762DC56",
+    "province_name_e": "Gia Lai Province",
+    "province_name_l": "Tỉnh Gia Lai",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "E4F56B64-1AFE-4A45-BEDE-E9FE7D744402",
+    "province_name_e": "Soc Trang Province",
+    "province_name_l": "Tỉnh Sóc Trăng",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "8156681D-539D-4857-84AB-FB9884A0ADE8",
+    "province_name_e": "An Giang Province",
+    "province_name_l": "Tỉnh An Giang",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "249DBF8C-082B-41E3-AF39-FC8F5B25AE24",
+    "province_name_e": "Binh Thuan Province",
+    "province_name_l": "Tỉnh Bình Thuận",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "9761B484-7F7E-40D1-BDED-FCFE328FCCFD",
+    "province_name_e": "Thua Thien Hue Province",
+    "province_name_l": "Tỉnh Thừa Thiên Huế",
+    "country_rcd": "VNM"
+  },
+  {
+    "province_id": "1E6D64E6-4A22-4349-91E5-FEEB2DEE491E",
+    "province_name_e": "Khanh Hoa Province",
+    "province_name_l": "Tỉnh Khánh Hòa",
+    "country_rcd": "VNM"
+  }
+]
