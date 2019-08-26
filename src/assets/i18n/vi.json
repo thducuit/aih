@@ -300,5 +300,8 @@
   "text_BusinessOwner": "Kinh doanh",
   "text_BlueCollar": "Lao động phổ thông",
   "text_WhiteCollar": "Nhân viên văn phòng",
-  "text_Student": "Học sinh"
+  "text_Student": "Học sinh",
+
+  "text_booking_phone_invalid": "Số điện thoại không đúng",
+  "text_booking_close": "Đóng lại"
 }

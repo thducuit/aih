@@ -2,6 +2,14 @@
 .choose-child-package {
 	height: 50px;
     overflow: hidden;
+  position: relative;
+}
+
+p.haveChildAnimate img{
+  position: absolute;
+  right: 0;
+  top: 22px;
+  margin-top:0
 }
 
 p span {
@@ -10,10 +18,17 @@ p span {
     position: relative;
 }
 
-/*p span.animateSpan {
+p span.animateSpan {
   -webkit-animation: 12s linear infinite moveLeft;
   animation: 12s linear infinite moveLeft
-}*/
+}
+
+p.haveAnimate img{
+  position: absolute;
+  right: 0;
+  top: 11px;
+  margin-top:0
+}
 
 .box-details-medical {
  display: block;
@@ -33,7 +48,7 @@ p span {
 
 .medical-bottom .box-left p {
 	/*text-align: left;*/
-	padding: 0 20px;	
+	margin: 0 20px 0 50px;
 }
 
 .medical-bottom .box-left p img {
@@ -60,6 +75,10 @@ p span {
 
 .medical-bottom .box-right .box-bottom {
 	overflow: hidden
+}
+
+.medical-bottom .box-right .box-bottom p {
+  margin-left: 50px;
 }
 
 .medical-bottom .box-right .box-bottom ul li {

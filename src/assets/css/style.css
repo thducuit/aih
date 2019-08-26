@@ -2259,8 +2259,10 @@ a.order-calender{
 }
 .box-details-medical .table img{
 	display: block;
-	margin: 0 auto;
-	max-width: 100%;
+  margin: 3px auto 0;
+  max-width: 14px;
+  /*margin: 0 auto;*/
+	/*max-width: 100%;*/
 }
 .box-details-medical .table tbody tr{
 	height: 30px;
@@ -3288,6 +3290,7 @@ a.order-calender{
 	 text-align: left;
      overflow: hidden;
       width: 85%;
+  position: relative;
 }
 .medical-bottom .box-right .box-right{
 	width: 50%;
@@ -3299,10 +3302,16 @@ a.order-calender{
 }
 .medical-bottom .box-right  ul li{
  	font-size: 18px;
- 	text-align: center;
+ 	text-align: left;
  	color: #fff;
  	line-height: 50px;
  	font-family: utm_avoregular;
+}
+
+.medical-bottom .box-right  ul .divchild {
+  width: 85%;
+  padding-left: 50px;
+  overflow: hidden;
 }
 .medical-bottom .box-right  ul li:nth-child(1){
 	border-bottom: 2px solid #fff;
