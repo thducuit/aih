@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../../services/post.service';
 import { Blog } from '../../../models/blog';
@@ -18,6 +24,8 @@ import {
   GoogleLoginProvider,
 } from 'angularx-social-login';
 import { CommentService } from '../../../services/comment.service';
+import { environment } from 'src/environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-news-detail',
@@ -41,6 +49,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   public liked;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId,
     private route: ActivatedRoute,
     public postService: PostService,
     public blogService: BlogService,
@@ -82,10 +91,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   }
 
   private loadPosts(alias: string) {
-    forkJoin(
-      this.postService.fetch(alias, true),
-      this.translate.get('american_international_hospital'),
-    ).subscribe(([data, aihStr]) => {
+    this.postService.fetch(alias, true).subscribe(data => {
       const blog = new Blog(data['Post']);
 
       blog.totalComments = data['TotalComments'] || 0;
@@ -94,25 +100,31 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
         blog.picturePath = UrlService.createPictureUrl(blog.picture);
       }
       blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
-      blog.url = `${location.origin}${UrlService.createNewsDetailUrl(
+      blog.url = `${environment.host}${UrlService.createNewsDetailUrl(
         blog.alias,
       )}`;
 
       this.blog = blog;
 
-      const storageLiked = localStorage.getItem('liked');
-      const liked = storageLiked ? JSON.parse(storageLiked) : [];
-      this.liked = liked.indexOf(blog.id) >= 0;
+      if (isPlatformBrowser(this.platformId)) {
+        const storageLiked = localStorage.getItem('liked');
+        const liked = storageLiked ? JSON.parse(storageLiked) : [];
+        this.liked = liked.indexOf(blog.id) >= 0;
+      }
 
       // seo
-      const pageTitle = this.blog.metaTitle
-        ? `${this.blog.metaTitle} - ${aihStr}`
-        : `${this.blog.name} - ${aihStr}`;
-      this.titleService.setTitle(pageTitle);
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: pageTitle,
-      });
+      this.translate
+        .get('american_international_hospital')
+        .subscribe(aihStr => {
+          const pageTitle = this.blog.metaTitle
+            ? `${this.blog.metaTitle} - ${aihStr}`
+            : `${this.blog.name} - ${aihStr}`;
+          this.titleService.setTitle(pageTitle);
+          this.metaService.updateTag({
+            property: 'og:title',
+            content: pageTitle,
+          });
+        });
       this.metaService.updateTag({
         name: 'description',
         content: this.blog.metaDesc,
