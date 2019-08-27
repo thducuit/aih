@@ -151,9 +151,9 @@ export class BookingPhoneNumberComponent implements OnInit {
 
   handleCloseRegister() {
     this.showRegister = false;
-    if (this.phoneNumberInput) {
-      this.phoneNumberInput.nativeElement.focus();
-    }
+    // if (this.phoneNumberInput) {
+    //   this.phoneNumberInput.nativeElement.focus();
+    // }
   }
 
   handleGetCustomerId(customerId) {

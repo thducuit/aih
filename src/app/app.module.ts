@@ -163,6 +163,7 @@ import { MembershipConsultingComponent } from './containers/insurance/membership
 import { MembershipComponent } from './containers/insurance/membership/membership.component';
 import { InsuranceMembershipComponent } from './containers/insurance/insurance-membership/insurance-membership.component';
 import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -322,7 +323,8 @@ export function provideConfig() {
     AngularStickyThingsModule,
     ClickOutsideModule,
     RecaptchaModule,
-    SocialLoginModule
+    SocialLoginModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [
     GlobalEventService,

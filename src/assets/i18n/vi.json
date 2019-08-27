@@ -275,7 +275,7 @@
 
   "text_Brother": "Anh em",
   "text_Daughter": "Con gái",
-  "text_Contact": "Contact",
+  "text_Contact": "Liên hệ",
   "text_Father": "Cha",
   "text_Mother": "Mẹ",
   "text_Spouse": "Vợ chồng",
@@ -296,6 +296,7 @@
   "text_Outpatient": "Ngoại trú",
   "text_Inpatient": "Nội trú",
   "text_Both": "Cả hai",
+  "text_Other": "Khác",
 
   "text_BusinessOwner": "Kinh doanh",
   "text_BlueCollar": "Lao động phổ thông",
