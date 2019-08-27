@@ -4,7 +4,11 @@ import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpClient,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -163,6 +167,8 @@ import { MembershipConsultingComponent } from './containers/insurance/membership
 import { MembershipComponent } from './containers/insurance/membership/membership.component';
 import { InsuranceMembershipComponent } from './containers/insurance/insurance-membership/insurance-membership.component';
 import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
+import { LoaderService } from './services/loader-service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -298,6 +304,7 @@ export function provideConfig() {
     MembershipComponent,
     InsuranceMembershipComponent,
     InsuranceDetailComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),
@@ -358,6 +365,14 @@ export function provideConfig() {
       useFactory: provideConfig,
     },
     CommentService,
+    LoaderService,
+    // Enable this will show loading for every http request
+    // This maybe quite anoying
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoaderInterceptorService,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

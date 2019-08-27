@@ -39,7 +39,7 @@
       </li>
       <li>
         <div class="has-capcha">
-          <re-captcha (resolved)="resolved($event)" siteKey="6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK"></re-captcha>
+          <re-captcha #recaptcha (resolved)="resolved($event)" [siteKey]="recaptchaSiteKey"></re-captcha>
         </div>
       </li>
       <li>

@@ -21,7 +21,7 @@
             </div>
         </li>
         <li>
-            <div class="g-recaptcha"><re-captcha (resolved)="resolved($event)" siteKey="6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK"></re-captcha></div>
+            <div class="g-recaptcha"><re-captcha #recaptcha (resolved)="resolved($event)" [siteKey]="recaptchaSiteKey"></re-captcha></div>
             <input class="btn-page" (click)="submitForm()" type="submit" value="{{ 'contact_send' | translate }}">
         </li>
     </ul>

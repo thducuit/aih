@@ -1,5 +1,12 @@
 import {
-  Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef, AfterViewInit, Renderer2, ElementRef,
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ChangeDetectorRef,
+  AfterViewInit,
+  Renderer2,
+  ElementRef,
 } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +23,8 @@ import { PostService } from '../../../../services/post.service';
   templateUrl: './service-detail.component.html',
   styleUrls: ['./service-detail.component.scss'],
 })
-export class ServiceDetailComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ServiceDetailComponent
+  implements OnInit, OnDestroy, AfterViewInit {
   public clinic: Clinic;
   private subscription: Subscription;
   public clinicIds;
@@ -27,17 +35,18 @@ export class ServiceDetailComponent implements OnInit, OnDestroy, AfterViewInit 
   @ViewChild('copyCate', { static: false }) copyCate;
   @ViewChild('pServiceCate', { static: false }) contentEl: ElementRef;
 
-  constructor(private route: ActivatedRoute,
-              public categoryService: CategoryService,
-              public postService: PostService,
-              private translate: TranslateService,
-              private metaService: Meta,
-              private router: Router,
-              private animateScrollService: NgAnimateScrollService,
-              private titleService: Title,
-              private cdr: ChangeDetectorRef,
-              private renderer: Renderer2) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    public categoryService: CategoryService,
+    public postService: PostService,
+    private translate: TranslateService,
+    private metaService: Meta,
+    private router: Router,
+    private animateScrollService: NgAnimateScrollService,
+    private titleService: Title,
+    private cdr: ChangeDetectorRef,
+    private renderer: Renderer2,
+  ) {}
 
   ngOnInit() {
     // const alias = this.route.snapshot.paramMap.get('alias');
@@ -50,7 +59,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy, AfterViewInit 
       this.postService.getAlias(alias).subscribe((data: any) => {
         const newAlias = data['alias'];
         if (newAlias) {
-          return this.router.navigate([UrlService.createClinicDetailUrl(newAlias)]);
+          return this.router.navigate([
+            UrlService.createClinicDetailUrl(newAlias),
+          ]);
         } else {
           return this.router.navigate(['/patient-services/medical-services']);
         }
@@ -82,7 +93,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
       // seo
       const pageTitle = `${this.clinic.metaTitle ||
-      this.clinic.name} - ${aihStr}`;
+        this.clinic.name} - ${aihStr}`;
 
       this.titleService.setTitle(pageTitle);
 
@@ -113,9 +124,14 @@ export class ServiceDetailComponent implements OnInit, OnDestroy, AfterViewInit 
 
   fixHeight() {
     if (this.serviceCate && this.copyCate) {
-      const serviceCateHeight = this.serviceCate ? this.serviceCate.nativeElement.offsetHeight : 0;
-      const copyCateHeight = this.copyCate ? this.copyCate.nativeElement.offsetHeight : 0;
-      this.minHeight = serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : '650px';
+      const serviceCateHeight = this.serviceCate
+        ? this.serviceCate.nativeElement.offsetHeight
+        : 0;
+      const copyCateHeight = this.copyCate
+        ? this.copyCate.nativeElement.offsetHeight
+        : 0;
+      this.minHeight =
+        serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : '650px';
     } else {
       this.minHeight = '650px';
     }

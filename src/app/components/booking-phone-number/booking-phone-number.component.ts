@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { BookingService } from '../../services/booking.service';
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,14 +27,35 @@ export class BookingPhoneNumberComponent implements OnInit {
   @ViewChild('phoneNumberInput', { static: false }) phoneNumberInput;
 
   public prefixMobile = [
-    '032', '070', '091', '056',
-    '033', '076', '094', '058',
-    '034', '077', '081', '059',
-    '035', '078', '082', '092',
-    '036', '079', '083', '099',
-    '037', '089', '084',
-    '038', '090', '085',
-    '039', '093', '088',
+    '032',
+    '070',
+    '091',
+    '056',
+    '033',
+    '076',
+    '094',
+    '058',
+    '034',
+    '077',
+    '081',
+    '059',
+    '035',
+    '078',
+    '082',
+    '092',
+    '036',
+    '079',
+    '083',
+    '099',
+    '037',
+    '089',
+    '084',
+    '038',
+    '090',
+    '085',
+    '039',
+    '093',
+    '088',
     '086',
     '096',
     '097',
@@ -35,36 +63,77 @@ export class BookingPhoneNumberComponent implements OnInit {
   ];
 
   public prefixTel = [
-    '296', '219', '259',
-    '254', '226', '210',
-    '209', '024', '257',
-    '204', '239', '232',
-    '291', '220', '235',
-    '222', '225', '255',
-    '275', '293', '203',
-    '256', '028', '233',
-    '274', '218', '299',
-    '271', '221', '212',
-    '252', '258', '276',
-    '290', '297', '227',
-    '292', '260', '208',
-    '206', '213', '237',
-    '236', '263', '234',
-    '262', '205', '273',
-    '261', '214', '294',
-    '215', '272', '207',
-    '251', '228', '270',
-    '277', '238', '211',
-    '269', '229', '216',
-
+    '296',
+    '219',
+    '259',
+    '254',
+    '226',
+    '210',
+    '209',
+    '024',
+    '257',
+    '204',
+    '239',
+    '232',
+    '291',
+    '220',
+    '235',
+    '222',
+    '225',
+    '255',
+    '275',
+    '293',
+    '203',
+    '256',
+    '028',
+    '233',
+    '274',
+    '218',
+    '299',
+    '271',
+    '221',
+    '212',
+    '252',
+    '258',
+    '276',
+    '290',
+    '297',
+    '227',
+    '292',
+    '260',
+    '208',
+    '206',
+    '213',
+    '237',
+    '236',
+    '263',
+    '234',
+    '262',
+    '205',
+    '273',
+    '261',
+    '214',
+    '294',
+    '215',
+    '272',
+    '207',
+    '251',
+    '228',
+    '270',
+    '277',
+    '238',
+    '211',
+    '269',
+    '229',
+    '216',
   ];
 
-  constructor(public bookingService: BookingService,
-              private translate: TranslateService) {
-  }
+  constructor(
+    public bookingService: BookingService,
+    private translate: TranslateService,
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openAlert() {
     forkJoin(
@@ -103,7 +172,6 @@ export class BookingPhoneNumberComponent implements OnInit {
   }
 
   onChange() {
-
     if (!this.phoneNumber || !this.phoneNumber.length) {
       return;
     }
@@ -111,7 +179,11 @@ export class BookingPhoneNumberComponent implements OnInit {
     if (this.phoneNumber && this.phoneNumber.length === 10) {
       const prefix = this.phoneNumber.substr(0, 3);
       const prefix2 = this.phoneNumber.substr(0, 2);
-      if (this.prefixMobile.indexOf(prefix) < 0 && prefix2 !== '24' && prefix2 !== '28') {
+      if (
+        this.prefixMobile.indexOf(prefix) < 0 &&
+        prefix2 !== '24' &&
+        prefix2 !== '28'
+      ) {
         this.phoneAlert();
         return;
       }
@@ -164,5 +236,4 @@ export class BookingPhoneNumberComponent implements OnInit {
   reset() {
     this.phoneNumber = '';
   }
-
 }

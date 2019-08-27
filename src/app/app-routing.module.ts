@@ -37,8 +37,14 @@ import { InsuranceConsultingComponent } from './containers/insurance/insurance-c
 import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
 import { MembershipConsultingComponent } from './containers/insurance/membership-consulting/membership-consulting.component';
 import { MembershipComponent } from './containers/insurance/membership/membership.component';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'about-us',
     component: PageLayoutComponent,
@@ -229,9 +235,12 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent,
-    pathMatch: 'full',
+    component: NotFoundComponent,
   },
+  // {
+  //   path: '**',
+  //   redirectTo: '/',
+  // },
 ];
 
 @NgModule({

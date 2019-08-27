@@ -18,7 +18,7 @@ export class PostService extends BaseService {
             alias,
             lang: this.getCurrentLocal(),
         };
-        if(haveCount) {
+        if (haveCount) {
           postData['commentsCount'] = true;
           postData['likesCount'] = true;
         }

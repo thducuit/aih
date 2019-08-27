@@ -3,6 +3,8 @@ import { ContactService } from '../../services/contact.service';
 import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
+import { RecaptchaComponent } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact-form',
@@ -10,32 +12,36 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent implements OnInit {
-
   public form = {
     fullname: '',
     email: '',
     content: '',
   };
 
+  @ViewChild('recaptcha', { static: true }) recaptcha: RecaptchaComponent;
   public errorFullname = false;
   public errorEmail = false;
 
   public captchaResponse;
+  public recaptchaSiteKey = environment.recaptchaSiteKey;
 
-  constructor(public contactService: ContactService, private translate: TranslateService) {
-  }
+  constructor(
+    public contactService: ContactService,
+    private translate: TranslateService,
+  ) {}
 
   ngOnInit() {
     this.reset();
   }
 
   reset() {
-      this.captchaResponse = null;
-      this.form = {
-          fullname: '',
-          email: '',
-          content: '',
-      };
+    this.captchaResponse = null;
+    this.form = {
+      fullname: '',
+      email: '',
+      content: '',
+    };
+    this.recaptcha && this.recaptcha.reset();
   }
 
   openSuccess() {
@@ -119,5 +125,4 @@ export class ContactFormComponent implements OnInit {
   resolved(captchaResponse: string) {
     this.captchaResponse = captchaResponse;
   }
-
 }

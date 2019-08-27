@@ -9,7 +9,8 @@ export const environment = {
   api: 'https://api.aih.tqdesign.vn/',
   mapApiKey: 'AIzaSyD77nJoVaeLUFJAGd_wp0qmTiNUJemumnE',
   secretKey: 'GwBqWPA4ezINGtLPzwNilw==',
-  host: 'http://localhost:4200'
+  host: 'http://localhost:4200',
+  recaptchaSiteKey: '6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK'
 };
 
 /*
