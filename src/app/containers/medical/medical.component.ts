@@ -39,7 +39,8 @@ export class MedicalComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private translate: TranslateService,
     private activatedRoute: ActivatedRoute,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loadPage();
@@ -143,10 +144,17 @@ export class MedicalComponent implements OnInit, OnDestroy {
           this.chosenPackageChild = this.packages.find(
             item => item.id === parseInt(d, 10),
           );
-          this.chosenPackageChild.active = true;
-          this.chosenPackageChilds = this.packages.filter(
-            currentPackage => currentPackage.parentId === this.chosenPackage.id,
-          );
+
+          if (this.chosenPackageChild) {
+            this.chosenPackageChild.active = true;
+          }
+
+          if (this.chosenPackage) {
+            this.chosenPackageChilds = this.packages.filter(
+              currentPackage => currentPackage.parentId === this.chosenPackage.id,
+            );
+          }
+
           // this.choosePackageChild(this.chosenPackageChild);
         });
       });

@@ -169,7 +169,7 @@ import { InsuranceMembershipComponent } from './containers/insurance/insurance-m
 import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { LoaderService } from './services/loader-service';
-import { LoaderInterceptorService } from './services/loader-interceptor-service';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -331,6 +331,7 @@ export function provideConfig() {
     ClickOutsideModule,
     RecaptchaModule,
     SocialLoginModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [
     GlobalEventService,

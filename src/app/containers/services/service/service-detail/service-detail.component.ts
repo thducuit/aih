@@ -7,7 +7,6 @@ import {
   AfterViewInit,
   Renderer2,
   ElementRef,
-  AfterViewChecked,
 } from '@angular/core';
 import { Clinic } from '../../../../models/clinic';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,7 +29,7 @@ export class ServiceDetailComponent
   private subscription: Subscription;
   public clinicIds;
 
-  public minHeight = 'auto';
+  public minHeight = '900px';
 
   @ViewChild('serviceCate', { static: false }) serviceCate;
   @ViewChild('copyCate', { static: false }) copyCate;
@@ -124,16 +123,17 @@ export class ServiceDetailComponent
   }
 
   fixHeight() {
-    setTimeout(() => {
-      if (this.serviceCate && this.copyCate) {
-        const serviceCateHeight = this.serviceCate.nativeElement.offsetHeight;
-        const copyCateHeight = this.copyCate.nativeElement.offsetHeight;
-        this.minHeight =
-          serviceCateHeight > copyCateHeight
-            ? `${serviceCateHeight}px`
-            : 'auto';
-        console.log(serviceCateHeight, copyCateHeight);
-      }
-    }, 100);
+    if (this.serviceCate && this.copyCate) {
+      const serviceCateHeight = this.serviceCate
+        ? this.serviceCate.nativeElement.offsetHeight
+        : 0;
+      const copyCateHeight = this.copyCate
+        ? this.copyCate.nativeElement.offsetHeight
+        : 0;
+      this.minHeight =
+        serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : '650px';
+    } else {
+      this.minHeight = '650px';
+    }
   }
 }
