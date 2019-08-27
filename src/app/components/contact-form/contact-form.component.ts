@@ -4,6 +4,7 @@ import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
 import { RecaptchaComponent } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact-form',
@@ -22,6 +23,7 @@ export class ContactFormComponent implements OnInit {
   public errorEmail = false;
 
   public captchaResponse;
+  public recaptchaSiteKey = environment.recaptchaSiteKey;
 
   constructor(
     public contactService: ContactService,

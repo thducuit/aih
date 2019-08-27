@@ -87,8 +87,8 @@ export class BookingPhoneNumberComponent implements OnInit {
 
     phoneAlert() {
         forkJoin(
-            this.translate.get('text_booking_phone_invalid'),
-            this.translate.get('text_booking_close'),
+            this.translate.get('the_format_phone_number_is_correct'),
+            this.translate.get('text_close'),
         ).subscribe(([ message, buttonText ]) => {
             Swal.fire({
                 text: message,

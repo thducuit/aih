@@ -4,7 +4,11 @@ import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
 
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpClient,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -164,6 +168,8 @@ import { MembershipComponent } from './containers/insurance/membership/membershi
 import { InsuranceMembershipComponent } from './containers/insurance/insurance-membership/insurance-membership.component';
 import { InsuranceDetailComponent } from './containers/insurance/insurance-detail/insurance-detail.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
+import { LoaderService } from './services/loader-service';
+import { LoaderInterceptorService } from './services/loader-interceptor-service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -324,7 +330,7 @@ export function provideConfig() {
     AngularStickyThingsModule,
     ClickOutsideModule,
     RecaptchaModule,
-    SocialLoginModule
+    SocialLoginModule,
   ],
   providers: [
     GlobalEventService,
@@ -358,6 +364,14 @@ export function provideConfig() {
       useFactory: provideConfig,
     },
     CommentService,
+    LoaderService,
+    // Enable this will show loading for every http request
+    // This maybe quite anoying
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoaderInterceptorService,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
   exports: [DecodeHtmlEntitiesModule],

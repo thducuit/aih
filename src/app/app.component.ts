@@ -7,7 +7,6 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalEventService } from './services/global-event.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { getLanguage, setLanguage } from './utilities';
@@ -20,14 +19,11 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
-  loading = false;
-  loadingCount = 0;
   private isBrowser = true;
   private subscription: Subscription;
 
   constructor(
     private translate: TranslateService,
-    globalEventService: GlobalEventService,
     private title: Title,
     private metaService: Meta,
     private zone: NgZone,
@@ -41,7 +37,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     if (this.isBrowser) {
       this.translate.use(getLanguage());
     } else {
-      this.translate.use('vi'); // Activappe current language or default language
+      this.translate.use('vi'); // Activate current language or default language
     }
 
     // Set app title
@@ -51,28 +47,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
     // Meta service
     this.setSeoMeta();
-
-    // Listen for global events
-    globalEventService
-      .on('show-loading', () => {
-        this.loading = true;
-      })
-      .on('hide-loading', () => {
-        this.loading = false;
-        this.loadingCount = 0;
-      })
-      .on('loading-up', () => {
-        this.loadingCount++;
-        if (this.loadingCount > 0) {
-          this.loading = true;
-        }
-      })
-      .on('loading-down', () => {
-        this.loadingCount = Math.max(0, this.loadingCount - 1);
-        if (this.loadingCount <= 0) {
-          this.loading = false;
-        }
-      });
   }
 
   ngOnDestroy() {
