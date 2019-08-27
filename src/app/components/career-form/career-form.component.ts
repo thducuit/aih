@@ -3,6 +3,7 @@ import { CareerService } from '../../services/career.service';
 import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
+import { RecaptchaComponent } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-career-form',
@@ -32,6 +33,7 @@ export class CareerFormComponent implements OnInit {
   public captchaResponse;
 
   @ViewChild('uploadFile', { static: false }) uploadFile: ElementRef<HTMLElement>;
+  @ViewChild('recaptcha', {static: true}) recaptcha: RecaptchaComponent;
 
   constructor(public careerService: CareerService, private translate: TranslateService) {
   }
@@ -54,6 +56,7 @@ export class CareerFormComponent implements OnInit {
             contentAsBase64String: null,
         },
     };
+    this.recaptcha && this.recaptcha.reset();
   }
 
   openSelectFile() {
