@@ -2,7 +2,21 @@
   display: none;
 }
 
+section.modalWindow2 {
+  width: 322px;
+  height: 95px;
+  min-height: unset;
+  overflow-y: hidden;
+  background: #fff;
+}
 
+section.modalWindow2 section.modalWrapper {
+  margin: 10px;
+}
+
+#popupOne.active, .modal.overlay.active {
+  display: block;
+}
 
 @media screen and (max-width: 1024px) {
   .btn-wrap {

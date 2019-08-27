@@ -292,6 +292,7 @@
   "text_Hospital_fee": "Hospital fee",
   "text_Personal_Information": "Personal Information",
   "text_Choose_all": "Choose all",
+  "text_Other": "Other",
 
   "text_Outpatient": "Outpatient",
   "text_Inpatient": "Inpatient",
@@ -300,5 +301,8 @@
   "text_BusinessOwner": "Business Owner",
   "text_BlueCollar": "Blue Collar",
   "text_WhiteCollar": "White Collar",
-  "text_Student": "Student"
+  "text_Student": "Student",
+
+  "text_booking_phone_invalid": "Phone number is invalid",
+  "text_booking_close": "Close"
 }

@@ -19,7 +19,7 @@
         <div class="box-left box-chosen {{ isExpand ? 'active': '' }}" >
           <div (click)="onExpand()">
             <p *ngIf="!chosenPackage">{{ 'choose_service_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-            <p *ngIf="chosenPackage"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 15 }">{{ chosenPackage.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
+            <p *ngIf="chosenPackage" [ngClass]="{'haveAnimate': chosenPackage.name && chosenPackage.name.length > 30 }"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 30 }">{{ chosenPackage.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
           </div>
 
           <a id="show-hidden-menu" ></a>
@@ -32,9 +32,9 @@
           <div class="box-top box-detail {{ isExpandChild ? 'active': '' }}" (clickOutside)="onClickOutsideOl($event)">
             <ul>
               <li>
-                <div (click)="onExpandChild()">
+                <div (click)="onExpandChild()" class="divchild">
                   <p class="choose-child-package" *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-                  <p class="choose-child-package" *ngIf="chosenPackageChild"><span class="animateSpan">{{ chosenPackageChild.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
+                  <p class="choose-child-package" *ngIf="chosenPackageChild" [ngClass]="{'haveChildAnimate': chosenPackageChild.name && chosenPackageChild.name.length > 30 }"><span [ngClass]="{'animateSpan': chosenPackageChild.name && chosenPackageChild.name.length > 30 }">{{ chosenPackageChild.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
                 </div>
                 <ol >
                   <li *ngFor="let child of chosenPackageChilds" (click)="choosePackageChild(child)" class="{{ child.active ? 'active' : '' }}">{{ child.name }}</li>
@@ -44,8 +44,8 @@
           </div>
           <div class="box-bottom">
             <ul>
-              <li *ngIf="!chosenPackageChild">{{ 'choose_detail_package_price' | translate }}</li>
-              <li *ngIf="chosenPackageChild">{{ chosenPackageChild.meta.price }}</li>
+              <li *ngIf="!chosenPackageChild"><p>{{ 'choose_detail_package_price' | translate }}</p></li>
+              <li *ngIf="chosenPackageChild"><p>{{ chosenPackageChild.meta.price }}</p></li>
             </ul>
           </div>
         </div>
@@ -71,7 +71,7 @@
             <div class="box-border-medical">
               <h5><span>{{ currentPackageService.name }}</span></h5>
             </div>
-            <table class="table table-hover">
+            <table class="table">
               <tbody>
 
               <ng-container  *ngFor="let child of currentPackageService.children" >     
