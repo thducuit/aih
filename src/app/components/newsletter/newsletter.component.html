@@ -4,7 +4,7 @@
 			<h2>{{'subscribe_to_our_newsletters' | translate}}</h2>
 			<p>{{'be_among_the_first_to_receive_healthcare_&_medical_news_from_our_experts' | translate}}</p>
 		</div>
-		<div class="ip-news" (clickOutside)="removeError($event)">
+		<div class="ip-news" (clickOutside)="removeError()">
 			<input  type="email" name="email" [(ngModel)]='email'  class="js-required js-email form-control {{ errorEmail ? 'error' : '' }}" placeholder="{{'your_email_address' | translate}}">
 			<input type="submit" (click)="subsribe()" value="{{'subscribe' | translate}}" />
 		</div>

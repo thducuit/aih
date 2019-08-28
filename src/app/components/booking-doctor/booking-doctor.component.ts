@@ -121,7 +121,7 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
         this.choose.emit(doctor);
         setTimeout(() => {
             this.isActive = false;
-        }, 200);
+        }, 100);
     }
 
     chooseDoctor(doctorId) {

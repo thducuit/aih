@@ -62,7 +62,7 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
         this.chooseClinic.emit({clinic, isReset});
         setTimeout(() => {
             this.isActive = false;
-        }, 200);
+        }, 100);
     }
 
     chooseByClinicId(clinicId) {

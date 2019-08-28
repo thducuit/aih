@@ -129,7 +129,10 @@ export class ChoosenPackageComponent implements OnInit, OnDestroy {
     if (!choosenPackage || !choosenChild) {
       return;
     }
-    const url = `/patient-services/medical-package?package=${choosenPackage.id}&detail=${choosenChild.id}`;
-    this.router.navigateByUrl(url).then(e => {});
+    const url = `/patient-services/medical-package?package=${
+      choosenPackage.id
+      }&detail=${choosenChild.id}`;
+    this.router.navigateByUrl(url).then(e => {
+    });
   }
 }

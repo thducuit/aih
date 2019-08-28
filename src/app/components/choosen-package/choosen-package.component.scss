@@ -21,11 +21,10 @@
 }
 
 .drop-pk p {
-  width: 95%;
+	width: 100%;
 }
-.js-package-home p,
-.js-package-home .dropdown-list {
-  z-index: 2;
+.js-package-home p, .js-package-home .dropdown-list {
+  z-index: 3;
   overflow: hidden;
 }
 
@@ -34,5 +33,5 @@
 }
 
 .js-package-home-child p {
-  z-index: 1;
+	z-index: 1;
 }
