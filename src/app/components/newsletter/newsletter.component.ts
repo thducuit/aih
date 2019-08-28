@@ -82,7 +82,7 @@ export class NewsletterComponent implements OnInit {
         });
     }
 
-  removeError() {
+  removeError(e) {
     this.errorEmail = false;
   }
 
