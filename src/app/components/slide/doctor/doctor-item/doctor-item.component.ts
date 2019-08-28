@@ -17,8 +17,9 @@ import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { isPlatformBrowser } from '@angular/common';
+import { SlickCarouselComponent } from 'src/app/shared/slick-carousel/slick.component';
+import jquery from 'jquery';
 
 @Component({
   selector: 'app-doctor-item',
@@ -65,16 +66,13 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     @Inject(PLATFORM_ID) private platformId,
     public doctorService: DoctorService,
     private translate: TranslateService,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.loadDoctors();
-    this.subscription = this.translate
-      .onLangChange
-      .subscribe(() => {
-        this.loadDoctors();
-      });
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+      this.loadDoctors();
+    });
   }
 
   ngOnDestroy() {
@@ -99,7 +97,9 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
         })
         .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
       if (this.clinicIds && this.clinicIds.length) {
-        this.doctors = this.doctors.filter(item => this.clinicIds.indexOf(item.categoryId) >= 0);
+        this.doctors = this.doctors.filter(
+          item => this.clinicIds.indexOf(item.categoryId) >= 0,
+        );
       }
     });
   }
@@ -114,7 +114,12 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
   @HostListener('window:resize')
   onWindowResize() {
     if (isPlatformBrowser(this.platformId)) {
-      this.slickSlider && this.doctors && this.doctors.length && this.slickSlider.initSlick();
+      if (jquery(window).width() > 767 && !this.slickSlider.$instance.hasClass('slick-initialized')) {
+        this.slickSlider &&
+          this.doctors &&
+          this.doctors.length &&
+          this.slickSlider.initSlick();
+      }
     }
   }
 
