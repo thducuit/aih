@@ -171,6 +171,7 @@ import { InsuranceDetailComponent } from './containers/insurance/insurance-detai
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { LoaderService } from './services/loader-service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {LikeService} from './services/like.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -370,6 +371,7 @@ export function provideConfig() {
     },
     CommentService,
     LoaderService,
+    LikeService
     // Enable this will show loading for every http request
     // This maybe quite anoying
     // {
