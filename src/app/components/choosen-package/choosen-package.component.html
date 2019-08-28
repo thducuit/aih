@@ -5,7 +5,7 @@
 			<div class="drop-pk js-package-home" >
 				<p *ngIf="!chosenPackage" (click)="handleInputClick()">{{ 'medical_packages' | translate }}</p>
 				<p *ngIf="chosenPackage" (click)="handleInputClick()"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 15}">{{ chosenPackage.name }}</span></p>
-				<div class="dropdown-list {{ isActive ? 'active' : '' }}">
+				<div class="dropdown-list" [@slideInOut]="packageState">
 					<div class="copyscroll">
 						<div class="nano">
 							<div class="nano-content">
@@ -20,7 +20,7 @@
 			<div class="drop-pk js-package-home-child" (clickOutside)="onClickOutsideChild($event)">
 				<p *ngIf="!chosenPackageChild" (click)="handleInputChildClick()">{{ 'medical_packages_detail' | translate }}</p>
 				<p *ngIf="chosenPackageChild" (click)="handleInputChildClick()"><span [ngClass]="{'animateSpan': chosenPackageChild.name && chosenPackageChild.name.length > 15 }">{{ chosenPackageChild.name }}</span></p>
-				<div class="dropdown-list {{ isActiveChild ? 'active' : '' }}">
+				<div class="dropdown-list" [@slideInOut]="packageDetailState">
 					<div class="copyscroll">
 						<div class="nano">
 							<div class="nano-content">
