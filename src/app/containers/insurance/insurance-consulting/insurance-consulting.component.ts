@@ -117,4 +117,6 @@ export class InsuranceConsultingComponent implements OnInit {
         });
     }
 
+  handleClick() {
+  }
 }

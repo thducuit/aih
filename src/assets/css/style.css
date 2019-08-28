@@ -2274,6 +2274,7 @@ a.order-calender{
  	width: 25%;
  	text-align: center;
  	background: #f3fafd;
+  vertical-align: middle;
 }
 .box-details-medical .table tbody tr td:nth-child(3){
  	width: 25%;

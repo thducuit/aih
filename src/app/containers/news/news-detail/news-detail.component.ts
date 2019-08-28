@@ -3,7 +3,7 @@ import {
   OnInit,
   OnDestroy,
   Inject,
-  PLATFORM_ID,
+  PLATFORM_ID
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../../services/post.service';
@@ -26,6 +26,9 @@ import {
 import { CommentService } from '../../../services/comment.service';
 import { environment } from 'src/environments/environment';
 import { isPlatformBrowser } from '@angular/common';
+
+
+
 
 @Component({
   selector: 'app-news-detail',
@@ -99,6 +102,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       if (blog.picture) {
         blog.picturePath = UrlService.createPictureUrl(blog.picture);
       }
+      // blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
       blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
       blog.url = `${environment.host}${UrlService.createNewsDetailUrl(
         blog.alias,

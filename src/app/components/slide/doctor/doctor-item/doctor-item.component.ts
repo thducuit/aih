@@ -27,6 +27,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
   public doctors: Array<Doctor> = [];
+
+  @Input() isDetail;
+
   public slideConfig = {
     infinite: true,
     slidesToShow: 4,

@@ -146,7 +146,7 @@ ngb-datepicker {
   width: 20%;
 }
 
-.insurance-top .content-right button {
+.insurance-top .content-right a.button {
   float: right;
   background: #e1115b;
   color: #fff;
@@ -154,6 +154,7 @@ ngb-datepicker {
   padding: 5px 30px;
   border-radius: 3px;
   border: none;
+  text-decoration: unset;
 }
 
 .insurance-consulting .item-doc .img {

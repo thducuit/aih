@@ -162,6 +162,7 @@ import { TestimonialItemComponent } from './containers/abouts/testimonial/testim
 import { SearchService } from './services/search.service';
 import { CommentService } from './services/comment.service';
 import { TawkComponent } from './shared/tawk/tawk.component';
+import { SafeHtmlPipe } from './shared/safe-html-pipe';
 import { InsuranceConsultingComponent } from './containers/insurance/insurance-consulting/insurance-consulting.component';
 import { MembershipConsultingComponent } from './containers/insurance/membership-consulting/membership-consulting.component';
 import { MembershipComponent } from './containers/insurance/membership/membership.component';
@@ -305,6 +306,9 @@ export function provideConfig() {
     InsuranceMembershipComponent,
     InsuranceDetailComponent,
     NotFoundComponent,
+
+
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),

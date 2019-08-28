@@ -14,6 +14,13 @@ section.modalWindow2 section.modalWrapper {
   margin: 10px;
 }
 
+@media screen and (max-width: 991px) {
+  section.modalWindow section.modalWrapper {
+    padding: 0;
+  }
+}
+
+
 #popupOne.active, .modal.overlay.active {
   display: block;
 }

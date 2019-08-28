@@ -110,9 +110,8 @@ export class ServiceDetailComponent
         content: this.clinic.metaKey,
       });
 
-      this.fixHeight();
-
       setTimeout(() => {
+        this.fixHeight();
         this.animateScrollService.scrollToElement('headerPage', 150);
       }, 100);
     });
@@ -131,9 +130,9 @@ export class ServiceDetailComponent
         ? this.copyCate.nativeElement.offsetHeight
         : 0;
       this.minHeight =
-        serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : '650px';
+        serviceCateHeight > copyCateHeight ? `${serviceCateHeight}px` : '920px';
     } else {
-      this.minHeight = '650px';
+      this.minHeight = '920px';
     }
   }
 }

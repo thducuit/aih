@@ -115,6 +115,9 @@ export class MedicalComponent implements OnInit, OnDestroy {
             return new Packagechild(post);
           })
           .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+
+        console.log('this.packageServices', this.packageServices);
+
         this.currentPackageServices = this.packageServices.filter(
           item => item.parentId === 0,
         );

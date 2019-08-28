@@ -18,6 +18,7 @@ import { BookingPhoneNumberComponent } from '../booking-phone-number/booking-pho
 import { GlobalEventService } from 'src/app/services/global-event.service';
 import { BookingTimeComponent } from '../booking-time/booking-time.component';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { RecaptchaComponent } from 'ng-recaptcha';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -62,6 +63,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   public captchaResponse;
 
   private chooseDoctorDelegate: (id) => void;
+
+  @ViewChild('recaptcha', { static: true }) recaptcha: RecaptchaComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId,
               private translate: TranslateService,
@@ -309,7 +312,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
   callApiBooking() {
     this.bookingService
       .callBooking(
-        this.selectedClinic.clinicId,
+        this.selectedClinic ? this.selectedClinic.clinicId : '',
         this.selectedDoctor.doctorId,
         this.selectedDate,
         this.selectedTime,
@@ -370,7 +373,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         showCancelButton: false,
         showConfirmButton: false,
       }).then(() => {
-        window.location.reload();
+        // window.location.reload();
       });
     });
   }
@@ -559,6 +562,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     this.bookingDoctor.reset();
     this.bookingSpecialty.reset();
     this.bookingTime.reset();
+
+    this.recaptcha && this.recaptcha.reset();
   }
 
   resolved(captchaResponse: string) {

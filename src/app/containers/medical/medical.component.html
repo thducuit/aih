@@ -17,7 +17,7 @@
       
       <div class="medical-bottom clearfix" *ngIf="currentPackages" (clickOutside)="onClickOutsideUl($event)">
         <div class="box-left box-chosen {{ isExpand ? 'active': '' }}" >
-          <div (click)="onExpand()">
+          <div class="divleft" (click)="onExpand()">
             <p *ngIf="!chosenPackage">{{ 'choose_service_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
             <p *ngIf="chosenPackage" [ngClass]="{'haveAnimate': chosenPackage.name && chosenPackage.name.length > 30 }"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 30 }">{{ chosenPackage.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
           </div>
@@ -34,7 +34,7 @@
               <li>
                 <div (click)="onExpandChild()" class="divchild">
                   <p class="choose-child-package" *ngIf="!chosenPackageChild">{{ 'choose_detail_package' | translate }} <img src="../assets/images/dropdown.png" alt=""></p>
-                  <p class="choose-child-package" *ngIf="chosenPackageChild" [ngClass]="{'haveChildAnimate': chosenPackageChild.name && chosenPackageChild.name.length > 30 }"><span [ngClass]="{'animateSpan': chosenPackageChild.name && chosenPackageChild.name.length > 30 }">{{ chosenPackageChild.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
+                  <p class="choose-child-package" *ngIf="chosenPackageChild" [ngClass]="{'haveChildAnimate': chosenPackageChild.name && chosenPackageChild.name.length > 50 }"><span [ngClass]="{'animateSpan': chosenPackageChild.name && chosenPackageChild.name.length > 50 }">{{ chosenPackageChild.name }}</span> <img src="../assets/images/dropdown.png" alt=""></p>
                 </div>
                 <ol >
                   <li *ngFor="let child of chosenPackageChilds" (click)="choosePackageChild(child)" class="{{ child.active ? 'active' : '' }}">{{ child.name }}</li>
@@ -67,7 +67,7 @@
       <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild">
 
         <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
-          <div *ngIf="currentPackageService.meta.indexOf(chosenPackage.id) > -1">
+          <div *ngIf="currentPackageService.meta.hasOwnProperty(chosenPackage.id)">
             <div class="box-border-medical">
               <h5><span>{{ currentPackageService.name }}</span></h5>
             </div>
@@ -75,11 +75,12 @@
               <tbody>
 
               <ng-container  *ngFor="let child of currentPackageService.children" >     
-                <tr *ngIf="child.meta.indexOf(chosenPackage.id) > -1" >
+                <tr *ngIf="child.meta.hasOwnProperty(chosenPackage.id)" >
                   <td>{{ child.no }}.{{ child.name }}</td>
                   <td>
-                    <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id) > -1"/>
-                    <img src="../assets/images/no-check.png" alt="" *ngIf="child.meta.indexOf(chosenPackageChild.id) === -1">
+                    <img src="../assets/images/check.png" alt="" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] === 'x'"/>
+                    <img src="../assets/images/no-check.png" alt="" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] === ''">
+                    <span *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] !== '' && child.meta[chosenPackageChild.id] !== 'x'">{{ child.meta[chosenPackageChild.id] }}</span>
                   </td>
                   <!-- <td>
                     <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>

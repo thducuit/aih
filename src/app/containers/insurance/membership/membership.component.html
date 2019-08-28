@@ -21,7 +21,7 @@
       <div class="heading">{{ category.name }}</div>
       <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
       <div class="content-right">
-        <button>{{ 'send' | translate }}</button>
+        <a class="button" href="javascript:void(Tawk_API.toggle())">{{ 'send' | translate }}</a>
       </div>
     </div>
   </div>
