@@ -8,6 +8,7 @@ import { forkJoin, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-career',
@@ -38,6 +39,7 @@ export class CareerComponent implements OnInit, OnDestroy {
     private metaService: Meta,
     private titleService: Title,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private animateScrollService: NgAnimateScrollService,
     private scrollToService: ScrollToService) {
   }
@@ -57,6 +59,7 @@ export class CareerComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.loaderService.show();
     forkJoin(
       this.pageService.fetch('careerpage'),
       this.translate.get('american_international_hospital')
@@ -87,6 +90,10 @@ export class CareerComponent implements OnInit, OnDestroy {
             return banner;
           });
         });
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
@@ -100,7 +107,7 @@ export class CareerComponent implements OnInit, OnDestroy {
       // this.animateScrollService.scrollToElement('careerForm', 150)
       const config: ScrollToConfigOptions = {
           target: 'career-form',
-          offset: 700
+          offset: 500
       };
 
       this.scrollToService.scrollTo(config);

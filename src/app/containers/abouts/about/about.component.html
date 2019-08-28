@@ -20,7 +20,7 @@
           <h4>{{ 'introduction' | translate }}</h4>
           <h3>{{ 'who_we_are?' | translate }}?</h3>
         </div>
-        <div class="copy" innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
+        <div class="copy" [innerHTML]="page.longDesc | safeHtml"></div>
       </div>
 
       <div class="service-wrap">
@@ -38,7 +38,7 @@
             </div>
             <div class="copy-content">
               <h3>{{ clinic.name }}</h3>
-              <div innerHTML="{{ clinic.shortDesc | decodeHtmlEntities }}"></div>
+              <div [innerHTML]="clinic.shortDesc | safeHtml"></div>
               <a
                 routerLink="{{ clinic.url }}"
               ><span>{{ 'learn_more' | translate }}</span></a

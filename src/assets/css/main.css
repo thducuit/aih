@@ -3212,6 +3212,7 @@ header.fixHd .bg {
   width: 33%;
   position: relative;
   float: left;
+  height: 58px;
   overflow: hidden
 }
 

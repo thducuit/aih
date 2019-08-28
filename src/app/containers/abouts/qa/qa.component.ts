@@ -15,6 +15,7 @@ import {UrlService} from '../../../services/url.service';
 import {Page} from '../../../models/page';
 import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
     selector: 'app-qa',
@@ -36,6 +37,7 @@ export class QaComponent implements OnInit, OnDestroy {
                 private metaService: Meta,
                 private faqsService: FaqsService,
                 private translate: TranslateService,
+                private loaderService: LoaderService,
                 private titleService: Title) {
     }
 
@@ -65,6 +67,7 @@ export class QaComponent implements OnInit, OnDestroy {
     }
 
     loadFaqs() {
+        this.loaderService.show();
         this.faqsService.fetch(this.currentPage).subscribe((response: any) => {
             const media = response.Media || [];
             this.faqs = media
@@ -74,6 +77,7 @@ export class QaComponent implements OnInit, OnDestroy {
                 .map(x => {
                     return new Faq(x);
                 });
+            this.loaderService.hide();
         });
     }
 
@@ -95,21 +99,8 @@ export class QaComponent implements OnInit, OnDestroy {
         item.expanded = !item.expanded;
     }
 
-    // applyTitle() {
-    //     forkJoin(
-    //         this.translate.get('faqs'),
-    //         this.translate.get('american_international_hospital')
-    //     ).subscribe(([faqsStr, aihStr]) => {
-    //         const pageTitle = `${faqsStr} - ${aihStr}`;
-    //         this.titleService.setTitle(pageTitle);
-    //         this.meta.updateTag({
-    //             property: 'og:title',
-    //             content: pageTitle
-    //         });
-    //     });
-    // }
-
     loadPage() {
+        this.loaderService.show();
         forkJoin(
             this.pageService.fetch('faqspage'),
             this.translate.get('american_international_hospital')
@@ -142,6 +133,10 @@ export class QaComponent implements OnInit, OnDestroy {
                         return banner;
                     });
                 });
+        },
+        null,
+        () => {
+            this.loaderService.hide();
         });
     }
 

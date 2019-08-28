@@ -10,6 +10,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { forkJoin, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-medical',
@@ -37,8 +38,9 @@ export class MedicalComponent implements OnInit, OnDestroy {
     public packageService: PackageService,
     private metaService: Meta,
     private titleService: Title,
+    private loaderService: LoaderService,
     private translate: TranslateService,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute
   ) {
   }
 
@@ -56,6 +58,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.loaderService.show();
     forkJoin(
       this.pageService.fetch('packagepage'),
       this.translate.get('american_international_hospital'),
@@ -94,10 +97,15 @@ export class MedicalComponent implements OnInit, OnDestroy {
             return banner;
           });
         });
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   loadPackages() {
+    this.loaderService.show();
     this.packageService.fetch().subscribe((data: {}) => {
       const posts = data['Categories'] || [];
       this.packages = posts
@@ -115,8 +123,6 @@ export class MedicalComponent implements OnInit, OnDestroy {
             return new Packagechild(post);
           })
           .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
-
-        console.log('this.packageServices', this.packageServices);
 
         this.currentPackageServices = this.packageServices.filter(
           item => item.parentId === 0,
@@ -160,6 +166,8 @@ export class MedicalComponent implements OnInit, OnDestroy {
 
           // this.choosePackageChild(this.chosenPackageChild);
         });
+
+        this.loaderService.hide();
       });
     });
   }

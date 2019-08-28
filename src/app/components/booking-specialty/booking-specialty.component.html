@@ -15,7 +15,7 @@
           <div class="nano-content">
               <ul>
                 <li *ngFor="let clinic of clinics" class="dep-item-1"
-                    (click)="onChoose(clinic)"><span>{{ clinic.name }}</span></li>
+                    (click)="onChoose(clinic, true)"><span>{{ clinic.name }}</span></li>
               </ul>              
           </div>
         </div>

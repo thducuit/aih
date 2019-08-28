@@ -8,6 +8,7 @@ import {UrlService} from '../../../services/url.service';
 import {Page} from '../../../models/page';
 import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
     selector: 'app-testimonial',
@@ -26,6 +27,7 @@ export class TestimonialComponent implements OnInit, OnDestroy {
                 private titleService: Title,
                 public pageService: PageService,
                 public bannerService: BannerService,
+                private loaderService: LoaderService,
                 private metaService: Meta) {
     }
 
@@ -45,6 +47,7 @@ export class TestimonialComponent implements OnInit, OnDestroy {
     }
 
     loadTestimonials() {
+        this.loaderService.show();
         this.testimonialService
             .fetch(this.currentPage)
             .subscribe((response: any) => {
@@ -52,25 +55,12 @@ export class TestimonialComponent implements OnInit, OnDestroy {
                     .map((x: any) => {
                         return new Testimonial(x);
                     });
+                this.loaderService.hide();
             });
     }
 
-    // applyTitle() {
-    //   forkJoin(
-    //     this.translate.get('testimonials'),
-    //     this.translate.get('american_international_hospital')
-    //   )
-    //   .subscribe(([mainTitle, subTitle]) => {
-    //     const pageTitle = `${mainTitle} - ${subTitle}`;
-    //     this.titleService.setTitle(pageTitle);
-    //     this.meta.updateTag({
-    //       property: 'og:title',
-    //       content: pageTitle
-    //     });
-    //   });
-    // }
-
     loadPage() {
+        this.loaderService.show();
         forkJoin(
             this.pageService.fetch('customer_feedbackpage'),
             this.translate.get('american_international_hospital')
@@ -103,6 +93,10 @@ export class TestimonialComponent implements OnInit, OnDestroy {
                         return banner;
                     });
                 });
+        },
+        null,
+        () => {
+            this.loaderService.hide();
         });
     }
 }

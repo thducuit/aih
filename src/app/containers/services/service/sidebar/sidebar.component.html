@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let clinic of clinics" >
-    <a routerLink="{{ clinic.url }}"><span>{{ clinic.name }}</span></a>
+  <li *ngFor="let clinic of clinics" (click)="activeMenu(clinic)">
+    <a [ngClass]="{'active': clinic.active}" routerLink="{{ clinic.url }}"><span>{{ clinic.name }}</span></a>
   </li>
 </ul>

@@ -59,6 +59,7 @@
       #bookingTime
       (chooseTime)="handleSelectTime($event)"
       [enableTime]="timeBlock"
+      [loadFail]="isLoadTimeFail"
       [animateAfter]="animateTime"
     ></app-booking-time>
     <input

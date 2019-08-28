@@ -11,6 +11,7 @@ import { Subscription, forkJoin } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { Clinic } from '../../models/clinic';
 import { ClinicService } from '../../services/clinic.service';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-doctor',
@@ -38,6 +39,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
     public bannerService: BannerService,
     public clinicService: ClinicService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private metaService: Meta,
     private titleService: Title) {
   }
@@ -60,6 +62,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.loaderService.show();
     forkJoin(
     this.pageService
       .fetch('doctor_page'),
@@ -92,10 +95,15 @@ export class DoctorComponent implements OnInit, OnDestroy {
               this.banner = banner;
             }
           });
+      },
+      null,
+      () => {
+          this.loaderService.hide();
       });
   }
 
   loadDoctors() {
+    this.loaderService.show();
     this.doctorService
       .fetch()
       .subscribe((data: any) => {
@@ -110,13 +118,16 @@ export class DoctorComponent implements OnInit, OnDestroy {
         }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
         this.filterDoctors = [...this.doctors];
         this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
+        this.loaderService.hide();
       });
   }
 
   loadDepartments() {
+    this.loaderService.show();
     this.clinicService.fetch().subscribe((data: {}) => {
       const posts = data['Categories'] || [];
       this.clinics = posts.map(post => new Clinic(post));
+      this.loaderService.hide();
     });
   }
 

@@ -6,6 +6,7 @@ import { UrlService } from '../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-service',
@@ -21,6 +22,7 @@ export class ServiceComponent implements OnInit, OnDestroy {
     public pageService: PageService,
     public bannerService: BannerService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private metaService: Meta,
     private titleService: Title) {
   }
@@ -39,6 +41,7 @@ export class ServiceComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.loaderService.show();
     forkJoin(
       this.pageService
         .fetch('servicespage'),
@@ -58,6 +61,10 @@ export class ServiceComponent implements OnInit, OnDestroy {
         });
         this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+      },
+      null,
+      () => {
+          this.loaderService.hide();
       });
   }
 

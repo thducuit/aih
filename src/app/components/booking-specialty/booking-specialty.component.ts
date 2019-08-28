@@ -57,9 +57,9 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
         this.isActive = true;
     }
 
-    onChoose(clinic) {
+    onChoose(clinic, isReset = false) {
         this.chosenClinic = clinic;
-        this.chooseClinic.emit(clinic);
+        this.chooseClinic.emit({clinic, isReset});
         setTimeout(() => {
             this.isActive = false;
         }, 200);
@@ -74,14 +74,14 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
         }
     }
 
-    filterClinicByDoctor(doctor) {
+    filterClinicByDoctor(doctor, isReset = false) {
         const found = (this.clinics || []).find(x => {
             const postHis = doctor.meta.his_clinic_ids || [];
             const catHis = x.meta.his_clinic_ids || [];
-            return  x.id === doctor.categoryId || doctor.categories.indexOf(x.id) >= 0 || postHis.some(r => catHis.indexOf(r) >= 0);
+            return x.id === doctor.categoryId || doctor.categories.indexOf(x.id) >= 0 || postHis.some(r => catHis.indexOf(r) >= 0);
         });
         if (found) {
-            this.onChoose(found);
+            this.onChoose(found, isReset);
         }
     }
 

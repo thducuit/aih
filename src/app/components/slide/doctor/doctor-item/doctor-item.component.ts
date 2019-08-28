@@ -17,8 +17,9 @@ import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
 import { SlickCarouselComponent } from 'src/app/shared/slick-carousel/slick.component';
+import { isPlatformBrowser } from '@angular/common';
+import { LoaderService } from '../../../../services/loader-service';
 import jquery from 'jquery';
 
 @Component({
@@ -66,6 +67,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     @Inject(PLATFORM_ID) private platformId,
     public doctorService: DoctorService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
   ) {}
 
   ngOnInit() {
@@ -84,6 +86,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   loadDoctors() {
+    this.loaderService.show();
     this.doctorService.fetch().subscribe((data: any) => {
       const posts = data.Posts || [];
       this.doctors = posts
@@ -101,6 +104,8 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
           item => this.clinicIds.indexOf(item.categoryId) >= 0,
         );
       }
+
+      this.loaderService.hide();
     });
   }
 
@@ -113,13 +118,15 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
 
   @HostListener('window:resize')
   onWindowResize() {
-    if (isPlatformBrowser(this.platformId)) {
-      if (jquery(window).width() > 767 && !this.slickSlider.$instance.hasClass('slick-initialized')) {
-        this.slickSlider &&
-          this.doctors &&
-          this.doctors.length &&
-          this.slickSlider.initSlick();
-      }
+    if (
+      isPlatformBrowser(this.platformId) &&
+      jquery(window).width() > 767 &&
+      !this.slickSlider.$instance.hasClass('slick-initialized')
+    ) {
+      this.slickSlider &&
+        this.doctors &&
+        this.doctors.length &&
+        this.slickSlider.initSlick();
     }
   }
 

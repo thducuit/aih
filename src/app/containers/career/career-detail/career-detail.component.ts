@@ -11,6 +11,7 @@ import {Page} from '../../../models/page';
 import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
 import {ScrollToService, ScrollToConfigOptions} from '@nicky-lenaers/ngx-scroll-to';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
     selector: 'app-career-detail',
@@ -43,13 +44,12 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 private animateScrollService: NgAnimateScrollService,
                 private metaService: Meta,
                 private titleService: Title,
+                private loaderService: LoaderService,
                 private router: Router,
                 private scrollToService: ScrollToService) {
     }
 
     ngOnInit() {
-        // const alias = this.route.snapshot.paramMap.get('alias');
-
         this.route.paramMap.subscribe(params => {
             const alias = params.get('alias');
             this.loadPosts(alias);
@@ -105,6 +105,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
     }
 
     private loadPosts(alias) {
+        this.loaderService.show();
         forkJoin(
             this.postService.fetch(alias),
             this.translate.get('american_international_hospital'),
@@ -133,19 +134,19 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 content: this.career.metaKey,
             });
             setTimeout(() => {
-                this.animateScrollService.scrollToElement('pCareers', 150);
+                this.animateScrollService.scrollToElement('pCareers', 50);
             }, 100);
+        },
+        null,
+        () => {
+            this.loaderService.hide();
         });
     }
 
     scrollToForm() {
-        // const el = document.getElementById('careerForm');
-        // el.scrollIntoView();
-        // this.animateScrollService.scrollToElement('careerForm', 150);
-
         const config: ScrollToConfigOptions = {
             target: 'career-form',
-            offset: 700
+            offset: 500
         };
 
         this.scrollToService.scrollTo(config);

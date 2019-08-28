@@ -35,7 +35,7 @@
             <a *ngIf="!liked" class="link-like like" data-type="votenews" (click)="vote()">{{ 'like' | translate }}</a>
             <a *ngIf="liked" class="link-like liked" data-type="votenews" (click)="vote(true)">{{ 'like' | translate }}</a>
 
-            <a class="link-cm" href="#">{{ 'comment' | translate }}</a>
+            <a class="link-cm link-cm-comment" (click)="comment()">{{ 'comment' | translate }}</a>
             <a target="_blank"
                href="https://facebook.com/sharer.php?u={{ blog.url }}"
                id="share" class="link-share">{{ 'share' | translate }}</a>
@@ -43,9 +43,9 @@
         </div>
         <div class="comment-wrap">
           <h3>{{ 'comment' | translate }}</h3>
-          <div class="big-ip frmComment" >
+          <div class="big-ip frmComment" id="comment-area" >
             <div class="ava-cm" style="background: url(../../assets/images/avatar.jpg);"></div>
-            <textarea name="comment" class="form-control" [(ngModel)]="content"></textarea>
+            <textarea #commentArea name="comment" class="form-control" [(ngModel)]="content"></textarea>
             <div class="btn-wrap">
               <input class="btn-page" type="submit" value="{{ 'send' | translate }}" (click)="sendComment()"/>
             </div>

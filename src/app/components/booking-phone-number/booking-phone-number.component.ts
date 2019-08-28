@@ -198,24 +198,31 @@ export class BookingPhoneNumberComponent implements OnInit {
       return;
     }
 
-    this.bookingService
-      .callValidatePhone(this.phoneNumber)
-      .subscribe((data: any) => {
+    this.bookingService.callValidatePhone(this.phoneNumber).subscribe(
+      (data: any) => {
         const status = data['Data'] || null;
         if (status === 'false') {
-          this.bookingService
-            .callGetExistedCustomer(this.phoneNumber)
-            .subscribe((data2: any) => {
-              const customer = data2['Customer'] || {};
-              if (!customer['customer_id']) {
-                this.openAlert();
-              } else {
-                this.chooseCustomer.emit(customer['customer_id']);
-                this.chooseCustomerPhone.emit(this.phoneNumber);
-              }
-            });
+          this.openDialogRegister();
         } else {
           this.chooseCustomer.emit(-1);
+          this.chooseCustomerPhone.emit(this.phoneNumber);
+        }
+      },
+      () => {
+        this.openDialogRegister();
+      },
+    );
+  }
+
+  openDialogRegister() {
+    this.bookingService
+      .callGetExistedCustomer(this.phoneNumber)
+      .subscribe((data2: any) => {
+        const customer = data2['Customer'] || {};
+        if (!customer['customer_id']) {
+          this.openAlert();
+        } else {
+          this.chooseCustomer.emit(customer['customer_id']);
           this.chooseCustomerPhone.emit(this.phoneNumber);
         }
       });
@@ -223,9 +230,6 @@ export class BookingPhoneNumberComponent implements OnInit {
 
   handleCloseRegister() {
     this.showRegister = false;
-    // if (this.phoneNumberInput) {
-    //   this.phoneNumberInput.nativeElement.focus();
-    // }
   }
 
   handleGetCustomerId(customerId) {

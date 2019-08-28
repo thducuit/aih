@@ -23,7 +23,7 @@
       <div class="copy">
         <h3>{{ 'send_us_your_questions' | translate }}</h3>
         <h4>{{ page.name }}</h4>
-        <div innerHTML="{{ page.longDesc | decodeHtmlEntities }}"></div>
+        <div [innerHTML]="page.longDesc | safeHtml"></div>
       </div>
       <app-contact-form></app-contact-form>
       <div class="rating">

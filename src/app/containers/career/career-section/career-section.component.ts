@@ -6,6 +6,7 @@ import {Career} from '../../../models/career';
 import {CareerService} from '../../../services/career.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-career-section',
@@ -21,7 +22,8 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
   constructor(
     public careerCategoryService: CareerCategoryService,
     public careerService: CareerService,
-    private translate: TranslateService,
+    private loaderService: LoaderService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
   }
 
   loadList() {
+    this.loaderService.show();
     this.careerCategoryService.fetch().subscribe((data: any) => {
       const categories = data['Categories'] || [];
       const careerCategories = categories
@@ -65,6 +68,7 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
           category.careers = careerChildren;
           return category;
         });
+        this.loaderService.hide();
       });
     });
   }

@@ -11,7 +11,7 @@
         </div>
         <div class="box-right">
           <h2>{{ page ? page.name : '' }}</h2>
-          <p innerHTML="{{ (page ? page.longDesc : '') | decodeHtmlEntities }}"></p>
+          <p [innerHTML]="(page ? page.longDesc : '') | safeHtml"></p>
         </div>
       </div>
       
