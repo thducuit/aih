@@ -107,7 +107,7 @@ export class CareerComponent implements OnInit, OnDestroy {
       // this.animateScrollService.scrollToElement('careerForm', 150)
       const config: ScrollToConfigOptions = {
           target: 'career-form',
-          offset: 700
+          offset: 500
       };
 
       this.scrollToService.scrollTo(config);

@@ -36,6 +36,8 @@ export class ServiceDetailComponent
 
     public minHeight = 'auto';
 
+    public isShowWarning = false;
+
     @ViewChild('serviceCate', {static: false}) serviceCate;
     @ViewChild('copyCate', {static: false}) copyCate;
     @ViewChild('pServiceCate', {static: false}) contentEl: ElementRef;
@@ -53,6 +55,7 @@ export class ServiceDetailComponent
     }
 
     ngOnInit() {
+        this.isShowWarning = false;
         // const alias = this.route.snapshot.paramMap.get('alias');
         this.route.paramMap.subscribe(params => {
             const alias = params.get('alias');
@@ -153,5 +156,9 @@ export class ServiceDetailComponent
         const copyCateHeight = jQuery('#copy-cate').outerHeight();
         const minHeight = serviceCateHeight >= copyCateHeight ? `${serviceCateHeight}px` : 'auto';
         jQuery('#copy-cate').css('min-height', minHeight);
+    }
+
+    bookingClinic() {
+        this.isShowWarning = true;
     }
 }

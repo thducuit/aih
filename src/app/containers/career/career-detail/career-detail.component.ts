@@ -146,7 +146,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
     scrollToForm() {
         const config: ScrollToConfigOptions = {
             target: 'career-form',
-            offset: 700
+            offset: 500
         };
 
         this.scrollToService.scrollTo(config);

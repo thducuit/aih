@@ -16,7 +16,13 @@
           <h3>{{ 'our_departments' | translate }}</h3>
           <app-sidebar (loadFinish)="handleLoadCateFinish($event)"></app-sidebar>
         </div>
-        <div [style.minHeight]="minHeight" class="copy copy-cate" id="copy-cate" innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
+        <div class="copy" id="copy-cate">
+          <div [style.minHeight]="minHeight" class="copy-cate" innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
+          <div class="btn-wrap">
+            <a class="btn-page" (click)="bookingClinic()">{{'book_an_appointment' | translate}}</a>
+            <p class="alert-dt {{ isShowWarning ? 'show' : '' }}" >{{'please_continue_your_booking_on_above_booking_funtion' | translate}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
