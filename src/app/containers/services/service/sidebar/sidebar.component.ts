@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, OnDestroy} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, OnDestroy, AfterViewInit} from '@angular/core';
 import {Clinic} from '../../../../models/clinic';
 import {ClinicService} from '../../../../services/clinic.service';
 import {UrlService} from '../../../../services/url.service';
@@ -11,7 +11,7 @@ import {LoaderService} from '../../../../services/loader-service';
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit, OnDestroy {
+export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
     public clinics: Array<Clinic> = [];
     private subscription: Subscription;
     @Output() loadFinish = new EventEmitter<any>();
@@ -44,7 +44,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
                 return clinic;
             });
             this.loadFinish.emit(true);
-            this.loaderService.hide();
+
         });
     }
 
@@ -58,5 +58,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
             return clinic;
         });
     }
+
+  ngAfterViewInit(): void {
+    this.loaderService.hide();
+  }
 
 }

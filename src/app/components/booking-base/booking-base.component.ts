@@ -63,6 +63,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     public captchaResponse;
 
     private chooseDoctorDelegate: (id) => void;
+    private chooseClinicDelegate: (id) => void;
 
     public isLoadTimeFail = false;
 
@@ -73,15 +74,18 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 public bookingService: BookingService,
                 private globalEventService: GlobalEventService) {
         this.chooseDoctorDelegate = this.chooseDoctorById.bind(this);
+        this.chooseClinicDelegate = this.chooseClinicById.bind(this);
     }
 
     ngOnInit() {
         this.loadSchedule();
         this.globalEventService.on('book_doctor', this.chooseDoctorDelegate);
+        this.globalEventService.on('book_clinic', this.chooseClinicDelegate);
     }
 
     ngOnDestroy() {
         this.globalEventService.off('book_doctor', this.chooseDoctorDelegate);
+        this.globalEventService.off('book_clinic', this.chooseClinicDelegate);
     }
 
     ngAfterViewInit() {
@@ -177,6 +181,11 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     chooseDoctorById(doctorId) {
         this.bookingDoctor && this.bookingDoctor.chooseDoctor(doctorId);
         this.animateNextStep();
+    }
+
+    chooseClinicById(clinicId) {
+      this.bookingSpecialty && this.bookingSpecialty.chooseByClinicId(clinicId);
+      this.animateNextStep();
     }
 
     loadAbsenceDateByDoctor(doctor) {
