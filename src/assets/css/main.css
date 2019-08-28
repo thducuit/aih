@@ -3090,7 +3090,7 @@ header.fixHd .bg {
 
 .newsletter .ip-news {
   width: 50%;
-  padding-left: 80px;
+  /*padding-left: 80px;*/
   padding-right: 170px;
   position: relative;
   float: right
@@ -4794,8 +4794,13 @@ header.fixHd .bg {
   box-shadow: inset 0 0 0 2px #fff;
   height: 63px;
   line-height: 63px;
-  padding: 0 22px;
+  /*padding: 0 22px;*/
   position: relative
+}
+
+.drop-pk .drop-pk-item {
+  width: 100%;
+  padding: 0 22px;
 }
 
 .drop-pk:after {
@@ -4819,7 +4824,8 @@ header.fixHd .bg {
   position: relative;
   display: block;
   overflow: hidden;
-  width: 85%
+  width: 85%;
+  z-index: 1;
 }
 
 .drop-pk p span {
@@ -8142,6 +8148,10 @@ a.morelink:hover {
   .drop-pk {
     height: 44px;
     line-height: 44px;
+    /*padding: 0 10px*/
+  }
+
+  .drop-pk .drop-pk-item {
     padding: 0 10px
   }
 
@@ -9761,9 +9771,13 @@ a.morelink:hover {
   }
 
   .drop-pk {
-    padding: 0 10px;
+    /*padding: 0 10px;*/
     height: 50px;
     line-height: 50px
+  }
+
+  .drop-pk .drop-pk-item {
+    padding: 0 10px;
   }
 
   .drop-pk p {
@@ -12037,7 +12051,17 @@ a.morelink:hover {
     line-height: 30px
   }
 
-  .drop-pk,
+  .drop-pk {
+    height: 40px;
+    line-height: 40px;
+    /*padding: 0 10px*/
+  }
+
+  .drop-pk .drop-pk-item {
+    padding: 0 10px
+  }
+
+
   .item-pk {
     height: 40px;
     line-height: 40px;

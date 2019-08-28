@@ -203,7 +203,7 @@ export class BookingTimeComponent implements OnInit, OnChanges {
         this.chooseTime.emit(date.value);
         setTimeout(() => {
             this.isActive = false;
-        }, 200);
+        }, 100);
     }
 
     ngOnChanges(changes: SimpleChanges): void {

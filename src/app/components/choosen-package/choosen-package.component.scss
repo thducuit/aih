@@ -4,6 +4,7 @@
 
 .dropdown-list .copyscroll {
 	height: 0;
+  transition: height .3s ease-in-out;
 }
 
 .dropdown-list.active .copyscroll {
@@ -24,10 +25,10 @@
 }
 
 .drop-pk p {
-	width: 95%;
+	width: 100%;
 }
 .js-package-home p, .js-package-home .dropdown-list {
-	z-index: 2;
+	z-index: 1;
 }
 
 .drop-pk.js-package-home:after {
