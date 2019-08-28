@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private loaderService: LoaderService,
     private metaService: Meta,
-    private titleService: Title,
+    private titleService: Title
   ) {}
 
   get pageClasses() {
@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       null,
       () => {
         this.loaderService.hide();
-      },
+      }
     );
   }
 }

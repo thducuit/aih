@@ -4,6 +4,7 @@ import {ClinicService} from '../../../../services/clinic.service';
 import {UrlService} from '../../../../services/url.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
+import {LoaderService} from '../../../../services/loader-service';
 
 @Component({
     selector: 'app-sidebar',
@@ -16,6 +17,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     @Output() loadFinish = new EventEmitter<any>();
 
     constructor(public clinicService: ClinicService,
+                private loaderService: LoaderService,
                 private translate: TranslateService) {
     }
 
@@ -33,6 +35,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
 
     loadClinics() {
+        this.loaderService.show();
         this.clinicService.fetch().subscribe((data: {}) => {
             const posts = data['Categories'] || [];
             this.clinics = posts.map(post => {
@@ -41,6 +44,18 @@ export class SidebarComponent implements OnInit, OnDestroy {
                 return clinic;
             });
             this.loadFinish.emit(true);
+            this.loaderService.hide();
+        });
+    }
+
+    activeMenu(clinic) {
+        this.clinics.map(item => {
+            if (item.id === clinic.id) {
+                item.active = true;
+            } else {
+                item.active = false;
+            }
+            return clinic;
         });
     }
 

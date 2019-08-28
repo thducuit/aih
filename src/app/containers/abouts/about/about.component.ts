@@ -8,6 +8,7 @@ import { Subscription, forkJoin } from 'rxjs';
 import { ClinicService } from '../../../services/clinic.service';
 import { Clinic } from '../../../models/clinic';
 import { Meta, Title } from '@angular/platform-browser';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-about',
@@ -25,6 +26,7 @@ export class AboutComponent implements OnInit, OnDestroy {
     public bannerService: BannerService,
     public clinicService: ClinicService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private metaService: Meta,
     private titleService: Title
   ) {
@@ -46,6 +48,7 @@ export class AboutComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.loaderService.show();
     forkJoin(
     this.pageService
       .fetch('aboutus'),
@@ -72,10 +75,15 @@ export class AboutComponent implements OnInit, OnDestroy {
             return banner;
           });
         });
+      },
+      null,
+      () => {
+          this.loaderService.hide();
       });
   }
 
   loadClinic() {
+    this.loaderService.show();
     this.clinicService.fetchHot().subscribe((data: any) => {
       const posts = data.Categories || [];
       this.clinics = posts.map(post => {
@@ -84,6 +92,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         clinic.url = `/patient-services/medical-services/${clinic.alias}`;
         return clinic;
       });
+      this.loaderService.hide();
     });
   }
 

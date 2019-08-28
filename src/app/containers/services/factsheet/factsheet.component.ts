@@ -8,6 +8,7 @@ import { HighlightService } from '../../../services/highlight.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-factsheet',
@@ -37,6 +38,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
     public highlightService: HighlightService,
     public bannerService: BannerService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private metaService: Meta,
     private titleService: Title) {
   }
@@ -58,6 +60,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
   }
 
   loadPage() {
+    this.loaderService.show();
     forkJoin(
       this.pageService
         .fetch('highlight_page'),
@@ -91,10 +94,15 @@ export class FactsheetComponent implements OnInit, OnDestroy {
             });
             this.banner = this.banners[0];
           });
+      },
+      null,
+      () => {
+          this.loaderService.hide();
       });
   }
 
   loadFactsheets() {
+    this.loaderService.show();
     this.highlightService.fetch().subscribe((data: any) => {
       const posts = data.Media || [];
       this.highlights = posts.map(post => {
@@ -102,6 +110,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
         highlight.thumb = UrlService.createMediaUrl(highlight.thumb);
         return highlight;
       });
+      this.loaderService.hide();
     });
   }
 

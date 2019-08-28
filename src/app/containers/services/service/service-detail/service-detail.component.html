@@ -12,11 +12,11 @@
       <h2>{{ clinic ? clinic.name : '' }}</h2>
 
       <div class="content-sv" *ngIf="clinic">
-        <div class="service-cate" #serviceCate>
+        <div class="service-cate" id="service-cate">
           <h3>{{ 'our_departments' | translate }}</h3>
           <app-sidebar (loadFinish)="handleLoadCateFinish($event)"></app-sidebar>
         </div>
-        <div [style.minHeight]="minHeight" class="copy copy-cate" #copyCate innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
+        <div [style.minHeight]="minHeight" class="copy copy-cate" id="copy-cate" innerHTML="{{ clinic.longDesc | decodeHtmlEntities }}"></div>
       </div>
     </div>
   </section>

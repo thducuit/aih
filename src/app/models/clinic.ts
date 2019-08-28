@@ -13,6 +13,7 @@ export class Clinic {
   public metaTitle;
   public datepublish;
   public meta;
+  public active;
 
   constructor(data) {
     this.id = data.cate_id;

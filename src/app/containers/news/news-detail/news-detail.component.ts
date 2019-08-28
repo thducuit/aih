@@ -28,6 +28,7 @@ import {environment} from 'src/environments/environment';
 import {isPlatformBrowser} from '@angular/common';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {LikeService} from '../../../services/like.service';
+import {LoaderService} from '../../../services/loader-service';
 
 
 @Component({
@@ -63,6 +64,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
                 private router: Router,
                 private authService: AuthService,
                 public commentService: CommentService,
+                private loaderService: LoaderService,
                 private animateScrollService: NgAnimateScrollService,
                 public likeService: LikeService) {
     }
@@ -97,6 +99,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
     }
 
     private loadPosts(alias: string) {
+        this.loaderService.show();
         this.postService.fetch(alias, true).subscribe(data => {
             const blog = new Blog(data['Post']);
 
@@ -154,7 +157,8 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
             });
 
             setTimeout(() => {
-                this.animateScrollService.scrollToElement('headerPage', 150);
+                this.animateScrollService.scrollToElement('headerPage', 50);
+                this.loaderService.hide();
             }, 100);
 
             this.commentService
@@ -182,10 +186,13 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
                     this.postPrev = null;
                 }
             });
+
+
         });
     }
 
     loadFeatureBlogs() {
+        this.loaderService.show();
         this.blogService.fetchFeature(3).subscribe((data: any) => {
             const posts = data.Posts || [];
             this.blogs = posts.map(post => {
@@ -195,6 +202,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
                 blog.shortDesc = blog.shortDesc.replace(/^(.{2}[^\s]*).*/, '$1');
                 return blog;
             });
+            this.loaderService.hide();
         });
     }
 

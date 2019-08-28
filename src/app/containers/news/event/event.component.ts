@@ -6,6 +6,7 @@ import { CalculatePagination } from '../../../utilities';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Title, Meta } from '@angular/platform-browser';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-event',
@@ -29,6 +30,7 @@ export class EventComponent implements OnInit, OnDestroy {
   constructor(
     public blogService: BlogService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private titleService: Title,
     private metaService: Meta
   ) {
@@ -59,6 +61,7 @@ export class EventComponent implements OnInit, OnDestroy {
   }
 
   loadNews() {
+    this.loaderService.show();
     this.blogService
       .fetch(1, 999, ['post_ishot DESC', 'post_datepublish DESC'])
       .subscribe((data: any) => {
@@ -84,6 +87,8 @@ export class EventComponent implements OnInit, OnDestroy {
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();
+
+        this.loaderService.hide();
       });
   }
 

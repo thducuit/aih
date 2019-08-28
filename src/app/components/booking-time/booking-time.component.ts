@@ -176,6 +176,7 @@ export class BookingTimeComponent implements OnInit, OnChanges {
 
     @Input() enableTime = [];
     @Input() animateAfter: boolean;
+    @Input() loadFail = false;
     @Output() chooseTime = new EventEmitter<any>();
 
     constructor() {
@@ -214,6 +215,14 @@ export class BookingTimeComponent implements OnInit, OnChanges {
                 block.disabled = !hasEnableBlock;
             });
         });
+
+        if (this.loadFail && this.enableTime.length === 0) {
+            this.timeBlocks.forEach((blockData) => {
+                blockData.blocks.forEach((block) => {
+                    block.disabled = false;
+                });
+            });
+        }
     }
 
     reset() {
