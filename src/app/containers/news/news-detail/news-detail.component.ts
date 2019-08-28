@@ -80,6 +80,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
         this.loadFeatureBlogs();
         this.subscription = this.translate.onLangChange.subscribe(() => {
             const alias = this.route.snapshot.params.alias;
+            this.liked = false;
             this.loadFeatureBlogs();
             this.postService.getAlias(alias).subscribe((data: any) => {
                 const newAlias = data['alias'];

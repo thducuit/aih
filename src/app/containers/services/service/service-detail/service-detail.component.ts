@@ -58,10 +58,12 @@ export class ServiceDetailComponent
         this.isShowWarning = false;
         // const alias = this.route.snapshot.paramMap.get('alias');
         this.route.paramMap.subscribe(params => {
+            this.isShowWarning = false;
             const alias = params.get('alias');
             this.loadCategories(alias);
         });
         this.subscription = this.translate.onLangChange.subscribe(() => {
+            this.isShowWarning = false;
             const alias = this.route.snapshot.params['alias'];
             this.postService.getAlias(alias).subscribe((data: any) => {
                 const newAlias = data['alias'];
