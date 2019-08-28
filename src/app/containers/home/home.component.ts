@@ -24,12 +24,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private loaderService: LoaderService,
     private metaService: Meta,
-    private titleService: Title
+    private titleService: Title,
   ) {}
 
   get pageClasses() {
-    const language = this.translate.currentLang;
-    return [language, 'window'];
+    const originalLang = this.translate.currentLang;
+    const languageClass = originalLang === 'vi' ? 'vn' : originalLang;
+    return [languageClass, 'window'];
   }
 
   ngOnInit() {
@@ -83,7 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       null,
       () => {
         this.loaderService.hide();
-      }
+      },
     );
   }
 }
