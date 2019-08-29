@@ -3445,6 +3445,7 @@ a.order-calender {
 
 .box-advisory .box-left {
     width: 50%;
+    height: 100px;
     float: left;
 }
 

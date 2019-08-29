@@ -74,7 +74,7 @@ body .page-medical-all{padding-bottom: 165px;}
 .faq-item h3{cursor:pointer;}
 .list-persond .logo-persond{ background-position: center center !important; width:auto; position:relative; margin:15px; outline-offset: 15px; outline: 1px solid #d9d9d9;}
 
-
+body .page-medical-all{padding-bottom: 80px;}
 
 @media screen and (max-width: 1600px) and (min-width: 1200px){
 	.page-medical-all .medical-content .box-right {

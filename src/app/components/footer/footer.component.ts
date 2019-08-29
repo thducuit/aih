@@ -1,4 +1,13 @@
-import { Component, OnInit, OnDestroy, HostListener, Renderer2, Inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  HostListener,
+  Renderer2,
+  Inject,
+  NgZone,
+  AfterViewChecked,
+} from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { Blog } from '../../models/blog';
 import { Clinic } from '../../models/clinic';
@@ -13,39 +22,43 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-
-
-export class FooterComponent implements OnInit, OnDestroy {
-
+export class FooterComponent implements OnInit, OnDestroy, AfterViewChecked {
   public blogs: Array<Blog> = [];
   public clinics: Array<Clinic> = [];
   private subsciption: Subscription;
 
-
-  constructor(public blogService: BlogService,
-              public clinicService: ClinicService,
-              private translate: TranslateService,
-              private renderer: Renderer2,
-              @Inject(DOCUMENT) private document) {
-  }
+  constructor(
+    public blogService: BlogService,
+    public clinicService: ClinicService,
+    private translate: TranslateService,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document,
+    private zone: NgZone,
+  ) {}
 
   ngOnInit() {
     this.loadFeatureBlogs();
     this.loadFeatureClinics();
-    this.subsciption = this.translate
-      .onLangChange
-      .subscribe(() => {
-        this.loadFeatureBlogs();
-        this.loadFeatureClinics();
-      });
+    this.subsciption = this.translate.onLangChange.subscribe(() => {
+      this.loadFeatureBlogs();
+      this.loadFeatureClinics();
+    });
+  }
+
+  ngAfterViewChecked() {
     this.appendFacebookBox();
   }
 
   appendFacebookBox() {
-    const url = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=365507434348874&autoLogAppEvents=1';
-    const script = document.createElement('script');
-    script.src = url;
-    document.body.appendChild(script);
+    this.zone.runOutsideAngular(() => {
+      const url =
+        'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=365507434348874&autoLogAppEvents=1';
+      if (!document.querySelector(`script[src='${url}']`)) {
+        const script = document.createElement('script');
+        script.src = url;
+        this.renderer.appendChild(this.document.body, script);
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -70,11 +83,14 @@ export class FooterComponent implements OnInit, OnDestroy {
       const posts = data.Categories || [];
       this.clinics = posts.map(post => {
         const clinic = new Clinic(post);
-        clinic.picturePath = UrlService.createPictureUrl(clinic.picture, null, 'category');
+        clinic.picturePath = UrlService.createPictureUrl(
+          clinic.picture,
+          null,
+          'category',
+        );
         clinic.url = UrlService.createClinicDetailUrl(clinic.alias);
         return clinic;
       });
     });
   }
-
 }

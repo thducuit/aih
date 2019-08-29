@@ -89,7 +89,7 @@
 
 <section class="modal modalWindow modalWindow2 {{ isShowPopupCatcha ? 'active' : 'deactive' }}" id="popupOne" >
   <section class="modalWrapper" >
-    <div class="g-recaptcha"><re-captcha #recaptcha (resolved)="resolved($event)" siteKey="6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK"></re-captcha></div>
+    <div class="g-recaptcha"><re-captcha #recaptcha (resolved)="resolved($event)" [siteKey]="recaptchaSiteKey"></re-captcha></div>
   </section>
 </section>
 <section class="modal overlay {{ isShowPopupCatcha ? 'active' : 'deactive' }}"></section>

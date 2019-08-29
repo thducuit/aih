@@ -67,7 +67,7 @@
       <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild">
 
         <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
-          <div *ngIf="currentPackageService.meta.hasOwnProperty(chosenPackage.id)">
+          <div *ngIf="chosenPackage && currentPackageService.meta.hasOwnProperty(chosenPackage.id)">
             <div class="box-border-medical">
               <h5><span>{{ currentPackageService.name }}</span></h5>
             </div>
