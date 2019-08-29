@@ -196,8 +196,36 @@ ngb-datepicker {
   color: #e1115b;
 }
 
-.insurance-consulting-detail  .list-dt li {
-  width: 33.33%;
+
+@media(max-width: 991px){
+  .insurance-top .heading {
+    font-size: 25px;
+    padding: 20px 0;
+  }
+}
+@media(max-width: 769px){
+  .insurance-top .heading {
+    font-size: 25px;
+    padding: 20px 0;
+  }
+  .insurance-top .content {
+    width: 100%;
+    font-size: 12px;
+    padding-bottom: 15px;
+  }
+}
+
+@media(max-width: 480px){
+  .insurance-top .heading {
+    font-size: 20px;
+    padding: 15px 0;
+  }
+  .insurance-top .content {
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.3rem;
+    padding-bottom: 15px;
+  }
 }
 
 

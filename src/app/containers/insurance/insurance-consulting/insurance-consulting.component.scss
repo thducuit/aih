@@ -1,3 +1,18 @@
+.list-dt-ins {
+  .item-doc:hover .copy {
+    background: none;
+
+    a {
+      color: #11789b;
+      span:after {
+        background: url(/assets/images/ar-link-hv.png) no-repeat;
+        background-size: 100%;
+        right: -10px;
+      }
+    }
+  }
+}
+
 
 .insurance-consulting-content {
   margin: 50px 0 25px;
@@ -18,11 +33,64 @@
     float: right;
   }
 
-
-
   .item-doc .copy {
     border: none;
     padding: 20px 0;
     border-top: 1px solid #d8d7d7;
+  }
+}
+
+
+
+@media(max-width: 769px){
+  .insurance-consulting-content {
+    margin: 25px 0 25px;
+
+    .box-left {
+      width: 100%;
+      padding-right: 0
+    }
+
+    .box-right {
+      width: 100%;
+      padding-left: 0;
+      padding-top: 15px;
+    }
+  }
+  .list-dt-ins {
+    .item-doc {
+      border: none;
+      float: left;
+      padding-left: 200px;
+      margin-bottom: 20px;
+      .img {
+        width: 200px;
+      }
+      .copy a span {
+        float: right;
+        margin-right: 10px;
+      }
+    }
+
+    .item-doc:hover {
+      box-shadow: unset;
+    }
+
+    .tt-doc-crs {
+      margin-left: 20px;
+      padding: 0;
+    }
+  }
+
+}
+
+@media(max-width: 480px){
+  .list-dt-ins {
+    .item-doc {
+      padding-left: 120px;
+      .img {
+        width: 120px;
+      }
+    }
   }
 }

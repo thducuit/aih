@@ -19,6 +19,7 @@ import {GlobalEventService} from 'src/app/services/global-event.service';
 import {BookingTimeComponent} from '../booking-time/booking-time.component';
 import {SwalComponent} from '@sweetalert2/ngx-sweetalert2';
 import {RecaptchaComponent} from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -61,6 +62,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     public isShowPopupCatcha = false;
 
     public captchaResponse;
+    public recaptchaSiteKey = environment.recaptchaSiteKey;
 
     private chooseDoctorDelegate: (id) => void;
     private chooseClinicDelegate: (id) => void;

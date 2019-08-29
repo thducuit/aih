@@ -2,7 +2,7 @@
 	<h2>{{ 'please_choose' | translate }}<br/> {{ 'please_choose_our_medical_packages' | translate }}</h2>
 	<ul>
 		<li>
-			<div class="drop-pk js-package-home" >
+			<div class="drop-pk js-package-home" (clickOutside)="onClickOutside($event)">
 				<p *ngIf="!chosenPackage" (click)="handleInputClick()">{{ 'medical_packages' | translate }}</p>
 				<p *ngIf="chosenPackage" (click)="handleInputClick()"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 15}">{{ chosenPackage.name }}</span></p>
 				<div class="dropdown-list" [@slideInOut]="packageState">

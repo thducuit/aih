@@ -53,11 +53,12 @@ body  .insurance-item .top-ins > h2 span:after {
 }
 
 body .insurance-item .top-child-ins h2{color:#007298; font-size: 20px;text-align:left;}
-body .insurance-item .top-child-ins h2 span{border-bottom:0px; padding: 10px 15px 10px 10px;}
-
+body .insurance-item .top-child-ins h2 span{border-bottom:0px; padding: 10px 15px 10px 10px; color: #e1115b;}
+body .page-medical-all{padding-bottom: 165px;}
 @media screen and (max-width: 991px){
 	body .insurance-item .top-ins > h2,
 	body .insurance-item .top-child-ins h2{font-size:16px;}
+	body .page-medical-all{padding-bottom: 80px;}
 }
 
 @media screen and (max-width: 480px){
@@ -66,11 +67,14 @@ body .insurance-item .top-child-ins h2 span{border-bottom:0px; padding: 10px 15p
 	body .insurance-item .top-ins > h2{ line-height: 1.6em;}
 	body .insurance-item .top-ins > h2 span{height:auto; width:100%;}
 	body .insurance-item .top-ins > h2 span:after{display:none;}
+
+	body .page-medical-all{padding-bottom: 60px;}
 }
 
 .faq-item h3{cursor:pointer;}
 .list-persond .logo-persond{ background-position: center center !important; width:auto; position:relative; margin:15px; outline-offset: 15px; outline: 1px solid #d9d9d9;}
-body .page-medical-all{padding-bottom: 165px;}
+
+body .page-medical-all{padding-bottom: 80px;}
 
 @media screen and (max-width: 1600px) and (min-width: 1200px){
 	.page-medical-all .medical-content .box-right {
