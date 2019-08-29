@@ -4824,7 +4824,7 @@ header.fixHd .bg {
   position: relative;
   display: block;
   overflow: hidden;
-  padding: 0 22px;
+  padding: 0 10px;
 }
 
 .drop-pk p span {
@@ -4868,7 +4868,7 @@ header.fixHd .bg {
   color: #fff;
   font-family: utm_avobold;
   text-transform: uppercase;
-  padding: 0 22px;
+  padding: 0 10px;
   display: block
 }
 
@@ -10746,6 +10746,7 @@ a.morelink:hover {
     position: absolute;
     left: 10px;
     width: 100px;
+    height: 64px;
     top: 0
   }
 

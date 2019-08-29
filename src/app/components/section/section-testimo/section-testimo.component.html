@@ -14,7 +14,7 @@
 	</div>
 	<div class="play-video js-open-video" (click)="handleOpenPopup()"></div>
 </section>
-<app-video-popup *ngIf="feedback && feedback.iframeSrc"
+<app-video-popup *ngIf="feedback && feedback.iframeSrc && showVideoPopup"
   [iframeSrc]=feedback.iframeSrc
   [isShowPopup]=showVideoPopup
   (closePopup)="handleClosePopup()"
