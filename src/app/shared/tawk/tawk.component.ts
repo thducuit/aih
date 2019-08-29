@@ -3,7 +3,7 @@ import {
   Renderer2,
   Inject,
   Input,
-  AfterViewChecked,
+  OnInit,
   NgZone,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -13,7 +13,7 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './tawk.component.html',
   styleUrls: ['./tawk.component.scss'],
 })
-export class TawkComponent implements AfterViewChecked,OnInit {
+export class TawkComponent implements OnInit {
   @Input() id: string;
   constructor(
     private renderer: Renderer2,
