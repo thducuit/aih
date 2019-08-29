@@ -47,6 +47,7 @@
             <div class="heading">{{ service.name }}</div>
             <div class="sum" innerHTML="{{ service.shortDesc | decodeHtmlEntities }}"></div>
             <a routerLink="{{ service.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
+            <a routerLink="{{ service.url }}" class="link"></a>
           </div>
         </li>
 

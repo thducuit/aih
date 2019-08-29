@@ -53,7 +53,7 @@ body  .insurance-item .top-ins > h2 span:after {
 }
 
 body .insurance-item .top-child-ins h2{color:#007298; font-size: 20px;text-align:left;}
-body .insurance-item .top-child-ins h2 span{border-bottom:0px; padding: 10px 15px 10px 10px;}
+body .insurance-item .top-child-ins h2 span{border-bottom:0px; padding: 10px 15px 10px 10px; color: #e1115b;}
 body .page-medical-all{padding-bottom: 165px;}
 @media screen and (max-width: 991px){
 	body .insurance-item .top-ins > h2,
