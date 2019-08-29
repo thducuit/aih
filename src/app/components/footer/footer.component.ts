@@ -43,11 +43,9 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   appendFacebookBox() {
     const url = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=365507434348874&autoLogAppEvents=1';
-    if (!document.querySelector(`script[src='${url}']`)) {
-      const script = document.createElement('script');
-      script.src = url;
-      document.body.appendChild(script);
-    }
+    const script = document.createElement('script');
+    script.src = url;
+    document.body.appendChild(script);
   }
 
   ngOnDestroy() {
