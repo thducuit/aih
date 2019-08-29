@@ -36,8 +36,8 @@ import {
           'max-height': '164px',
         }),
       ),
-      transition('close => open', [animate('300ms ease-in')]),
-      transition('open => close', [animate('300ms ease-in')]),
+      transition('close => open', [animate('300ms ease-in-out')]),
+      transition('open => close', [animate('300ms ease-in-out')]),
     ]),
   ],
 })
