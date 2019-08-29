@@ -25,6 +25,7 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   public content;
   public isReset;
+  public showVote;
 
   private subscription: Subscription;
 
@@ -75,6 +76,9 @@ export class ContactComponent implements OnInit, OnDestroy {
         name: 'keywords',
         content: this.page.metaKey,
       });
+
+      this.showVote = parseInt(this.page.meta['enable_rating'], 10) === 1;
+
       this.bannerService
         .fetch('contact_page', this.page.id)
         .subscribe((bannersResp: any) => {

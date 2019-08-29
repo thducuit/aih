@@ -30,7 +30,8 @@ export class InsuranceMembershipComponent implements OnInit {
     private translate: TranslateService,
     private metaService: Meta,
     private titleService: Title,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loadPage();

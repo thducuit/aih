@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { CareerService } from '../../services/career.service';
 import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './career-form.component.html',
   styleUrls: ['./career-form.component.scss'],
 })
-export class CareerFormComponent implements OnInit {
+export class CareerFormComponent implements OnInit, OnDestroy {
 
   public form = {
     fullname: '',
@@ -42,6 +42,11 @@ export class CareerFormComponent implements OnInit {
 
   ngOnInit() {
     this.reset();
+  }
+
+  ngOnDestroy() {
+    const captchaElem = this.recaptcha['elementRef'].nativeElement;
+    captchaElem.parentElement.removeChild(captchaElem);
   }
 
   reset() {

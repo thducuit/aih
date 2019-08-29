@@ -3,8 +3,8 @@ import {
   Renderer2,
   Inject,
   Input,
-  NgZone,
   OnInit,
+  NgZone,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
