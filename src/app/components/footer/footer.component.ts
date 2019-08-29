@@ -22,7 +22,7 @@ import {DOCUMENT} from '@angular/common';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class FooterComponent implements OnInit, OnDestroy {
     public blogs: Array<Blog> = [];
     public clinics: Array<Clinic> = [];
     private subsciption: Subscription;
@@ -36,16 +36,13 @@ export class FooterComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
 
     ngOnInit() {
+        this.appendFacebookBox();
         this.loadFeatureBlogs();
         this.loadFeatureClinics();
         this.subsciption = this.translate.onLangChange.subscribe(() => {
             this.loadFeatureBlogs();
             this.loadFeatureClinics();
         });
-    }
-
-    ngAfterViewChecked() {
-        this.appendFacebookBox();
     }
 
     appendFacebookBox() {
