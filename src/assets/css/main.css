@@ -10992,7 +10992,7 @@ a.morelink:hover {
     background: #e1115b;
     font-family: utm_avobold;
     text-transform: none;
-    padding: 13px 15px
+    padding: 8px 15px
   }
 
   .service-drop-mb .select-options p {
@@ -12067,7 +12067,11 @@ a.morelink:hover {
     padding: 0 10px
   }
 
-  .drop-pk p,
+  .drop-pk p {
+    font-size: 12px;
+    padding: 0 10px
+  }
+
   .item-pk p {
     font-size: 12px;
     padding: 0
