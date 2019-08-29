@@ -51,7 +51,6 @@
     "ng-dynamic": "^3.0.2",
     "ng-recaptcha": "^5.0.0",
     "ngx-scrollbar": "^4.2.0",
-    "ngx-slick-carousel": "^0.4.6",
     "pm2": "^3.5.1",
     "rxjs": "~6.4.0",
     "slick-carousel": "^1.8.1",

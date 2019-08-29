@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageService } from '../../services/page.service';
 import { BannerService } from '../../services/banner.service';
 import { UrlService } from '../../services/url.service';
@@ -10,16 +10,38 @@ import { Meta, Title } from '@angular/platform-browser';
 import { forkJoin, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-choosen-package',
   templateUrl: './choosen-package.component.html',
   styleUrls: ['./choosen-package.component.scss'],
+  animations: [
+    trigger('slideInOut', [
+      state(
+        'close',
+        style({
+          'max-height': 0,
+        }),
+      ),
+      state(
+        'open',
+        style({
+          'max-height': '164px',
+        }),
+      ),
+      transition('close => open', [animate('300ms ease-in')]),
+      transition('open => close', [animate('300ms ease-in')]),
+    ]),
+  ],
 })
-export class ChoosenPackageComponent implements OnInit {
-  public isActive: boolean;
-  public isActiveChild: boolean;
-
+export class ChoosenPackageComponent implements OnInit, OnDestroy {
   public page: Page;
   public banners: Array<any> = [];
   public currentPackages: Array<any> = [];
@@ -34,10 +56,14 @@ export class ChoosenPackageComponent implements OnInit {
   public chosenPackageChild;
   public chosenPackageChilds = [];
 
-  constructor(public packageService: PackageService,
-              private translate: TranslateService,
-              private router: Router) {
-  }
+  public packageState = 'close';
+  public packageDetailState = 'close';
+
+  constructor(
+    public packageService: PackageService,
+    private translate: TranslateService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.loadPackages();
@@ -47,6 +73,10 @@ export class ChoosenPackageComponent implements OnInit {
       this.chosenPackageChilds = [];
       this.loadPackages();
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   loadPackages() {
@@ -63,28 +93,20 @@ export class ChoosenPackageComponent implements OnInit {
   }
 
   handleInputClick() {
-    if (!this.isActive) {
-      this.isActive = true;
-    } else {
-      this.isActive = false;
-    }
+    this.packageState = this.packageState === 'open' ? 'close' : 'open';
   }
 
   handleInputChildClick() {
-    if (!this.isActiveChild) {
-      this.isActiveChild = true;
-    } else {
-      this.isActiveChild = false;
-    }
+    this.packageDetailState =
+      this.packageDetailState === 'close' ? 'open' : 'close';
   }
 
   onClickOutside(e) {
-    this.isActive = false;
-
+    this.packageState = 'close';
   }
 
   onClickOutsideChild(e) {
-    this.isActiveChild = false;
+    this.packageDetailState = 'close';
   }
 
   chooseParent(item) {
@@ -93,12 +115,12 @@ export class ChoosenPackageComponent implements OnInit {
       child => child.parentId === item.id,
     );
     this.chosenPackageChild = null;
-    this.isActive = false;
+    this.packageState = 'close';
   }
 
   chooseChild(item) {
     this.chosenPackageChild = item;
-    this.isActiveChild = false;
+    this.packageDetailState = 'close';
   }
 
   gotoDetail() {

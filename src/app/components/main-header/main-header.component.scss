@@ -117,7 +117,7 @@
 
 @media screen and (min-width: 1025px) and (max-width: 1365px) {
   .nav-wrap {
-    :ng-deep {
+    ::ng-deep {
       nav {
         li {
           a {
@@ -273,7 +273,7 @@
   .nav-wrap {
     top: 56px;
     height: calc(100vh - 56px);
-    :ng-deep {
+    ::ng-deep {
       nav {
         li {
           padding: 0 20px;

@@ -12,7 +12,6 @@ import {
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
 
@@ -171,6 +170,7 @@ import { InsuranceDetailComponent } from './containers/insurance/insurance-detai
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { LoaderService } from './services/loader-service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SlickCarouselModule } from './shared/slick-carousel/slick-carousel.module';
 import {LikeService} from './services/like.service';
 
 export function createTranslateLoader(http: HttpClient) {

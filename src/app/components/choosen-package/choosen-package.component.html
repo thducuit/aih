@@ -1,13 +1,11 @@
 <div id="choosen-wrap-w" class="choosen-wrap">
 	<h2>{{ 'please_choose' | translate }}<br/> {{ 'please_choose_our_medical_packages' | translate }}</h2>
 	<ul>
-		<li (clickOutside)="onClickOutside($event)">
-			<div class="drop-pk" >
-        <div class="drop-pk-item" (click)="handleInputClick()">
-          <p *ngIf="!chosenPackage">{{ 'medical_packages' | translate }}</p>
-          <p *ngIf="chosenPackage"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 15}">{{ chosenPackage.name }}</span></p>
-        </div>
-				<div class="dropdown-list {{ isActive ? 'active' : '' }}">
+		<li>
+			<div class="drop-pk js-package-home" >
+				<p *ngIf="!chosenPackage" (click)="handleInputClick()">{{ 'medical_packages' | translate }}</p>
+				<p *ngIf="chosenPackage" (click)="handleInputClick()"><span [ngClass]="{'animateSpan': chosenPackage.name && chosenPackage.name.length > 15}">{{ chosenPackage.name }}</span></p>
+				<div class="dropdown-list" [@slideInOut]="packageState">
 					<div class="copyscroll">
 						<div class="nano">
 							<div class="nano-content">
@@ -18,14 +16,12 @@
 				</div>
 			</div>
 		</li>
-		<li (clickOutside)="onClickOutsideChild($event)">
-			<div class="drop-pk">
-        <div class="drop-pk-item" (click)="handleInputChildClick()">
-          <p *ngIf="!chosenPackageChild">{{ 'medical_packages_detail' | translate }}</p>
-          <p *ngIf="chosenPackageChild"><span [ngClass]="{'animateSpan': chosenPackageChild.name && chosenPackageChild.name.length > 15 }">{{ chosenPackageChild.name }}</span></p>
-        </div>
-				<div class="dropdown-list {{ isActiveChild ? 'active' : '' }}">
-					<div class="copyscroll" *ngIf="chosenPackageChilds && chosenPackageChilds.length">
+		<li>
+			<div class="drop-pk js-package-home-child" (clickOutside)="onClickOutsideChild($event)">
+				<p *ngIf="!chosenPackageChild" (click)="handleInputChildClick()">{{ 'medical_packages_detail' | translate }}</p>
+				<p *ngIf="chosenPackageChild" (click)="handleInputChildClick()"><span [ngClass]="{'animateSpan': chosenPackageChild.name && chosenPackageChild.name.length > 15 }">{{ chosenPackageChild.name }}</span></p>
+				<div class="dropdown-list" [@slideInOut]="packageDetailState">
+					<div class="copyscroll">
 						<div class="nano">
 							<div class="nano-content">
 								<span *ngFor="let childPackage of chosenPackageChilds" (click)="chooseChild(childPackage)">{{ childPackage.name }}</span>

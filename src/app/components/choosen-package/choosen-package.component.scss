@@ -1,38 +1,35 @@
 .dropdown-list {
-	display: block	
-}
-
-.dropdown-list .copyscroll {
-	height: 0;
-  transition: height .3s ease-in-out;
+  display: block;
+  overflow: hidden;
 }
 
 .dropdown-list.active .copyscroll {
-	height: 164px;
+  height: 164px;
 }
 
 .drop-pk {
-	cursor: pointer
+  cursor: pointer;
 }
 
 .btn-choose-package {
-	color: #e1115b!important;
-	cursor: pointer
+  color: #e1115b !important;
+  cursor: pointer;
 }
 
 .btn-choose-package:hover {
-	color: #ffffff!important;
+  color: #ffffff !important;
 }
 
 .drop-pk p {
 	width: 100%;
 }
 .js-package-home p, .js-package-home .dropdown-list {
-	z-index: 1;
+  z-index: 3;
+  overflow: hidden;
 }
 
 .drop-pk.js-package-home:after {
-	z-index: 0!important;
+  z-index: 0 !important;
 }
 
 .js-package-home-child p {
