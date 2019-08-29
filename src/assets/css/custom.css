@@ -241,3 +241,7 @@ ngb-datepicker {
   padding-bottom: 22px;
   text-align: left!important;
 }
+
+.button-tawk {
+  cursor: pointer;
+}

@@ -19,7 +19,6 @@ import { Meta, Title } from '@angular/platform-browser';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { PostService } from '../../../../services/post.service';
 import { isPlatformBrowser } from '@angular/common';
-import * as $ from 'jquery';
 import { environment } from '../../../../../environments/environment';
 import { LoaderService } from '../../../../services/loader-service';
 import { GlobalEventService } from '../../../../services/global-event.service';
