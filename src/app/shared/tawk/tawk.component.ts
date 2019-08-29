@@ -3,8 +3,8 @@ import {
   Renderer2,
   Inject,
   Input,
-  AfterViewChecked,
   NgZone,
+  OnInit,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -13,7 +13,7 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './tawk.component.html',
   styleUrls: ['./tawk.component.scss'],
 })
-export class TawkComponent implements AfterViewChecked {
+export class TawkComponent implements OnInit {
   @Input() id: string;
   constructor(
     private renderer: Renderer2,
@@ -21,7 +21,7 @@ export class TawkComponent implements AfterViewChecked {
     private zone: NgZone,
   ) {}
 
-  ngAfterViewChecked() {
+  ngOnInit() {
     this.appendScript();
   }
 
