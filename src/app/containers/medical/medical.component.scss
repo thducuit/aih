@@ -50,9 +50,7 @@ p.haveAnimate img{
 	/*text-align: left;*/
 	//margin: 0 20px 0 50px;
 }
-.medical-bottom .box-left .divleft{
-  margin: 35px 20px 0 50px
-}
+
 .medical-bottom .box-left p img {
 	margin-left: 15px;
 	width: 20px;
@@ -190,18 +188,32 @@ p.haveAnimate img{
 	}
 
 	.box-chosen ul {
-		top: 75px;
+		top: 50px;
+	}
+
+	.medical-bottom .box-right ul .divchild {
+		width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.medical-bottom .box-right .box-bottom p {
+		margin-left: 20px;
 	}
 }
 
 @media screen and (max-width: 480px){
 	.page-medical-all .medical-bottom .box-left p {
-	    font-size: 16px;
-	    margin-top: 24px;
+	    font-size: 14px;
+	    margin-top: 14px;
 	}
 	.medical-bottom  .box-right ul li {
 	    font-size: 14px;
 	    line-height: 48px;
+	}
+
+	.box-chosen ul li {
+		font-size: 14px;
 	}
 
 	.medical-bottom .box-left p img {
@@ -214,5 +226,13 @@ p.haveAnimate img{
 		    margin-left: 6px;
 		    width: 13px;
 		    margin-top: -2px;
-  }
+	}
+
+	.box-detail ol {
+		width: 200%;
+	}
+
+	.box-detail ol li {
+		padding-left: 10px;
+	}
 }

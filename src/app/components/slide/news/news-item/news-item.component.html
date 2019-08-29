@@ -1,5 +1,5 @@
 <div class="news-list-wrap">
-  <ul class="clearfix js-list-news js-append-more">
+  <ul class="clearfix js-list-news js-append-more" myMatchHeight="blog-title">
     <li *ngFor="let blog of blogs">
       <div class="item-news" [ngStyle]="{'min-height.px': minHeight}">
         <div class="img">
@@ -16,7 +16,7 @@
           <!--<span class="cm">0</span>-->
         </div>
         <div class="copy">
-          <h2>{{ blog.name }}</h2>
+          <h2 class="blog-title">{{ blog.name }}</h2>
           <p innerHTML="{{ blog.shortDesc | decodeHtmlEntities }}"></p>
           <a routerLink="{{ blog.url }}"><span>{{ 'learn_more' | translate }}</span></a
           >

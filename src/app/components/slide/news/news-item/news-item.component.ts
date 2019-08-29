@@ -61,6 +61,14 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
 
                     blog.url = UrlService.createNewsDetailUrl(blog.alias);
+
+                    if (blog.name.length > 50) {
+                        const arr = blog.name.split(' ');
+                        const str = arr.slice(1, 10).join(' ');
+                        blog.name = `${str}...`;
+                    }
+
+
                     return blog;
                 }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
                 this.recalculatePages();

@@ -122,6 +122,14 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
             guarantee: '',
             insuranceOther: '',
         };
+
+        this.errorFirstName = false;
+        this.errorLastName = false;
+        this.errorSex = false;
+        this.errorEmail = false;
+        this.errorDayBirth = false;
+        this.errorMonthBirth = false;
+        this.errorYearBirth = false;
     }
 
     ngOnInit() {
@@ -197,6 +205,7 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     handleClosePopup() {
+        this.resetForm();
         this.closePopup.emit();
     }
 
