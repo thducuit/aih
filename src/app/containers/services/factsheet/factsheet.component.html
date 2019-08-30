@@ -25,7 +25,7 @@
     <div class="container">
       <div class="top-factsheet">
         <h3>{{ page ? page.name : '' }}</h3>
-        <p [innerHtml]="(page ? page.longDesc : '') | safeHtml">
+        <p [innerHtml]="(page ? page.longDesc : '') | decodeHtmlEntities | safeHtml">
       </div>
       <div class="service-wrap">
         <div class="list-sv">
@@ -38,7 +38,7 @@
             <div class="copy-content">
               <div>
                 <h3>{{ highlight.title }}</h3>
-                <p [innerHTML]="(highlight ? highlight.description : '') | safeHtml">highlight.description
+                <p [innerHTML]="(highlight ? highlight.description : '') | decodeHtmlEntities | safeHtml">highlight.description
                 </p>
               </div>
             </div>
