@@ -97,3 +97,17 @@
     margin-top: 5px;
   }
 }
+
+@media screen and (max-width: 769px) {
+  .lang {
+    margin-top: 0;
+
+    a {
+      left: -5px;
+      width: 50px;
+      em {
+        display: none;
+      }
+    }
+  }
+}

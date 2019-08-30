@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 import { RecaptchaComponent } from 'ng-recaptcha';
+import { LoaderService } from '../../services/loader-service';
 
 @Component({
   selector: 'app-career-form',
@@ -37,7 +38,7 @@ export class CareerFormComponent implements OnInit, OnDestroy {
   @ViewChild('uploadFile', { static: false }) uploadFile: ElementRef<HTMLElement>;
   @ViewChild('recaptcha', {static: true}) recaptcha: RecaptchaComponent;
 
-  constructor(public careerService: CareerService, private translate: TranslateService) {
+  constructor(public careerService: CareerService, private loaderService: LoaderService, private translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -133,7 +134,9 @@ export class CareerFormComponent implements OnInit, OnDestroy {
       this.openCaptchaFail();
       return;
     }
+    this.loaderService.show();
     this.careerService.apply(this.form).subscribe((data: any) => {
+      this.loaderService.hide();
       if (parseInt(data['StatusCode'], 10) === 1) {
         this.openSuccess();
       } else {

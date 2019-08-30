@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 import { RecaptchaComponent } from 'ng-recaptcha';
+import { LoaderService } from '../../services/loader-service';
 
 @Component({
   selector: 'app-contact-form',
@@ -27,6 +28,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   constructor(
     public contactService: ContactService,
+    private loaderService: LoaderService,
     private translate: TranslateService,
   ) {}
 
@@ -83,7 +85,9 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       this.openCaptchaFail();
       return;
     }
+    this.loaderService.show();
     this.contactService.apply(this.form).subscribe((data: any) => {
+      this.loaderService.hide();
       if (parseInt(data['StatusCode'], 10) === 1) {
         this.openSuccess();
       } else {

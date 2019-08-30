@@ -245,3 +245,9 @@ ngb-datepicker {
 .button-tawk {
   cursor: pointer;
 }
+
+@media screen and (max-width: 769px) {
+  .nav-wrap .lang {
+    display: none;
+  }
+}
