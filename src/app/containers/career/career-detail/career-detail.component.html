@@ -62,7 +62,7 @@
             <p><img src="../assets/images/icon-cr-dt-3.png"> {{ 'career' | translate }}<br/>{{ career.meta.career }}</p>
             <p><img src="../assets/images/icon-cr-dt-4.png"> {{ 'skill' | translate }}<br/>{{ career.meta.skill }}</p>
           </div>
-          <div class="cr-content"><div [innerHTML]="career.longDesc | decodeHtmlEntities"></div></div>
+          <div class="cr-content"><div [innerHTML]="career.longDesc | decodeHtmlEntities | safeHtml"></div></div>
         </div>
       </div>
 

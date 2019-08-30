@@ -19,7 +19,7 @@
   <div class="insurance-top" id="insurance-top" *ngIf="category">
     <div class="container">
       <div class="heading">{{ category.name }}</div>
-      <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
+      <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
       <div class="content-right">
         <a class="button button-tawk" (click)="openTawk()">{{ 'send' | translate }}</a>
       </div>
@@ -34,7 +34,7 @@
         <div class="box-content" *ngIf="service">
           <div class="heading">{{ service.name }}</div>
           <span *ngFor="let longDesc of longDescs">
-            <p [innerHTML]="longDesc.content | decodeHtmlEntities"></p>
+            <p [innerHTML]="longDesc.content | decodeHtmlEntities | safeHtml"></p>
             <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
           </span>
         </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="tt-doc-crs">
               <h2>{{ service.name }}</h2>
-              <p innerHTML="{{ service.shortDesc | decodeHtmlEntities }}"></p>
+              <p [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
             </div>
             <div class="copy">
               <p></p>

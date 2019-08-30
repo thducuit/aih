@@ -11,7 +11,7 @@
         </div>
         <div class="box-right">
           <h2>{{ page ? page.name : '' }}</h2>
-          <p [innerHTML]="(page ? page.longDesc : '') | decodeHtmlEntities"></p>
+          <p [innerHTML]="(page ? page.longDesc : '') | decodeHtmlEntities | safeHtml"></p>
         </div>
       </div>
       
@@ -93,7 +93,7 @@
             </table>
           </div>
         </div>
-        <p innerHTML="{{ (chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities }}"></p>
+        <p [innerHTML]="(chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities | safeHtml"></p>
       </div>
 
       <!--<div class="box-btn-medical clearfix">

@@ -19,7 +19,7 @@
   <div class="insurance-top" id="insurance-top" *ngIf="category">
     <div class="container">
       <div class="heading">{{ category.name }}</div>
-      <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
+      <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
       <div class="content-right">
         <a class="button button-tawk" (click)="openTawk()">{{ 'send' | translate }}</a>
       </div>
@@ -34,7 +34,7 @@
           <img src="{{ category.picturePath }}" alt="">
         </div>
         <div class="box-right">
-          <p innerHTML="{{ category.longDesc | decodeHtmlEntities }}"></p>
+          <p [innerHTML]="category.longDesc | decodeHtmlEntities | safeHtml"></p>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
             </div>
             <div class="tt-doc-crs">
               <h2>{{ service.name }}</h2>
-              <p innerHTML="{{ service.shortDesc | decodeHtmlEntities }}"></p>
+              <p [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
             </div>
             <div class="copy">
               <p></p>

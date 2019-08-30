@@ -24,7 +24,7 @@
           <div *ngFor="let category of categories; let index=index; let odd=odd; let even=even;" class="box" [ngClass]="{'box-left': odd, 'box-right': even}">
             <div class="img" *ngIf="category.picturePath"><img src="{{ category.picturePath }}" alt="" /></div>
             <div class="heading">{{ category.name }}</div>
-            <div class="content" innerHTML="{{ category.shortDesc | decodeHtmlEntities }}"></div>
+            <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
             <a routerLink="{{ category.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
           </div>
 
