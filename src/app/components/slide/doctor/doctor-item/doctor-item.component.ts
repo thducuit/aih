@@ -121,6 +121,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     if (
       isPlatformBrowser(this.platformId) &&
       jquery(window).width() > 767 &&
+      this.slickSlider.$instance &&
       !this.slickSlider.$instance.hasClass('slick-initialized')
     ) {
       this.slickSlider &&

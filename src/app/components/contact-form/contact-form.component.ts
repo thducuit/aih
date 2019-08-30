@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -11,7 +11,7 @@ import { RecaptchaComponent } from 'ng-recaptcha';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss'],
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent implements OnInit, OnDestroy {
   public form = {
     fullname: '',
     email: '',
@@ -32,6 +32,11 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit() {
     this.reset();
+  }
+
+  ngOnDestroy() {
+    const captchaElem = this.recaptcha['elementRef'].nativeElement;
+    captchaElem.parentElement.removeChild(captchaElem);
   }
 
   reset() {
