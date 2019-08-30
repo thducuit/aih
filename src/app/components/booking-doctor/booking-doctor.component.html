@@ -18,7 +18,7 @@
                   <img src='{{ doctor.picturePath }}'>
                   <h4>{{ doctor.name }}</h4>
                   <h4><span>{{ doctor.categoryName }}</span></h4>
-                  <p innerHTML="{{ doctor.shortDesc | decodeHtmlEntities }}"></p>
+                  <p innerHTML="{{ doctor.shortDesc | safeHtml }}"></p>
                   <a class="rm" routerLink="{{ doctor.url }}"><span>{{ 'show_more' | translate }}</span></a>
                   <a class="bm js-book-dt" (click)="onChoose(doctor)">{{ 'book' | translate }}</a>
                 </div>

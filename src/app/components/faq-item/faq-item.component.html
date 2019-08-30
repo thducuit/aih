@@ -1,6 +1,6 @@
 <div class="faq-item" *ngIf="faq">
   <h3 (click)="toggle()" [ngClass]="{'active': expanded}">{{ faq.title }}<span class="toggle_plus"></span></h3>
   <div class="copy" [ngClass]="{'show': expanded}">
-    <p style="text-align: justify;" innerHTML="{{ faq.description | decodeHtmlEntities }}"></p>
+    <p style="text-align: justify;" innerHTML="{{ faq.description | safeHtml }}"></p>
   </div>
 </div>
