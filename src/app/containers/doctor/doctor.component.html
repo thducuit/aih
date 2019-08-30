@@ -23,7 +23,7 @@
     <div class="container">
       <div class="intro-dt">
         <h2>{{ page ? page.name : '' }}</h2>
-        <div [innerHTML]="page.longDesc | safeHtml"></div>
+        <div [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></div>
       </div>
       <div class="op-dt-wrap window">
         <p class="cap"></p>
