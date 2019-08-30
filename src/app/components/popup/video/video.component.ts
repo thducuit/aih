@@ -6,17 +6,20 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
 })
-export class VideoComponent implements OnInit {
+export class VideoComponent {
 
   @Input() iframeSrc: string;
-  @Input() isShowPopup = false;
   @Output() closePopup = new EventEmitter<any>();
+
+  isShowPopup = false;
   constructor(public sanitizer: DomSanitizer) { }
 
-  ngOnInit() {
+  open() {
+    this.isShowPopup = true;
   }
 
-  handleClose() {
+  close() {
+    this.isShowPopup = false;
     this.closePopup.emit();
   }
 }

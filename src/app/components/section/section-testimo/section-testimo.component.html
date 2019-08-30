@@ -1,21 +1,17 @@
 <section class="testimo-home" *ngIf="feedback">
-	<div class="container">
-		<div class="tt">
-			<p>{{ 'testimonials' | translate }}</p>
-			<h2>{{ 'what_our_clients_say' | translate }}</h2>
-		</div>
-		<div class="copy-quote">
-			<p>Cảm ơn Bệnh viện AIH đã cho tôi cơ hội trải nghiệm lần đầu tiên dịch vụ chăm sóc sức khỏe tiêu chuẩn Mỹ ngay tại Việt Nam....</p>
-			<div class="info-quote">
-				<h4>{{ feedback.title }}</h4>
-				<span>{{ feedback.desc }}</span>
-			</div>
-		</div>
-	</div>
-	<div class="play-video js-open-video" (click)="handleOpenPopup()"></div>
+  <div class="container">
+    <div class="tt">
+      <p>{{ 'testimonials' | translate }}</p>
+      <h2>{{ 'what_our_clients_say' | translate }}</h2>
+    </div>
+    <div class="copy-quote">
+      <p>{{getLongDesc(feedback)}}</p>
+      <div class="info-quote">
+        <h4>{{ feedback.title }}</h4>
+        <span>{{ feedback.desc }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="play-video js-open-video" (click)="handleOpenPopup()"></div>
 </section>
-<app-video-popup *ngIf="feedback && feedback.iframeSrc"
-  [iframeSrc]=feedback.iframeSrc
-  [isShowPopup]=showVideoPopup
-  (closePopup)="handleClosePopup()"
-></app-video-popup>
+<app-video-popup #videoPopup *ngIf="feedback && feedback.iframeSrc" [iframeSrc]=feedback.iframeSrc></app-video-popup>

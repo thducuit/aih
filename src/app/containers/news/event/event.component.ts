@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Blog } from '../../../models/blog';
 import { UrlService } from '../../../services/url.service';
 import { BlogService } from '../../../services/blog.service';
@@ -6,7 +6,8 @@ import { CalculatePagination } from '../../../utilities';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Title, Meta } from '@angular/platform-browser';
-import {LoaderService} from '../../../services/loader-service';
+import { LoaderService } from '../../../services/loader-service';
+import { VideoComponent } from 'src/app/components/popup/video/video.component';
 
 @Component({
   selector: 'app-event',
@@ -24,7 +25,8 @@ export class EventComponent implements OnInit, OnDestroy {
   public pageNumbers: number[] = [];
   private subscription: Subscription;
 
-  public showVideoPopup = false;
+  @ViewChild('videoPopup', { static: false }) videoPopup: VideoComponent;
+
   public iframeSrc;
 
   constructor(
@@ -32,9 +34,8 @@ export class EventComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private loaderService: LoaderService,
     private titleService: Title,
-    private metaService: Meta
-  ) {
-  }
+    private metaService: Meta,
+  ) {}
 
   ngOnInit() {
     this.loadNews();
@@ -46,7 +47,10 @@ export class EventComponent implements OnInit, OnDestroy {
   }
 
   private applyTitle() {
-    forkJoin(this.translate.get('news'), this.translate.get('american_international_hospital')).subscribe(([newsStr, aihStr]) => {
+    forkJoin(
+      this.translate.get('news'),
+      this.translate.get('american_international_hospital'),
+    ).subscribe(([newsStr, aihStr]) => {
       const pageTitle = `${newsStr} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({
@@ -67,23 +71,32 @@ export class EventComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         const posts = data.Posts || [];
         this.totalRecord = posts.TotalRecord;
-        const convertedBlogs: any[] = posts.map(post => {
+        const convertedBlogs: any[] = posts
+          .map(post => {
+            const blog = new Blog(post);
+            if (blog.meta.picture) {
+              blog.picturePath = UrlService.createPictureUrl(
+                blog.picture,
+                null,
+                null,
+                true,
+              );
+            } else {
+              blog.picturePath = UrlService.createPictureUrl(blog.picture);
+            }
 
-          const blog = new Blog(post);
-          if (blog.meta.picture) {
-            blog.picturePath = UrlService.createPictureUrl(blog.picture, null, null, true);
-          } else {
-            blog.picturePath = UrlService.createPictureUrl(blog.picture);
-          }
-
-          blog.url = UrlService.createNewsDetailUrl(blog.alias);
-          const { video } = blog.meta;
-          if (video) {
-            const code = video.substring(video.indexOf('?v=') + 3, video.length);
-            blog.iframeUrl = UrlService.createIframeUrl(code);
-          }
-          return blog;
-        }).sort((obj1, obj2) => obj1.isHot < obj2.isHot ? 1 : -1);
+            blog.url = UrlService.createNewsDetailUrl(blog.alias);
+            const { video } = blog.meta;
+            if (video) {
+              const code = video.substring(
+                video.indexOf('?v=') + 3,
+                video.length,
+              );
+              blog.iframeUrl = UrlService.createIframeUrl(code);
+            }
+            return blog;
+          })
+          .sort((obj1, obj2) => (obj1.isHot < obj2.isHot ? 1 : -1));
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();
@@ -140,12 +153,8 @@ export class EventComponent implements OnInit, OnDestroy {
     return str.substr(0, length - 3).trim() + '...';
   }
 
-  handleClosePopup() {
-    this.showVideoPopup = false;
-  }
-
   openIframeVideo(video) {
     this.iframeSrc = video.iframeUrl;
-    this.showVideoPopup = true;
+    this.videoPopup.open();
   }
 }

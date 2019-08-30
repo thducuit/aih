@@ -3,8 +3,8 @@ import { ContactService } from '../../services/contact.service';
 import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
-import { RecaptchaComponent } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment';
+import { RecaptchaComponent } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-contact-form',
@@ -18,7 +18,7 @@ export class ContactFormComponent implements OnInit {
     content: '',
   };
 
-  @ViewChild('recaptcha', { static: true }) recaptcha: RecaptchaComponent;
+  @ViewChild('recaptcha', { static: false }) recaptcha: RecaptchaComponent;
   public errorFullname = false;
   public errorEmail = false;
 

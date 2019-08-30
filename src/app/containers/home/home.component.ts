@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public page: Page;
   public banners: any[] = [];
   private subscription: Subscription;
+  public pageClasses: string[];
 
   constructor(
     public pageService: PageService,
@@ -25,23 +26,26 @@ export class HomeComponent implements OnInit, OnDestroy {
     private loaderService: LoaderService,
     private metaService: Meta,
     private titleService: Title,
-  ) {}
-
-  get pageClasses() {
-    const originalLang = this.translate.currentLang;
-    const languageClass = originalLang === 'vi' ? 'vn' : originalLang;
-    return [languageClass, 'window'];
+  ) {
+    this.pageClasses = this.getPageClasses();
   }
 
   ngOnInit() {
     this.loadPage();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadPage();
+      this.pageClasses = this.getPageClasses();
     });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  getPageClasses() {
+    const originalLang = this.translate.currentLang;
+    const languageClass = originalLang === 'vi' ? 'vn' : originalLang;
+    return [languageClass, 'window'];
   }
 
   loadPage() {

@@ -1,28 +1,30 @@
 <div class="form-ct">
-    <ul class="frmContact">
-        <li>
-            <div>
-                <label>{{ 'contact_name' | translate }}*</label>
-                <input type="text" (blur)="validator()" name="fullname" [(ngModel)]="form.fullname"
-                       class="js-required form-control {{ errorFullname ? 'error' : '' }}" placeholder="">
-            </div>
-        </li>
-        <li>
-            <div>
-                <label>{{ 'contact_email' | translate }}*</label>
-                <input type="text" (blur)="validator()" name="email" [(ngModel)]="form.email"
-                       class="js-required js-email form-control {{ errorEmail ? 'error' : '' }}" placeholder="">
-            </div>
-        </li>
-        <li>
-            <div>
-                <label>{{ 'contact_question' | translate }}</label>
-                <textarea title="content" name="content" class="form-control" [(ngModel)]="form.content"></textarea>
-            </div>
-        </li>
-        <li>
-            <div class="g-recaptcha"><re-captcha #recaptcha (resolved)="resolved($event)" [siteKey]="recaptchaSiteKey"></re-captcha></div>
-            <input class="btn-page" (click)="submitForm()" type="submit" value="{{ 'contact_send' | translate }}">
-        </li>
-    </ul>
+  <ul class="frmContact">
+    <li>
+      <div>
+        <label>{{ 'contact_name' | translate }}*</label>
+        <input type="text" (blur)="validator()" name="fullname" [(ngModel)]="form.fullname"
+          class="js-required form-control {{ errorFullname ? 'error' : '' }}" placeholder="">
+      </div>
+    </li>
+    <li>
+      <div>
+        <label>{{ 'contact_email' | translate }}*</label>
+        <input type="text" (blur)="validator()" name="email" [(ngModel)]="form.email"
+          class="js-required js-email form-control {{ errorEmail ? 'error' : '' }}" placeholder="">
+      </div>
+    </li>
+    <li>
+      <div>
+        <label>{{ 'contact_question' | translate }}</label>
+        <textarea title="content" name="content" class="form-control" [(ngModel)]="form.content"></textarea>
+      </div>
+    </li>
+    <li>
+      <div class="g-recaptcha">
+        <re-captcha #recaptcha (resolved)="resolved($event)" [siteKey]="recaptchaSiteKey"></re-captcha>
+      </div>
+      <input class="btn-page" (click)="submitForm()" type="submit" value="{{ 'contact_send' | translate }}">
+    </li>
+  </ul>
 </div>
