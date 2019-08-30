@@ -16,11 +16,12 @@ import { DoctorService } from '../../../../services/doctor.service';
 import { Doctor } from '../../../../models/doctor';
 import { UrlService } from '../../../../services/url.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { SlickCarouselComponent } from 'src/app/shared/slick-carousel/slick.component';
 import { isPlatformBrowser } from '@angular/common';
 import { LoaderService } from '../../../../services/loader-service';
 import jquery from 'jquery';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-doctor-item',
@@ -54,6 +55,12 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     ],
   };
   private subscription: Subscription;
+  private resizeSubject = new Subject();
+  private resizeSubscription = this.resizeSubject
+    .pipe(debounceTime(200))
+    .subscribe(() => {
+      this.updateOnWindowResize();
+    });
 
   @ViewChild('slickModal', { static: true })
   slickSlider: SlickCarouselComponent;
@@ -79,6 +86,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.resizeSubscription.unsubscribe();
   }
 
   sliderInit(e) {
@@ -118,6 +126,10 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
 
   @HostListener('window:resize')
   onWindowResize() {
+    this.resizeSubject.next();
+  }
+
+  updateOnWindowResize() {
     if (
       isPlatformBrowser(this.platformId) &&
       jquery(window).width() > 767 &&
