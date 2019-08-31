@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { GlobalEventService } from 'src/app/services/global-event.service';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { LoaderService } from '../../../services/loader-service';
 
 @Component({
   selector: 'app-doctor-detail',
@@ -28,6 +29,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
               private translate: TranslateService,
               private metaService: Meta,
               private titleService: Title,
+              private loaderService: LoaderService,
               private router: Router,
               private animateScrollService: NgAnimateScrollService) {
   }
@@ -60,6 +62,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
   }
 
   private loadPosts(alias) {
+    this.loaderService.show();
     this.postService.fetch(alias).subscribe((data: any) => {
       const doctor = new Doctor(data.Post);
       if (doctor.picture) {
@@ -80,6 +83,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
           this.postPrev = postPrev;
         }
       });
+
       // seo
       this.translate
         .get('american_international_hospital')
@@ -96,20 +100,37 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
         name: 'description',
         content: this.doctor.metaDesc,
       });
+      this.doctor.metaDesc &&
+      this.metaService.updateTag({
+        name: 'og:description',
+        content: this.doctor.metaDesc,
+      });
       this.metaService.updateTag({
         name: 'keywords',
         content: this.doctor.metaKey,
       });
+
+      this.metaService.updateTag({
+        property: 'og:image',
+        content: this.doctor.picturePath,
+      });
+
+      setTimeout(() => {
+        this.animateScrollService.scrollToElement('headerPage', 50);
+        this.loaderService.hide();
+      }, 100);
     });
   }
 
-  bookDoctor() {
+  bookDoctor(isMobile = false) {
     if (this.doctor) {
       this.isShowWarning = true;
       this.globalEventService.emit('book_doctor', this.doctor.doctorId);
-      // setTimeout(() => {
-      //     this.animateScrollService.scrollToElement('headerPage', 150);
-      // }, 100);
+      if (isMobile) {
+        setTimeout(() => {
+          this.animateScrollService.scrollToElement('headerPage', 150);
+        }, 100);
+      }
     }
   }
 }

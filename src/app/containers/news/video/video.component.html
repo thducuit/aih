@@ -2,7 +2,8 @@
   <div class="breadcrumb">
     <div class="container">
       <a routerLink="/">{{ 'home' | translate }}</a> /
-      <p>Video</p></div>
+      <p>Video</p>
+    </div>
   </div>
   <section class="news-wrap" *ngIf="video">
     <div class="container clearfix">
@@ -10,7 +11,7 @@
       <div class="video-banner">
         <div id="videoBn" class="youtube-player">
           <img src="{{ video.thumb }}">
-          <div class="play-video js-open-video" (click)="openIframeVideo(video)" ></div>
+          <div class="play-video js-open-video" (click)="openIframeVideo(video)"></div>
         </div>
 
         <div class="copy">
@@ -28,9 +29,7 @@
             <li *ngFor="let v of videos">
               <div class="item-news">
                 <div class="img has-video">
-                  <div
-                    [style.background]="'url(' + v.thumb + ')'"
-                  ></div>
+                  <div [style.background]="'url(' + v.thumb + ')'"></div>
                   <img src="assets/images/b.gif">
                 </div>
                 <div class="tt-news">
@@ -40,7 +39,7 @@
                   <h2>{{ v.title }}</h2>
                   <p>{{ v.description }}</p>
                 </div>
-                <a class="link-all js-open-video" (click)="openIframeVideo(v)" ></a>
+                <a class="link-all js-open-video" (click)="openIframeVideo(v)"></a>
               </div>
             </li>
 
@@ -50,9 +49,5 @@
     </div>
   </section>
 
-  <app-video-popup *ngIf="iframeSrc"
-                   [iframeSrc]=iframeSrc
-                   [isShowPopup]=showVideoPopup
-                   (closePopup)="handleClosePopup()"
-  ></app-video-popup>
+  <app-video-popup #videoPopup *ngIf="iframeSrc" [iframeSrc]=iframeSrc></app-video-popup>
 </main>

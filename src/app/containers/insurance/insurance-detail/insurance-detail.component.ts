@@ -74,6 +74,10 @@ export class InsuranceDetailComponent implements OnInit {
         name: 'description',
         content: this.page.metaDesc,
       });
+      this.metaService.updateTag({
+        name: 'og:description',
+        content: this.page.metaDesc,
+      });
       this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
       this.bannerService
         .fetch('insurancepage', this.page.id)

@@ -1,3 +1,11 @@
+.op-news > a {
+  color: #c2c4c4
+}
+
+.op-news > a:hover {
+  color: #007297;
+}
+
 .slider-news-dt {
   opacity: 1;
 
@@ -187,6 +195,12 @@
     h2 {
       font-size: 25px
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .op-news > a {
+    margin-right: 25px;
   }
 }
 

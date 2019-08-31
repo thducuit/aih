@@ -65,6 +65,7 @@ export class AboutComponent implements OnInit, OnDestroy {
           content: pageTitle
         });
         this.page.metaDesc && this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
+        this.page.metaDesc && this.metaService.updateTag({ name: 'og:description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
         this.bannerService.fetch('aboutus', this.page.id).subscribe((bannerData: any) => {
           const banners = bannerData.Banner;
@@ -74,6 +75,9 @@ export class AboutComponent implements OnInit, OnDestroy {
             banner.url = banner.Link;
             return banner;
           });
+          if (this.banners && this.banners.length) {
+            this.metaService.updateTag({ name: 'og:image', content: this.banners[0].large });
+          }
         });
       },
       null,

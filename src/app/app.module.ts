@@ -20,7 +20,6 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angularx-social-login';
-import { RecaptchaModule } from 'ng-recaptcha';
 import { DecodeHtmlEntitiesModule } from 'decode-html-entities';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
@@ -172,6 +171,7 @@ import { LoaderService } from './services/loader-service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SlickCarouselModule } from './shared/slick-carousel/slick-carousel.module';
 import {LikeService} from './services/like.service';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -307,8 +307,6 @@ export function provideConfig() {
     InsuranceMembershipComponent,
     InsuranceDetailComponent,
     NotFoundComponent,
-
-
     SafeHtmlPipe
   ],
   imports: [

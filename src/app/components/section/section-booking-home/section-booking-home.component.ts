@@ -14,7 +14,7 @@ import jquery from 'jquery';
 import moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription, forkJoin, Subject } from 'rxjs';
 import { BookingService } from '../../../services/booking.service';
 import { Schedule } from '../../../models/schedule';
 import { Doctor } from '../../../models/doctor';
@@ -26,6 +26,7 @@ import { BookingDoctorComponent } from '../../booking-doctor/booking-doctor.comp
 import { BookingSpecialtyComponent } from '../../booking-specialty/booking-specialty.component';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { stringPadStart, ngbDateStructToString } from 'src/app/utilities';
+import { debounceTime } from 'rxjs/operators';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
@@ -39,6 +40,13 @@ export class SectionBookingHomeComponent
   @ViewChild('frmBooking', { static: false }) frmBooking: ElementRef;
   private isBrowser: boolean;
   private subscription: Subscription;
+
+  private resizeSubject = new Subject();
+  private resizeSubscription = this.resizeSubject
+    .pipe(debounceTime(200))
+    .subscribe(() => {
+      this.dectectH();
+    });
 
   constructor(
     @Inject(PLATFORM_ID) platformId,
@@ -56,6 +64,7 @@ export class SectionBookingHomeComponent
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.resizeSubscription.unsubscribe();
   }
 
   ngAfterViewInit(): void {
@@ -65,6 +74,10 @@ export class SectionBookingHomeComponent
   }
 
   @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.resizeSubject.next();
+  }
+
   dectectH() {
     if (this.isBrowser) {
       this.zone.runOutsideAngular(() => {

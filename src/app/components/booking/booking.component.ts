@@ -1,29 +1,53 @@
-import { Component, OnInit, Inject, PLATFORM_ID, HostListener, NgZone, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Inject,
+  PLATFORM_ID,
+  HostListener,
+  NgZone,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import jquery from 'jquery';
+import { Subject } from 'rxjs';
+import { debounceTime, throttleTime } from 'rxjs/operators';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss']
+  styleUrls: ['./booking.component.scss'],
 })
-export class BookingComponent implements AfterViewInit, OnInit {
+export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
   private isBrowser = false;
+  private scrollSubject = new Subject();
+  private scrollSubscription = this.scrollSubject
+    .pipe(throttleTime(150))
+    .subscribe(() => {
+      this.scrollHeader();
+    });
 
-  constructor(
-    @Inject(PLATFORM_ID) platformId,
-    private zone: NgZone
-  ) {
+  constructor(@Inject(PLATFORM_ID) platformId, private zone: NgZone, private animateScrollService: NgAnimateScrollService) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngAfterViewInit() {
-    this.isBrowser && setTimeout(() => {
-      this.scrollHeader();
-    }, 300);
+    this.isBrowser &&
+      setTimeout(() => {
+        this.scrollHeader();
+      }, 100);
+  }
+
+  ngOnDestroy() {
+    this.scrollSubscription.unsubscribe();
   }
 
   @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    this.scrollSubject.next();
+  }
+
   scrollHeader() {
     if (this.isBrowser) {
       this.zone.runOutsideAngular(() => {
@@ -34,16 +58,33 @@ export class BookingComponent implements AfterViewInit, OnInit {
             scrollTop >= jquery('.doctor-home').offset().top
               ? jquery('header').addClass('fixHd')
               : jquery('header').removeClass('fixHd');
+
+            scrollTop >= jquery('.doctor-home').offset().top
+              ? jquery('.btn-booking-mb').css('display', 'block')
+              : jquery('.btn-booking-mb').css('display', 'none');
           }
         } else {
-          1 <= scrollTop
+          10 <= scrollTop
             ? jquery('header').addClass('fixHd')
             : jquery('header').removeClass('fixHd');
+          10 <= scrollTop
+            ? jquery('.btn-booking-mb').css('display', 'block')
+            : jquery('.btn-booking-mb').css('display', 'none');
         }
       });
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  scrollUp() {
+    if (this.isBrowser) {
+      setTimeout(() => {
+        this.animateScrollService.scrollToElement('headerPage', 200);
+        this.zone.runOutsideAngular(() => {
+          jquery('.btn-booking-mb').css('display', 'none');
+        });
+      }, 100);
+    }
   }
 }
