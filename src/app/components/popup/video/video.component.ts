@@ -15,30 +15,18 @@ import { timer, Subject } from 'rxjs';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss'],
 })
-export class VideoComponent implements OnDestroy {
+export class VideoComponent {
   @Input() iframeSrc: string;
   @Output() closePopup = new EventEmitter<any>();
 
   isShowPopup = false;
-  private changeSubject = new Subject();
-  private changeSubscription = this.changeSubject
-    .pipe(debounceTime(1000))
-    .subscribe((val: boolean) => {
-      this.isShowPopup = val;
-      this.closePopup.emit(val);
-    });
-
-  constructor(public sanitizer: DomSanitizer) {}
-
-  ngOnDestroy() {
-    this.changeSubscription.unsubscribe();
-  }
+  constructor() {}
 
   open() {
-    this.changeSubject.next(true);
+    this.isShowPopup = true;
   }
 
   close() {
-    this.changeSubject.next(false);
+    this.isShowPopup = false;
   }
 }
