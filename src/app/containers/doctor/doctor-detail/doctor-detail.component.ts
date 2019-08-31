@@ -70,7 +70,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
       }
       doctor.longDesc = UrlService.fixPictureUrl(doctor.longDesc);
       this.doctor = doctor;
-      this.postService.fetchNextPrevDoctor(doctor.id).subscribe(data2 => {
+      this.postService.fetchNextPrevDoctor(doctor.id, doctor.categoryId).subscribe(data2 => {
         if (data2['PostNext']) {
           const postNext = new Doctor(data2['PostNext']);
           postNext.url = UrlService.createDoctorDetailUrl(postNext.alias);

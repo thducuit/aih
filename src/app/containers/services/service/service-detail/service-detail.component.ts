@@ -22,6 +22,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../../environments/environment';
 import { LoaderService } from '../../../../services/loader-service';
 import { GlobalEventService } from '../../../../services/global-event.service';
+import { BlogService } from '../../../../services/blog.service';
 
 @Component({
   selector: 'app-service-detail',
@@ -46,6 +47,7 @@ export class ServiceDetailComponent
               private route: ActivatedRoute,
               public categoryService: CategoryService,
               public postService: PostService,
+              public blogService: BlogService,
               private translate: TranslateService,
               private metaService: Meta,
               private router: Router,
