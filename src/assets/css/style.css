@@ -344,7 +344,7 @@ section.modalWindow section.modalWrapper {
     }
 
     .btn-form-send {
-        line-height: 35px;
+        line-height: 44px;
         border-radius: 4px;
         font-size: 14px;
     }
@@ -365,8 +365,8 @@ section.modalWindow section.modalWrapper {
     }
 
     section.modalWindow {
-        top: 7%;
-        height: auto;
+        top: 5%;
+        height: 350px;
     }
 
     .form-popup1 .box-popup-regis-textbox .form-control {
