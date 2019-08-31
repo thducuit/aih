@@ -67,7 +67,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
           10 <= scrollTop
             ? jquery('header').addClass('fixHd')
             : jquery('header').removeClass('fixHd');
-          10 <= scrollTop
+          300 <= scrollTop
             ? jquery('.btn-booking-mb').css('display', 'block')
             : jquery('.btn-booking-mb').css('display', 'none');
         }

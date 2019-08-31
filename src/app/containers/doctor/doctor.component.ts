@@ -12,6 +12,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Clinic } from '../../models/clinic';
 import { ClinicService } from '../../services/clinic.service';
 import {LoaderService} from '../../services/loader-service';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-doctor',
@@ -41,6 +42,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private loaderService: LoaderService,
     private metaService: Meta,
+    private animateScrollService: NgAnimateScrollService,
     private titleService: Title) {
   }
 
@@ -122,7 +124,10 @@ export class DoctorComponent implements OnInit, OnDestroy {
         }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
         this.filterDoctors = [...this.doctors];
         this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
-        this.loaderService.hide();
+        setTimeout(() => {
+          this.animateScrollService.scrollToElement('headerPage', 50);
+          this.loaderService.hide();
+        }, 100);
       });
   }
 

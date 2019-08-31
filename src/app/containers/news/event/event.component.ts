@@ -8,6 +8,7 @@ import { Subscription, forkJoin } from 'rxjs';
 import { Title, Meta } from '@angular/platform-browser';
 import { LoaderService } from '../../../services/loader-service';
 import { VideoComponent } from 'src/app/components/popup/video/video.component';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-event',
@@ -35,6 +36,7 @@ export class EventComponent implements OnInit, OnDestroy {
     private loaderService: LoaderService,
     private titleService: Title,
     private metaService: Meta,
+    private animateScrollService: NgAnimateScrollService
   ) {}
 
   ngOnInit() {
@@ -101,7 +103,10 @@ export class EventComponent implements OnInit, OnDestroy {
         this.pagination();
         this.calcPages();
 
-        this.loaderService.hide();
+        setTimeout(() => {
+          this.animateScrollService.scrollToElement('headerPage', 50);
+          this.loaderService.hide();
+        }, 100);
       });
   }
 
