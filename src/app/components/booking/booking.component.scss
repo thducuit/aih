@@ -5,9 +5,9 @@
   background-size: cover
 }
 
-//.bookingwrap-hd {
-//  padding-top: 10px
-//}
+.bookingwrap-hd {
+  padding-top: 10px
+}
 
 .btn-booking-mb {
   text-decoration: unset;
@@ -20,6 +20,12 @@
 
 .bookingwrap-hd .booking-hd .booking-wrap .ip .drop {
   width: auto;
+}
+
+@media (max-width: 1024px) {
+  .bookingwrap-hd {
+    padding-top: 0
+  }
 }
 
 @media screen and (min-width:1281px) and (max-width:1659px) {
