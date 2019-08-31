@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Video } from '../../../models/video';
 import { UrlService } from '../../../services/url.service';
 import { VideoService } from '../../../services/video.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Title, Meta } from '@angular/platform-browser';
+import { VideoComponent as VideoPopupComponent } from './../../../components/popup/video/video.component';
 
 @Component({
   selector: 'app-video',
@@ -17,7 +18,7 @@ export class VideoComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   public iframeSrc: string;
-  public showVideoPopup = false;
+  @ViewChild('videoPopup', { static: false }) videoPopup: VideoPopupComponent;
 
   constructor(
     public videoService: VideoService,
@@ -77,10 +78,6 @@ export class VideoComponent implements OnInit, OnDestroy {
 
   openIframeVideo(video) {
     this.iframeSrc = video.iframeUrl;
-    this.showVideoPopup = true;
-  }
-
-  handleClosePopup() {
-    this.showVideoPopup = false;
+    this.videoPopup && this.videoPopup.open();
   }
 }

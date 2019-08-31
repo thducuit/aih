@@ -37,7 +37,7 @@
             <p class="alert-dt  {{ isShowWarning ? 'show' : '' }}">{{'please_continue_your_booking_on_above_booking_funtion' | translate}}</p>
           </div>
         </div>
-        <div class="copy" [innerHTML]="doctor.longDesc | safeHtml">
+        <div class="copy" [innerHTML]="doctor.longDesc | decodeHtmlEntities | safeHtml">
         </div>
       </div>
 

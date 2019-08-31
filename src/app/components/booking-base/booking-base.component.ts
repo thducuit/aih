@@ -17,9 +17,8 @@ import {forkJoin} from 'rxjs';
 import {BookingPhoneNumberComponent} from '../booking-phone-number/booking-phone-number.component';
 import {GlobalEventService} from 'src/app/services/global-event.service';
 import {BookingTimeComponent} from '../booking-time/booking-time.component';
-import {SwalComponent} from '@sweetalert2/ngx-sweetalert2';
-import {RecaptchaComponent} from 'ng-recaptcha';
 import { environment } from 'src/environments/environment';
+import { RecaptchaComponent } from 'ng-recaptcha';
 
 const DaysOfWeek = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 

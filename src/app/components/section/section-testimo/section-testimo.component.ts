@@ -1,14 +1,15 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Feedback} from '../../../models/feedback';
-import {FeedbackService} from '../../../services/feedback.service';
-import {UrlService} from '../../../services/url.service';
-import {TranslateService} from '@ngx-translate/core';
-import {Subscription} from 'rxjs';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Feedback } from '../../../models/feedback';
+import { FeedbackService } from '../../../services/feedback.service';
+import { UrlService } from '../../../services/url.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { VideoComponent } from '../../popup/video/video.component';
 
 @Component({
   selector: 'app-section-testimo',
   templateUrl: './section-testimo.component.html',
-  styleUrls: ['./section-testimo.component.scss']
+  styleUrls: ['./section-testimo.component.scss'],
 })
 export class SectionTestimoComponent implements OnInit, OnDestroy {
   public feedback: Feedback;
@@ -16,19 +17,18 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
   public iframeSrc: string;
   private subscription: Subscription;
 
+  @ViewChild('videoPopup', { static: false }) videoPopup: VideoComponent;
+
   constructor(
     public feedbackService: FeedbackService,
-    private translate: TranslateService
-  ) {
-  }
+    private translate: TranslateService,
+  ) {}
 
   ngOnInit() {
     this.loadFeedback();
-    this.subscription = this.translate
-      .onLangChange
-      .subscribe(() => {
-        this.loadFeedback();
-      });
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+      this.loadFeedback();
+    });
   }
 
   ngOnDestroy() {
@@ -46,11 +46,10 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
   }
 
   handleOpenPopup() {
-    this.showVideoPopup = true;
+    this.videoPopup.open();
   }
 
-  handleClosePopup() {
-    this.showVideoPopup = false;
+  getLongDesc(feedback: Feedback) {
+    return (feedback ? `${feedback.longdesc}` : '').substr(121) + '....';
   }
-
 }

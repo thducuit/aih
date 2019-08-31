@@ -1,29 +1,52 @@
-import { Component, OnInit, Inject, PLATFORM_ID, HostListener, NgZone, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Inject,
+  PLATFORM_ID,
+  HostListener,
+  NgZone,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import jquery from 'jquery';
+import { Subject } from 'rxjs';
+import { debounceTime, throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss']
+  styleUrls: ['./booking.component.scss'],
 })
-export class BookingComponent implements AfterViewInit, OnInit {
+export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
   private isBrowser = false;
+  private scrollSubject = new Subject();
+  private scrollSubscription = this.scrollSubject
+    .pipe(throttleTime(150))
+    .subscribe(() => {
+      this.scrollHeader();
+    });
 
-  constructor(
-    @Inject(PLATFORM_ID) platformId,
-    private zone: NgZone
-  ) {
+  constructor(@Inject(PLATFORM_ID) platformId, private zone: NgZone) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngAfterViewInit() {
-    this.isBrowser && setTimeout(() => {
-      this.scrollHeader();
-    }, 300);
+    this.isBrowser &&
+      setTimeout(() => {
+        this.scrollHeader();
+      }, 300);
+  }
+
+  ngOnDestroy() {
+    this.scrollSubscription.unsubscribe();
   }
 
   @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    this.scrollSubject.next();
+  }
+
   scrollHeader() {
     if (this.isBrowser) {
       this.zone.runOutsideAngular(() => {
@@ -44,6 +67,5 @@ export class BookingComponent implements AfterViewInit, OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

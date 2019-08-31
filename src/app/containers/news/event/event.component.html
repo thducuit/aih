@@ -2,7 +2,8 @@
   <div class="breadcrumb">
     <div class="container">
       <a routerLink="/">{{ 'home' | translate }}</a> /
-      <p>{{ 'blog' | translate }}</p></div>
+      <p>{{ 'blog' | translate }}</p>
+    </div>
   </div>
   <section class="news-wrap">
     <div class="container clearfix">
@@ -173,6 +174,5 @@
     </div>
   </section>
 
-  <app-video-popup *ngIf="iframeSrc" [iframeSrc]=iframeSrc [isShowPopup]=showVideoPopup
-    (closePopup)="handleClosePopup()"></app-video-popup>
+  <app-video-popup #videoPopup *ngIf="iframeSrc" [iframeSrc]="iframeSrc"></app-video-popup>
 </main>
