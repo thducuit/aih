@@ -130,8 +130,16 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 content: this.career.metaDesc,
             });
             this.metaService.updateTag({
+              name: 'og:description',
+              content: this.career.metaDesc,
+            });
+            this.metaService.updateTag({
                 name: 'keywords',
                 content: this.career.metaKey,
+            });
+            this.metaService.updateTag({
+              property: 'og:image',
+              content: this.career.picturePath,
             });
             setTimeout(() => {
                 this.animateScrollService.scrollToElement('pCareers', 50);

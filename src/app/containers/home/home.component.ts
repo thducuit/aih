@@ -69,6 +69,10 @@ export class HomeComponent implements OnInit, OnDestroy {
           content: this.page.metaDesc,
         });
         this.metaService.updateTag({
+          name: 'og:description',
+          content: this.page.metaDesc,
+        });
+        this.metaService.updateTag({
           name: 'keywords',
           content: this.page.metaKey,
         });
@@ -83,6 +87,9 @@ export class HomeComponent implements OnInit, OnDestroy {
               banner.url = banner.Link;
               return banner;
             });
+            if (this.banners && this.banners.length) {
+              this.metaService.updateTag({ name: 'og:image', content: this.banners[0].large });
+            }
           });
       },
       null,

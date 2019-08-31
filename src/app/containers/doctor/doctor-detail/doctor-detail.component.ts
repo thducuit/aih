@@ -100,9 +100,19 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
         name: 'description',
         content: this.doctor.metaDesc,
       });
+      this.doctor.metaDesc &&
+      this.metaService.updateTag({
+        name: 'og:description',
+        content: this.doctor.metaDesc,
+      });
       this.metaService.updateTag({
         name: 'keywords',
         content: this.doctor.metaKey,
+      });
+
+      this.metaService.updateTag({
+        property: 'og:image',
+        content: this.doctor.picturePath,
       });
 
       setTimeout(() => {
