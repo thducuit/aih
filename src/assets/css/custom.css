@@ -196,6 +196,15 @@ ngb-datepicker {
   color: #e1115b;
 }
 
+#swal2-content {
+  font-family: utm_avobold;
+  color: #11789b!important;
+}
+
+.btn-showmore:hover {
+  text-decoration: unset;
+}
+
 
 @media(max-width: 991px){
   .insurance-top .heading {

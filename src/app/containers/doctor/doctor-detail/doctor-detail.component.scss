@@ -16,3 +16,21 @@
 .alert-dt.show {
   display: block;
 }
+
+.btn-mobile {
+  display: none;
+}
+
+.btn-desktop {
+  display: block;
+}
+
+@media (max-width: 791px) {
+  .btn-mobile {
+    display: block;
+  }
+
+  .btn-desktop {
+    display: none;
+  }
+}

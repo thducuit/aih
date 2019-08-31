@@ -5,8 +5,17 @@
   background-size: cover
 }
 
-.bookingwrap-hd {
-  padding-top: 10px
+//.bookingwrap-hd {
+//  padding-top: 10px
+//}
+
+.btn-booking-mb {
+  text-decoration: unset;
+  color: #ffffff!important;
+}
+
+.btn-booking-mb:hover {
+  color: #ffffff;
 }
 
 .bookingwrap-hd .booking-hd .booking-wrap .ip .drop {
