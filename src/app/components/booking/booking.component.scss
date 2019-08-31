@@ -9,8 +9,23 @@
   padding-top: 10px
 }
 
+.btn-booking-mb {
+  text-decoration: unset;
+  color: #ffffff!important;
+}
+
+.btn-booking-mb:hover {
+  color: #ffffff;
+}
+
 .bookingwrap-hd .booking-hd .booking-wrap .ip .drop {
   width: auto;
+}
+
+@media (max-width: 1024px) {
+  .bookingwrap-hd {
+    padding-top: 0
+  }
 }
 
 @media screen and (min-width:1281px) and (max-width:1659px) {

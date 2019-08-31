@@ -37,7 +37,7 @@ export class PostService extends BaseService {
     fetchNextPrevNews(postId) {
         const postData = {
             post_id: postId,
-            category: 0,
+            cate_id: 0,
             hot: 0,
             post_type: 'news',
             lang: this.getCurrentLocal()
@@ -45,11 +45,10 @@ export class PostService extends BaseService {
         return this.http.post('post/adjacent', postData);
     }
 
-    fetchNextPrevDoctor(postId) {
+    fetchNextPrevDoctor(postId, categoryId) {
         const postData = {
             post_id: postId,
-            category: 0,
-            hot: 0,
+            cate_id: categoryId,
             post_type: 'doctor',
             lang: this.getCurrentLocal()
         };

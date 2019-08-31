@@ -22,6 +22,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../../environments/environment';
 import { LoaderService } from '../../../../services/loader-service';
 import { GlobalEventService } from '../../../../services/global-event.service';
+import { BlogService } from '../../../../services/blog.service';
 
 @Component({
   selector: 'app-service-detail',
@@ -46,6 +47,7 @@ export class ServiceDetailComponent
               private route: ActivatedRoute,
               public categoryService: CategoryService,
               public postService: PostService,
+              public blogService: BlogService,
               private translate: TranslateService,
               private metaService: Meta,
               private router: Router,
@@ -97,7 +99,7 @@ export class ServiceDetailComponent
     ).subscribe(([data, aihStr]) => {
       const clinic = new Clinic(data['Category']);
       if (clinic.picture) {
-        clinic.picturePath = UrlService.createPictureUrl(clinic.picture);
+        clinic.picturePath = UrlService.createPictureUrl(clinic.picture, null, 'category');
       }
 
       clinic.url = `${environment.host}${UrlService.createClinicDetailUrl(
@@ -131,12 +133,10 @@ export class ServiceDetailComponent
         name: 'keywords',
         content: this.clinic.metaKey,
       });
-
       this.metaService.updateTag({
         property: 'og:url',
         content: this.clinic.url,
       });
-
       this.metaService.updateTag({
         property: 'og:image',
         content: this.clinic.picturePath,

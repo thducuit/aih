@@ -40,4 +40,14 @@ export class BlogService extends BaseService {
         return this.http.post('post/list', postData);
     }
 
+    getByClinic(id) {
+      const postData = {
+        publish: 1,
+        rowperpage: 999,
+        pageselected: 1,
+        cate_id: [id],
+        lang: this.getCurrentLocal()
+      };
+      return this.http.post('post/clinic-news', postData);
+    }
 }

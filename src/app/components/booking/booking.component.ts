@@ -12,6 +12,7 @@ import { isPlatformBrowser } from '@angular/common';
 import jquery from 'jquery';
 import { Subject } from 'rxjs';
 import { debounceTime, throttleTime } from 'rxjs/operators';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Component({
   selector: 'app-booking',
@@ -27,7 +28,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
       this.scrollHeader();
     });
 
-  constructor(@Inject(PLATFORM_ID) platformId, private zone: NgZone) {
+  constructor(@Inject(PLATFORM_ID) platformId, private zone: NgZone, private animateScrollService: NgAnimateScrollService) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
@@ -35,7 +36,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
     this.isBrowser &&
       setTimeout(() => {
         this.scrollHeader();
-      }, 300);
+      }, 100);
   }
 
   ngOnDestroy() {
@@ -57,15 +58,33 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
             scrollTop >= jquery('.doctor-home').offset().top
               ? jquery('header').addClass('fixHd')
               : jquery('header').removeClass('fixHd');
+
+            scrollTop >= jquery('.doctor-home').offset().top
+              ? jquery('.btn-booking-mb').css('display', 'block')
+              : jquery('.btn-booking-mb').css('display', 'none');
           }
         } else {
-          1 <= scrollTop
+          10 <= scrollTop
             ? jquery('header').addClass('fixHd')
             : jquery('header').removeClass('fixHd');
+          10 <= scrollTop
+            ? jquery('.btn-booking-mb').css('display', 'block')
+            : jquery('.btn-booking-mb').css('display', 'none');
         }
       });
     }
   }
 
   ngOnInit(): void {}
+
+  scrollUp() {
+    if (this.isBrowser) {
+      setTimeout(() => {
+        this.animateScrollService.scrollToElement('headerPage', 200);
+        this.zone.runOutsideAngular(() => {
+          jquery('.btn-booking-mb').css('display', 'none');
+        });
+      }, 100);
+    }
+  }
 }
