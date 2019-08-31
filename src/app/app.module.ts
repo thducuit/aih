@@ -172,6 +172,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SlickCarouselModule } from './shared/slick-carousel/slick-carousel.module';
 import {LikeService} from './services/like.service';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { SafeUrlPipe } from './shared/safe-url-pipe';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -307,7 +308,8 @@ export function provideConfig() {
     InsuranceMembershipComponent,
     InsuranceDetailComponent,
     NotFoundComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),

@@ -1,6 +1,6 @@
 <div class="popup-video active" *ngIf="isShowPopup">
 		<div class="btn-close js-closevideo" (click)="close()"><img src="/assets/images/btn-close-w.png"></div>
 		<div id="video">
-      <iframe width="100%" height="100%" [src]='sanitizer.bypassSecurityTrustResourceUrl(iframeSrc)' frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="100%" [src]='iframeSrc | safeUrl' frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
