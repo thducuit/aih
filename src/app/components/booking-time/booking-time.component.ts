@@ -195,7 +195,7 @@ export class BookingTimeComponent implements OnInit, OnChanges {
     }
 
     handleInputClick() {
-        this.isActive = true;
+        this.isActive = !this.isActive;
     }
 
     handleChoose(date) {

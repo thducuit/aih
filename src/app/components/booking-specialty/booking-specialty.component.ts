@@ -54,7 +54,7 @@ export class BookingSpecialtyComponent implements OnInit, OnDestroy {
     }
 
     handleInputClick() {
-        this.isActive = true;
+        this.isActive = !this.isActive;
     }
 
     onChoose(clinic, isReset = false) {
