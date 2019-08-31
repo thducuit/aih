@@ -130,7 +130,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 content: this.career.metaDesc,
             });
             this.metaService.updateTag({
-              name: 'og:description',
+              property: 'og:description',
               content: this.career.metaDesc,
             });
             this.metaService.updateTag({

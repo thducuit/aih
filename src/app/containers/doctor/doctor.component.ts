@@ -83,7 +83,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
           content: pageTitle,
         });
         this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
-        this.metaService.updateTag({ name: 'og:description', content: this.page.metaDesc });
+        this.metaService.updateTag({ property: 'og:description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
         this.bannerService
           .fetch('doctor_page', this.page.id)
@@ -97,7 +97,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
               banner.desc = banner.desc;
               this.banner = banner;
               if (this.banner && this.banner.length) {
-                this.metaService.updateTag({ name: 'og:image', content: this.banner.large });
+                this.metaService.updateTag({ property: 'og:image', content: this.banner.large });
               }
             }
           });

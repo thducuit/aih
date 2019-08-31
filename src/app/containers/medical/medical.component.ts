@@ -81,7 +81,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
         content: this.page.metaDesc,
       });
       this.metaService.updateTag({
-        name: 'og:description',
+        property: 'og:description',
         content: this.page.metaDesc,
       });
       this.metaService.updateTag({
@@ -101,7 +101,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
             return banner;
           });
           if (this.banners && this.banners.length) {
-            this.metaService.updateTag({ name: 'og:image', content: this.banners[0].large });
+            this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
           }
         });
     },

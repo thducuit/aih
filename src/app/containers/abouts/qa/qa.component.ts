@@ -118,7 +118,7 @@ export class QaComponent implements OnInit, OnDestroy {
                 content: pageTitle,
             });
             this.page.metaDesc && this.metaService.updateTag({name: 'description', content: this.page.metaDesc});
-            this.page.metaDesc && this.metaService.updateTag({name: 'og:description', content: this.page.metaDesc});
+            this.page.metaDesc && this.metaService.updateTag({property: 'og:description', content: this.page.metaDesc});
             this.metaService.updateTag({name: 'keywords', content: this.page.metaKey});
 
             this.bannerService
@@ -134,7 +134,7 @@ export class QaComponent implements OnInit, OnDestroy {
                         return banner;
                     });
                     if (this.banners && this.banners.length) {
-                      this.metaService.updateTag({ name: 'og:image', content: this.banners[0].large });
+                      this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
                     }
                 });
         },
