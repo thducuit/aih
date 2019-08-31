@@ -102,7 +102,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
       });
       this.doctor.metaDesc &&
       this.metaService.updateTag({
-        name: 'og:description',
+        property: 'og:description',
         content: this.doctor.metaDesc,
       });
       this.metaService.updateTag({
