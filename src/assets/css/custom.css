@@ -259,4 +259,10 @@ ngb-datepicker {
   .nav-wrap .lang {
     display: none;
   }
+
+  .copy-cate-detail img {
+    max-width: 100%;
+    height: auto!important;
+  }
 }
+

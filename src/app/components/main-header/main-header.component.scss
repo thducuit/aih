@@ -206,6 +206,7 @@
     margin-top: 0;
     overflow: auto;
     padding-bottom: 20px;
+    z-index: 1;
 
     ::ng-deep {
       nav {
