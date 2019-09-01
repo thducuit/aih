@@ -442,7 +442,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     this.bookingService
       .callDateBooking(doctorId, selectedDate)
       .subscribe((data: any) => {
-        const response = data['Data'] || '';
+        const response = data['Data'] || null;
+        console.log('response', response);
         if (response) {
           const timeData = JSON.parse(response);
           let aihTimeBlocks = [];
@@ -454,6 +455,9 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
           aihTimeBlocks = [...new Set(aihTimeBlocks)];
           aihTimeBlocked = [...new Set(aihTimeBlocked)];
           this.loadTqTime(selectedDate, aihTimeBlocks, aihTimeBlocked);
+        }else {
+          this.loadTqTime(selectedDate);
+          this.isLoadTimeFail = true;
         }
       }, () => {
         this.loadTqTime(selectedDate);

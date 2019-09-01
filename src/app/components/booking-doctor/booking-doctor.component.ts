@@ -113,7 +113,7 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     }
 
     handleInputClick() {
-        this.isActive = true;
+        this.isActive = !this.isActive;
     }
 
     onChoose(doctor) {
