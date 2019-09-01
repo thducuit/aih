@@ -56,7 +56,7 @@ export class BookingService {
             2,
             '0',
         )}/${stringPadStart(String(curDate.month), 2, '0')}/${curDate.year}`;
-        const url = `api/booking/loadTimeBlock?empId=${empId}&clinicId=&curDate=${dateFormatted}`;
+        const url = `api/booking/loadTimeBlock1?empId=${empId}&clinicId=&curDate=${dateFormatted}`;
         const postData = {
             url,
         };
