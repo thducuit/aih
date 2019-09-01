@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { getLanguage, setLanguage } from './utilities';
 import { isPlatformBrowser } from '@angular/common';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',

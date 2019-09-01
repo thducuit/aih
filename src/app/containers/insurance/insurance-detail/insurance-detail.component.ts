@@ -75,7 +75,7 @@ export class InsuranceDetailComponent implements OnInit {
         content: this.page.metaDesc,
       });
       this.metaService.updateTag({
-        name: 'og:description',
+        property: 'og:description',
         content: this.page.metaDesc,
       });
       this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });

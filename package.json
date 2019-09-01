@@ -10,8 +10,9 @@
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run aih-app:server:production"
+    "build:ssr-prod": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build --configuration production && ng run aih-app:server:production",
+    "build:ssr-tq": "ng build --configuration tq && ng run aih-app:server:tq && npm run compile:server"
   },
   "private": true,
   "dependencies": {

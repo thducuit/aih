@@ -126,7 +126,7 @@ export class ServiceDetailComponent
         content: this.clinic.metaDesc,
       });
       this.metaService.updateTag({
-        name: 'og:description',
+        property: 'og:description',
         content: this.clinic.metaDesc,
       });
       this.metaService.updateTag({
