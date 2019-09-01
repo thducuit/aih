@@ -243,8 +243,6 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }
 
-    console.log('ons', ons);
-
     if (this.bookingDate) {
       this.bookingDate.handleDisableDays(offs);
     }
@@ -500,6 +498,9 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
           aihTimeBlocks,
           aihTimeBlocked,
         );
+
+        console.log('this.timeBlock', this.timeBlock, data2['Bookings'], timeBlocked);
+
         // Selected doctor have no any time block => warning
         if (this.timeBlock.length === 0 && this.isLoadTimeFail === false) {
           this.showPopupTheDoctorTimeBlocksIsFull();

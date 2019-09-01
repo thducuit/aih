@@ -7500,7 +7500,8 @@ a.morelink:hover {
 
 .side-news .item .tab-content li .copy p {
   font-size: 14px;
-  font-family: utm_avobold
+  font-family: utm_avobold;
+  text-transform: uppercase;
 }
 
 .side-news .item .tab-content li .copy p span {
@@ -10273,6 +10274,8 @@ a.morelink:hover {
 }
 
 @media screen and (max-width: 1023px) {
+
+
   .banner-home {
     height: 370px
   }

@@ -70,9 +70,9 @@
           <div class="item">
             <h3>{{ 'search' | translate }}</h3>
             <div class="ct-search frmSearch">
-              <input type="text" name="keyword" class="form-control"
+              <input (keyup.enter)="gotoSearch()" type="text" name="keyword" class="form-control"
                      placeholder="{{ 'search' | translate }}..." [(ngModel)]="keyword">
-              <input type="submit" name="" value="" (click)="gotoSearch()">
+              <input (keyup.enter)="gotoSearch()" type="submit" name="" value="" (click)="gotoSearch()">
             </div>
           </div>
 

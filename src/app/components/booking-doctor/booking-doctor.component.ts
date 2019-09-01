@@ -133,5 +133,6 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
 
     reset() {
         this.chosenDoctor = null;
+        this.filteredDoctors = this.doctors
     }
 }

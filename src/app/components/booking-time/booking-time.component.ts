@@ -207,19 +207,25 @@ export class BookingTimeComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.timeBlocks.forEach((blockData) => {
-            blockData.blocks.forEach((block) => {
-                const hasEnableBlock = (this.enableTime || []).find((x) => {
-                    return compareTwoHours(x, block.value) === 0;
-                });
-                block.disabled = !hasEnableBlock;
-            });
-        });
-
         if (this.loadFail && this.enableTime.length === 0) {
+            this.timeBlocks.forEach((blockData, index) => {
+                if( index < 2 ) {
+                    blockData.blocks.forEach((block) => {
+                        block.disabled = false;
+                    });
+                }else {
+                    blockData.blocks.forEach((block) => {
+                        block.disabled = true;
+                    });
+                }
+            });
+        }else {
             this.timeBlocks.forEach((blockData) => {
                 blockData.blocks.forEach((block) => {
-                    block.disabled = false;
+                    const hasEnableBlock = (this.enableTime || []).find((x) => {
+                        return compareTwoHours(x, block.value) === 0;
+                    });
+                    block.disabled = !hasEnableBlock;
                 });
             });
         }
@@ -227,6 +233,11 @@ export class BookingTimeComponent implements OnInit, OnChanges {
 
     reset() {
         this.placeholder = '';
+        this.timeBlocks.forEach((blockData) => {
+            blockData.blocks.forEach((block) => {
+                block.disabled = true;
+            });
+        });
     }
 
 }

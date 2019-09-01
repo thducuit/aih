@@ -327,7 +327,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       }).then(result => {
         if (result.value) {
           this.signInWithFB();
-        } else {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
           this.signInWithGoogle();
         }
       });
