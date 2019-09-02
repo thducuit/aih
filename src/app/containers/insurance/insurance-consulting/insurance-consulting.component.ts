@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, NgZone, PLATFORM_ID } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
 import { Page } from '../../../models/page';
 import { forkJoin, Subscription } from 'rxjs';
@@ -12,6 +12,7 @@ import { UrlService } from '../../../services/url.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InsuranceDetail } from '../../../models/insurance-detail';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-insurance-consulting',
@@ -26,8 +27,10 @@ export class InsuranceConsultingComponent implements OnInit {
   public services: Array<any> = [];
   private subscription: Subscription;
   public category;
+  private isBrowser = false;
 
-  constructor(private route: ActivatedRoute,
+  constructor(@Inject(PLATFORM_ID) platformId,
+              private route: ActivatedRoute,
               public insuranceService: InsuranceService,
               public insuranceMediaService: InsuranceMediaService,
               public pageService: PageService,
@@ -36,7 +39,9 @@ export class InsuranceConsultingComponent implements OnInit {
               private metaService: Meta,
               private titleService: Title,
               private router: Router,
+              private zone: NgZone,
               private animateScrollService: NgAnimateScrollService) {
+              this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
@@ -118,6 +123,12 @@ export class InsuranceConsultingComponent implements OnInit {
   }
 
   openTawk() {
-    window['Tawk_API'].toggle();
+    if(this.isBrowser) {
+      this.zone.runOutsideAngular(() => {
+        window['Tawk_API'].toggle();
+      });
+    }
   }
+
+
 }

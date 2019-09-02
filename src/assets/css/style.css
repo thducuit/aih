@@ -332,7 +332,20 @@ section.modalWindow section.modalWrapper {
 }
 
 @media screen and  (max-width: 767px) {
-    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(1) {
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(1), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(2), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(3), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(4), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(5), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(6), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(7), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(8), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(9), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(10), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(11),     
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(12), 
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(13),
+    .box-popup-regis-form form .box-popup-regis-textbox:nth-child(14) {
         width: 100%;
         padding: 0px;
     }
@@ -365,12 +378,14 @@ section.modalWindow section.modalWrapper {
     }
 
     section.modalWindow {
-        top: 5%;
+        top: 0;
         height: 350px;
+        height: 100%;
+        width:100%;
     }
 
     .form-popup1 .box-popup-regis-textbox .form-control {
-        height: 35px;
+        height: 45px;
         padding: 6px 12px;
         font-size: 12px;
     }

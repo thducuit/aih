@@ -68,6 +68,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public isLoadTimeFail = false;
 
+  private scheduleOfDoctor = [];
+
   @ViewChild('recaptcha', { static: true }) recaptcha: RecaptchaComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId,
@@ -194,7 +196,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     const scheduleAbsenceOfDoctor = (this.schedule || [])
       .filter(x => x.timeSlot === -1)
       .filter(x => x.doctorId === doctorId);
-    const scheduleOfDoctor = (this.schedule || [])
+    const scheduleOfDoctor = this.scheduleOfDoctor = (this.schedule || [])
       .filter(x => x.doctorId === doctorId);
     const startDate = moment();
     const endDate = moment(startDate).add(2, 'M');
@@ -314,7 +316,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
 
   handleBooking() {
     if (!this.selectedPhone) {
-      this.openWarningPhone();
+      this.bookingPhoneNumer.checkPhone();
       return;
     }
     if (!this.selectedDoctor) {
@@ -441,7 +443,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
       .callDateBooking(doctorId, selectedDate)
       .subscribe((data: any) => {
         const response = data['Data'] || null;
-        console.log('response', response);
+        
         if (response) {
           const timeData = JSON.parse(response);
           let aihTimeBlocks = [];
@@ -469,7 +471,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
       .callDateBookingTemp(newDate)
       .subscribe((data2: any) => {
         const response2 = data2['Bookings'] || [];
-        const timeBlocked = response2.map(item => {
+        const timeBlocked = response2.filter(item => parseInt(item['booking_status']) !== 2)
+        .map(item => {
           const time = item['booking_datetime'];
           const currentDate = new Date(time);
           const nextDate = new Date(currentDate);
@@ -491,15 +494,42 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
               : nextDate.getHours();
           return `${currentNewFormatHour}:${currentNewFormatMin}-${nextNewFormatHour}:${nextNewFormatMin}`;
         });
+        
         aihTimeBlocked = [
           ...new Set([...aihTimeBlocked, ...timeBlocked]),
         ];
-        this.timeBlock = DateService.getBlockDate(
-          aihTimeBlocks,
-          aihTimeBlocked,
-        );
 
-        console.log('this.timeBlock', this.timeBlock, data2['Bookings'], timeBlocked);
+        if(this.isLoadTimeFail) { //error from aih server
+          const currentDate = selectedDate
+              ? moment(`${ngbDateStructToString(selectedDate)}T00:00:00`)
+              : null;
+          const aihTimeBlocksSync = this.scheduleOfDoctor
+          .filter(x => {
+            let result = true;
+            if (currentDate) {
+              const dateFrom = moment(x.dateFrom);
+              const dateTo = moment(x.dateTo);
+              result =
+                result &&
+                dateFrom.isSameOrBefore(currentDate, 'day') &&
+                dateTo.isSameOrAfter(currentDate, 'day');
+              result = result && x.slot.indexOf(DaysOfWeek[currentDate.day()]) >= 0;
+            }
+            return result;
+          })
+          .map(item => {
+            return item.hrs || [];
+          });
+          this.timeBlock = DateService.getBlockDate(
+            [].concat.apply([], [...aihTimeBlocksSync]),
+            aihTimeBlocked,
+          );
+        }else {
+          this.timeBlock = DateService.getBlockDate(
+            aihTimeBlocks,
+            aihTimeBlocked,
+          );
+        }
 
         // Selected doctor have no any time block => warning
         if (this.timeBlock.length === 0 && this.isLoadTimeFail === false) {
@@ -596,6 +626,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     this.bookingPhoneNumer.reset();
     this.bookingDate.reset();
     this.bookingDoctor.reset();
+    this.bookingDoctor.resetList();
     this.bookingSpecialty.reset();
     this.bookingTime.reset();
 

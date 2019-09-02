@@ -228,8 +228,15 @@ p.haveAnimate img{
 		    margin-top: -2px;
 	}
 
+	.box-chosen ul {
+		max-height: 175px;
+    	overflow-y: scroll;
+	}
+
 	.box-detail ol {
 		width: 200%;
+		max-height: 175px;
+    	overflow-y: scroll;
 	}
 
 	.box-detail ol li {

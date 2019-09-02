@@ -50,8 +50,8 @@ export class DateService {
 
   static getBlockDate(timeBlocks, timeBlocked) {
     const blocks = [];
-    const currTimeBlock = timeBlocks.length ? timeBlocks : myTimeBlocks;
-    currTimeBlock.forEach(item => {
+    // const currTimeBlock = timeBlocks.length ? timeBlocks : myTimeBlocks;
+    timeBlocks.forEach(item => {
       if (!this.isBlocked(item, timeBlocked)) {
         blocks.push(item);
       }

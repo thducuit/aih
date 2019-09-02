@@ -171,47 +171,70 @@ export class BookingPhoneNumberComponent implements OnInit {
     });
   }
 
+  openWarningPhone() {
+    forkJoin(
+      this.translate.get('text_booking_require_phone'),
+      this.translate.get('text_close'),
+    ).subscribe(([message, buttonText]) => {
+      Swal.fire({
+        text: message,
+        confirmButtonText: buttonText,
+      });
+    });
+  }
+
   onChange() {
     if (!this.phoneNumber || !this.phoneNumber.length) {
       return;
     }
+    this.handlePhone();
+  }
 
-    if (this.phoneNumber && this.phoneNumber.length === 10) {
-      const prefix = this.phoneNumber.substr(0, 3);
-      const prefix2 = this.phoneNumber.substr(0, 2);
-      if (
-        this.prefixMobile.indexOf(prefix) < 0 &&
-        prefix2 !== '24' &&
-        prefix2 !== '28'
-      ) {
-        this.phoneAlert();
-        return;
-      }
-    } else if (this.phoneNumber && this.phoneNumber.length === 11) {
-      const prefix = this.phoneNumber.substr(0, 3);
-      if (this.prefixTel.indexOf(prefix) < 0) {
-        this.phoneAlert();
-        return;
-      }
-    } else {
-      this.phoneAlert();
-      return;
-    }
-
-    this.bookingService.callValidatePhone(this.phoneNumber).subscribe(
-      (data: any) => {
-        const status = data['Data'] || null;
-        if (status === 'false') {
-          this.openDialogRegister();
-        } else {
-          this.chooseCustomer.emit(-1);
-          this.chooseCustomerPhone.emit(this.phoneNumber);
+  handlePhone() {
+      if (this.phoneNumber && this.phoneNumber.length === 10) {
+        const prefix = this.phoneNumber.substr(0, 3);
+        const prefix2 = this.phoneNumber.substr(0, 2);
+        if (
+          this.prefixMobile.indexOf(prefix) < 0 &&
+          prefix2 !== '24' &&
+          prefix2 !== '28'
+        ) {
+          this.phoneAlert();
+          return;
         }
-      },
-      () => {
-        this.openDialogRegister();
-      },
-    );
+      } else if (this.phoneNumber && this.phoneNumber.length === 11) {
+        const prefix = this.phoneNumber.substr(0, 3);
+        if (this.prefixTel.indexOf(prefix) < 0) {
+          this.phoneAlert();
+          return;
+        }
+      } else {
+        this.phoneAlert();
+        return;
+      }
+
+      this.bookingService.callValidatePhone(this.phoneNumber).subscribe(
+        (data: any) => {
+          const status = data['Data'] || null;
+          if (status === 'false') {
+            this.openDialogRegister();
+          } else {
+            this.chooseCustomer.emit(-1);
+            this.chooseCustomerPhone.emit(this.phoneNumber);
+          }
+        },
+        () => {
+          this.openDialogRegister();
+        },
+      );
+  }
+
+  checkPhone() {
+    if (!this.phoneNumber || !this.phoneNumber.length) {
+      this.openWarningPhone();
+    }else {
+      this.handlePhone();
+    }
   }
 
   openDialogRegister() {

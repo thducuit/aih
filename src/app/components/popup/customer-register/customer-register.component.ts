@@ -73,6 +73,7 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     public errorDayBirth = false;
     public errorMonthBirth = false;
     public errorYearBirth = false;
+    public errorResidenceAddress = false;
 
     public lang;
 
@@ -130,6 +131,7 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
         this.errorDayBirth = false;
         this.errorMonthBirth = false;
         this.errorYearBirth = false;
+        this.errorResidenceAddress = false;
     }
 
     ngOnInit() {
@@ -259,6 +261,13 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
             flag = false;
         } else {
             this.errorYearBirth = false;
+        }
+
+        if(!this.form.residenceAddress) {
+            this.errorResidenceAddress = true;
+            flag = false;
+        }else {
+            this.errorResidenceAddress = false;
         }
 
         if (this.form.email) {

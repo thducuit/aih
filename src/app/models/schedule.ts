@@ -5,6 +5,7 @@ export class Schedule {
   public dateTo: string;
   public timeSlot: number;
   public slot: string[];
+  public hrs: string[];
 
 
   constructor(data: any) {
@@ -14,6 +15,7 @@ export class Schedule {
     this.dateTo = data.effective_until_date_time;
     this.timeSlot = data.timeSlot;
     this.slot = this.getSlot(data.arr_time_slot);
+    this.hrs = this.getHrs(data.arr_time_slot);
   }
 
   private getSlot(slotString) {
@@ -29,5 +31,20 @@ export class Schedule {
     }
     return arr;
   }
+
+  private getHrs(slotString) {
+    const arr = JSON.parse(`[${slotString}]`);
+    if (arr) {
+      let dateArr = [];
+      arr.map(item => {
+        if (item && item['hrs']) {
+          dateArr = dateArr.concat(item['hrs'].split(','));
+        }
+      });
+      return dateArr;
+    }
+    return arr;
+  }
+
 }
 

@@ -59,7 +59,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
               ? jquery('header').addClass('fixHd')
               : jquery('header').removeClass('fixHd');
 
-            scrollTop >= jquery('.doctor-home').offset().top
+            300 <= scrollTop
               ? jquery('.btn-booking-mb').css('display', 'block')
               : jquery('.btn-booking-mb').css('display', 'none');
           }
@@ -67,6 +67,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
           10 <= scrollTop
             ? jquery('header').addClass('fixHd')
             : jquery('header').removeClass('fixHd');
+
           300 <= scrollTop
             ? jquery('.btn-booking-mb').css('display', 'block')
             : jquery('.btn-booking-mb').css('display', 'none');
@@ -80,10 +81,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
   scrollUp() {
     if (this.isBrowser) {
       setTimeout(() => {
-        this.animateScrollService.scrollToElement('headerPage', 200);
-        this.zone.runOutsideAngular(() => {
-          jquery('.btn-booking-mb').css('display', 'none');
-        });
+        this.animateScrollService.scrollToElement('headerPage', 250);
       }, 100);
     }
   }

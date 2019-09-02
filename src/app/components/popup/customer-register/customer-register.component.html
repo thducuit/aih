@@ -206,7 +206,8 @@
           </div>
 
           <div class="form-group clearfix">
-            <input type="" class="form-control" value="{{ form.residenceAddress }}" name="residenceAddress" placeholder="{{ 'register_residenceAddress' | translate }}">
+            <input type="" (blur)="validate()" [(ngModel)]="form.residenceAddress"  class="form-control {{ errorResidenceAddress ? 'error' : '' }}" value="{{ form.residenceAddress }}" name="residenceAddress" placeholder="{{ 'register_residenceAddress' | translate }}">
+            <p class="check-must">*</p>
           </div>
 
           <div class="form-group clearfix">
