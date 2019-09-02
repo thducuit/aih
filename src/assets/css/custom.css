@@ -266,3 +266,13 @@ ngb-datepicker {
   }
 }
 
+
+@media (max-width: 480px) {
+  .schedule-full-warning .swal2-actions {
+    display: block
+  }
+
+  .schedule-full-warning button {
+    width: 100%
+  }
+}

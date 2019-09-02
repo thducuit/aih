@@ -2493,12 +2493,12 @@ a.order-calender {
 
     .alert-header {
         font-size: 12px;
-        margin: 20px;
+        margin: 15px;
     }
 
     .alert-content {
         padding: 10px;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .account-left .box-avatar .avatar-img {

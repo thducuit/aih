@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { BookingTimeComponent } from '../booking-time/booking-time.component';
+import jquery from 'jquery';
 
 @Component({
   selector: 'app-booking-phone-number',
@@ -149,6 +150,7 @@ export class BookingPhoneNumberComponent implements OnInit {
       }).then(result => {
         if (result.value) {
           this.showRegister = true;
+          jquery('body').css('position', 'fixed');
         }
       });
     });
@@ -252,6 +254,7 @@ export class BookingPhoneNumberComponent implements OnInit {
   }
 
   handleCloseRegister() {
+    jquery('body').css('position', 'relative');
     this.showRegister = false;
   }
 
