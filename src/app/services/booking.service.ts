@@ -41,7 +41,6 @@ export class BookingService {
 
     callDateBookingTemp(date) {
         const postData = {
-            booking_status: 0,
             from_date: `${date} 00:00:00`,
             to_date: `${date} 23:59:59`,
             rowperpage: 999,

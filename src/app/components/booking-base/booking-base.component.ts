@@ -196,8 +196,14 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     const scheduleAbsenceOfDoctor = (this.schedule || [])
       .filter(x => x.timeSlot === -1)
       .filter(x => x.doctorId === doctorId);
-    const scheduleOfDoctor = this.scheduleOfDoctor = (this.schedule || [])
+
+    this.scheduleOfDoctor = (this.schedule || [])
+      .filter(x => x.timeSlot !== -1)
       .filter(x => x.doctorId === doctorId);
+        
+    const scheduleOfDoctor = (this.schedule || [])
+      .filter(x => x.doctorId === doctorId);
+      
     const startDate = moment();
     const endDate = moment(startDate).add(2, 'M');
 
@@ -454,24 +460,26 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
           });
           aihTimeBlocks = [...new Set(aihTimeBlocks)];
           aihTimeBlocked = [...new Set(aihTimeBlocked)];
-          this.loadTqTime(selectedDate, aihTimeBlocks, aihTimeBlocked);
+          this.loadTqTime(doctorId, selectedDate, aihTimeBlocks, aihTimeBlocked);
         }else {
-          this.loadTqTime(selectedDate);
+          this.loadTqTime(doctorId, selectedDate);
           this.isLoadTimeFail = true;
         }
       }, () => {
-        this.loadTqTime(selectedDate);
+        this.loadTqTime(doctorId, selectedDate);
         this.isLoadTimeFail = true;
       });
   }
 
-  loadTqTime(selectedDate, aihTimeBlocks = [], aihTimeBlocked = []) {
+  loadTqTime(doctorId, selectedDate, aihTimeBlocks = [], aihTimeBlocked = []) {
     const newDate = ngbDateStructToString(selectedDate);
     this.bookingService
       .callDateBookingTemp(newDate)
       .subscribe((data2: any) => {
         const response2 = data2['Bookings'] || [];
-        const timeBlocked = response2.filter(item => parseInt(item['booking_status']) !== 2)
+        const timeBlocked = response2
+        .filter(item => parseInt(item['booking_status']) !== 2)
+        .filter( item => item['booking_emp_id'] ===  doctorId )
         .map(item => {
           const time = item['booking_datetime'];
           const currentDate = new Date(time);
@@ -498,6 +506,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         aihTimeBlocked = [
           ...new Set([...aihTimeBlocked, ...timeBlocked]),
         ];
+
+        console.log('aihTimeBlocked', aihTimeBlocked, data2['Bookings']);
 
         if(this.isLoadTimeFail) { //error from aih server
           const currentDate = selectedDate
