@@ -460,6 +460,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
           });
           aihTimeBlocks = [...new Set(aihTimeBlocks)];
           aihTimeBlocked = [...new Set(aihTimeBlocked)];
+          aihTimeBlocks = aihTimeBlocks.filter(item => item !== '');
           this.loadTqTime(doctorId, selectedDate, aihTimeBlocks, aihTimeBlocked);
         }else {
           this.loadTqTime(doctorId, selectedDate);
@@ -502,12 +503,14 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
               : nextDate.getHours();
           return `${currentNewFormatHour}:${currentNewFormatMin}-${nextNewFormatHour}:${nextNewFormatMin}`;
         });
+
+        // console.log('timeBlocked', timeBlocked, aihTimeBlocked, aihTimeBlocks);
         
         aihTimeBlocked = [
           ...new Set([...aihTimeBlocked, ...timeBlocked]),
         ];
 
-        console.log('aihTimeBlocked', aihTimeBlocked, data2['Bookings']);
+        
 
         if(this.isLoadTimeFail) { //error from aih server
           const currentDate = selectedDate
@@ -540,6 +543,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             aihTimeBlocked,
           );
         }
+
+        // console.log('aihTimeBlocked', aihTimeBlocked, data2['Bookings'], this.timeBlock);
 
         // Selected doctor have no any time block => warning
         if (this.timeBlock.length === 0 && this.isLoadTimeFail === false) {

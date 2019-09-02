@@ -63,7 +63,7 @@ export class DateService {
     let check = false;
     for (let i = 0; i < timeBlocked.length; i++) {
       const timeRanger = timeBlocked[i].split('-');
-      if (timeRanger[0] <= time && timeRanger[1] > time) {
+      if (timeRanger[0].trim() <= time && timeRanger[1].trim() > time) {
         check = true;
         break;
       }
