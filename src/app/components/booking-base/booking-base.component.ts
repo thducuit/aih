@@ -478,30 +478,38 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
       .callDateBookingTemp(newDate)
       .subscribe((data2: any) => {
         const response2 = data2['Bookings'] || [];
-        const timeBlocked = response2
-        .filter(item => parseInt(item['booking_status']) !== 2)
+        const timeBlocked = response2.filter( item => item['booking_status'] !== 2 )
         .filter( item => item['booking_emp_id'] ===  doctorId )
         .map(item => {
           const time = item['booking_datetime'];
-          const currentDate = new Date(time);
-          const nextDate = new Date(currentDate);
-          nextDate.setMinutes(currentDate.getMinutes() + 20);
-          const currentNewFormatMin =
-            currentDate.getMinutes() === 0
-              ? `00`
-              : currentDate.getMinutes();
-          const nextNewFormatMin =
-            nextDate.getMinutes() === 0 ? `00` : nextDate.getMinutes();
+          const startime = item['booking_starttime'];
+          const endtime = item['booking_endtime'];
 
-          const currentNewFormatHour =
-            currentDate.getHours() < 10
-              ? `0${currentDate.getHours()}`
-              : currentDate.getHours();
-          const nextNewFormatHour =
-            nextDate.getHours() < 10
-              ? `0${nextDate.getHours()}`
-              : nextDate.getHours();
-          return `${currentNewFormatHour}:${currentNewFormatMin}-${nextNewFormatHour}:${nextNewFormatMin}`;
+          return `${startime}-${endtime}`;
+          
+          // const currentDate = new Date(time);
+          // const nextDate = new Date(currentDate);
+          // nextDate.setMinutes(currentDate.getMinutes() + 20);
+
+          // const currentNewFormatMin =
+          //   currentDate.getMinutes() === 0
+          //     ? `00`
+          //     : currentDate.getMinutes();
+
+          // const nextNewFormatMin =
+          //   nextDate.getMinutes() === 0 ? `00` : nextDate.getMinutes();
+
+          // const currentNewFormatHour =
+          //   currentDate.getHours() < 10
+          //     ? `0${currentDate.getHours()}`
+          //     : currentDate.getHours();
+
+          // const nextNewFormatHour =
+          //   nextDate.getHours() < 10
+          //     ? `0${nextDate.getHours()}`
+          //     : nextDate.getHours();
+
+          // return `${currentNewFormatHour}:${currentNewFormatMin}-${nextNewFormatHour}:${nextNewFormatMin}`;
         });
 
         // console.log('timeBlocked', timeBlocked, aihTimeBlocked, aihTimeBlocks);
@@ -509,8 +517,6 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         aihTimeBlocked = [
           ...new Set([...aihTimeBlocked, ...timeBlocked]),
         ];
-
-        
 
         if(this.isLoadTimeFail) { //error from aih server
           const currentDate = selectedDate

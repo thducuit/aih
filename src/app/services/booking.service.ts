@@ -41,12 +41,13 @@ export class BookingService {
 
     callDateBookingTemp(date) {
         const postData = {
+            booking_status: [0, 1],
             from_date: `${date} 00:00:00`,
             to_date: `${date} 23:59:59`,
             rowperpage: 999,
             pageselected: 1,
         };
-        return this.http.post('booking/list', postData);
+        return this.http.post('booking/time-block', postData);
     }
 
     callDateBooking(empId, curDate: NgbDateStruct) {
