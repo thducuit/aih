@@ -255,6 +255,11 @@ ngb-datepicker {
   cursor: pointer;
 }
 
+.copy-cate-detail img {
+	max-width: 100%;
+	height: auto!important;
+}
+
 @media screen and (max-width: 769px) {
   .nav-wrap .lang {
     display: none;
