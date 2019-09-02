@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InsuranceDetail } from '../../../models/insurance-detail';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { isPlatformBrowser } from '@angular/common';
+import jquery from 'jquery';
 
 @Component({
   selector: 'app-insurance-consulting',
@@ -125,7 +126,7 @@ export class InsuranceConsultingComponent implements OnInit {
   openTawk() {
     if(this.isBrowser) {
       this.zone.runOutsideAngular(() => {
-        window['Tawk_API'].toggle();
+        jquery('iframe').trigger('click');
       });
     }
   }
