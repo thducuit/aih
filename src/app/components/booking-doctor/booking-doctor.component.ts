@@ -62,7 +62,7 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     }
 
     loadDoctors() {
-        this.doctorService.fetch().subscribe((data: any) => {
+        this.doctorService.fetchBookingDoctor().subscribe((data: any) => {
             const posts = data.Posts || [];
             this.filteredDoctors = this.doctors = posts.map(post => {
                 const doctor = new Doctor(post);

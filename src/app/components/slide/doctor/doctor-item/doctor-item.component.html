@@ -29,7 +29,7 @@
             <p>{{ doctor.categoryName }}</p>
           </div>
           <div class="copy">
-            <p class="copy-p" [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></p>
+            <p class="copy-p"><span *ngIf="doctor.shortDesc" [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></span></p>
             <a routerLink="{{ doctor.url }}">
               <span>{{ 'learn_more' | translate }}</span>
             </a>

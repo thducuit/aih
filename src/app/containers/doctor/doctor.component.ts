@@ -121,7 +121,9 @@ export class DoctorComponent implements OnInit, OnDestroy {
           }
           doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
           return doctor;
-        }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+        })
+        .filter( item => item.picture ? true : false )
+        .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
         this.filterDoctors = [...this.doctors];
         this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
         setTimeout(() => {

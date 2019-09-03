@@ -97,8 +97,8 @@ export class EventComponent implements OnInit, OnDestroy {
               blog.iframeUrl = UrlService.createIframeUrl(code);
             }
             return blog;
-          })
-          .sort((obj1, obj2) => (obj1.isHot < obj2.isHot ? 1 : -1));
+          });
+          
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();

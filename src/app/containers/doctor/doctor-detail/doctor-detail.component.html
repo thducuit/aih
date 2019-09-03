@@ -38,7 +38,8 @@
             <p class="alert-dt  {{ isShowWarning ? 'show' : '' }}">{{'please_continue_your_booking_on_above_booking_funtion' | translate}}</p>
           </div>
         </div>
-        <div class="copy" [innerHTML]="doctor.longDesc | decodeHtmlEntities | safeHtml">
+        <div class="copy">
+          <span *ngIf="doctor.longDesc" [innerHTML]="doctor.longDesc | decodeHtmlEntities | safeHtml"></span>
         </div>
       </div>
 
