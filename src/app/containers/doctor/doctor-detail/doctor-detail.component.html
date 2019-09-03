@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="copy">
-          <span *ngIf="doctor.longDesc" [innerHTML]="doctor.longDesc | decodeHtmlEntities | safeHtml"></span>
+          <span *ngIf="doctor.longDesc" [innerHTML]="doctor.longDesc | safeHtml"></span>
         </div>
       </div>
 
