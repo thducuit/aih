@@ -16,8 +16,8 @@
           <!--<span class="cm">0</span>-->
         </div>
         <div class="copy">
-          <h2 class="blog-title">{{ blog.name }}</h2>
-          <p [innerHTML]="blog.shortDesc | decodeHtmlEntities | safeHtml"></p>
+          <h2 *ngIf="blog.name" class="blog-title">{{ blog.name }}</h2>
+          <p><span *ngIf="blog.shortDesc" [innerHTML]="blog.shortDesc | decodeHtmlEntities | safeHtml"></span></p>
           <a routerLink="{{ blog.url }}"><span>{{ 'learn_more' | translate }}</span></a
           >
         </div>
