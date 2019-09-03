@@ -24,7 +24,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[1].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[1] ? filterBlogs[1].shortDesc : '', 120) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[1] ? filterBlogs[1].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[1].url }}"></a>
           </div>
