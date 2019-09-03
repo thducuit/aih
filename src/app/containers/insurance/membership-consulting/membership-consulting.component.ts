@@ -118,7 +118,7 @@ export class MembershipConsultingComponent implements OnInit {
   }
 
   openTawk() {
-    window['Tawk_API'].toggle();
+    window['Tawk_API'].maximize();
   }
 
 }
