@@ -14,13 +14,24 @@ export class DoctorService extends BaseService {
     const postData = {
       search: '',
       publish: 1,
-      hot: 1,
       rowperpage: 999,
       pageselected: 1,
       post_type: ['doctor'],
       lang : this.getCurrentLocal()
     };
     return this.http.post('post/doctor', postData);
+  }
+
+  fetchBookingDoctor() {
+    const postData = {
+      search: '',
+      publish: 1,
+      rowperpage: 999,
+      pageselected: 1,
+      post_type: ['doctor'],
+      lang : this.getCurrentLocal()
+    };
+    return this.http.post('post/doctor-booking', postData);
   }
 
 }
