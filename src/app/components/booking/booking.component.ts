@@ -23,7 +23,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
   private isBrowser = false;
   private scrollSubject = new Subject();
   private scrollSubscription = this.scrollSubject
-    .pipe(throttleTime(150))
+    .pipe(debounceTime(100))
     .subscribe(() => {
       this.scrollHeader();
     });
@@ -55,7 +55,7 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
         if (1024 < jquery(window).innerWidth()) {
           // This hack to make bookinghome work for home page, other pages is work by stickyThing directy
           if (jquery('#pHome').length) {
-            scrollTop >= jquery('.doctor-home').offset().top
+            scrollTop >= (jquery('.doctor-home').offset().top + 3)
               ? jquery('header').addClass('fixHd')
               : jquery('header').removeClass('fixHd');
 
