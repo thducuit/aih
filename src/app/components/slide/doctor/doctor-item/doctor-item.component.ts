@@ -107,11 +107,15 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
           return doctor;
         })
         .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
-      if (this.clinicIds && this.clinicIds.length) {
-        this.doctors = this.doctors.filter(
-          item => this.clinicIds.indexOf(item.categoryId) >= 0,
-        );
-      }
+        if (this.clinicIds && this.clinicIds.length) {
+          this.doctors = this.doctors.filter(
+            item => this.clinicIds.indexOf(item.categoryId) >= 0,
+          );
+        }else {
+          this.doctors = this.doctors.filter(
+            item => item.hot === true,
+          );
+        }
 
       this.loaderService.hide();
     });

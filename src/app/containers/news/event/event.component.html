@@ -51,7 +51,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[0].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[0] ? filterBlogs[0].shortDesc : '', 120) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[0] ? filterBlogs[0].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[0].url }}"></a>
           </div>
@@ -85,7 +85,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[2].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[2] ? filterBlogs[2].shortDesc : '', 115) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[2] ? filterBlogs[2].shortDesc : '', 115) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[2].url }}"></a>
           </div>
@@ -104,7 +104,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[3].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[3] ? filterBlogs[3].shortDesc : '', 115) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[3] ? filterBlogs[3].shortDesc : '', 115) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[3].url }}"></a>
           </div>
@@ -119,7 +119,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[4].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[4] ? filterBlogs[4].shortDesc : '', 115) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[4] ? filterBlogs[4].shortDesc : '', 115) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[4].url }}"></a>
           </div>
@@ -138,7 +138,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[5].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[5] ? filterBlogs[5].shortDesc : '', 125) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[5] ? filterBlogs[5].shortDesc : '', 125) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[5].url }}"></a>
           </div>
@@ -157,7 +157,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[6].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p>{{ truncateText(filterBlogs[6] ? filterBlogs[6].shortDesc : '', 120) }}</p>
+              <p [innerHTML]="truncateText(filterBlogs[6] ? filterBlogs[6].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[6].url }}"></a>
           </div>
