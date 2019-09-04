@@ -8,8 +8,13 @@ module.exports = {
       watch: true,
       cwd: './',
       env: {
-        "PORT": 8099
-      }
+        "PORT": 8091
+      },
+      log_date_format: 'YYYY-MM-DD HH:mm Z',
+      error_file: '/logs/errs.log',
+      out_file: '/logs/out.log',
+      pid_file: '/logs/childs.log',
+      merge_logs: true,
     }
   ]
 }

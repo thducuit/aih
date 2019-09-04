@@ -1,6 +1,7 @@
 import {
   Pipe,
-  PipeTransform
+  PipeTransform,
+  SecurityContext
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 

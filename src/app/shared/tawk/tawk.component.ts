@@ -5,8 +5,9 @@ import {
   Input,
   OnInit,
   NgZone,
+  PLATFORM_ID,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-tawk',
@@ -18,6 +19,7 @@ export class TawkComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document,
+    @Inject(PLATFORM_ID) private platformId,
     private zone: NgZone,
   ) {}
 
@@ -26,7 +28,7 @@ export class TawkComponent implements OnInit {
   }
 
   private appendScript() {
-    this.zone.runOutsideAngular(() => {
+    if (isPlatformBrowser(this.platformId)) {
       const s = this.renderer.createElement('script');
       s.text = `var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
       (function () {
@@ -38,6 +40,6 @@ export class TawkComponent implements OnInit {
         s0.parentNode.insertBefore(s1, s0);
       })();`;
       this.renderer.appendChild(this.document.body, s);
-    });
+    }
   }
 }

@@ -7,6 +7,7 @@ import {
   Inject,
   NgZone,
   AfterViewChecked,
+  PLATFORM_ID,
 } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
 import { Blog } from '../../models/blog';
@@ -15,7 +16,7 @@ import { UrlService } from '../../services/url.service';
 import { ClinicService } from '../../services/clinic.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
@@ -27,13 +28,15 @@ export class FooterComponent implements OnInit, OnDestroy {
   public clinics: Array<Clinic> = [];
   private subsciption: Subscription;
 
-  constructor(public blogService: BlogService,
-              public clinicService: ClinicService,
-              private translate: TranslateService,
-              private renderer: Renderer2,
-              @Inject(DOCUMENT) private document,
-              private zone: NgZone) {
-  }
+  constructor(
+    public blogService: BlogService,
+    public clinicService: ClinicService,
+    private translate: TranslateService,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document,
+    @Inject(PLATFORM_ID) private platformId,
+    private zone: NgZone,
+  ) {}
 
   ngOnInit() {
     this.appendFacebookBox();
@@ -46,18 +49,20 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   appendFacebookBox() {
-    this.zone.runOutsideAngular(() => {
-      const url =
-        'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=365507434348874&autoLogAppEvents=1';
-      if (!document.querySelector(`script[src='${url}']`)) {
-        const script = document.createElement('script');
-        script.src = url;
-        script.crossOrigin = 'anonymous';
-        script.async = true;
-        script.defer = true;
-        this.renderer.appendChild(this.document.body, script);
-      }
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.zone.runOutsideAngular(() => {
+        const url =
+          'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=365507434348874&autoLogAppEvents=1';
+        if (!document.querySelector(`script[src='${url}']`)) {
+          const script = document.createElement('script');
+          script.src = url;
+          script.crossOrigin = 'anonymous';
+          script.async = true;
+          script.defer = true;
+          this.renderer.appendChild(this.document.body, script);
+        }
+      });
+    }
   }
 
   ngOnDestroy() {

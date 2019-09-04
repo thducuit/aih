@@ -126,7 +126,7 @@ export class InsuranceConsultingComponent implements OnInit {
   openTawk() {
     if(this.isBrowser) {
       this.zone.runOutsideAngular(() => {
-        window['Tawk_API'].toggle();
+        window['Tawk_API'].maximize();
       });
     }
   }
