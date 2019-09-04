@@ -93,6 +93,7 @@ export class ServiceDetailComponent
 
   private loadCategories(alias) {
     this.loaderService.show();
+    window.scroll(0,0);
     forkJoin(
       this.categoryService.fetch(alias, 'clinic'),
       this.translate.get('american_international_hospital'),
@@ -142,9 +143,7 @@ export class ServiceDetailComponent
         content: this.clinic.picturePath,
       });
 
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('headerPage', 150);
-      }, 100);
+      
     }, null, () => {
       this.loaderService.hide();
     });
@@ -161,10 +160,13 @@ export class ServiceDetailComponent
     jQuery('#copy-cate').css('min-height', minHeight);
   }
 
-  bookingClinic() {
+  bookingClinic(isMobile = false) {
     if (this.clinic) {
       this.isShowWarning = true;
       this.globalEventService.emit('book_clinic', this.clinic.clinicId);
+      if (isMobile) {
+        this.animateScrollService.scrollToElement('headerPage', 150);
+      }
     }
   }
 }

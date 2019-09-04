@@ -165,6 +165,24 @@
   }
 }
 
+.btn-mobile {
+  display: none;
+}
+
+.btn-desktop {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .btn-mobile {
+    display: block;
+  }
+
+  .btn-desktop {
+    display: none;
+  }
+}
+
 @media screen and (max-width:769px) {
   .news-wrap {
     h2 {

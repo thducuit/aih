@@ -40,6 +40,7 @@ export class ServiceDropMbComponent implements OnInit, OnDestroy {
       return;
     }
     this.expaned = false;
+    this.selectedClinic = clinic;
     this.router.navigate([clinic.url]);
   }
 

@@ -124,9 +124,11 @@ ngb-datepicker {
 
 
 .insurance-top{
-  height: 200px;
+  height: auto;
   background: #007298;
   color: #fff;
+      width: 100%;
+    float: left;
 }
 
 .insurance-top .heading {
@@ -139,7 +141,8 @@ ngb-datepicker {
 .insurance-top .content {
   line-height: 1.6rem;
   width: 80%;
-  float: left
+  float: left;
+      margin-bottom: 30px;
 }
 .insurance-top .content-right {
   float: right;
@@ -220,7 +223,10 @@ ngb-datepicker {
   .insurance-top .content {
     width: 100%;
     font-size: 12px;
-    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+  .insurance-top .content-right{
+    margin-bottom: 20px
   }
 }
 
@@ -233,7 +239,10 @@ ngb-datepicker {
     width: 100%;
     font-size: 12px;
     line-height: 1.3rem;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  .insurance-top .content-right{
+    margin-bottom: 15px
   }
 }
 

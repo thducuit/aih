@@ -63,6 +63,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
 
   private loadPosts(alias) {
     this.loaderService.show();
+    window.scroll(0,0);
     this.postService.fetch(alias).subscribe((data: any) => {
       const doctor = new Doctor(data.Post);
       if (doctor.picture) {
@@ -114,11 +115,6 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
         property: 'og:image',
         content: this.doctor.picturePath,
       });
-
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('headerPage', 50);
-        this.loaderService.hide();
-      }, 100);
     });
   }
 
@@ -127,9 +123,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
       this.isShowWarning = true;
       this.globalEventService.emit('book_doctor', this.doctor.doctorId);
       if (isMobile) {
-        setTimeout(() => {
-          this.animateScrollService.scrollToElement('headerPage', 150);
-        }, 100);
+        this.animateScrollService.scrollToElement('headerPage', 150);
       }
     }
   }

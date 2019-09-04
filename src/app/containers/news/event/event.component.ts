@@ -68,6 +68,7 @@ export class EventComponent implements OnInit, OnDestroy {
 
   loadNews() {
     this.loaderService.show();
+    window.scroll(0,0);
     this.blogService
       .fetch(1, 999, ['post_ishot DESC', 'post_datepublish DESC'])
       .subscribe((data: any) => {
@@ -102,11 +103,7 @@ export class EventComponent implements OnInit, OnDestroy {
         this.blogs = convertedBlogs;
         this.pagination();
         this.calcPages();
-
-        setTimeout(() => {
-          this.animateScrollService.scrollToElement('headerPage', 50);
-          this.loaderService.hide();
-        }, 100);
+        this.loaderService.hide();
       });
   }
 

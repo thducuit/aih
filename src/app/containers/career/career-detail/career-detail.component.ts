@@ -106,6 +106,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
 
     private loadPosts(alias) {
         this.loaderService.show();
+        window.scroll(0,0);
         forkJoin(
             this.postService.fetch(alias),
             this.translate.get('american_international_hospital'),
@@ -141,9 +142,6 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
               property: 'og:image',
               content: this.career.picturePath,
             });
-            setTimeout(() => {
-                this.animateScrollService.scrollToElement('pCareers', 50);
-            }, 100);
         },
         null,
         () => {

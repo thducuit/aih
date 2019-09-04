@@ -110,6 +110,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
 
   loadDoctors() {
     this.loaderService.show();
+    window.scroll(0,0);
     this.doctorService
       .fetch()
       .subscribe((data: any) => {
@@ -126,10 +127,6 @@ export class DoctorComponent implements OnInit, OnDestroy {
         .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
         this.filterDoctors = [...this.doctors];
         this.currDoctors = this.filterDoctors.slice(0, this.currPage * this.perPage);
-        setTimeout(() => {
-          this.animateScrollService.scrollToElement('headerPage', 50);
-          this.loaderService.hide();
-        }, 100);
       });
   }
 

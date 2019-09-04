@@ -14,6 +14,7 @@ import { PostService } from '../../../services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { environment } from '../../../../environments/environment';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-insurance-detail',
@@ -40,6 +41,7 @@ export class InsuranceDetailComponent implements OnInit {
               private translate: TranslateService,
               private metaService: Meta,
               private titleService: Title,
+              private loaderService: LoaderService,
               public postService: PostService) {
   }
 
@@ -47,6 +49,7 @@ export class InsuranceDetailComponent implements OnInit {
     this.loadPage();
     this.route.paramMap.subscribe(params => {
       const alias = params.get('alias');
+      this.loadPage();
       this.loadPosts(alias);
     });
     this.subscription = this.translate.onLangChange.subscribe(() => {
@@ -57,6 +60,8 @@ export class InsuranceDetailComponent implements OnInit {
 
 
   loadPage() {
+    this.loaderService.show();
+    window.scroll(0,0);
     forkJoin(
       this.pageService.fetch('insurancepage'),
       this.translate.get('american_international_hospital'),
@@ -90,12 +95,15 @@ export class InsuranceDetailComponent implements OnInit {
             return banner;
           });
         });
-
-
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   private loadPosts(alias: string) {
+    this.loaderService.show();
     forkJoin(
       this.postService.fetch(alias),
       this.translate.get('american_international_hospital'),
@@ -151,11 +159,15 @@ export class InsuranceDetailComponent implements OnInit {
         property: 'og:image',
         content: service.picturePath,
       });
-
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   loadService(id, exceptId) {
+    this.loaderService.show();
     this.insuranceService.fetchService(id).subscribe((data: any) => {
       const posts = data['Posts'] || [];
       this.services = posts.map(item => {
@@ -164,10 +176,12 @@ export class InsuranceDetailComponent implements OnInit {
         service.url = UrlService.createInsuranceUrl(service.alias);
         return service;
       }).filter(item => exceptId !== item.id);
+      this.loaderService.hide();
     });
   }
 
   loadCategory(id) {
+    this.loaderService.show();
     this.insuranceService.fetchServiceCate().subscribe((data: any) => {
       const categories = data['Categories'] || [];
       this.category = categories.map(item => {
@@ -176,10 +190,7 @@ export class InsuranceDetailComponent implements OnInit {
         insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
-
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('insurance-top', 150);
-      }, 100);
+      this.loaderService.hide();
     });
   }
 
