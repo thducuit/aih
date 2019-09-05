@@ -469,26 +469,25 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                     aihTimeBlocks = [...new Set(aihTimeBlocks)];
                     aihTimeBlocked = [...new Set(aihTimeBlocked)];
                     aihTimeBlocks = aihTimeBlocks.filter(item => item !== '');
-                    this.loadTqTime(doctorId, selectedDate, aihTimeBlocks, aihTimeBlocked);
+                    this.loadTqTime(doctorId, selectedDate, false, aihTimeBlocks, aihTimeBlocked);
                 } else {
-                    this.loadTqTime(doctorId, selectedDate);
+                    this.loadTqTime(doctorId, selectedDate, true);
                     this.isLoadTimeFail = true;
                 }
             }, () => {
-                this.loadTqTime(doctorId, selectedDate);
+                this.loadTqTime(doctorId, selectedDate, true);
                 this.isLoadTimeFail = true;
             });
     }
 
-    loadTqTime(doctorId, selectedDate, aihTimeBlocks = [], aihTimeBlocked = []) {
+    loadTqTime(doctorId, selectedDate, isOffline = false, aihTimeBlocks = [], aihTimeBlocked = []) {
         const newDate = ngbDateStructToString(selectedDate);
         this.bookingService
-            .callDateBookingTemp(newDate)
+            .callDateBookingTemp(doctorId, newDate, isOffline)
             .subscribe((data2: any) => {
                 const response2 = data2['Bookings'] || [];
-                const timeBlocked = response2.filter(item => item['booking_status'] !== 2)
-                    .filter(item => item['booking_emp_id'] === doctorId)
-                    .map(item => {
+                console.log('response2', response2);
+                const timeBlocked = response2.map(item => {
                         const startime = item['booking_starttime'];
                         const endtime = item['booking_endtime'];
 

@@ -39,13 +39,11 @@ export class BookingService {
         return this.http.get('aih-data');
     }
 
-    callDateBookingTemp(date) {
+    callDateBookingTemp(doctorId, date, isOffline) {
         const postData = {
-            booking_status: [0, 1],
-            from_date: `${date} 00:00:00`,
-            to_date: `${date} 23:59:59`,
-            rowperpage: 999,
-            pageselected: 1,
+            booking_date: `${date} 00:00:00`,
+            booking_emp_id: doctorId,
+            offline: isOffline
         };
         return this.http.post('booking/time-block', postData);
     }

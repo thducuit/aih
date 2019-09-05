@@ -273,6 +273,10 @@ ngb-datepicker {
 	height: auto!important;
 }
 
+.detail-cr .ct-copy .cr-content ul ,.detail-cr .ct-copy .cr-content  li {
+  list-style: initial;
+}
+
 @media (max-width: 991px) {
   .nav-wrap .lang {
     display: none;
