@@ -10761,7 +10761,8 @@ a.morelink:hover {
     width: 100%;
     position: relative;
     top: 0;
-    left: 0
+    left: 0;
+    height: auto;
   }
 
   .news-list-wrap ul li:first-child .item-news .copy h2 {

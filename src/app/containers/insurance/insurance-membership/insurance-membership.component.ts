@@ -9,6 +9,7 @@ import { PageService } from '../../../services/page.service';
 import { BannerService } from '../../../services/banner.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-insurance-membership',
@@ -30,6 +31,7 @@ export class InsuranceMembershipComponent implements OnInit {
     private translate: TranslateService,
     private metaService: Meta,
     private titleService: Title,
+    private loaderService: LoaderService
   ) {
   }
 
@@ -43,6 +45,8 @@ export class InsuranceMembershipComponent implements OnInit {
   }
 
   loadPage() {
+    this.loaderService.show();
+    window.scroll(0,0);
     forkJoin(
       this.pageService.fetch('insurancepage'),
       this.translate.get('american_international_hospital'),
@@ -75,10 +79,15 @@ export class InsuranceMembershipComponent implements OnInit {
             return banner;
           });
         });
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   loadCategory() {
+    this.loaderService.show();
     this.insuranceService.fetchServiceCate().subscribe((data: any) => {
       const categories = data['Categories'] || [];
       this.categories = categories
@@ -96,6 +105,7 @@ export class InsuranceMembershipComponent implements OnInit {
           return insurance;
         })
         .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+        this.loaderService.hide();
     });
   }
 }

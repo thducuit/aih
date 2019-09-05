@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InsuranceDetail } from '../../../models/insurance-detail';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { isPlatformBrowser } from '@angular/common';
+import {LoaderService} from '../../../services/loader-service';
 import jquery from 'jquery';
 
 @Component({
@@ -41,6 +42,7 @@ export class InsuranceConsultingComponent implements OnInit {
               private titleService: Title,
               private router: Router,
               private zone: NgZone,
+              private loaderService: LoaderService,
               private animateScrollService: NgAnimateScrollService) {
               this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -61,6 +63,8 @@ export class InsuranceConsultingComponent implements OnInit {
 
 
   loadPage() {
+    this.loaderService.show();
+    window.scroll(0,0);
     forkJoin(
       this.pageService.fetch('insurancepage'),
       this.translate.get('american_international_hospital'),
@@ -90,12 +94,15 @@ export class InsuranceConsultingComponent implements OnInit {
             return banner;
           });
         });
-
-
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   loadService(id) {
+    this.loaderService.show();
     this.insuranceService.fetchService(id).subscribe((data: any) => {
       const posts = data['Posts'] || [];
       this.services = posts.map(item => {
@@ -104,10 +111,12 @@ export class InsuranceConsultingComponent implements OnInit {
         service.url = UrlService.createInsuranceUrl(service.alias);
         return service;
       });
+      this.loaderService.hide();
     });
   }
 
   loadCategory(id) {
+    this.loaderService.show();
     this.insuranceService.fetchServiceCate().subscribe((data: any) => {
       const categories = data['Categories'] || [];
       this.category = categories.map(item => {
@@ -116,10 +125,7 @@ export class InsuranceConsultingComponent implements OnInit {
         insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
-
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('insurance-top', 150);
-      }, 100);
+      this.loaderService.hide();
     });
   }
 

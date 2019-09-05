@@ -1,7 +1,7 @@
 <div class="service-drop-mb js-cselect" data-target="medicalService">
   <h3>{{'our_departments' | translate}}</h3>
   <div class="select" (clickOutside)="onClickOutSide($event)">
-    <div class="select-styled" [ngClass]="{'active': expaned}" *ngIf="selectedClinic" (click)="toggleDropdown()">{{selectedClinic.name}}</div>
+    <div class="select-styled" [ngClass]="{'active': expaned}" *ngIf="selectedClinic" (click)="toggleDropdown()"><div class='text-service'>{{selectedClinic.name}}</div>div></div>
     <div class="select-styled" [ngClass]="{'active': expaned}" *ngIf="!selectedClinic" (click)="toggleDropdown()">{{'general_info' | translate}}</div>
     <div class="select-options" [ngClass]="{'show': expaned}">
       <div class="copyscroll">

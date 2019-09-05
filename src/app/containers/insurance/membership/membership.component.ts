@@ -15,6 +15,7 @@ import { InsuranceDetail } from '../../../models/insurance-detail';
 import { PostService } from '../../../services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import {LoaderService} from '../../../services/loader-service';
 
 @Component({
   selector: 'app-membership',
@@ -40,6 +41,7 @@ export class MembershipComponent implements OnInit {
               private metaService: Meta,
               private titleService: Title,
               public postService: PostService,
+              private loaderService: LoaderService,
               private animateScrollService: NgAnimateScrollService) {
   }
 
@@ -47,6 +49,7 @@ export class MembershipComponent implements OnInit {
     this.loadPage();
     this.route.paramMap.subscribe(params => {
       const alias = params.get('alias');
+      this.loadPage();
       this.loadPosts(alias);
     });
     this.subscription = this.translate.onLangChange.subscribe(() => {
@@ -57,6 +60,8 @@ export class MembershipComponent implements OnInit {
 
 
   loadPage() {
+    this.loaderService.show();
+    window.scroll(0,0);
     forkJoin(
       this.pageService.fetch('insurancepage'),
       this.translate.get('american_international_hospital'),
@@ -86,10 +91,15 @@ export class MembershipComponent implements OnInit {
             return banner;
           });
         });
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   private loadPosts(alias: string) {
+    this.loaderService.show();
     forkJoin(
       this.postService.fetch(alias),
       this.translate.get('american_international_hospital'),
@@ -145,10 +155,15 @@ export class MembershipComponent implements OnInit {
         content: service.picturePath,
       });
 
+    },
+    null,
+    () => {
+        this.loaderService.hide();
     });
   }
 
   loadCategory(id) {
+    this.loaderService.show();
     this.insuranceService.fetchServiceCate().subscribe((data: any) => {
       const categories = data['Categories'] || [];
       this.category = categories.map(item => {
@@ -157,10 +172,7 @@ export class MembershipComponent implements OnInit {
         insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
-
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('insurance-top', 150);
-      }, 100);
+      this.loaderService.hide();
     });
   }
 

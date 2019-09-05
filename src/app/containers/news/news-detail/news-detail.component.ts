@@ -101,6 +101,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   private loadPosts(alias: string) {
     this.loaderService.show();
+    window.scroll(0,0);
     this.postService.fetch(alias, true).subscribe(data => {
       const blog = new Blog(data['Post']);
 
@@ -167,11 +168,6 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
         property: 'og:image',
         content: blog.picturePath,
       });
-
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('headerPage', 50);
-        this.loaderService.hide();
-      }, 100);
 
       this.commentService
         .comments(this.blog.id, 'news')
@@ -282,9 +278,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   comment() {
     if (this.commentArea) {
       this.commentArea.nativeElement.focus();
-      setTimeout(() => {
-        this.animateScrollService.scrollToElement('comment-area', 150);
-      }, 100);
+      this.animateScrollService.scrollToElement('comment-area', 150);
     }
   }
 
@@ -348,7 +342,10 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       });
   }
 
-  booking() {
+  booking(isMobile = false) {
     this.isShowWarning = true;
+    if (isMobile) {
+      this.animateScrollService.scrollToElement('headerPage', 150);
+    }
   }
 }
