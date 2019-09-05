@@ -80,6 +80,14 @@ export class FactsheetComponent implements OnInit, OnDestroy {
         });
         this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+
+        if(this.page.picture) {
+            this.metaService.updateTag({
+              name: 'og:image',
+              content: UrlService.createPictureUrl(this.page.picture),
+            });
+        }
+        
         this.bannerService
           .fetch('highlight_page', this.page.id)
           .subscribe((bannersResp: any) => {

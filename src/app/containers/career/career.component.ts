@@ -80,6 +80,13 @@ export class CareerComponent implements OnInit, OnDestroy {
       this.page.metaDesc && this.metaService.updateTag({ property: 'og:description', content: this.page.metaDesc });
       this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
 
+      if(this.page.picture) {
+          this.metaService.updateTag({
+            name: 'og:image',
+            content: UrlService.createPictureUrl(this.page.picture),
+          });
+      }
+
       this.bannerService
         .fetch('careerpage', this.page.id)
         .subscribe((bannersResp: any) => {
@@ -90,9 +97,6 @@ export class CareerComponent implements OnInit, OnDestroy {
             banner.url = banner.Link;
             return banner;
           });
-          if (this.banners && this.banners.length) {
-            this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
-          }
         });
     },
     null,

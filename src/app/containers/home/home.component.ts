@@ -77,6 +77,13 @@ export class HomeComponent implements OnInit, OnDestroy {
           content: this.page.metaKey,
         });
 
+        if(this.page.picture) {
+            this.metaService.updateTag({
+              name: 'og:image',
+              content: UrlService.createPictureUrl(this.page.picture),
+            });
+        }
+
         this.pageService
           .fetchBanner('home_slide')
           .subscribe((bannersResp: any) => {

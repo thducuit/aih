@@ -10,6 +10,10 @@ export class Insurance {
   public parentId;
   public sort;
   public children;
+  public metaDesc;
+  public metaKey;
+  public metaTitle;
+  
   constructor(data) {
     this.id = data.cate_id;
     this.name = data.cate_name;
@@ -18,6 +22,9 @@ export class Insurance {
     this.longDesc = data.cate_longdesc;
     this.alias = data.alias_name;
     this.parentId = data.cate_parentid;
+    this.metaDesc = data.post_metadesc;
+    this.metaKey = data.post_metakey;
+    this.metaTitle = data.post_metatitle;
     this.sort = data.cate_sort;
     this.children = [];
     this.picturePath = null;
