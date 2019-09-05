@@ -209,6 +209,12 @@ ngb-datepicker {
 }
 
 
+.cr-content {
+  width: 70%;
+  float: left;
+}
+
+
 @media(max-width: 991px){
   .insurance-top .heading {
     font-size: 25px;
@@ -222,7 +228,6 @@ ngb-datepicker {
   }
   .insurance-top .content {
     width: 100%;
-    font-size: 12px;
     margin-bottom: 20px;
   }
   .insurance-top .content-right{
@@ -237,7 +242,6 @@ ngb-datepicker {
   }
   .insurance-top .content {
     width: 100%;
-    font-size: 12px;
     line-height: 1.3rem;
     margin-bottom: 15px;
   }
@@ -267,6 +271,12 @@ ngb-datepicker {
 .copy-cate-detail img {
 	max-width: 100%;
 	height: auto!important;
+}
+
+@media (max-width: 991px) {
+  .nav-wrap .lang {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 769px) {

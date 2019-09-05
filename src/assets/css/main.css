@@ -5202,6 +5202,7 @@ header.fixHd .bg {
 
 .tt-page h4 {
   font-size: 26px;
+  margin-bottom: 15px;
   color: #007297;
   font-family: utm_avoregular
 }
@@ -6438,7 +6439,7 @@ a.morelink:hover {
 }
 
 .detail-cr .ct-copy {
-  padding: 40px 430px 40px 40px;
+  padding: 20px;
   position: relative
 }
 
@@ -6455,7 +6456,9 @@ a.morelink:hover {
 }
 
 .detail-cr .main-if {
-  position: absolute;
+  /*position: absolute;*/
+  width: 30%;
+  float: left;
   top: 40px;
   right: 40px;
   border: 1px solid #007297;
@@ -9011,7 +9014,7 @@ a.morelink:hover {
   }
 
   .detail-cr .ct-copy {
-    padding-right: 200px
+    padding: 20px
   }
 
   .op-news > a,
@@ -9490,7 +9493,7 @@ a.morelink:hover {
   }
 
   .detail-cr .ct-copy {
-    padding: 10px 200px 10px 10px
+    padding: 15px
   }
 
   .detail-cr .ct-copy .item h3 {
@@ -9601,6 +9604,11 @@ a.morelink:hover {
 
   .booking-home .container {
     padding: 0 10px
+  }
+
+  .booking-hd .booking-wrap .ip input{
+    font-size: 9px;
+    height: 33px;
   }
 
   .pakacge-wrap .copy p {
@@ -9915,7 +9923,7 @@ a.morelink:hover {
   .right-hd-mb .lang {
     display: block;
     margin-top: 0;
-    z-index: 2
+    z-index: 1
   }
 
   .right-hd-mb .lang .item {
@@ -10103,7 +10111,7 @@ a.morelink:hover {
   }
 
   .detail-cr .ct-copy {
-    padding-right: 250px
+    padding: 10px;
   }
 
   .popup-video {

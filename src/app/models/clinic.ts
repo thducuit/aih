@@ -14,6 +14,7 @@ export class Clinic {
   public datepublish;
   public meta;
   public active;
+  public isShow;
 
   constructor(data) {
     this.id = data.cate_id;
@@ -23,6 +24,7 @@ export class Clinic {
     this.longDesc = data.cate_longdesc;
     this.alias = data.alias_name;
     this.clinicId = data.cate_elem01;
+    this.isShow = data.cate_publish;
     this.metaDesc = data.cate_metadesc;
     this.metaKey = data.cate_metakey;
     this.metaTitle = data.cate_metatitle;

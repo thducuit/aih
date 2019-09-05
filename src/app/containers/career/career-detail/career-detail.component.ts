@@ -106,47 +106,50 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
 
     private loadPosts(alias) {
         this.loaderService.show();
-        window.scroll(0,0);
+        window.scroll(0, 0);
         forkJoin(
             this.postService.fetch(alias),
             this.translate.get('american_international_hospital'),
         ).subscribe(([data, aihStr]) => {
-            const career = new Career(data['Post']);
-            if (career.picture) {
-                career.picturePath = UrlService.createPictureUrl(career.picture);
-            }
-            career.longDesc = UrlService.fixPictureUrl(career.longDesc);
-            this.career = career;
-            const pageTitle = `${this.career.metaTitle ||
-            this.career.name} - ${aihStr}`;
-            // seo
-            this.titleService.setTitle(pageTitle);
-            this.metaService.updateTag({
-                property: 'og:title',
-                content: pageTitle,
+                const career = new Career(data['Post']);
+                if (!career.isShow) {
+                    this.router.navigateByUrl('/').then(e => {});
+                }
+                if (career.picture) {
+                    career.picturePath = UrlService.createPictureUrl(career.picture);
+                }
+                career.longDesc = UrlService.fixPictureUrl(career.longDesc);
+                this.career = career;
+                const pageTitle = `${this.career.metaTitle ||
+                this.career.name} - ${aihStr}`;
+                // seo
+                this.titleService.setTitle(pageTitle);
+                this.metaService.updateTag({
+                    property: 'og:title',
+                    content: pageTitle,
+                });
+                this.career.metaDesc &&
+                this.metaService.updateTag({
+                    name: 'description',
+                    content: this.career.metaDesc,
+                });
+                this.metaService.updateTag({
+                    property: 'og:description',
+                    content: this.career.metaDesc,
+                });
+                this.metaService.updateTag({
+                    name: 'keywords',
+                    content: this.career.metaKey,
+                });
+                this.metaService.updateTag({
+                    property: 'og:image',
+                    content: this.career.picturePath,
+                });
+            },
+            null,
+            () => {
+                this.loaderService.hide();
             });
-            this.career.metaDesc &&
-            this.metaService.updateTag({
-                name: 'description',
-                content: this.career.metaDesc,
-            });
-            this.metaService.updateTag({
-              property: 'og:description',
-              content: this.career.metaDesc,
-            });
-            this.metaService.updateTag({
-                name: 'keywords',
-                content: this.career.metaKey,
-            });
-            this.metaService.updateTag({
-              property: 'og:image',
-              content: this.career.picturePath,
-            });
-        },
-        null,
-        () => {
-            this.loaderService.hide();
-        });
     }
 
     scrollToForm() {

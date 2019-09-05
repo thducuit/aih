@@ -27,9 +27,20 @@
 .insurance-consulting-detail .list-dt li {
   width: 33.33%;
 }
+
+.insurance-consulting-content {
+  padding-top: 35px;
+}
+
+@media (max-width: 1280px) {
+
+}
 @media(max-width: 769px){
   .insurance-consulting-detail .list-dt li {
     width: 100%;
+  }
+  .insurance-consulting-content {
+    padding-top: 20px;
   }
   .box-content {
     margin: 25px 0 25px;

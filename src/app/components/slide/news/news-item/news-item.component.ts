@@ -74,7 +74,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
         if (blog.name.length > 50) {
           const arr = blog.name.split(' ');
-          const str = arr.slice(1, 10).join(' ');
+          const str = arr.slice(0, 10).join(' ');
           blog.name = `${str}...`;
         }
 
@@ -89,7 +89,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
   loadNews() {
     this.loaderService.show();
     this.blogService
-      .fetch(this.currentPage, ItemPerPage, [], true)
+      .fetch(this.currentPage, ItemPerPage, ['post_datepublish DESC'], true)
       .subscribe((data: any) => {
         const posts = data.Posts || [];
         this.totalPage = Math.ceil(data.TotalRecord / ItemPerPage);
@@ -106,7 +106,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
           if (blog.name.length > 50) {
             const arr = blog.name.split(' ');
-            const str = arr.slice(1, 10).join(' ');
+            const str = arr.slice(0, 10).join(' ');
             blog.name = `${str}...`;
           }
 
