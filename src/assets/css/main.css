@@ -12369,6 +12369,10 @@ a.morelink:hover {
     margin-bottom: 20px
   }
 
+  .detail-cr .cr-content {
+    width: 100%;
+  }
+
   .detail-cr .main-if p:last-child {
     margin-bottom: 0
   }
