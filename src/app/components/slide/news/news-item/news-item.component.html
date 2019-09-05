@@ -35,8 +35,9 @@
     <a *ngIf="currentPage < totalPage" class="next-page" (click)="selectPage(currentPage+1)"></a>
   </div>
 
-  <div class="btn-wrap show-mb">
-    <a class="btn-showmore js-btn-loadmore" routerLink="/news">{{'show_more' | translate}}</a>
+  <div class="btn-wrap show-mb" *ngIf="!hideReadMore">
+    <a *ngIf="!readmore" class="btn-showmore js-btn-loadmore btn-showmore-news" routerLink="/news">{{'show_more' | translate}}</a>
+    <a *ngIf="readmore" class="btn-showmore js-btn-loadmore btn-showmore-news" (click)="appendNews()">{{'show_more' | translate}}</a>
   </div>
 
   <app-choosen-package *ngIf="showChosenPackage" ></app-choosen-package>
