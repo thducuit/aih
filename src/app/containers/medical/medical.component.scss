@@ -166,6 +166,22 @@ p.haveAnimate img{
 	}
 }
 
+@media (max-width: 1024px) {
+	.medical-bottom .box-left p {
+		width: 90%;
+	}
+
+	.box-detail ol {
+		max-height: 175px;
+		overflow-y: scroll;
+	}
+
+	.box-chosen ul {
+		max-height: 175px;
+		overflow-y: scroll;
+	}
+}
+
 @media screen and (max-width: 767px){
 	.medical-bottom .box-right .box-top {
 	  width: 50%;
@@ -199,6 +215,12 @@ p.haveAnimate img{
 
 	.medical-bottom .box-right .box-bottom p {
 		margin-left: 20px;
+	}
+
+	.box-detail ol {
+		width: 200%;
+		max-height: 175px;
+		overflow-y: scroll;
 	}
 }
 

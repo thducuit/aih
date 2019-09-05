@@ -13,9 +13,9 @@
   }
 }
 
-
 .insurance-consulting-content {
   margin: 50px 0 25px;
+  padding-top: 35px;
 
   .box-left {
     width: 50%;
@@ -45,6 +45,7 @@
 @media(max-width: 769px){
   .insurance-consulting-content {
     margin: 25px 0 25px;
+    padding-top: 20px;
 
     .box-left {
       width: 100%;
