@@ -203,7 +203,7 @@
     h3 {
       font-size: 20px;
       padding-bottom: 15px;
-      padding-top: 15px;
+      padding-top: 55px;
     }
 
     .copy {
@@ -224,6 +224,12 @@
 @media (max-width: 480px) {
   .op-news > a {
     margin-right: 25px;
+  }
+
+  #pNews .news-wrap .ct-dt {
+    h3 {
+      padding-top: 0px;
+    }
   }
 }
 
