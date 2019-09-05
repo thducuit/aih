@@ -35,3 +35,21 @@
 .js-package-home-child p {
 	z-index: 1;
 }
+
+.text-desktop {
+  display: block;
+}
+
+.text-mobile {
+  display: none;
+}
+
+@media (max-width: 769px) {
+  .text-desktop {
+    display: none;
+  }
+
+  .text-mobile {
+    display: block;
+  }
+}
