@@ -104,6 +104,21 @@
   }
 }
 
+@media screen and (max-width: 991px) {
+  .lang {
+    .item {
+      img {
+        width: 25px;
+      }
+    }
+    a {
+      img {
+        width: 25px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 769px) {
   .lang {
     margin-top: 0;

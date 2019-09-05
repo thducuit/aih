@@ -19,6 +19,7 @@ export class Doctor {
     public sort;
     public publish;
     public hot;
+    public isShow;
 
     constructor(data) {
         this.id = data.post_id;
@@ -31,6 +32,7 @@ export class Doctor {
         this.picture = data.post_picture;
         this.doctorId = data.post_elem01;
         this.metaDesc = data.post_metadesc;
+        this.isShow = data.post_publish;
         this.metaKey = data.post_metakey;
         this.metaTitle = data.post_metatitle;
         this.sort = data.post_sort;

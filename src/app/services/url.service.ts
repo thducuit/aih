@@ -8,7 +8,7 @@ export class UrlService {
   }
 
   static createPictureUrl(pictureName, size = null, type = 'post', isMeta = false) {
-    if(isMeta) {
+    if (isMeta) {
       return `${environment.backend}${pictureName}`;
     }
     if (size) {

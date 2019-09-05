@@ -15,6 +15,7 @@ export class Career {
     public metaKey;
     public metaTitle;
     public date;
+    public isShow;
 
     constructor(data) {
         this.id = data.post_id;
@@ -25,6 +26,7 @@ export class Career {
         this.picture = data.post_picture;
         this.sort = data.post_sort;
         this.cateId = data.post_cateid;
+        this.isShow = data.post_publish;
         this.metaDesc = data.post_metadesc;
         this.metaKey = data.post_metakey;
         this.metaTitle = data.post_metatitle;

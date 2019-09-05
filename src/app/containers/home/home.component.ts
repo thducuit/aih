@@ -77,19 +77,16 @@ export class HomeComponent implements OnInit, OnDestroy {
           content: this.page.metaKey,
         });
 
-        this.bannerService
-          .fetch('homepage', this.page.id)
+        this.pageService
+          .fetchBanner('home_slide')
           .subscribe((bannersResp: any) => {
-            const banners = bannersResp.Banner;
-            this.banners = banners.map(banner => {
-              banner.large = UrlService.createMediaUrl(banner.Url);
-              banner.small = banner.large;
-              banner.url = banner.Link;
-              return banner;
+            const banners = bannersResp['Posts'] || [];
+            this.banners = banners.map(item => {
+                const meta = item.post_meta ? JSON.parse(item.post_meta) : {};
+                meta.large = UrlService.createPictureUrl(meta.picture, null, null, true);
+                meta.small = UrlService.createPictureUrl(meta.picture_mobile, null, null, true);
+                return meta;
             });
-            if (this.banners && this.banners.length) {
-              this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
-            }
           });
       },
       null,
