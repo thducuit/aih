@@ -118,6 +118,8 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
                 property: 'og:image',
                 content: this.doctor.picturePath,
             });
+
+            this.loaderService.hide();
         });
     }
 

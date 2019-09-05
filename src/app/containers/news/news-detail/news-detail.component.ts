@@ -196,8 +196,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
                     this.postPrev = null;
                 }
             });
-
-
+            this.loaderService.hide();
         });
     }
 
