@@ -12371,6 +12371,7 @@ a.morelink:hover {
 
   .detail-cr .cr-content {
     width: 100%;
+    padding-right: 0
   }
 
   .detail-cr .main-if p:last-child {
