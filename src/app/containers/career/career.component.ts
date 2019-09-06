@@ -70,7 +70,7 @@ export class CareerComponent implements OnInit, OnDestroy {
       page.picturePath = UrlService.createPictureUrl(page.picture);
       this.page = page;
       // seo
-      const pageTitle = `${this.page.name} - ${aihStr}`;
+      const pageTitle = `${this.page.metaTitle || this.page.name} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({
         property: 'og:title',

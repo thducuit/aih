@@ -72,7 +72,7 @@ export class FactsheetComponent implements OnInit, OnDestroy {
         // page.longDesc = UrlService.fixPictureUrl(page.longDesc);
         this.page = page;
         // seo
-        const pageTitle = `${this.page.name} - ${aihStr}`;
+        const pageTitle = `${this.page.metaTitle || this.page.name} - ${aihStr}`;
         this.titleService.setTitle(pageTitle);
         this.metaService.updateTag({
           property: 'og:title',

@@ -133,7 +133,7 @@ export class InsuranceDetailComponent implements OnInit {
       this.loadService(service.categoryId, service.id);
 
       // seo
-      const pageTitle = `${this.service.metaTitle} - ${aihStr}`;
+      const pageTitle = `${this.service.metaTitle || this.service.name} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({
         property: 'og:title',

@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ([homeResp, aihStr]) => {
         const page = homeResp.Post || {};
         this.page = new Page(page);
-        const pageTitle = `${this.page.name} - ${aihStr}`;
+        const pageTitle = `${this.page.metaTitle ||  this.page.name} - ${aihStr}`;
         // seo
         this.titleService.setTitle(pageTitle);
         this.metaService.updateTag({

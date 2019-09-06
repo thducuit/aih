@@ -57,7 +57,7 @@ export class AboutComponent implements OnInit, OnDestroy {
       .subscribe(([data, aihStr]) => {
         const page = data.Post || {};
         this.page = new Page(page);
-        const pageTitle = `${this.page.name} - ${aihStr}`;
+        const pageTitle = `${this.page.metaTitle ||  this.page.name} - ${aihStr}`;
         // seo
         this.titleService.setTitle(pageTitle);
         this.metaService.updateTag({
