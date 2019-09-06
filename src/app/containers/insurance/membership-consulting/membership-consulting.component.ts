@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 import {InsuranceDetail} from '../../../models/insurance-detail';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-membership-consulting',
@@ -129,6 +130,7 @@ export class MembershipConsultingComponent implements OnInit {
             this.category.metaDesc && this.metaService.updateTag({name: 'description', content: this.category.metaDesc});
             this.category.metaDesc && this.metaService.updateTag({property: 'og:description', content: this.category.metaDesc});
             this.metaService.updateTag({name: 'keywords', content: this.category.metaKey});
+            this.metaService.updateTag({property: 'og:url', content: `${environment.host}${this.category.url}`});
 
             if (this.category.picture) {
                 this.metaService.updateTag({

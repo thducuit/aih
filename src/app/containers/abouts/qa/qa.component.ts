@@ -16,6 +16,7 @@ import {Page} from '../../../models/page';
 import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-qa',
@@ -105,48 +106,49 @@ export class QaComponent implements OnInit, OnDestroy {
             this.pageService.fetch('faqspage'),
             this.translate.get('american_international_hospital')
         ).subscribe(([data, aihStr]) => {
-            const post = data.Post || {};
-            const page = new Page(post);
-            page.longDesc = UrlService.fixPictureUrl(page.longDesc);
-            page.picturePath = UrlService.createPictureUrl(page.picture);
-            this.page = page;
-            // seo
-            const pageTitle = `${this.page.metaTitle || this.page.name} - ${aihStr}`;
-            this.titleService.setTitle(pageTitle);
-            this.metaService.updateTag({
-                property: 'og:title',
-                content: pageTitle,
-            });
-            this.page.metaDesc && this.metaService.updateTag({name: 'description', content: this.page.metaDesc});
-            this.page.metaDesc && this.metaService.updateTag({property: 'og:description', content: this.page.metaDesc});
-            this.metaService.updateTag({name: 'keywords', content: this.page.metaKey});
-
-            if(this.page.picture) {
+                const post = data.Post || {};
+                const page = new Page(post);
+                page.longDesc = UrlService.fixPictureUrl(page.longDesc);
+                page.picturePath = UrlService.createPictureUrl(page.picture);
+                this.page = page;
+                // seo
+                const pageTitle = `${this.page.metaTitle || this.page.name} - ${aihStr}`;
+                this.titleService.setTitle(pageTitle);
                 this.metaService.updateTag({
-                  property: 'og:image',
-                  content: UrlService.createPictureUrl(this.page.picture),
+                    property: 'og:title',
+                    content: pageTitle,
                 });
-            }
+                this.page.metaDesc && this.metaService.updateTag({name: 'description', content: this.page.metaDesc});
+                this.page.metaDesc && this.metaService.updateTag({property: 'og:description', content: this.page.metaDesc});
+                this.metaService.updateTag({name: 'keywords', content: this.page.metaKey});
+                this.metaService.updateTag({property: 'og:url', content: `${environment.host}/about-us/faq`});
 
-            this.bannerService
-                .fetch('faqspage', this.page.id)
-                .subscribe((bannersResp: any) => {
-                    const banners = bannersResp.Banner;
-                    this.banners = banners.map(banner => {
-                        banner.large = UrlService.createMediaUrl(banner.Url);
-                        banner.small = banner.large;
-                        banner.url = banner.Link;
-                        banner.content = banner.Content;
-                        banner.title = banner.Title;
-                        return banner;
+                if (this.page.picture) {
+                    this.metaService.updateTag({
+                        property: 'og:image',
+                        content: UrlService.createPictureUrl(this.page.picture),
                     });
-                    
-                });
-        },
-        null,
-        () => {
-            this.loaderService.hide();
-        });
+                }
+
+                this.bannerService
+                    .fetch('faqspage', this.page.id)
+                    .subscribe((bannersResp: any) => {
+                        const banners = bannersResp.Banner;
+                        this.banners = banners.map(banner => {
+                            banner.large = UrlService.createMediaUrl(banner.Url);
+                            banner.small = banner.large;
+                            banner.url = banner.Link;
+                            banner.content = banner.Content;
+                            banner.title = banner.Title;
+                            return banner;
+                        });
+
+                    });
+            },
+            null,
+            () => {
+                this.loaderService.hide();
+            });
     }
 
 }

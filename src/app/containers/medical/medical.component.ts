@@ -11,6 +11,7 @@ import {forkJoin, Subscription} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
 import {ActivatedRoute} from '@angular/router';
 import {LoaderService} from '../../services/loader-service';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-medical',
@@ -86,6 +87,8 @@ export class MedicalComponent implements OnInit, OnDestroy {
                     name: 'keywords',
                     content: this.page.metaKey,
                 });
+
+                this.metaService.updateTag({property: 'og:url', content: `${environment.host}/patient-services/medical-package`});
 
                 if (this.page.picture) {
                     this.metaService.updateTag({

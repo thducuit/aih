@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Subscription, forkJoin} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-service',
@@ -59,7 +60,10 @@ export class ServiceComponent implements OnInit, OnDestroy {
                         content: pageTitle
                     });
                     this.metaService.updateTag({name: 'description', content: this.page.metaDesc});
+                    this.metaService.updateTag({property: 'og:description', content: this.page.metaDesc});
                     this.metaService.updateTag({name: 'keywords', content: this.page.metaKey});
+                    this.metaService.updateTag({property: 'og:url', content: `${environment.host}/patient-services/medical-services`});
+
                     if (this.page.picture) {
                         this.metaService.updateTag({
                             property: 'og:image',

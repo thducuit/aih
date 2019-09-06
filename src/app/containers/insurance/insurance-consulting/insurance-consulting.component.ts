@@ -15,6 +15,7 @@ import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {isPlatformBrowser} from '@angular/common';
 import {LoaderService} from '../../../services/loader-service';
 import jquery from 'jquery';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-insurance-consulting',
@@ -135,6 +136,7 @@ export class InsuranceConsultingComponent implements OnInit {
             this.category.metaDesc && this.metaService.updateTag({name: 'description', content: this.category.metaDesc});
             this.category.metaDesc && this.metaService.updateTag({property: 'og:description', content: this.category.metaDesc});
             this.metaService.updateTag({name: 'keywords', content: this.category.metaKey});
+            this.metaService.updateTag({property: 'og:url', content: `${environment.host}${this.category.url}`});
 
             if (this.category.picture) {
                 this.metaService.updateTag({

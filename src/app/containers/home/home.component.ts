@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Subscription, forkJoin} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from 'src/app/services/loader-service';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-home',
@@ -74,6 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
                     name: 'keywords',
                     content: this.page.metaKey,
                 });
+
+                this.metaService.updateTag({name: 'og:url', property: `${environment.host}/`});
 
                 if (this.page.picture) {
                     this.metaService.updateTag({
