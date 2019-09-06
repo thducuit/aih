@@ -83,7 +83,7 @@ export class CareerComponent implements OnInit, OnDestroy {
       if(this.page.picture) {
           this.metaService.updateTag({
             name: 'og:image',
-            content: UrlService.createPictureUrl(this.page.picture),
+            property: UrlService.createPictureUrl(this.page.picture),
           });
       }
 

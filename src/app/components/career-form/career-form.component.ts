@@ -126,10 +126,6 @@ export class CareerFormComponent implements OnInit, OnDestroy {
     if (!this.validator()) {
       return;
     }
-    if (!this.form.attach.fileName) {
-      this.openAttachFail();
-      return;
-    }
     if (!this.captchaResponse) {
       this.openCaptchaFail();
       return;
