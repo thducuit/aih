@@ -10,6 +10,7 @@ import {BannerService} from '../../../services/banner.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-insurance-membership',
@@ -63,9 +64,15 @@ export class InsuranceMembershipComponent implements OnInit {
                     content: this.page.metaDesc,
                 });
                 this.metaService.updateTag({
+                    property: 'og:description',
+                    content: this.page.metaDesc,
+                });
+                this.metaService.updateTag({
                     name: 'keywords',
                     content: this.page.metaKey,
                 });
+
+                this.metaService.updateTag({property: 'og:url', content: `${environment.host}/insurance-membership`});
 
                 if (this.page.picture) {
                     this.metaService.updateTag({

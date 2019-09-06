@@ -9,6 +9,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {GlobalEventService} from 'src/app/services/global-event.service';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-doctor-detail',
@@ -73,6 +74,9 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
                 doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
             }
             doctor.longDesc = UrlService.fixPictureUrl(doctor.longDesc);
+            doctor.url = `${environment.host}${UrlService.createDoctorDetailUrl(
+                doctor.alias,
+            )}`;
             this.doctor = doctor;
             this.postService.fetchNextPrevDoctor(doctor.id, doctor.categoryId).subscribe(data2 => {
                 if (data2['PostNext']) {
@@ -117,6 +121,10 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
             this.metaService.updateTag({
                 property: 'og:image',
                 content: this.doctor.picturePath,
+            });
+            this.metaService.updateTag({
+                property: 'og:url',
+                content: doctor.url,
             });
 
             this.loaderService.hide();

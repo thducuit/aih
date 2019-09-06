@@ -13,6 +13,7 @@ import {Clinic} from '../../models/clinic';
 import {ClinicService} from '../../services/clinic.service';
 import {LoaderService} from '../../services/loader-service';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-doctor',
@@ -84,6 +85,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
                     this.metaService.updateTag({name: 'description', content: this.page.metaDesc});
                     this.metaService.updateTag({property: 'og:description', content: this.page.metaDesc});
                     this.metaService.updateTag({name: 'keywords', content: this.page.metaKey});
+                    this.metaService.updateTag({property: 'og:url', content: `${environment.host}/doctor`});
 
                     if (this.page.picture) {
                         this.metaService.updateTag({

@@ -12,6 +12,7 @@ import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
 import {ScrollToService, ScrollToConfigOptions} from '@nicky-lenaers/ngx-scroll-to';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-career-detail',
@@ -119,6 +120,9 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                     career.picturePath = UrlService.createPictureUrl(career.picture);
                 }
                 career.longDesc = UrlService.fixPictureUrl(career.longDesc);
+                career.url = `${environment.host}${UrlService.createCareerDetailUrl(
+                    career.alias,
+                )}`;
                 this.career = career;
                 const pageTitle = `${this.career.metaTitle ||
                 this.career.name} - ${aihStr}`;
@@ -144,6 +148,10 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 this.metaService.updateTag({
                     property: 'og:image',
                     content: this.career.picturePath,
+                });
+                this.metaService.updateTag({
+                    property: 'og:url',
+                    content: career.url,
                 });
             },
             null,

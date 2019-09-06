@@ -9,6 +9,7 @@ import { ClinicService } from '../../../services/clinic.service';
 import { Clinic } from '../../../models/clinic';
 import { Meta, Title } from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -67,6 +68,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         this.page.metaDesc && this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
         this.page.metaDesc && this.metaService.updateTag({ property: 'og:description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey  || '' });
+        this.metaService.updateTag({ property: 'og:url', content: `${environment.host}/about-us/aih-hospital` });
 
         if (this.page.picture) {
             this.metaService.updateTag({
