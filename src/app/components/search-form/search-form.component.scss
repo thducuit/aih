@@ -49,3 +49,10 @@ textarea {
     background: url(/assets/images/btn-search-mb.png) no-repeat;
   }
 }
+
+@media screen and (max-width: 769px) {
+  .btn-search {
+    width: 30px;
+    height: 30px;
+  }
+}
