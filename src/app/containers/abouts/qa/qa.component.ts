@@ -123,7 +123,7 @@ export class QaComponent implements OnInit, OnDestroy {
 
             if(this.page.picture) {
                 this.metaService.updateTag({
-                  name: 'og:image',
+                  property: 'og:image',
                   content: UrlService.createPictureUrl(this.page.picture),
                 });
             }
