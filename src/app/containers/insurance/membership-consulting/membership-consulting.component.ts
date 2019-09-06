@@ -119,6 +119,24 @@ export class MembershipConsultingComponent implements OnInit {
         insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
+
+      const pageTitle = this.category.metaTitle || this.category.name;
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle
+      });
+      this.category.metaDesc && this.metaService.updateTag({ name: 'description', content: this.category.metaDesc });
+      this.category.metaDesc && this.metaService.updateTag({ property: 'og:description', content: this.category.metaDesc });
+      this.metaService.updateTag({ name: 'keywords', content: this.category.metaKey });
+
+      if(this.category.picture) {
+          this.metaService.updateTag({
+            name: 'og:image',
+            content: UrlService.createPictureUrl(this.category.picture, null, 'category')
+          });
+      }
+      
       this.loaderService.hide();
     });
   }

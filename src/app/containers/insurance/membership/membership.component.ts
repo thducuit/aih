@@ -128,7 +128,7 @@ export class MembershipComponent implements OnInit {
       this.loadCategory(service.categoryId);
 
       // seo
-      const pageTitle = `${this.service.metaTitle} - ${aihStr}`;
+      const pageTitle = `${this.service.metaTitle || this.service.name} - ${aihStr}`;
       this.titleService.setTitle(pageTitle);
       this.metaService.updateTag({
         property: 'og:title',

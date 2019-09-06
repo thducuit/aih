@@ -47,7 +47,16 @@ export class SearchComponent implements OnInit {
       const posts = data.Posts || [];
       const convertedBlogs: any[] = posts.map(post => {
         const blog = new Blog(post);
-        blog.picturePath = UrlService.createPictureUrl(blog.picture);
+        if (blog.meta.picture) {
+            blog.picturePath = UrlService.createPictureUrl(
+                blog.picture,
+                null,
+                null,
+                true,
+            );
+        } else {
+            blog.picturePath = UrlService.createPictureUrl(blog.picture);
+        }
         blog.url = UrlService.createNewsDetailUrl(blog.alias);
         const { video } = blog.meta;
         if (video) {

@@ -82,6 +82,13 @@ export class ContactComponent implements OnInit, OnDestroy {
         content: this.page.metaKey,
       });
 
+      if(this.page.picture) {
+            this.metaService.updateTag({
+              name: 'og:image',
+              content: UrlService.createPictureUrl(this.page.picture),
+            });
+      }
+
       this.showVote = parseInt(this.page.meta['enable_rating'], 10) === 1;
 
       this.bannerService
@@ -96,9 +103,6 @@ export class ContactComponent implements OnInit, OnDestroy {
             banner.desc = banner.desc;
             return banner;
           });
-          if (this.banners && this.banners.length) {
-            this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
-          }
         });
     });
   }

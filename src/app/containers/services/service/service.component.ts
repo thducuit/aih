@@ -52,7 +52,7 @@ export class ServiceComponent implements OnInit, OnDestroy {
         const page = new Page(post);
         page.longDesc = UrlService.fixPictureUrl(page.longDesc);
         this.page = page;
-        const pageTitle = `${this.page.name} - ${aihStr}`;
+        const pageTitle = `${this.page.metaTitle || this.page.name} - ${aihStr}`;
         // seo
         this.titleService.setTitle(pageTitle);
         this.metaService.updateTag({
@@ -61,6 +61,12 @@ export class ServiceComponent implements OnInit, OnDestroy {
         });
         this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+        if(this.page.picture) {
+            this.metaService.updateTag({
+              name: 'og:image',
+              content: UrlService.createPictureUrl(this.page.picture),
+            });
+        }
       },
       null,
       () => {

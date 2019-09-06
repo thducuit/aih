@@ -57,7 +57,7 @@ export class AboutComponent implements OnInit, OnDestroy {
       .subscribe(([data, aihStr]) => {
         const page = data.Post || {};
         this.page = new Page(page);
-        const pageTitle = `${this.page.name} - ${aihStr}`;
+        const pageTitle = `${this.page.metaTitle ||  this.page.name} - ${aihStr}`;
         // seo
         this.titleService.setTitle(pageTitle);
         this.metaService.updateTag({
@@ -67,6 +67,14 @@ export class AboutComponent implements OnInit, OnDestroy {
         this.page.metaDesc && this.metaService.updateTag({ name: 'description', content: this.page.metaDesc });
         this.page.metaDesc && this.metaService.updateTag({ property: 'og:description', content: this.page.metaDesc });
         this.metaService.updateTag({ name: 'keywords', content: this.page.metaKey });
+
+        if(this.page.picture) {
+            this.metaService.updateTag({
+              name: 'og:image',
+              content: UrlService.createPictureUrl(this.page.picture),
+            });
+        }
+
         this.bannerService.fetch('aboutus', this.page.id).subscribe((bannerData: any) => {
           const banners = bannerData.Banner;
           this.banners = banners.map(banner => {
@@ -75,9 +83,6 @@ export class AboutComponent implements OnInit, OnDestroy {
             banner.url = banner.Link;
             return banner;
           });
-          if (this.banners && this.banners.length) {
-            this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
-          }
         });
       },
       null,

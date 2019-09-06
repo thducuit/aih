@@ -92,7 +92,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
             this.translate
                 .get('american_international_hospital')
                 .subscribe(aihStr => {
-                    const pageTitle = `${this.doctor.name} - ${aihStr}`;
+                    const pageTitle = `${this.doctor.metaTitle ||  this.doctor.name} - ${aihStr}`;
                     this.titleService.setTitle(pageTitle);
                     this.metaService.updateTag({
                         property: 'og:title',

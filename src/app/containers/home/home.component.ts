@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ([homeResp, aihStr]) => {
         const page = homeResp.Post || {};
         this.page = new Page(page);
-        const pageTitle = `${this.page.name} - ${aihStr}`;
+        const pageTitle = `${this.page.metaTitle ||  this.page.name} - ${aihStr}`;
         // seo
         this.titleService.setTitle(pageTitle);
         this.metaService.updateTag({
@@ -76,6 +76,13 @@ export class HomeComponent implements OnInit, OnDestroy {
           name: 'keywords',
           content: this.page.metaKey,
         });
+
+        if(this.page.picture) {
+            this.metaService.updateTag({
+              name: 'og:image',
+              content: UrlService.createPictureUrl(this.page.picture),
+            });
+        }
 
         this.pageService
           .fetchBanner('home_slide')

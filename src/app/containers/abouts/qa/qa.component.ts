@@ -111,7 +111,7 @@ export class QaComponent implements OnInit, OnDestroy {
             page.picturePath = UrlService.createPictureUrl(page.picture);
             this.page = page;
             // seo
-            const pageTitle = `${this.page.name} - ${aihStr}`;
+            const pageTitle = `${this.page.metaTitle || this.page.name} - ${aihStr}`;
             this.titleService.setTitle(pageTitle);
             this.metaService.updateTag({
                 property: 'og:title',
@@ -120,6 +120,13 @@ export class QaComponent implements OnInit, OnDestroy {
             this.page.metaDesc && this.metaService.updateTag({name: 'description', content: this.page.metaDesc});
             this.page.metaDesc && this.metaService.updateTag({property: 'og:description', content: this.page.metaDesc});
             this.metaService.updateTag({name: 'keywords', content: this.page.metaKey});
+
+            if(this.page.picture) {
+                this.metaService.updateTag({
+                  name: 'og:image',
+                  content: UrlService.createPictureUrl(this.page.picture),
+                });
+            }
 
             this.bannerService
                 .fetch('faqspage', this.page.id)
@@ -133,9 +140,7 @@ export class QaComponent implements OnInit, OnDestroy {
                         banner.title = banner.Title;
                         return banner;
                     });
-                    if (this.banners && this.banners.length) {
-                      this.metaService.updateTag({ property: 'og:image', content: this.banners[0].large });
-                    }
+                    
                 });
         },
         null,

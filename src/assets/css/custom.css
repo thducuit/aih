@@ -212,6 +212,7 @@ ngb-datepicker {
 .cr-content {
   width: 70%;
   float: left;
+  padding-right: 20px;
 }
 
 
@@ -271,6 +272,10 @@ ngb-datepicker {
 .copy-cate-detail img {
 	max-width: 100%;
 	height: auto!important;
+}
+
+.detail-cr .ct-copy .cr-content ul ,.detail-cr .ct-copy .cr-content  li {
+  list-style: initial;
 }
 
 @media (max-width: 991px) {
