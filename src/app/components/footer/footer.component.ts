@@ -66,7 +66,9 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subsciption.unsubscribe();
+    if (this.subsciption) {
+      this.subsciption.unsubscribe();
+    }
   }
 
   loadFeatureBlogs() {

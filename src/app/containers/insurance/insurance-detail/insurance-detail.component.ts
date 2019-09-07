@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
 import { Page } from '../../../models/page';
 import { forkJoin, Subscription } from 'rxjs';
@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { environment } from '../../../../environments/environment';
 import {LoaderService} from '../../../services/loader-service';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-insurance-detail',
@@ -32,7 +33,10 @@ export class InsuranceDetailComponent implements OnInit {
   public longDescs;
   public category;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+              @Inject(DOCUMENT) private document,
+              @Inject(PLATFORM_ID) private platformId,
+              private route: ActivatedRoute,
               public insuranceService: InsuranceService,
               public insuranceMediaService: InsuranceMediaService,
               private animateScrollService: NgAnimateScrollService,
@@ -61,7 +65,9 @@ export class InsuranceDetailComponent implements OnInit {
 
   loadPage() {
     this.loaderService.show();
-    window.scroll(0,0);
+    if (isPlatformBrowser(this.platformId)) {
+      window.scroll(0, 0);
+    }
     forkJoin(
       this.pageService.fetch('insurancepage'),
       this.translate.get('american_international_hospital'),

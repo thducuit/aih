@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import {Page} from '../../models/page';
 import {Doctor} from '../../models/doctor';
 import {PageService} from '../../services/page.service';
@@ -14,6 +14,7 @@ import {ClinicService} from '../../services/clinic.service';
 import {LoaderService} from '../../services/loader-service';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {environment} from '../../../environments/environment';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-doctor',
@@ -35,7 +36,10 @@ export class DoctorComponent implements OnInit, OnDestroy {
     private perPage = 8;
     public hideShowMore = false;
 
-    constructor(public pageService: PageService,
+    constructor(
+                @Inject(DOCUMENT) private document,
+                @Inject(PLATFORM_ID) private platformId,
+                public pageService: PageService,
                 public doctorService: DoctorService,
                 public bannerService: BannerService,
                 public clinicService: ClinicService,
@@ -60,7 +64,9 @@ export class DoctorComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     loadPage() {
@@ -116,7 +122,9 @@ export class DoctorComponent implements OnInit, OnDestroy {
 
     loadDoctors() {
         this.loaderService.show();
-        window.scroll(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scroll(0, 0);
+        }
         this.doctorService
             .fetch()
             .subscribe((data: any) => {

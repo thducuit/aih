@@ -47,7 +47,9 @@ export class ContactComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     loadPage() {

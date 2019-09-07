@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {forkJoin, Subscription} from 'rxjs';
 import {Page} from '../../../models/page';
 import {UrlService} from '../../../services/url.service';
@@ -11,6 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-insurance-membership',
@@ -24,7 +25,10 @@ export class InsuranceMembershipComponent implements OnInit {
     public categories: Array<any> = [];
     private subscription: Subscription;
 
-    constructor(public insuranceService: InsuranceService,
+    constructor(
+                @Inject(DOCUMENT) private document,
+                @Inject(PLATFORM_ID) private platformId,
+                public insuranceService: InsuranceService,
                 public insuranceMediaService: InsuranceMediaService,
                 public pageService: PageService,
                 public bannerService: BannerService,
@@ -45,7 +49,9 @@ export class InsuranceMembershipComponent implements OnInit {
 
     loadPage() {
         this.loaderService.show();
-        window.scroll(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scroll(0, 0);
+        }
         forkJoin(
             this.pageService.fetch('insurancepage'),
             this.translate.get('american_international_hospital'),

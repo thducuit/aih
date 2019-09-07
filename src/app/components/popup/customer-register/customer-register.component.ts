@@ -163,7 +163,9 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     openSuccess() {
