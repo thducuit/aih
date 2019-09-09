@@ -32,7 +32,7 @@
 
       <div class="insurance-consulting-content clearfix">
 
-        <div class="box-content" *ngIf="service">
+        <div class="box-content content-for-detail" *ngIf="service">
           <div class="heading">{{ service.name }}</div>
           <span *ngFor="let longDesc of longDescs">
             <p [innerHTML]="longDesc.content | decodeHtmlEntities | safeHtml"></p>

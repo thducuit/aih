@@ -13,7 +13,7 @@
           <h3>{{ 'our_departments' | translate }}</h3>
           <app-sidebar></app-sidebar>
         </div>
-        <div class="copy-text copy" [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></div>
+        <div class="copy-text copy content-for-detail" [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></div>
       </div>
     </div>
   </section>

@@ -1,7 +1,10 @@
 .copyscroll {
   overflow-y: scroll;
 }
-
+.content-for-detail li , .content-for-detail ul {
+  list-style: inherit;
+  list-style-position: inside;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
@@ -28,6 +31,7 @@
 
 .copy img {
   max-width: 100%;
+  height: auto!important
 }
 
 .calendar .ngb-dp-header {background: none}
@@ -276,6 +280,11 @@ ngb-datepicker {
 
 .detail-cr .ct-copy .cr-content ul ,.detail-cr .ct-copy .cr-content  li {
   list-style: initial;
+}
+
+.pNews-detail .breadcrumb {
+  position: relative;
+  top: 15px;
 }
 
 @media (max-width: 991px) {

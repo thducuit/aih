@@ -1,4 +1,4 @@
-<main id="pNews" *ngIf="blog">
+<main id="pNews" *ngIf="blog" class="pNews-detail">
 
   <div class="breadcrumb">
     <div class="container">
@@ -23,7 +23,7 @@
             <span class="cm">{{blog.totalComments}}</span>
             <span class="like">{{blog.totalLikes}}</span>
           </div>
-          <div class="copy" [innerHTML]="blog.longDesc | safeHtml"></div>
+          <div class="copy content-for-detail" [innerHTML]="blog.longDesc | safeHtml"></div>
 
           <div class="btn-dt clearfix">
             <a *ngIf="postPrev" routerLink="{{ postPrev.url }}" class="prev-doctor" >{{ 'previous_link' | translate }} <br><span>{{ postPrev.name }}</span></a>
