@@ -38,7 +38,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     getPageClasses() {

@@ -56,7 +56,9 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     loadByClinic(clinic) {
@@ -115,7 +117,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
                     this.allBlogs.push(blog);
                     return blog;
-                }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+                });
 
                 if (isShowAll) {
                     this.blogs = this.allBlogs.reduce((acc, current) => {

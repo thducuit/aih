@@ -55,7 +55,9 @@ export class CareerComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     loadPage() {
@@ -83,8 +85,8 @@ export class CareerComponent implements OnInit, OnDestroy {
 
                 if (this.page.picture) {
                     this.metaService.updateTag({
-                        name: 'og:image',
-                        property: UrlService.createPictureUrl(this.page.picture),
+                        property: 'og:image',
+                        content: UrlService.createPictureUrl(this.page.picture)
                     });
                 }
 

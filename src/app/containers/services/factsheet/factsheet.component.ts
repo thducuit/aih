@@ -56,7 +56,9 @@ export class FactsheetComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     loadPage() {

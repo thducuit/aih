@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import {Doctor} from '../../../models/doctor';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../../services/post.service';
@@ -10,6 +10,7 @@ import {GlobalEventService} from 'src/app/services/global-event.service';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-doctor-detail',
@@ -24,7 +25,10 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
 
     public isShowWarning = false;
 
-    constructor(private route: ActivatedRoute,
+    constructor(
+                @Inject(DOCUMENT) private document,
+                @Inject(PLATFORM_ID) private platformId,
+                private route: ActivatedRoute,
                 public postService: PostService,
                 private globalEventService: GlobalEventService,
                 private translate: TranslateService,
@@ -59,12 +63,16 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     private loadPosts(alias) {
         this.loaderService.show();
-        window.scroll(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scroll(0, 0);
+        }
         this.postService.fetch(alias).subscribe((data: any) => {
             const doctor = new Doctor(data.Post);
             if (!doctor.isShow) {

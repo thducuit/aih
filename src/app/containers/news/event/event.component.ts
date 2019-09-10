@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import {Blog} from '../../../models/blog';
 import {UrlService} from '../../../services/url.service';
 import {BlogService} from '../../../services/blog.service';
@@ -9,6 +9,7 @@ import {Title, Meta} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {VideoComponent} from 'src/app/components/popup/video/video.component';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-event',
@@ -30,7 +31,9 @@ export class EventComponent implements OnInit, OnDestroy {
 
     public iframeSrc;
 
-    constructor(public blogService: BlogService,
+    constructor(@Inject(DOCUMENT) private document,
+                @Inject(PLATFORM_ID) private platformId,
+                public blogService: BlogService,
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private titleService: Title,
@@ -62,12 +65,16 @@ export class EventComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+          this.subscription.unsubscribe();
+        }
     }
 
     loadNews() {
         this.loaderService.show();
-        window.scroll(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scroll(0, 0);
+        }
         this.blogService
             .fetch(1, 999, ['post_ishot DESC', 'post_datepublish DESC'])
             .subscribe((data: any) => {

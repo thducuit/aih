@@ -31,7 +31,9 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     loadClinics() {

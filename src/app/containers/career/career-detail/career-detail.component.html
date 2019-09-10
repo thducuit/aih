@@ -56,7 +56,7 @@
       <div class="detail-cr">
         <h2>{{ 'detail' | translate }}</h2>
         <div class="ct-copy">
-          <div class="cr-content"><div [innerHTML]="career.longDesc | safeHtml"></div></div>
+          <div class="cr-content content-for-detail"><div [innerHTML]="career.longDesc | safeHtml"></div></div>
           <div class="main-if">
             <p><img src="../assets/images/icon-cr-dt-1.png"> {{ 'date' | translate }}<br/>{{ career.date | date:'dd/MM/yyyy'}}</p>
             <p><img src="../assets/images/icon-cr-dt-2.png"> {{ 'level' | translate }}<br/>{{ career.meta.level }}</p>

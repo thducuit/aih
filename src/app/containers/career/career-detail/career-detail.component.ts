@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import {Career} from '../../../models/career';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../../services/post.service';
@@ -13,6 +13,7 @@ import {PageService} from '../../../services/page.service';
 import {ScrollToService, ScrollToConfigOptions} from '@nicky-lenaers/ngx-scroll-to';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-career-detail',
@@ -37,7 +38,10 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
         appendDots: '.banner-careers',
     };
 
-    constructor(private route: ActivatedRoute,
+    constructor(
+                @Inject(DOCUMENT) private document,
+                @Inject(PLATFORM_ID) private platformId,
+                private route: ActivatedRoute,
                 public pageService: PageService,
                 public postService: PostService,
                 public bannerService: BannerService,
@@ -73,7 +77,9 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     sliderInit(e) {
@@ -107,7 +113,9 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
 
     private loadPosts(alias) {
         this.loaderService.show();
-        window.scroll(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scroll(0, 0);
+        }
         forkJoin(
             this.postService.fetch(alias),
             this.translate.get('american_international_hospital'),

@@ -63,8 +63,12 @@ export class SectionBookingHomeComponent
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.resizeSubscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    if (this.resizeSubscription) {
+      this.resizeSubscription.unsubscribe();
+    }
   }
 
   ngAfterViewInit(): void {

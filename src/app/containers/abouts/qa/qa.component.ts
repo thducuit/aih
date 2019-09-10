@@ -52,7 +52,9 @@ export class QaComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+      if (this.subscription) {
         this.subscription.unsubscribe();
+      }
     }
 
     getLeftColumnItems() {

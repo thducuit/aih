@@ -40,7 +40,9 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.scrollSubscription.unsubscribe();
+    if (this.scrollSubscription) {
+      this.scrollSubscription.unsubscribe();
+    }
   }
 
   @HostListener('window:scroll', ['$event'])
