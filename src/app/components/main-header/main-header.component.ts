@@ -19,13 +19,13 @@ import { Subscription } from 'rxjs';
       state(
         'initial',
         style({
-          left: '-100%',
+          transform: 'translateX(-100%)'
         }),
       ),
       state(
         'final',
         style({
-          left: 0,
+          transform: 'translateX(0)'
         }),
       ),
       transition('initial=>final', animate('500ms')),
@@ -34,7 +34,6 @@ import { Subscription } from 'rxjs';
   ],
 })
 export class MainHeaderComponent implements OnInit, OnDestroy {
-  currentState = 'initial';
   isMobileNavOpened = false;
   routerSubscription: Subscription;
 
@@ -43,7 +42,7 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        this.currentState = 'initial';
+        this.isMobileNavOpened = false;
       }
     });
   }
@@ -55,15 +54,6 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleState() {
-    this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
-  }
-
-  onAnimation(event: AnimationEvent) {
-    if (event.phaseName === 'done') {
-      document.body.style.overflow =
-        event.toState === 'final' ? 'hidden' : 'auto';
-    } else {
-      this.isMobileNavOpened = event.toState === 'final';
-    }
+    this.isMobileNavOpened = !this.isMobileNavOpened;
   }
 }

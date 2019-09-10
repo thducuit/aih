@@ -39,30 +39,12 @@ export class FooterComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.appendFacebookBox();
     this.loadFeatureBlogs();
     this.loadFeatureClinics();
     this.subsciption = this.translate.onLangChange.subscribe(() => {
       this.loadFeatureBlogs();
       this.loadFeatureClinics();
     });
-  }
-
-  appendFacebookBox() {
-    // if (isPlatformBrowser(this.platformId)) {
-    //   this.zone.runOutsideAngular(() => {
-    //     const url =
-    //       'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=365507434348874&autoLogAppEvents=1';
-    //     if (!document.querySelector(`script[src='${url}']`)) {
-    //       const script = document.createElement('script');
-    //       script.src = url;
-    //       script.crossOrigin = 'anonymous';
-    //       script.async = true;
-    //       script.defer = true;
-    //       this.renderer.appendChild(this.document.body, script);
-    //     }
-    //   });
-    // }
   }
 
   ngOnDestroy() {

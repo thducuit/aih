@@ -3,7 +3,8 @@ import {
   OnInit,
   OnDestroy,
   Inject,
-  PLATFORM_ID, ViewChild,
+  PLATFORM_ID,
+  ViewChild,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../../services/post.service';
@@ -30,7 +31,6 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { LikeService } from '../../../services/like.service';
 import { LoaderService } from '../../../services/loader-service';
 
-
 @Component({
   selector: 'app-news-detail',
   templateUrl: './news-detail.component.html',
@@ -54,20 +54,21 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('commentArea', { static: false }) commentArea;
 
-  constructor(@Inject(PLATFORM_ID) private platformId,
-              private route: ActivatedRoute,
-              public postService: PostService,
-              public blogService: BlogService,
-              private translate: TranslateService,
-              private metaService: Meta,
-              private titleService: Title,
-              private router: Router,
-              private authService: AuthService,
-              public commentService: CommentService,
-              private loaderService: LoaderService,
-              private animateScrollService: NgAnimateScrollService,
-              public likeService: LikeService) {
-  }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId,
+    private route: ActivatedRoute,
+    public postService: PostService,
+    public blogService: BlogService,
+    private translate: TranslateService,
+    private metaService: Meta,
+    private titleService: Title,
+    private router: Router,
+    private authService: AuthService,
+    public commentService: CommentService,
+    private loaderService: LoaderService,
+    private animateScrollService: NgAnimateScrollService,
+    public likeService: LikeService,
+  ) {}
 
   ngOnInit() {
     this.isShowWarning = false;
@@ -110,8 +111,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
     this.postService.fetch(alias, true).subscribe(data => {
       const blog = new Blog(data['Post']);
       if (!blog.isShow) {
-        this.router.navigateByUrl('/').then(e => {
-        });
+        this.router.navigateByUrl('/').then(e => {});
       }
       blog.totalComments = data['TotalComments'] || 0;
       blog.totalLikes = data['TotalLikes'] || 0;
@@ -144,18 +144,14 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       }
 
       // seo
-      this.translate
-        .get('american_international_hospital')
-        .subscribe(aihStr => {
-          const pageTitle = this.blog.metaTitle
-            ? `${this.blog.metaTitle} - ${aihStr}`
-            : `${this.blog.name} - ${aihStr}`;
-          this.titleService.setTitle(pageTitle);
-          this.metaService.updateTag({
-            property: 'og:title',
-            content: pageTitle,
-          });
-        });
+      const pageTitle = this.blog.metaTitle
+        ? this.blog.metaTitle
+        : this.blog.name;
+      this.titleService.setTitle(pageTitle);
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: pageTitle,
+      });
       this.metaService.updateTag({
         name: 'description',
         content: this.blog.metaDesc,
@@ -234,8 +230,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
 
   gotoSearch() {
     const url = `/search?keyword=${this.keyword}`;
-    this.router.navigateByUrl(url).then(e => {
-    });
+    this.router.navigateByUrl(url).then(e => {});
   }
 
   sendComment() {

@@ -11,11 +11,7 @@
 		<div class="right-hd-mb">
 			<app-language></app-language>
 		</div>
-    <div class="nav-wrap"
-      [@toggleNav]="currentState"
-      (@toggleNav.start)="onAnimation($event)"
-      (@toggleNav.done)="onAnimation($event)">
-
+    <div class="nav-wrap" [ngClass]="{'expand': isMobileNavOpened}">
 			<app-nav></app-nav>
 			<app-search-form></app-search-form>
 			<app-language></app-language>
