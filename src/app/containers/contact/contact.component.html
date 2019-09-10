@@ -23,7 +23,9 @@
       <div class="copy">
         <h3>{{ 'send_us_your_questions' | translate }}</h3>
         <h4>{{ page.name }}</h4>
-        <div [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></div>
+        <div>
+          <p [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></p>
+        </div>
       </div>
       <app-contact-form></app-contact-form>
       <div *ngIf="showVote" class="rating">

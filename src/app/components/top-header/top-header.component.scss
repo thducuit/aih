@@ -28,7 +28,7 @@
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
         &:hover {
-          color: #e1115b;
+          color: #fff;
         }
       }
     }
@@ -82,10 +82,22 @@
 
 .left-hd {
   .emergancy {
-    color: $color-razzmatazz;
+    color: #fff;
     font-style: normal;
     font-family: utm_avobold;
   }
+}
+
+.emergancy-area {
+      display: block;
+    background: #e20e5a;
+    padding: 3px 10px;
+    margin-top: -3px;
+    border-radius: 5px;
+}
+
+.emergancy-area:hover {
+  color:#fff
 }
 
 @media screen and (min-width: 1281px) and (max-width: 1659px) {
