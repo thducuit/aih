@@ -52,6 +52,6 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
   }
 
   getLongDesc(feedback: Feedback) {
-    return (feedback ? `${feedback.longdesc}` : '').substr(121) + '....';
+    return (feedback ? `${feedback.longdesc}` : '').substr(0, 121) + '....';
   }
 }
