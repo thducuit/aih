@@ -80,7 +80,7 @@
                   <td>
                     <img src="../assets/images/check.png" alt="" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] === 'x'"/>
                     <img src="../assets/images/no-check.png" alt="" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] === ''">
-                    <span *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] !== '' && child.meta[chosenPackageChild.id] !== 'x'">{{ child.meta[chosenPackageChild.id] }}</span>
+                    <span class="medi-text" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] !== '' && child.meta[chosenPackageChild.id] !== 'x'">{{ child.meta[chosenPackageChild.id] }}</span>
                   </td>
                   <!-- <td>
                     <img src="../assets/images/check.png" alt="" *ngIf="child.meta.indexOf(currentPackages[1].id)"/>
