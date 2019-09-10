@@ -207,6 +207,11 @@
     overflow: auto;
     padding-bottom: 20px;
     z-index: 1;
+    transition: transform 0.5s linear;
+
+    &.expand {
+      transform: translateX(100%);
+    }
 
     ::ng-deep {
       nav {
