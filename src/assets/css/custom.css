@@ -291,6 +291,8 @@ ngb-datepicker {
   .nav-wrap .lang {
     display: none;
   }
+
+
 }
 
 @media screen and (max-width: 769px) {
@@ -301,6 +303,10 @@ ngb-datepicker {
   .copy-cate-detail img {
     max-width: 100%;
     height: auto!important;
+  }
+
+  .item-doc:hover .tt-doc-crs, .item-doc:hover .copy {
+    padding: 10px 20px;
   }
 }
 
