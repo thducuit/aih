@@ -76,7 +76,7 @@
 
               <ng-container  *ngFor="let child of currentPackageService.children" >     
                 <tr *ngIf="child.meta.hasOwnProperty(chosenPackage.id)" >
-                  <td>{{ child.no }}.{{ child.name }}</td>
+                  <td>{{ child.no }}.&nbsp;&nbsp;&nbsp;&nbsp;{{ child.name }}</td>
                   <td>
                     <img src="../assets/images/check.png" alt="" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] === 'x'"/>
                     <img src="../assets/images/no-check.png" alt="" *ngIf="child.meta.hasOwnProperty(chosenPackageChild.id) && child.meta[chosenPackageChild.id] === ''">
@@ -93,7 +93,7 @@
             </table>
           </div>
         </div>
-        <p [innerHTML]="(chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities | safeHtml"></p>
+        <p class="pprice" *ngIf="chosenPackageChild && chosenPackageChild.desc" [innerHTML]="(chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities | safeHtml"></p>
       </div>
 
       <!--<div class="box-btn-medical clearfix">
