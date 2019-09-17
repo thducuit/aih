@@ -8,7 +8,7 @@
       *ngFor="let item of banners;trackBy: trackBannerUrl"
       ngxSlickItem
       class="item"
-      [ngStyle]="{ background: 'url(' + item.large + ') no-repeat' }"
+      [ngStyle]="{ background: 'url(' + item.large + ') no-repeat center' }"
     >
       <div class="container">
         <a [href]="item.link"></a>
