@@ -120,7 +120,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         this.selectedDoctor = doctor;
         if (doctor) {
             if (this.selectedDate) {
-                this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
+                this.loadTqTimeFirst(this.selectedDoctor.doctorId, this.selectedDate);
             }
             this.bookingSpecialty.filterClinicByDoctor(doctor);
 
@@ -135,7 +135,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             this.bookingDate.reset();
         }
         if (this.selectedDoctor) {
-            this.loadTime(this.selectedDoctor.doctorId, date);
+            this.loadTqTimeFirst(this.selectedDoctor.doctorId, date);
         }
         this.animateNextStep();
     }
@@ -457,7 +457,6 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             .callDateBooking(doctorId, selectedDate)
             .subscribe((data: any) => {
                 const response = data['Data'] || null;
-
                 if (response) {
                     const timeData = JSON.parse(response);
                     let aihTimeBlocks = [];
@@ -486,13 +485,12 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             .callDateBookingTemp(doctorId, newDate, isOffline)
             .subscribe((data2: any) => {
                 const response2 = data2['Bookings'] || [];
-                console.log('response2', response2);
                 const timeBlocked = response2.map(item => {
-                        const startime = item['booking_starttime'];
-                        const endtime = item['booking_endtime'];
+                    const startime = item['booking_starttime'];
+                    const endtime = item['booking_endtime'];
 
-                        return `${startime}-${endtime}`;
-                    });
+                    return `${startime}-${endtime}`;
+                });
 
                 aihTimeBlocked = [
                     ...new Set([...aihTimeBlocked, ...timeBlocked]),
@@ -550,6 +548,102 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 if (this.timeBlock.length === 0 && this.isLoadTimeFail === false) {
                     this.showPopupTheDoctorTimeBlocksIsFull();
                 }
+            });
+    }
+
+    loadTqTimeFirst(doctorId, selectedDate) {
+        const newDate = ngbDateStructToString(selectedDate);
+        this.bookingService
+            .callDateBookingTemp(doctorId, newDate, true)
+            .subscribe((data2: any) => {
+                const response2 = data2['Bookings'] || [];
+                const timeBlocked = response2.map(item => {
+                    const startime = item['booking_starttime'];
+                    const endtime = item['booking_endtime'];
+
+                    return `${startime}-${endtime}`;
+                });
+
+                const timeBlockedByTQ = response2.map(item => {
+                    const startime = item['booking_starttime'];
+                    const endtime = item['booking_endtime'];
+
+                    return `${startime}-${endtime}`;
+                }).filter(item => item.source === 1);
+
+                let aihTimeBlocked = [];
+
+                aihTimeBlocked = [
+                    ...new Set([...aihTimeBlocked, ...timeBlocked]),
+                ];
+
+                const currentDate = selectedDate
+                    ? moment(`${ngbDateStructToString(selectedDate)}T00:00:00`)
+                    : null;
+                const absenceHaftDay = [];
+                const aihScheduleByDate = this.scheduleOfDoctor
+                    .filter(x => {
+                        let result = true;
+                        if (currentDate) {
+                            const dateFrom = moment(x.dateFrom);
+                            const dateTo = moment(x.dateTo);
+                            result =
+                                result &&
+                                dateFrom.isSameOrBefore(currentDate, 'day') &&
+                                dateTo.isSameOrAfter(currentDate, 'day');
+                            if (result && x.timeSlot === -1) {
+                                absenceHaftDay.push(x);
+                            }
+                            result = result && x.slot.indexOf(DaysOfWeek[currentDate.day()]) >= 0;
+                        }
+                        return result;
+                    });
+
+                const aihScheduleAbsence = absenceHaftDay
+                    .map(x => {
+                        const dateFrom = x.dateFrom.substr(x.dateFrom.indexOf('T') + 1, x.dateFrom.length);
+                        const dateTo = x.dateTo.substr(x.dateTo.indexOf('T') + 1, x.dateTo.length);
+                        return `${dateFrom.substr(0, dateFrom.length - 3)}-${dateTo.substr(0, dateFrom.length - 3)}`;
+                    });
+
+                const aihTimeBlocksSync = aihScheduleByDate.map(item => {
+                    return item.hrs || [];
+                });
+
+                this.timeBlock = DateService.getBlockDate(
+                    [].concat.apply([], [...aihTimeBlocksSync]),
+                    aihTimeBlocked,
+                );
+
+                this.timeBlock = DateService.checkAbsenceTime(this.timeBlock, aihScheduleAbsence);
+
+                this.loadTimeAIH(doctorId, selectedDate, timeBlockedByTQ);
+            });
+    }
+
+    loadTimeAIH(doctorId, selectedDate: NgbDateStruct, timeBlockedByTQ) {
+        this.bookingService
+            .callDateBooking(doctorId, selectedDate)
+            .subscribe((data: any) => {
+                const response = data['Data'] || null;
+                if (response) {
+                    const timeData = JSON.parse(response);
+                    let aihTimeBlocks = [];
+                    let aihTimeBlocked = [];
+                    timeData.map(item => {
+                        aihTimeBlocks = [...aihTimeBlocks, ...item['timeBlock']];
+                        aihTimeBlocked = [...aihTimeBlocked, ...item['timeBlocked']];
+                    });
+                    aihTimeBlocks = [...new Set(aihTimeBlocks)];
+                    aihTimeBlocked = [...new Set(aihTimeBlocked), ...new Set(timeBlockedByTQ)];
+                    aihTimeBlocks = aihTimeBlocks.filter(item => item !== '');
+
+                    this.timeBlock = DateService.getBlockDate(
+                        aihTimeBlocks,
+                        aihTimeBlocked,
+                    );
+                }
+            }, () => {
             });
     }
 
