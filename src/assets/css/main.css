@@ -3447,7 +3447,8 @@ header.fixHd .bg {
 .banner-home .slick-prev {
   bottom: auto;
   top: 50%;
-  background-size: 30px
+  background-size: 30px;
+  outline: none;
 }
 
 .banner-home .slick-next {
