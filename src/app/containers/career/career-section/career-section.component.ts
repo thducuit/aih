@@ -18,7 +18,7 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
     public careerCategories: Array<any> = [];
     public careers: Array<any> = [];
     private subscription: Subscription;
-    private perPage = 2;
+    private perPage = 10;
 
     constructor(public careerCategoryService: CareerCategoryService,
                 public careerService: CareerService,
