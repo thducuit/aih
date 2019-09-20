@@ -69,6 +69,28 @@ export class DateService {
         return blocks;
     }
 
+    static removeOldTime(timeBlocks, serverTime) {
+        if (!serverTime) {
+            return timeBlocks;
+        }
+        const times = serverTime.split(' ');
+        const date = times[0].trim();
+        const time = times[1].trim();
+        const nowTime = moment().format();
+        const nowTimes = nowTime.split('T');
+        const nowDate = nowTimes[0].trim();
+        if (nowDate === date) {
+            const blocks = [];
+            timeBlocks.forEach(item => {
+                if (item >= time) {
+                    blocks.push(item);
+                }
+            });
+            return blocks;
+        }
+        return timeBlocks;
+    }
+
     private static isAbsence(time: any, timeBlocked: any) {
         let check = false;
         for (let i = 0; i < timeBlocked.length; i++) {

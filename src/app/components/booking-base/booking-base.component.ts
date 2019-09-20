@@ -557,6 +557,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             .callDateBookingTemp(doctorId, newDate, true)
             .subscribe((data2: any) => {
                 const response2 = data2['Bookings'] || [];
+                const serverTime = data2['ServerTime'];
                 const timeBlocked = response2.map(item => {
                     const startime = item['booking_starttime'];
                     const endtime = item['booking_endtime'];
@@ -616,6 +617,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 );
 
                 this.timeBlock = DateService.checkAbsenceTime(this.timeBlock, aihScheduleAbsence);
+                this.timeBlock = DateService.removeOldTime(this.timeBlock, serverTime);
 
                 this.loadTimeAIH(doctorId, selectedDate, timeBlockedByTQ);
             });
