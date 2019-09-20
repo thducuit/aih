@@ -69,17 +69,14 @@ export class DateService {
         return blocks;
     }
 
-    static removeOldTime(timeBlocks, serverTime) {
+    static removeOldTime(timeBlocks, serverTime, chooseDate) {
         if (!serverTime) {
             return timeBlocks;
         }
         const times = serverTime.split(' ');
         const date = times[0].trim();
         const time = times[1].trim();
-        const nowTime = moment().format();
-        const nowTimes = nowTime.split('T');
-        const nowDate = nowTimes[0].trim();
-        if (nowDate === date) {
+        if (chooseDate.trim() === date) {
             const blocks = [];
             timeBlocks.forEach(item => {
                 if (item >= time) {

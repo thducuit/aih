@@ -617,7 +617,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 );
 
                 this.timeBlock = DateService.checkAbsenceTime(this.timeBlock, aihScheduleAbsence);
-                this.timeBlock = DateService.removeOldTime(this.timeBlock, serverTime);
+                this.timeBlock = DateService.removeOldTime(this.timeBlock, serverTime, newDate);
 
                 this.loadTimeAIH(doctorId, selectedDate, timeBlockedByTQ);
             });
