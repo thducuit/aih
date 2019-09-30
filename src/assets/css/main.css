@@ -4830,7 +4830,7 @@ header.fixHd .bg {
 
 .drop-pk p span {
   word-break: break-all;
-  white-space: pre;
+  white-space: nowrap;
   position: relative
 }
 
