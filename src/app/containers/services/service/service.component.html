@@ -8,10 +8,10 @@
     <div class="container">
       <app-service-drop-mb></app-service-drop-mb>
 
-      <div class="content-sv" myMatchHeight="copy-text"  *ngIf="page">
+      <div class="content-sv" myMatchHeight="copy-text" *ngIf="page">
         <div class="copy-text service-cate">
           <h3>{{ 'our_departments' | translate }}</h3>
-          <app-sidebar></app-sidebar>
+          <app-sidebar (loadFinish)="handleLoadCateFinish($event)"></app-sidebar>
         </div>
         <div class="copy-text copy content-for-detail" [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></div>
       </div>
@@ -24,7 +24,7 @@
       <div class="tt-item">
         <h3>{{ 'news' | translate }}</h3>
       </div>
-      <app-news-item></app-news-item>
+      <app-news-item [perPage]="4"></app-news-item>
     </div>
   </section>
 </main>

@@ -42,6 +42,9 @@ export class ServiceComponent implements OnInit, OnDestroy {
       }
     }
 
+    handleLoadCateFinish() {
+    }
+
     loadPage() {
         this.loaderService.show();
         forkJoin(

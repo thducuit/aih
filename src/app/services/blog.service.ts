@@ -40,11 +40,11 @@ export class BlogService extends BaseService {
         return this.http.post('post/list', postData);
     }
 
-    getByClinic(id) {
+    getByClinic(pageNum: number, perPage = 999, id) {
       const postData = {
         publish: 1,
-        rowperpage: 999,
-        pageselected: 1,
+        rowperpage: perPage,
+        pageselected: pageNum || 1,
         cate_id: [id],
         lang: this.getCurrentLocal()
       };
