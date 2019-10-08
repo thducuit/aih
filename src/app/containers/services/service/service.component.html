@@ -8,7 +8,7 @@
     <div class="container">
       <app-service-drop-mb></app-service-drop-mb>
 
-      <div class="content-sv" myMatchHeight="copy-text" *ngIf="page">
+      <div class="content-sv" *ngIf="page">
         <div class="copy-text service-cate">
           <h3>{{ 'our_departments' | translate }}</h3>
           <app-sidebar (loadFinish)="handleLoadCateFinish($event)"></app-sidebar>
