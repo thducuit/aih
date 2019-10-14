@@ -120,7 +120,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         this.selectedDoctor = doctor;
         if (doctor) {
             if (this.selectedDate) {
-                this.loadTqTimeFirst(this.selectedDoctor.doctorId, this.selectedDate);
+                this.loadTime(this.selectedDoctor.doctorId, this.selectedDate);
             }
             this.bookingSpecialty.filterClinicByDoctor(doctor);
 
@@ -135,7 +135,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             this.bookingDate.reset();
         }
         if (this.selectedDoctor) {
-            this.loadTqTimeFirst(this.selectedDoctor.doctorId, date);
+            this.loadTime(this.selectedDoctor.doctorId, date);
         }
         this.animateNextStep();
     }
