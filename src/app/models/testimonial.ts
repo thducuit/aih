@@ -13,7 +13,7 @@ export class Testimonial {
     this.cateid = data.media_cateid;
     this.description = data.media_description;
     this.thumb = data.media_thumb;
-    this.longdesc = `${extractHtmlText(escapeHtml(data.media_longdesc))}`.trim();
+    this.longdesc = data.media_longdesc; // `${extractHtmlText(escapeHtml())}`.trim();
     this.title = data.media_title;
   }
 }
