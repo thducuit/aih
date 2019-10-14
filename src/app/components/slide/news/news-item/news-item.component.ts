@@ -39,6 +39,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
     @Input() showChosenPackage = false;
     @Input() readmore = false;
     @Input() clinic;
+    @Input() perPage;
 
     constructor(public blogService: BlogService,
                 private translate: TranslateService,
@@ -63,9 +64,11 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
     loadByClinic(clinic) {
         this.loaderService.show();
-        this.blogService.getByClinic(clinic.id).subscribe((data2: any) => {
+        const perPage = this.perPage || ItemPerPage;
+        this.blogService.getByClinic(this.currentPage, perPage, clinic.id).subscribe((data2: any) => {
             const posts = data2.Posts || [];
-            this.totalPage = Math.ceil(data2.TotalRecord / ItemPerPage);
+            const perPage = this.perPage || ItemPerPage;
+            this.totalPage = Math.ceil(data2.TotalRecord / perPage);
             this.blogs = posts.map(post => {
                 const blog = new Blog(post);
 
@@ -93,11 +96,12 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
     loadNews(isShowAll = false) {
         this.loaderService.show();
+        const perPage = this.perPage || ItemPerPage;
         this.blogService
-            .fetch(this.currentPage, ItemPerPage, ['post_datepublish DESC'], true)
+            .fetch(this.currentPage, perPage, ['post_datepublish DESC'], true)
             .subscribe((data: any) => {
                 const posts = data.Posts || [];
-                this.totalPage = Math.ceil(data.TotalRecord / ItemPerPage);
+                this.totalPage = Math.ceil(data.TotalRecord / perPage);
                 this.blogs = posts.map(post => {
                     const blog = new Blog(post);
 
@@ -136,7 +140,12 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
     selectPage(pageNum: number) {
         this.currentPage = Math.max(0, Math.min(pageNum, this.totalPage));
-        this.loadNews();
+        if (this.clinic) {
+            this.loadByClinic(this.clinic);
+        }else {
+            this.loadNews();
+        }
+        
     }
 
     appendNews() {

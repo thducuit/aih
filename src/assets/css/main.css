@@ -3447,7 +3447,8 @@ header.fixHd .bg {
 .banner-home .slick-prev {
   bottom: auto;
   top: 50%;
-  background-size: 30px
+  background-size: 30px;
+  outline: none;
 }
 
 .banner-home .slick-next {
@@ -4829,7 +4830,7 @@ header.fixHd .bg {
 
 .drop-pk p span {
   word-break: break-all;
-  white-space: pre;
+  white-space: nowrap;
   position: relative
 }
 

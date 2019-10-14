@@ -10,7 +10,7 @@
         <h3>{{ careerCategory.name }}</h3>
         <ul class="clearfix js-medical-list">
 
-            <li *ngFor="let career of careerCategory.careers">
+            <li *ngFor="let career of careerCategory.filterCareers">
                 <img src="/assets/images/icon-cr-2.png">
                 <div class="copy">
                     <h4>{{ career.name }}</h4>
@@ -20,5 +20,15 @@
             </li>
 
         </ul>
+
+        <div *ngIf="careerCategory.pages && careerCategory.pages.length > 1" class="paging js-paging-ajax">
+            <a *ngIf="careerCategory.currentPage > 1" target="_self" class="prev-page" (click)="prevPage(careerCategory, page)"></a>
+            <ng-container  *ngFor="let page of careerCategory.pages">
+                <span *ngIf="page === careerCategory.currentPage">{{ page }}</span>
+                <a *ngIf="page !== careerCategory.currentPage" target="_self" (click)="currPage(careerCategory, page)">{{ page }}</a>
+            </ng-container >
+            <a *ngIf="careerCategory.currentPage < careerCategory.pages.length" target="_self" class="next-page" (click)="nextPage(careerCategory)"></a>
+        </div>
+
     </div>
 </div>

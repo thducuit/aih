@@ -107,6 +107,7 @@ export class EventComponent implements OnInit, OnDestroy {
                     });
 
                 this.blogs = convertedBlogs;
+
                 this.pagination();
                 this.calcPages();
                 this.loaderService.hide();
@@ -115,12 +116,12 @@ export class EventComponent implements OnInit, OnDestroy {
 
     pagination() {
         const start =
-            (this.currentPage - 1) * this.perPage + (this.currentPage - 1);
+            (this.currentPage - 1) * this.perPage;
         this.filterBlogs = this.blogs.slice(start, start + this.perPage);
     }
 
     calcPages() {
-        const pages = Math.floor(this.blogs.length / this.perPage);
+        const pages = Math.ceil(this.blogs.length / this.perPage);
         this.pages = [];
         for (let i = 1; i <= pages; i++) {
             this.pages.push(i);

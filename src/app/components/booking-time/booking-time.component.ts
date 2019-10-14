@@ -209,17 +209,17 @@ export class BookingTimeComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         if (this.loadFail && this.enableTime.length === 0) {
             this.timeBlocks.forEach((blockData, index) => {
-                if( index < 2 ) {
+                if (index < 2) {
                     blockData.blocks.forEach((block) => {
                         block.disabled = false;
                     });
-                }else {
+                } else {
                     blockData.blocks.forEach((block) => {
                         block.disabled = true;
                     });
                 }
             });
-        }else {
+        } else {
             this.timeBlocks.forEach((blockData) => {
                 blockData.blocks.forEach((block) => {
                     const hasEnableBlock = (this.enableTime || []).find((x) => {

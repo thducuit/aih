@@ -1,3 +1,23 @@
+
+
 .content-sv .copy {
-  min-height: 618px;
+  min-height: 911px;
+}
+
+@media screen and (max-width: 1439px) and (min-width: 1281px) {
+  .content-sv .copy {
+    min-height: 911px;
+  }
+}
+
+@media screen and (max-width: 1659px) and (min-width: 1281px) {
+  .content-sv .copy {
+    min-height: 680px;
+  }
+}
+
+@media screen and (max-width: 1960px) and (min-width: 1659px) {
+  .content-sv .copy {
+    min-height: 911px;
+  }
 }
