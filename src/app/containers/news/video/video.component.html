@@ -19,10 +19,7 @@
         </div>
       </div>
       <div class="list-video-wrap">
-        <div class="top-video">
-          <h3><span>{{ video.title }}</span></h3>
-          <p>{{ video.description }}</p>
-        </div>
+        <div class="top-video" [innerHTML]="video.longdesc | decodeHtmlEntities | safeHtml"></div>
         <div class="news-list-wrap">
           <ul class="clearfix js-append-more">
 

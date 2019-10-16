@@ -6,9 +6,11 @@ export class Video {
   public file;
   public iframeUrl;
   public date;
+  public longdesc;
   constructor(data) {
     this.thumb = data.media_thumb;
     this.description = data.media_description;
+    this.longdesc = data.media_longdesc;
     this.title = data.media_title;
     this.hot = data.media_ishot;
     this.file = data.media_file;
