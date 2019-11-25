@@ -1,6 +1,7 @@
-<div class="popup-video active" *ngIf="isShowPopup">
+<div class="popup-video popup-video-ovl active" *ngIf="isShowPopup">
 		<div class="btn-close js-closevideo" (click)="close()"><img src="/assets/images/btn-close-w.png"></div>
 		<div id="video">
       <iframe width="100%" height="100%" [src]='iframeSrc | safeUrl' frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
+<div class="ovl ovl2" *ngIf="isShowPopup" (click)="close()"></div>
