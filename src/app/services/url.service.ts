@@ -69,6 +69,9 @@ export class UrlService {
   }
 
   static fixPictureUrl(text) {
+	if(text.indexOf('http') === 0) {
+		return text;
+	}
     return `${text}`.replace(/\/assets/g, `${environment.backend}/assets`);
   }
 
