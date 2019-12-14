@@ -58,8 +58,8 @@ export class AboutComponent implements OnInit, OnDestroy {
       this.translate.get('american_international_hospital')
     )
       .subscribe(([data, aihStr]) => {
-        const page = data.Post || {};
-        page = new Page(page);
+        const post = data.Post || {};
+        const page = new Page(post);
         page.longDesc = UrlService.fixPictureUrl(page.longDesc);
         this.page = page;
         const pageTitle = `${this.page.metaTitle ||  this.page.name} - ${aihStr}`;
