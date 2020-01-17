@@ -17,6 +17,7 @@ export class DoctorService extends BaseService {
       rowperpage: 999,
       pageselected: 1,
       post_type: ['doctor'],
+      sort : ["post_sort DESC"],
       lang : this.getCurrentLocal()
     };
     return this.http.post('post/doctor', postData);
@@ -29,6 +30,7 @@ export class DoctorService extends BaseService {
       rowperpage: 999,
       pageselected: 1,
       post_type: ['doctor'],
+      sort : ["post_sort DESC"],
       lang : this.getCurrentLocal()
     };
     return this.http.post('post/doctor', postData);

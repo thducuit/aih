@@ -108,6 +108,7 @@ export class MembershipConsultingComponent implements OnInit {
                 const service = new InsuranceDetail(item);
                 service.picturePath = UrlService.createPictureUrl(service.picture);
                 service.url = UrlService.createMemberDetailUrl(service.alias);
+                service.longDesc = UrlService.fixPictureUrl(service.longDesc);
                 return service;
             });
             this.loaderService.hide();

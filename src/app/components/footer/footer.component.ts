@@ -26,6 +26,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 export class FooterComponent implements OnInit, OnDestroy {
   public blogs: Array<Blog> = [];
   public clinics: Array<Clinic> = [];
+  public yearcopy;
   private subsciption: Subscription;
 
   constructor(
@@ -41,6 +42,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadFeatureBlogs();
     this.loadFeatureClinics();
+    this.yearcopy = new Date().getFullYear();
     this.subsciption = this.translate.onLangChange.subscribe(() => {
       this.loadFeatureBlogs();
       this.loadFeatureClinics();

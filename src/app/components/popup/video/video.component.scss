@@ -1,3 +1,12 @@
 .popup-video.active {
   display: block;
 }
+
+.ovl2 {
+  display: block!important;
+  z-index: 10!important;
+}
+
+.popup-video-ovl {
+  z-index: 11!important;
+}

@@ -111,6 +111,7 @@ export class InsuranceConsultingComponent implements OnInit {
       this.services = posts.map(item => {
         const service = new InsuranceDetail(item);
         service.picturePath = UrlService.createPictureUrl(service.picture);
+        service.longDesc = UrlService.fixPictureUrl(service.longDesc);
         service.url = UrlService.createInsuranceUrl(service.alias);
         return service;
       });
