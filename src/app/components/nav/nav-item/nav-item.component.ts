@@ -13,6 +13,8 @@ export class NavItemComponent implements OnInit {
   @Input()
   public routeUrl: string;
   @Input()
+  public outerUrl: string;
+  @Input()
   public routeActiveClass = 'active';
   @Input()
   public routeOptions = { exact: false };

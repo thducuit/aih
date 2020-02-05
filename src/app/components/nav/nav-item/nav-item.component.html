@@ -1,4 +1,11 @@
-<li [ngClass]="{'drop-mn': hasChild}">
+<li *ngIf="outerUrl">
+  <a href="{{outerUrl}}" routerLinkActive="{{routeActiveClass}}" [routerLinkActiveOptions]="routeOptions" >
+    <span>{{name}}</span>
+    <em [ngClass]="{'active': expaned}" (click)="toggleSubNav($event)"></em>
+  </a>
+</li>
+
+<li *ngIf="routeUrl" [ngClass]="{'drop-mn': hasChild}">
   <a routerLink="{{routeUrl}}" routerLinkActive="{{routeActiveClass}}" [routerLinkActiveOptions]="routeOptions" >
     <span>{{name}}</span>
     <em [ngClass]="{'active': expaned}" (click)="toggleSubNav($event)"></em>
