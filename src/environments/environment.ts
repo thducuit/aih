@@ -10,7 +10,9 @@ export const environment = {
   mapApiKey: 'AIzaSyD77nJoVaeLUFJAGd_wp0qmTiNUJemumnE',
   secretKey: 'GwBqWPA4ezINGtLPzwNilw==',
   host: 'http://localhost:4200',
-  recaptchaSiteKey: '6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK'
+  recaptchaSiteKey: '6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK',
+  loginViUrl: 'http://local.aih-hc.tqdesign.vn/?lang=vi',
+  loginEnUrl: 'http://local.aih-hc.tqdesign.vn/?lang=en'
 };
 
 /*

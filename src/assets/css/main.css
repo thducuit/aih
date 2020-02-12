@@ -2488,8 +2488,8 @@ ul li {
   src: url(./fonts/utm_avobold_italic-webfont.eot);
   src: url(./fonts/utm_avobold_italic-webfontd41d.eot?#iefix) format("embedded-opentype"), url(./fonts/utm_avobold_italic-webfont.html) format("woff2"), url(./fonts/utm_avobold_italic-webfont.woff) format("woff"), url(./fonts/utm_avobold_italic-webfont.svg#utm_avobold_italic) format("svg");
   font-weight: 400;
-  font-style: normal;
   font-display: swap;
+  font-style: normal
 }
 
 @font-face {
@@ -2497,11 +2497,12 @@ ul li {
   src: url(./fonts/utm_avoitalic-webfont.eot);
   src: url(./fonts/utm_avoitalic-webfontd41d.eot?#iefix) format("embedded-opentype"), url(./fonts/utm_avoitalic-webfont.html) format("woff2"), url(./fonts/utm_avoitalic-webfont.woff) format("woff"), url(./fonts/utm_avoitalic-webfont.svg#utm_avoitalic) format("svg");
   font-weight: 400;
-  font-style: normal;
   font-display: swap;
+  font-style: normal
 }
 
 @font-face {
+  font-display: swap;
   font-family: utm_avobold;
   src: url(./fonts/UTMAvoBold.eot);
   src: url(./fonts/UTMAvoBold.eot) format("embedded-opentype"), url(./fonts/UTMAvoBold.html) format("woff2"), url(./fonts/UTMAvoBold.woff) format("woff"), url(./fonts/UTMAvoBold.ttf) format("truetype"), url(./fonts/UTMAvoBold.svg#UTMAvoBold) format("svg");
@@ -2509,6 +2510,7 @@ ul li {
 }
 
 @font-face {
+  font-display: swap;
   font-family: utm_avoregular;
   src: url(./fonts/UTMAvo.eot);
   src: url(./fonts/UTMAvo.eot) format("embedded-opentype"), url(./fonts/UTMAvo.html) format("woff2"), url(./fonts/UTMAvo.woff) format("woff"), url(./fonts/UTMAvo.ttf) format("truetype"), url(./fonts/UTMAvo.svg#UTMAvo) format("svg");
@@ -4924,7 +4926,8 @@ header.fixHd .bg {
 
 #mapCanvas {
   width: 100%;
-  height: 560px
+  /*height: 560px*/
+  height: auto
 }
 
 .content-map {

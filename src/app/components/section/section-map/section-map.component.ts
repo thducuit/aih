@@ -191,8 +191,8 @@ export class SectionMapComponent implements OnInit {
   };
   mapMakers = [
     {
-      latitude: 10.793787,
-      longitude: 106.746365,
+      latitude: 10.793522,
+      longitude: 106.746634,
       opacity: 1,
       title: 'Location Name',
       icon: {
@@ -201,7 +201,6 @@ export class SectionMapComponent implements OnInit {
       }
     },
   ];
-  showMap = false;
 
   constructor() {}
 

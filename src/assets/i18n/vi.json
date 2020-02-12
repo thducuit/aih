@@ -304,5 +304,6 @@
   "text_Student": "Học sinh",
 
   "text_booking_phone_invalid": "Số điện thoại không đúng",
-  "text_booking_close": "Đóng lại"
+  "text_booking_close": "Đóng lại",
+  "login": "Đăng nhập"
 }

@@ -304,5 +304,6 @@
   "text_Student": "Student",
 
   "text_booking_phone_invalid": "Phone number is invalid",
-  "text_booking_close": "Close"
+  "text_booking_close": "Close",
+  "login": "Login"
 }
