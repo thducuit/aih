@@ -7,6 +7,6 @@ export const environment = {
   secretKey: 'GwBqWPA4ezINGtLPzwNilw==',
   host: 'https://aih.com.vn',
   recaptchaSiteKey: '6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK',
-  loginViUrl: 'https://portal.aih.com.vn?lang=vi',
-  loginEnUrl: 'https://portal.aih.com.vn?lang=en'
+  loginViUrl: 'http://portal.aih.com.vn?lang=vi',
+  loginEnUrl: 'http://portal.aih.com.vn?lang=en'
 };
