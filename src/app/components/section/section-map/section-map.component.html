@@ -1,6 +1,7 @@
 <section class="map-home">
-  <div id="mapCanvas">
+  <div id="mapCanvas" (deferLoad)="showMap = true">
     <agm-map
+    *ngIf="showMap"
       [latitude]="mapConfig.latitude"
       [longitude]="mapConfig.longitude"
       [zoom]="mapConfig.zoom"

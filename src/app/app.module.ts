@@ -150,6 +150,7 @@ import { DateService } from './services/date.service';
 import { CustomerRegisterComponent } from './components/popup/customer-register/customer-register.component';
 import { NumberDirective } from './shared/numbers-only.directive';
 import { MatchHeightDirective } from './shared/match-height.directive';
+import { DeferLoadDirective } from './shared/defer-load.directive';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ContactService } from './services/contact.service';
 import { BookingBaseComponent } from './components/booking-base/booking-base.component';
@@ -170,7 +171,7 @@ import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { LoaderService } from './services/loader-service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SlickCarouselModule } from './shared/slick-carousel/slick-carousel.module';
-import {LikeService} from './services/like.service';
+import { LikeService } from './services/like.service';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { SafeUrlPipe } from './shared/safe-url-pipe';
 
@@ -295,6 +296,7 @@ export function provideConfig() {
     ContactFormComponent,
     NumberDirective,
     MatchHeightDirective,
+    DeferLoadDirective,
     BookingBaseComponent,
     CareerSectionComponent,
     RatingComponent,
@@ -309,7 +311,7 @@ export function provideConfig() {
     InsuranceDetailComponent,
     NotFoundComponent,
     SafeHtmlPipe,
-    SafeUrlPipe
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'aih-app' }),
@@ -371,7 +373,7 @@ export function provideConfig() {
     },
     CommentService,
     LoaderService,
-    LikeService
+    LikeService,
     // Enable this will show loading for every http request
     // This maybe quite anoying
     // {

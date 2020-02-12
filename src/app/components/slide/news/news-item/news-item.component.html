@@ -1,12 +1,12 @@
 <div class="news-list-wrap">
   <ul class="clearfix js-list-news js-append-more" myMatchHeight="blog-title">
-    <li *ngFor="let blog of blogs">
+    <li *ngFor="let blog of blogs" (deferLoad)="blog.showImg = true">
       <div class="item-news" [ngStyle]="{'min-height.px': minHeight}">
         <div class="img">
           <div
             class="lazyload"
             data-src=""
-            [style.background]="'url(' + blog.picturePath + ')'"
+            [style.background]="'url(' + (blog.showImg ? blog.picturePath : '') + ')'"
           ></div>
           <img src="../assets/images/news.gif" />
           <img class="show-mb" src="../assets/images/b.gif" />

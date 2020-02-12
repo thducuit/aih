@@ -1,5 +1,5 @@
-<section class="testimo-home" *ngIf="feedback">
-  <div class="container">
+<section class="testimo-home" *ngIf="feedback" (deferLoad)="showTestimo = true">
+  <div *ngIf="showTestimo" class="container">
     <div class="tt">
       <p>{{ 'testimonials' | translate }}</p>
       <h2>{{ 'what_our_clients_say' | translate }}</h2>

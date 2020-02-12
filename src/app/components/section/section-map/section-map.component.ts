@@ -201,6 +201,7 @@ export class SectionMapComponent implements OnInit {
       }
     },
   ];
+  showMap = false;
 
   constructor() {}
 

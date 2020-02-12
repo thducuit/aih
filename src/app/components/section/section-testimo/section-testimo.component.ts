@@ -15,6 +15,7 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
   public feedback: Feedback;
   public showVideoPopup = false;
   public iframeSrc: string;
+  showTestimo = false;
   private subscription: Subscription;
 
   @ViewChild('videoPopup', { static: false }) videoPopup: VideoComponent;
