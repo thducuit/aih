@@ -12,7 +12,6 @@ import {
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AgmCoreModule } from '@agm/core';
 // import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
@@ -325,9 +324,6 @@ export function provideConfig() {
         useFactory: createTranslateLoader,
         deps: [HttpClient],
       },
-    }),
-    AgmCoreModule.forRoot({
-      apiKey: environment.mapApiKey,
     }),
     ScrollToModule.forRoot(),
     FormsModule,
