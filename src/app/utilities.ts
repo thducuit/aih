@@ -56,11 +56,11 @@ export function momentToNgbDate(date: moment.Moment): NgbDateStruct {
 }
 
 export function maxMomentToNgbDate(date: moment.Moment): NgbDateStruct {
-    return {
-        year: date.year(),
-        month: date.month() + 3,
-        day: date.date(),
-    };
+  return {
+    year: date.year(),
+    month: date.month() + 3,
+    day: date.date(),
+  };
 }
 
 export function compareTwoHours(h1: string, h2: string) {
@@ -116,5 +116,17 @@ export function escapeHtml(str: string) {
 }
 
 export function extractHtmlText(str: string) {
-  return `${str}`.replace(/(<([^>]+)>)/ig, '');
+  return `${str}`.replace(/(<([^>]+)>)/gi, '');
+}
+
+export function isBrowserSupportIntersectionObserver(): boolean {
+  const hasIntersectionObserver = 'IntersectionObserver' in window;
+  const userAgent = window.navigator.userAgent;
+  const matches = userAgent.match(/Edge\/(\d*)\./i);
+
+  const isEdge = !!matches && matches.length > 1;
+  const isEdgeVersion16OrBetter =
+    isEdge && !!matches && parseInt(matches[1], 10) > 15;
+
+  return hasIntersectionObserver && (!isEdge || isEdgeVersion16OrBetter);
 }

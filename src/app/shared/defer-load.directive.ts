@@ -14,6 +14,7 @@ import {
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 import { Subscription, fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { isBrowserSupportIntersectionObserver } from '../utilities';
 
 @Directive({
   selector: '[deferLoad]',
@@ -37,7 +38,7 @@ export class DeferLoadDirective implements OnInit, AfterViewInit, OnDestroy {
       (isPlatformServer(this.platformId) && this.preRender === true) ||
       (isPlatformBrowser(this.platformId) &&
         this.fallbackEnabled === false &&
-        !this.hasCompatibleBrowser())
+        !isBrowserSupportIntersectionObserver())
     ) {
       this.load();
     }
@@ -45,7 +46,7 @@ export class DeferLoadDirective implements OnInit, AfterViewInit, OnDestroy {
 
   public ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      if (this.hasCompatibleBrowser()) {
+      if (isBrowserSupportIntersectionObserver()) {
         this.registerIntersectionObserver();
         if (this.intersectionObserver && this.element.nativeElement) {
           this.intersectionObserver.observe(this.element.nativeElement);
@@ -54,18 +55,6 @@ export class DeferLoadDirective implements OnInit, AfterViewInit, OnDestroy {
         this.addScrollListeners();
       }
     }
-  }
-
-  public hasCompatibleBrowser(): boolean {
-    const hasIntersectionObserver = 'IntersectionObserver' in window;
-    const userAgent = window.navigator.userAgent;
-    const matches = userAgent.match(/Edge\/(\d*)\./i);
-
-    const isEdge = !!matches && matches.length > 1;
-    const isEdgeVersion16OrBetter =
-      isEdge && !!matches && parseInt(matches[1], 10) > 15;
-
-    return hasIntersectionObserver && (!isEdge || isEdgeVersion16OrBetter);
   }
 
   public ngOnDestroy() {
