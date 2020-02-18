@@ -19,7 +19,7 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
-export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
+export class BookingComponent implements AfterViewInit, OnDestroy {
   private isBrowser = false;
   private scrollSubject = new Subject();
   private scrollSubscription = this.scrollSubject
@@ -77,8 +77,6 @@ export class BookingComponent implements AfterViewInit, OnInit, OnDestroy {
       });
     }
   }
-
-  ngOnInit(): void {}
 
   scrollUp() {
     if (this.isBrowser) {
