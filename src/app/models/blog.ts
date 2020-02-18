@@ -20,6 +20,7 @@ export class Blog {
   public totalComments;
   public totalLikes;
   public isShow;
+  public showImg = false;
 
   constructor(data) {
     this.id = data.post_id;

@@ -13,14 +13,11 @@
 </div>
 <div class="crs-style1" #sliderContainer myMatchHeight="copy-p">
   <ul myMatchHeight="tt-doc-crs">
-    <ngx-slick-carousel
-      [config]="slideConfig"
-      #slickModal="slick-carousel"
-      (init)="sliderInit($event)">
-      <li *ngFor="let doctor of doctors;trackBy: trackDoctorId" ngxSlickItem>
+    <ngx-slick-carousel [config]="slideConfig" #slickModal="slick-carousel" (init)="sliderInit($event)">
+      <li *ngFor="let doctor of doctors;trackBy: trackDoctorId" ngxSlickItem (deferLoad)="doctor.showImg = true">
         <div class="item-doc">
           <div class="img">
-            <div [style.background]="'url(' + doctor.picturePath + ')'"></div>
+            <div [style.background]="'url(' + (doctor.showImg ? doctor.picturePath : '') + ')'"></div>
             <img class="img-1366" src="assets/images/dt.gif" />
             <img src="assets/images/b.gif" />
           </div>
@@ -29,7 +26,8 @@
             <p>{{ doctor.categoryName }}</p>
           </div>
           <div class="copy">
-            <p class="copy-p"><span *ngIf="doctor.shortDesc" [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></span></p>
+            <p class="copy-p"><span *ngIf="doctor.shortDesc"
+                [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></span></p>
             <a routerLink="{{ doctor.url }}">
               <span>{{ 'learn_more' | translate }}</span>
             </a>

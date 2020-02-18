@@ -20,6 +20,7 @@ export class Doctor {
     public publish;
     public hot;
     public isShow;
+    public showImg = false;
 
     constructor(data) {
         this.id = data.post_id;
