@@ -12,10 +12,10 @@
 					<h2>{{ 'news' | translate }}</h2>
 					<ul>
 
-						<li *ngFor="let blog of blogs">
+						<li *ngFor="let blog of blogs" (deferLoad)="blog.showImg = true">
 							<div class="item-post clearfix">
 								<div class="img">
-									<div class="lazyload"  [style.background]="'url(' + blog.picturePath + ')'"></div>
+									<div class="lazyload"  [style.background]="'url(' + (blog.showImg ? blog.picturePath : '') + ')'"></div>
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
@@ -33,10 +33,10 @@
 					<h2>{{ 'patient_services' | translate }}</h2>
 					<ul>
 
-						<li *ngFor="let clinic of clinics">
+						<li *ngFor="let clinic of clinics" (deferLoad)="clinic.showImg = true">
 							<div class="item-post clearfix">
 								<div class="img">
-									<div class="lazyload" [style.background]="'url(' + clinic.picturePath + ')'"></div>
+									<div class="lazyload" [style.background]="'url(' + (clinic.showImg ? clinic.picturePath : '') + ')'"></div>
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
