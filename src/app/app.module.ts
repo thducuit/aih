@@ -13,6 +13,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // import { NgScrollbarModule } from 'ngx-scrollbar';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import {
@@ -335,6 +336,7 @@ export function provideConfig() {
     RecaptchaModule,
     SocialLoginModule,
     SweetAlert2Module.forRoot(),
+    DeviceDetectorModule.forRoot()
   ],
   providers: [
     GlobalEventService,
