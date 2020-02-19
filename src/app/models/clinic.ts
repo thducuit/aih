@@ -15,6 +15,7 @@ export class Clinic {
   public meta;
   public active;
   public isShow;
+  public deferLoaded = false;
 
   constructor(data) {
     this.id = data.cate_id;
