@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 import { BaseService } from './base.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Share } from '../decorators/share';
 
 @Injectable()
 export class InsuranceService extends BaseService {
@@ -10,6 +11,7 @@ export class InsuranceService extends BaseService {
     super(translate);
   }
 
+  @Share()
   fetch() {
     const postData = {
       search: '',
@@ -22,6 +24,7 @@ export class InsuranceService extends BaseService {
     return this.http.post('category/list', postData);
   }
 
+  @Share()
   fetchServiceCate() {
     const postData = {
       search: '',
@@ -34,6 +37,7 @@ export class InsuranceService extends BaseService {
     return this.http.post('category/list', postData);
   }
 
+  @Share()
   fetchService(id) {
     const postData = {
       search: '',
@@ -47,6 +51,7 @@ export class InsuranceService extends BaseService {
     return this.http.post('post/list', postData);
   }
 
+  @Share()
   fetchFeature() {
     const postData = {
       search: '',

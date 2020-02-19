@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestApiService } from './rest-api.service';
 import { BaseService } from './base.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Share } from '../decorators/share';
 
 @Injectable()
 export class CareerCategoryService extends BaseService {
@@ -10,6 +11,7 @@ export class CareerCategoryService extends BaseService {
     super(translate);
   }
 
+  @Share()
   fetch() {
     const postData = {
       search: '',
