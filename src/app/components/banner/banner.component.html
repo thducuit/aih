@@ -8,9 +8,9 @@
       *ngFor="let item of banners;trackBy: trackBannerUrl"
       ngxSlickItem
       class="item"
-      [ngStyle]="{ background: 'url(' + item.large + ') no-repeat center' }"
+      [ngStyle]="{ background: 'url(' + (isTablet || isDesktopDevice ? item.large : '')  + ') no-repeat center' }"
     >
-      <div class="container">
+      <div class="container" *ngIf="isMobile || isTablet">
         <a [href]="item.link"></a>
         <div class="ct-banner">
           <img class="banner-home-mb" [src]="item.small" />
