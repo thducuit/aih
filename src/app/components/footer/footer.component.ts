@@ -17,6 +17,7 @@ import { ClinicService } from '../../services/clinic.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-footer',
@@ -33,6 +34,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     public blogService: BlogService,
     public clinicService: ClinicService,
     private translate: TranslateService,
+    private loaderService: LoaderService,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document,
     @Inject(PLATFORM_ID) private platformId,
