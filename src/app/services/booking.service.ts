@@ -3,12 +3,10 @@ import { RestApiService } from './rest-api.service';
 import { environment } from '../../environments/environment';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { stringPadStart } from '../utilities';
-import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Share } from '../decorators/share';
 
 @Injectable()
 export class BookingService {
-  private cache = {};
   constructor(private http: RestApiService) {}
 
   callValidatePhone(phone) {
@@ -35,14 +33,9 @@ export class BookingService {
     return this.http.post('aih-api', postData);
   }
 
+  @Share()
   callDoctorScheduleFromTq() {
-    const key = 'aih-data';
-    if (this.cache[key]) {
-      return of(this.cache[key]);
-    }
-    return this.http
-      .get('aih-data')
-      .pipe(tap(resolvedValue => (this.cache[key] = resolvedValue)));
+    return this.http.get('aih-data');
   }
 
   callDateBookingTemp(doctorId, date, isOffline) {

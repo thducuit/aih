@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {RestApiService} from './rest-api.service';
 import {BaseService} from './base.service';
 import {TranslateService} from '@ngx-translate/core';
+import { Share } from '../decorators/share';
 
 @Injectable()
 export class BlogService extends BaseService {
@@ -10,6 +11,7 @@ export class BlogService extends BaseService {
         super(translate);
     }
 
+    @Share()
     fetch(pageNum: number, perPage = 999, sort = [], isNoVideo = false) {
         const postData = {
             search: '',
@@ -26,6 +28,7 @@ export class BlogService extends BaseService {
         return this.http.post('post/list', postData);
     }
 
+    @Share()
     fetchFeature(num = 2) {
         const postData = {
             search: '',
