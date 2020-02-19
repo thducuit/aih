@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class SectionPartnerComponent implements OnInit, OnDestroy {
   public partners: Array<Partner> = [];
+  public deferLoaded = false;
 
   private subscription: Subscription;
 

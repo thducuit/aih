@@ -3,6 +3,7 @@ import { RestApiService } from './rest-api.service';
 import { BaseService } from './base.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { Share } from '../decorators/share';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class PageService extends BaseService {
     super(translate);
   }
 
+  @Share()
   fetch(type): Observable<any> {
     const postData = {
       post_type: type,
@@ -21,6 +23,7 @@ export class PageService extends BaseService {
     return this.http.post('post/detail-top', postData);
   }
 
+  @Share()
   fetchBanner(type): Observable<any> {
       const postData = {
           search: '',

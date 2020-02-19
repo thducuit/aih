@@ -8,8 +8,7 @@
            placeholder="{{ 'select_a_specialty' | translate }}"
     >
     <em class="ar" [ngClass]="{'show': isActive}"></em>
-    <div class="drop drop-spec {{ !isActive ? 'un-active' : '' }}">
-      <input type="hidden" class="js-input" name="deparmentid">
+    <div *ngIf="isActive" class="drop drop-spec {{ !isActive ? 'un-active' : '' }}">
       <div class="copyscroll">
         <div class="nano">
           <div class="nano-content">

@@ -1,6 +1,6 @@
 <footer>
 	<app-newsletter></app-newsletter>
-	<div class="mainfooter">
+	<div class="mainfooter" (deferLoad)="deferLoaded = true">
 		<div class="container clearfix">
 			<div class="ft-wrap clearfix">
 				<div class="item">
@@ -11,11 +11,11 @@
 				<div class="item">
 					<h2>{{ 'news' | translate }}</h2>
 					<ul>
-
-						<li *ngFor="let blog of blogs" (deferLoad)="blog.showImg = true">
+						<li *ngFor="let blog of blogs">
 							<div class="item-post clearfix">
 								<div class="img">
-									<div class="lazyload"  [style.background]="'url(' + (blog.showImg ? blog.picturePath : '') + ')'"></div>
+									<div class="lazyload"  [style.background]="'url(' + (deferLoaded ? blog.picturePath : '') + ')'"></div>
+
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
@@ -25,18 +25,15 @@
 								<a class="link-all" routerLink="{{ blog.url }}"></a>
 							</div>
 						</li>
-
-						
 					</ul>
 				</div>
 				<div class="item">
 					<h2>{{ 'patient_services' | translate }}</h2>
 					<ul>
-
-						<li *ngFor="let clinic of clinics" (deferLoad)="clinic.showImg = true">
+						<li *ngFor="let clinic of clinics">
 							<div class="item-post clearfix">
 								<div class="img">
-									<div class="lazyload" [style.background]="'url(' + (clinic.showImg ? clinic.picturePath : '') + ')'"></div>
+									<div class="lazyload" [style.background]="'url(' + (deferLoaded ? clinic.picturePath : '') + ')'"></div>
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
@@ -52,7 +49,7 @@
 				<div class="item page-fb">
 					<h2>{{ 'social_channels' | translate }}</h2>
 					<div class="fb">
-						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faih.com.vn%2F&tabs&width=260&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="260" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+						<iframe *ngIf="deferLoaded" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faih.com.vn%2F&tabs&width=260&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="260" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
           </div>
 				</div>
 			</div>
@@ -72,7 +69,5 @@
 		</div>
 	</div>
 	<app-back-to-top></app-back-to-top>
-
-
 </footer>
 <div id="fb-root"></div>

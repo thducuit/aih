@@ -6,5 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./section-map.component.scss'],
 })
 export class SectionMapComponent {
+  public deferLoaded = false;
   constructor() {}
 }
