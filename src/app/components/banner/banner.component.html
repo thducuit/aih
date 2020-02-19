@@ -3,6 +3,7 @@
     [config]="slideConfig"
     #slickModal="slick-carousel"
     (init)="slickInit($event)"
+    (beforeChange)="beforeSlideChange($event)"
   >
     <div
       *ngFor="let item of banners;trackBy: trackBannerUrl"
@@ -13,7 +14,7 @@
       <div class="container">
         <a [href]="item.link"></a>
         <div class="ct-banner">
-          <img class="banner-home-mb" [src]="item.small" />
+          <img class="banner-home-mb" [attr.data-lazy]="item.small"/>
         </div>
       </div>
     </div>

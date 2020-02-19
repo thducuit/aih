@@ -40,12 +40,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.loadPageSubject.next();
-    this.loadPage();
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.loadPageSubject.next();
       this.pageClasses = this.getPageClasses();
     });
+    this.loadPageSubject.next();
   }
 
   ngOnDestroy() {
@@ -64,8 +63,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     forkJoin(
       this.pageService.fetch('homepage'),
       this.translate.get('american_international_hospital'),
-    ).subscribe(
-      ([homeResp, aihStr]) => {
+      this.pageService.fetchBanner('home_slide'),
+    ).subscribe({
+      next: ([homeResp, aihStr, pageBanners]) => {
         const page = homeResp.Post || {};
         this.page = new Page(page);
         const pageTitle = `${this.page.metaTitle ||
@@ -101,32 +101,25 @@ export class HomeComponent implements OnInit, OnDestroy {
           });
         }
 
-        this.pageService
-          .fetchBanner('home_slide')
-          .subscribe((bannersResp: any) => {
-            const banners = bannersResp['Posts'] || [];
-            this.banners = banners.map(item => {
-              const meta = item.post_meta ? JSON.parse(item.post_meta) : {};
-              meta.large = UrlService.createPictureUrl(
-                meta.picture,
-                null,
-                null,
-                true,
-              );
-              meta.small = UrlService.createPictureUrl(
-                meta.picture_mobile,
-                null,
-                null,
-                true,
-              );
-              return meta;
-            });
-          });
+        const banners = pageBanners['Posts'] || [];
+        this.banners = banners.map((item, inxBanner) => {
+          const meta = item.post_meta ? JSON.parse(item.post_meta) : {};
+          return {
+            large: UrlService.createPictureUrl(meta.picture, null, null, true),
+            small: UrlService.createPictureUrl(
+              meta.picture_mobile,
+              null,
+              null,
+              true,
+            ),
+            deferLoaded: inxBanner === 0 || false,
+          };
+        });
+        console.log('Banners', this.banners);
       },
-      null,
-      () => {
+      complete: () => {
         this.loaderService.hide();
       },
-    );
+    });
   }
 }

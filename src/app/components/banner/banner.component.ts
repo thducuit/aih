@@ -6,11 +6,12 @@ import { LoaderService } from '../../services/loader-service';
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss'],
 })
-export class BannerComponent implements OnInit, AfterContentInit {
+export class BannerComponent {
   slideConfig = {
     slideToShow: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    lazyLoad: 'ondemand'
   };
 
   @Input()
@@ -18,21 +19,17 @@ export class BannerComponent implements OnInit, AfterContentInit {
 
   @ViewChild('bannerHome', { static: false }) bannerHome: ElementRef;
 
-  constructor(private loaderService: LoaderService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.loaderService.show();
-  }
-
-  ngAfterContentInit() {
-    this.loaderService.hide();
+  beforeSlideChange(e) {
+    this.banners[e.currentSlide] && (this.banners[e.currentSlide].deferLoaded = true);
   }
 
   slickInit(e) {
     this.bannerHome.nativeElement.style.opacity = 1;
   }
 
-  trackBannerUrl(banner) {
-    return banner.Url;
+  trackBannerUrl(inx, banner) {
+    return banner.large;
   }
 }
