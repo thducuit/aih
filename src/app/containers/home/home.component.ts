@@ -115,7 +115,6 @@ export class HomeComponent implements OnInit, OnDestroy {
             deferLoaded: inxBanner === 0 || false,
           };
         });
-        console.log('Banners', this.banners);
       },
       complete: () => {
         this.loaderService.hide();
