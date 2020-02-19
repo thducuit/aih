@@ -1,18 +1,19 @@
 import {
   Component,
-  OnInit,
   Inject,
   PLATFORM_ID,
   HostListener,
   NgZone,
   AfterViewInit,
   OnDestroy,
+  Input,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import jquery from 'jquery';
 import { Subject } from 'rxjs';
 import { debounceTime, throttleTime } from 'rxjs/operators';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { isBrowserSupportIntersectionObserver } from 'src/app/utilities';
 
 @Component({
   selector: 'app-booking',
@@ -23,12 +24,21 @@ export class BookingComponent implements AfterViewInit, OnDestroy {
   private isBrowser = false;
   private scrollSubject = new Subject();
   private scrollSubscription = this.scrollSubject
-    .pipe(debounceTime(100))
+    .pipe(debounceTime(50))
     .subscribe(() => {
       this.scrollHeader();
     });
 
-  constructor(@Inject(PLATFORM_ID) platformId, private zone: NgZone, private animateScrollService: NgAnimateScrollService) {
+  @Input()
+  public useForHome: boolean;
+
+  public isVisible = false;
+
+  constructor(
+    @Inject(PLATFORM_ID) platformId,
+    private zone: NgZone,
+    private animateScrollService: NgAnimateScrollService,
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
@@ -57,7 +67,10 @@ export class BookingComponent implements AfterViewInit, OnDestroy {
         if (1024 < jquery(window).innerWidth()) {
           // This hack to make bookinghome work for home page, other pages is work by stickyThing directy
           if (jquery('#pHome').length) {
-            scrollTop >= (jquery('.doctor-home').offset().top + 3)
+            const visible =
+              scrollTop >= jquery('.doctor-home').offset().top + 3;
+            visible && (this.isVisible = visible); // This will make item not render at first time, but if rendered then never re-render => speed up
+            visible
               ? jquery('header').addClass('fixHd')
               : jquery('header').removeClass('fixHd');
 
