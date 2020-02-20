@@ -31,6 +31,7 @@ import {debounceTime} from 'rxjs/operators';
 export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     public doctors: Array<Doctor> = [];
     public doctorsPerPage: Array<Doctor> = [];
+    public deferLoaded = false;
     @Input() isDetail;
 
     public slideConfig = {
@@ -119,7 +120,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
                     item => item.hot === true,
                 );
             }
-            this.doctorsPerPage = this.doctors.slice(0, 8);
+            // this.doctorsPerPage = this.doctors.slice(0, 8);
             this.loaderService.hide();
         });
     }
@@ -155,7 +156,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     onAfterChange(e) {
-        this.doctorsPerPage = this.doctors;
+        // this.doctorsPerPage = this.doctors;
     }
 
     onBeforeChange(e) {
