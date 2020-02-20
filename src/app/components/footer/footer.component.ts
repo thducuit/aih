@@ -28,6 +28,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   public blogs: Array<Blog> = [];
   public clinics: Array<Clinic> = [];
   public yearcopy;
+  public deferLoaded = false;
   private subsciption: Subscription;
 
   constructor(
