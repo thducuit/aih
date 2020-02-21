@@ -3,14 +3,15 @@
     [config]="slideConfig"
     #slickModal="slick-carousel"
     (init)="slickInit($event)"
+    (beforeChange)="onBeforeChange($event)"
   >
     <div
       *ngFor="let item of banners;trackBy: trackBannerUrl"
       ngxSlickItem
       class="item"
-      [ngStyle]="{ background: 'url(' + (isTablet || isDesktopDevice ? item.large : '')  + ') no-repeat center' }"
+      [ngStyle]="{ background: 'url(' + (item.showContent && (isTablet || isDesktopDevice) ? item.large : '')  + ') no-repeat center' }"
     >
-      <div class="container" *ngIf="isMobile || isTablet">
+      <div class="container" *ngIf="item.showContent && (isMobile || isTablet)">
         <a [href]="item.link"></a>
         <div class="ct-banner">
           <img class="banner-home-mb" [src]="item.small" />

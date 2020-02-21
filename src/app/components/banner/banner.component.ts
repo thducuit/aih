@@ -55,4 +55,11 @@ export class BannerComponent implements OnInit, AfterContentInit {
     trackBannerUrl(banner) {
         return banner.Url;
     }
+
+    onBeforeChange(e) {
+        this.banners.map((item) => {
+            item.showContent = true;
+            return item;
+        });
+    }
 }

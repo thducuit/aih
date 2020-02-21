@@ -141,6 +141,15 @@ export class HomeComponent implements OnInit, OnDestroy {
                             );
                             return meta;
                         });
+
+                        this.banners.map((item, index) => {
+                            if (index < 2) {
+                                item.showContent = true;
+                            } else {
+                                item.showContent = false;
+                            }
+                            return item;
+                        });
                     });
             },
             null,
