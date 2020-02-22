@@ -170,6 +170,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
         this.doctors.map((item, index) => {
             if (index < this.perPage) {
                 item.showContent = true;
+                item.showImg = true;
             }
             return item;
         });

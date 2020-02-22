@@ -41,11 +41,11 @@ export class BannerComponent implements OnInit, AfterContentInit {
     }
 
     ngOnInit() {
-        this.loaderService.show();
+        //this.loaderService.show();
     }
 
     ngAfterContentInit() {
-        this.loaderService.hide();
+        //this.loaderService.hide();
     }
 
     slickInit(e) {
