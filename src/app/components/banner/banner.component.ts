@@ -1,35 +1,65 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, AfterContentInit } from '@angular/core';
-import { LoaderService } from '../../services/loader-service';
+import {Component, OnInit, ViewChild, ElementRef, Input, AfterContentInit, Inject, PLATFORM_ID} from '@angular/core';
+import {LoaderService} from '../../services/loader-service';
+import {isPlatformBrowser} from '@angular/common';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss'],
+    selector: 'app-banner',
+    templateUrl: './banner.component.html',
+    styleUrls: ['./banner.component.scss'],
 })
-export class BannerComponent {
-  slideConfig = {
-    slideToShow: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    lazyLoad: 'ondemand'
-  };
+export class BannerComponent implements OnInit, AfterContentInit {
+    slideConfig = {
+        slideToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+    };
 
-  @Input()
-  public banners: any[];
+    private deviceInfo = null;
+    public isMobile;
+    public isTablet;
+    public isDesktopDevice;
 
-  @ViewChild('bannerHome', { static: false }) bannerHome: ElementRef;
+    @Input()
+    public banners: any[];
 
-  constructor() {}
+    @ViewChild('bannerHome', {static: false}) bannerHome: ElementRef;
 
-  beforeSlideChange(e) {
-    this.banners[e.currentSlide] && (this.banners[e.currentSlide].deferLoaded = true);
-  }
+    constructor(@Inject(PLATFORM_ID) private platformId,
+                private deviceService: DeviceDetectorService,
+                private loaderService: LoaderService) {
+        if (isPlatformBrowser(this.platformId)) {
+            this.checkDevice();
+        }
+    }
 
-  slickInit(e) {
-    this.bannerHome.nativeElement.style.opacity = 1;
-  }
+    checkDevice() {
+        this.deviceInfo = this.deviceService.getDeviceInfo();
+        this.isMobile = this.deviceService.isMobile();
+        this.isTablet = this.deviceService.isTablet();
+        this.isDesktopDevice = this.deviceService.isDesktop();
+    }
 
-  trackBannerUrl(inx, banner) {
-    return banner.large;
-  }
+    ngOnInit() {
+        //this.loaderService.show();
+    }
+
+    ngAfterContentInit() {
+        //this.loaderService.hide();
+    }
+
+    slickInit(e) {
+        this.bannerHome.nativeElement.style.opacity = 1;
+    }
+
+    trackBannerUrl(banner) {
+        return banner.Url;
+    }
+
+    onBeforeChange(e) {
+        this.banners.map((item) => {
+            item.showContent = true;
+            return item;
+        });
+    }
 }

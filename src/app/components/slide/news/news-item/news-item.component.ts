@@ -142,10 +142,9 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
         this.currentPage = Math.max(0, Math.min(pageNum, this.totalPage));
         if (this.clinic) {
             this.loadByClinic(this.clinic);
-        }else {
+        } else {
             this.loadNews();
         }
-        
     }
 
     appendNews() {

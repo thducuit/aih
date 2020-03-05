@@ -19,7 +19,13 @@ import {isPlatformBrowser} from '@angular/common';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     public page: Page;
-    public banners: any[] = [];
+    
+    public banners: any[] = [{
+        // large: "assets/images/emergency-service-vn1542961167.png",
+        // small: "assets/images/emergency-service-640x434-pc1539849579.png",
+        // showContent: true
+    }];
+
     private subscription: Subscription;
     public pageClasses: string[];
     private deviceInfo = null;
@@ -32,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         .pipe(debounceTime(150))
         .subscribe(() => {
             this.loadPage();
+            this.loadBanner();
         });
 
     constructor(@Inject(PLATFORM_ID) private platformId,
@@ -61,10 +68,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.isMobile = this.deviceService.isMobile();
         this.isTablet = this.deviceService.isTablet();
         this.isDesktopDevice = this.deviceService.isDesktop();
-        console.log(this.deviceInfo);
-        console.log('isMobile', this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
-        console.log('isTablet', this.isTablet);  // returns if the device us a tablet (iPad etc)
-        console.log('isDesktopDevice', this.isDesktopDevice); // returns if the app is running on a Desktop browser.
+        // console.log(this.deviceInfo);
+        // console.log('isMobile', this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+        // console.log('isTablet', this.isTablet);  // returns if the device us a tablet (iPad etc)
+        // console.log('isDesktopDevice', this.isDesktopDevice); // returns if the app is running on a Desktop browser.
     }
 
     ngOnDestroy() {
@@ -78,8 +85,49 @@ export class HomeComponent implements OnInit, OnDestroy {
         return [languageClass, 'window'];
     }
 
+    loadBanner() {
+        //this.loaderService.show();
+        forkJoin(
+            this.pageService.fetchBanner('home_slide')
+        ).subscribe(
+            ([bannersResp]) => {
+                const banners = bannersResp['Posts'] || [];
+                this.banners = banners.map(item => {
+                    const meta = item.post_meta ? JSON.parse(item.post_meta) : {};
+                    meta.large = UrlService.createPictureUrl(
+                        meta.picture,
+                        null,
+                        null,
+                        true,
+                    );
+                    meta.small = UrlService.createPictureUrl(
+                        meta.picture_mobile,
+                        null,
+                        null,
+                        true,
+                    );
+                    return meta;
+                });
+
+                this.banners.map((item, index) => {
+                    if (index < 2) {
+                        item.showContent = true;
+                    } else {
+                        item.showContent = false;
+                    }
+                    return item;
+                });
+                console.log('this.banners api', this.banners);
+            },
+            null,
+            () => {
+                //this.loaderService.hide();
+            },
+        );
+    }
+
     loadPage() {
-        this.loaderService.show();
+        //this.loaderService.show();
         forkJoin(
             this.pageService.fetch('homepage'),
             this.translate.get('american_international_hospital'),
@@ -120,28 +168,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                         content: UrlService.createPictureUrl(this.page.picture),
                     });
                 }
-
-                const banners = pageBanners['Posts'] || [];
-                this.banners = banners.map(item => {
-                    const meta = item.post_meta ? JSON.parse(item.post_meta) : {};
-                    meta.large = UrlService.createPictureUrl(
-                        meta.picture,
-                        null,
-                        null,
-                        true,
-                    );
-                    meta.small = UrlService.createPictureUrl(
-                        meta.picture_mobile,
-                        null,
-                        null,
-                        true,
-                    );
-                    return meta;
-                });
-            },
-            complete: () => {
-                this.loaderService.hide();
-            },
+            }
           });
     }
 }

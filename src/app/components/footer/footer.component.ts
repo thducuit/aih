@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {LoaderService} from '../../services/loader-service';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
   selector: 'app-footer',
@@ -31,6 +32,11 @@ export class FooterComponent implements OnInit, OnDestroy {
   public deferLoaded = false;
   private subsciption: Subscription;
 
+  private deviceInfo = null;
+  public isMobile;
+  public isTablet;
+  public isDesktopDevice;
+
   constructor(
     public blogService: BlogService,
     public clinicService: ClinicService,
@@ -39,8 +45,13 @@ export class FooterComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document,
     @Inject(PLATFORM_ID) private platformId,
+    private deviceService: DeviceDetectorService,
     private zone: NgZone,
-  ) {}
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+            this.checkDevice();
+        }
+  }
 
   ngOnInit() {
     this.loadFeatureBlogs();
@@ -56,6 +67,13 @@ export class FooterComponent implements OnInit, OnDestroy {
     if (this.subsciption) {
       this.subsciption.unsubscribe();
     }
+  }
+
+  checkDevice() {
+        this.deviceInfo = this.deviceService.getDeviceInfo();
+        this.isMobile = this.deviceService.isMobile();
+        this.isTablet = this.deviceService.isTablet();
+        this.isDesktopDevice = this.deviceService.isDesktop();
   }
 
   loadFeatureBlogs() {

@@ -21,6 +21,7 @@ export class Doctor {
     public hot;
     public isShow;
     public showImg = false;
+    public showContent = false;
 
     constructor(data) {
         this.id = data.post_id;

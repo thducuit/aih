@@ -8,7 +8,7 @@
 					<p>{{ 'footer_title' | translate }}</p>
 				</div>
 
-				<div class="item">
+				<div class="item" *ngIf="isDesktopDevice || isTablet">
 					<h2>{{ 'news' | translate }}</h2>
 					<ul>
 						<li *ngFor="let blog of blogs">
@@ -27,7 +27,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="item">
+				<div class="item" *ngIf="isDesktopDevice || isTablet">
 					<h2>{{ 'patient_services' | translate }}</h2>
 					<ul>
 						<li *ngFor="let clinic of clinics">
@@ -46,11 +46,11 @@
 						
 					</ul>
 				</div>				
-				<div class="item page-fb">
+				<div class="item page-fb" *ngIf="isDesktopDevice || isTablet">
 					<h2>{{ 'social_channels' | translate }}</h2>
 					<div class="fb">
 						<iframe *ngIf="deferLoaded" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faih.com.vn%2F&tabs&width=260&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="260" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-          </div>
+          			</div>
 				</div>
 			</div>
 		</div>
@@ -70,4 +70,7 @@
 	</div>
 	<app-back-to-top></app-back-to-top>
 </footer>
-<div id="fb-root"></div>
+<div *ngIf="isDesktopDevice || isTablet">
+	<div id="fb-root"></div>
+</div>
+

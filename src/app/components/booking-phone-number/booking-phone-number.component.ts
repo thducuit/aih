@@ -21,6 +21,7 @@ import jquery from 'jquery';
 export class BookingPhoneNumberComponent implements OnInit {
   public phoneNumber: string;
   public showRegister = false;
+  public isLoadRegisterModal = false;
   @Output() chooseCustomer = new EventEmitter<any>();
   @Output() chooseCustomerPhone = new EventEmitter<any>();
   @Input() animateAfter: boolean;
@@ -190,6 +191,10 @@ export class BookingPhoneNumberComponent implements OnInit {
       return;
     }
     this.handlePhone();
+  }
+
+  onClick() {
+      this.isLoadRegisterModal = true;
   }
 
   handlePhone() {

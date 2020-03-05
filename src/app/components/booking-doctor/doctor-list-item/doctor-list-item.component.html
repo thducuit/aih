@@ -6,12 +6,14 @@
       <span class="toggle_plus js-accor-doc" (click)="handleExpand($event, doctor)"></span>
     </p>
     <div class="copy {{ doctor.isExpanded ? 'open' : ''  }}">
-      <img src='{{ doctor.picturePath }}'>
-      <h4>{{ doctor.name }}</h4>
-      <h4><span>{{ doctor.categoryName }}</span></h4>
-      <p [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></p>
-      <a class="rm" href="#"><span>{{ 'show_more' | translate }}</span></a>
-      <a class="bm js-book-dt" (click)="handleChoose(doctor)">{{ 'book' | translate }}</a>
+      <div *ngIf="doctor.isExpanded">
+        <img src='{{ doctor.picturePath }}' />
+        <h4>{{ doctor.name }}</h4>
+        <h4><span>{{ doctor.categoryName }}</span></h4>
+        <p [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></p>
+        <a class="rm" href="#"><span>{{ 'show_more' | translate }}</span></a>
+        <a class="bm js-book-dt" (click)="handleChoose(doctor)">{{ 'book' | translate }}</a>
+      </div>
     </div>
   </li>
 </ul>
