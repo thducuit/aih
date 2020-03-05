@@ -4760,7 +4760,7 @@ header.fixHd .bg {
 }
 
 .choosen-wrap h2 {
-  font-size: 20px;
+  font-size: 15px;
   color: #fff;
   text-transform: uppercase;
   line-height: 25px;
@@ -4780,7 +4780,7 @@ header.fixHd .bg {
   background: #fff;
   color: #e1115b;
   font-family: utm_avobold;
-  font-size: 18px;
+  font-size: 15px;
   text-transform: uppercase;
   border: none;
   -webkit-transition: all .3s ease;
@@ -4822,7 +4822,7 @@ header.fixHd .bg {
 }
 
 .drop-pk p {
-  font-size: 17px;
+  font-size: 15px;
   color: #fff;
   font-family: utm_avobold;
   text-transform: uppercase;
@@ -4869,7 +4869,7 @@ header.fixHd .bg {
 }
 
 .item-pk p {
-  font-size: 17px;
+  font-size: 15px;
   color: #fff;
   font-family: utm_avobold;
   text-transform: uppercase;
@@ -12065,7 +12065,7 @@ a.morelink:hover {
   }
 
   .choosen-wrap h2 {
-    font-size: 24px;
+    font-size: 15px;
     line-height: 30px
   }
 

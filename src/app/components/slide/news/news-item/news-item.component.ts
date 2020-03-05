@@ -113,9 +113,9 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
                     blog.url = UrlService.createNewsDetailUrl(blog.alias);
 
-                    if (blog.name.length > 50) {
-                        const arr = blog.name.split(' ');
-                        const str = arr.slice(0, 10).join(' ');
+                    const arr = blog.name.split(' ');
+                    if (arr.length > 15) {
+                        const str = arr.slice(0, 15).join(' ');
                         blog.name = `${str}...`;
                     }
 
