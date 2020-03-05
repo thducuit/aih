@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
 import { Page } from '../../../models/page';
 import { forkJoin, Subscription } from 'rxjs';
@@ -12,7 +12,6 @@ import { UrlService } from '../../../services/url.service';
 import { InsuranceDetail } from '../../../models/insurance-detail';
 import { PostService } from '../../../services/post.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { environment } from '../../../../environments/environment';
 import {LoaderService} from '../../../services/loader-service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
@@ -22,8 +21,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
   templateUrl: './insurance-detail.component.html',
   styleUrls: ['./insurance-detail.component.scss'],
 })
-export class InsuranceDetailComponent implements OnInit {
-
+export class InsuranceDetailComponent implements OnInit, OnDestroy {
   public insurances: Array<Insurance> = [];
   public page: Page;
   public banners: Array<any> = [];
@@ -39,7 +37,6 @@ export class InsuranceDetailComponent implements OnInit {
               private route: ActivatedRoute,
               public insuranceService: InsuranceService,
               public insuranceMediaService: InsuranceMediaService,
-              private animateScrollService: NgAnimateScrollService,
               public pageService: PageService,
               public bannerService: BannerService,
               private translate: TranslateService,
@@ -62,6 +59,9 @@ export class InsuranceDetailComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   loadPage() {
     this.loaderService.show();

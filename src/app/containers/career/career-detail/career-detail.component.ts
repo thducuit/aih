@@ -6,7 +6,6 @@ import {TranslateService} from '@ngx-translate/core';
 import {UrlService} from '../../../services/url.service';
 import {forkJoin, Subscription} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
-import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {Page} from '../../../models/page';
 import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
@@ -46,7 +45,6 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 public postService: PostService,
                 public bannerService: BannerService,
                 private translate: TranslateService,
-                private animateScrollService: NgAnimateScrollService,
                 private metaService: Meta,
                 private titleService: Title,
                 private loaderService: LoaderService,

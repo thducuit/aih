@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, NgZone, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, NgZone, PLATFORM_ID, OnDestroy } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
 import { Page } from '../../../models/page';
 import { forkJoin, Subscription } from 'rxjs';
@@ -11,10 +11,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { UrlService } from '../../../services/url.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InsuranceDetail } from '../../../models/insurance-detail';
-import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { isPlatformBrowser } from '@angular/common';
 import { LoaderService } from '../../../services/loader-service';
-import jquery from 'jquery';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -22,7 +20,7 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './insurance-consulting.component.html',
   styleUrls: ['./insurance-consulting.component.scss'],
 })
-export class InsuranceConsultingComponent implements OnInit {
+export class InsuranceConsultingComponent implements OnInit, OnDestroy {
 
   public insurances: Array<Insurance> = [];
   public page: Page;
@@ -43,8 +41,7 @@ export class InsuranceConsultingComponent implements OnInit {
               private titleService: Title,
               private router: Router,
               private zone: NgZone,
-              private loaderService: LoaderService,
-              private animateScrollService: NgAnimateScrollService) {
+              private loaderService: LoaderService) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
@@ -60,6 +57,10 @@ export class InsuranceConsultingComponent implements OnInit {
       this.loadCategory(this.route.snapshot.params.id);
       this.loadPage();
     });
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 
