@@ -11,6 +11,7 @@
       class="item"
       [ngStyle]="{ background: 'url(' + (item.showContent && (isTablet || isDesktopDevice) ? item.large : '')  + ') no-repeat center' }"
     >
+      <a class="desk-link" [href]="item.link" *ngIf="(isTablet || isDesktopDevice)"></a>
       <div class="container" *ngIf="item.showContent && (isMobile || isTablet)">
         <a [href]="item.link"></a>
         <div class="ct-banner">

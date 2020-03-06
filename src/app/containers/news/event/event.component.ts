@@ -156,10 +156,11 @@ export class EventComponent implements OnInit, OnDestroy {
     }
 
     truncateText(str: string, length: number) {
-        if (!str || str.length < length) {
+        const arr = str.split(' ');
+        if (!arr || arr.length < length) {
             return str;
         }
-        return str.substr(0, length - 3).trim() + '...';
+        return arr.slice(0, length).join(' ').trim() + '...';
     }
 
     openIframeVideo(video) {

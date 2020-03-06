@@ -20,11 +20,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                <div>{{ truncateText(filterBlogs[1] ? filterBlogs[1].name : '', 51) }}</div>
+                <div>{{ truncateText(filterBlogs[1] ? filterBlogs[1].name : '', 20) }}</div>
               </h3>
               <hr>
               <p class="date">{{filterBlogs[1].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[1].shortDesc" [innerHTML]="truncateText(filterBlogs[1] ? filterBlogs[1].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[1].shortDesc" [innerHTML]="truncateText(filterBlogs[1] ? filterBlogs[1].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[1].url }}"></a>
           </div>
@@ -47,11 +47,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                <div>{{ truncateText(filterBlogs[0] ? filterBlogs[0].name : '', 51) }}</div>
+                <div>{{ truncateText(filterBlogs[0] ? filterBlogs[0].name : '', 20) }}</div>
               </h3>
               <hr>
               <p class="date">{{filterBlogs[0].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[0].shortDesc" [innerHTML]="truncateText(filterBlogs[0] ? filterBlogs[0].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[0].shortDesc" [innerHTML]="truncateText(filterBlogs[0] ? filterBlogs[0].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[0].url }}"></a>
           </div>
@@ -66,7 +66,7 @@
               </h3>
               <hr>
               <p class="date">{{filterBlogs[1].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[1].shortDesc" [innerHTML]="truncateText(filterBlogs[1] ? filterBlogs[1].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[1].shortDesc" [innerHTML]="truncateText(filterBlogs[1] ? filterBlogs[1].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[1].url }}"></a>
           </div>
@@ -81,11 +81,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                {{ truncateText(filterBlogs[2] ? filterBlogs[2].name : '' , 51)}}
+                {{ truncateText(filterBlogs[2] ? filterBlogs[2].name : '' , 20)}}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[2].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[2].shortDesc" [innerHTML]="truncateText(filterBlogs[2] ? filterBlogs[2].shortDesc : '', 115) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[2].shortDesc" [innerHTML]="truncateText(filterBlogs[2] ? filterBlogs[2].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[2].url }}"></a>
           </div>
@@ -100,11 +100,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                {{ truncateText(filterBlogs[3] ? filterBlogs[3].name : '', 51) }}
+                {{ truncateText(filterBlogs[3] ? filterBlogs[3].name : '', 20) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[3].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[3].shortDesc" [innerHTML]="truncateText(filterBlogs[3] ? filterBlogs[3].shortDesc : '', 115) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[3].shortDesc" [innerHTML]="truncateText(filterBlogs[3] ? filterBlogs[3].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[3].url }}"></a>
           </div>
@@ -115,11 +115,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                {{ truncateText(filterBlogs[4] ? filterBlogs[4].name : '', 51) }}
+                {{ truncateText(filterBlogs[4] ? filterBlogs[4].name : '', 20) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[4].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[4].shortDesc" [innerHTML]="truncateText(filterBlogs[4] ? filterBlogs[4].shortDesc : '', 115) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[4].shortDesc" [innerHTML]="truncateText(filterBlogs[4] ? filterBlogs[4].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[4].url }}"></a>
           </div>
@@ -134,11 +134,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                {{ truncateText(filterBlogs[5] ? filterBlogs[5].name : '', 51) }}
+                {{ truncateText(filterBlogs[5] ? filterBlogs[5].name : '', 20) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[5].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[5].shortDesc" [innerHTML]="truncateText(filterBlogs[5] ? filterBlogs[5].shortDesc : '', 125) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[5].shortDesc" [innerHTML]="truncateText(filterBlogs[5] ? filterBlogs[5].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[5].url }}"></a>
           </div>
@@ -153,11 +153,11 @@
             <div class="copy">
               <h3>
                 <span>{{ 'news' | translate }}</span><br />
-                {{ truncateText(filterBlogs[6] ? filterBlogs[6].name : '', 51) }}
+                {{ truncateText(filterBlogs[6] ? filterBlogs[6].name : '', 20) }}
               </h3>
               <hr>
               <p class="date">{{filterBlogs[6].datepublish | date:'dd/MM/yyyy'}}</p>
-              <p *ngIf="filterBlogs[6].shortDesc" [innerHTML]="truncateText(filterBlogs[6] ? filterBlogs[6].shortDesc : '', 120) | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="filterBlogs[6].shortDesc" [innerHTML]="truncateText(filterBlogs[6] ? filterBlogs[6].shortDesc : '', 30) | decodeHtmlEntities | safeHtml"></p>
             </div>
             <a class="link-all" routerLink="{{ filterBlogs[6].url }}"></a>
           </div>
