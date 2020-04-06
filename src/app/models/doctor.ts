@@ -32,7 +32,7 @@ export class Doctor {
         this.shortDesc = data.post_shortdesc;
         this.longDesc = data.post_longdesc;
         this.picture = data.post_picture;
-        this.doctorId = data.post_elem01;
+        this.doctorId = data.post_elem01 ? data.post_elem01.toUpperCase() : data.post_elem01;
         this.metaDesc = data.post_metadesc;
         this.isShow = data.post_publish;
         this.metaKey = data.post_metakey;

@@ -9,7 +9,7 @@ export class Schedule {
 
 
   constructor(data: any) {
-    this.doctorId = data.sch_resource_id;
+    this.doctorId = data.sch_resource_id ? data.sch_resource_id.toUpperCase() : data.sch_resource_id;
     this.clinicId = data.clinical_specialty_rid;
     this.dateFrom = data.effective_from_date_time;
     this.dateTo = data.effective_until_date_time;
