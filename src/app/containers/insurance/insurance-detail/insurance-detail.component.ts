@@ -121,16 +121,20 @@ export class InsuranceDetailComponent implements OnInit {
       service.longDesc = UrlService.fixPictureUrl(service.longDesc);
       const longDescs = service.longDesc.split('[direct_billing_partners][/direct_billing_partners]');
 
-      this.longDescs = longDescs.map(item => {
-        return {
-          content: item,
-          haveHook: true,
-        };
-      });
+      this.longDescs = longDescs
+                .filter(item => item)
+                .map(item => {
+                      return {
+                        content: item,
+                        haveHook: true,
+                      };
+                    });
 
       if (!service.longDesc.endsWith('[direct_billing_partners][/direct_billing_partners]')) {
         this.longDescs[this.longDescs.length - 1]['haveHook'] = false;
       }
+
+
 
       this.service = service;
 

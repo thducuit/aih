@@ -1,8 +1,10 @@
+import moment from 'moment';
 export class Schedule {
   public doctorId: string;
   public clinicId: string;
   public dateFrom: string;
   public dateTo: string;
+  public dateFixTo: string;
   public timeSlot: number;
   public slot: string[];
   public hrs: string[];
@@ -16,6 +18,12 @@ export class Schedule {
     this.timeSlot = data.timeSlot;
     this.slot = this.getSlot(data.arr_time_slot);
     this.hrs = this.getHrs(data.arr_time_slot);
+
+    this.dateTo = this.subtractSecond(this.dateTo, 1);
+  }
+
+  private subtractSecond(dateTime, seconds) {
+    return moment(dateTime).subtract(1, 'seconds').format('YYYY-MM-DD[T]HH:mm:ss');
   }
 
   private getSlot(slotString) {

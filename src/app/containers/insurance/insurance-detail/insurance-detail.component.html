@@ -35,7 +35,7 @@
         <div class="box-content content-for-detail" *ngIf="service">
           <div class="heading">{{ service.name }}</div>
           <span *ngFor="let longDesc of longDescs">
-            <p [innerHTML]="longDesc.content | decodeHtmlEntities | safeHtml"></p>
+            <p *ngIf="longDesc.content" [innerHTML]="longDesc.content | safeHtml"></p>
             <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
           </span>
         </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="tt-doc-crs">
               <h2>{{ service.name }}</h2>
-              <p [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
+              <p [innerHTML]="service.shortDesc | safeHtml"></p>
             </div>
             <div class="copy">
               <p></p>
