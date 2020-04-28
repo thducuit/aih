@@ -60,7 +60,7 @@ export class UrlService {
     }
 
     static createInsuranceDetailUrl(id, alias) {
-        const baseUrl = (alias === 'insurance' || alias === 'bao-hiem') ? '/insurance/insurance-consulting/' : '/insurance/membership-consulting/';
+        const baseUrl = (alias.indexOf('insurance') > -1 || alias.indexOf('bao-hiem') > -1) ? '/insurance/insurance-consulting/' : '/insurance/membership-consulting/';
         return `${baseUrl}${id}`;
     }
 

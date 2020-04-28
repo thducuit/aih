@@ -11,7 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { UrlService } from '../../../services/url.service';
 import { InsuranceDetail } from '../../../models/insurance-detail';
 import { PostService } from '../../../services/post.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
 import { environment } from '../../../../environments/environment';
 import {LoaderService} from '../../../services/loader-service';
@@ -46,6 +46,7 @@ export class InsuranceDetailComponent implements OnInit {
               private metaService: Meta,
               private titleService: Title,
               private loaderService: LoaderService,
+              private router: Router,
               public postService: PostService) {
   }
 
@@ -57,8 +58,19 @@ export class InsuranceDetailComponent implements OnInit {
       this.loadPosts(alias);
     });
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadPage();
-      this.loadPosts(this.route.snapshot.params.alias);
+      const alias = this.route.snapshot.params.alias;
+      this.postService.getAlias(alias).subscribe((data: any) => {
+          const newAlias = data['alias'];
+          if (newAlias) {
+              return this.router.navigate([
+                  UrlService.createInsuranceUrl(newAlias),
+              ]);
+          } else {
+              return this.router.navigate(['/insurance/insurance-membership']);
+          }
+      });
+      // this.loadPage();
+      // this.loadPosts(this.route.snapshot.params.alias);
     });
   }
 
