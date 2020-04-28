@@ -357,7 +357,11 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             )
             .subscribe((data: any) => {
                 const bookingId = data['booking_id'] || 0;
-                if (this.selectedCustomerId === -1) {
+                if (this.selectedCustomerId === -2) {
+                    if (bookingId) {
+                        this.openSuccessWithConfirmRegisterCustomer();
+                    }
+                } else if (this.selectedCustomerId === -1) {
                     if (bookingId) {
                         this.openSuccess();
                         this.reset();
@@ -390,6 +394,32 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     openSuccess() {
+        forkJoin(
+            this.translate.get('text_booking_success'),
+            this.translate.get('text_close'),
+            this.translate.get('text_booking_success_1'),
+            this.translate.get('text_booking_success_2'),
+            this.translate.get('text_booking_success_3'),
+        ).subscribe(([message, buttonText, m1, m2, m3]) => {
+            Swal.fire({
+                text: message,
+                customClass: 'alert-booking',
+                background: '#007298',
+                html: '<div class="alert-custom-booking"><div class="img-logo"></div>' +
+                '<div class="alert-header">' + m1 + '<br/>' + m2 +
+                '</div> ' +
+                '<div class="alert-content">' + m3 + '</div>' +
+                '</div>',
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+            }).then(() => {
+                // window.location.reload();
+            });
+        });
+    }
+
+    openSuccessWithConfirmRegisterCustomer() {
         forkJoin(
             this.translate.get('text_booking_success'),
             this.translate.get('text_close'),

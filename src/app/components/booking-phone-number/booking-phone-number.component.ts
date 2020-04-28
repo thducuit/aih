@@ -220,11 +220,15 @@ export class BookingPhoneNumberComponent implements OnInit {
         return;
       }
 
+      // -1 customer is existed in AIH system
+      // -2 still no check customer both in AIH system and TQ system
       this.bookingService.callValidatePhone(this.phoneNumber).subscribe(
         (data: any) => {
           const status = data['Data'] || null;
           if (status === 'false') {
-            this.openDialogRegister();
+            // this.openDialogRegister();
+            this.chooseCustomer.emit(-2);
+            this.chooseCustomerPhone.emit(this.phoneNumber);
           } else {
             this.chooseCustomer.emit(-1);
             this.chooseCustomerPhone.emit(this.phoneNumber);
@@ -239,7 +243,7 @@ export class BookingPhoneNumberComponent implements OnInit {
   checkPhone() {
     if (!this.phoneNumber || !this.phoneNumber.length) {
       this.openWarningPhone();
-    }else {
+    } else {
       this.handlePhone();
     }
   }
