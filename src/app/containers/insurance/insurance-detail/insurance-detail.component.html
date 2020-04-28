@@ -32,7 +32,7 @@
 
       <div class="insurance-consulting-content clearfix">
 
-        <div class="box-content content-for-detail" *ngIf="service">
+        <div class="box-content content-for-detail" *ngIf="service && service.name">
           <div class="heading">{{ service.name }}</div>
           <span *ngFor="let longDesc of longDescs">
             <p *ngIf="longDesc.content" [innerHTML]="longDesc.content | safeHtml"></p>
@@ -41,7 +41,7 @@
         </div>
       </div>
 
-      <ul class="list-dt list-dt-ins">
+      <ul class="list-dt list-dt-ins" *ngIf="service && service.name">
         <li *ngFor="let service of services">
           <div class="item-doc">
             <div class="img">
@@ -51,7 +51,7 @@
             </div>
             <div class="tt-doc-crs">
               <h2>{{ service.name }}</h2>
-              <p [innerHTML]="service.shortDesc | safeHtml"></p>
+              <p [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
             </div>
             <div class="copy">
               <p></p>
