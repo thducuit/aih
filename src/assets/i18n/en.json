@@ -250,6 +250,10 @@
   "text_booking_phone_close": "Register",
   "text_subsribe_form_existed": "Email is registered",
 
+  "text_booking_confirm_resigter_customer": "Do you want register new account?",
+  "text_accept": "Accept",
+  "text_cancel": "Cancel",
+
 
   "text_Daoism": "Daoism",
   "text_Hinduism": "Hinduism",

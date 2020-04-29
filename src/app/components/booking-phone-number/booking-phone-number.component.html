@@ -7,6 +7,8 @@
 	*ngIf="isLoadRegisterModal"
   [isShowPopup]="showRegister"
   [phoneNumber]="phoneNumber"
+  [bookingId]="bookingId"
   (closePopup)="handleCloseRegister()"
   (getCustomerId)="handleGetCustomerId($event)"
+  (resetPhoneNumber)="reset()"
 ></app-customer-register>

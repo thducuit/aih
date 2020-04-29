@@ -67,7 +67,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
     private chooseClinicDelegate: (id) => void;
 
     public isLoadTimeFail = false;
-
+    private shouldRegistCustomer = false;
+    private bookingId = null;
     private scheduleOfDoctor = [];
 
     @ViewChild('recaptcha', {static: true}) recaptcha: RecaptchaComponent;
@@ -357,11 +358,31 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             )
             .subscribe((data: any) => {
                 const bookingId = data['booking_id'] || 0;
-                if (this.selectedCustomerId === -2) {
+                this.bookingId = bookingId;
+                if (this.selectedCustomerId === -2) { // customer is not existed both on TQ and AIH systems
                     if (bookingId) {
-                        this.openSuccessWithConfirmRegisterCustomer();
+                        this.bookingService
+                            .callGetExistedCustomer(this.selectedPhone)
+                            .subscribe((data2: any) => {
+                                const customer = data2['Customer'] || {};
+                                if (!customer['customer_id']) {
+                                    this.shouldRegistCustomer = true;
+                                    this.openSuccessWithConfirmRegisterCustomer();
+                                } else {
+                                    this.bookingService
+                                        .callUpdateBooking(customer['customer_id'], bookingId)
+                                        .subscribe(() => {
+                                            this.openSuccess();
+                                            this.reset();
+                                        });
+                                }
+                            });
+                        // this.openSuccessWithConfirmRegisterCustomer();
+                        // this.shouldRegistCustomer = true;
+                        // this.openSuccess();
+                        // this.reset();
                     }
-                } else if (this.selectedCustomerId === -1) {
+                } else if (this.selectedCustomerId === -1) { // customer is not existed on TQ systems but be existed on AIH systems
                     if (bookingId) {
                         this.openSuccess();
                         this.reset();
@@ -370,7 +391,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                     if (bookingId) {
                         this.bookingService
                             .callUpdateBooking(this.selectedCustomerId, bookingId)
-                            .subscribe((data2: any) => {
+                            .subscribe(() => {
                                 this.openSuccess();
                                 this.reset();
                             });
@@ -439,8 +460,35 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 showCloseButton: false,
                 showCancelButton: false,
                 showConfirmButton: false,
+                onClose: () => {
+                    this.openConfirmRegistCustomer();
+                    this.shouldRegistCustomer = false;
+                }
             }).then(() => {
                 // window.location.reload();
+            });
+        });
+    }
+
+    openConfirmRegistCustomer() {
+        forkJoin(
+            this.translate.get('text_booking_confirm_resigter_customer'),
+            this.translate.get('text_accept'),
+            this.translate.get('text_cancel'),
+        ).subscribe(([message, buttonOkText, buttonCloseText]) => {
+            Swal.fire({
+                text: message,
+                confirmButtonText: buttonOkText,
+                showCancelButton: true,
+                cancelButtonText: buttonCloseText,
+            }).then((result) => {
+                if (result.value) {
+                    const phoneNumber = this.selectedPhone;
+                    this.reset();
+                    this.bookingPhoneNumer.openDialogRegister(this.bookingId, phoneNumber);
+                } else {
+                    this.reset();
+                }
             });
         });
     }

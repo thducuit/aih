@@ -17,8 +17,10 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
 
     @Input() isShowPopup = false;
     @Input() phoneNumber: string;
+    @Input() bookingId: string;
     @Output() closePopup = new EventEmitter<any>();
     @Output() getCustomerId = new EventEmitter<any>();
+    @Output() resetPhoneNumber = new EventEmitter<any>();
     public form = {
         firstName: '',
         lastName: '',
@@ -163,9 +165,9 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     ngOnDestroy() {
-      if (this.subscription) {
-        this.subscription.unsubscribe();
-      }
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
     openSuccess() {
@@ -199,8 +201,19 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
         this.bookingService.callRegisterCustomer(this.form).subscribe((data: any) => {
             if (data['customer_id']) {
                 this.getCustomerId.emit(data['customer_id']);
-                this.openSuccess();
-                this.resetForm();
+                // update booking
+                if (this.bookingId) {
+                    this.bookingService
+                        .callUpdateBooking(data['customer_id'], this.bookingId)
+                        .subscribe((data2: any) => {
+                                this.openSuccess();
+                                this.resetForm();
+                                this.resetPhoneNumber.emit();
+                            },
+                            () => {
+                                this.openFail();
+                            });
+                }
             } else {
                 this.openFail();
             }
@@ -265,10 +278,10 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
             this.errorYearBirth = false;
         }
 
-        if(!this.form.residenceAddress) {
+        if (!this.form.residenceAddress) {
             this.errorResidenceAddress = true;
             flag = false;
-        }else {
+        } else {
             this.errorResidenceAddress = false;
         }
 
