@@ -25,6 +25,7 @@ export class BookingPhoneNumberComponent implements OnInit {
     public isLoadRegisterModal = false;
     @Output() chooseCustomer = new EventEmitter<any>();
     @Output() chooseCustomerPhone = new EventEmitter<any>();
+    @Output() resetAnimate = new EventEmitter<any>();
     @Input() animateAfter: boolean;
 
     @ViewChild('phoneNumberInput', {static: false}) phoneNumberInput;
@@ -281,5 +282,6 @@ export class BookingPhoneNumberComponent implements OnInit {
 
     reset() {
         this.phoneNumber = '';
+        this.resetAnimate.emit();
     }
 }

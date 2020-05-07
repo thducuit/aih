@@ -118,17 +118,14 @@ export class HomeComponent implements OnInit, OnDestroy {
                     }
                     return item;
                 });
-                console.log('this.banners api', this.banners);
             },
             null,
             () => {
-                //this.loaderService.hide();
             },
         );
     }
 
     loadPage() {
-        //this.loaderService.show();
         forkJoin(
             this.pageService.fetch('homepage'),
             this.translate.get('american_international_hospital'),

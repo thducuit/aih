@@ -165,6 +165,30 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         this.animateNextStep();
     }
 
+    handleResetAnimate() {
+        this.animatePhone = false;
+        this.animateClinic = false;
+        this.animateDoctor = false;
+        this.animateDate = false;
+        this.animateTime = false;
+        this.animateBooking = false;
+        //
+        this.selectedDoctor = null;
+        this.selectedClinic = null;
+        this.selectedTime = null;
+        this.selectedDate = null;
+        this.selectedCustomerId = null;
+        this.selectedPhone = null;
+        //
+        this.bookingDate.reset();
+        this.bookingDoctor.reset();
+        this.bookingDoctor.resetList();
+        this.bookingSpecialty.reset();
+        this.bookingTime.reset();
+
+        this.recaptcha && this.recaptcha.reset();
+    }
+
     chooseDoctorById(doctorId) {
         this.bookingDoctor && this.bookingDoctor.chooseDoctor(doctorId);
         this.animateNextStep();
