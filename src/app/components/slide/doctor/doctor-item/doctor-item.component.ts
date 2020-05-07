@@ -99,6 +99,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
 
     loadDoctors() {
         this.loaderService.show();
+        this.doctors = [];
         this.doctorService.fetch().subscribe((data: any) => {
             const posts = data.Posts || [];
             this.doctors = posts
@@ -113,7 +114,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
                 .filter(item => item.picture ? true : false);
             if (this.clinicIds && this.clinicIds.length) {
                 this.doctors = this.doctors.filter(
-                    item => this.clinicIds.indexOf(item.categoryId) >= 0,
+                        item => this.clinicIds.indexOf(item.categoryId) >= 0 || this.clinicIds.some( clinicId => item.categories.indexOf(clinicId) >= 0 )
                 );
             } else {
                 this.doctors = this.doctors.filter(
