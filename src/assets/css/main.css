@@ -3171,11 +3171,12 @@ header.fixHd .bg {
   padding-right: 60px
 }
 
-.ft-wrap .item h2 {
+.ft-wrap .item h2, .ft-wrap .item h2 a {
   font-size: 18px;
   color: #fff;
   position: relative;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  text-decoration: none;
 }
 
 .ft-wrap .item h2:after {
@@ -4927,6 +4928,7 @@ header.fixHd .bg {
   /*height: 560px*/
   height: auto;
   min-height: 200px;
+  overflow: hidden;
 }
 
 .content-map {
@@ -5275,6 +5277,15 @@ header.fixHd .bg {
   left: 0
 }
 
+.item-faq h3 {
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.item-clinic .copy-content h4 {
+  font-style: italic;
+}
+
 .item-sv h4 {
   font-family: utm_avoregular;
   font-size: 30px;
@@ -5583,6 +5594,7 @@ header.fixHd .bg {
   width: 55px;
   height: 55px;
   background-size: cover !important;
+  background: url(../images/user.png) center no-repeat;
   position: absolute;
   top: 0;
   left: 0
@@ -9602,7 +9614,7 @@ a.morelink:hover {
 
 @media screen and (min-width: 1025px) and (max-width: 1365px) {
   .container {
-    padding: 0 100px
+    padding: 0 20px
   }
 
   .doctor-home .container {
@@ -10903,7 +10915,7 @@ a.morelink:hover {
   }
 
   .banner-page .copy h2 {
-    font-size: 20px;
+    font-size: 15px;
     line-height: 25px
   }
 
@@ -10928,7 +10940,7 @@ a.morelink:hover {
   }
 
   .banner-page .copy h4 {
-    font-size: 15px
+    font-size: 12px
   }
 
   .intro-wrap .copy p,

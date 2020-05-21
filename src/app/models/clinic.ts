@@ -15,12 +15,14 @@ export class Clinic {
   public meta;
   public active;
   public isShow;
+  public sort;
   public deferLoaded = false;
 
 
   constructor(data) {
     this.id = data.cate_id;
     this.name = data.cate_name;
+    this.sort = data.cate_sort;
     this.picture = data.cate_picture;
     this.shortDesc = data.cate_shortdesc;
     this.longDesc = data.cate_longdesc;

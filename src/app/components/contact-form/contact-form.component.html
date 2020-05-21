@@ -16,8 +16,8 @@
     </li>
     <li>
       <div>
-        <label>{{ 'contact_question' | translate }}</label>
-        <textarea title="content" name="content" class="form-control" [(ngModel)]="form.content"></textarea>
+        <label>{{ 'contact_question' | translate }}*</label>
+        <textarea title="content" (blur)="validator()" name="content" class="form-control {{ errorContent ? 'error' : '' }}" [(ngModel)]="form.content"></textarea>
       </div>
     </li>
     <li>

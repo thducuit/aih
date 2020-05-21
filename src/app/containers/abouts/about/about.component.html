@@ -18,7 +18,7 @@
       <div class="intro-wrap">
         <div class="tt-page">
           <h4>{{ 'introduction' | translate }}</h4>
-          <h3>{{ 'who_we_are?' | translate }}?</h3>
+          <h3>{{ 'who_we_are?' | translate }}</h3>
         </div>
         <div class="copy" [innerHTML]="page.longDesc | decodeHtmlEntities | safeHtml"></div>
       </div>
@@ -29,7 +29,7 @@
           <h3>{{ 'awesome_services' | translate }}</h3>
         </div>
         <div class="list-sv">
-          <div *ngFor="let clinic of clinics; let i = index" class="item-sv  {{ i % 2 === 1 ? 'right-align' : 'left-align' }} ">
+          <div *ngFor="let clinic of clinics; let i = index" class="item-sv item-clinic  {{ i % 2 === 1 ? 'right-align' : 'left-align' }} ">
             <div class="out-content">
               <div
                 class="img"

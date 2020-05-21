@@ -22,6 +22,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   @ViewChild('recaptcha', { static: false }) recaptcha: RecaptchaComponent;
   public errorFullname = false;
   public errorEmail = false;
+  public errorContent = false;
 
   public captchaResponse;
   public recaptchaSiteKey = environment.recaptchaSiteKey;
@@ -98,12 +99,14 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   validator() {
     let flag = true;
+    // name
     if (!this.form.fullname) {
       this.errorFullname = true;
       flag = false;
     } else {
       this.errorFullname = false;
     }
+    // email
     if (!this.form.email) {
       this.errorEmail = true;
       flag = false;
@@ -115,6 +118,13 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       } else {
         this.errorEmail = false;
       }
+    }
+    // content
+    if (!this.form.content) {
+        this.errorContent = true;
+        flag = false;
+    } else {
+        this.errorContent = false;
     }
     return flag;
   }
