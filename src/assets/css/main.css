@@ -10545,7 +10545,7 @@ a.morelink:hover {
     display: block;
     position: fixed;
     bottom: 140px;
-    right: -10px
+    left: -10px
   }
 
   .hotline li {
