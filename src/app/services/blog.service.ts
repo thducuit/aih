@@ -20,6 +20,8 @@ export class BlogService extends BaseService {
             pageselected: pageNum || 1,
             post_type: ['news'],
             sort,
+            commentsCount: true,
+            likesCount: true,
             lang: this.getCurrentLocal()
         };
         if (isNoVideo) {

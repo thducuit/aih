@@ -267,14 +267,15 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       this.likeService.delete(user, this.blog.id).subscribe(() => {
         liked = liked.filter(item => item !== this.blog.id);
         this.liked = false;
+        localStorage.setItem('liked', JSON.stringify(liked));
       });
     } else {
       this.likeService.add(user, this.blog.id).subscribe(() => {
         liked.push(this.blog.id);
         this.liked = true;
+        localStorage.setItem('liked', JSON.stringify(liked));
       });
     }
-    localStorage.setItem('liked', JSON.stringify(liked));
   }
 
   comment() {

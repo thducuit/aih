@@ -101,6 +101,8 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
             .fetch(this.currentPage, perPage, ['post_datepublish DESC'], true)
             .subscribe((data: any) => {
                 const posts = data.Posts || [];
+                const comments = data.Comments || [];
+
                 this.totalPage = Math.ceil(data.TotalRecord / perPage);
                 this.blogs = posts.map(post => {
                     const blog = new Blog(post);
@@ -112,6 +114,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
                     }
 
                     blog.url = UrlService.createNewsDetailUrl(blog.alias);
+                    blog.comments = comments[blog.id] || 0;
 
                     const arr = blog.name.split(' ');
                     if (arr.length > 15) {

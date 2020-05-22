@@ -20,6 +20,7 @@ export class Blog {
   public totalComments;
   public totalLikes;
   public isShow;
+  public comments;
   public showImg = false;
 
   constructor(data) {

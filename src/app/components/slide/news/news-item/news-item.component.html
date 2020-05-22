@@ -13,7 +13,7 @@
         </div>
         <div class="tt-news">
           <p class="date">{{blog.datepublish | date:'dd/MM/yyyy'}}</p>
-          <span class="cm">0</span>
+          <span class="cm">{{ blog.comments }}</span>
         </div>
         <div class="copy">
           <h2 *ngIf="blog.name" class="blog-title">{{ blog.name }}</h2>
