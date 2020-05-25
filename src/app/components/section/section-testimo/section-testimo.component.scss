@@ -1,0 +1,29 @@
+.testimo-item {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.testimo-home .slick-slider {
+  height: 100%;
+}
+
+.testimo-home .item  {
+  height: 100%;
+}
+.testimo-home .item a:hover {
+  text-decoration: none;
+}
+
+
+@media screen and (min-width: 1281px) and (max-width: 1659px) {
+  .testimo-item {
+    height: 290px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .testimo-item {
+    height: 280px;
+  }
+}

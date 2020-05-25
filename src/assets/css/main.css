@@ -279,6 +279,12 @@ select {
   transition: all .3s ease
 }
 
+.testimo-home .slick-next,
+.testimo-home .slick-prev {
+  top: 25%;
+  outline: none;
+}
+
 .slick-next:before,
 .slick-prev:before {
   font-family: slick;
@@ -289,6 +295,28 @@ select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
+
+.testimo-home .slick-prev {
+  left: -20px;
+  background: url(../images/ar-prev.png) center center no-repeat;
+  background-size: 25px
+}
+.testimo-home .slick-prev:hover {
+  background: url(../images/ar-prev-b.png) center center no-repeat;
+  background-size: 25px
+}
+
+.testimo-home .slick-next {
+  right: -20px;
+  background: url(../images/ar-next.png) center center no-repeat;
+  background-size: 25px
+}
+
+.testimo-home .slick-next:hover {
+  background: url(../images/ar-next-b.png) center center no-repeat;
+  background-size: 25px
+}
+
 
 .slick-prev {
   left: 0;
@@ -4604,7 +4632,8 @@ header.fixHd .bg {
 
 .testimo-home .copy-quote {
   width: 520px;
-  left: 10%
+  /*left: 10%*/
+  left: 0
 }
 
 .testimo-home .copy-quote p {
@@ -4618,13 +4647,25 @@ header.fixHd .bg {
 }
 
 .testimo-home .play-video {
-  width: 100%;
-  height: 100%;
+  /*width: 100%;
+  height: 100%;*/
+
+  width: 100px;
+  height: 100px;
+
   position: absolute;
-  top: 0;
-  left: 0;
+  /*top: 0;
+  left: 0;*/
+
+  top: 200px;
+  left: 50%;
+
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+
   background: url(../images/icon-play.png) center center no-repeat;
-  background-size: 180px;
+  background-size: 100px;
   cursor: pointer;
   opacity: .7;
   z-index: 2;
@@ -4636,7 +4677,7 @@ header.fixHd .bg {
 .testimo-home .play-video:hover {
   opacity: 1;
   background: url(../images/icon-play.png) center center no-repeat;
-  background-size: 200px
+  background-size: 100px
 }
 
 #videoTesti {
@@ -8204,11 +8245,12 @@ a.morelink:hover {
   }
 
   .testimo-home .play-video {
-    background-size: 120px
+    background-size: 100px;
+    top: 160px;
   }
 
   .testimo-home .play-video:hover {
-    background-size: 140px
+    background-size: 100px
   }
 
   .testimo-home .copy-quote {
@@ -9681,11 +9723,12 @@ a.morelink:hover {
   }
 
   .testimo-home .play-video {
-    background-size: 130px
+    background-size: 100px;
+    top: 180px
   }
 
   .testimo-home .play-video:hover {
-    background-size: 145px
+    background-size: 100px
   }
 
   .testimo-home {
@@ -10672,7 +10715,7 @@ a.morelink:hover {
   .swal2-popup .swal2-styled.swal2-confirm, .swal2-popup .swal2-styled.swal2-cancel {
     font-size: 16px!important;
   }
-  
+
   .loading-page img {
     width: 60px;
     margin: -30px 0 0 -30px
@@ -11632,7 +11675,8 @@ a.morelink:hover {
 
   .testimo-home .play-video {
     background-size: 88px;
-    background-position: center 34%
+    background-position: center 34%;
+    top: 140px;
   }
 
   .testimo-home .play-video:hover {
@@ -12590,7 +12634,7 @@ a.morelink:hover {
 
   .testimo-home .copy-quote {
     width: 100%;
-    padding: 0 40px
+    padding: 50px 40px 0
   }
 
   .testimo-home .copy-quote p {

@@ -15,7 +15,7 @@ export class TestimonialItemComponent implements OnInit {
   constructor() { }
 
   get needShowMore(): boolean {
-    return this.testimonial && this.testimonial.longdesc && this.testimonial.longdesc.length > 400;
+    return this.testimonial && this.testimonial.longdesc && this.testimonial.longdesc.split(' ').length > 100;
   }
 
   ngOnInit() {
@@ -25,14 +25,14 @@ export class TestimonialItemComponent implements OnInit {
     if (!this.testimonial) {
       return '';
     }
-    return `${this.testimonial.longdesc}`.substr(0, 400);
+    return `${this.testimonial.longdesc}`.split(' ').slice(0, 100).join(' ');
   }
 
   getShowMoreContent() {
     if (!this.needShowMore) {
       return '';
     }
-    return `${this.testimonial.longdesc}`.substr(401);
+    return `${this.testimonial.longdesc}`;
   }
 
   expandShowMore(expand: boolean) {

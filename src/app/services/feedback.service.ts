@@ -15,8 +15,8 @@ export class FeedbackService extends BaseService {
       search: '',
       publish: 1,
       hot: 1,
-      rowperpage: 1,
-      pageselected: 1,
+      // rowperpage: 1,
+      // pageselected: 1,
       media_type: ['customer_feedback'],
       lang: this.getCurrentLocal()
     };

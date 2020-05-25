@@ -1,13 +1,13 @@
-<div class="item">
+<div class="item" id="testimo-deail-item-{{testimonial.id}}">
   <div class="copy">
     <div class="ava">
       <img src="../assets/images/b.gif">
     </div>
     <p class="text js-text">
-      <span [innerHTML]="getShortDesc() | decodeHtmlEntities | safeHtml"></span>
+      <span *ngIf="!expaned" [ngClass]="{'hide': expaned}" [innerHTML]="getShortDesc() | decodeHtmlEntities | safeHtml"></span>
       <span class="moreellipses" *ngIf="needShowMore && !expaned">...</span>
+      <span *ngIf="expaned" [ngClass]="{'show': expaned}" [innerHTML]="getShowMoreContent() | decodeHtmlEntities | safeHtml"></span>
       <span class="morecontent" *ngIf="needShowMore">
-        <span *ngIf="expaned" [ngClass]="{'show': expaned}" [innerHTML]="getShowMoreContent() | decodeHtmlEntities | safeHtml"></span>
         <a href="javascript:void(0)" class="morelink" *ngIf="!expaned" (click)="expandShowMore(true)">{{ 'show_more' | translate }}</a>
         <a href="javascript:void(0)" class="morelink less" *ngIf="expaned" (click)="expandShowMore(false)">{{ 'show_less' | translate }}</a>
       </span>

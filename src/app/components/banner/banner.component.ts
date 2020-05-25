@@ -40,13 +40,9 @@ export class BannerComponent implements OnInit, AfterContentInit {
         this.isDesktopDevice = this.deviceService.isDesktop();
     }
 
-    ngOnInit() {
-        //this.loaderService.show();
-    }
+    ngOnInit() {}
 
-    ngAfterContentInit() {
-        //this.loaderService.hide();
-    }
+    ngAfterContentInit() {}
 
     slickInit(e) {
         this.bannerHome.nativeElement.style.opacity = 1;

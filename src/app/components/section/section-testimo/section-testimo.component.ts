@@ -1,59 +1,85 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { Feedback } from '../../../models/feedback';
-import { FeedbackService } from '../../../services/feedback.service';
-import { UrlService } from '../../../services/url.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
-import { VideoComponent } from '../../popup/video/video.component';
+import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
+import {Feedback} from '../../../models/feedback';
+import {FeedbackService} from '../../../services/feedback.service';
+import {UrlService} from '../../../services/url.service';
+import {TranslateService} from '@ngx-translate/core';
+import {Subscription} from 'rxjs';
+import {VideoComponent} from '../../popup/video/video.component';
+import {Testimonial} from '../../../models/testimonial';
 
 @Component({
-  selector: 'app-section-testimo',
-  templateUrl: './section-testimo.component.html',
-  styleUrls: ['./section-testimo.component.scss'],
+    selector: 'app-section-testimo',
+    templateUrl: './section-testimo.component.html',
+    styleUrls: ['./section-testimo.component.scss'],
 })
 export class SectionTestimoComponent implements OnInit, OnDestroy {
-  public feedback: Feedback;
-  public showVideoPopup = false;
-  public iframeSrc: string;
-  showTestimo = false;
-  private subscription: Subscription;
+    public feedback: Feedback;
+    public showVideoPopup = false;
+    public iframeSrc: string;
+    showTestimo = false;
+    private subscription: Subscription;
 
-  @ViewChild('videoPopup', { static: false }) videoPopup: VideoComponent;
+    slideConfig = {
+        slideToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+    };
 
-  constructor(
-    public feedbackService: FeedbackService,
-    private translate: TranslateService,
-  ) {}
+    public feedbacks: any[];
 
-  ngOnInit() {
-    this.loadFeedback();
-    this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadFeedback();
-    });
-  }
+    @ViewChild('videoPopup', {static: false}) videoPopup: VideoComponent;
 
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+    constructor(public feedbackService: FeedbackService,
+                private translate: TranslateService) {
     }
-  }
 
-  loadFeedback() {
-    this.feedbackService.fetch().subscribe((data: any) => {
-      const post = data.Media[0] || {};
-      const feedback = new Feedback(post);
-      feedback.thumb = UrlService.createMediaUrl(feedback.thumb);
-      feedback.iframeSrc = UrlService.createIframeUrl(feedback.file);
-      this.feedback = feedback;
-    });
-  }
+    ngOnInit() {
+        this.loadFeedback();
+        this.subscription = this.translate.onLangChange.subscribe(() => {
+            this.loadFeedback();
+        });
+    }
 
-  handleOpenPopup() {
-    this.videoPopup.open();
-  }
+    ngOnDestroy() {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
+    }
 
-  getLongDesc(feedback: Feedback) {
-    const fb = feedback.longdesc.split(' ');
-    return fb.slice(0, 28).join(' ') + '....';
-  }
+    loadFeedback() {
+        this.feedbackService.fetch().subscribe((data: any) => {
+            this.feedbacks = (data.Media || [])
+                .map((x: any) => {
+                    return new Feedback(x);
+                })
+                .map((feedback: any) => {
+                    feedback.thumb = feedback.thumb ? UrlService.createMediaUrl(feedback.thumb) : '';
+                    feedback.iframeSrc = feedback.file ? UrlService.createIframeUrl(feedback.file) : '';
+                    return feedback;
+                });
+
+            this.iframeSrc = this.feedbacks[0] ? this.feedbacks[0].iframeSrc : '';
+        });
+    }
+
+    handleOpenPopup() {
+        this.videoPopup.open();
+    }
+
+    getLongDesc(feedback: Feedback) {
+        const fb = feedback.longdesc.split(' ');
+        return fb.slice(0, 28).join(' ') + '....';
+    }
+
+
+    slickInit(e) {
+    }
+
+    onBeforeChange(e) {
+    }
+
+    onAfterChange(e) {
+        this.iframeSrc = this.feedbacks[e.currentSlide] ? this.feedbacks[e.currentSlide].iframeSrc : '';
+    }
+
 }

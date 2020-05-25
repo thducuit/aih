@@ -10,6 +10,7 @@ import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import {ScrollToConfigOptions, ScrollToService} from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
     selector: 'app-testimonial',
@@ -29,10 +30,17 @@ export class TestimonialComponent implements OnInit, OnDestroy {
                 public pageService: PageService,
                 public bannerService: BannerService,
                 private loaderService: LoaderService,
-                private metaService: Meta) {
+                private metaService: Meta,
+                private scrollToService: ScrollToService) {
     }
 
     ngOnInit() {
+        const config: ScrollToConfigOptions = {
+            target: 'testi-area',
+            offset: 500
+        };
+
+        this.scrollToService.scrollTo(config);
         this.loadTestimonials();
         this.loadPage();
         this.subcription = this.translate
