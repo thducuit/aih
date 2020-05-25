@@ -1,4 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {TestimonialService} from 'src/app/services/testimonial.service';
 import {Testimonial} from 'src/app/models/testimonial';
 import {TranslateService} from '@ngx-translate/core';
@@ -25,6 +26,7 @@ export class TestimonialComponent implements OnInit, OnDestroy {
     public banners: Array<any> = [];
 
     constructor(private testimonialService: TestimonialService,
+                private route: ActivatedRoute,
                 private translate: TranslateService,
                 private titleService: Title,
                 public pageService: PageService,
@@ -35,12 +37,18 @@ export class TestimonialComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+
         const config: ScrollToConfigOptions = {
             target: 'testi-area',
-            offset: 500
+            offset: 600
         };
 
         this.scrollToService.scrollTo(config);
+
+        // this.route.queryParams.subscribe(params => {
+        //     const alias = params['id'];
+        // });
+        
         this.loadTestimonials();
         this.loadPage();
         this.subcription = this.translate

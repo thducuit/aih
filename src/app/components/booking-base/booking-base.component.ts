@@ -451,7 +451,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             Swal.fire({
                 text: message,
                 customClass: 'alert-booking',
-                background: '#007298',
+                background: 'none',
                 html: '<div class="alert-custom-booking"><div class="img-logo"></div>' +
                 '<div class="alert-header">' + m1 + '<br/>' + m2 +
                 '</div> ' +

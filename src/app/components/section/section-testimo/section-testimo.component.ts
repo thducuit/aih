@@ -21,8 +21,8 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
 
     slideConfig = {
         slideToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
+        //autoplay: true,
+        //autoplaySpeed: 5000,
     };
 
     public feedbacks: any[];

@@ -216,7 +216,11 @@ ngb-datepicker {
 .swal2-actions {
   background: #fff;
   margin: 0 auto!important;
-  padding: 1.25em 0 1.25em;
+  /*padding: 1.25em 0 1.25em;*/
+}
+
+.swal2-actions button {
+  margin: 1.25em 0!important;
 }
 
 .btn-showmore:hover {
