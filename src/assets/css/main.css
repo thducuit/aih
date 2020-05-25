@@ -10669,6 +10669,10 @@ a.morelink:hover {
 }
 
 @media screen and (max-width: 767px) {
+  .swal2-popup .swal2-styled.swal2-confirm, .swal2-popup .swal2-styled.swal2-cancel {
+    font-size: 16px!important;
+  }
+  
   .loading-page img {
     width: 60px;
     margin: -30px 0 0 -30px
@@ -11975,6 +11979,11 @@ a.morelink:hover {
 }
 
 @media all and (max-width: 767px) and (orientation: portrait) {
+
+  .swal2-popup .swal2-styled.swal2-confirm, .swal2-popup .swal2-styled.swal2-cancel {
+    font-size: 16px!important;
+  }
+
   .banner-home .item .container .copy h3 {
     font-size: 20px;
     line-height: 25px

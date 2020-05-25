@@ -392,8 +392,8 @@ section.modalWindow section.modalWrapper {
     }
 
     section.modalWindow {
-        top: 6%;
-        height: 400px;
+        top: 2%;
+        height: calc(100% - 30px);
         /*height: 100%;*/
         width:90%;
     }
@@ -403,8 +403,14 @@ section.modalWindow section.modalWrapper {
         padding: 0;
     }
 
+    .alert-rest-msg {
+        font-size: 12px;
+    }
+
     section.modalWindow .modal-scroll {
-        height: 340px;
+        /*height: 340px;*/
+        height: calc(100% - 30px);
+        overflow: scroll;
     }
 
     .form-popup1 .box-popup-regis-textbox .form-control {
