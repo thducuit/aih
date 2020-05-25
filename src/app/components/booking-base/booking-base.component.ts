@@ -85,6 +85,8 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         this.loadSchedule();
         this.globalEventService.on('book_doctor', this.chooseDoctorDelegate);
         this.globalEventService.on('book_clinic', this.chooseClinicDelegate);
+
+        // this.openSuccessWithConfirmRegisterCustomer();
     }
 
     ngOnDestroy() {
@@ -390,7 +392,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                             .subscribe((data2: any) => {
                                 const customer = data2['Customer'] || {};
                                 if (!customer['customer_id']) {
-                                    this.shouldRegistCustomer = true;
+                                    //this.shouldRegistCustomer = true;
                                     this.openSuccessWithConfirmRegisterCustomer();
                                 } else {
                                     this.bookingService
@@ -466,30 +468,40 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
 
     openSuccessWithConfirmRegisterCustomer() {
         forkJoin(
-            this.translate.get('text_booking_success'),
+            this.translate.get('text_booking_confirm_resigter_customer'),
             this.translate.get('text_close'),
             this.translate.get('text_booking_success_1'),
             this.translate.get('text_booking_success_2'),
             this.translate.get('text_booking_success_3'),
-        ).subscribe(([message, buttonText, m1, m2, m3]) => {
+            this.translate.get('text_accept'),
+            this.translate.get('text_cancel'),
+        ).subscribe(([message, buttonText, m1, m2, m3, buttonOkText, buttonCloseText]) => {
             Swal.fire({
                 text: message,
                 customClass: 'alert-booking',
-                background: '#007298',
+                confirmButtonText: buttonOkText,
+                cancelButtonText: buttonCloseText,
+                background: 'none',
                 html: '<div class="alert-custom-booking"><div class="img-logo"></div>' +
                 '<div class="alert-header">' + m1 + '<br/>' + m2 +
                 '</div> ' +
                 '<div class="alert-content">' + m3 + '</div>' +
-                '</div>',
+                '</div><div class="alert-rest-msg">' + message + '</div>',
                 showCloseButton: false,
-                showCancelButton: false,
-                showConfirmButton: false,
-                onClose: () => {
-                    this.openConfirmRegistCustomer();
-                    this.shouldRegistCustomer = false;
+                showCancelButton: true,
+                showConfirmButton: true,
+                // onClose: () => {
+                //     this.openConfirmRegistCustomer();
+                //     this.shouldRegistCustomer = false;
+                // }
+            }).then((result) => {
+                if (result.value) {
+                    const phoneNumber = this.selectedPhone;
+                    this.reset();
+                    this.bookingPhoneNumer.openDialogRegister(this.bookingId, phoneNumber);
+                } else {
+                    this.reset();
                 }
-            }).then(() => {
-                // window.location.reload();
             });
         });
     }

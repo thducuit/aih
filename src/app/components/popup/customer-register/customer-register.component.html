@@ -9,12 +9,12 @@
 
              <div class="form-group clearfix">
                <input (blur)="validate()" type="" class="form-control {{ errorLastName ? 'error' : '' }}" name="lastName" [(ngModel)]="form.lastName" placeholder="{{ 'register_lastName' | translate }}">
-               <p class="check-must">*</p>
+               <!-- <p class="check-must">*</p> -->
              </div>
 
              <div class="form-group clearfix">
                <input (blur)="validate()" type="" class="form-control {{ errorFirstName ? 'error' : '' }}" name="firstName" [(ngModel)]="form.firstName" placeholder="{{ 'register_name' | translate }}">
-               <p class="check-must">*</p>
+               <!-- <p class="check-must">*</p> -->
              </div>
 
              <div class="form-group clearfix">
@@ -23,7 +23,7 @@
 
              <div class="form-group clearfix">
                <input type="" class="form-control" value="{{ form.phone }}" disabled name="phone" placeholder="{{ 'register_phone' | translate }}">
-               <p class="check-must">*</p>
+               <!-- <p class="check-must">*</p> -->
              </div>
 
              <!--<div class="form-group clearfix">-->
@@ -37,7 +37,7 @@
              <!--</div>-->
 
              <div class="form-group clearfix">
-               <input type="" class="form-control" value="{{ form.passportNo }}" name="passportNo" placeholder="{{ 'register_passportNo' | translate }}">
+               <input type="" class="form-control {{ errorPassportNo ? 'error' : '' }}" value="{{ form.passportNo }}" name="passportNo" placeholder="{{ 'register_passportNo' | translate }}">
              </div>
 
              <!--<div class="form-group clearfix">
@@ -74,7 +74,7 @@
                    <option value="2">{{ 'register_female' | translate }}</option>
                  </select>
                </div>
-               <p class="check-must">*</p>
+               <!-- <p class="check-must">*</p> -->
              </div>
              <div class="form-group box-choose-day clearfix">
                <div class="box-choose">
@@ -107,12 +107,12 @@
                    </div>
                  </div>
                </div>
-               <p class="check-must">*</p>
+               <!-- <p class="check-must">*</p> -->
              </div>
 
              <div class="form-group clearfix">
                <div class="center">
-                 <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources">
+                 <select id="country" name="country" [(ngModel)]="form.country" class="custom-select sources {{ errorCountry ? 'error' : '' }}">
                    <option value="">{{ 'register_country' | translate }}</option>
                    <option value="{{ country['country_rcd'] }}" *ngFor="let country of countries">{{ lang === 'vi' ? country['name_l'] : country['name_e'] }}</option>
                  </select>
@@ -209,7 +209,7 @@
 
              <div class="form-group clearfix">
                <input type="" (blur)="validate()" [(ngModel)]="form.residenceAddress"  class="form-control {{ errorResidenceAddress ? 'error' : '' }}" value="{{ form.residenceAddress }}" name="residenceAddress" placeholder="{{ 'register_residenceAddress' | translate }}">
-               <p class="check-must">*</p>
+               <!-- <p class="check-must">*</p> -->
              </div>
 
              <!--<div class="form-group clearfix">
@@ -234,11 +234,11 @@
            <p>{{ 'register_emergency' | translate }}</p>
            <div class="box-popup-regis-textbox">
              <div class="form-group clearfix">
-               <input type="" class="form-control" value="{{ form.fullNameEmergency }}" name="fullNameEmergency" placeholder="{{ 'register_fullNameEmergency' | translate }}">
+               <input type="" class="form-control {{ errorFullNameEmergency ? 'error' : '' }}" value="{{ form.fullNameEmergency }}" name="fullNameEmergency" placeholder="{{ 'register_fullNameEmergency' | translate }}">
              </div>
 
              <div class="form-group clearfix">
-               <input type="" class="form-control" value="{{ form.telRelationship }}" name="telRelationship" placeholder="{{ 'register_telRelationship' | translate }}">
+               <input type="" class="form-control {{ errorTelRelationship ? 'error' : '' }}" value="{{ form.telRelationship }}" name="telRelationship" placeholder="{{ 'register_telRelationship' | translate }}">
              </div>
 
              <!--<div class="form-group clearfix">
@@ -258,7 +258,7 @@
 
              <div class="form-group clearfix">
                <div class="center">
-                 <select id="relationship" name="relationship" [(ngModel)]="form.relationship" class="custom-select sources">
+                 <select id="relationship" name="relationship" [(ngModel)]="form.relationship" class="custom-select sources {{ errorRelationship ? 'error' : '' }}">
                    <option value="">{{ 'register_relationship' | translate }}</option>
                    <option value="{{ 'text_Brother' | translate }}">{{ 'text_Brother' | translate }}</option>
                    <option value="{{ 'text_Daughter' | translate }}">{{ 'text_Daughter' | translate }}</option>

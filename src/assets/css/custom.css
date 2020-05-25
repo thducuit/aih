@@ -210,6 +210,13 @@ ngb-datepicker {
 #swal2-content {
   font-family: utm_avobold;
   color: #11789b!important;
+  background: #fff
+}
+
+.swal2-actions {
+  background: #fff;
+  margin: 0 auto!important;
+  padding: 1.25em 0 1.25em;
 }
 
 .btn-showmore:hover {

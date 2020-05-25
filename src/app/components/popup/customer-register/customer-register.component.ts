@@ -72,10 +72,18 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     public errorLastName = false;
     public errorSex = false;
     public errorEmail = false;
+    public errorPassportNo = false;
+    public errorCountry = false;
+
     public errorDayBirth = false;
     public errorMonthBirth = false;
     public errorYearBirth = false;
+
+    
     public errorResidenceAddress = false;
+    public errorTelRelationship = false;
+    public errorFullNameEmergency = false;
+    public errorRelationship = false;
 
     public lang;
 
@@ -130,10 +138,17 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
         this.errorLastName = false;
         this.errorSex = false;
         this.errorEmail = false;
+        this.errorPassportNo = false;
+        this.errorCountry = false;
+
         this.errorDayBirth = false;
         this.errorMonthBirth = false;
         this.errorYearBirth = false;
+
         this.errorResidenceAddress = false;
+        this.errorFullNameEmergency = false;
+        this.errorRelationship = false;
+        this.errorTelRelationship = false;
     }
 
     ngOnInit() {
@@ -278,6 +293,41 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
             this.errorYearBirth = false;
         }
 
+        if (!this.form.passportNo) {
+            this.errorPassportNo = true;
+            flag = false;
+        } else {
+            this.errorPassportNo = false;
+        }
+
+        if (!this.form.country) {
+            this.errorCountry = true;
+            flag = false;
+        } else {
+            this.errorCountry = false;
+        }
+
+        if (!this.form.fullNameEmergency) {
+            this.errorFullNameEmergency = true;
+            flag = false;
+        } else {
+            this.errorFullNameEmergency = false;
+        }
+
+        if (!this.form.telRelationship) {
+            this.errorTelRelationship = true;
+            flag = false;
+        } else {
+            this.errorTelRelationship = false;
+        }
+
+        if (!this.form.relationship) {
+            this.errorRelationship = true;
+            flag = false;
+        } else {
+            this.errorRelationship = false;
+        }
+
         if (!this.form.residenceAddress) {
             this.errorResidenceAddress = true;
             flag = false;
@@ -293,7 +343,11 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
             } else {
                 this.errorEmail = false;
             }
+        }else {
+            this.errorEmail = true;
+            flag = false;
         }
+
         return flag;
     }
 
