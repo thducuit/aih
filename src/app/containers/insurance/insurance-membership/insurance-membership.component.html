@@ -22,8 +22,10 @@
       <div class="persond-ins" *ngIf="categories">
 
           <div *ngFor="let category of categories; let index=index; let odd=odd; let even=even;" class="box" [ngClass]="{'box-left': even, 'box-right': odd}">
-            <div class="img" *ngIf="category.picturePath"><img src="{{ category.picturePath }}" alt="" /></div>
-            <div class="heading">{{ category.name }}</div>
+            <div class="img" *ngIf="category.picturePath">
+              <a routerLink="{{ category.url }}" ><img src="{{ category.picturePath }}" alt="" /></a>
+            </div>
+            <div class="heading heading-insurance-anchor"><a routerLink="{{ category.url }}" >{{ category.name }}</a></div>
             <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
             <a routerLink="{{ category.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
           </div>

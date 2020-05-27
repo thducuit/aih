@@ -12,7 +12,10 @@
 }
 
 .alert-rest-msg {
-    padding-top: 1.25em;
+    padding: 1.25em 0 0;
+    float: left;
+    width: 100%;
+    background: #fff;
 }
 
 .alert-booking .img-logo {

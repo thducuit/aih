@@ -216,12 +216,12 @@ ngb-datepicker {
 .swal2-actions {
   background: #fff;
   margin: 0 auto!important;
-  /*padding: 1.25em 0 1.25em;*/
+  padding: 1.5em 0;
 }
 
-.swal2-actions button {
+/*.swal2-actions button {
   margin: 1.25em 0!important;
-}
+}*/
 
 .btn-showmore:hover {
   text-decoration: unset;
@@ -322,6 +322,10 @@ ngb-datepicker {
 
   .item-doc:hover .tt-doc-crs, .item-doc:hover .copy {
     padding: 10px 20px;
+  }
+
+  .swal2-actions {
+    padding: 2em 0 2.5em;
   }
 }
 
