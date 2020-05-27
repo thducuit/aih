@@ -126,8 +126,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
             this.packages = posts
                 .map(post => {
                     return new Package(post);
-                })
-                .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+                });
 
             this.currentPackages = this.packages.filter(item => item.parentId === 0);
 
@@ -136,8 +135,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
                 this.packageServices = post2s
                     .map(post => {
                         return new Packagechild(post);
-                    })
-                    .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+                    });
 
                 this.currentPackageServices = this.packageServices.filter(
                     item => item.parentId === 0,
@@ -178,8 +176,6 @@ export class MedicalComponent implements OnInit, OnDestroy {
                             currentPackage => currentPackage.parentId === this.chosenPackage.id,
                         );
                     }
-
-                    // this.choosePackageChild(this.chosenPackageChild);
                 });
 
                 this.loaderService.hide();

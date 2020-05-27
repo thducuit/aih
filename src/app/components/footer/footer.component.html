@@ -10,6 +10,7 @@
 
 				<div class="item" *ngIf="isDesktopDevice || isTablet">
 					<h2><a href="/news">{{ 'news' | translate }}</a></h2>
+					<h4 class="see-more-anchor"><a href="/news">{{ 'see_more' | translate }}</a></h4>
 					<ul>
 						<li *ngFor="let blog of blogs">
 							<div class="item-post clearfix">
@@ -29,6 +30,7 @@
 				</div>
 				<div class="item" *ngIf="isDesktopDevice || isTablet">
 					<h2><a href="/patient-services/medical-services">{{ 'patient_services' | translate }}</a></h2>
+					<h4 class="see-more-anchor"><a href="/patient-services/medical-services">{{ 'see_more' | translate }}</a></h4>
 					<ul>
 						<li *ngFor="let clinic of clinics">
 							<div class="item-post clearfix">
