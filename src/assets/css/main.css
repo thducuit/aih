@@ -7535,7 +7535,8 @@ a.morelink:hover {
   padding-left: 90px;
   position: relative;
   display: inline-block;
-  margin-top: 40px
+  margin-top: 40px;
+  width: 100%;
 }
 
 .side-news .item .tab-content li .img {
