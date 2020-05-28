@@ -1,4 +1,4 @@
-<div class="tt-item">
+<div class="tt-item" *ngIf="doctors.length">
   <div *ngIf="!isDetail">
     <a href="{{ urlService.getUrlByKey('doctor') }}">{{ 'our_doctors' | translate }}</a>
     <h4>{{ 'professionals' | translate }}</h4>

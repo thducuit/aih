@@ -1,3 +1,6 @@
+<div *ngIf="showTitle" class="tt-item">
+  <h3>{{ 'news' | translate }}</h3>
+</div>
 <div class="news-list-wrap">
   <ul class="clearfix js-list-news js-append-more" myMatchHeight="blog-title">
     <li *ngFor="let blog of blogs" (deferLoad)="blog.showImg = true">

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Testimonial } from 'src/app/models/testimonial';
+import {ScrollToService} from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-testimonial-item',
@@ -12,7 +13,7 @@ export class TestimonialItemComponent implements OnInit {
 
   expaned = false;
 
-  constructor() { }
+  constructor(private scrollToService: ScrollToService) { }
 
   get needShowMore(): boolean {
     return this.testimonial && this.testimonial.longdesc && this.testimonial.longdesc.split(' ').length > 100;

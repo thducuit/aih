@@ -40,6 +40,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
     @Input() readmore = false;
     @Input() clinic;
     @Input() perPage;
+    @Input() showTitle = false;
 
     constructor(public blogService: BlogService,
                 private translate: TranslateService,
@@ -58,9 +59,9 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
     }
 
     ngOnDestroy() {
-      if (this.subscription) {
-        this.subscription.unsubscribe();
-      }
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
     loadByClinic(clinic) {
@@ -92,6 +93,11 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
             }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
             this.recalculatePages();
             this.loaderService.hide();
+            if (this.blogs.length === 0) {
+                this.showTitle = false;
+            } else {
+                this.showTitle = true;
+            }
         });
     }
 

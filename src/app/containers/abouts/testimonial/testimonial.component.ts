@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TestimonialService} from 'src/app/services/testimonial.service';
 import {Testimonial} from 'src/app/models/testimonial';
 import {TranslateService} from '@ngx-translate/core';
@@ -48,7 +48,7 @@ export class TestimonialComponent implements OnInit, OnDestroy {
         // this.route.queryParams.subscribe(params => {
         //     const alias = params['id'];
         // });
-        
+
         this.loadTestimonials();
         this.loadPage();
         this.subcription = this.translate
@@ -61,7 +61,7 @@ export class TestimonialComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         if (this.subcription) {
-          this.subcription.unsubscribe();
+            this.subcription.unsubscribe();
         }
     }
 
