@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public searchService: SearchService,
+    public urlService: UrlService
   ) {}
 
   ngOnInit() {
@@ -38,7 +39,7 @@ export class SearchComponent implements OnInit {
         if (doctor.picture) {
           doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
         }
-        doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
+        doctor.url = this.urlService.createDoctorDetailUrl(doctor.alias);
         return doctor;
       });
     });
@@ -57,7 +58,7 @@ export class SearchComponent implements OnInit {
         } else {
             blog.picturePath = UrlService.createPictureUrl(blog.picture);
         }
-        blog.url = UrlService.createNewsDetailUrl(blog.alias);
+        blog.url = this.urlService.createNewsDetailUrl(blog.alias);
         const { video } = blog.meta;
         if (video) {
           const code = video.substring(video.indexOf('?v=') + 3, video.length);
@@ -79,7 +80,7 @@ export class SearchComponent implements OnInit {
             null,
             'category',
           );
-          clinic.url = UrlService.createClinicDetailUrl(clinic.alias);
+          clinic.url = this.urlService.createClinicDetailUrl(clinic.alias);
           return clinic;
         });
       });

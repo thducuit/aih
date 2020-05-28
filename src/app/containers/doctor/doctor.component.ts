@@ -47,6 +47,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
                 private loaderService: LoaderService,
                 private metaService: Meta,
                 private animateScrollService: NgAnimateScrollService,
+                private urlService: UrlService,
                 private titleService: Title) {
     }
 
@@ -134,7 +135,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
                     if (doctor.picture) {
                         doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
                     }
-                    doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
+                    doctor.url = this.urlService.createDoctorDetailUrl(doctor.alias);
                     return doctor;
                 })
                     .filter(item => item.picture ? true : false);

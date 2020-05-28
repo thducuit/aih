@@ -74,6 +74,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     constructor(@Inject(PLATFORM_ID) private platformId,
                 public doctorService: DoctorService,
                 private translate: TranslateService,
+                private urlService: UrlService,
                 private loaderService: LoaderService) {
     }
 
@@ -108,7 +109,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
                     if (doctor.picture) {
                         doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
                     }
-                    doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
+                    doctor.url = this.urlService.createDoctorDetailUrl(doctor.alias);
                     return doctor;
                 })
                 .filter(item => item.picture ? true : false);

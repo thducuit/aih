@@ -1,7 +1,7 @@
 <section class="news-home">
 	<div class="container">
 		<div class="tt-item">
-			<a routerLink="/news">{{ 'news' | translate }}</a>
+			<a routerLink="{{ urlService.getUrlByKey('news') }}">{{ 'news' | translate }}</a>
 			<h4>{{ 'be_the_first_to_read' | translate }}</h4>
     </div>
     <app-news-item [readmore]="true" [showChosenPackage]="true"></app-news-item>

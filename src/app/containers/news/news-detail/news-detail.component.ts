@@ -68,6 +68,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
     private loaderService: LoaderService,
     private animateScrollService: NgAnimateScrollService,
     public likeService: LikeService,
+    public urlService: UrlService
   ) {}
 
   ngOnInit() {
@@ -87,10 +88,10 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
         const newAlias = data['alias'];
         if (newAlias) {
           return this.router.navigate([
-            UrlService.createNewsDetailUrl(newAlias),
+            this.urlService.createNewsDetailUrl(newAlias),
           ]);
         } else {
-          return this.router.navigate(['/news']);
+          return this.router.navigate([this.urlService.getUrlByKey('news')]);
         }
       });
     });
@@ -131,7 +132,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       }
       // blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
       blog.longDesc = UrlService.fixPictureUrl(blog.longDesc);
-      blog.url = `${environment.host}${UrlService.createNewsDetailUrl(
+      blog.url = `${environment.host}${this.urlService.createNewsDetailUrl(
         blog.alias,
       )}`;
 
@@ -185,14 +186,14 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
       this.postService.fetchNextPrevNews(blog.id).subscribe(data2 => {
         if (data2['PostNext']) {
           const postNext = new Blog(data2['PostNext']);
-          postNext.url = UrlService.createNewsDetailUrl(postNext.alias);
+          postNext.url = this.urlService.createNewsDetailUrl(postNext.alias);
           this.postNext = postNext;
         } else {
           this.postNext = null;
         }
         if (data2['PostPrev']) {
           const postPrev = new Blog(data2['PostPrev']);
-          postPrev.url = UrlService.createNewsDetailUrl(postPrev.alias);
+          postPrev.url = this.urlService.createNewsDetailUrl(postPrev.alias);
           this.postPrev = postPrev;
         } else {
           this.postPrev = null;
@@ -220,7 +221,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
         }
 
-        blog.url = UrlService.createNewsDetailUrl(blog.alias);
+        blog.url = this.urlService.createNewsDetailUrl(blog.alias);
         blog.shortDesc = blog.shortDesc.replace(/^(.{2}[^\s]*).*/, '$1');
         return blog;
       });
@@ -229,7 +230,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   }
 
   gotoSearch() {
-    const url = `/search?keyword=${this.keyword}`;
+    const url = this.urlService.getUrlByKey('search') + `?keyword=${this.keyword}`;
     this.router.navigateByUrl(url).then(e => {});
   }
 

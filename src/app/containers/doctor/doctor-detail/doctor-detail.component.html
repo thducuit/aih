@@ -1,7 +1,7 @@
 <main id="pDoctorDetail" *ngIf="doctor">
   <div class="breadcrumb">
     <div class="container"><a routerLink="/">{{'home' | translate}}</a> /
-      <a routerLink="/doctor">{{'find_a_doctor' | translate}}</a> /
+      <a href="{{ urlService.getUrlByKey('doctor') }}">{{'find_a_doctor' | translate}}</a> /
       <p>{{ doctor ? doctor.name : '' }}</p>
     </div>
   </div>

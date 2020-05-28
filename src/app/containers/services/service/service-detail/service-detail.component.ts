@@ -49,6 +49,7 @@ export class ServiceDetailComponent
               public postService: PostService,
               public blogService: BlogService,
               private translate: TranslateService,
+              private urlService: UrlService,
               private metaService: Meta,
               private router: Router,
               private animateScrollService: NgAnimateScrollService,
@@ -72,10 +73,10 @@ export class ServiceDetailComponent
         const newAlias = data['alias'];
         if (newAlias) {
           return this.router.navigate([
-            UrlService.createClinicDetailUrl(newAlias),
+            this.urlService.createClinicDetailUrl(newAlias),
           ]);
         } else {
-          return this.router.navigate(['/patient-services/medical-services']);
+          return this.router.navigate([this.urlService.getUrlByKey('mservice')]);
         }
       });
     });
@@ -111,7 +112,7 @@ export class ServiceDetailComponent
         clinic.picturePath = UrlService.createPictureUrl(clinic.picture, null, 'category');
       }
 
-      clinic.url = `${environment.host}${UrlService.createClinicDetailUrl(
+      clinic.url = `${environment.host}${this.urlService.createClinicDetailUrl(
         clinic.alias,
       )}`;
 

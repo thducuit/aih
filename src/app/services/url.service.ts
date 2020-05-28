@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
+import {RouteFactoryService} from './route-factory.service';
 
 @Injectable()
 export class UrlService {
 
-    constructor() {
+    constructor(private routeFactory: RouteFactoryService) {
     }
 
     static createPictureUrl(pictureName, size = null, type = 'post', isMeta = false) {
@@ -15,53 +16,6 @@ export class UrlService {
             return `${environment.backend}/assets/uploads/images/${type}/thumbs/${size}/${pictureName}`;
         }
         return `${environment.backend}/assets/uploads/images/${type}/${pictureName}`;
-    }
-
-    static createNewsDetailUrl(alias = null) {
-        if (alias) {
-            return `/news/detail/${alias}`;
-        }
-        return '/news';
-    }
-
-    static createMemberDetailUrl(alias = null) {
-        if (alias) {
-            return `/insurance/membership/${alias}`;
-        }
-        return '/insurance/membership';
-    }
-
-    static createInsuranceUrl(alias = null) {
-        if (alias) {
-            return `/insurance/insurance-detail/${alias}`;
-        }
-        return '/insurance/insurance-detail';
-    }
-
-    static createCareerDetailUrl(alias = null) {
-        if (alias) {
-            return `/career/detail/${alias}`;
-        }
-        return '/career';
-    }
-
-    static createDoctorDetailUrl(alias = null) {
-        if (alias) {
-            return `/doctor/detail/${alias}`;
-        }
-        return '/doctor';
-    }
-
-    static createClinicDetailUrl(alias = null) {
-        if (alias) {
-            return `/patient-services/medical-services/${alias}`;
-        }
-        return '/patient-services/medical-services';
-    }
-
-    static createInsuranceDetailUrl(id, alias) {
-        const baseUrl = (alias.indexOf('insurance') > -1 || alias.indexOf('bao-hiem') > -1) ? '/insurance/insurance-consulting/' : '/insurance/membership-consulting/';
-        return `${baseUrl}${id}`;
     }
 
     static createMediaUrl(thumb) {
@@ -77,5 +31,66 @@ export class UrlService {
 
     static createIframeUrl(code) {
         return `https://www.youtube.com/embed/${code}?rel=0&modestbranding=1&autoplay=1&showinfo=0&controls=1`;
+    }
+
+    createNewsDetailUrl(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.news + `/${alias}`;
+        }
+        return routes.news;
+    }
+
+    createDoctorDetailUrl(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.doctor + `/${alias}`;
+        }
+        return routes.doctor;
+    }
+
+    createCareerDetailUrl(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.career + `/${alias}`;
+        }
+        return routes.career;
+    }
+
+    createMemberDetailUrl(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.dmem + `/${alias}`;
+        }
+        return routes.insmem;
+    }
+
+    createClinicDetailUrl(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.mservice + `/${alias}`;
+        }
+        return routes.mservice;
+    }
+
+    createInsuranceUrl(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.dins + `/${alias}`;
+        }
+        return routes.insmem;
+    }
+
+    getUrlByKey(key) {
+        const routes = this.routeFactory.getRoute();
+        return routes[key];
+    }
+
+    createInsuranceDetailUrl(ins) {
+        const id = ins.id;
+        const alias = ins.alias;
+        const routes = this.routeFactory.getRoute();
+        const baseUrl = (alias.indexOf('insurance') > -1 || alias.indexOf('bao-hiem') > -1) ? routes.cins : routes.cmem;
+        return `${baseUrl}/${id}`;
     }
 }

@@ -3,7 +3,7 @@
   <div class="breadcrumb">
     <div class="container">
       <a routerLink="/">{{'home' | translate}}</a> /
-      <a routerLink="/news">{{'news' | translate}}</a> /
+      <a routerLink="{{ urlService.getUrlByKey('news') }}">{{'news' | translate}}</a> /
       <p>{{ blog ? blog.name : '' }}</p>
     </div>
   </div>

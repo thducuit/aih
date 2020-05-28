@@ -38,6 +38,7 @@ export class EventComponent implements OnInit, OnDestroy {
                 private loaderService: LoaderService,
                 private titleService: Title,
                 private metaService: Meta,
+                private urlService: UrlService,
                 private animateScrollService: NgAnimateScrollService) {
     }
 
@@ -94,7 +95,7 @@ export class EventComponent implements OnInit, OnDestroy {
                             blog.picturePath = UrlService.createPictureUrl(blog.picture);
                         }
 
-                        blog.url = UrlService.createNewsDetailUrl(blog.alias);
+                        blog.url = this.urlService.createNewsDetailUrl(blog.alias);
                         const {video} = blog.meta;
                         if (video) {
                             const code = video.substring(

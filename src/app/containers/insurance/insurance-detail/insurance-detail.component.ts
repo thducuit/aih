@@ -46,6 +46,7 @@ export class InsuranceDetailComponent implements OnInit {
               private metaService: Meta,
               private titleService: Title,
               private loaderService: LoaderService,
+              private urlService: UrlService,
               private router: Router,
               public postService: PostService) {
   }
@@ -63,10 +64,10 @@ export class InsuranceDetailComponent implements OnInit {
           const newAlias = data['alias'];
           if (newAlias) {
               return this.router.navigate([
-                  UrlService.createInsuranceUrl(newAlias),
+                  this.urlService.createInsuranceUrl(newAlias),
               ]);
           } else {
-              return this.router.navigate(['/insurance/insurance-membership']);
+              return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
           }
       });
       // this.loadPage();
@@ -195,7 +196,7 @@ export class InsuranceDetailComponent implements OnInit {
       this.services = posts.map(item => {
         const service = new InsuranceDetail(item);
         service.picturePath = UrlService.createPictureUrl(service.picture);
-        service.url = UrlService.createInsuranceUrl(service.alias);
+        service.url = this.urlService.createInsuranceUrl(service.alias);
         return service;
       }).filter(item => exceptId !== item.id);
       this.loaderService.hide();
@@ -209,7 +210,7 @@ export class InsuranceDetailComponent implements OnInit {
       this.category = categories.map(item => {
         const insurance = new Insurance(item);
         insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
-        insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+        insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
       this.loaderService.hide();

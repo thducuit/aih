@@ -9,7 +9,7 @@
 				</div>
 
 				<div class="item" *ngIf="isDesktopDevice || isTablet">
-					<h2><a href="/news">{{ 'news' | translate }}</a></h2>
+					<h2><a routerLink="{{ routes.news }}">{{ 'news' | translate }}</a></h2>
 					<ul>
 						<li *ngFor="let blog of blogs">
 							<div class="item-post clearfix">
@@ -28,7 +28,7 @@
 					</ul>
 				</div>
 				<div class="item" *ngIf="isDesktopDevice || isTablet">
-					<h2><a href="/patient-services/medical-services">{{ 'patient_services' | translate }}</a></h2>
+					<h2><a routerLink="{{ routes.mservice }}">{{ 'patient_services' | translate }}</a></h2>
 					<ul>
 						<li *ngFor="let clinic of clinics">
 							<div class="item-post clearfix">
@@ -59,12 +59,12 @@
 		<div class="container clearfix">
 			<p>{{ '© 2018 '.replace('2018', yearcopy) }} {{ 'american_international_hospital._all_rights_reserved.' | translate }}</p>
 			<ul>
-				<li><a routerLink="/about-us/aih-hospital" routerLinkActive="active">{{'about_us' | translate}}</a></li>
-				<li><a class="js_go__down" data="booking-home.html" href="#">{{'book_an_appointment' | translate}}</a></li>
-				<li><a routerLink="/patient-services/medical-package" routerLinkActive="active">{{'medical_packages' | translate}}</a></li>
-				<li><a routerLink="/news" routerLinkActive="active">{{'news' | translate}}</a></li>
-				<li><a routerLink="/career" routerLinkActive="active">{{'careers' | translate}}</a></li>
-				<li><a routerLink="/contact" routerLinkActive="active">{{'contact' | translate}}</a></li>
+				<li><a routerLink="{{ routes.about }}" routerLinkActive="active">{{'about_us' | translate}}</a></li>
+				<li><a class="js_go__down" href="#">{{'book_an_appointment' | translate}}</a></li>
+				<li><a routerLink="{{ routes.mpackage }}" routerLinkActive="active">{{'medical_packages' | translate}}</a></li>
+				<li><a routerLink="{{ routes.news }}" routerLinkActive="active">{{'news' | translate}}</a></li>
+				<li><a routerLink="{{ routes.career }}" routerLinkActive="active">{{'careers' | translate}}</a></li>
+				<li><a routerLink="{{ routes.contact }}" routerLinkActive="active">{{'contact' | translate}}</a></li>
 			</ul>
 		</div>
 	</div>

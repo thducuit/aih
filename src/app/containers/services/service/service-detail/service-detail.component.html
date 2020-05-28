@@ -2,7 +2,7 @@
   <div class="breadcrumb">
     <div class="container">
       <a routerLink="/">{{'home' | translate}}</a> /
-      <a routerLink="/patient-services/medical-services">{{'medical_services' | translate}}</a> /
+      <a routerLink="{{ urlService.getUrlByKey('mservice') }}">{{'medical_services' | translate}}</a> /
       <p>{{ clinic ? clinic.name : '' }}</p></div>
   </div>
   <section class="service-cate-wrap">

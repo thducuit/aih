@@ -42,6 +42,7 @@ export class MembershipComponent implements OnInit {
               public pageService: PageService,
               public bannerService: BannerService,
               private translate: TranslateService,
+              private urlService: UrlService,
               private metaService: Meta,
               private titleService: Title,
               public postService: PostService,
@@ -175,7 +176,7 @@ export class MembershipComponent implements OnInit {
       this.category = categories.map(item => {
         const insurance = new Insurance(item);
         insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
-        insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+        insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
       this.loaderService.hide();

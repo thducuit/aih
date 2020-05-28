@@ -33,6 +33,7 @@ export class InsuranceMembershipComponent implements OnInit {
                 public pageService: PageService,
                 public bannerService: BannerService,
                 private translate: TranslateService,
+                private urlService: UrlService,
                 private metaService: Meta,
                 private titleService: Title,
                 private loaderService: LoaderService) {
@@ -117,10 +118,7 @@ export class InsuranceMembershipComponent implements OnInit {
                         null,
                         'category',
                     );
-                    insurance.url = UrlService.createInsuranceDetailUrl(
-                        insurance.id,
-                        insurance.alias,
-                    );
+                    insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
                     return insurance;
                 })
                 .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));

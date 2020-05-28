@@ -1,26 +1,26 @@
 <nav>
   <ul id="nav">
     <app-nav-item name="{{'menu.home' | translate}}" routeUrl="/" [routeOptions]="{'exact': true}"></app-nav-item>
-    <app-nav-item name="{{'about_us' | translate}}" routeUrl="/about-us/aih-hospital" [hasChild]="true">
-      <a routerLink="/about-us/aih-hospital" routerLinkActive="active">{{'about_us' | translate}}</a>
-      <a routerLink="/about-us/faq" routerLinkActive="active">{{'faqs' | translate}}</a>
-      <a routerLink="/about-us/testimonial" routerLinkActive="active">{{'testimonials' | translate}}</a>
+    <app-nav-item name="{{'about_us' | translate}}" routeUrl="{{ routes.about }}" [hasChild]="true">
+      <a routerLink="{{ routes.about }}" routerLinkActive="active">{{'about_us' | translate}}</a>
+      <a routerLink="{{ routes.faq }}" routerLinkActive="active">{{'faqs' | translate}}</a>
+      <a routerLink="{{ routes.testimonial }}" routerLinkActive="active">{{'testimonials' | translate}}</a>
     </app-nav-item>
-    <app-nav-item name="{{'patient_services' | translate}}" routeUrl="/patient-services/medical-services" [hasChild]="true">
-      <a routerLink="/patient-services/medical-services" routerLinkActive="active">{{'medical_services' | translate}}</a>
-      <a routerLink="/patient-services/medical-package" routerLinkActive="active">{{'medical_packages' | translate}}</a>
-      <a routerLink="/patient-services/factsheet" routerLinkActive="active">{{'fact_sheet' | translate}}</a>
+    <app-nav-item name="{{'patient_services' | translate}}" routeUrl="{{ routes.mservice }}" [hasChild]="true">
+      <a routerLink="{{ routes.mservice }}" routerLinkActive="active">{{'medical_services' | translate}}</a>
+      <a routerLink="{{ routes.mpackage }}" routerLinkActive="active">{{'medical_packages' | translate}}</a>
+      <a routerLink="{{ routes.factsheet }}" routerLinkActive="active">{{'fact_sheet' | translate}}</a>
     </app-nav-item>
-    <app-nav-item name="{{ 'insurance' | translate }}" routeUrl="/insurance/insurance-membership" [hasChild]="true">
-		<a routerLink="/insurance/insurance-membership" routerLinkActive="active">{{'insurance' | translate}}</a>
+    <app-nav-item name="{{ 'insurance' | translate }}" routeUrl="{{ routes.insmem }}" [hasChild]="true">
+		<a routerLink="{{ routes.insmem }}" routerLinkActive="active">{{'insurance' | translate}}</a>
 	</app-nav-item>
-    <app-nav-item name="{{'find_a_doctor' | translate}}" routeUrl="/doctor"></app-nav-item>
-    <app-nav-item name="{{'news' | translate}}" routeUrl="/news" [hasChild]="true">
-      <a routerLink="/news" routerLinkActive="active" >{{'news_&_events' | translate}}</a>
+    <app-nav-item name="{{'find_a_doctor' | translate}}" routeUrl="{{ routes.doctor }}"></app-nav-item>
+    <app-nav-item name="{{'news' | translate}}" routeUrl="{{ routes.news }}" [hasChild]="true">
+      <a routerLink="{{ routes.news }}" routerLinkActive="active" >{{'news_&_events' | translate}}</a>
       <a routerLink="/videos" routerLinkActive="active" >{{'videos' | translate}}</a>
     </app-nav-item>
-    <app-nav-item name="{{'careers' | translate}}" routeUrl="/career"></app-nav-item>
-    <app-nav-item name="{{'contact' | translate}}" routeUrl="/contact"></app-nav-item>
+    <app-nav-item name="{{'careers' | translate}}" routeUrl="{{ routes.career }}"></app-nav-item>
+    <app-nav-item name="{{'contact' | translate}}" routeUrl="{{ routes.contact }}"></app-nav-item>
     <app-nav-item name="{{'login' | translate}}" outerUrl={{loginUrl}}></app-nav-item>
   </ul>
 </nav>

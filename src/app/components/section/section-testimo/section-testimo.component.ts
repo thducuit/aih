@@ -30,7 +30,9 @@ export class SectionTestimoComponent implements OnInit, OnDestroy {
     @ViewChild('videoPopup', {static: false}) videoPopup: VideoComponent;
 
     constructor(public feedbackService: FeedbackService,
-                private translate: TranslateService) {
+                private translate: TranslateService,
+                private urlService: UrlService
+    ) {
     }
 
     ngOnInit() {

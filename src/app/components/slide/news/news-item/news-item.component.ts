@@ -44,7 +44,8 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
     constructor(public blogService: BlogService,
                 private translate: TranslateService,
                 private zone: NgZone,
-                private loaderService: LoaderService) {
+                private loaderService: LoaderService,
+                private urlService: UrlService) {
     }
 
     ngOnInit() {
@@ -67,8 +68,8 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
         const perPage = this.perPage || ItemPerPage;
         this.blogService.getByClinic(this.currentPage, perPage, clinic.id).subscribe((data2: any) => {
             const posts = data2.Posts || [];
-            const perPage = this.perPage || ItemPerPage;
-            this.totalPage = Math.ceil(data2.TotalRecord / perPage);
+            const numPage = this.perPage || ItemPerPage;
+            this.totalPage = Math.ceil(data2.TotalRecord / numPage);
             this.blogs = posts.map(post => {
                 const blog = new Blog(post);
 
@@ -78,7 +79,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
                     blog.picturePath = UrlService.createPictureUrl(blog.picture);
                 }
 
-                blog.url = UrlService.createNewsDetailUrl(blog.alias);
+                blog.url = this.urlService.createNewsDetailUrl(blog.alias);
 
                 const arr = blog.name.split(' ');
                 if (arr.length > 15) {
@@ -113,7 +114,7 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
                         blog.picturePath = UrlService.createPictureUrl(blog.picture);
                     }
 
-                    blog.url = UrlService.createNewsDetailUrl(blog.alias);
+                    blog.url = this.urlService.createNewsDetailUrl(blog.alias);
                     blog.comments = comments[blog.id] || 0;
 
                     const arr = blog.name.split(' ');

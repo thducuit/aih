@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {UrlService} from '../../services/url.service';
 
 @Component({
   selector: 'app-search-form',
@@ -10,7 +11,10 @@ export class SearchFormComponent implements OnInit {
   public isOpen = false;
   public keyword;
 
-  constructor(private router: Router) {}
+  constructor(
+      private router: Router,
+      private urlService: UrlService
+  ) {}
 
   ngOnInit() {}
 
@@ -23,7 +27,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   gotoSearch() {
-    const url = `/search?keyword=${this.keyword}`;
+    const url = this.urlService.getUrlByKey('search') + `?keyword=${this.keyword}`;
     this.router.navigateByUrl(url).then(e => {});
     this.isOpen = false;
   }

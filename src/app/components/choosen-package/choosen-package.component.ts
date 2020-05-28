@@ -62,6 +62,7 @@ export class ChoosenPackageComponent implements OnInit, OnDestroy {
   constructor(
     public packageService: PackageService,
     private translate: TranslateService,
+    private urlService: UrlService,
     private router: Router,
   ) {}
 
@@ -131,7 +132,7 @@ export class ChoosenPackageComponent implements OnInit, OnDestroy {
     if (!choosenPackage || !choosenChild) {
       return;
     }
-    const url = `/patient-services/medical-package?package=${
+    const url = this.urlService.getUrlByKey('mpackage') + `?package=${
       choosenPackage.id
       }&detail=${choosenChild.id}`;
     this.router.navigateByUrl(url).then(e => {

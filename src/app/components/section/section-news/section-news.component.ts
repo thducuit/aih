@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UrlService} from '../../../services/url.service';
 
 @Component({
   selector: 'app-section-news',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionNewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private urlService: UrlService) { }
 
   ngOnInit() {
   }

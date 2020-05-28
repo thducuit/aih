@@ -35,6 +35,7 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
                 private metaService: Meta,
                 private titleService: Title,
                 private loaderService: LoaderService,
+                private urlService: UrlService,
                 private router: Router,
                 private animateScrollService: NgAnimateScrollService) {
     }
@@ -54,9 +55,9 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
             this.postService.getAlias(alias).subscribe((data: any) => {
                 const newAlias = data['alias'];
                 if (newAlias) {
-                    return this.router.navigate([UrlService.createDoctorDetailUrl(newAlias)]);
+                    return this.router.navigate([this.urlService.createDoctorDetailUrl(newAlias)]);
                 } else {
-                    return this.router.navigate(['/doctor']);
+                    return this.router.navigate([this.urlService.getUrlByKey('doctor')]);
                 }
             });
         });
@@ -82,20 +83,20 @@ export class DoctorDetailComponent implements OnInit, OnDestroy {
                 doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
             }
             doctor.longDesc = UrlService.fixPictureUrl(doctor.longDesc);
-            doctor.url = `${environment.host}${UrlService.createDoctorDetailUrl(
+            doctor.url = `${environment.host}${this.urlService.createDoctorDetailUrl(
                 doctor.alias,
             )}`;
             this.doctor = doctor;
             this.postService.fetchNextPrevDoctor(doctor.id, doctor.categoryId).subscribe(data2 => {
                 if (data2['PostNext']) {
                     const postNext = new Doctor(data2['PostNext']);
-                    postNext.url = UrlService.createDoctorDetailUrl(postNext.alias);
+                    postNext.url = this.urlService.createDoctorDetailUrl(postNext.alias);
                     this.postNext = postNext;
                 }
 
                 if (data2['PostPrev']) {
                     const postPrev = new Doctor(data2['PostPrev']);
-                    postPrev.url = UrlService.createDoctorDetailUrl(postPrev.alias);
+                    postPrev.url = this.urlService.createDoctorDetailUrl(postPrev.alias);
                     this.postPrev = postPrev;
                 }
             });

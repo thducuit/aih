@@ -50,6 +50,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 private metaService: Meta,
                 private titleService: Title,
                 private loaderService: LoaderService,
+                private urlService: UrlService,
                 private router: Router,
                 private scrollToService: ScrollToService) {
     }
@@ -68,9 +69,9 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
             this.postService.getAlias(alias).subscribe((data: any) => {
                 const newAlias = data['alias'];
                 if (newAlias) {
-                    return this.router.navigate([UrlService.createCareerDetailUrl(newAlias)]);
+                    return this.router.navigate([this.urlService.createCareerDetailUrl(newAlias)]);
                 } else {
-                    return this.router.navigate(['/career']);
+                    return this.router.navigate([this.urlService.getUrlByKey('career')]);
                 }
             });
         });
@@ -128,7 +129,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                     career.picturePath = UrlService.createPictureUrl(career.picture);
                 }
                 career.longDesc = UrlService.fixPictureUrl(career.longDesc);
-                career.url = `${environment.host}${UrlService.createCareerDetailUrl(
+                career.url = `${environment.host}${this.urlService.createCareerDetailUrl(
                     career.alias,
                 )}`;
                 this.career = career;

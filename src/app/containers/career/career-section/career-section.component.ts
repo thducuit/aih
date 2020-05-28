@@ -23,6 +23,7 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
     constructor(public careerCategoryService: CareerCategoryService,
                 public careerService: CareerService,
                 private loaderService: LoaderService,
+                private urlService: UrlService,
                 private translate: TranslateService) {
     }
 
@@ -53,7 +54,7 @@ export class CareerSectionComponent implements OnInit, OnDestroy {
                 const careers = posts
                     .map(item => {
                         const newCareer = new Career(item);
-                        newCareer.url = UrlService.createCareerDetailUrl(newCareer.alias);
+                        newCareer.url = this.urlService.createCareerDetailUrl(newCareer.alias);
                         return newCareer;
                     });
 

@@ -1,10 +1,10 @@
 <div class="tt-item">
   <div *ngIf="!isDetail">
-    <a href="javascript:void(0)">{{ 'our_doctors' | translate }}</a>
+    <a href="{{ urlService.getUrlByKey('doctor') }}">{{ 'our_doctors' | translate }}</a>
     <h4>{{ 'professionals' | translate }}</h4>
   </div>
   <div *ngIf="isDetail">
-    <a href="javascript:void(0)">{{ 'doctor' | translate }}</a>
+    <a href="{{ urlService.getUrlByKey('doctor') }}">{{ 'doctor' | translate }}</a>
   </div>
   <div class="btn-crs">
     <span class="btn-prev crs-prev" (click)="slickModal.slickPrev()"></span>
@@ -38,6 +38,6 @@
     </ngx-slick-carousel>
   </ul>
   <div class="btn-wrap show-mb">
-    <a class="btn-showmore" routerLink="/doctor">{{ 'show_more' | translate }}</a>
+    <a class="btn-showmore" routerLink="{{ urlService.getUrlByKey('doctor') }}">{{ 'show_more' | translate }}</a>
   </div>
 </div>

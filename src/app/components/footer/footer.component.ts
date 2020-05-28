@@ -19,6 +19,7 @@ import { Subscription } from 'rxjs';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {LoaderService} from '../../services/loader-service';
 import {DeviceDetectorService} from 'ngx-device-detector';
+import {RouteFactoryService} from '../../services/route-factory.service';
 
 @Component({
   selector: 'app-footer',
@@ -36,6 +37,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   public isMobile;
   public isTablet;
   public isDesktopDevice;
+  public routes;
 
   constructor(
     public blogService: BlogService,
@@ -47,6 +49,8 @@ export class FooterComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId,
     private deviceService: DeviceDetectorService,
     private zone: NgZone,
+    private routeFactory: RouteFactoryService,
+    private urlService: UrlService
   ) {
     if (isPlatformBrowser(this.platformId)) {
             this.checkDevice();
@@ -57,9 +61,11 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.loadFeatureBlogs();
     this.loadFeatureClinics();
     this.yearcopy = new Date().getFullYear();
+    this.routes = this.routeFactory.getRoute();
     this.subsciption = this.translate.onLangChange.subscribe(() => {
       this.loadFeatureBlogs();
       this.loadFeatureClinics();
+      this.routes = this.routeFactory.getRoute();
     });
   }
 
@@ -93,7 +99,7 @@ export class FooterComponent implements OnInit, OnDestroy {
           blog.picturePath = UrlService.createPictureUrl(blog.picture);
         }
 
-        blog.url = UrlService.createNewsDetailUrl(blog.alias);
+        blog.url = this.urlService.createNewsDetailUrl(blog.alias);
         blog.name = blog.name.replace(/^(.{20}[^\s]*).*/, '$1');
         return blog;
       });
@@ -110,7 +116,7 @@ export class FooterComponent implements OnInit, OnDestroy {
           null,
           'category',
         );
-        clinic.url = UrlService.createClinicDetailUrl(clinic.alias);
+        clinic.url = this.urlService.createClinicDetailUrl(clinic.alias);
         return clinic;
       });
     });

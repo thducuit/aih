@@ -39,6 +39,7 @@ export class InsuranceConsultingComponent implements OnInit {
               public pageService: PageService,
               public bannerService: BannerService,
               private translate: TranslateService,
+              private urlService: UrlService,
               private metaService: Meta,
               private titleService: Title,
               private router: Router,
@@ -112,7 +113,7 @@ export class InsuranceConsultingComponent implements OnInit {
         const service = new InsuranceDetail(item);
         service.picturePath = UrlService.createPictureUrl(service.picture);
         service.longDesc = UrlService.fixPictureUrl(service.longDesc);
-        service.url = UrlService.createInsuranceUrl(service.alias);
+        service.url = this.urlService.createInsuranceUrl(service.alias);
         return service;
       });
       this.loaderService.hide();
@@ -126,7 +127,7 @@ export class InsuranceConsultingComponent implements OnInit {
       this.category = categories.map(item => {
         const insurance = new Insurance(item);
         insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
-        insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
+        insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
         return insurance;
       }).find(item => item.id === parseInt(id, 10));
 

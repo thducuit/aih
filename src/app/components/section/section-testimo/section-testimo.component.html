@@ -2,8 +2,8 @@
   <div *ngIf="showTestimo" class="container">
 
     <div class="tt testimo-home-heading">
-      <p><a href="/about-us/testimonial">{{ 'testimonials' | translate }}</a></p>
-      <h2><a href="/about-us/testimonial">{{ 'what_our_clients_say' | translate }}</a></h2>
+      <p><a href="{{ urlService.getUrlByKey('testimonial') }}">{{ 'testimonials' | translate }}</a></p>
+      <h2><a href="{{ urlService.getUrlByKey('testimonial') }}">{{ 'what_our_clients_say' | translate }}</a></h2>
     </div>
 
     <ngx-slick-carousel

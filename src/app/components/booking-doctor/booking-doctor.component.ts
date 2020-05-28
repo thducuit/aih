@@ -31,7 +31,9 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
     @Output() choose = new EventEmitter<any>();
 
     constructor(public doctorService: DoctorService,
-                private translate: TranslateService) {
+                private translate: TranslateService,
+                private urlService: UrlService
+                ) {
         this.isActive = false;
     }
 
@@ -69,7 +71,7 @@ export class BookingDoctorComponent implements OnInit, OnDestroy {
                 if (doctor.picture) {
                     doctor.picturePath = UrlService.createPictureUrl(doctor.picture);
                 }
-                doctor.url = UrlService.createDoctorDetailUrl(doctor.alias);
+                doctor.url = this.urlService.createDoctorDetailUrl(doctor.alias);
                 return doctor;
             });
         });

@@ -21,7 +21,8 @@ export class ServiceDropMbComponent implements OnInit, OnDestroy {
   constructor(
     public clinicService: ClinicService,
     private translate: TranslateService,
-    private router: Router,
+    private urlService: UrlService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -59,7 +60,7 @@ export class ServiceDropMbComponent implements OnInit, OnDestroy {
       const posts = data['Categories'] || [];
       this.clinics = posts.map(post => {
         const clinic = new Clinic(post);
-        clinic.url = UrlService.createClinicDetailUrl(clinic.alias);
+        clinic.url = this.urlService.createClinicDetailUrl(clinic.alias);
         return clinic;
       });
     });

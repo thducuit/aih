@@ -3,6 +3,7 @@ import {Router, NavigationStart} from '@angular/router';
 import {Subscription, forkJoin} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
+import {RouteFactoryService} from '../../services/route-factory.service';
 
 @Component({
     selector: 'app-nav',
@@ -13,11 +14,14 @@ export class NavComponent implements OnInit, OnDestroy {
 
     private subscription: Subscription;
     public loginUrl;
+    public routes;
 
-    constructor(private translate: TranslateService) {
+    constructor(private translate: TranslateService,
+                private routeFactory: RouteFactoryService) {
     }
 
     ngOnInit() {
+        this.routes = this.routeFactory.getRoute();
         if (this.translate.currentLang === 'vi') {
             this.loginUrl = environment.loginViUrl;
         } else {
@@ -27,6 +31,7 @@ export class NavComponent implements OnInit, OnDestroy {
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
+                this.routes = this.routeFactory.getRoute();
                 if (this.translate.currentLang === 'vi') {
                     this.loginUrl = environment.loginViUrl;
                 } else {

@@ -1,6 +1,6 @@
 <main id="pCareers" *ngIf="career">
   <div class="breadcrumb"><div class="container"><a href="#">{{ 'home' | translate }}</a> /
-    <a href="/career">{{ 'careers' | translate }}</a> /
+    <a href="{{ urlService.getUrlByKey('career') }}">{{ 'careers' | translate }}</a> /
     <p>{{ career.name }}</p></div>
   </div>
 

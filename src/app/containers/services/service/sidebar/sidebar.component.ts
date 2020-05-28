@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
 
     constructor(public clinicService: ClinicService,
                 private loaderService: LoaderService,
+                private urlService: UrlService,
                 private translate: TranslateService) {
     }
 
@@ -42,7 +43,7 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
             const posts = data['Categories'] || [];
             this.clinics = posts.map(post => {
                 const clinic = new Clinic(post);
-                clinic.url = UrlService.createClinicDetailUrl(clinic.alias);
+                clinic.url = this.urlService.createClinicDetailUrl(clinic.alias);
                 return clinic;
             });
             this.loadFinish.emit(true);
