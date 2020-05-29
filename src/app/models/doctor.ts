@@ -43,6 +43,19 @@ export class Doctor {
         this.picturePath = null;
         this.isExpanded = false;
         this.meta = JSON.parse(data.post_meta || '{}');
+
+        if (this.meta.title) {
+            this.meta.title = this.meta.title.replace('\r\n', '<br />').replace('\r', '<br />').replace('\n', '<br />');
+        }
+        if (this.meta.position) {
+            this.meta.position = this.meta.position.replace('\r\n', '<br />').replace('\r', '<br />').replace('\n', '<br />');
+        }
+        if (this.meta.specialist) {
+            this.meta.specialist = this.meta.specialist.replace('\r\n', '<br />').replace('\r', '<br />').replace('\n', '<br />');
+        }
+        if (this.meta.experience) {
+            this.meta.experience = this.meta.experience.replace('\r\n', '<br />').replace('\r', '<br />').replace('\n', '<br />');
+        }
         this.categories = this.meta.categories ? [...this.meta.categories, this.categoryId] : [this.categoryId];
     }
 }

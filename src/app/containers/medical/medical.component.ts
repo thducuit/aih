@@ -126,6 +126,12 @@ export class MedicalComponent implements OnInit, OnDestroy {
             this.packages = posts
                 .map(post => {
                     return new Package(post);
+                })
+                .map( post => {
+                    if (post.meta.picture) {
+                        post.meta.picture = UrlService.createMediaUrl(post.meta.picture);
+                    }
+                    return post;
                 });
 
             this.currentPackages = this.packages.filter(item => item.parentId === 0);
