@@ -69,10 +69,12 @@ export class BookingService {
       parseInt(form.dayBirth, 10) < 0 ? `0${form.dayBirth}` : form.dayBirth;
     const postData = {
       customer_full_name: `${form.firstName} ${form.lastName}`,
+      customer_first_name: form.firstName,
+      customer_last_name: form.lastName,
       customer_gender: form.sex,
       customer_email: form.email,
       customer_phone: form.phone,
-      customer_address: '',
+      customer_address: form.residenceAddress,
       customer_passport_id: form.passport,
       customer_passport_no: form.passportNo,
       customer_religion: form.religion,

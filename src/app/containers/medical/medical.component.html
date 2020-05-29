@@ -64,7 +64,7 @@
         <!--</div>-->
       <!--</div>-->
 
-      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild">
+      <div class="box-details-medical {{ isExpand ? 'active': '' }} clearfix" *ngIf="chosenPackageChild && !chosenPackageChild.meta.picture">
 
         <div class="box-table-medical" *ngFor="let currentPackageService of currentPackageServices">
           <div *ngIf="chosenPackage && currentPackageService.meta.hasOwnProperty(chosenPackage.id)">
@@ -96,6 +96,9 @@
         <p class="pprice" *ngIf="chosenPackageChild && chosenPackageChild.desc" [innerHTML]="(chosenPackageChild ? chosenPackageChild.desc : '') | decodeHtmlEntities | safeHtml"></p>
       </div>
 
+      <div class="box-details-medical copy" *ngIf="chosenPackageChild && chosenPackageChild.meta.picture">
+        <img src="{{ chosenPackageChild.meta.picture }}" alt="" />
+      </div>
       <!--<div class="box-btn-medical clearfix">
         <a href="#" class="btn-medical">Đăng ký</a>
       </div>-->

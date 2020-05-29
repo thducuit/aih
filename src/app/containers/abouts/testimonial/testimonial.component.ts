@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, AfterViewChecked} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TestimonialService} from 'src/app/services/testimonial.service';
 import {Testimonial} from 'src/app/models/testimonial';
@@ -11,19 +11,19 @@ import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
-import {ScrollToConfigOptions, ScrollToService} from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
     selector: 'app-testimonial',
     templateUrl: './testimonial.component.html',
     styleUrls: ['./testimonial.component.scss'],
 })
-export class TestimonialComponent implements OnInit, OnDestroy {
+export class TestimonialComponent implements OnInit, OnDestroy, AfterViewChecked {
     public currentPage = 1;
     public testimonials: any[];
     private subcription: Subscription;
     public page: Page;
     public banners: Array<any> = [];
+    private el;
 
     constructor(private testimonialService: TestimonialService,
                 private route: ActivatedRoute,
@@ -32,23 +32,10 @@ export class TestimonialComponent implements OnInit, OnDestroy {
                 public pageService: PageService,
                 public bannerService: BannerService,
                 private loaderService: LoaderService,
-                private metaService: Meta,
-                private scrollToService: ScrollToService) {
+                private metaService: Meta) {
     }
 
     ngOnInit() {
-
-        const config: ScrollToConfigOptions = {
-            target: 'testi-area',
-            offset: 600
-        };
-
-        this.scrollToService.scrollTo(config);
-
-        // this.route.queryParams.subscribe(params => {
-        //     const alias = params['id'];
-        // });
-
         this.loadTestimonials();
         this.loadPage();
         this.subcription = this.translate
@@ -57,6 +44,21 @@ export class TestimonialComponent implements OnInit, OnDestroy {
                 this.loadPage();
                 this.loadTestimonials();
             });
+    }
+
+    ngAfterViewChecked() {
+        this.route.queryParams.subscribe(params => {
+            const alias = params['id'];
+            if (params['id']) {
+                const el = document.getElementById('testimo-deail-item-' + alias);
+                if (!this.el || this.el !== el) {
+                    this.el = el;
+                    if (el) {
+                        el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+                    }
+                }
+            }
+        });
     }
 
     ngOnDestroy() {

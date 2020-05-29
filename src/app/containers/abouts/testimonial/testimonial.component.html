@@ -21,7 +21,7 @@
     <div class="container">
       <div class="list-quote" id="testi-area">
         <ul>
-          <li *ngFor="let item of testimonials">
+          <li *ngFor="let item of testimonials" id="testimo-deail-item-{{item.id}}">
             <app-testimonial-item [testimonial]="item"></app-testimonial-item>
           </li>
         </ul>

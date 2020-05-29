@@ -17,19 +17,19 @@
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td>{{'degree' | translate}}</td>
-              <td>{{doctor.meta.title}}</td>
+              <td *ngIf="doctor.meta.title" [innerHTML]="doctor.meta.title | safeHtml"></td>
             </tr>
             <tr>
               <td width="50%">{{'title' | translate}}</td>
-              <td width="50%">{{doctor.meta.position}}</td>
+              <td width="50%" *ngIf="doctor.meta.position" [innerHTML]="doctor.meta.position | safeHtml"></td>
             </tr>
             <tr>
               <td>{{'specialty' | translate}}</td>
-              <td>{{doctor.meta.specialist}}</td>
+              <td *ngIf="doctor.meta.specialist" [innerHTML]="doctor.meta.specialist | safeHtml"></td>
             </tr>
             <tr>
               <td>{{'experience' | translate}}</td>
-              <td>{{doctor.meta.experience}}</td>
+              <td *ngIf="doctor.meta.experience" [innerHTML]="doctor.meta.experience | safeHtml"></td>
             </tr>
           </table>
           <div class="btn-wrap">
