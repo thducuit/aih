@@ -74,8 +74,8 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     constructor(@Inject(PLATFORM_ID) private platformId,
                 public doctorService: DoctorService,
                 private translate: TranslateService,
-                private urlService: UrlService,
-                private loaderService: LoaderService) {
+                public urlService: UrlService,
+                public loaderService: LoaderService) {
     }
 
     ngOnInit() {

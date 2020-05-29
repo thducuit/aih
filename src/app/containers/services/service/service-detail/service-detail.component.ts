@@ -49,7 +49,7 @@ export class ServiceDetailComponent
               public postService: PostService,
               public blogService: BlogService,
               private translate: TranslateService,
-              private urlService: UrlService,
+              public urlService: UrlService,
               private metaService: Meta,
               private router: Router,
               private animateScrollService: NgAnimateScrollService,

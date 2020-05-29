@@ -8,7 +8,7 @@ import {UrlService} from '../../services/url.service';
 })
 export class TopHeaderComponent implements OnInit {
 
-  constructor(private urlService: UrlService) { }
+  constructor(public urlService: UrlService) { }
 
   ngOnInit() {
   }

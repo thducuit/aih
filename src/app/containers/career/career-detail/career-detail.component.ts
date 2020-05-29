@@ -50,7 +50,7 @@ export class CareerDetailComponent implements OnInit, OnDestroy {
                 private metaService: Meta,
                 private titleService: Title,
                 private loaderService: LoaderService,
-                private urlService: UrlService,
+                public urlService: UrlService,
                 private router: Router,
                 private scrollToService: ScrollToService) {
     }
