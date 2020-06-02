@@ -78,9 +78,7 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     public errorDayBirth = false;
     public errorMonthBirth = false;
     public errorYearBirth = false;
-
-    
-    // public errorResidenceAddress = false;
+    public errorResidenceAddress = false;
     // public errorTelRelationship = false;
     // public errorFullNameEmergency = false;
     // public errorRelationship = false;
@@ -145,7 +143,7 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
         this.errorMonthBirth = false;
         this.errorYearBirth = false;
 
-        // this.errorResidenceAddress = false;
+        this.errorResidenceAddress = false;
         // this.errorFullNameEmergency = false;
         // this.errorRelationship = false;
         // this.errorTelRelationship = false;
@@ -328,12 +326,12 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
         //     this.errorRelationship = false;
         // }
 
-        // if (!this.form.residenceAddress) {
-        //     this.errorResidenceAddress = true;
-        //     flag = false;
-        // } else {
-        //     this.errorResidenceAddress = false;
-        // }
+        if (!this.form.residenceAddress) {
+            this.errorResidenceAddress = true;
+            flag = false;
+        } else {
+            this.errorResidenceAddress = false;
+        }
 
         if (this.form.email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -343,9 +341,6 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
             } else {
                 this.errorEmail = false;
             }
-        }else {
-            this.errorEmail = true;
-            flag = false;
         }
 
         return flag;
