@@ -81,7 +81,7 @@ export class BookingService {
       customer_ethnic: form.ethnic,
       customer_marital_status: form.martialStatus,
       customer_other: form.other,
-      customer_residence_address: form.residenceAddress,
+      customer_residence_address: "",
       customer_province: form.province,
       customer_district: form.district,
       customer_residence_address2: form.residenceAddress2,
