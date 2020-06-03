@@ -9,16 +9,17 @@
 
              <div class="form-group clearfix">
                <input (blur)="validate()" type="" class="form-control {{ errorLastName ? 'error' : '' }}" name="lastName" [(ngModel)]="form.lastName" placeholder="{{ 'register_lastName' | translate }}">
-               <!-- <p class="check-must">*</p> -->
+                <p class="check-must">*</p>
              </div>
 
              <div class="form-group clearfix">
                <input (blur)="validate()" type="" class="form-control {{ errorFirstName ? 'error' : '' }}" name="firstName" [(ngModel)]="form.firstName" placeholder="{{ 'register_name' | translate }}">
-               <!-- <p class="check-must">*</p> -->
+                <p class="check-must">*</p>
              </div>
 
              <div class="form-group clearfix">
-               <input (blur)="validate()" type="" class="form-control {{ errorEmail ? 'error' : '' }}" name="email" [(ngModel)]="form.email" placeholder="{{ 'register_email' | translate }}">
+               <input (blur)="validate()" type="" class="form-control {{ errorResidenceAddress ? 'error' : '' }}" name="residenceAddress" [(ngModel)]="form.residenceAddress" value="{{ form.residenceAddress }}"  placeholder="{{ 'register_residenceAddress' | translate }}">
+               <p class="check-must">*</p>
              </div>
 
              <div class="form-group clearfix">
@@ -74,7 +75,7 @@
                    <option value="2">{{ 'register_female' | translate }}</option>
                  </select>
                </div>
-               <!-- <p class="check-must">*</p> -->
+                <p class="check-must">*</p>
              </div>
              <div class="form-group box-choose-day clearfix">
                <div class="box-choose">
@@ -107,7 +108,7 @@
                    </div>
                  </div>
                </div>
-               <!-- <p class="check-must">*</p> -->
+                <p class="check-must">*</p>
              </div>
 
              <div class="form-group clearfix">
@@ -116,6 +117,7 @@
                    <option value="">{{ 'register_country' | translate }}</option>
                    <option value="{{ country['country_rcd'] }}" *ngFor="let country of countries">{{ lang === 'vi' ? country['name_l'] : country['name_e'] }}</option>
                  </select>
+                 <p class="check-must">*</p>
                </div>
              </div>
 
@@ -208,7 +210,7 @@
              </div>-->
 
              <div class="form-group clearfix">
-               <input type="" [(ngModel)]="form.residenceAddress"  class="form-control" value="{{ form.residenceAddress }}" name="residenceAddress" placeholder="{{ 'register_residenceAddress' | translate }}">
+               <input (blur)="validate()" type="" class="form-control {{ errorEmail ? 'error' : '' }}" name="email" [(ngModel)]="form.email" placeholder="{{ 'register_email' | translate }}">
                <!-- <p class="check-must">*</p> -->
              </div>
 
