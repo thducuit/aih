@@ -52,11 +52,11 @@ export class InsuranceConsultingComponent implements OnInit {
     this.loadPage();
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      this.loadService(id);
+      // this.loadService(id);
       this.loadCategory(id);
     });
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.loadService(this.route.snapshot.params.id);
+      // this.loadService(this.route.snapshot.params.id);
       this.loadCategory(this.route.snapshot.params.id);
       this.loadPage();
     });
@@ -119,7 +119,7 @@ export class InsuranceConsultingComponent implements OnInit {
     });
   }
 
-  loadCategory(id) {
+  loadCategory(alias) {
     this.loaderService.show();
     this.insuranceService.fetchServiceCate().subscribe((data: any) => {
       const categories = data['Categories'] || [];
@@ -128,7 +128,7 @@ export class InsuranceConsultingComponent implements OnInit {
         insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
         insurance.url = UrlService.createInsuranceDetailUrl(insurance.id, insurance.alias);
         return insurance;
-      }).find(item => item.id === parseInt(id, 10));
+      }).find(item => item.alias === alias);
 
       const pageTitle = this.category.metaTitle || this.category.name;
       this.titleService.setTitle(pageTitle);
@@ -152,6 +152,8 @@ export class InsuranceConsultingComponent implements OnInit {
       }
 
       this.loaderService.hide();
+
+      this.loadService(this.category.id);
     });
   }
 

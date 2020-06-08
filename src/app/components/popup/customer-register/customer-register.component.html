@@ -38,7 +38,7 @@
              <!--</div>-->
 
              <div class="form-group clearfix">
-               <input type="" class="form-control" value="{{ form.passportNo }}" name="passportNo" placeholder="{{ 'register_passportNo' | translate }}">
+               <input type="" class="form-control" value="{{ form.passportNo }}" [(ngModel)]="form.passportNo" name="passportNo" placeholder="{{ 'register_passportNo' | translate }}">
              </div>
 
              <!--<div class="form-group clearfix">
@@ -236,11 +236,11 @@
            <p>{{ 'register_emergency' | translate }}</p>
            <div class="box-popup-regis-textbox">
              <div class="form-group clearfix">
-               <input type="" class="form-control" value="{{ form.fullNameEmergency }}" name="fullNameEmergency" placeholder="{{ 'register_fullNameEmergency' | translate }}">
+               <input type="" class="form-control" value="{{ form.fullNameEmergency }}" name="fullNameEmergency" [(ngModel)]="form.fullNameEmergency" placeholder="{{ 'register_fullNameEmergency' | translate }}">
              </div>
 
              <div class="form-group clearfix">
-               <input type="" class="form-control" value="{{ form.telRelationship }}" name="telRelationship" placeholder="{{ 'register_telRelationship' | translate }}">
+               <input type="" class="form-control" value="{{ form.telRelationship }}" name="telRelationship" [(ngModel)]="form.telRelationship" placeholder="{{ 'register_telRelationship' | translate }}">
              </div>
 
              <!--<div class="form-group clearfix">
