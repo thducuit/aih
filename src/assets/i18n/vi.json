@@ -191,7 +191,7 @@
   "register_religion": "Tôn giáo",
   "register_ethnic": "Dân tộc",
   "register_passport": "Passport",
-  "register_passportNo": "Số Passport",
+  "register_passportNo": "Số Passport/CMND",
   "register_martialStatus": "TÌnh trạng",
   "register_other": "Khác",
   "register_province": "Tỉnh/Thành phố",
@@ -247,15 +247,15 @@
   "text_booking_success_1": "CẢM ƠN QUÝ KHÁCH",
   "text_booking_success_2": "ĐÃ ĐẶT LỊCH KHÁM TẠI AIH!",
   "choose_detail_package_price": "GIÁ GÓI DỊCH VỤ",
-  "text_booking_success_3": "Bệnh viện Quốc tế Mỹ sẽ liên hệ Quý khách trong vòng 24h để xác nhận cuộc hẹn. Xin cảm ơn!",
+  "text_booking_success_3": "Bệnh viện Quốc tế Mỹ sẽ liên hệ Quý khách trong vòng 24 giờ để xác nhận lịch hẹn. Xin cảm ơn.",
   "text_booking_phone_title": "Thông báo",
   "text_booking_phone_content": "Vui lòng đăng ký tài khoản bằng cách ấn vào nút Đăng ký",
   "text_booking_phone_close": "Đăng ký",
   "text_subsribe_form_existed": "Email này đã đăng ký",
 
-  "text_booking_confirm_resigter_customer": "Bạn có muốn đăng ký tài khoản mới?",
-  "text_accept": "Đồng ý",
-  "text_cancel": "Bỏ qua",
+  "text_booking_confirm_resigter_customer": "Quý khách có muốn đăng ký thông tin trước không?",
+  "text_accept": "Có",
+  "text_cancel": "Không",
 
 
   "text_Daoism": "Đạo giáo",

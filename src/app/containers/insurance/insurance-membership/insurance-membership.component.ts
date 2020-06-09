@@ -120,8 +120,7 @@ export class InsuranceMembershipComponent implements OnInit {
                     );
                     insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
                     return insurance;
-                })
-                .sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+                });
             this.loaderService.hide();
         });
     }

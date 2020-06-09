@@ -91,6 +91,6 @@ export class UrlService {
         const alias = ins.alias;
         const routes = this.routeFactory.getRoute();
         const baseUrl = (alias.indexOf('insurance') > -1 || alias.indexOf('bao-hiem') > -1) ? routes.cins : routes.cmem;
-        return `${baseUrl}/${id}`;
+        return `${baseUrl}/${alias}`;
     }
 }

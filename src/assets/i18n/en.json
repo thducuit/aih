@@ -245,17 +245,17 @@
   "text_comment_fail": "Error, please try again",
   "text_login_social": "Please login before use this function!",
   "text_booking_success_1": "THANK YOU  ",
-  "text_booking_success_2": "FOR YOUR BOOKING AT AIH!",
+  "text_booking_success_2": "FOR YOUR BOOKING AT AIH",
   "choose_detail_package_price": "PRICE",
-  "text_booking_success_3": "AIH will contact you within 24 hours  to confirm your appointment. Thank you!",
+  "text_booking_success_3": "AIH will contact you within 24 hours for booking confirmation. Thank you.",
   "text_booking_phone_title": "Warning",
   "text_booking_phone_content": "Please register new account by click to Register button",
   "text_booking_phone_close": "Register",
   "text_subsribe_form_existed": "Email is registered",
 
-  "text_booking_confirm_resigter_customer": "Do you want register new account?",
-  "text_accept": "Accept",
-  "text_cancel": "Cancel",
+  "text_booking_confirm_resigter_customer": "Would you like register your personal information online?",
+  "text_accept": "Yes",
+  "text_cancel": "No",
 
 
   "text_Daoism": "Daoism",

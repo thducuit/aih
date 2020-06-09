@@ -87,7 +87,7 @@ export class BookingService {
       customer_residence_address2: form.residenceAddress2,
       customer_tel: form.tel,
       customer_fullname_emergency: form.fullNameEmergency,
-      customer_relationship: form.telRelationship,
+      customer_relationship: form.relationship,
       customer_tel_relationship: form.telRelationship,
       customer_mobile_relationship: form.mobileRelationship,
       customer_request_emergency: form.requestEmergency,
