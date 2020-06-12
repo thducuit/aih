@@ -215,7 +215,7 @@
   "register_insurance": "Insurance",
   "register_guardian": "Guardian",
   "register_emergency": "Emergency",
-  "text_register_success": "Register account is success",
+  "text_register_success": "You have completed registration form.Thank you.",
   "text_register_fail": "Register account is fail.Please contact us",
   "text_career_form_success": "Your information is sent successful.We will contact you soon",
   "text_career_form_fail": "Error. Please try again!!!",

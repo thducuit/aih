@@ -215,7 +215,7 @@
   "register_insurance": "Bảo hiểm",
   "register_guardian": "Bảo hộ",
   "register_emergency": "Khẩn cấp",
-  "text_register_success": "Quý khách đăng ký tài khoản thành công",
+  "text_register_success": "Quý khách đã hoàn tất đăng ký thông tin.Cám ơn Quý khách",
   "text_register_fail": "Có lỗi xảy ra vui lòng liên hệ ban quản trị",
   "text_career_form_success": "Thông tin của bạn đã gửi thành công. Chúng tôi sẽ liên hệ trong thời gian sớm nhất",
   "text_career_form_fail": "Có lỗi xảy ra vui lòng thử lại!!!",
