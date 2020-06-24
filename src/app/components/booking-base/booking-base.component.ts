@@ -473,9 +473,10 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             this.translate.get('text_booking_success_1'),
             this.translate.get('text_booking_success_2'),
             this.translate.get('text_booking_success_3'),
+            this.translate.get('text_booking_success_4'),
             this.translate.get('text_accept'),
             this.translate.get('text_cancel'),
-        ).subscribe(([message, buttonText, m1, m2, m3, buttonOkText, buttonCloseText]) => {
+        ).subscribe(([message, buttonText, m1, m2, m3, m4, buttonOkText, buttonCloseText]) => {
             Swal.fire({
                 text: message,
                 customClass: 'alert-booking',
@@ -485,7 +486,7 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 html: '<div class="alert-custom-booking"><div class="img-logo"></div>' +
                 '<div class="alert-header">' + m1 + '<br/>' + m2 +
                 '</div> ' +
-                '<div class="alert-content">' + m3 + '</div>' +
+                '<div class="alert-content">' + m3 + '<br/>' + m4 + '</div>' +
                 '</div><div class="alert-rest-msg">' + message + '</div>',
                 showCloseButton: false,
                 showCancelButton: true,

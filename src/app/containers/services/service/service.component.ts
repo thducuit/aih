@@ -8,6 +8,7 @@ import {Subscription, forkJoin} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-service',
@@ -24,6 +25,8 @@ export class ServiceComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private metaService: Meta,
+                private router: Router,
+                private urlService: UrlService,
                 private titleService: Title) {
     }
 
@@ -32,7 +35,8 @@ export class ServiceComponent implements OnInit, OnDestroy {
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
-                this.loadPage();
+                // this.loadPage();
+                return this.router.navigate([this.urlService.getUrlByKey('mservice')]);
             });
     }
 

@@ -35,6 +35,7 @@ export class PostService extends BaseService {
     }
 
     fetchNextPrevNews(postId) {
+        this.currentLang = this.getCurrentLocal();
         const postData = {
             post_id: postId,
             cate_id: 0,
@@ -46,6 +47,7 @@ export class PostService extends BaseService {
     }
 
     fetchNextPrevDoctor(postId, categoryId) {
+        this.currentLang = this.getCurrentLocal();
         const postData = {
             post_id: postId,
             cate_id: categoryId,

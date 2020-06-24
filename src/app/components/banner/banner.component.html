@@ -9,8 +9,8 @@
       *ngFor="let item of banners;trackBy: trackBannerUrl"
       ngxSlickItem
       class="item"
-      [ngStyle]="{ background: 'url(' + (item.showContent && (isTablet || isDesktopDevice) ? item.large : '')  + ') no-repeat center' }"
     >
+      <img class="responsive" [src]="item.large" *ngIf="item.showContent && (isTablet || isDesktopDevice)" />
       <a class="desk-link" [href]="item.link" *ngIf="(isTablet || isDesktopDevice)"></a>
       <div class="container" *ngIf="item.showContent && (isMobile || isTablet)">
         <a [href]="item.link"></a>

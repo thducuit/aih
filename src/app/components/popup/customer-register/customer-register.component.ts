@@ -186,10 +186,11 @@ export class CustomerRegisterComponent implements OnInit, OnChanges, OnDestroy {
     openSuccess() {
         forkJoin(
             this.translate.get('text_register_success'),
+            this.translate.get('text_register_thank'),
             this.translate.get('text_close'),
-        ).subscribe(([message, buttonText]) => {
+        ).subscribe(([message1, message2, buttonText]) => {
             Swal.fire({
-                text: message,
+                html: message1 + '<br/>' + message2,
                 confirmButtonText: buttonText,
             });
         });

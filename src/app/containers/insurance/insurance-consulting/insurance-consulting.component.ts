@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, NgZone, PLATFORM_ID } from '@angular/core';
+import {Component, OnInit, Inject, NgZone, PLATFORM_ID, OnDestroy} from '@angular/core';
 import { Insurance } from '../../../models/insurance';
 import { Page } from '../../../models/page';
 import { forkJoin, Subscription } from 'rxjs';
@@ -16,13 +16,14 @@ import { isPlatformBrowser } from '@angular/common';
 import { LoaderService } from '../../../services/loader-service';
 import jquery from 'jquery';
 import { environment } from '../../../../environments/environment';
+import {PostService} from '../../../services/post.service';
 
 @Component({
   selector: 'app-insurance-consulting',
   templateUrl: './insurance-consulting.component.html',
   styleUrls: ['./insurance-consulting.component.scss'],
 })
-export class InsuranceConsultingComponent implements OnInit {
+export class InsuranceConsultingComponent implements OnInit, OnDestroy {
 
   public insurances: Array<Insurance> = [];
   public page: Page;
@@ -44,6 +45,7 @@ export class InsuranceConsultingComponent implements OnInit {
               private titleService: Title,
               private router: Router,
               private zone: NgZone,
+              public postService: PostService,
               private loaderService: LoaderService,
               private animateScrollService: NgAnimateScrollService) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -57,12 +59,25 @@ export class InsuranceConsultingComponent implements OnInit {
       this.loadCategory(id);
     });
     this.subscription = this.translate.onLangChange.subscribe(() => {
-      // this.loadService(this.route.snapshot.params.id);
-      this.loadCategory(this.route.snapshot.params.id);
-      this.loadPage();
+        const alias = this.route.snapshot.params['id'];
+        this.insuranceService.getAlias(alias).subscribe((data: any) => {
+            const newAlias = data['alias'];
+            if (newAlias) {
+                return this.router.navigate([
+                    this.urlService.createInsuranceConsulting(newAlias),
+                ]);
+            } else {
+                return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
+            }
+        });
     });
   }
 
+  ngOnDestroy() {
+      if (this.subscription) {
+          this.subscription.unsubscribe();
+      }
+  }
 
   loadPage() {
     this.loaderService.show();
@@ -113,7 +128,7 @@ export class InsuranceConsultingComponent implements OnInit {
         const service = new InsuranceDetail(item);
         service.picturePath = UrlService.createPictureUrl(service.picture);
         service.longDesc = UrlService.fixPictureUrl(service.longDesc);
-        service.url = this.urlService.createInsuranceUrl(service.alias);
+        service.url = this.urlService.createInsuranceDetailUrl(service.alias);
         return service;
       });
       this.loaderService.hide();
@@ -127,7 +142,7 @@ export class InsuranceConsultingComponent implements OnInit {
       this.category = categories.map(item => {
         const insurance = new Insurance(item);
         insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
-        insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
+        insurance.url = this.urlService.createConsultingUrl(insurance);
         return insurance;
       }).find(item => item.alias === alias);
 

@@ -69,7 +69,7 @@ export class ServiceDetailComponent
     this.subscription = this.translate.onLangChange.subscribe(() => {
       this.isShowWarning = false;
       const alias = this.route.snapshot.params['alias'];
-      this.postService.getAlias(alias).subscribe((data: any) => {
+      this.categoryService.getAlias(alias).subscribe((data: any) => {
         const newAlias = data['alias'];
         if (newAlias) {
           return this.router.navigate([

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {Insurance} from '../../../models/insurance';
 import {Page} from '../../../models/page';
 import {forkJoin, Subscription} from 'rxjs';
@@ -9,7 +9,7 @@ import {BannerService} from '../../../services/banner.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {UrlService} from '../../../services/url.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {InsuranceDetail} from '../../../models/insurance-detail';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {LoaderService} from '../../../services/loader-service';
@@ -21,7 +21,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
     templateUrl: './membership-consulting.component.html',
     styleUrls: ['./membership-consulting.component.scss'],
 })
-export class MembershipConsultingComponent implements OnInit {
+export class MembershipConsultingComponent implements OnInit, OnDestroy {
 
     public insurances: Array<Insurance> = [];
     public page: Page;
@@ -42,6 +42,7 @@ export class MembershipConsultingComponent implements OnInit {
                 private metaService: Meta,
                 private titleService: Title,
                 private loaderService: LoaderService,
+                private router: Router,
                 private animateScrollService: NgAnimateScrollService) {
     }
 
@@ -53,10 +54,24 @@ export class MembershipConsultingComponent implements OnInit {
             this.loadCategory(id);
         });
         this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadPage();
-            // this.loadService(this.route.snapshot.params.id);
-            this.loadCategory(this.route.snapshot.params.id);
+            const alias = this.route.snapshot.params['id'];
+            this.insuranceService.getAlias(alias).subscribe((data: any) => {
+                const newAlias = data['alias'];
+                if (newAlias) {
+                    return this.router.navigate([
+                        this.urlService.createMemberConsulting(newAlias),
+                    ]);
+                } else {
+                    return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
+                }
+            });
         });
+    }
+
+    ngOnDestroy() {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
 
@@ -124,7 +139,7 @@ export class MembershipConsultingComponent implements OnInit {
             this.category = categories.map(item => {
                 const insurance = new Insurance(item);
                 insurance.picturePath = UrlService.createPictureUrl(insurance.picture, null, 'category');
-                insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
+                insurance.url = this.urlService.createConsultingUrl(insurance);
                 return insurance;
             }).find(item => item.alias === alias);
 

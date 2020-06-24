@@ -8,9 +8,8 @@
 					<p>{{ 'footer_title' | translate }}</p>
 				</div>
 
-				<div class="item" *ngIf="isDesktopDevice || isTablet">
+				<div class="item" >
 					<h2><a routerLink="{{ routes.news }}">{{ 'news' | translate }}</a></h2>
-					<h4 class="see-more-anchor"><a href="{{ routes.news }}">{{ 'see_more' | translate }}</a></h4>
 					<ul>
 						<li *ngFor="let blog of blogs">
 							<div class="item-post clearfix">
@@ -27,10 +26,10 @@
 							</div>
 						</li>
 					</ul>
+					<h4 class="see-more-anchor"><a href="{{ routes.news }}">{{ 'see_more' | translate }}</a></h4>
 				</div>
-				<div class="item" *ngIf="isDesktopDevice || isTablet">
+				<div class="item" >
 					<h2><a routerLink="{{ routes.mservice }}">{{ 'patient_services' | translate }}</a></h2>
-					<h4 class="see-more-anchor"><a href="{{ routes.mservice }}">{{ 'see_more' | translate }}</a></h4>
 					<ul>
 						<li *ngFor="let clinic of clinics">
 							<div class="item-post clearfix">
@@ -39,17 +38,17 @@
 									<img src="assets/images/b.gif">
 								</div>
 								<div class="copy">
-									<p>{{clinic.datepublish | date:'dd/MM/yyyy'}}</p>
+									<!--<p>{{clinic.datepublish | date:'dd/MM/yyyy'}}</p>-->
 									<p><span>{{ clinic.name }}</span></p>
 								</div>
 								<a class="link-all" routerLink="{{ clinic.url }}"></a>
 							</div>
 						</li>
-						
 					</ul>
+					<h4 class="see-more-anchor"><a href="{{ routes.mservice }}">{{ 'see_more' | translate }}</a></h4>
 				</div>				
-				<div class="item page-fb" *ngIf="isDesktopDevice || isTablet">
-					<h2>{{ 'social_channels' | translate }}</h2>
+				<div class="item page-fb" >
+					<h2><a href="https://www.facebook.com/aih.com.vn" target="_blank">{{ 'social_channels' | translate }}</a></h2>
 					<div class="fb">
 						<iframe *ngIf="deferLoaded" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faih.com.vn%2F&tabs&width=260&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="260" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
           			</div>

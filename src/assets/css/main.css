@@ -230,6 +230,11 @@ select {
   display: block
 }
 
+.slick-slide img.responsive {
+  width: 100%;
+  height: auto;
+}
+
 .slick-slide.slick-loading img {
   display: none
 }
@@ -3218,12 +3223,12 @@ header.fixHd .bg {
   left: 0
 }
 
-.ft-wrap .item:first-child img {
+.ft-wrap .item:first-child img , .ft-wrap .item.last img{
   max-width: 100%;
   margin-bottom: 24px
 }
 
-.ft-wrap .item:first-child p {
+.ft-wrap .item:first-child p , .ft-wrap .item.last p{
   color: #fff
 }
 
@@ -3276,7 +3281,8 @@ header.fixHd .bg {
   font-size: 10px;
   color: #b0b0b0;
   text-transform: uppercase;
-  padding-bottom: 10px
+  padding-bottom: 10px;
+  margin-top: -3px;
 }
 
 .ft-wrap .item > ul li .item-post .copy p span {
@@ -7567,6 +7573,10 @@ a.morelink:hover {
   font-family: utm_avobold;
 }
 
+.side-news .item .tab-content li .copy p:first-child {
+  margin-top: -6px;
+}
+
 .side-news .item .tab-content li .copy p span {
   font-size: 10px;
   padding-bottom: 5px;
@@ -8955,7 +8965,7 @@ a.morelink:hover {
     height: 400px
   }
 
-  .ft-wrap .item:first-child p {
+  .ft-wrap .item:first-child p, .ft-wrap .item.last p {
     font-size: 11px
   }
 
@@ -9914,7 +9924,8 @@ a.morelink:hover {
 
 @media screen and (min-width: 1025px) and (max-height: 770px) {
   .banner-home {
-    height: 505px
+    /*height: 505px*/
+    height: auto
   }
 
   .banner-home .item .container .copy h3 {
@@ -10127,7 +10138,8 @@ a.morelink:hover {
   }
 
   .banner-home {
-    height: 540px
+    /*height: 540px*/
+    height: 380px
   }
 
   .banner-home .item .container .copy h3 {
@@ -10347,7 +10359,8 @@ a.morelink:hover {
 
 
   .banner-home {
-    height: 370px
+    /*height: 370px*/
+    height: 285px;
   }
 
   .banner-home .item .container .copy {
@@ -10398,12 +10411,12 @@ a.morelink:hover {
     width: 100%
   }
 
-  .ft-wrap .item:nth-child(1) {
+  .ft-wrap .item:nth-child(1), .ft-wrap .item.last {
     padding-bottom: 20px;
     text-align: center
   }
 
-  .ft-wrap .item:nth-child(1) p {
+  .ft-wrap .item:nth-child(1) p, .ft-wrap .item.last p {
     text-align: left
   }
 
@@ -10412,9 +10425,9 @@ a.morelink:hover {
     width: 50%
   }
 
-  .ft-wrap .item.page-fb {
-    display: none
-  }
+  /*.ft-wrap .item.page-fb {*/
+    /*display: none*/
+  /*}*/
 
   .botfooter {
     text-align: center
@@ -10950,7 +10963,7 @@ a.morelink:hover {
     padding-right: 10px
   }
 
-  .ft-wrap .item:nth-child(1) {
+  .ft-wrap .item:nth-child(1), .ft-wrap .item.last {
     padding-right: 0
   }
 
@@ -11840,7 +11853,7 @@ a.morelink:hover {
     font-size: 10px
   }
 
-  .ft-wrap .item:nth-child(1) p {
+  .ft-wrap .item:nth-child(1) p, .ft-wrap .item.last p {
     font-size: 10px
   }
 
@@ -12183,7 +12196,14 @@ a.morelink:hover {
 
   .ft-wrap .item:nth-child(2),
   .ft-wrap .item:nth-child(3) {
-    display: none
+    /*display: none*/
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .ft-wrap .item.page-fb {
+    display: block;
+    width: 100%
   }
 
   .banner-home,
@@ -12254,6 +12274,10 @@ a.morelink:hover {
     padding: 10px 5px
   }
 
+  .item-top-faq ul li:first-child h3 {
+    width: 70px;
+  }
+
   .item-top-faq ul li img {
     width: 60%;
     margin-bottom: 10px
@@ -12301,7 +12325,7 @@ a.morelink:hover {
     font-size: 13px
   }
 
-  .ft-wrap .item:first-child img {
+  .ft-wrap .item:first-child img, .ft-wrap .item.last img {
     width: 200px
   }
 
@@ -12780,4 +12804,14 @@ a.morelink:hover {
   .content-map h3 {
     font-size: 14px !important
   }
+}
+
+@media screen and (max-width: 480px) {
+  .item-top-faq ul li h3 {
+    font-size: 12px;
+  }
+  .item-top-faq ul li .copy p, .item-top-faq ul li p {
+    font-size: 11px;
+  }
+
 }

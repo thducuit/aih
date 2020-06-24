@@ -73,7 +73,7 @@ export class UrlService {
         return routes.mservice;
     }
 
-    createInsuranceUrl(alias = null) {
+    createInsuranceDetailUrl(alias = null) {
         const routes = this.routeFactory.getRoute();
         if (alias) {
             return routes.dins + `/${alias}`;
@@ -86,11 +86,27 @@ export class UrlService {
         return routes[key];
     }
 
-    createInsuranceDetailUrl(ins) {
+    createConsultingUrl(ins) {
         const id = ins.id;
         const alias = ins.alias;
         const routes = this.routeFactory.getRoute();
         const baseUrl = (alias.indexOf('insurance') > -1 || alias.indexOf('bao-hiem') > -1) ? routes.cins : routes.cmem;
         return `${baseUrl}/${alias}`;
+    }
+
+    createInsuranceConsulting(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.cins + `/${alias}`;
+        }
+        return routes.insmem;
+    }
+
+    createMemberConsulting(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.cmem + `/${alias}`;
+        }
+        return routes.insmem;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {forkJoin, Subscription} from 'rxjs';
 import {Page} from '../../../models/page';
 import {UrlService} from '../../../services/url.service';
@@ -12,13 +12,14 @@ import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-insurance-membership',
     templateUrl: './insurance-membership.component.html',
     styleUrls: ['./insurance-membership.component.scss'],
 })
-export class InsuranceMembershipComponent implements OnInit {
+export class InsuranceMembershipComponent implements OnInit, OnDestroy {
     public insurances: Array<Insurance> = [];
     public page: Page;
     public banners: Array<any> = [];
@@ -36,6 +37,7 @@ export class InsuranceMembershipComponent implements OnInit {
                 private urlService: UrlService,
                 private metaService: Meta,
                 private titleService: Title,
+                private router: Router,
                 private loaderService: LoaderService) {
     }
 
@@ -43,9 +45,16 @@ export class InsuranceMembershipComponent implements OnInit {
         this.loadPage();
         this.loadCategory();
         this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadPage();
-            this.loadCategory();
+            // this.loadPage();
+            // this.loadCategory();
+            return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
         });
+    }
+
+    ngOnDestroy() {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
     loadPage() {
@@ -118,7 +127,7 @@ export class InsuranceMembershipComponent implements OnInit {
                         null,
                         'category',
                     );
-                    insurance.url = this.urlService.createInsuranceDetailUrl(insurance);
+                    insurance.url = this.urlService.createConsultingUrl(insurance);
                     return insurance;
                 });
             this.loaderService.hide();
