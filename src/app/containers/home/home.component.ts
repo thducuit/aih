@@ -19,7 +19,7 @@ import {isPlatformBrowser} from '@angular/common';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     public page: Page;
-    
+
     public banners: any[] = [{
         // large: "assets/images/emergency-service-vn1542961167.png",
         // small: "assets/images/emergency-service-640x434-pc1539849579.png",
@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.subscription && this.subscription.unsubscribe();
         this.loadPageDebounceSub && this.loadPageDebounceSub.unsubscribe();
+        this.banners = null;
     }
 
     getPageClasses() {
@@ -87,7 +88,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     loadBanner() {
-        //this.loaderService.show();
+        // this.loaderService.show();
         forkJoin(
             this.pageService.fetchBanner('home_slide')
         ).subscribe(
@@ -166,7 +167,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                     });
                 }
 
-                
+
             },
             null,
             () => {
