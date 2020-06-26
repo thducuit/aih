@@ -261,6 +261,25 @@ select {
   display: none
 }
 
+.testi-arrow {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  bottom: -20px;
+  display: block;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: 0;
+  z-index: 4;
+}
+
 .slick-next,
 .slick-prev {
   font-size: 0;
@@ -284,6 +303,7 @@ select {
   transition: all .3s ease
 }
 
+.testi-arrow,
 .testimo-home .slick-next,
 .testimo-home .slick-prev {
   top: 25%;
@@ -301,7 +321,7 @@ select {
   -moz-osx-font-smoothing: grayscale
 }
 
-.testimo-home .slick-prev {
+.testimo-home .slick-prev, .testi-prev {
   left: -20px;
   background: url(../images/ar-prev.png) center center no-repeat;
   background-size: 25px
@@ -311,7 +331,7 @@ select {
   background-size: 25px
 }
 
-.testimo-home .slick-next {
+.testimo-home .slick-next, .testi-next {
   right: -20px;
   background: url(../images/ar-next.png) center center no-repeat;
   background-size: 25px
@@ -3191,7 +3211,10 @@ header.fixHd .bg {
 .mainfooter {
   padding: 60px 0;
   background: url(../images/bg-ft.jpg) right no-repeat;
-  background-size: cover
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 .ft-wrap {
