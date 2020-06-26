@@ -6,33 +6,38 @@
       <h2><a href="{{ urlService.getUrlByKey('testimonial') }}">{{ 'what_our_clients_say' | translate }}</a></h2>
     </div>
 
-    <ngx-slick-carousel
-            [config]="slideConfig"
-            #slickModal="slick-carousel"
-            (init)="slickInit($event)"
-            (beforeChange)="onBeforeChange($event)"
-            (afterChange)="onAfterChange($event)"
-    >
 
-    <div *ngFor="let feedback of feedbacks;"
-         class="item"
-         ngxSlickItem>
+    <div class="slick-carousel-content">
+      <span class="slick-prev" (click)="slickModal.slickPrev()"></span>
+      <span class="slick-next" (click)="slickModal.slickNext()"></span>
+      <ngx-slick-carousel
+              [config]="slideConfig"
+              #slickModal="slick-carousel"
+              (init)="slickInit($event)"
+              (beforeChange)="onBeforeChange($event)"
+              (afterChange)="onAfterChange($event)"
+      >
 
-      <a href="/about-us/testimonial?id={{ feedback.id }}">
-        <div class="testimo-item">
-          <div class="copy-quote">
-            <p *ngIf="getLongDesc(feedback)" [innerHTML]="getLongDesc(feedback) | decodeHtmlEntities | safeHtml"></p>
-            <div class="info-quote">
-              <h4>{{ feedback.title }}</h4>
-              <span>{{ feedback.desc }}</span>
+      <div *ngFor="let feedback of feedbacks;"
+           class="item"
+           ngxSlickItem>
+
+        <a href="/about-us/testimonial?id={{ feedback.id }}">
+          <div class="testimo-item">
+            <div class="copy-quote">
+              <p *ngIf="getLongDesc(feedback)" [innerHTML]="getLongDesc(feedback) | decodeHtmlEntities | safeHtml"></p>
+              <div class="info-quote">
+                <h4>{{ feedback.title }}</h4>
+                <span>{{ feedback.desc }}</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
 
+      </div>
+
+      </ngx-slick-carousel>
     </div>
-
-    </ngx-slick-carousel>
   </div>
 
   <div *ngIf="iframeSrc" class="play-video js-open-video" (click)="handleOpenPopup()"></div>

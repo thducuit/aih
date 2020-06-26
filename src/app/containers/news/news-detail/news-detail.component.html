@@ -4,7 +4,7 @@
     <div class="container">
       <a routerLink="/">{{'home' | translate}}</a> /
       <a routerLink="{{ urlService.getUrlByKey('news') }}">{{'news' | translate}}</a> /
-      <p>{{ blog ? blog.name : '' }}</p>
+      <p *ngIf="blog" [innerHTML]="blog.name | safeHtml"></p>
     </div>
   </div>
 
@@ -12,7 +12,7 @@
     <div class="container clearfix">
       <div class="news-detail-wrap">
         <div class="ct-dt">
-          <h3>{{ blog ? blog.name : '' }}</h3>
+          <h3 *ngIf="blog" [innerHTML]="blog.name | safeHtml"></h3>
           <div class="slider-news-dt">
             <ul>
               <li><img src="{{ blog.picturePath }}"></li>
