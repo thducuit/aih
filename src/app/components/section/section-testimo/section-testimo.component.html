@@ -8,8 +8,8 @@
 
 
     <div class="slick-carousel-content">
-      <span class="testi-arrow testi-prev" (click)="slickModal.slickPrev()"></span>
-      <span class="testi-arrow testi-next" (click)="slickModal.slickNext()"></span>
+      <span class="testi-arrow testi-prev" *ngIf="feedbacks && feedbacks.length > 1" (click)="slickModal.slickPrev()"></span>
+      <span class="testi-arrow testi-next" *ngIf="feedbacks && feedbacks.length > 1" (click)="slickModal.slickNext()"></span>
       <ngx-slick-carousel
               [config]="slideConfig"
               #slickModal="slick-carousel"
