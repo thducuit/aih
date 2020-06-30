@@ -1,4 +1,4 @@
-<li *ngIf="outerUrl">
+<li *ngIf="outerUrl" class="d-xl-none">
   <a href="{{outerUrl}}" routerLinkActive="{{routeActiveClass}}" [routerLinkActiveOptions]="routeOptions" >
     <span>{{name}}</span>
     <em [ngClass]="{'active': expaned}" (click)="toggleSubNav($event)"></em>
