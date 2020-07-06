@@ -6838,6 +6838,10 @@ a.morelink:hover {
   margin-bottom: 30px
 }
 
+a.btn-showmore:not([href]):not([tabindex]) {
+  color: #e1115b;
+  background: #fff;
+}
 .btn-showmore {
   display: inline-block;
   max-width: 414px;
@@ -6852,6 +6856,7 @@ a.morelink:hover {
   border: 1px solid #d8d7d7;
   margin: 0 auto;
   text-align: center;
+  outline: none;
   -webkit-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease
@@ -11525,7 +11530,7 @@ a.morelink:hover {
     width: 100%;
     padding: 0;
     margin-bottom: 10px;
-    display: none
+    /*display: none*/
   }
 
   .crs-style1 ul li:nth-child(1),

@@ -126,6 +126,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
             this.doctors.map((item, index) => {
                 if (index < this.perPage) {
                     item.showContent = true;
+                    item.showImg = true;
                 }
                 return item;
             });
@@ -168,6 +169,10 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     onBeforeChange(e) {
+        this.readMore();
+    }
+
+    readMore() {
         this.perPage = this.perPage + 4;
         this.doctors.map((item, index) => {
             if (index < this.perPage) {
@@ -178,5 +183,7 @@ export class DoctorItemComponent implements OnInit, OnDestroy, OnChanges {
         });
     }
 
-
+    isShowReadMore() {
+        return this.perPage < this.doctors.length;
+    }
 }

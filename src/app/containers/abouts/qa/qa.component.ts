@@ -3,7 +3,7 @@ import {
     OnInit,
     OnDestroy,
     ViewChildren,
-    QueryList,
+    QueryList, Inject, PLATFORM_ID,
 } from '@angular/core';
 import {FaqsService} from 'src/app/services/faqs.service';
 import {Faq} from 'src/app/models/faq';
@@ -17,6 +17,8 @@ import {BannerService} from '../../../services/banner.service';
 import {PageService} from '../../../services/page.service';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import {isPlatformBrowser} from '@angular/common';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
     selector: 'app-qa',
@@ -33,13 +35,34 @@ export class QaComponent implements OnInit, OnDestroy {
     @ViewChildren(FaqItemComponent)
     private faqItems: QueryList<FaqItemComponent>;
 
-    constructor(public pageService: PageService,
+    private deviceInfo = null;
+    public isMobile;
+    public isTablet;
+    public isDesktopDevice;
+
+    constructor(@Inject(PLATFORM_ID) private platformId,
+                public pageService: PageService,
                 public bannerService: BannerService,
                 private metaService: Meta,
                 private faqsService: FaqsService,
                 private translate: TranslateService,
                 private loaderService: LoaderService,
-                private titleService: Title) {
+                private titleService: Title,
+                private deviceService: DeviceDetectorService) {
+        if (isPlatformBrowser(this.platformId)) {
+            this.checkDevice();
+        }
+    }
+
+    checkDevice() {
+        this.deviceInfo = this.deviceService.getDeviceInfo();
+        this.isMobile = this.deviceService.isMobile();
+        this.isTablet = this.deviceService.isTablet();
+        this.isDesktopDevice = this.deviceService.isDesktop();
+        // console.log(this.deviceInfo);
+        // console.log('isMobile', this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+        // console.log('isTablet', this.isTablet);  // returns if the device us a tablet (iPad etc)
+        // console.log('isDesktopDevice', this.isDesktopDevice); // returns if the app is running on a Desktop browser.
     }
 
     ngOnInit() {

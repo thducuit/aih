@@ -38,6 +38,6 @@
     </ngx-slick-carousel>
   </ul>
   <div class="btn-wrap show-mb">
-    <a class="btn-showmore" routerLink="{{ urlService.getUrlByKey('doctor') }}">{{ 'show_more' | translate }}</a>
+    <a class="btn-showmore" (click)="readMore()" *ngIf="isShowReadMore()">{{ 'show_more' | translate }}</a>
   </div>
 </div>

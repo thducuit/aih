@@ -64,14 +64,14 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
         }
     }
 
-    loadByClinic(clinic) {
+    loadByClinic(clinic, isAppend = false) {
         this.loaderService.show();
         const perPage = this.perPage || ItemPerPage;
         this.blogService.getByClinic(this.currentPage, perPage, clinic.id).subscribe((data2: any) => {
             const posts = data2.Posts || [];
             const numPage = this.perPage || ItemPerPage;
             this.totalPage = Math.ceil(data2.TotalRecord / numPage);
-            this.blogs = posts.map(post => {
+            const blogs = posts.map(post => {
                 const blog = new Blog(post);
 
                 if (blog.meta.picture) {
@@ -91,6 +91,12 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
 
                 return blog;
             }).sort((obj1, obj2) => (obj1.sort >= obj2.sort ? 1 : -1));
+            if (isAppend) {
+                this.blogs = this.blogs.concat(blogs);
+            } else {
+                this.blogs = blogs;
+            }
+
             this.recalculatePages();
             this.loaderService.hide();
             if (this.blogs.length === 0) {
@@ -157,12 +163,16 @@ export class NewsItemComponent implements OnInit, OnDestroy, AfterViewInit, OnCh
         }
     }
 
-    appendNews() {
+    appendNews(e) {
         this.currentPage += 1;
         if (this.currentPage === this.totalPage) {
             this.hideReadMore = true;
         }
-        this.loadNews(true);
+        if (this.clinic) {
+            this.loadByClinic(this.clinic, true);
+        } else {
+            this.loadNews(true);
+        }
     }
 
     private recalculatePages() {

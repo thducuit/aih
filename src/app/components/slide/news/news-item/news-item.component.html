@@ -39,8 +39,8 @@
   </div>
 
   <div class="btn-wrap show-mb" *ngIf="!hideReadMore">
-    <a *ngIf="!readmore" class="btn-showmore js-btn-loadmore btn-showmore-news" routerLink="{{ urlService.getUrlByKey('news') }}">{{'show_more' | translate}}</a>
-    <a *ngIf="readmore" class="btn-showmore js-btn-loadmore btn-showmore-news" (click)="appendNews()">{{'show_more' | translate}}</a>
+    <!--<a class="btn-showmore js-btn-loadmore btn-showmore-news" routerLink="{{ urlService.getUrlByKey('news') }}">{{'show_more' | translate}}</a>-->
+    <div class="btn-showmore js-btn-loadmore btn-showmore-news" (click)="appendNews()">{{'show_more' | translate}}</div>
   </div>
 
   <app-choosen-package *ngIf="showChosenPackage" ></app-choosen-package>

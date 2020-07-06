@@ -210,13 +210,17 @@ ngb-datepicker {
 #swal2-content {
   font-family: utm_avobold;
   color: #11789b!important;
-  background: #fff
+  background: #fff;
+  border-top-left-radius: .3125em;
+  border-top-right-radius: .3125em;
 }
 
 .swal2-actions {
   background: #fff;
   margin: 0 auto!important;
   padding: 1.5em 0;
+  border-bottom-left-radius: .3125em;
+  border-bottom-right-radius: .3125em;
 }
 
 /*.swal2-actions button {
@@ -291,6 +295,11 @@ ngb-datepicker {
 .copy-cate-detail img {
 	max-width: 100%;
 	height: auto!important;
+}
+
+.copy-cate-detail ul li {
+  list-style: inherit;
+  list-style-position: inside;
 }
 
 .detail-cr .ct-copy .cr-content ul ,.detail-cr .ct-copy .cr-content  li {

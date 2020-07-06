@@ -9,6 +9,8 @@
     margin-top: 25px;
     background: #007298;
         padding: 20px;
+    border-top-left-radius: .3125em;
+    border-top-right-radius: .3125em;
 }
 
 .alert-rest-msg {
@@ -2509,8 +2511,8 @@ a.order-calender {
 @media screen and (max-width: 480px) {
 
     .alert-booking {
-        width: 320px !important;
         height: 200px;
+        padding: 0!important;
     }
 
     .alert-custom-booking {

@@ -31,15 +31,14 @@
               <img src="../assets/images/item-faq-1.png" />
               <div class="copy">
                 <h3>{{ 'call_to_telesales' | translate }}</h3>
-                <p>
-                  {{
-                    'for_enquiries_on_our_medical_services_and_packages1'
-                      | translate
-                  }}<br/>
-                  {{
-                  'for_enquiries_on_our_medical_services_and_packages2'
-                  | translate
-                  }}
+                <p *ngIf="isDesktopDevice || isTablet">
+                  {{ 'for_enquiries_on_our_medical_services_and_packages1' | translate }}<br/>
+                  {{ 'for_enquiries_on_our_medical_services_and_packages2' | translate }}
+                </p>
+                <p *ngIf="isMobile">
+                  {{ 'for_enquiries_on_our_medical_services_and_packages3' | translate }}<br/>
+                  {{ 'for_enquiries_on_our_medical_services_and_packages4' | translate }}<br/>
+                  {{ 'for_enquiries_on_our_medical_services_and_packages5' | translate }}
                 </p>
               </div>
               <a class="link-all" href="tel:028 3910 9999"></a>
@@ -50,9 +49,14 @@
               <img src="../assets/images/item-faq-2.png" />
               <div class="copy">
                 <h3>{{ 'call_center' | translate }}</h3>
-                <p>
+                <p *ngIf="isDesktopDevice || isTablet">
                   {{ 'for_any_enquiries_on_customer_services1' | translate }}<br/>
                   {{ 'for_any_enquiries_on_customer_services2' | translate }}
+                </p>
+                <p *ngIf="isMobile">
+                  {{ 'for_any_enquiries_on_customer_services3' | translate }}<br/>
+                  {{ 'for_any_enquiries_on_customer_services4' | translate }}<br/>
+                  {{ 'for_any_enquiries_on_customer_services5' | translate }}
                 </p>
               </div>
               <a class="link-all" href="tel:028 3910 9999"></a>
