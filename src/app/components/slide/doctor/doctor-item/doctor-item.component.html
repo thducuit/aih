@@ -6,7 +6,7 @@
   <div *ngIf="isDetail">
     <a href="{{ urlService.getUrlByKey('doctor') }}">{{ 'doctor' | translate }}</a>
   </div>
-  <div class="btn-crs">
+  <div class="btn-crs" *ngIf="doctors && doctors.length > 4">
     <span class="btn-prev crs-prev" (click)="slickModal.slickPrev()"></span>
     <span class="btn-next crs-next" (click)="slickModal.slickNext()"></span>
   </div>
