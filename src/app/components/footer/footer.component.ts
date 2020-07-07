@@ -100,7 +100,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         }
 
         blog.url = this.urlService.createNewsDetailUrl(blog.alias);
-        blog.name = blog.name.replace(/^(.{20}[^\s]*).*/, '$1');
+        blog.name = blog.name.replace(/^(.{20}[^\s]*).*/, '$1').toLowerCase();
         return blog;
       });
     });

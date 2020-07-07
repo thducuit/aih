@@ -2094,6 +2094,10 @@ main {
   visibility: hidden
 }
 
+.swal2-container.swal2-shown {
+  background-color: rgba(0,0,0,.6)!important;
+}
+
 .swal2-popup .swal2-styled.swal2-confirm {
   display: inline-block;
   height: 40px;
@@ -3312,7 +3316,7 @@ header.fixHd .bg {
   font-family: utm_avobold;
   font-size: 14px;
   color: #fff;
-  text-transform: none;
+  text-transform: capitalize;
   line-height: 17px;
   -webkit-transition: all .5s ease;
   -o-transition: all .5s ease;

@@ -20,11 +20,7 @@ import {isPlatformBrowser} from '@angular/common';
 export class HomeComponent implements OnInit, OnDestroy {
     public page: Page;
 
-    public banners: any[] = [{
-        // large: "assets/images/emergency-service-vn1542961167.png",
-        // small: "assets/images/emergency-service-640x434-pc1539849579.png",
-        // showContent: true
-    }];
+    public banners: any[] = [];
 
     private subscription: Subscription;
     public pageClasses: string[];
@@ -37,8 +33,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private loadPageDebounceSub = this.loadPageSubject
         .pipe(debounceTime(150))
         .subscribe(() => {
-            this.loadPage();
             this.loadBanner();
+            this.loadPage();
         });
 
     constructor(@Inject(PLATFORM_ID) private platformId,
@@ -88,7 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     loadBanner() {
-        // this.loaderService.show();
+        this.loaderService.show();
         forkJoin(
             this.pageService.fetchBanner('home_slide')
         ).subscribe(
@@ -122,11 +118,13 @@ export class HomeComponent implements OnInit, OnDestroy {
             },
             null,
             () => {
+                this.loaderService.hide();
             },
         );
     }
 
     loadPage() {
+        this.loaderService.show();
         forkJoin(
             this.pageService.fetch('homepage'),
             this.translate.get('american_international_hospital'),
@@ -171,7 +169,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             },
             null,
             () => {
-                //this.loaderService.hide();
+                this.loaderService.hide();
             },
         );
     }

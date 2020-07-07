@@ -31,13 +31,12 @@ export class ServiceComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadPage();
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
-                // this.loadPage();
                 return this.router.navigate([this.urlService.getUrlByKey('mservice')]);
             });
+        this.loadPage();
     }
 
     ngOnDestroy() {

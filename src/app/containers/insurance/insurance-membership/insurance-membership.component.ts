@@ -42,13 +42,13 @@ export class InsuranceMembershipComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadPage();
-        this.loadCategory();
         this.subscription = this.translate.onLangChange.subscribe(() => {
             // this.loadPage();
             // this.loadCategory();
             return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
         });
+        this.loadPage();
+        this.loadCategory();
     }
 
     ngOnDestroy() {
