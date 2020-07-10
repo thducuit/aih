@@ -118,7 +118,7 @@ const routes: Routes = [
         ],
     },
     {
-        path: 'videos',
+        path: 'video',
         component: PageLayoutComponent,
         children: [
             {
@@ -254,6 +254,16 @@ const routes: Routes = [
             {
                 path: '',
                 component: EventComponent,
+            },
+        ],
+    },
+    {
+        path: 'videos',
+        component: PageLayoutComponent,
+        children: [
+            {
+                path: '',
+                component: VideoComponent,
             },
         ],
     },

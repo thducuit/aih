@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { Title, Meta } from '@angular/platform-browser';
 import { VideoComponent as VideoPopupComponent } from './../../../components/popup/video/video.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-video',
@@ -25,15 +26,16 @@ export class VideoComponent implements OnInit, OnDestroy {
     private translate: TranslateService,
     private titleService: Title,
     private metaService: Meta,
+    private urlService: UrlService,
+    private router: Router
   ) {}
 
   ngOnInit() {
+    this.subscription = this.translate.onLangChange.subscribe(() => {
+        return this.router.navigate([this.urlService.getUrlByKey('videos')]);
+    });
     this.loadVideos();
     this.applyTitle();
-    this.subscription = this.translate.onLangChange.subscribe(() => {
-      this.applyTitle();
-      this.loadVideos();
-    });
   }
 
   ngOnDestroy() {

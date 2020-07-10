@@ -10,6 +10,7 @@ import { Clinic } from '../../../models/clinic';
 import { Meta, Title } from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -28,20 +29,21 @@ export class AboutComponent implements OnInit, OnDestroy {
     public clinicService: ClinicService,
     private translate: TranslateService,
     private loaderService: LoaderService,
+    private urlService: UrlService,
+    private router: Router,
     private metaService: Meta,
     private titleService: Title
   ) {
   }
 
   ngOnInit() {
-    this.loadPage();
-    this.loadClinic();
     this.subscription = this.translate
       .onLangChange
       .subscribe(() => {
-        this.loadPage();
-        this.loadClinic();
+          return this.router.navigate([this.urlService.getUrlByKey('about')]);
       });
+    this.loadPage();
+    this.loadClinic();
   }
 
   ngOnDestroy() {

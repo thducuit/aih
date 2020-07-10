@@ -26,7 +26,7 @@
               <a routerLink="{{ category.url }}" ><img src="{{ category.picturePath }}" alt="" /></a>
             </div>
             <div class="heading heading-insurance-anchor"><a routerLink="{{ category.url }}" >{{ category.name }}</a></div>
-            <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
+            <div class="content" *ngIf="category.shortDesc" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
             <a routerLink="{{ category.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
           </div>
 

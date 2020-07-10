@@ -10,6 +10,7 @@ import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {ScrollToService, ScrollToConfigOptions} from '@nicky-lenaers/ngx-scroll-to';
 import {LoaderService} from '../../services/loader-service';
 import {environment} from '../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-career',
@@ -41,17 +42,19 @@ export class CareerComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private animateScrollService: NgAnimateScrollService,
+                private urlService: UrlService,
+                private router: Router,
                 private scrollToService: ScrollToService) {
     }
 
     ngOnInit() {
-        this.loadPage();
         this.subscription = this
             .translate
             .onLangChange
             .subscribe(() => {
-                this.loadPage();
+                return this.router.navigate([this.urlService.getUrlByKey('career')]);
             });
+        this.loadPage();
     }
 
     ngOnDestroy() {

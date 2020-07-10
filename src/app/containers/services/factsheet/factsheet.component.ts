@@ -10,6 +10,7 @@ import {Subscription, forkJoin} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-factsheet',
@@ -40,19 +41,19 @@ export class FactsheetComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private metaService: Meta,
+                private urlService: UrlService,
+                private router: Router,
                 private titleService: Title) {
     }
 
     ngOnInit() {
-        this.loadPage();
-        this.loadFactsheets();
-
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
-                this.loadPage();
-                this.loadFactsheets();
+                return this.router.navigate([this.urlService.getUrlByKey('factsheet')]);
             });
+        this.loadPage();
+        this.loadFactsheets();
     }
 
     ngOnDestroy() {

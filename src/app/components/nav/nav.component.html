@@ -17,7 +17,7 @@
     <app-nav-item name="{{'find_a_doctor' | translate}}" routeUrl="{{ routes.doctor }}"></app-nav-item>
     <app-nav-item name="{{'news' | translate}}" routeUrl="{{ routes.news }}" [hasChild]="true">
       <a routerLink="{{ routes.news }}" routerLinkActive="active" >{{'news_&_events' | translate}}</a>
-      <a routerLink="/videos" routerLinkActive="active" >{{'videos' | translate}}</a>
+      <a routerLink="{{ routes.videos }}" routerLinkActive="active" >{{'videos' | translate}}</a>
     </app-nav-item>
     <app-nav-item name="{{'careers' | translate}}" routeUrl="{{ routes.career }}"></app-nav-item>
     <app-nav-item name="{{'contact' | translate}}" routeUrl="{{ routes.contact }}"></app-nav-item>

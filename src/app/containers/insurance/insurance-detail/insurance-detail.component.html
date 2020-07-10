@@ -19,7 +19,7 @@
   <div class="insurance-top" id="insurance-top" *ngIf="category">
     <div class="container">
       <div class="heading">{{ category.name }}</div>
-      <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
+      <div class="content" *ngIf="category.shortDesc" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
       <div class="content-right">
         <a class="button button-tawk" href="mailto:insurance@aih.com.vn">{{ 'send' | translate }}</a>
       </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="tt-doc-crs">
               <h2>{{ service.name }}</h2>
-              <p [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
+              <p *ngIf="service.shortDesc" [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
             </div>
             <div class="copy">
               <p></p>

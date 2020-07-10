@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import {TranslateService} from '@ngx-translate/core';
 import {ContactService} from '../../services/contact.service';
 import {environment} from '../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-contact',
@@ -35,14 +36,16 @@ export class ContactComponent implements OnInit, OnDestroy {
                 private metaService: Meta,
                 private titleService: Title,
                 private translate: TranslateService,
-                public contactService: ContactService,) {
+                private urlService: UrlService,
+                private router: Router,
+                public contactService: ContactService) {
     }
 
     ngOnInit() {
-        this.loadPage();
         this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadPage();
+            return this.router.navigate([this.urlService.getUrlByKey('contact')]);
         });
+        this.loadPage();
         this.isReset = false;
     }
 

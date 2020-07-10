@@ -38,7 +38,7 @@ export class RouteFactoryService extends BaseService {
             dins: '/insurance-services/insurance',
             doctor: '/doctor',
             news: '/news',
-            videos: '/videos',
+            videos: '/video',
             career: '/career',
             contact: '/contact',
             search: '/search',

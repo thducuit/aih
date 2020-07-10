@@ -9,7 +9,7 @@ import {Packagechild} from '../../models/packagechild';
 import {Meta, Title} from '@angular/platform-browser';
 import {forkJoin, Subscription} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LoaderService} from '../../services/loader-service';
 import {environment} from '../../../environments/environment';
 
@@ -40,16 +40,17 @@ export class MedicalComponent implements OnInit, OnDestroy {
                 private titleService: Title,
                 private loaderService: LoaderService,
                 private translate: TranslateService,
+                private urlService: UrlService,
+                private router: Router,
                 private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.subscription = this.translate.onLangChange.subscribe(() => {
+            return this.router.navigate([this.urlService.getUrlByKey('mpackage')]);
+        });
         this.loadPage();
         this.loadPackages();
-        this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadPage();
-            this.loadPackages();
-        });
     }
 
     ngOnDestroy() {

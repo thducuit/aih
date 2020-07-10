@@ -15,6 +15,7 @@ import {LoaderService} from '../../services/loader-service';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {environment} from '../../../environments/environment';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-doctor',
@@ -48,20 +49,19 @@ export class DoctorComponent implements OnInit, OnDestroy {
                 private metaService: Meta,
                 private animateScrollService: NgAnimateScrollService,
                 private urlService: UrlService,
+                private router: Router,
                 private titleService: Title) {
     }
 
     ngOnInit() {
-        this.loadPage();
-        this.loadDoctors();
-        this.loadDepartments();
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
-                this.loadPage();
-                this.loadDoctors();
-                this.loadDepartments();
+                return this.router.navigate([this.urlService.getUrlByKey('doctor')]);
             });
+        this.loadPage();
+        this.loadDoctors();
+        this.loadDepartments();
     }
 
     ngOnDestroy() {

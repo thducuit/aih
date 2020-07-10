@@ -10,6 +10,7 @@ import {LoaderService} from '../../../services/loader-service';
 import {VideoComponent} from 'src/app/components/popup/video/video.component';
 import {NgAnimateScrollService} from 'ng-animate-scroll';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-event',
@@ -39,15 +40,15 @@ export class EventComponent implements OnInit, OnDestroy {
                 private titleService: Title,
                 private metaService: Meta,
                 private urlService: UrlService,
+                private router: Router,
                 private animateScrollService: NgAnimateScrollService) {
     }
 
     ngOnInit() {
-        this.loadNews();
         this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadNews();
-            this.applyTitle();
+            return this.router.navigate([this.urlService.getUrlByKey('news')]);
         });
+        this.loadNews();
         this.applyTitle();
     }
 

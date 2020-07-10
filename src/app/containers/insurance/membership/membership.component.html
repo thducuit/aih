@@ -19,7 +19,7 @@
   <div class="insurance-top" id="insurance-top" *ngIf="category">
     <div class="container">
       <div class="heading">{{ category.name }}</div>
-      <div class="content" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
+      <div class="content" *ngIf="category.shortDesc" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
       <div class="content-right">
         <a class="button button-tawk" href="mailto:insurance@aih.com.vn">{{ 'send' | translate }}</a>
       </div>
@@ -34,7 +34,7 @@
         <div class="box-content content-for-detail" *ngIf="service">
           <div class="heading">{{ service.name }}</div>
           <span *ngFor="let longDesc of longDescs">
-            <p [innerHTML]="longDesc.content | decodeHtmlEntities | safeHtml"></p>
+            <p *ngIf="longDesc.content" [innerHTML]="longDesc.content | decodeHtmlEntities | safeHtml"></p>
             <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
           </span>
         </div>

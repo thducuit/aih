@@ -19,6 +19,7 @@ import {LoaderService} from '../../../services/loader-service';
 import {environment} from '../../../../environments/environment';
 import {isPlatformBrowser} from '@angular/common';
 import {DeviceDetectorService} from 'ngx-device-detector';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-qa',
@@ -48,6 +49,8 @@ export class QaComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private titleService: Title,
+                private urlService: UrlService,
+                private router: Router,
                 private deviceService: DeviceDetectorService) {
         if (isPlatformBrowser(this.platformId)) {
             this.checkDevice();
@@ -66,12 +69,11 @@ export class QaComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.subscription = this.translate.onLangChange.subscribe(() => {
+            return this.router.navigate([this.urlService.getUrlByKey('faq')]);
+        });
         this.loadFaqs();
         this.loadPage();
-        this.subscription = this.translate.onLangChange.subscribe(() => {
-            this.loadFaqs();
-            this.loadPage();
-        });
     }
 
     ngOnDestroy() {

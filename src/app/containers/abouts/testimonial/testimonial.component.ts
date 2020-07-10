@@ -32,18 +32,19 @@ export class TestimonialComponent implements OnInit, OnDestroy, AfterViewChecked
                 public pageService: PageService,
                 public bannerService: BannerService,
                 private loaderService: LoaderService,
+                private urlService: UrlService,
+                private router: Router,
                 private metaService: Meta) {
     }
 
     ngOnInit() {
-        this.loadTestimonials();
-        this.loadPage();
         this.subcription = this.translate
             .onLangChange
             .subscribe(() => {
-                this.loadPage();
-                this.loadTestimonials();
+                return this.router.navigate([this.urlService.getUrlByKey('testimonial')]);
             });
+        this.loadTestimonials();
+        this.loadPage();
     }
 
     ngAfterViewChecked() {
