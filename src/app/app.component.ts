@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { getLanguage, setLanguage } from './utilities';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT  } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -28,6 +28,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     private metaService: Meta,
     private zone: NgZone,
     @Inject(PLATFORM_ID) platformId: string,
+	@Inject(DOCUMENT) private document: Document
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     // this language will be used as a fallback when a translation isn't found in the current language
@@ -41,7 +42,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
 
     // Set app title
-    this.subscription = translate.onLangChange.subscribe(() => {
+    this.subscription = translate.onLangChange.subscribe((obj) => {
+	  this.document.documentElement.lang = obj ? obj.lang : 'en'; 	
       this.updateBodyClasses();
     });
 
