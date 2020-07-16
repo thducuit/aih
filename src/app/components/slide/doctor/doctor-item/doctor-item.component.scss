@@ -15,3 +15,10 @@
     }
   }
 }
+
+.tt-item-doctor {
+  display: none;
+}
+.tt-item-doctor.active {
+  display: block;
+}

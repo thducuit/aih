@@ -100,6 +100,14 @@
   color:#fff
 }
 
+.top-hd .login {
+  color: #fff;
+  padding-left: 15px;
+  margin-left: 15px;
+  text-transform: uppercase;
+  border-left: 1px solid #ffffff;
+}
+
 @media screen and (min-width: 1281px) and (max-width: 1659px) {
   .top-hd {
     height: 31px;
@@ -107,7 +115,6 @@
       margin-top: 7px;
       li {
         a {
-          font-size: 10px;
           font-size: 12px;
         }
       }

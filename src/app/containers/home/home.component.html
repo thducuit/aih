@@ -1,5 +1,7 @@
 <div [ngClass]="pageClasses">
-  <app-header-home *ngIf="banners && banners.length"></app-header-home>
+  <div class="h-wrapper" [ngClass]="{'h-wrapper-show': banners && banners.length}">
+    <app-header-home *ngIf="banners && banners.length"></app-header-home>
+  </div>
   <main id="pHome">
     <app-banner [banners]="banners"></app-banner>
     <app-section-booking-mb *ngIf="isMobile || isTablet"></app-section-booking-mb>
