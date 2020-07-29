@@ -5,7 +5,8 @@ import {
     PLATFORM_ID,
     NgZone,
     OnDestroy,
-    Renderer2
+    Renderer2,
+    HostListener
 } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Title, Meta} from '@angular/platform-browser';
@@ -65,6 +66,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         if (this.isBrowser) {
             setLanguage(language);
         }
+    }
+
+    @HostListener('contextmenu', ['$event'])
+    onRightClick(event) {
+      event.preventDefault();
     }
 
     private updateBodyClasses() {
