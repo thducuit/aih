@@ -9712,7 +9712,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
   .booking-hd .booking-wrap .ip input{
     font-size: 9px;
-    height: 33px;
+    /*height: 33px;*/
   }
 
   .pakacge-wrap .copy p {
