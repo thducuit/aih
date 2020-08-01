@@ -68,10 +68,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         }
     }
 
-    // @HostListener('contextmenu', ['$event'])
-    // onRightClick(event) {
-    //   event.preventDefault();
-    // }
+    @HostListener('contextmenu', ['$event'])
+    onRightClick(event) {
+        if( event && event.target && event.target.src  ) {
+            console.log('event', event.target.src);
+            event.preventDefault();
+        }
+    }
 
     @HostListener('copy', ['$event'])
     onCopy(event) {

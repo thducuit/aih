@@ -159,7 +159,11 @@ export class MedicalComponent implements OnInit, OnDestroy {
                     });
                     parentItem['children'] = children;
                     return parentItem;
-                });
+                })
+                
+                this.currentPackageServices = this.currentPackageServices.sort(
+                    (currEle, nextEle) => currEle.sort > nextEle ? 1 : -1
+                );
 
                 this.activatedRoute.queryParams.subscribe(params => {
                     const p = params['package'];
@@ -182,6 +186,7 @@ export class MedicalComponent implements OnInit, OnDestroy {
                         this.chosenPackageChilds = this.packages.filter(
                             currentPackage => currentPackage.parentId === this.chosenPackage.id,
                         );
+                        console.log('this.chosenPackageChilds', this.chosenPackageChilds);
                     }
                 });
 
@@ -209,19 +214,25 @@ export class MedicalComponent implements OnInit, OnDestroy {
             return currentPackage;
         });
         item.active = true;
-        this.chosenPackageChilds = this.packages.filter(
-            currentPackage => currentPackage.parentId === item.id,
-        );
+        this.chosenPackageChilds = this.packages
+        .filter(
+            currentPackage => currentPackage.parentId === item.id
+        )
+        .sort(
+            (currEle, nextEle) => currEle.sort > nextEle.sort ? 1 : -1
+        ); 
         this.isExpand = false;
         this.chosenPackageChild = null;
     }
 
     choosePackageChild(item) {
         this.chosenPackageChild = item;
-        this.chosenPackageChilds = this.chosenPackageChilds.map(currentPackage => {
+        this.chosenPackageChilds = this.chosenPackageChilds
+        .map(currentPackage => {
             currentPackage.active = false;
             return currentPackage;
         });
+        console.log('this.chosenPackageChild', this.chosenPackageChild);
         item.active = true;
         this.isExpandChild = false;
     }
