@@ -10,8 +10,10 @@
       ngxSlickItem
       class="item"
     >
-      <img class="responsive" [src]="item.large" *ngIf="item.showContent && (isTablet || isDesktopDevice)" />
-      <a class="desk-link" [href]="item.link" *ngIf="(isTablet || isDesktopDevice)"></a>
+
+      <a class="desk-link" [href]="item.link" *ngIf="(isTablet || isDesktopDevice)">
+        <img class="responsive" [src]="item.large" *ngIf="item.showContent && (isTablet || isDesktopDevice)" />
+      </a>
       <div class="container" *ngIf="item.showContent && (isMobile || isTablet)">
         <a [href]="item.link"></a>
         <div class="ct-banner">
