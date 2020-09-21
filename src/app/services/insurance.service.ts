@@ -3,6 +3,7 @@ import {RestApiService} from './rest-api.service';
 import {BaseService} from './base.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Share} from '../decorators/share';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class InsuranceService extends BaseService {
@@ -24,6 +25,10 @@ export class InsuranceService extends BaseService {
             lang: this.getCurrentLocal()
         };
         return this.http.post('category/list', postData);
+    }
+
+    public getEmail() {
+        return environment.emailIns;
     }
 
     @Share()

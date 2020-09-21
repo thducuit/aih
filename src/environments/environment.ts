@@ -3,16 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+    production: false,
 
-  backend: 'https://backend.aih.tqdesign.vn',
-  api: 'https://api.aih.tqdesign.vn/',
-  mapApiKey: 'AIzaSyD77nJoVaeLUFJAGd_wp0qmTiNUJemumnE',
-  secretKey: 'GwBqWPA4ezINGtLPzwNilw==',
-  host: 'http://localhost:4200',
-  recaptchaSiteKey: '6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK',
-  loginViUrl: 'http://local.aih-hc.tqdesign.vn/?lang=vi',
-  loginEnUrl: 'http://local.aih-hc.tqdesign.vn/?lang=en'
+    backend: 'https://backend.aih.tqdesign.vn',
+    api: 'https://api.aih.tqdesign.vn/',
+    mapApiKey: 'AIzaSyD77nJoVaeLUFJAGd_wp0qmTiNUJemumnE',
+    secretKey: 'GwBqWPA4ezINGtLPzwNilw==',
+    host: 'http://localhost:4200',
+    recaptchaSiteKey: '6LeHVrIUAAAAAOwn3IAMUMA1TFetq2Fuw8yB5WjK',
+    loginViUrl: 'http://local.aih-hc.tqdesign.vn/?lang=vi',
+    loginEnUrl: 'http://local.aih-hc.tqdesign.vn/?lang=en',
+    emailIns: 'info@aih.com.vn'
 };
 
 /*

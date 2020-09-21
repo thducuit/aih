@@ -21,7 +21,7 @@
       <div class="heading">{{ category.name }}</div>
       <div class="content" *ngIf="category.shortDesc" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
       <div class="content-right">
-        <a class="button button-tawk" href="mailto:insurance@aih.com.vn">{{ 'send' | translate }}</a>
+        <a class="button button-tawk" href="mailto:{{ insuranceService.getEmail() }}">{{ 'send' | translate }}</a>
       </div>
     </div>
   </div>

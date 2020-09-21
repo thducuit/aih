@@ -73,10 +73,10 @@ export class UrlService {
         return routes.mservice;
     }
 
-    createInsuranceDetailUrl(alias = null) {
+    createInsuranceDetailUrl(id = null, alias = null) {
         const routes = this.routeFactory.getRoute();
-        if (alias) {
-            return routes.dins + `/${alias}`;
+        if (id && alias) {
+            return routes.dins + `/${id}/${alias}`;
         }
         return routes.insmem;
     }
@@ -90,7 +90,7 @@ export class UrlService {
         const id = ins.id;
         const alias = ins.alias;
         const routes = this.routeFactory.getRoute();
-        const baseUrl = (alias.indexOf('insurance') > -1 || alias.indexOf('bao-hiem') > -1) ? routes.cins : routes.cmem;
+        const baseUrl = routes.cmem;
         return `${baseUrl}/${alias}`;
     }
 

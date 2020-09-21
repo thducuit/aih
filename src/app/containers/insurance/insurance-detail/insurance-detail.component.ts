@@ -32,6 +32,7 @@ export class InsuranceDetailComponent implements OnInit, OnDestroy {
     public services;
     public longDescs;
     public category;
+    private id;
 
     constructor(@Inject(DOCUMENT) private document,
                 @Inject(PLATFORM_ID) private platformId,
@@ -54,17 +55,26 @@ export class InsuranceDetailComponent implements OnInit, OnDestroy {
         this.loadPage();
         this.route.paramMap.subscribe(params => {
             const alias = params.get('alias');
+            this.id = params.get('id');
             this.loadPage();
             this.loadPosts(alias);
         });
         this.subscription = this.translate.onLangChange.subscribe(() => {
             const alias = this.route.snapshot.params.alias;
-            this.postService.getAlias(alias).subscribe((data: any) => {
-                const newAlias = data['alias'];
-                if (newAlias) {
-                    return this.router.navigate([
-                        this.urlService.createInsuranceDetailUrl(newAlias),
-                    ]);
+            const id = this.route.snapshot.params.id;
+            this.insuranceService.getAlias(id).subscribe((data: any) => {
+                this.id = data['alias'];
+                if (this.id) {
+                    this.postService.getAlias(alias).subscribe((data2: any) => {
+                        const newAlias = data2['alias'];
+                        if (newAlias) {
+                            return this.router.navigate([
+                                this.urlService.createInsuranceDetailUrl(this.id, newAlias),
+                            ]);
+                        } else {
+                            return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
+                        }
+                    });
                 } else {
                     return this.router.navigate([this.urlService.getUrlByKey('insmem')]);
                 }
@@ -73,6 +83,7 @@ export class InsuranceDetailComponent implements OnInit, OnDestroy {
             // this.loadPosts(this.route.snapshot.params.alias);
         });
     }
+
     ngOnDestroy() {
         if (this.subscription) {
             this.subscription.unsubscribe();
@@ -198,7 +209,7 @@ export class InsuranceDetailComponent implements OnInit, OnDestroy {
             this.services = posts.map(item => {
                 const service = new InsuranceDetail(item);
                 service.picturePath = UrlService.createPictureUrl(service.picture);
-                service.url = this.urlService.createInsuranceDetailUrl(service.alias);
+                service.url = this.urlService.createInsuranceDetailUrl(this.id, service.alias);
                 return service;
             }).filter(item => exceptId !== item.id);
             this.loaderService.hide();

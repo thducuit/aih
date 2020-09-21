@@ -163,24 +163,22 @@ const routes: Routes = [
         component: PageLayoutComponent,
         children: [
             {
-                path: 'insurance-membership',
+                path: '',
                 component: InsuranceMembershipComponent,
-            },
+            }
+        ],
+    },
+    {
+        path: 'insurance-and-customer-services',
+        component: PageLayoutComponent,
+        children: [
             {
-                path: 'insurance-consulting/:id',
+                path: ':id',
                 component: InsuranceConsultingComponent,
             },
             {
-                path: 'insurance/:alias',
+                path: ':id/:alias',
                 component: InsuranceDetailComponent,
-            },
-            {
-                path: 'membership-consulting/:id',
-                component: MembershipConsultingComponent,
-            },
-            {
-                path: 'membership/:alias',
-                component: MembershipComponent
             }
         ],
     },
@@ -303,25 +301,31 @@ const routes: Routes = [
         component: PageLayoutComponent,
         children: [
             {
-                path: 'bao-hiem-thanh-vien',
+                path: '',
                 component: InsuranceMembershipComponent,
-            },
+            }
+        ],
+    },
+    {
+        path: 'dich-vu-khach-hang-va-bao-hiem',
+        component: PageLayoutComponent,
+        children: [
             {
-                path: 'tu-van-bao-hiem/:id',
+                path: ':id',
                 component: InsuranceConsultingComponent,
             },
             {
-                path: 'bao-hiem/:alias',
+                path: ':id/:alias',
                 component: InsuranceDetailComponent,
-            },
-            {
-                path: 'tu-van-thanh-vien/:id',
-                component: MembershipConsultingComponent,
-            },
-            {
-                path: 'thanh-vien/:alias',
-                component: MembershipComponent
             }
+            // {
+            //     path: 'tu-van-thanh-vien/:id',
+            //     component: MembershipConsultingComponent,
+            // },
+            // {
+            //     path: 'thanh-vien/:alias',
+            //     component: MembershipComponent
+            // }
         ],
     },
     {
