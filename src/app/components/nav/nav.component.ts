@@ -4,6 +4,10 @@ import {Subscription, forkJoin} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
 import {RouteFactoryService} from '../../services/route-factory.service';
+import {UrlService} from '../../services/url.service';
+import {Insurance} from '../../models/insurance';
+import {InsuranceService} from '../../services/insurance.service';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
     selector: 'app-nav',
@@ -15,9 +19,14 @@ export class NavComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     public loginUrl;
     public routes;
+    public categories: Array<any> = [];
 
     constructor(private translate: TranslateService,
-                private routeFactory: RouteFactoryService) {
+                private routeFactory: RouteFactoryService,
+                private urlService: UrlService,
+                private insuranceService: InsuranceService,
+                private loaderService: LoaderService
+    ) {
     }
 
     ngOnInit() {
@@ -28,6 +37,8 @@ export class NavComponent implements OnInit, OnDestroy {
             this.loginUrl = environment.loginEnUrl;
         }
 
+        this.loadCategory();
+
         this.subscription = this.translate
             .onLangChange
             .subscribe(() => {
@@ -37,6 +48,7 @@ export class NavComponent implements OnInit, OnDestroy {
                 } else {
                     this.loginUrl = environment.loginEnUrl;
                 }
+                this.loadCategory();
             });
     }
 
@@ -44,6 +56,25 @@ export class NavComponent implements OnInit, OnDestroy {
         if (this.subscription) {
             this.subscription.unsubscribe();
         }
+    }
+
+    loadCategory() {
+        this.loaderService.show();
+        this.insuranceService.fetchServiceCate().subscribe((data: any) => {
+            const categories = data['Categories'] || [];
+            this.categories = categories
+                .map(item => {
+                    const insurance = new Insurance(item);
+                    insurance.picturePath = UrlService.createPictureUrl(
+                        insurance.picture,
+                        null,
+                        'category',
+                    );
+                    insurance.url = this.urlService.createConsultingUrl(insurance);
+                    return insurance;
+                });
+            this.loaderService.hide();
+        });
     }
 
 

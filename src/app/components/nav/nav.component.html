@@ -12,9 +12,7 @@
       <a routerLink="{{ routes.factsheet }}" routerLinkActive="active">{{'fact_sheet' | translate}}</a>
     </app-nav-item>
     <app-nav-item name="{{ 'insurance' | translate }}" routeUrl="{{ routes.insmem }}" [hasChild]="true">
-		<a routerLink="{{ routes.ins_service_menu }}" routerLinkActive="active">{{'insurance_services' | translate}}</a>
-		<a routerLink="{{ routes.cus_service_menu }}" routerLinkActive="active">{{'customer_services' | translate}}</a>
-		<a routerLink="{{ routes.mem_service_menu }}" routerLinkActive="active">{{'membership_services' | translate}}</a>
+		<a *ngFor="let category of categories" routerLink="{{ category.url }}" routerLinkActive="active">{{ category.name }}</a>
 	</app-nav-item>
     <app-nav-item name="{{'find_a_doctor' | translate}}" routeUrl="{{ routes.doctor }}"></app-nav-item>
     <app-nav-item name="{{'news' | translate}}" routeUrl="{{ routes.news }}" [hasChild]="true">
