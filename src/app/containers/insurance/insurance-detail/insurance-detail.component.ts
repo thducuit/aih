@@ -62,7 +62,7 @@ export class InsuranceDetailComponent implements OnInit, OnDestroy {
         this.subscription = this.translate.onLangChange.subscribe(() => {
             const alias = this.route.snapshot.params.alias;
             const id = this.route.snapshot.params.id;
-            this.insuranceService.getAlias(id).subscribe((data: any) => {
+            this.postService.getAlias(id).subscribe((data: any) => {
                 this.id = data['alias'];
                 if (this.id) {
                     this.postService.getAlias(alias).subscribe((data2: any) => {
