@@ -57,6 +57,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.loadBanner();
         this.subscription = this.translate.onLangChange.subscribe(() => {
             // this.loadPageSubject.next();
+            this.loadPage();
+            this.loadBanner();
             this.pageClasses = this.getPageClasses();
         });
     }
