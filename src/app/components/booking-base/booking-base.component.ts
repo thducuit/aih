@@ -364,6 +364,10 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
             this.openWarningDoctor();
             return;
         }
+        if (!this.selectedDate) {
+            this.openWarningDate();
+            return;
+        }
         if (!this.selectedTime) {
             this.openWarningTime();
             return;
@@ -542,6 +546,18 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
+    openWarningDate() {
+        forkJoin(
+            this.translate.get('text_booking_require_date'),
+            this.translate.get('text_close'),
+        ).subscribe(([message, buttonText]) => {
+            Swal.fire({
+                text: message,
+                confirmButtonText: buttonText,
+            });
+        });
+    }
+
     openWarningTime() {
         forkJoin(
             this.translate.get('text_booking_require_time'),
@@ -657,6 +673,11 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                         aihTimeBlocks,
                         aihTimeBlocked,
                     );
+                }
+
+                if( this.timeBlock.indexOf(this.selectedTime) === -1 ) {
+                    this.selectedTime = null;
+                    this.bookingTime.reset();
                 }
 
                 // Selected doctor have no any time block => warning
@@ -780,13 +801,19 @@ export class BookingBaseComponent implements OnInit, OnDestroy, AfterViewInit {
                 if (result.value) {
                     setTimeout(() => {
                         this.bookingDoctor && this.bookingDoctor.setExpand(true);
+                        this.selectedDoctor = null;
+                        this.bookingDoctor.reset();
                     }, 300);
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
                     setTimeout(() => {
                         this.bookingDate && this.bookingDate.expandDate(true);
+                        this.selectedDate = null;
+                        this.bookingDate.reset();
                     }, 300);
                 } else {
                     this.bookingDate && (this.bookingDate.selectedDate = null);
+                    this.selectedDate = null;
+                    this.bookingDate.reset();
                 }
             });
         });
