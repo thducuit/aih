@@ -1,0 +1,70 @@
+<main id="pServiceInsurance" class="page-insurance-membership">
+  <div class="breadcrumb">
+    <div class="container">
+      <a routerLink="/">{{ 'home' | translate }}</a> /
+      <p>{{ page ? page.name : '' }}</p></div>
+  </div>
+
+  <div class="banner-page" [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length">
+    <div class="container">
+      <div class="ct-banner">
+        <div class="copy-ins">
+          <h2>{{ banners[0] ? banners[0].Title : '' }}</h2>
+          <p>{{ banners[0] ? banners[0].Content : '' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insurance-top" id="insurance-top" *ngIf="category">
+    <div class="container">
+      <div class="heading">{{ category.name }}</div>
+      <div class="content" *ngIf="category.shortDesc" [innerHTML]="category.shortDesc | decodeHtmlEntities | safeHtml"></div>
+      <div class="content-right">
+        <a class="button button-tawk" href="mailto:{{ insuranceService.getEmail() }}">{{ 'send' | translate }}</a>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="insurance-consulting insurance-consulting-detail clearfix" id="insurance-consulting-detail">
+    <div class="container">
+
+      <div class="insurance-consulting-content clearfix">
+
+        <div class="box-content content-for-detail" *ngIf="service && service.name">
+          <div class="heading">{{ service.name }}</div>
+          <span *ngFor="let longDesc of longDescs">
+            <p *ngIf="longDesc.content" [innerHTML]="longDesc.content | safeHtml"></p>
+            <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
+          </span>
+        </div>
+      </div>
+
+      <ul class="list-dt list-dt-ins" *ngIf="service && service.name">
+        <li *ngFor="let service of services">
+          <div class="item-doc">
+            <div class="img">
+              <div [style.background]="'url('+ service.picturePath + ')'"></div>
+              <img class="img-1366" src="assets/images/dt.gif">
+              <img src="assets/images/b.gif">
+            </div>
+            <div class="tt-doc-crs">
+              <h2>{{ service.name }}</h2>
+              <p *ngIf="service.shortDesc" [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
+            </div>
+            <div class="copy">
+              <p></p>
+              <a routerLink="{{ service.url }}">
+                <span>{{ 'learn_more' | translate }}</span>
+              </a>
+            </div>
+            <a class="link" routerLink="{{ service.url }}"></a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,37 @@
+<main id="pServiceInsurance" class="page-insurance-membership">
+    <div class="breadcrumb">
+        <div class="container">
+            <a routerLink="/">{{ 'home' | translate }}</a> /
+            <p>{{ page ? page.name : '' }}</p></div>
+    </div>
+
+    <div class="banner-page" [style.background]="'url(' + banners[0].large + ')'" *ngIf="banners && banners.length">
+        <div class="container">
+            <div class="ct-banner">
+                <div class="copy-ins">
+                    <h2>{{ banners[0] ? banners[0].Title : '' }}</h2>
+                    <p>{{ banners[0] ? banners[0].Content : '' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="insurance-mem clearfix">
+        <div class="container">
+
+            <div class="persond-ins" *ngIf="posts">
+
+                <div *ngFor="let post of posts; let index=index; let odd=odd; let even=even;" class="box" [ngClass]="{'box-left': even, 'box-right': odd}">
+                    <div class="img" *ngIf="post.picturePath">
+                        <a routerLink="{{ post.url }}" ><img src="{{ post.picturePath }}" alt="" /></a>
+                    </div>
+                    <div class="heading heading-insurance-anchor"><a routerLink="{{ post.url }}" >{{ post.name }}</a></div>
+                    <div class="content" *ngIf="post.shortDesc" [innerHTML]="post.shortDesc | decodeHtmlEntities | safeHtml"></div>
+                    <a routerLink="{{ post.url }}" class="read-more"><span>{{ 'learn_more' | translate }}</span></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>

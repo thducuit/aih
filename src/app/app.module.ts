@@ -175,6 +175,8 @@ import { SlickCarouselModule } from './shared/slick-carousel/slick-carousel.modu
 import { LikeService } from './services/like.service';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { SafeUrlPipe } from './shared/safe-url-pipe';
+import {OtherPackageComponent} from './containers/other-package/other-package.component';
+import {OtherpackageService} from './services/otherpackage.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -224,6 +226,7 @@ export function provideConfig() {
     FactsheetComponent,
 
     MedicalComponent,
+    OtherPackageComponent,
 
     // shared
     LoadingComponent,
@@ -355,6 +358,7 @@ export function provideConfig() {
     BannerService,
     CategoryService,
     InsuranceService,
+    OtherpackageService,
     HighlightService,
     VideoService,
     PackageService,

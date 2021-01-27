@@ -38,6 +38,7 @@ import {InsuranceDetailComponent} from './containers/insurance/insurance-detail/
 import {MembershipConsultingComponent} from './containers/insurance/membership-consulting/membership-consulting.component';
 import {MembershipComponent} from './containers/insurance/membership/membership.component';
 import {NotFoundComponent} from './containers/not-found/not-found.component';
+import {OtherPackageComponent} from './containers/other-package/other-package.component';
 
 const routes: Routes = [
     {
@@ -78,6 +79,10 @@ const routes: Routes = [
             {
                 path: 'medical-package',
                 component: MedicalComponent,
+            },
+            {
+                path: 'other-package',
+                component: OtherPackageComponent,
             },
             {
                 path: 'insurance',
@@ -216,6 +221,10 @@ const routes: Routes = [
             {
                 path: 'goi-dich-vu',
                 component: MedicalComponent,
+            },
+            {
+                path: 'goi-dich-vu-khac',
+                component: OtherPackageComponent,
             },
             {
                 path: 'bao-hiem',
