@@ -30,7 +30,7 @@ export class OtherpackageService extends BaseService {
             publish: 1,
             rowperpage: 999,
             pageselected: 1,
-            post_type: 'otherpackage',
+            post_type: ['otherpackage'],
             lang: this.getCurrentLocal()
         };
         return this.http.post('post/list', postData);

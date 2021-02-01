@@ -109,4 +109,12 @@ export class UrlService {
         }
         return routes.insmem;
     }
+
+    createOtherPackageDetail(alias = null) {
+        const routes = this.routeFactory.getRoute();
+        if (alias) {
+            return routes.opackage + `/${alias}`;
+        }
+        return routes.opackage;
+    }
 }

@@ -39,6 +39,7 @@ import {MembershipConsultingComponent} from './containers/insurance/membership-c
 import {MembershipComponent} from './containers/insurance/membership/membership.component';
 import {NotFoundComponent} from './containers/not-found/not-found.component';
 import {OtherPackageComponent} from './containers/other-package/other-package.component';
+import {OtherPackageDetailComponent} from './containers/other-package/other-package-detail/other-package-detail.component';
 
 const routes: Routes = [
     {
@@ -83,6 +84,10 @@ const routes: Routes = [
             {
                 path: 'other-package',
                 component: OtherPackageComponent,
+            },
+            {
+                path: 'other-package/:alias',
+                component: OtherPackageDetailComponent,
             },
             {
                 path: 'insurance',
@@ -225,6 +230,10 @@ const routes: Routes = [
             {
                 path: 'goi-dich-vu-khac',
                 component: OtherPackageComponent,
+            },
+            {
+                path: 'goi-dich-vu-khac/:alias',
+                component: OtherPackageDetailComponent,
             },
             {
                 path: 'bao-hiem',

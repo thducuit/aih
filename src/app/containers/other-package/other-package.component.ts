@@ -14,6 +14,7 @@ import {environment} from '../../../environments/environment';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {Router} from '@angular/router';
 import {OtherpackageService} from '../../services/otherpackage.service';
+import {Blog} from '../../models/blog';
 
 @Component({
     selector: 'app-other-package',
@@ -117,19 +118,19 @@ export class OtherPackageComponent implements OnInit, OnDestroy {
     loadCategory() {
         this.loaderService.show();
         this.otherpackageService.fetchService().subscribe((data: any) => {
-            console.log('data', data);
-            /*const categories = data['Categories'] || [];
-            this.categories = categories
+            const posts = data['Posts'] || [];
+            this.posts = posts
                 .map(item => {
-                    const insurance = new Insurance(item);
-                    insurance.picturePath = UrlService.createPictureUrl(
-                        insurance.picture,
+                    const post = new Blog(item);
+                    post.picturePath = UrlService.createPictureUrl(
+                        post.picture,
                         null,
-                        'category',
+                        'post',
                     );
-                    insurance.url = this.urlService.createConsultingUrl(insurance);
-                    return insurance;
-                });*/
+                    post.url = this.urlService.createOtherPackageDetail(post.alias);
+                    post.showImg = true;
+                    return post;
+                });
             this.loaderService.hide();
         });
     }

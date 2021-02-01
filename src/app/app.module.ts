@@ -177,6 +177,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { SafeUrlPipe } from './shared/safe-url-pipe';
 import {OtherPackageComponent} from './containers/other-package/other-package.component';
 import {OtherpackageService} from './services/otherpackage.service';
+import {OtherPackageDetailComponent} from './containers/other-package/other-package-detail/other-package-detail.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -227,6 +228,7 @@ export function provideConfig() {
 
     MedicalComponent,
     OtherPackageComponent,
+    OtherPackageDetailComponent,
 
     // shared
     LoadingComponent,

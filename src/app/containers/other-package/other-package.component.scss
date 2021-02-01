@@ -1,0 +1,88 @@
+.page-insurance-membership {
+  padding-bottom: 30px;
+}
+
+.heading-insurance-anchor a {
+  color: #007297;
+  text-decoration:none
+}
+
+.persond-ins {
+  opacity: 1;
+  .box {
+    width: 50%;
+
+
+    img {
+      max-width: 100%;
+    }
+
+    .heading {
+      font-size: 36px;
+      color: #007297;
+      font-family: utm_avobold;
+      text-transform: uppercase;
+      padding: 30px 0;
+      border-bottom: 1px solid #b3b3b3;
+    }
+
+    .content {
+      padding: 30px 0;
+    }
+
+  }
+  .box-left {
+    padding-right: 25px;
+    float: left;
+  }
+  .box-right {
+    padding-left: 25px;
+    float: right;
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+
+}
+
+@media screen and  (max-width: 991px) {
+  .persond-ins {
+    .box-left {
+      padding-right: 15px;
+      float: left;
+    }
+    .box-right {
+      padding-left: 15px;
+      float: right;
+    }
+  }
+}
+
+@media(max-width: 769px){
+  .persond-ins {
+    .box{
+      width: 100%;
+      .heading{
+        font-size: 20px;
+        padding: 20px 0;
+      }
+      .content {
+        font-size: 12px;
+        padding: 20px 0;
+      }
+    }
+
+    .box-left {
+      padding-right: 10px;
+      padding-left: 10px;
+      float: left;
+      margin-bottom: 20px;
+    }
+    .box-right {
+      padding-right: 10px;
+      padding-left: 10px;
+      float: right;
+      margin-bottom: 20px;
+    }
+  }
+}

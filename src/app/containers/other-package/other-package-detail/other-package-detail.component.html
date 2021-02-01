@@ -32,34 +32,31 @@
 
       <div class="insurance-consulting-content clearfix">
 
-        <div class="box-content content-for-detail" *ngIf="service && service.name">
-          <div class="heading">{{ service.name }}</div>
-          <span *ngFor="let longDesc of longDescs">
-            <p *ngIf="longDesc.content" [innerHTML]="longDesc.content | safeHtml"></p>
-            <app-insurance *ngIf="longDesc.haveHook"></app-insurance>
-          </span>
+        <div class="box-content content-for-detail" *ngIf="post && post.name">
+          <div class="heading">{{ post.name }}</div>
+          <p *ngIf="post.longDesc" [innerHTML]="post.longDesc | safeHtml"></p>
         </div>
       </div>
 
-      <ul class="list-dt list-dt-ins" *ngIf="service && service.name">
-        <li *ngFor="let service of services">
+      <ul class="list-dt list-dt-ins" *ngIf="post && post.name">
+        <li *ngFor="let post_detail of posts">
           <div class="item-doc">
             <div class="img">
-              <div [style.background]="'url('+ service.picturePath + ')'"></div>
+              <div [style.background]="'url('+ post_detail.picturePath + ')'"></div>
               <img class="img-1366" src="assets/images/dt.gif">
               <img src="assets/images/b.gif">
             </div>
             <div class="tt-doc-crs">
-              <h2>{{ service.name }}</h2>
-              <p *ngIf="service.shortDesc" [innerHTML]="service.shortDesc | decodeHtmlEntities | safeHtml"></p>
+              <h2>{{ post_detail.name }}</h2>
+              <p *ngIf="post_detail.shortDesc" [innerHTML]="post_detail.shortDesc | decodeHtmlEntities | safeHtml"></p>
             </div>
             <div class="copy">
               <p></p>
-              <a routerLink="{{ service.url }}">
+              <a routerLink="{{ post_detail.url }}">
                 <span>{{ 'learn_more' | translate }}</span>
               </a>
             </div>
-            <a class="link" routerLink="{{ service.url }}"></a>
+            <a class="link" routerLink="{{ post_detail.url }}"></a>
           </div>
         </li>
       </ul>
