@@ -7219,7 +7219,8 @@ a.btn-showmore:not([href]):not([tabindex]) {
 .list-news .item .copy h3 {
   text-transform: uppercase;
   font-size: 30px;
-  line-height: 37px
+  line-height: 1.6em;
+  /*line-height: 37px*/
 }
 
 .list-news .item .copy h3 span {
@@ -7343,7 +7344,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
 .list-news .item.style-3 .copy h3 {
   font-size: 19px;
-  line-height: 24px
+  /*line-height: 24px*/
 }
 
 .list-news .item.style-4 {
@@ -7361,7 +7362,6 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
 .list-news .item.style-4 .copy h3 {
   font-size: 19px;
-  line-height: 24px
 }
 
 .list-news .item.style-5 {
@@ -7379,7 +7379,6 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
 .list-news .item.style-5 .copy h3 {
   font-size: 30px;
-  line-height: 37px
 }
 
 .list-news .item:hover .img div {
@@ -8584,7 +8583,6 @@ a.btn-showmore:not([href]):not([tabindex]) {
   .list-news .item.style-2 .copy h3,
   .list-news .item.style-5 .copy h3 {
     font-size: 21px;
-    line-height: 27px
   }
 
   .list-news .item .copy h3 span {
@@ -8593,7 +8591,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
   .list-news .item .copy h3 {
     font-size: 23px;
-    line-height: 30px
+    /*line-height: 30px*/
   }
 
   .list-news .item.style-3 .copy,
@@ -8604,7 +8602,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
   .list-news .item.style-3 .copy h3,
   .list-news .item.style-4 .copy h3 {
     font-size: 14px;
-    line-height: 20px
+    /*line-height: 20px*/
   }
 
   .list-news .item.style-3 .copy h3 span,
@@ -9683,13 +9681,12 @@ a.btn-showmore:not([href]):not([tabindex]) {
   .list-news .item.style-2 .copy h3,
   .list-news .item.style-5 .copy h3 {
     font-size: 19px;
-    line-height: 24px
   }
 
   .list-news .item.style-3 .copy h3,
   .list-news .item.style-4 .copy h3 {
     font-size: 13px;
-    line-height: 18px
+    /*line-height: 18px*/
   }
   
   .content-sv {
@@ -10339,13 +10336,12 @@ a.btn-showmore:not([href]):not([tabindex]) {
   .list-news .item.style-2 .copy h3,
   .list-news .item.style-5 .copy h3 {
     font-size: 24px;
-    line-height: 29px
   }
 
   .list-news .item.style-3 .copy h3,
   .list-news .item.style-4 .copy h3 {
     font-size: 15px;
-    line-height: 20px
+    /*line-height: 20px*/
   }
 
   .copyscroll,
@@ -10565,7 +10561,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
   .list-news .item .copy h3 {
     font-size: 25px;
-    line-height: 30px
+    /*line-height: 30px*/
   }
 
   .list-news .item .copy h3 span {
@@ -10722,7 +10718,6 @@ a.btn-showmore:not([href]):not([tabindex]) {
   .list-news .item.style-2 .copy h3,
   .list-news .item.style-5 .copy h3 {
     font-size: 20px;
-    line-height: 27px
   }
 
   .list-news .item.style-1 .copy h3 span,
@@ -10734,7 +10729,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
   .list-news .item.style-3 .copy h3,
   .list-news .item.style-4 .copy h3 {
     font-size: 12px;
-    line-height: 19px
+    /*line-height: 19px*/
   }
 
   .list-news .item.style-1,
@@ -12565,7 +12560,7 @@ a.btn-showmore:not([href]):not([tabindex]) {
 
   .list-news .item .copy h3 {
     font-size: 14px !important;
-    line-height: 17px !important
+    /*line-height: 17px !important*/
   }
 
   .list-news .item.style-2 .copy p,
