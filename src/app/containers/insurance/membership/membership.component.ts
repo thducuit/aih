@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, OnDestroy } from '@angular/core';
 import { Insurance } from '../../../models/insurance';
 import { Page } from '../../../models/page';
 import { forkJoin, Subscription } from 'rxjs';
@@ -9,12 +9,9 @@ import { BannerService } from '../../../services/banner.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { UrlService } from '../../../services/url.service';
-import { Blog } from '../../../models/blog';
-import { Comment } from '../../../models/comment';
 import { InsuranceDetail } from '../../../models/insurance-detail';
 import { PostService } from '../../../services/post.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgAnimateScrollService } from 'ng-animate-scroll';
 import {LoaderService} from '../../../services/loader-service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
@@ -23,7 +20,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
   templateUrl: './membership.component.html',
   styleUrls: ['./membership.component.scss'],
 })
-export class MembershipComponent implements OnInit {
+export class MembershipComponent implements OnInit, OnDestroy {
 
   public insurances: Array<Insurance> = [];
   public page: Page;
@@ -45,8 +42,7 @@ export class MembershipComponent implements OnInit {
               private metaService: Meta,
               private titleService: Title,
               public postService: PostService,
-              private loaderService: LoaderService,
-              private animateScrollService: NgAnimateScrollService) {
+              private loaderService: LoaderService) {
   }
 
   ngOnInit() {
@@ -60,6 +56,10 @@ export class MembershipComponent implements OnInit {
       this.loadPage();
       this.loadPosts(this.route.snapshot.params.alias);
     });
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 

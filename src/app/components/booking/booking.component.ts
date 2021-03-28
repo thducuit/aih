@@ -13,7 +13,6 @@ import jquery from 'jquery';
 import { Subject } from 'rxjs';
 import { debounceTime, throttleTime } from 'rxjs/operators';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
-import { isBrowserSupportIntersectionObserver } from 'src/app/utilities';
 
 @Component({
   selector: 'app-booking',

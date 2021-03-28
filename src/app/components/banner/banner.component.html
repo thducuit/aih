@@ -14,7 +14,7 @@
       <div class="container" *ngIf="item.showContent && (isMobile || isTablet)">
         <a [href]="item.link"></a>
         <div class="ct-banner">
-          <img class="banner-home-mb" [src]="item.small" />
+          <img class="banner-home-mb" [attr.data-lazy]="item.small"/>
         </div>
       </div>
     </div>

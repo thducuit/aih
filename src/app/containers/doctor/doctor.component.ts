@@ -6,13 +6,11 @@ import {DoctorService} from '../../services/doctor.service';
 import {BannerService} from '../../services/banner.service';
 import {UrlService} from '../../services/url.service';
 import {TranslateService} from '@ngx-translate/core';
-import {DepartmentService} from 'src/app/services/department.service';
 import {Subscription, forkJoin} from 'rxjs';
 import {Meta, Title} from '@angular/platform-browser';
 import {Clinic} from '../../models/clinic';
 import {ClinicService} from '../../services/clinic.service';
 import {LoaderService} from '../../services/loader-service';
-import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {environment} from '../../../environments/environment';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
@@ -46,7 +44,6 @@ export class DoctorComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private metaService: Meta,
-                private animateScrollService: NgAnimateScrollService,
                 private titleService: Title) {
     }
 

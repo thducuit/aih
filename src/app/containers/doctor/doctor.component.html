@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div myMatchHeight="copy-p">
+      <div>
         <ul class="list-dt" myMatchHeight="tt-doc-crs">
           <li *ngFor="let doctor of currDoctors">
             <div class="item-doc">
@@ -57,7 +57,6 @@
               <div class="tt-doc-crs">
                 <h2>{{ doctor.name }}</h2>
                 <p>{{ doctor.categoryName }}</p>
-
               </div>
               <div class="copy">
                 <p class="copy-p"><span *ngIf="doctor.shortDesc" [innerHTML]="doctor.shortDesc | decodeHtmlEntities | safeHtml"></span></p>

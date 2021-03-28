@@ -6,6 +6,7 @@ import {
   HostListener,
   Inject,
   PLATFORM_ID,
+  NgZone,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -20,12 +21,15 @@ export class MatchHeightDirective implements AfterViewChecked {
   constructor(
     private el: ElementRef,
     @Inject(PLATFORM_ID) private platformId: object,
+    private zone: NgZone
   ) {}
 
   ngAfterViewChecked() {
     // call our matchHeight function here later
     if (isPlatformBrowser(this.platformId)) {
-      this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+      this.zone.runOutsideAngular(() => {
+        this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+      });
     }
   }
 
@@ -33,7 +37,9 @@ export class MatchHeightDirective implements AfterViewChecked {
   onResize() {
     // call our matchHeight function here later
     if (isPlatformBrowser(this.platformId)) {
-      this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+      this.zone.runOutsideAngular(() => {
+        this.matchHeight(this.el.nativeElement, this.myMatchHeight);
+      });
     }
   }
 

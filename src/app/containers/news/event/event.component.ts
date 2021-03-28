@@ -8,7 +8,6 @@ import {Subscription, forkJoin} from 'rxjs';
 import {Title, Meta} from '@angular/platform-browser';
 import {LoaderService} from '../../../services/loader-service';
 import {VideoComponent} from 'src/app/components/popup/video/video.component';
-import {NgAnimateScrollService} from 'ng-animate-scroll';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -37,8 +36,7 @@ export class EventComponent implements OnInit, OnDestroy {
                 private translate: TranslateService,
                 private loaderService: LoaderService,
                 private titleService: Title,
-                private metaService: Meta,
-                private animateScrollService: NgAnimateScrollService) {
+                private metaService: Meta) {
     }
 
     ngOnInit() {

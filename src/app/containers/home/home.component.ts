@@ -56,12 +56,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadPageSubject.next();
-        this.loadPage();
         this.subscription = this.translate.onLangChange.subscribe(() => {
             this.loadPageSubject.next();
             this.pageClasses = this.getPageClasses();
         });
+        this.loadPageSubject.next();
     }
 
     checkDevice() {
@@ -132,8 +131,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         forkJoin(
             this.pageService.fetch('homepage'),
             this.translate.get('american_international_hospital'),
-        ).subscribe(
-            ([homeResp, aihStr]) => {
+            this.pageService.fetchBanner('home_slide')
+        ).subscribe({
+            next: ([homeResp, aihStr, pageBanners]) => {
                 const page = homeResp.Post || {};
                 this.page = new Page(page);
                 const pageTitle = `${this.page.metaTitle ||
@@ -168,13 +168,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                         content: UrlService.createPictureUrl(this.page.picture),
                     });
                 }
-
-                
-            },
-            null,
-            () => {
-                //this.loaderService.hide();
-            },
-        );
+            }
+          });
     }
 }

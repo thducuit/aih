@@ -6,7 +6,6 @@ import {BannerService} from '../../services/banner.service';
 import {Meta, Title} from '@angular/platform-browser';
 import {forkJoin, Subscription} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
-import {NgAnimateScrollService} from 'ng-animate-scroll';
 import {ScrollToService, ScrollToConfigOptions} from '@nicky-lenaers/ngx-scroll-to';
 import {LoaderService} from '../../services/loader-service';
 import {environment} from '../../../environments/environment';
@@ -40,7 +39,6 @@ export class CareerComponent implements OnInit, OnDestroy {
                 private titleService: Title,
                 private translate: TranslateService,
                 private loaderService: LoaderService,
-                private animateScrollService: NgAnimateScrollService,
                 private scrollToService: ScrollToService) {
     }
 
